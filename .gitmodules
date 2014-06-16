@@ -1,0 +1,3 @@
+[submodule "odde_training_template"]
+	path = odde_training_template
+	url = https://github.com/nerds-odd-e/odde_training_template.git
