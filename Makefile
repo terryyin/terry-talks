@@ -14,7 +14,7 @@ pep8:
 pylint:
 	pylint --rcfile pylintrc src
 
-TEMPLATE_DIR=template
+TEMPLATE_DIR=odde_training_template
 COURSE_NAME=terrytalks
 NOTEBOOK_DIR=slides
 OUTPUT_DIR=build
