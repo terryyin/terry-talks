@@ -16,7 +16,7 @@ The discussion is at the claim-forming and fact-checking stage. Nothing in this
 folder should be treated as a finalized talk argument unless its status is
 explicitly changed to **Finalized**.
 
-The seven current claims are all **Provisional — not finalized**:
+The nine current claims are all **Provisional — not finalized**:
 
 1. [The changing significance of TPS](claims/01-changing-significance-of-tps.md)
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
@@ -25,6 +25,8 @@ The seven current claims are all **Provisional — not finalized**:
 5. [SMED for software means cheap deliberate changeovers, not constant switching](claims/05-smed-software-changeover-and-ai-friendly-context.md)
 6. [Jidoka embeds routine judgment so adaptive intelligence can learn](claims/06-jidoka-embeds-routine-judgment.md)
 7. [“The Algorithm” shares TPS roots and spirit](claims/07-the-algorithm-and-tps-family-resemblance.md)
+8. [Technical excellence enables JIT coordination in LeSS](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
+9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).

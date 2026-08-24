@@ -22,6 +22,9 @@ future discussion, not a set of conclusions.
 - Which TPS ideas become more important when work can be generated faster:
   jidoka, stop-the-line behavior, visual management, small batches, pull,
   respect for people, continuous improvement, or something else?
+- Can technical excellence make AI-generated changes meet the integrated
+  product quickly enough that real dependencies pull teams into focused,
+  self-managed collaboration rather than planned coordination overhead?
 - Where does the analogy break down because software work combines discovery
   and production?
 
@@ -35,6 +38,8 @@ future discussion, not a set of conclusions.
   capabilities beyond conventional production.
 - Evidence about AI's effect on software generation speed and on downstream
   review or verification costs.
+- Empirical evidence that continuous integration across feature teams exposes
+  dependencies early and triggers useful cross-team collaboration.
 
 ## Candidate future claims
 
