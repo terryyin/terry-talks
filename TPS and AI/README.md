@@ -16,13 +16,15 @@ The discussion is at the claim-forming and fact-checking stage. Nothing in this
 folder should be treated as a finalized talk argument unless its status is
 explicitly changed to **Finalized**.
 
-The five current claims are all **Provisional — not finalized**:
+The seven current claims are all **Provisional — not finalized**:
 
 1. [The changing significance of TPS](claims/01-changing-significance-of-tps.md)
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
 3. [Jidoka enables, JIT trusts, Respect for People grows](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
 4. [JIT creates assurance through resourceful capability, not abundance](claims/04-jit-assurance-resourcefulness-and-constraint.md)
 5. [SMED for software means cheap deliberate changeovers, not constant switching](claims/05-smed-software-changeover-and-ai-friendly-context.md)
+6. [Jidoka embeds routine judgment so adaptive intelligence can learn](claims/06-jidoka-embeds-routine-judgment.md)
+7. [“The Algorithm” shares TPS roots and spirit](claims/07-the-algorithm-and-tps-family-resemblance.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).

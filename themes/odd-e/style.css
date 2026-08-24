@@ -1,13 +1,15 @@
 /*
- * Odd-e branding, ported 1:1 from the legacy odde_training_template
- * reveal.js template (odde_slides.tpl): light grey background + logo
- * watermark, top-left, small scale. Applies to every layout via the
+ * Odd-e branding: light grey background + logo watermark. Originally
+ * ported 1:1 from the legacy odde_training_template reveal.js template
+ * (top-left, 6% scale), but that collided with heading text once headings
+ * got proper sizing (see styles/index.ts) — moved to top-right and shrunk
+ * so titles never need to clear it. Applies to every layout via the
  * .slidev-layout base class that Slidev's client always renders.
  */
 .slidev-layout {
   background-color: #cdcdcd;
   background-image: url('./images/odd-e-logo.png');
   background-repeat: no-repeat;
-  background-position: 3% 3%;
-  background-size: 6%;
+  background-position: 97% 3%;
+  background-size: 4%;
 }
