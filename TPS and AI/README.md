@@ -16,7 +16,7 @@ The discussion is at the claim-forming and fact-checking stage. Nothing in this
 folder should be treated as a finalized talk argument unless its status is
 explicitly changed to **Finalized**.
 
-The nine current claims are all **Provisional — not finalized**:
+The ten current claims are all **Provisional — not finalized**:
 
 1. [The changing significance of TPS](claims/01-changing-significance-of-tps.md)
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
@@ -27,6 +27,7 @@ The nine current claims are all **Provisional — not finalized**:
 7. [“The Algorithm” shares TPS roots and spirit](claims/07-the-algorithm-and-tps-family-resemblance.md)
 8. [Technical excellence enables JIT coordination in LeSS](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
 9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md)
+10. [Freedom and trust can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).
