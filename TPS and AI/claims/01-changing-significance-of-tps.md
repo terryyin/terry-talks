@@ -76,6 +76,35 @@ A more defensible economic observation is:
 This supports the software argument without requiring the stronger claim that
 manufacturing is no longer economically important.
 
+Claims 3–6 sharpen this adjustment further. They show that the transferable
+value of TPS is not confined to a collection of manufacturing techniques:
+
+- **Claim 3** connects the technical system to its human conditions. JIT and
+  jidoka expose dependence and abnormality; Respect for People, authority,
+  challenge, and support determine whether that exposure produces learning or
+  pressure.
+- **Claim 4** reframes JIT as confidence in responsive capability rather than
+  reassurance from inventory or maximum utilization. JIT removes hiding
+  places, jidoka contains the problems that appear, and kaizen makes future
+  response more reliable.
+- **Claim 5** shows how a concrete manufacturing method can transfer without
+  literal imitation. SMED becomes a question about the economics of small
+  batches and deliberate changeovers: can a stable development system take
+  the next valuable item and obtain trustworthy feedback without
+  organizational reshuffling or routine setup reconstruction?
+- **Claim 6** shows that judgment is not simply an expensive activity that
+  remains outside the production system. Learning can be preserved in design,
+  constraints, tests, stop rules, and diagnostic evidence, while genuinely
+  novel or value-laden questions continue to require adaptive judgment.
+
+These findings also weaken an overly sharp contrast between **repeated
+physical production** and **software discovery**. Manufacturing includes
+learning, diagnosis, and improvement; software development includes repeated
+setup, integration, verification, deployment, and operation. The difference
+is better described as a change in the mixture of production and discovery,
+the mutability of the product, and the uncertainty about both problem and
+solution—not as production on one side and innovation on the other.
+
 ## Emerging implication for the talk
 
 The reason not to transplant TPS directly into software should therefore
@@ -87,29 +116,59 @@ A stronger direction is:
 
 > **TPS accumulated decades of learning about producing complex physical
 > products repeatedly, with high quality, short lead time, and low waste.
-> Software development—especially AI-augmented software development—has a
-> significantly different production and discovery environment.**
+> Software development has a different mixture of production, discovery, and
+> change. The useful transfer is the reasoning by which Toyota made a whole
+> system responsive and learnable, not a literal copy of its mechanisms.**
 
 Modern software development involves substantial uncertainty about **what
-should be built**, while AI is dramatically reducing the cost and time required
-to produce candidate implementations.
+should be built** and how its value will be known. AI is reducing the cost and
+time required to produce candidate implementations, explanations, tests, and
+plans, but faster generation does not by itself create a faster trustworthy
+response. The constraint may move into problem framing, context reconstruction,
+oracle creation, review, integration, deployment, governance, or learning.
 
 This suggests a potentially important contrast:
 
-**TPS problem:** How can value flow rapidly while problems and defects are
-exposed immediately?
+**TPS problem:** How can the system respond to actual need without stockpiling,
+while exposing and containing abnormalities and improving its capability after
+each one?
 
 **AI-augmented software problem:** What happens when generating another
-candidate solution becomes extremely cheap and fast, while determining whether
-it is **correct, useful, valuable, and appropriate** remains comparatively
-expensive?
+candidate becomes extremely cheap and fast, while trustworthy movement from a
+current need to a verified, integrated, valuable result remains constrained?
+
+The later claims suggest a TPS-informed response:
+
+- **Pull from actual need:** do not turn cheap generation into intellectual
+  inventory made in advance.
+- **Make small changes economical:** reduce organizational, technical, and
+  informational changeover cost so a bounded item can start and reach useful
+  evidence quickly.
+- **Build in stop and containment:** use meaningful, actionable checks near the
+  origin of an abnormality rather than inspecting a large batch afterward.
+- **Make learning reusable:** move recurring judgment into clearer design,
+  executable constraints, diagnostic evidence, and improved ways of working.
+- **Preserve human agency:** keep authority, support, and accountability with
+  the people who must respond to exceptions and decide what is valuable or
+  acceptable.
+
+This refines the phrase **“generation is cheap; judgment is expensive.”** It is
+useful as a description of where scarcity may move, but not as a permanent
+division of labor. Some judgment must remain adaptive; some can be spent once
+and embedded so it does not have to be recreated for every candidate.
 
 The direction for the talk may therefore be:
 
 > Do not treat TPS as a recipe for software development. Examine the deeper
-> reasoning and philosophy behind TPS, identify what problems those ideas were
-> designed to solve, and ask which principles survive—or become even more
+> system relationships behind TPS, identify what problems its mechanisms were
+> designed to solve, and ask which relationships survive—or become even more
 > important—when applied to AI-augmented knowledge work.
+
+On this account, TPS may be **more relevant to the AI transition than the
+original claim implied**, while being less suitable as a literal template. Its
+significance shifts from a famous set of manufacturing practices toward a
+worked example of how pull, built-in quality, human agency, and continuous
+learning can turn speed and constraint into dependable adaptive capability.
 
 Toyota itself may provide an interesting case: it is attempting to retain TPS
 as an operating foundation while simultaneously transforming into a
@@ -124,10 +183,16 @@ software-intensive mobility company.
   in its mobility and software transformation?
 - Which additional systems or philosophies is Toyota using for software,
   experimentation, invention, and new businesses?
-- Can the difference between repeated physical production and software
-  discovery be stated without creating an overly sharp manufacturing/software
-  dichotomy?
-- What evidence supports the claim that evaluating AI-generated candidates is
-  becoming the comparative bottleneck?
+- Which differences between physical production and software development
+  materially change the operation of pull, small batches, stop-the-line
+  behavior, and changeover reduction?
+- Where is AI actually moving the constraint in different development systems:
+  framing, context, verification, integration, review, deployment, governance,
+  or learning?
+- Which judgments should be embedded in design or executable checks, and which
+  should remain explicit, adaptive, and human-accountable?
+- Is the talk's strongest claim that TPS remains significant, that its
+  significance has changed, or that AI reveals why its deeper system logic was
+  significant all along?
 
 **Still open for further discussion and fact-checking.**

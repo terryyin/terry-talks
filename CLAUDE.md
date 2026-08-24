@@ -29,3 +29,7 @@ because `show` is a reserved pnpm alias for its own registry-info command —
 
 **ADRs:** Solo propose → deliberate → approve in `docs/adrs/`; agents follow
 Accepted ADRs via `adr-awareness` (do not approve).
+
+**Workflow:** Break work into stop-safe Behavior/Structure slices via
+`slice-planning`; run `post-change-refactor` on the uncommitted change before
+each commit.

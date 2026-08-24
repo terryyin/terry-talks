@@ -1,0 +1,28 @@
+---
+description: Behavior/Structure slice grammar and post-change refactor gate for local work
+alwaysApply: true
+---
+
+# Planning slices
+
+- Every piece of work is split into **slices**: one **Behavior** (observable
+  outcome — a slide, a claim, a script's behavior when run) or one
+  **Structure** change (internal reorg, no observable change, justified only
+  by the **immediate next** Behavior it unlocks).
+- Decompose with **slice-planning** (`.agents/skills/slice-planning/`). Order
+  by outcome, not by layer; size each slice to finish in ~5 minutes including
+  checks.
+- **Time-box:** a fix/edit attempt over 5 minutes — scrutinize the breakdown;
+  over 10 minutes — stop, stash WIP, re-decompose smaller (see the skill for
+  detail).
+- Before committing a slice, run **post-change-refactor**
+  (`.agents/skills/post-change-refactor/`) on the uncommitted change: collapse
+  duplication, fix naming, consolidate shotgun surgery, delete dead/redundant
+  content, split code files over 250 lines. It Jidoka-stops before
+  cross-subsystem edits without explicit authorization — it never commits.
+- Don't deliberately leave `pnpm typecheck` or `pnpm build` broken across a
+  commit; use a plan note (deleted once landed) only for work spanning
+  multiple sessions.
+
+See also: `architecture-decisions.mdc` — durable structural decisions go
+through an ADR instead of an ad hoc refactor.
