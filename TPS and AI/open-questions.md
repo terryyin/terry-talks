@@ -46,15 +46,7 @@ questions**
 
 ### Backlog
 
-1. **Jidoka enables, JIT trusts, Respect for People grows.** "Jidoka is about
-   enabling people; JIT is about trusting people; Respect for people grows
-   people." Terry's claim, origin uncertain — he is not sure whether this is
-   his own formulation or something remembered from elsewhere. Before writing
-   this up as a claim: search for similar triads or framings in TPS/lean
-   literature (Ohno, Liker, Toyota's own materials); collect ideas that
-   support or complicate it.
-
-2. **SMED, switching cost, and LeSS full-cycle feedback.** Like TPS, LeSS
+1. **SMED, switching cost, and LeSS full-cycle feedback.** Like TPS, LeSS
    needs rapid switching between work items so priority stays on delivering
    user value and getting full-cycle feedback; once value is delivered and/or
    feedback is received, a resulting change of direction also triggers
@@ -68,7 +60,7 @@ questions**
    switching between software work items; define what "AI-friendly
    development context" concretely means.
 
-3. **Jidoka as autonomation across intelligence levels.** Jidoka preserves
+2. **Jidoka as autonomation across intelligence levels.** Jidoka preserves
    high-intelligence learning by pairing it with low-intelligence automation
    (autonomation). Proposed levels: "high intelligence" — a human or an AI
    solving a problem by consuming a large amount of tokens/effort; "low

@@ -16,10 +16,11 @@ The discussion is at the claim-forming and fact-checking stage. Nothing in this
 folder should be treated as a finalized talk argument unless its status is
 explicitly changed to **Finalized**.
 
-The two current claims are both **Provisional — not finalized**:
+The three current claims are all **Provisional — not finalized**:
 
 1. [The changing significance of TPS](claims/01-changing-significance-of-tps.md)
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
+3. [Jidoka enables, JIT trusts, Respect for People grows](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).
