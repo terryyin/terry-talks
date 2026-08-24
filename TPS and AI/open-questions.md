@@ -46,15 +46,4 @@ questions**
 
 ### Backlog
 
-1. **Jidoka as autonomation across intelligence levels.** Jidoka preserves
-   high-intelligence learning by pairing it with low-intelligence automation
-   (autonomation). Proposed levels: "high intelligence" — a human or an AI
-   solving a problem by consuming a large amount of tokens/effort; "low
-   intelligence" — automated tests that follow a fixed scenario with simple
-   assertions; "no intelligence" — a highly cohesive design that removes the
-   need for smartness altogether. Implication: use "no intelligence" design
-   plus "low intelligence" jidoka so that "high intelligence" (human or AI)
-   is freed to focus on learning. Before writing this up: check the framing
-   against the standard definition of autonomation (automation with a human
-   touch, stopping on abnormality); stress-test whether the three-tier
-   intelligence framing holds up.
+*No items currently queued.*

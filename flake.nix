@@ -24,6 +24,11 @@
               source .env
               set +a
             fi
+
+            case "$PS1" in
+              "(nix) "*) ;;
+              *) export PS1="(nix) $PS1" ;;
+            esac
           '';
         };
       }

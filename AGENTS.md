@@ -22,9 +22,10 @@ TPS and AI/                 # Claims-based writing project (claims/, open-questi
 docs/adrs/                  # Durable decisions (tooling + content structure)
 ```
 
-Run `pnpm run show` to pick and launch a talk (the `run` is required —
-`show` is a reserved pnpm alias, so bare `pnpm show` calls pnpm's own
-registry-info command instead of this script).
+Run `pnpm present` to pick and launch a talk. (Named `present`, not `show`,
+because `show` is a reserved pnpm alias for its own registry-info command —
+`pnpm show` would bypass this script even with a same-named entry in
+`package.json`.)
 
 **ADRs:** Solo propose → deliberate → approve in `docs/adrs/`; agents follow
 Accepted ADRs via `adr-awareness` (do not approve).

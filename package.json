@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "show": "node scripts/show.mjs",
+    "present": "node scripts/show.mjs",
     "dev": "slidev --open",
     "build": "slidev build",
     "export": "slidev export",
