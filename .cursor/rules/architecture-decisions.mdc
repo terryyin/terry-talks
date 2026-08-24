@@ -1,0 +1,13 @@
+---
+description: Architectural Decision Records — agent consume/cite/conflict; solo owner approves
+alwaysApply: true
+---
+
+# Architecture Decisions (ADRs)
+
+- **Solo playbook** (propose / deliberate / approve): `docs/adrs/README.md`
+- **Accepted ADRs** (current recommendations): `docs/adrs/*-accepted.md` — read explicitly
+- **Agent skill** (use / cite / conflict / maintain): `adr-awareness` in `.agents/skills/adr-awareness/`
+- On cross-cutting work (tooling/build setup or durable content structure), load relevant Accepted ADRs and follow them. Do not silently conflict. Do not approve ADRs; the solo owner owns deliberation and status changes.
+- Deviations require an explicit human-owned exception (trail it) or a human superseding ADR.
+- Proposed ADRs are not binding until Accepted.
