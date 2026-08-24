@@ -53,3 +53,15 @@ coverage.xml
 docs/_build/
 slides/.ipynb_checkpoints/
 .ipynb_checkpoints/
+
+# Node / Slidev
+node_modules/
+.slidev/
+components.d.ts
+*-export/
+*.pdf
+
+# Nix / direnv
+result
+.direnv/
+.envrc.local
