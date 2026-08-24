@@ -16,7 +16,9 @@ The discussion is at the claim-forming and fact-checking stage. Nothing in this
 folder should be treated as a finalized talk argument unless its status is
 explicitly changed to **Finalized**.
 
-The ten current claims are all **Provisional — not finalized**:
+The ten current claims are all **Provisional — not finalized**. One additional
+document records an open research question for which Terry has not yet stated a
+claim:
 
 1. [The changing significance of TPS](claims/01-changing-significance-of-tps.md)
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
@@ -28,6 +30,7 @@ The ten current claims are all **Provisional — not finalized**:
 8. [Technical excellence enables JIT coordination in LeSS](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
 9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md)
 10. [Freedom and trust can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
+11. [Research question: Physical production and software development](claims/11-physical-production-and-software-differences.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).
@@ -43,6 +46,10 @@ Each claim follows the same structure:
    to further challenge.
 4. **Questions still open** — items that require more thinking, evidence, or a
    deliberate choice.
+
+A research-question document may remain outside this structure until Terry has
+stated a hypothesis. It must be labeled clearly so an open question is not
+mistaken for a claim.
 
 When a claim is ready, change its status deliberately. Do not remove the
 original claim; preserve the path from hypothesis to conclusion.
