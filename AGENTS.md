@@ -13,10 +13,18 @@ built with Slidev. Content lives alongside slides (e.g. `TPS and AI/`).
 ## Layout
 
 ```
-slides/            # Slidev decks
-TPS and AI/         # Claims-based writing project (claims/, open-questions.md)
-docs/adrs/          # Durable decisions (tooling + content structure)
+slides/<deck>/slides.md   # One Slidev deck per talk (frontmatter selects theme)
+themes/                    # Local Slidev themes shared across decks (e.g. themes/odd-e)
+legacy/                    # Retired Jupyter/nbconvert toolchain, not maintained:
+                            #   legacy/slides (old notebooks), legacy/odde_training_template
+                            #   (submodule), legacy/Makefile
+TPS and AI/                 # Claims-based writing project (claims/, open-questions.md)
+docs/adrs/                  # Durable decisions (tooling + content structure)
 ```
+
+Run `pnpm run show` to pick and launch a talk (the `run` is required —
+`show` is a reserved pnpm alias, so bare `pnpm show` calls pnpm's own
+registry-info command instead of this script).
 
 **ADRs:** Solo propose → deliberate → approve in `docs/adrs/`; agents follow
 Accepted ADRs via `adr-awareness` (do not approve).

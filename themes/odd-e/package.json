@@ -1,0 +1,13 @@
+{
+  "name": "slidev-theme-odd-e",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Local Slidev theme for Odd-e talks: grey background with the odd-e logo watermark, ported from the legacy odde_training_template reveal.js template.",
+  "engines": {
+    "slidev": ">=0.47.0"
+  },
+  "keywords": ["slidev-theme", "slidev"],
+  "slidev": {
+    "defaults": {}
+  }
+}

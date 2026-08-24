@@ -3,9 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "slidev slides.md --open",
-    "build": "slidev build slides.md",
-    "export": "slidev export slides.md",
+    "show": "node scripts/show.mjs",
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export",
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {

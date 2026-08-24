@@ -46,21 +46,7 @@ questions**
 
 ### Backlog
 
-1. **SMED, switching cost, and LeSS full-cycle feedback.** Like TPS, LeSS
-   needs rapid switching between work items so priority stays on delivering
-   user value and getting full-cycle feedback; once value is delivered and/or
-   feedback is received, a resulting change of direction also triggers
-   switching. Lowering switching cost therefore matters. Jidoka helps reduce
-   switching cost. On top of that, SMED — Single-Minute Exchange of Die
-   (Terry recalled this as "STED / single touch exchange of die"; name needs
-   verification) — is specifically about reducing the number of steps in a
-   changeover. This line of thought leads toward the idea of an "AI-friendly
-   development context." Before writing this up: confirm SMED's correct name
-   and definition; work out the mapping between manufacturing changeover and
-   switching between software work items; define what "AI-friendly
-   development context" concretely means.
-
-2. **Jidoka as autonomation across intelligence levels.** Jidoka preserves
+1. **Jidoka as autonomation across intelligence levels.** Jidoka preserves
    high-intelligence learning by pairing it with low-intelligence automation
    (autonomation). Proposed levels: "high intelligence" — a human or an AI
    solving a problem by consuming a large amount of tokens/effort; "low
