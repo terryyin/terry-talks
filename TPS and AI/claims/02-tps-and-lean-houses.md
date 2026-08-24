@@ -1,209 +1,149 @@
-# Claim 2: TPS House, Lean House, and levels of abstraction
+# Claim 2: The TPS and Lean Thinking houses show different layers
 
 **Status: Provisional — not finalized**
 
-## Original claim / hypothesis
+## Reconciled claim
 
-TPS and lean thinking are often depicted using a **house metaphor**, with a
-roof, pillars, and a foundation.
+TPS and lean thinking are often explained with a house metaphor. My original
+recollection was that the TPS House has **Jidoka** and **Just-in-Time** as its
+pillars, while Craig Larman and Bas Vodde's house has **Respect for People** and
+**Continuous Improvement**. I initially treated these as alternative
+arrangements of roughly the same collection of ideas.
 
-There are many different versions of these houses, and different authors make
-different choices about what belongs in each part.
+The research supports the recollection but corrects the interpretation.
 
-My recollection is that the most common **TPS House** has **Jidoka** and
-**Just-in-Time** as its two pillars. I was less certain about the roof and
-thought it might contain something such as **one-piece flow**.
+### Start with Toyota's official TPS overview
 
-Craig Larman and Bas Vodde use a different version of the house in their
-LeSS-related writing. My recollection is that their two pillars are **Respect
-for People** and **Continuous Improvement**.
+For the talk, use Toyota Motor Corporation's current
+[official TPS overview][toyota-visual] to explain TPS and mark Toyota as the
+source. Toyota does not label this visual a “house,” so **official TPS
+overview** is more accurate than **Toyota's official TPS House**.
 
-My initial interpretation is that these are simply different representations
-of roughly the same collection of Toyota/lean philosophy, with authors choosing
-different elements to emphasize.
+Toyota presents TPS as being “for the benefit of others”: making ever-better
+products, delivering quality at the best price, putting people first, and
+making work easier and less burdensome. It focuses on eliminating **muri**,
+**mura**, and **muda**, then shows two pillars:
 
-## Research-based adjustment
+| TPS pillar | Immediate purpose in Toyota's overview |
+|---|---|
+| **Jidoka** | Create no defects by detecting abnormalities, stopping, and building quality into the process. |
+| **Just-in-Time** | Produce or transport only what is needed, when it is needed, and in the amount needed. |
 
-The broad intuition is correct, but an important distinction is needed.
+Toyota's accompanying [official TPS description][toyota-tps] says these two
+pillars enable vehicles to satisfy customer requirements quickly, at low cost,
+and with high quality.
 
-The familiar **TPS House** and the **Lean Thinking / Toyota Way house** are not
-merely alternative drawings of exactly the same model. They operate at somewhat
-different levels of abstraction.
+This corrects my uncertainty about **one-piece flow**. Flow is not the roof.
+Toyota describes continuous flow as part of synchronizing production under
+Just-in-Time, alongside pull and producing at the pace of sales.
 
-In the traditional TPS representation, the two central pillars are:
+### Then compare Larman and Vodde's Lean Thinking House
 
-- **Jidoka**
-- **Just-in-Time**
+Larman and Vodde call their 2009 diagram a
+[“Summary of the Toyota Way (Lean Thinking) House”][lv-pdf]. Their own
+[description][lv-page] says it summarizes the **Toyota Way, or Lean Thinking**,
+as presented in *Scaling Lean & Agile Development*.
 
-These are core operating principles of the Toyota Production System.
+Its sides foreground **Respect for People** and **Continuous Improvement**,
+but it is more than a relabelled TPS production house. It also includes product
+development, the 14 Toyota Way principles, management teaching and applying
+lean thinking, and a broad roof of outcomes including lead time, quality,
+value, customer delight, cost, morale, and safety.
 
-The roof is more commonly expressed in terms of outcomes such as:
-
-- highest quality
-- lowest cost
-- shortest lead time
-
-rather than one-piece flow.
-
-**One-piece flow / continuous flow** belongs more naturally among the
-mechanisms supporting **Just-in-Time**, together with ideas such as pull and
-takt time.
-
-Craig Larman and Bas Vodde's representation is better understood as a **Lean
-Thinking house**, drawing strongly from the **Toyota Way**, rather than as a
-replacement diagram for the TPS production system.
-
-Their two pillars are:
-
-- **Continuous Improvement**
-- **Respect for People**
-
-Toyota itself uses these same two pillars when describing the **Toyota Way**.
-
-| Representation | Main pillars | Primary level |
+| Representation | What it foregrounds | Source and scope |
 |---|---|---|
-| **TPS House** | Jidoka + Just-in-Time | Production / operating system |
-| **Toyota Way** | Continuous Improvement + Respect for People | Broader management values and philosophy |
-| **Larman/Vodde Lean Thinking House** | Continuous Improvement + Respect for People | Generalized lean thinking, especially for product development |
+| **Toyota TPS overview** | Jidoka + Just-in-Time | Toyota's current explanation of its production/operating system. |
+| **Larman/Vodde Lean Thinking House** | Respect for People + Continuous Improvement, with product-development and Toyota Way content | Larman and Vodde's synthesis for lean product development. It is not an official Toyota TPS diagram. |
 
-There are also many historical and contemporary variants of the “house.”
-Different versions may include or emphasize such elements as:
+Toyota itself used **Continuous Improvement** and **Respect for People** as the
+two pillars of the Toyota Way 2001, so Larman and Vodde's choice is grounded in
+Toyota terminology. That does not make their house interchangeable with
+Toyota's TPS overview.
 
-- heijunka
-- standardized work
-- kaizen
-- stability
-- respect for humanity
-- employee involvement
-- flow
-- pull
-- takt
+The corrected claim is therefore:
 
-Therefore, there is no single universally authoritative visual arrangement of
-the house.
-
-## Emerging interpretation
-
-The different houses should probably not be treated as contradictory. A more
-useful interpretation is that they offer **different views of an
-interconnected system**.
-
-An abstraction ladder remains useful for distinguishing a practice from an
-operating principle or philosophy:
-
-1. **Concrete practices and mechanisms** — one-piece flow, pull, takt,
-   standardized work, heijunka, quick changeover, and andon.
-2. **Operating principles** — Just-in-Time and Jidoka.
-3. **Broader management philosophy** — Continuous Improvement and Respect for
-   People.
-4. **Underlying assumptions** — how people learn, how problems should be
-   exposed, how technology should support humans, and how organizations
-   improve.
-
-Claims 3–6 show, however, that this must not become a one-way hierarchy in
-which lower-level techniques merely instantiate independent higher-level
-ideas. The important content of TPS lies in the **relationships and feedback
-loops across the levels**:
-
-1. Actual downstream need pulls work through **JIT**, reducing surplus that
-   could hide a broken commitment.
-2. Lower buffers make abnormalities consequential; **jidoka** detects, stops,
-   contains, and makes them visible near their origin.
-3. People need authority, time, capability, and support to respond. **Respect
-   for People** determines whether visible problems become agency and
-   development or merely pressure.
-4. Investigation and **kaizen** turn what was learned into a more capable
-   process: a standard, a detector, a better design, or removal of the
-   failure-producing condition.
-5. Supporting practices change the economics of the loop. For example,
-   **SMED** makes small batches and frequent deliberate changeovers practical;
-   jidoka makes an abnormal interruption explicit, contained, and learnable
-   rather than allowing bad work to continue.
-
-This is reciprocal rather than linear:
-
-> **JIT removes hiding places. Jidoka detects and contains what is exposed.
-> People investigate. Kaizen embeds the learning. Greater capability makes
-> the next pull response more trustworthy.**
-
-The “production-system logic” is therefore not best treated as one more rung
-between principles and philosophy. It is the way all of these elements work
-together over time. Similarly, Respect for People and Continuous Improvement
-are broader Toyota Way ideas, but they are not a decorative layer placed above
-an otherwise complete technical system.
-
-This means the initial statement:
-
-> These are just different representations of the same collection of
-> philosophy.
-
-is directionally useful, but should be made more precise:
-
-> **The different houses are related representations of the Toyota/lean system
-> at different levels of abstraction. They overlap strongly, but they are not
-> completely interchangeable.**
-
-A still sharper version, incorporating the later claims, is:
-
-> **The houses foreground different levels of the same evolving human and
-> technical system. Their boxes are not interchangeable, and their meaning
-> comes from the relationships among them rather than from a taxonomy of lean
-> terms.**
+> **The two diagrams show related but different layers of Toyota/lean
+> thinking. Toyota's TPS overview explains an operating system through Jidoka
+> and Just-in-Time. Larman and Vodde's house broadens the view to Toyota Way
+> values and product-development thinking through Respect for People and
+> Continuous Improvement.**
 
 ## Emerging implication for the talk
 
-This distinction may be particularly useful when applying TPS thinking to
-software and AI.
+Show the official Toyota TPS overview first and use it to explain how the two
+pillars work toward human and customer outcomes. Then show the Larman/Vodde
+house, clearly attributed, to widen the view from production-system principles
+to management philosophy and product development.
 
-Rather than copying lower-level manufacturing mechanisms directly into
-software—for example treating one-piece flow, takt, kanban, or an andon cord as
-universally transferable practices—the talk can move through the relationships
-in the system and ask:
+The comparison should not become a taxonomy in which practices sit neatly
+below principles and philosophy sits decoratively above them. Claims 3–6 argue
+that the meaning lies in the relationships: JIT removes hiding places, jidoka
+detects and contains what is exposed, people investigate, and kaizen embeds
+the learning. Respect for People determines whether this becomes agency and
+development or merely pressure.
 
-> **What reasoning caused Toyota to invent these mechanisms in the first
-> place, what other capabilities made them workable, and what happened after
-> they exposed a problem?**
+For AI-augmented software development, the useful move is therefore not to
+copy a house or transfer a manufacturing mechanism by name. It is to ask:
 
-This creates a principled path from manufacturing practice toward software:
+> **What problem did the mechanism solve, what conditions made it workable,
+> what human response followed when it exposed a problem, and what learning
+> changed the system?**
 
-**mechanism → system problem → enabling conditions → human response → learning
-loop**
+## Gaps and cautions
 
-Claims 3–6 supply early examples of this translation method:
-
-| TPS relationship | Question for AI-augmented software development |
-|---|---|
-| JIT pulls from actual need instead of producing for stock. | How do we avoid turning cheap generation into a stockpile of unverified code, plans, tests, or backlog detail? |
-| SMED lowers the changeover cost that makes large batches appear economical. | Can a stable team or agent take a bounded current item, reconstruct only necessary context, and obtain trustworthy evidence quickly? |
-| Jidoka detects a specified abnormality, stops, contains, and exposes it. | Which tests, types, monitors, policies, or human signals have meaningful stop authority and preserve evidence for response? |
-| People investigate; kaizen prevents recurrence or improves the response. | Does an AI-assisted episode leave behind a clearer design, executable oracle, faster signal, or explicit decision—or merely a one-off answer? |
-| Respect for People supplies agency, support, development, and accountability. | Are people able to understand, challenge, stop, and improve the human–AI system, or are they left to absorb its pressure and rare exceptions? |
-
-The goal is therefore not to reproduce a particular TPS or Lean House for
-software development, nor merely to copy the words from the roof and pillars.
-It is to use the representations as maps into a dynamic system and then test
-each proposed software analogy against its purpose, prerequisites, human
-consequences, and failure modes.
+- Toyota's current official visual is not labelled a house and does not define
+  a roof or foundation. A familiar house-shaped TPS diagram may still be useful
+  in the talk, but it would need its own source and must not be presented as
+  Toyota's current canonical graphic without evidence.
+- Many historical and contemporary TPS houses add heijunka, standardized work,
+  kaizen, stability, employee involvement, pull, takt, or flow in different
+  locations. This claim does not establish one universally authoritative
+  arrangement.
+- The abstraction-layer comparison is an interpretive device for the talk, not
+  a claim that Toyota formally organizes TPS and the Toyota Way in this exact
+  hierarchy.
 
 ## Questions still open
 
-- Which historical or official TPS House should be used as the talk's primary
-  reference image?
-- What exactly appears in the roof and foundation of the chosen TPS House?
-- How do Toyota's own descriptions distinguish TPS from the Toyota Way?
-- How do Larman and Vodde describe the purpose and scope of their Lean Thinking
-  house in their own words?
-- Is the revised model of interacting levels historically defensible, or is it
-  mainly a useful interpretive device for this talk?
+- Is there a historical Toyota-authored, house-shaped TPS diagram that should
+  accompany or replace the current official overview?
+- What exactly appears in the roof and foundation of that historical diagram,
+  and in which version and year?
+- How does Toyota distinguish TPS from the Toyota Way across different periods,
+  including the change from Toyota Way 2001 to Toyota Way 2020?
+- How do Larman and Vodde explain the intended relationships among Respect for
+  People, Continuous Improvement, product development, and the 14 principles
+  in the book text surrounding their diagram?
+- Is the model of interacting layers historically defensible, or mainly a
+  useful interpretive device for this talk?
 - How should the talk visualize the reciprocal loop among JIT, jidoka, people,
   and kaizen without presenting a new diagram as Toyota's canonical model?
 - Which low-level practices fail to transfer cleanly to AI-augmented software,
-  and which ones remain useful?
-- Should SMED and poka-yoke appear as supporting practices beneath the two TPS
-  pillars, or only as examples used to explain particular system
-  relationships?
+  and which remain useful?
+- Should SMED and poka-yoke appear as supporting practices beneath the TPS
+  pillars, or only as examples within particular system relationships?
 - Which enabling conditions must accompany a transferred mechanism so that it
   produces learning and responsiveness rather than pressure, interruption, or
   more unverified output?
+
+## Sources consulted
+
+1. Toyota Motor Corporation, [Toyota Virtual Plant Tour: Toyota Production
+   System][toyota-visual]. Current official visual used as the talk's primary
+   TPS overview.
+2. Toyota Motor Corporation, [Toyota Production System][toyota-tps]. Current
+   official explanation of TPS's purpose, two pillars, flow, pull, and
+   human-centered kaizen.
+3. Craig Larman and Bas Vodde (2009), [Summary of the Toyota Way (Lean
+   Thinking) House][lv-pdf], with Larman's [source description][lv-page].
+4. Toyota Motor Corporation (2019), [Annual Report 2019][toyota-way-2019].
+   Official account of Continuous Improvement and Respect for People as the
+   two pillars of Toyota Way 2001.
+
+[toyota-visual]: https://global.toyota/en/company/plant-tours/production-system/
+[toyota-tps]: https://global.toyota/en/company/vision-and-philosophy/production-system/
+[lv-pdf]: https://www.craiglarman.com/wiki/downloads/scaling_lean/toyota-house-larman-vodde.pdf
+[lv-page]: https://www.craiglarman.com/wiki/index.php?title=Lean_Thinking_house
+[toyota-way-2019]: https://global.toyota/pages/global_toyota/ir/library/annual/2019_001_annual_en.pdf
 
 **Still open for further discussion and fact-checking.**

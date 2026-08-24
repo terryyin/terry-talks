@@ -1,4 +1,4 @@
-# Claim 3: Jidoka enables, JIT trusts, Respect for People grows
+# Claim 3: Jidoka frees, JIT entrusts, Respect for People supports growth
 
 **Status: Provisional — not finalized**
 
@@ -7,220 +7,187 @@
 > **Jidoka enables people; Just-in-Time trusts people; Respect for People
 > grows people.**
 
-This is Terry's formulation. Its origin is uncertain: it may be his own
-synthesis or something remembered from elsewhere.
-
-Targeted searches for the complete phrase, fragments of it, and similar triads
-did not locate an established formulation in Toyota materials, Taiichi Ohno's
-published description of TPS, Jeffrey Liker's *The Toyota Way*, or the wider
-English-language lean literature.
-
-That absence cannot establish originality, but the phrase should currently be
-treated as **Terry's interpretation**, not as a Toyota principle or an
-attributable quotation.
+This is Terry's formulation. Targeted searches did not locate it as an
+established formulation in Toyota material, Taiichi Ohno's published account
+of TPS, Jeffrey Liker's *The Toyota Way*, or the wider English-language lean
+literature. It should be presented as **Terry's synthesis**, not as a Toyota
+principle or quotation.
 
 ## Research-based adjustment
 
-The triad captures a real human logic within TPS, but its three verbs are not
-equally supported and the concepts do not divide as neatly as the sentence
-suggests.
+A concise reconciliation of the original intuition with the later research
+is:
 
-| Proposed phrase | What the literature supports | Necessary qualification |
-|---|---|---|
-| **Jidoka enables people** | Jidoka frees people from merely watching machines, makes abnormalities visible, lets an operator call for help or stop the line, and focuses human effort on response and improvement. | **Empowers** or **gives agency to** is more precise than the broad word *enables*. Jidoka is also about building quality into the process, not only about the worker's role. |
-| **JIT trusts people** | Pull connects each process to real downstream need. With little surplus inventory, processes must respond reliably to one another. An early Toyota account links this system to delegated responsibility, local decision-making, and worker-led improvement. | Toyota does not define JIT as trust. Its definitions emphasize synchronization, pull, flow, and producing only what is needed. Toyota explicitly places **mutual trust** under Respect for People. JIT makes interdependence consequential; it does not by itself create trust. |
-| **Respect for People grows people** | Toyota's Toyota Way says teamwork stimulates personal and professional growth. Liker groups respect, challenge, and growth together and describes growing leaders, developing teams, and helping partners improve. | Respect creates conditions for development, but growth also requires challenge, kaizen, coaching, responsibility, and opportunities to solve real problems. Respect alone does not guarantee growth. |
+> **Jidoka frees people by empowering them. JIT entrusts them with responding
+> resourcefully to real need. Respect for People helps them grow through
+> challenge, teamwork, and kaizen.**
 
-### Jidoka: freedom, authority, and human judgment
+**Entrusts** preserves the intended trust idea in a narrow sense: responsibility
+for the response rests with capable people close to the work. It does not mean
+that Toyota defines JIT as trust, that low buffers create interpersonal trust,
+or that JIT depends on fixed relationships between teams. A more literal,
+trust-free version is:
 
-Toyota's current TPS description gives three distinct human effects of jidoka:
+> **Jidoka frees people by empowering them. JIT lets real need pull a
+> resourceful response. Respect and challenge help people grow.**
 
-- A machine that detects and stops for an abnormality no longer needs a person
-  to watch it continuously.
-- A worker can stop the line or signal for help when quality or timing becomes
-  abnormal.
-- Once the abnormality is visible, people apply judgment and kaizen to prevent
-  recurrence.
+### Jidoka frees people by empowering them
 
-The 1977 paper by four Toyota production-control leaders makes the authority
-dimension especially clear. It describes every worker's right to stop the line
-as a first step toward human independence and says responsibility and authority
-for running and improving the workplace are delegated to workers.
-
-This makes the first phrase defensible, with a sharper wording:
+The fuller wording is adopted:
 
 > **Jidoka gives people the freedom and authority to act on abnormalities.**
 
-Jidoka does more than transfer authority, however. It also constrains the
-system: defective or abnormal work should not continue merely to preserve
-output. The enabling effect comes from the combination of stop capability,
-visible conditions, an expected response, and organizational permission—not
-from an andon cord or automated check alone.
+Jidoka frees people from continuously watching normal operation and gives them
+the right and expectation to signal, stop, respond, and improve when an
+abnormality appears. Its constraints are enabling rather than absent: known
+abnormal work is made visible and stoppable so that human attention can move
+to judgment, learning, and kaizen. [Claims 6](06-jidoka-embeds-routine-judgment.md)
+and [10](10-freedom-and-trust-reinforce-through-jidoka.md) develop this
+mechanism in more detail.
 
-### Just-in-Time: interdependence rather than trust by definition
+### JIT entrusts resourceful response to actual need
 
-Toyota defines JIT in operational terms: synchronize processes and make or
-move only what is needed, when it is needed, and in the amount needed. The next
-process pulls from the preceding one, and the preceding process replenishes
-what was taken.
+The history does not support a simple origin story in which JIT was invented
+after World War II because occupied Japan had few resources and therefore
+trusted workers to improvise. Kiichiro Toyoda conceived JIT before the war;
+wartime rationing interrupted it; Toyota then made it practical through
+postwar experiments, financial crisis, limited demand, and the later pull
+system. Constraint shaped Toyota's response, but scarcity and occupation did
+not by themselves invent JIT. No source found so far connects the loss of
+national autonomy to a Toyota philosophy of trusting workers to improvise.
+The detailed chronology and qualifications remain in
+[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
 
-This design does have a human implication. Removing surplus inventory removes
-a buffer that could hide a failure or broken commitment. Each process becomes
-more visibly dependent on the capability and responsiveness of other
-processes. The 1977 Toyota paper says the resulting visible control allows
-workers—not only managers—to detect trouble, take improvement action, and
-assume responsibility for the workplace.
+Toyota defines JIT operationally: actual downstream need pulls the required
+work, at the required time and in the required amount. The human interpretation
+is that the system avoids stockpiling output and detailed responses in advance,
+then relies on people to respond when the need becomes concrete. Toyota's
+accounts support human wisdom, ingenuity, local authority, problem solving,
+and worker-led improvement; they place **mutual trust** formally under Respect
+for People rather than under JIT.
 
-It is therefore reasonable to say that JIT **operationalizes reliance** or
-**makes interdependence visible**. Calling that “trust” is a memorable
-interpretation, but it risks confusing three different claims:
+Resourcefulness here means disciplined, distributed problem solving—not
+recurring heroic improvisation. Stable processes, clear signals, technical
+excellence, support, modest headroom, and kaizen let people handle a novel need
+and make the next response more reliable. Without those conditions, tight
+coupling and low buffers can produce pressure, stress, or firefighting rather
+than trust.
 
-1. JIT **requires** dependable relationships.
-2. JIT **demonstrates** trust by reducing protective buffers.
-3. JIT **creates** trust between people.
+The LeSS translation is **Whole Product Focus**, not dependable inter-team
+relationships. Feature teams take end-to-end responsibility for customer-value
+items across one shared product. Suppose Teams A and B both need to change
+module X for their own current items. Shared ownership and continuous
+integration make the interaction concrete; the people involved coordinate
+directly because resolving it advances both items and the whole product.
+Dependencies still exist, but current mutual need pulls focused collaboration
+instead of requiring component handoffs or detailed coordination prepared in
+advance. This mutual-interest reading is an inference from the teams' current
+shared work, not a stated LeSS rule.
 
-The sources support the first most strongly. The second is a plausible
-inference. The third is not established: trust has to be built through
-behavior, capability, support, and repeated fulfillment of commitments.
+This does not imply that every interaction should wait for an integration
+failure. Refinement, planning, design conversations, and other LeSS practices
+can expose a dependency earlier. The claim is that the evolving integrated
+product lets teams defer much detailed coordination until it becomes useful
+and then self-manage the response. [Claim
+8](08-technical-excellence-enables-jit-coordination-in-less.md) develops this
+LeSS bridge in more detail.
 
-There is also an important warning. Research on lean implementations reports
-that JIT can be associated with stress, mental strain, and work
-intensification. A 2022 systematic review found that most reported
-safety/ergonomic outcomes specifically associated with JIT were negative. This
-does not show that Toyota's own system necessarily produces those outcomes,
-but it does show that removing buffers is not intrinsically respectful. Without
-authority to stop, realistic workload, support, and problem solving, tight
-coupling can become pressure rather than trust.
+### Respect for People helps people grow
 
-### Respect for People: the conditions for growth
+Toyota places **mutual trust** under Respect and personal and professional
+growth under Teamwork, both within the broader Respect for People pillar.
+Liker likewise joins respect with challenge and growth. The original wording
+therefore works only as shorthand for a system that treats people as capable
+of learning and gives them responsibility, challenge, support, teamwork, and
+real problems through which to develop. Respect alone does not guarantee
+growth.
 
-Toyota Way 2001 places **Respect** and **Teamwork** beneath the broader pillar
-of **Respect for People**. Its language is revealing:
+### One integrated system, not a canonical triad
 
-- Respect includes understanding others, taking responsibility, and building
-  mutual trust.
-- Teamwork includes stimulating personal and professional growth and sharing
-  development opportunities.
+The three effects reinforce one another:
 
-This means Terry's words *trust* and *grows* both have direct precedents, but
-Toyota places them together inside Respect for People rather than assigning
-trust specifically to JIT.
+> **Actual need pulls work and collaboration. Jidoka makes abnormality visible
+> and stoppable. People respond and improve the system. Respect, challenge,
+> and support determine whether the result is greater capability and warranted
+> trust—or merely pressure.**
 
-Liker's second edition makes the growth relationship even more explicit, but
-not as respect alone. His people section joins **respect, challenge, and
-growth**, followed by principles about growing leaders, developing exceptional
-people and teams, and challenging partners while helping them improve.
-
-A more defensible interpretation is therefore:
-
-> **Respect recognizes people's agency and potential; challenge, teamwork,
-> coaching, and kaizen provide the experiences through which they grow.**
-
-### One system, not three independent benefits
-
-The strongest historical support for Terry's intuition is not an equivalent
-triad but the integrated account in Sugimori, Kusunoki, Cho, and Uchikawa's
-1977 paper. Its title presents TPS and kanban as the materialization of both a
-JIT system and a respect-for-human system. It connects:
-
-- JIT and jidoka exposing abnormalities;
-- the right to stop the line;
-- visible control available to everyone;
-- delegated authority and responsibility; and
-- active worker participation in running and improving the workplace.
-
-Toyota President Akio Toyoda made a similar integration in 2019: both jidoka
-and JIT have people at their center, machines do not improve unless people do,
-and Toyota's manufacturing is inseparable from developing people.
-
-The triad also crosses levels of abstraction. Jidoka and JIT are the two
-operating pillars of TPS, while Respect for People is one of the two broader
-Toyota Way pillars. As discussed in Claim 2, this does not make the comparison
-invalid, but it means the three items are not a canonical set of peer concepts.
+This is stronger as an integrated interpretation than as three independent
+definitions. Jidoka and JIT are the operating pillars of TPS, while Respect
+for People is a broader Toyota Way pillar. They are not a canonical set of
+peer concepts.
 
 ## Emerging implication for the talk
 
-The original sentence is useful as a provocative mnemonic, provided it is
-presented as Terry's synthesis and then unpacked.
+The first reconciled formulation can be used as Terry's provocative mnemonic
+if **entrusts** is unpacked immediately. The LeSS bridge is:
 
-A research-adjusted version is:
+> **Whole Product Focus supplies the shared purpose. Continuous integration
+> makes current interactions concrete. Self-managing teams collaborate just
+> in time around real customer value.**
 
-> **Jidoka gives people agency. JIT makes their interdependence visible.
-> Respect for People turns the problems they encounter into opportunities to
-> grow.**
-
-An even more compact version is:
-
-> **Jidoka empowers. JIT connects. Respect and challenge develop people.**
-
-The deeper claim may be more valuable than either slogan:
-
-> **TPS does not improve a technical process first and add a people philosophy
-> afterward. Its technical mechanisms create agency, interdependence, and
-> visible problems; its people philosophy determines whether those conditions
-> become learning and improvement or merely pressure.**
-
-This distinction transfers usefully to AI-augmented software development.
-Faster generation and tighter flow are not automatically respectful or
-developmental. An AI-augmented system should:
-
-- give people and automated checks real authority to stop abnormal work;
-- pull work from genuine need rather than push more generated output;
-- make dependencies, failures, and uncertainty visible early; and
-- use the exposed problems to develop human and organizational capability.
-
-Otherwise, “JIT trusts people” can become its opposite: a low-buffer system
-that demands trust and reliability from people without giving them the safety,
-time, authority, or support required to earn it.
+For AI-augmented software development, the implication is to pull bounded work
+from a current need rather than stockpile generated output; meet the shared
+product and its evidence early; stop known abnormalities; bring people to the
+novel exception; and turn what they learn into a more capable system.
 
 ## Questions still open
 
-- Should the talk retain **trusts** as an intentionally provocative metaphor,
-  or replace it with **connects**, **relies on**, or **makes interdependence
-  visible**?
-- Does **enables** mean freeing people from machine watching, giving them stop
-  authority, making problems actionable, or all three?
-- Should the growth phrase explicitly say **Respect and Challenge grow
-  people**, to avoid making respect sound passive or sufficient by itself?
-- How should the talk distinguish Toyota's intended system from lean
-  implementations associated with work intensification?
-- Is there a Japanese-language source or oral teaching that more closely
-  resembles Terry's original triad?
-- Which version of the formulation creates the strongest bridge to
-  AI-augmented software without overstating the manufacturing analogy?
+- Does **entrusts** communicate the intended responsibility clearly enough, or
+  will it still be mistaken for Toyota terminology? Would **relies on a
+  resourceful response** or **lets real need pull a resourceful response** be
+  clearer?
+- Is there direct evidence that people working in a mature Toyota JIT system
+  experience it as trust or assurance, rather than this remaining an
+  interpretation of system capability?
+- What support and headroom keep resourceful response from becoming stress,
+  work intensification, or recurring firefighting?
+- When should LeSS teams anticipate an interaction, and when should evolving
+  integrated work pull collaboration?
+- What empirical case shows continuous integration producing useful cross-team
+  collaboration rather than noisy interruption?
+- How strongly can Respect for People be said to cause growth, beyond Toyota's
+  stated philosophy and the contribution of challenge, teamwork, coaching, and
+  kaizen?
+- Is there a Japanese-language source or oral teaching that resembles Terry's
+  original triad?
+- Which differences between physical production and software development
+  limit this JIT analogy?
 
 ## Sources consulted
 
 1. Toyota Motor Corporation, [Toyota Production System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
-   Current official definitions of jidoka and JIT, their human-centered origin,
-   stop authority, kaizen, and human-resource development.
-2. Y. Sugimori, K. Kusunoki, F. Cho, and S. Uchikawa (1977),
+   Current definitions of jidoka and JIT, stop authority, pull, kaizen, human
+   ingenuity, and development of people.
+2. Toyota Motor Corporation, [“The Origins of
+   Just-in-Time”](https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter2/section4/item5.html),
+   *75 Years of Toyota*. History of the prewar conception, 1938 launch,
+   wartime suspension, and later supermarket method.
+3. Y. Sugimori, K. Kusunoki, F. Cho, and S. Uchikawa (1977),
    [“Toyota production system and Kanban system: Materialization of
    just-in-time and respect-for-human system”](https://doi.org/10.1080/00207547708943149),
-   *International Journal of Production Research*, 15(6), 553–564. Early
-   account by Toyota managers connecting JIT, jidoka, worker authority,
-   participation, and respect for humanity.
-3. Toyota Motor Corporation, [Annual Report
+   *International Journal of Production Research*, 15(6), 553–564. Connects
+   JIT and jidoka with visible control, delegated authority, worker
+   participation, and improvement.
+4. Toyota Motor Corporation, [Annual Report
    2019](https://global.toyota/pages/global_toyota/ir/library/annual/2019_001_annual_en.pdf).
-   Official Toyota Way 2001 summary: mutual trust under Respect and personal
-   and professional growth under Teamwork.
-4. Akio Toyoda (2019), [“Reforming Our Company to Become a Mobility
-   Company”](https://global.toyota/en/company/messages-from-executives/details/).
-   Connects both TPS pillars to people-centered automation, human development,
-   and trust-based relationships.
-5. Toyota Motor Corporation, [Annual Report
-   2018](https://www.toyota-global.com/pages/contents/investors/ir_library/annual/pdf/2018/ar18_2_en.pdf),
-   “Developing People: The True Source of Toyota's Competitiveness.” Connects
-   jidoka, kaizen, independent problem solving, and development of human skill.
-6. Jeffrey K. Liker (2021), [*The Toyota Way*, second
+   Places mutual trust under Respect and growth under Teamwork.
+5. Jeffrey K. Liker (2021), [*The Toyota Way*, second
    edition](https://www.mheducation.com/highered/mhp/product/toyota-way-second-edition-14-management-principles-world-s-greatest-manufacturer.html).
-   The people principles explicitly combine respect, challenge, growth,
-   leadership development, team development, and partner improvement.
-7. Joel G. Brawner, Gregory A. Harris, and Gerard A. Davis (2022), [“Will the
+   Connects respect, challenge, growth, leadership, teams, and partner
+   development.
+6. Joel G. Brawner, Gregory A. Harris, and Gerard A. Davis (2022), [“Will the
    real relationship between lean and safety/ergonomics please stand
    up?”](https://doi.org/10.1016/j.apergo.2021.103673), *Applied Ergonomics*,
-   100, 103673. Systematic review used to test the human-centered
-   interpretation against reported safety and ergonomic outcomes of lean
-   methods, especially JIT.
+   100, 103673. Reviews reported safety and ergonomic outcomes associated with
+   lean methods, including JIT.
+7. The LeSS Company, [Feature
+   Teams](https://less.works/less/structure/feature-teams), [Continuous
+   Integration](https://less.works/less/technical-excellence/continuous-integration),
+   [Coordination &
+   Integration](https://less.works/less/framework/coordination-and-integration),
+   and [Customer-Centric
+   Thinking](https://less.works/less/principles/customer-centric). Define
+   end-to-end feature teams, shared product ownership, frequent integration,
+   decentralized coordination, and customer-value orientation.
 
 **Still open for further discussion and fact-checking.**

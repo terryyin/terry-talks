@@ -22,7 +22,7 @@ claim:
 
 1. [The changing significance of TPS](claims/01-changing-significance-of-tps.md)
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
-3. [Jidoka enables, JIT trusts, Respect for People grows](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
+3. [Jidoka frees, JIT entrusts, Respect for People supports growth](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
 4. [JIT creates assurance through resourceful capability, not abundance](claims/04-jit-assurance-resourcefulness-and-constraint.md)
 5. [SMED for software means cheap deliberate changeovers, not constant switching](claims/05-smed-software-changeover-and-ai-friendly-context.md)
 6. [Jidoka embeds routine judgment so adaptive intelligence can learn](claims/06-jidoka-embeds-routine-judgment.md)
