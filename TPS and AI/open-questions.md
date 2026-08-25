@@ -30,8 +30,8 @@ future discussion, not a set of conclusions.
   A working answer is
   [Claim 8](claims/08-technical-excellence-enables-jit-coordination-in-less.md):
   LeSS's coordination and integration channels overlap under continuous
-  integration; AI does not raise the importance of mainline CI (it was
-  never less); use AI to reduce volume and uncertainty, and slow down
+  integration; the engineering catalog exists so the group can integrate
+  continuously; use AI to reduce volume and uncertainty, and slow down
   rather than create debt faster.
 - Where does the analogy break down because software work combines discovery
   and production? A working answer is
