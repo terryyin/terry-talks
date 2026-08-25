@@ -39,7 +39,9 @@ future discussion, not a set of conclusions.
 - Evidence about AI's effect on software generation speed and on downstream
   review or verification costs.
 - Empirical evidence that continuous integration across feature teams exposes
-  dependencies early and triggers useful cross-team collaboration.
+  dependencies early and triggers useful cross-team collaboration. Pull
+  examples later from the doughnut project used in Terry's LeSS in Action
+  trainings ([Claim 13](claims/13-doughnut-ci-useful-collaboration.md)).
 
 ## Candidate future claims
 

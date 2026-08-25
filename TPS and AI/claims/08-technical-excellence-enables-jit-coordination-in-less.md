@@ -251,7 +251,8 @@ The AI-era thesis may therefore be:
   with a claim that LeSS formally maps team interaction to kanban replenishment?
 - What case study provides the strongest empirical evidence that frequent
   integration actually triggered useful cross-team collaboration rather than
-  merely creating interruptions?
+  merely creating interruptions? Doughnut examples are the subject of
+  [Claim 13](13-doughnut-ci-useful-collaboration.md).
 - Which repetitive work is genuinely eliminated by technical excellence, and
   which work is only displaced into maintaining tests, pipelines, environments,
   and platform capabilities?

@@ -21,10 +21,10 @@
 > coordinate in a Just-in-Time manner. It avoids producing detailed plans long
 > before they are needed and avoids the high cost of changing those plans.
 
-This is a lightly edited record of Terry's hypothesis. **Trust** is a working
-term whose final wording depends on Claim 3. That claim found that Toyota puts
-mutual trust under Respect for People, while “JIT trusts people” is Terry's
-interpretation rather than Toyota's definition of JIT.
+This is a lightly edited record of Terry's hypothesis. [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md) kept **entrusts** for JIT:
+responsibility for the response, as Terry's reading of JIT's intention, not
+Toyota's definition. Toyota puts mutual trust under Respect for People.
 
 The proposed reinforcing loop is:
 
@@ -234,8 +234,9 @@ once and for all. It is:
 
 ## Questions still open
 
-- After Claim 3 is settled, should the theme retain **trust**, or use
-  **warranted trust**, **confidence**, **assurance**, or **reliance**?
+- Claim 3 kept **entrusts** for JIT. Should this theme still be titled
+  **Freedom and Trust**, or use **warranted trust**, **confidence**,
+  **assurance**, or **reliance**?
 - Is **Freedom and Trust** stronger as an apparent paradox introduced early in
   the talk, or as the conclusion the earlier claims gradually construct?
 - What concrete story can show the whole reinforcing loop rather than only one

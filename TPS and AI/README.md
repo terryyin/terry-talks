@@ -16,9 +16,8 @@ The discussion is at the claim-forming and fact-checking stage. Nothing in this
 folder should be treated as a finalized talk argument unless its status is
 explicitly changed to **Finalized**.
 
-The ten current claims are all **Provisional — not finalized**. One additional
-document records an open research question for which Terry has not yet stated a
-claim:
+The claims below are **Provisional**. One additional document records an open
+research question for which Terry has not yet stated a claim:
 
 1. [The changing significance of TPS](claims/01-changing-significance-of-tps.md)
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
@@ -31,6 +30,9 @@ claim:
 9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md)
 10. [Freedom and trust can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
 11. [Research question: Physical production and software development](claims/11-physical-production-and-software-differences.md)
+12. [Respect for People is respect for people who can think](claims/12-respect-for-people-who-can-think.md)
+13. [Doughnut CI pulls useful cross-team collaboration](claims/13-doughnut-ci-useful-collaboration.md)
+14. [Ebata's JIT teaching can be corroborated in print](claims/14-ebata-jit-teaching-in-print.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).
