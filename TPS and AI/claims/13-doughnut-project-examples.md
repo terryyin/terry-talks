@@ -84,6 +84,17 @@ bookmarks the week; it is not a `git log A..B` ancestry range.
 | 2024-08-26 | 2024-08-26–2024-08-30 | 10 | 124 | `d85d4d9dfc09..4a41d6e3652d` |
 | 2024-10-07 | 2024-10-08–2024-10-13 | 10 | 121 | `a52378416c91..10d14993d2c7` |
 
+## Already pulled — not a training-week search
+
+### ADR propose-to-accept — Claim 9
+
+[Claim 9](09-nemawashi-self-organized-deliberation-in-less.md) now uses
+doughnut's ADR playbook as its software example: the **advice process**
+and the path from Proposed to Accepted, not the ADR template. The
+fuller origin story is the Wärtsilä / Whale architecture-decision
+minutes (company name on stage still needs clearance). This is not a
+class-week git search.
+
 ## Later phases — queued searches
 
 ### Whole Product Focus and continuous integration — Claims 3, 8, and 21

@@ -6,9 +6,10 @@ Prepare a talk for the Tokyo LeSS Conference exploring how ideas from the
 **Toyota Production System (TPS)** may remain relevant to modern software
 development, particularly **AI-augmented software development**.
 
-This folder is the living workspace for the talk. It preserves Terry's working
-claims separately from research-based corrections so that an early hypothesis
-is not silently replaced by a later interpretation.
+This folder is the living workspace for the talk. Settled claims present
+one current opinion. Git history preserves the path from early hypothesis
+to that opinion. Unsettled claims may still show original hypothesis and
+research-based adjustment.
 
 ## Current status
 
@@ -19,7 +20,7 @@ explicitly changed to **Finalized**.
 The claims below are **Provisional**:
 
 1. [The useful transfer from TPS is system reasoning, not manufacturing mechanisms](claims/01-tps-reasoning-not-mechanisms.md)
-2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
+2. [Toyota's TPS overview and the Lean Thinking house show different layers](claims/02-tps-and-lean-houses.md)
 3. [Jidoka frees, JIT entrusts, Respect for People supports growth](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
 4. [JIT creates assurance through resourceful capability, not abundance](claims/04-jit-assurance-resourcefulness-and-constraint.md)
 5. [SMED for software means cheap changeovers so customer-centric focus is not interrupted](claims/05-smed-software-changeover-and-ai-friendly-context.md)
@@ -45,7 +46,7 @@ Questions that cut across the claims are collected in
 
 ## Working method
 
-Each claim follows the same structure:
+Each claim follows the same structure while it is being formed:
 
 1. **Original claim / hypothesis** — Terry's idea as first expressed.
 2. **Research-based adjustment** — corrections, qualifications, and supporting
@@ -55,12 +56,15 @@ Each claim follows the same structure:
 4. **Questions still open** — items that require more thinking, evidence, or a
    deliberate choice.
 
+Once the opinion is settled, collapse that path into one current claim.
+Leave only genuinely open questions. Do not keep superseded interpretations
+in the file so they cancel the current opinion.
+
 A research-question document may remain outside this structure until Terry has
 stated a hypothesis. It must be labeled clearly so an open question is not
 mistaken for a claim.
 
-When a claim is ready, change its status deliberately. Do not remove the
-original claim; preserve the path from hypothesis to conclusion.
+When a claim is ready, change its status deliberately.
 
 ## Emerging direction — still provisional
 

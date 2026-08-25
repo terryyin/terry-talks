@@ -51,8 +51,8 @@ cut so that pull and confirmation can happen.
 Toyota's official TPS account puts continuous flow inside Just-in-Time:
 synchronize processes so that only what is needed is made, when it is
 needed, in the amount needed; do not let goods and information be held up.
-[Claim 2](02-tps-and-lean-houses.md) already corrects the roof mistake:
-flow is not the roof.
+Flow belongs inside JIT, not as a roof:
+[Claim 2](02-tps-and-lean-houses.md).
 
 One-piece flow (一個流し) is the ideal of that continuity: one unit moves
 from process to process without a batch queue between them. Toyota still

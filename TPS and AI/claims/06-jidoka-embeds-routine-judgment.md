@@ -1,6 +1,7 @@
 # Claim 6: Jidoka embeds previously learned judgment so adaptive attention can learn
 
-**Status: Provisional — partially reconciled**
+**Status: Provisional — judgment descent settled; doughnut examples still
+queued; model-first is a bet**
 
 ## Claim
 
@@ -22,8 +23,8 @@ pairing: stop conditions protect previous intentions rather than
 stacking judgment-dependent output. [Claim 19](19-stop-and-fix.md)
 owns the halt. [Claim
 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns poka-yoke
-as prevention supporting jidoka, not as a third pillar. This claim is
-**where that judgment lives**.
+as prevention supporting jidoka. This claim is **where that judgment
+lives**.
 
 Toyota's jidoka is “automation with a human touch”: people learn the
 work by hand, define what counts as abnormal, and put detection and
@@ -111,26 +112,23 @@ interpret the failure is smart inventory wearing a jidoka costume. A
 green suite does not prove the product valuable or safe in every
 unanticipated situation.
 
-The live question is not whether AI is allowed in a stop decision. It
-is whether AI may participate in **problem-solving after a dumb stop
-has already happened**. That is already routine: agents with a harness
-can learn from test failures and correctly fix a large share of them.
-That is acceptable. The anti-pattern is asking the agent to **get rid
-of the annoying failing tests and proceed toward the goal unstopped**.
-The useful pattern is the opposite: keep the dumb stop; use AI
-smartness as a **further filter** on failures the dumb test cannot
-distinguish, so more of the remaining judgment that reaches a person
-is actually value-adding.
+AI may participate in **problem-solving after a dumb stop has already
+happened**. That is already routine: agents with a harness can learn
+from test failures and correctly fix a large share of them. Keep the
+dumb stop; use AI smartness as a **further filter** on failures the
+dumb test cannot distinguish, so more of the remaining judgment that
+reaches a person is actually value-adding. The anti-pattern is asking
+the agent to get rid of the annoying failing tests and proceed toward
+the goal unstopped.
 
-Many AI-for-development setups invert the loom. The useful pattern: a
-person (with or without AI) investigates; the team encodes a closed
-stop or a prevention; later episodes need less live judgment. The
-failure: the tool generates diagnosis, patch, tests, and explanation
-in one pass; none of those is a closed question the process can halt
-on without a person; the person still does the real judging; the
-system is **loaded** with artifacts that look like knowledge.
-Throughput rises while the ability to finish, trust, and improve
-falls.
+The useful pattern: a person (with or without AI) investigates; the
+team encodes a closed stop or a prevention; later episodes need less
+live judgment. The failure: the tool generates diagnosis, patch,
+tests, and explanation in one pass; none of those is a closed question
+the process can halt on without a person; the person still does the
+real judging; the system is **loaded** with artifacts that look like
+knowledge. Throughput rises while the ability to finish, trust, and
+improve falls.
 
 Bainbridge's ironies of automation are the stress test: automating
 the easy, frequent work can leave people with rare, high-consequence
@@ -144,7 +142,7 @@ must not be outsourced.
 Terry's **personal bet for the talk**, said as such: whether an
 episode leaves reusable capability depends **first on the model**.
 Harness text and shared gates matter, but they sit on top of the
-prior. That ranking is not measured here. Say it is a bet.
+prior. That ranking is not measured here.
 
 What is sourced is narrower. Providers train and market
 coding-specialized models; that is real. It is not a public label
@@ -189,7 +187,7 @@ enough to proceed. AI may still clear **dumb** problems after a dumb
 stop (a type error, a red scenario caused by the current change). It
 may not dissolve that stop, and it may not take the five.
 
-## Talk implication
+## Implication for the talk
 
 > **Smart → dumb → gone.** Prevent what design can prevent. Stop
 > automatically on a closed question. Reserve investigation for what

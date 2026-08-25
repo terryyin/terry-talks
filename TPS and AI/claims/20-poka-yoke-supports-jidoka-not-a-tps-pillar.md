@@ -8,34 +8,30 @@ and 19; TPS relationship sourced; not a finalized talk beat**
 Poka-yoke has been used in several claims and deserves its own. Extract
 those details and explain how poka-yoke relates to TPS.
 
-The scattered uses were already doing different jobs:
+The scattered uses were already doing different jobs. Current ownership:
 
-- [Claim 1](01-tps-reasoning-not-mechanisms.md): AI should support
-  **jidoka and poka-yoke**; preventive design (remove unnecessary code,
-  make illegal states unrepresentable) is the poka-yoke form of spent
-  judgment, complementary to executable checks.
-- [Claim 2](02-tps-and-lean-houses.md): open whether poka-yoke should
-  appear as a supporting practice beneath the TPS pillars, or only as an
-  example inside particular relationships.
+- [Claim 1](01-tps-reasoning-not-mechanisms.md): AI supports jidoka by
+  preventing known mistakes and stopping known abnormalities; poka-yoke
+  is the supporting method named here.
+- [Claim 2](02-tps-and-lean-houses.md): Toyota's overview has two pillars;
+  poka-yoke placement is settled here as a supporting practice under
+  jidoka.
 - [Claim 5](05-smed-software-changeover-and-ai-friendly-context.md):
   simplified, mistake-proofed design cheapens the accepted component and
   discipline jump inside a vertical slice. Do not collapse every good
   design move into the name.
-- [Claim 6](06-jidoka-embeds-routine-judgment.md): "no intelligence" is
-  prevention by construction; the closest quality concept is poka-yoke,
-  not jidoka. Still open whether the talk presents that as an extension
-  of jidoka, as poka-yoke, or as a complementary software-design
-  principle.
+- [Claim 6](06-jidoka-embeds-routine-judgment.md): **gone** is prevention
+  by construction; the closest quality concept is poka-yoke, named here.
 - [Claim 11](11-physical-production-and-software-differences.md):
   poka-yoke and tests encode prior learning; they do not replace judgment
   of value, usefulness, or sufficiency of evidence.
 - [Claim 19](19-stop-and-fix.md): previously learned judgment also lives
   in types and poka-yoke, not only in tests.
 
-This is a lightly edited record of that request. This claim owns the
-**TPS relationship** and the **name**. Claim 6 still owns the layers of
-judgment (prevent / detect-and-stop / investigate-and-learn). Claim 19
-still owns the stop. Claim 5 still owns changeover.
+This claim owns the **TPS relationship** and the **name**. Claim 6 still
+owns the layers of judgment (prevent / detect-and-stop /
+investigate-and-learn). Claim 19 still owns the stop. Claim 5 still owns
+changeover.
 
 ## Research-based adjustment
 
@@ -75,10 +71,9 @@ devices that hinder the operator get disconnected. The ideal is cheap,
 simple, and invented in kaizen, not dreamed up as equipment that is
 "people-proof."
 
-[Claim 2](02-tps-and-lean-houses.md)'s open placement question is
-therefore answerable for poka-yoke: **supporting practice under
-jidoka**, shown inside that relationship, not drawn as a third pillar
-on Toyota's overview. SMED stays under JIT, as
+Placement is settled here: **supporting practice under jidoka**, shown
+inside that relationship, not drawn as a third pillar on Toyota's
+overview. SMED stays under JIT, as
 [Claim 18](18-continuous-improvement-towards-perfection.md) already has
 it.
 

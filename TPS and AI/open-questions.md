@@ -58,7 +58,8 @@ future discussion, not a set of conclusions.
 - Larman and Vodde's 2009 house diagram and the *More with LeSS* lean-thinking
   principle are in [Claim 2](claims/02-tps-and-lean-houses.md). Remaining: the
   2008 book text around the diagram's center (product development, 14 Toyota
-  Way principles).
+  Way principles), and how Toyota distinguishes TPS from the Toyota Way
+  across Toyota Way 2001 to 2020.
 - Evidence about Toyota's software, mobility, invention, and experimentation
   capabilities beyond conventional production.
 - Evidence about AI's effect on software generation speed and on downstream
@@ -66,7 +67,10 @@ future discussion, not a set of conclusions.
 - Examples from the doughnut project used in Terry's LeSS in Action
   trainings. The search list lives on
   [Claim 13](claims/13-doughnut-project-examples.md) (backlog; training
-  weeks located; example search not started). Currently queued: CI
+  weeks located; example search not started). [Claim
+  9](claims/09-nemawashi-self-organized-deliberation-in-less.md)
+  already pulled doughnut's ADR propose-to-accept path (Whale /
+  Wärtsilä minutes; not a class-week search). Currently queued: CI
   pulling useful collaboration ([Claims
   3](claims/03-jidoka-enables-jit-trusts-respect-grows.md) and
   [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md)),
@@ -82,10 +86,13 @@ future discussion, not a set of conclusions.
 ## Candidate future claims
 
 Add each new claim as a separate file under `claims/` only after Terry has
-stated the hypothesis. Keep the sequence:
+stated the hypothesis. While forming, keep the sequence:
 
 **original claim → research-based adjustment → emerging implication → open
 questions**
+
+Once the opinion is settled, collapse that path into one current claim, as
+Claims 1–6 now do.
 
 ### Backlog
 

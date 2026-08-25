@@ -1,7 +1,7 @@
 # Claim 9: Nemawashi supports self-organized deliberation in LeSS
 
-**Status: Provisional — origin, decision role, and LeSS mapping
-researched; not a finalized talk beat**
+**Status: Provisional — origin, LeSS mapping, and doughnut/Whale
+propose-to-accept path researched; not a finalized talk beat**
 
 ## Original claim / hypothesis
 
@@ -9,16 +9,19 @@ researched; not a finalized talk beat**
 > It is a good way to support self-organized discussion and decision-making in
 > LeSS. The ADR process in this project can provide an example.
 
-This is a lightly edited record of Terry's hypothesis. It contains three
-related propositions to investigate:
+This is a lightly edited record of Terry's hypothesis. "This project" is
+doughnut, not this talks repo. The analogue is how an ADR is **proposed
+and moved toward accepted**, not the ADR template or file format. The
+hypothesis contains three related propositions to investigate:
 
 1. **Origin:** nemawashi belongs to TPS, the Toyota Way, or the wider context
    from which both developed.
 2. **LeSS application:** nemawashi can help people organize deliberation and
    prepare decisions without relying on a manager to coordinate every
    conversation.
-3. **Concrete example:** this project's ADR process can make that pattern
-   visible in a form familiar to software developers.
+3. **Concrete example:** doughnut's ADR process—announce a proposal, go
+   around the people who care, then the author accepts—can make that
+   pattern visible in a form familiar to software developers.
 
 ## Research-based adjustment
 
@@ -90,7 +93,7 @@ Those effects should not be collapsed into one word:
 | Informed participation; a fair hearing | Yes. Liker: not everyone gets what they personally want. |
 | Consent / alignment so implementation is not a surprise fight | Yes — the gardening metaphor: prepare the roots so the transplant survives. |
 | Unanimous enthusiasm | No. Alignment and consent are not the same as everyone preferring the same option. |
-| The formal decision itself | No. Ringi, an A3 review, a management approval, or an ADR status change is later. The conversations are what produce the artifact. |
+| The formal decision itself | No. Ringi, an A3 review, a management approval, or moving an ADR from Proposed to Accepted is later. The conversations are what produce the artifact. |
 
 Art Smalley's useful cut: the A3 (or ringi-sho) is the **artifact**;
 nemawashi is the **process** that produces it. Skip the conversations and
@@ -191,28 +194,131 @@ collaborative decision-making under kaizen. Without that, low WIP becomes
 paralysis or heroic escalation. The research supports that reading. It
 does not support saying LeSS “uses nemawashi.”
 
-### This project's ADR is a compact analogue, with a boundary
+### The example is doughnut's propose-to-accept path, not "how ADRs work"
 
-The repository's ADR lifecycle deliberately separates proposing,
-deliberating, deciding, and preserving. That is closer to **artifact plus
-named authority** than to a circle of informal conversations.
+The software analogue is doughnut's **advice process**: how a draft ADR
+is announced, who gets to reshape it, and how it becomes Accepted. It is
+not the Nygard template, the filename suffixes, or this talks repo's
+solo playbook.
 
-| Nemawashi / Toyota decision habit | This repo's ADR |
-|---|---|
-| Informal groundwork that reshapes a proposal | Status stays **Proposed** while you re-read, stress-test alternatives, and walk ready-to-accept checks |
-| Formal decision | Only the owner moves it to Accepted or Rejected; that status change *is* the approval |
-| A3 / ringi-sho as the written vehicle | The ADR file |
-| Hierarchical circulation for stamps | **Absent.** Solo playbook: no advice round, no consensus step |
-| Preserve the reasoning | Accepted ADRs remain the recommendation; Rejected and Superseded stay for archaeology |
+Doughnut adapted that path from a product group whose minutes call the
+company **Whale**. Whale is **Wärtsilä**. Keep both names in this claim.
+Using the company name on stage depends on clearance.
 
-The solo-owner boundary in [Accepted ADR
-0000](../../docs/adrs/0000-use-adrs-accepted.md) is therefore a feature of
-the example, not a defect to hide. Agents may help research or challenge
-a proposal; they cannot approve it. That illustrates **distributed input
-and prepared, visible decision-making**. It is not evidence of group
-consensus or team-level self-organization. The valuable demonstration is
-precisely the split the original claim needs: people (and tools) closest
-to the knowledge can improve a proposal without owning the decision.
+#### The problem they started with
+
+Years ago the product had dedicated architects. Telling them to leave
+decisions to the teams did not work: teams still treated the architects
+as the real decision-makers, deferred, and nothing moved. Removing the
+architect roles swung the other way—some teams decided in isolation,
+others were too nervous to decide at all.
+
+The architecture community then quietly became an architectural
+**decision forum**. Because a decision might happen there, everyone felt
+obliged to attend. It filled with people who had nothing to contribute
+and no one actually sharing. It stopped working as a community.
+
+The fix: strip decision-making out of the community entirely. The
+community became discussion and learning only. Decisions moved to a
+defined process. Doughnut's Accepted ADR 0000 states the same lesson:
+architectural choices must not depend on a standing architect, nor on a
+community that becomes an accidental decision forum.
+
+#### The advice process — this is the nemawashi mapping
+
+The process is a version of the [advice
+process](https://www.reinventingorganizationswiki.com/Theory/Advice_Process/)
+in flat-organization literature. From the minutes:
+
+> Anyone can make any decision. But before you do, you must ask everyone
+> affected by it for advice. Once you've done that, you've done your
+> homework — and you make the call yourself.
+
+No vote, no committee, no approval step. You can hear everyone out and
+still decide against all of them. The point is not consensus — it is
+that people have been genuinely consulted and heard.
+
+Terry noted this is close to nemawashi. Bas Vodde pointed out the
+difference: nemawashi usually still has a **formal decision point**
+(even if it is a formality, because agreement already exists). Doughnut
+keeps that point: status stays Proposed while advice is sought; moving
+it to Accepted *is* the named decision. That is why the analogue is the
+**path to accepted**, not the record format. Smalley's cut still holds:
+the ADR file is the artifact; going around the people who care is the
+process that produces it.
+
+#### Only the start and the end are mandatory
+
+Applied to architecture, this becomes an "ADR process" (they borrowed the
+term and added "process"). Only two steps are mandatory:
+
+1. **Announce the start.** Whale posts to a single Slack announcement
+   channel: "I'm going to make a decision about X." People raise a hand
+   if they want to be involved. Nobody raises a hand → no one cares, go
+   ahead. Several do → the author sorts out how to discuss it (workshop,
+   thread, whatever). That middle is left entirely to the author.
+   Doughnut's playbook is the same shape: tell the team you are deciding
+   *X* and link the draft (PR, chat, or meeting). People who want to
+   contribute opt in; people who only need the outcome wait for
+   approval.
+2. **Announce the decision and hold an info session.** Once the author
+   feels there is enough agreement—or enough discussion—they approve it
+   **themselves**, announce it, and run an info session so people who
+   did not want the debate can still learn what was decided and why.
+   Approval announcements are for learning, not for reopening debate
+   unless something major is wrong.
+
+Whale's announcement channel is read-only and mandatory to follow: the
+org runs on Slack with a huge number of channels, so discussion traffic
+must not live there. If you want to debate, you forward it elsewhere.
+That is groundwork without forcing the whole department into the thread.
+
+Whale's 0000 ("Use ADR") writes those two announcements as templates:
+`ADR Proposal: "name"` (GitHub link, optional discussion session) and
+`ADR Approval: "name"` (GitHub link, info session). Announce the
+proposal relatively early so the right people can contribute. The
+author receives feedback until there are no more significant open
+issues. People who only want the outcome wait for the second
+announcement. If you strongly disagree after that, escalate through the
+architecture community or management.
+
+Doughnut's living playbook is the same path in compact form: Draft
+(Proposed) → Announce start → Discuss (author owns the form) → Decide
+yourself → Announce end → Supersede later rather than silently rewrite.
+
+#### Safety valves, not a second decision body
+
+Two features exist mostly to make people comfortable with the autonomy:
+
+- **Escalation.** If a decision was made in bad faith—someone ignored
+  everyone and pushed something absurd—anyone can escalate. It goes to
+  management because it is a **people/behavior** problem, not an
+  architecture one. In the minutes it had never been used. Not agreeing
+  with a decision is not grounds to escalate; consensus was never the
+  goal.
+- **Every decision is only a recommendation.** A team picking up work
+  can go against an ADR if their context demands it. The expectation is
+  that other teams speak up, or the team updates the ADR. The process
+  never removes a team's authority over its own work. Peer
+  accountability keeps it healthy.
+
+That is the LeSS-relevant split: CoPs and the architecture community
+**teach and discuss**; they do not stamp. A component mentor or CoP
+coordinator who becomes a gate on the path to Accepted is the failure
+mode the minutes already lived through.
+
+| Nemawashi / Toyota decision habit | Doughnut / Whale ADR *process* | Not the analogue |
+|---|---|---|
+| Informal groundwork that reshapes a proposal | Announce the start; people opt in; author seeks advice until significant open issues are addressed or taken as trade-offs | The ADR template, status vocabulary, or Git layout |
+| Formal decision after the groundwork | The author accepts (or rejects) themselves, then announces the decision and runs an info session | A community meeting that *is* the decision, or an architect stamp |
+| A3 / ringi-sho as the written vehicle | The ADR file | "We write ADRs" as if the document were the deliberation |
+| Hierarchical circulation for stamps | **Absent.** Anyone may propose and, after advice, decide | This talks repo's solo soak-and-accept playbook |
+| Consent so implementation is not a surprise fight | Mandatory announcement channel (Whale) or shared start/end announcements (doughnut); info session for people who skipped the debate | Unanimous enthusiasm, or a vote |
+
+The valuable demonstration is the split the original claim needs: people
+closest to the knowledge can improve a proposal without a manager
+convening the conversation, and without a community owning the call. The
+author still decides. Authority stays explicit.
 
 ## Emerging implication for the talk
 
@@ -232,18 +338,23 @@ Keep Just Talk and nemawashi on different beats if both appear:
 > Nemawashi is preparing a transplant: go around the roots before you
 > move the tree.**
 
-The project ADR sequence can still demonstrate a compact software form:
+Doughnut's propose-to-accept path can demonstrate a compact software
+form. It is the advice process plus Vodde's formal decision point, not
+the template:
 
-> **Make the proposal visible → invite relevant challenge → revise with
-> the learning → make authority and status explicit → preserve the
-> reasoning.**
+> **Announce that you will decide X → the people who care opt in →
+> revise with the advice → you accept it yourself → announce the
+> decision so the rest can learn it.**
 
 The analogy stays bounded. An ADR is a written governance record.
 Nemawashi in its strong form is still mostly face-to-face, revisable
 conversation. LeSS should not be presented as requiring ADRs or naming
 nemawashi. A CoP coordinator or component mentor who becomes a stamp
-along the path is ringi dressed as community, which LeSS already
-rejects.
+along the path is the architecture-community-as-decision-forum failure
+the minutes already recorded, which LeSS already rejects.
+
+On stage, **Whale / Wärtsilä** vs **doughnut only** is a clearance
+choice, not a content choice. The process is the same either way.
 
 For AI-augmented work the same split gets sharper. Generation makes
 proposals, RFCs, and “decision records” cheap. That does not go around
@@ -264,10 +375,13 @@ unjudged artifacts and call the pile alignment.
 - At what scope should a LeSS example live: multi-team Definition of
   Done, an architecture convention, Product Owner prioritization input,
   or an organizational-design change?
-- Would a multi-person product-group story be needed to support the LeSS
-  argument, or is the solo ADR valuable precisely because it separates
-  input from authority? A doughnut-project case, if it exists, belongs on
+- On stage, name **Wärtsilä**, keep the minutes' **Whale**, or show only
+  doughnut? The process is already in this claim; the remaining issue is
+  clearance, not a missing example. Training-week git searches stay on
   [Claim 13](13-doughnut-project-examples.md).
+- How hard to push Bas Vodde's distinction: the advice process is not
+  identical to nemawashi, because nemawashi still has a formal decision
+  point? Doughnut keeps that point (Proposed → Accepted).
 - How early can Toyota itself be shown using the *word* nemawashi in
   internal TPS or Toyota Way material, as opposed to Liker and the UK
   glossary?
@@ -319,10 +433,20 @@ unjudged artifacts and call the pile alignment.
    in the Art of Lean TPS Encyclopedia. Secondary: Japanese practice
    Toyota uses; A3 as artifact versus nemawashi as process; alignment
    rather than unanimous enthusiasm. Not a Toyota primary source.
-10. This repository's [Accepted ADR
-    0000](../../docs/adrs/0000-use-adrs-accepted.md) and [ADR
-    playbook](../../docs/adrs/README.md). Internal case; solo-owner
-    boundary.
+10. Doughnut (sibling repo), `docs/adrs/0000-use-adrs-accepted.md` and
+    `docs/adrs/README.md`. Living compact form of the advice process:
+    anyone may decide after seeking advice; no standing architect;
+    community is not a decision forum; agents consume Accepted ADRs and
+    do not approve.
+11. Odd-e, *Architectural decisions in Wärtsilä* (meeting notes; local
+    PDF `odde-Architectural decisions in Wärtsilä-200826-075906.pdf`).
+    Fuller origin story: architect-role failure, community-as-forum
+    failure, advice process, two mandatory announcements, Slack
+    `#whale-department-announcement` templates, escalation as a people
+    problem, ADRs as recommendations. **Whale** in those minutes and in
+    the cited 0000 is **Wärtsilä**. Keep both names here; talk use of
+    the company name depends on clearance. Participants named in the
+    notes include Bas, Terry, and Viktor.
 
 **Still open for talk wording (nemawashi vs Just Talk vs 根回し) and
-whether a multi-person LeSS example is required on stage.**
+whether the stage example is Wärtsilä, Whale, or doughnut only.**

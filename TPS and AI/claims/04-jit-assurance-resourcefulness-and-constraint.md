@@ -1,44 +1,26 @@
 # Claim 4: JIT creates assurance through resourceful capability, not abundance
 
-**Status: Provisional — not a demonstrated worker feeling**
+**Status: Provisional — operational confidence, not a demonstrated worker
+feeling; headroom sizing is off the talk**
 
-## Original claim / hypothesis
-
-Just-in-Time may give people a sense of assurance:
-
-> **We do not have to prepare everything in advance. We can handle the need
-> when it comes.**
-
-Perhaps this confidence comes from having free capacity—even capacity that a
-conventional utilization measure might label excessive. A person can remain
-calm because the system has enough room to respond rather than needing every
-resource to be busy in advance.
-
-## Reconciled claim
+## Claim
 
 > **JIT replaces confidence from stockpiles with confidence in a capable
-> response.** Jidoka is one of the mechanisms that makes that confidence
-> workable.
+> mixed-model response.** Even a known mix is made alternately; that is
+> only cheap if changeover is cheap. Jidoka makes that response
+> dependable.
 
-This is not confidence based on abundance. It is confidence that actual demand
-can be met by a coordinated, flexible, reliable, and continually improving
-system.
-
-The people-side reading is settled in
+The people-side reading is in
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md): JIT **entrusts**
 capable people close to the work with a resourceful response to actual need.
-That is Terry's reading of JIT's intention, not Toyota's definition, and not a
-report that workers feel trusted or calm. Mutual trust sits under Respect for
-People. This claim is about the **source of assurance**—capability instead of
-inventory.
+This claim is the **source of assurance**—capability instead of inventory.
 
 ### Before, during, postwar, recovery
 
 This section is the talk's **historical index** for TPS and JIT. Other
 claims, including
 [Claim 1](01-tps-reasoning-not-mechanisms.md), point here rather than
-retelling the chronology or substituting a later lean-production vogue for
-Toyota's own timeline.
+retelling the chronology.
 
 **Before.** Kiichiro Toyoda was already using Just-in-Time while planning
 Toyota's new automobile plant. When the Koromo Plant began operating in 1938,
@@ -85,9 +67,8 @@ quantity; a 1939 report says workers could leave when they completed the day's
 target early. Producing more merely to keep a resource occupied is
 overproduction.
 
-That is not a prescription for **excessive** free capacity. Kiichiro's 1938
-description called for neither shortage nor excess, including no excess labor
-or time.
+Kiichiro's 1938 description called for neither shortage nor excess, including
+no excess labor or time.
 
 - **Inventory buffer:** reduce what is made early “just in case,” while
   keeping the minimum needed for a workable pull loop.
@@ -114,17 +95,15 @@ Call this **operational confidence** or **readiness**:
 > **We do not need to make it early, because we have built the capability to
 > make it when it is needed.**
 
-Felt assurance is not part of the definition of JIT. The organization can
-enjoy the system while people still suffer stress—see
-[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md).
+Felt assurance is not part of the definition of JIT. Stress under missing
+conditions is [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md).
 
 ### Even a known mix is made alternately; SMED makes that affordable
 
 Even when the **mix for the period is known**, Toyota still does not run
 all of type A, then all of type B. **Heijunka of mix** sequences different
 types **alternately** so work content and upstream withdrawals stay level.
-That is not only a reaction to uncertain orders. Volume leveling (same
-total per day despite lumpy shipments) *is* a
+Volume leveling (same total per day despite lumpy shipments) is a
 response to mura of rate. Mix leveling is required **anyway** once more
 than one type shares the line. Toyota's history says items and volumes
 were equalized so Just-in-Time could be implemented at a higher level.
@@ -138,19 +117,15 @@ two C, two D):
 - Mix leveling: A A B C D A A B C D A B
 
 NUMMI ran the same logic on a known monthly mix: 75% A and 25% B became
-A A A B all day, not weeks of A then a week of B. Do not lead with the
-lumpy-orders bar chart (200 Monday, 50 Wednesday, plant at 100 a day).
-That is volume leveling of rate-mura. It is real, and it is the other
-half of heijunka, but it teaches the wrong first lesson for this claim.
+A A A B all day, not weeks of A then a week of B. Volume leveling of
+rate-mura (the lumpy-orders bar chart) is the other half of heijunka;
+it teaches the wrong first lesson for this claim, so do not lead with it.
 
 Alternating types without cheap changeover is ruinously expensive. Long
 setup makes a large lot look rational: amortize the die change. **SMED**
 is the kaizen that attacks that cost so small-lot mixed-model flow is
-economical. Large finished-goods banks and large process batches are not
-the strategy. Remaining lots in stamping or paint are constraints under
-improvement, not a license to hide in batches. That never-done
-trajectory—kaizen toward cheap changeover, not a finished setup
-project—is
+economical. Remaining lots in stamping or paint are constraints under
+improvement. That never-done trajectory is
 [Claim 18](18-continuous-improvement-towards-perfection.md).
 
 How software cuts the flow of user value into thin slices is
@@ -163,10 +138,10 @@ affords the resulting switch across components and disciplines is
 
 ### Resourcefulness is disciplined, distributed problem solving
 
-Toyota emphasizes human wisdom, ingenuity, independent thinking, and kaizen—
-not repeated heroic improvisation. Exact timing across thousands of parts
-requires stable processes, standards, leveling, reliable equipment, supplier
-coordination, clear pull signals, and small intentional buffers.
+Toyota emphasizes human wisdom, ingenuity, independent thinking, and kaizen.
+Exact timing across thousands of parts requires stable processes, standards,
+leveling, reliable equipment, supplier coordination, clear pull signals, and
+small intentional buffers.
 
 > **People closest to the work can recognize a gap, respond within a visible
 > system, investigate its cause, and improve the system so that the response
@@ -219,18 +194,10 @@ escalation.
 > **Reduce WIP only as far as teams can integrate, coordinate, and decide
 > for themselves. Take away the constraints; improve the conventions.**
 
-## Emerging implication for the talk
+## Implication for the talk
 
-> **JIT is not “we have plenty, so we can handle demand later.” It is “we have
-> built the capability to respond to real need, so we do not have to produce
-> early.”**
-
-A compact candidate:
-
-> **JIT replaces confidence from stockpiles with confidence in a capable
-> mixed-model response.** Even a known mix is made alternately; that is
-> only cheap if changeover is cheap. Jidoka makes that response
-> dependable.
+> **JIT is “we have built the capability to respond to real need, so we
+> do not have to produce early.”**
 
 For AI-augmented software development:
 
@@ -248,14 +215,8 @@ For AI-augmented software development:
   2026 *Acceleration Whiplash* is a recent snapshot among many. The scarce
   capacity is not model calls. It is human judgment, review, and the
   system's ability to absorb change without hiding defects in a generated
-  pile.
-- Use tests, types, stop conditions, rollback, and recorded constraints
-  to protect **previous intentions** and cut cognitive load for the next
-  human or AI. That is
-  [Claim 6](06-jidoka-embeds-routine-judgment.md): encode a closed stop
-  so later use needs less live judgment (**smart → dumb → gone**). Do
-  not spend adaptive attention re-watching what the process can already
-  stop. Encoded stops still age.
+  pile. Encoding that judgment so later use needs less live attention is
+  [Claim 6](06-jidoka-embeds-routine-judgment.md).
 
 The desired state is **fast, trustworthy response capacity**—not a stockpile of
 generated answers or an army of idle agents.
@@ -263,8 +224,7 @@ generated answers or an army of idle agents.
 ## Questions still open
 
 None remaining on this claim. The stage picture is mix leveling of a
-known mix, not lumpy orders by volume. Faros is a casual telemetry
-snapshot among many.
+known mix. Faros is a casual telemetry snapshot among many.
 
 ## Sources consulted
 
@@ -337,6 +297,3 @@ snapshot among many.
     One of many recent vendor snapshots: throughput up; incidents, bugs,
     churn, review load, and unreviewed merges up as AI adoption rises.
     Casual illustration of a now-familiar pattern, not a trial.
-
-**Headroom sizing is off the talk. Mix-leveling, self-coordination, and
-AI's two uses of capacity remain the live points.**
