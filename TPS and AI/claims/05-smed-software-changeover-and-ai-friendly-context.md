@@ -212,14 +212,14 @@ caution as elsewhere in this folder.
 
 | Practice | TPS name, qualified | How it cheapens a local jump |
 |---|---|---|
-| **Simplified, mistake-proofed design** | Closest to **poka-yoke** and information hiding, not all of “design.” [Claim 6](06-jidoka-embeds-routine-judgment.md) already owns that distinction. | Invalid states cannot be constructed; a module can be used with little knowledge of another. TDD and low coupling let the team enter one component without reconstructing the rest. |
+| **Simplified, mistake-proofed design** | Closest to **poka-yoke** and information hiding, not all of “design.” [Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns poka-yoke; [Claim 6](06-jidoka-embeds-routine-judgment.md) owns prevent vs detect vs learn. | Invalid states cannot be constructed; a module can be used with little knowledge of another. TDD and low coupling let the team enter one component without reconstructing the rest. |
 | **Automated tests** | **Jidoka** when they detect, stop, and make an abnormality visible. They are *also* a cheap verifier—SMED-like externalized checking. | Coding and checking can alternate without reconstructing a manual test procedure. The oracle is previous judgment made executable. |
 | **One-command remaining setup** | **OTED**: ASQ’s “reduction of die setup to a single step,” the SMED extreme toward zero setup. Not “automation” in general. | Clone, build, test, or deploy becomes one motion, so working memory is spent on the customer problem, not on reconstructing the environment. |
 
-Poka-yoke is mistake-proofing: eliminate the error-producing step, make
-the incorrect action impossible, or make the correct action much
-easier. Cohesive interfaces, types that exclude invalid states, and
-designs that localize likely change do that for a component jump. Broader
+[Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns
+poka-yoke as a TPS method under jidoka. Here it is only setup
+reduction: cohesive interfaces, types that exclude invalid states, and
+designs that localize likely change cheapen a component jump. Broader
 simplicity—high cohesion, low coupling, navigable boundaries—also
 reduces how much must be held in mind. Do not collapse every good
 design move into poka-yoke. Do treat mistake-proofed, locally
@@ -387,7 +387,8 @@ backlog (inventory):
 
 1. Prefer **no additional representation**—the cheapest software is
    software that is not there.
-2. Make illegal states unrepresentable (poka-yoke).
+2. Make illegal states unrepresentable (poka-yoke;
+   [Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md)).
 3. Highly cohesive design: once-and-only-once; related things close.
 4. Intention-revealing names that map to the business domain.
 5. Purpose of the code revealed by automated tests, which also prove it.

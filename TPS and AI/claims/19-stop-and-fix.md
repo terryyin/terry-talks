@@ -43,11 +43,13 @@ So three layers:
 | **LeSS / lean house** | Foundation practice: promote stop-and-fix. CI is compared to an andon. |
 
 [Claim 6](06-jidoka-embeds-routine-judgment.md) already owns where
-previously learned judgment lives (tests, types, poka-yoke). [Claim
+previously learned judgment lives. [Claim
+20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns poka-yoke as
+the prevent-at-source method. [Claim
 3](03-jidoka-enables-jit-trusts-respect-grows.md) already owns that
 jidoka *frees* people by giving them the right and expectation to
 signal, stop, respond, and improve. This claim is the operational
-requirement those two assume:
+requirement those claims assume:
 
 > **Jidoka is the capability to detect and stop. Stop & Fix is the
 > discipline of actually stopping, containing, fixing, and preventing

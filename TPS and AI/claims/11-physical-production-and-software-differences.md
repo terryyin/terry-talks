@@ -186,7 +186,9 @@ A missing bolt can be sensed as presence or absence. “This is the wrong
 product,” “this design will not age,” and “this generated function
 matches the tests but not the need” cannot be reduced to a thread-break
 sensor. Poka-yoke and tests encode prior learning; they do not replace
-judgment of value, usefulness, or sufficiency of evidence.
+judgment of value, usefulness, or sufficiency of evidence. [Claim
+20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns poka-yoke;
+this claim owns the semantic limit.
 
 AI makes the limit sharper, not weaker. Generated output can look
 finished while remaining unverified. Jidoka still belongs on every

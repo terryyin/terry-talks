@@ -64,7 +64,9 @@ complementary forms:
 
 Both embody judgment spent earlier. [Claim
 6](06-jidoka-embeds-routine-judgment.md) names them prevent-by-design and
-detect-and-stop, not levels of intelligence.
+detect-and-stop, not levels of intelligence. [Claim
+20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns poka-yoke: a
+supporting method under jidoka, not a third TPS pillar.
 
 AI can still help when no durable mechanism results. Novel investigation,
 explanation, and genuinely one-off work may be valuable in themselves. The risk

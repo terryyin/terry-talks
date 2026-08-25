@@ -89,18 +89,18 @@ Parnas's point is temporal: complexity has not left the universe;
 responsibility for it has been localized.
 
 The closest quality concept is **poka-yoke** (mistake-proofing), not
-jidoka: eliminate the error-producing step, make the incorrect action
-impossible, make the correct action easier, or prevent continuation
-until conditions are correct.
+jidoka. [Claim
+20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns that name
+and its TPS relationship: a supporting method under jidoka, not a
+third pillar, and not an extension that swallows jidoka.
 
 > **If a failure mode can be made impossible or irrelevant by design,
 > prefer that to repeatedly detecting it after it occurs.**
 
-Rename “no intelligence” to **prevention by construction**. Whether the
-talk presents this as an extension of jidoka, as poka-yoke, or as a
-complementary design principle is still open. [Claim
+Rename “no intelligence” to **prevention by construction**. [Claim
 5](05-smed-software-changeover-and-ai-friendly-context.md) already uses
-that distinction to cheapen a component jump; this claim owns the names.
+that distinction to cheapen a component jump; this claim owns the
+three layers of judgment.
 
 ### Tests are previous judgment made executable, not negligible intelligence
 
@@ -190,6 +190,10 @@ from a system they can no longer understand.
   intelligence” is dropped.
 - Should prevention by cohesive design be presented as an extension of
   jidoka, as poka-yoke, or as a complementary software-design principle?
+  Answered in [Claim
+  20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md): present it as
+  poka-yoke supporting jidoka, not as an extension that swallows
+  jidoka.
 - What is the best concrete software example that traverses all three
   layers from novel failure to test to prevention by design?
 - When is a probabilistic AI evaluator reliable enough to participate in
@@ -250,5 +254,6 @@ from a system they can no longer understand.
    that information-hiding decomposition improves comprehensibility and
    confines the knowledge and effects of design decisions.
 
-**Intelligence-levels vocabulary is dropped. Prevent / detect / learn,
-and whether prevention is named poka-yoke on stage, remain live.**
+**Intelligence-levels vocabulary is dropped. Prevent / detect / learn
+remain live. Prevention is named poka-yoke in
+[Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md).**
