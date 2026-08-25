@@ -40,7 +40,7 @@ So three layers:
 |---|---|
 | **TPS / jidoka** | The stop-and-contain-and-prevent-recurrence half of **jidoka**. |
 | **Toyota Way (Liker)** | Principle 5: a culture of stopping to fix, so quality is right the first time. |
-| **LeSS / lean house** | Foundation practice: promote stop-and-fix. CI is compared to an andon. |
+| **LeSS / lean house** | Foundation practice: promote stop-and-fix. The **CI system** is compared to an andon ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). |
 
 [Claim 6](06-jidoka-embeds-routine-judgment.md) already owns where
 previously learned judgment lives. [Claim
@@ -72,7 +72,7 @@ Terry's three methods fit that split.
 |---|---|---|
 | **Automated tests** | A known scenario no longer holds; simple assertions are previous judgment made executable | The failing test is not parked. Work on the customer item pauses until the signal is understood, contained, and either fixed or explicitly accepted as a new intention. |
 | **Fail-fast** | An illegal or unexpected condition at the moment it occurs | Do not swallow the abnormality (defensive `catch` that logs and continues is the software form of producing defective cloth). Prefer to make continuation impossible until someone responds. |
-| **CI/CD that stops delivery** | The integrated product is not in the agreed working state | Do not keep merging, deploying, or starting the next slice on a red mainline. The pipeline is an andon, not a report. |
+| **CI/CD that stops delivery** | The integrated product is not in the agreed working state | Do not keep merging, deploying, or starting the next slice on a red mainline. The pipeline is a **CI system**: an andon, not a report, and not itself CI ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). |
 
 Automated tests are the **main** method because they are cheap to
 re-run, encode a specific intention, and recall attention only on
@@ -99,7 +99,7 @@ That last point is the same one-piece-flow / spill-over constraint as
 
 ## Emerging implication for the talk
 
-A compact candidate, sitting next to Claims 3, 5, 6, and 8:
+A compact candidate, sitting next to Claims 3, 5, 6, 8, and 21:
 
 > **Jidoka without Stop & Fix is a dashboard. Tests, fail-fast, and
 > CI/CD only count when the team actually halts, contains, and learns.

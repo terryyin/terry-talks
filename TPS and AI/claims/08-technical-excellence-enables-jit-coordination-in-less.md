@@ -1,7 +1,7 @@
 # Claim 8: Technical excellence enables JIT coordination in LeSS
 
 **Status: Provisional — Whole Product Focus needs technical excellence;
-JIT coordination is interpretive**
+JIT coordination is interpretive; TE-for-CI is a proposed contrast**
 
 ## Original claim / hypothesis
 
@@ -23,6 +23,14 @@ chain is:
 > abnormality → self-managed collaboration when needed → more attention for
 > user value.**
 
+### Additional hypothesis: technical excellence is for continuous integration
+
+> Because continuous integration is so important in a LeSS organization,
+> CI should not be considered a part of Technical Excellence. The entire
+> Technical Excellence is for the purpose of Continuous Integration.
+
+A proposal. The contrast with LeSS's catalog is the point.
+
 ## Reconciled claim
 
 LeSS's own material supports the dependency. Complete local autonomy,
@@ -30,11 +38,12 @@ freedom from repetitive work as the definition of technical excellence,
 and **JIT coordination** as a named LeSS rule are not.
 
 > **Technical excellence makes Whole Product Focus workable.
-> Self-managing feature teams change one shared product; continuous
-> integration reduces hidden work in process, exposes abnormalities and
-> dependencies, and can pull collaboration when those become concrete.
-> Customer-centric teams and one ordered backlog orient that capability
-> toward user value.**
+> Self-managing feature teams change one shared product; in a LeSS
+> group that excellence exists so they can integrate continuously.
+> Continuous integration reduces hidden work in process, exposes
+> abnormalities and dependencies, and can pull collaboration when those
+> become concrete. Customer-centric teams and one ordered backlog
+> orient that capability toward user value.**
 
 The LeSS translation of that collaboration pattern is **Whole Product
 Focus**, not dependable inter-team relationships. That naming is
@@ -46,9 +55,6 @@ the **technical precondition**.
 LeSS states that as a property of the system, not as polish after
 self-managing teams exist. Changing reporting lines cannot make a product
 group responsive when the product is slow or dangerous to change.
-Continuous integration, clean code, architecture and design, testing,
-TDD, test automation, and continuous delivery sit under technical
-excellence.
 
 The dependency is stronger with feature teams: long-lived,
 cross-functional, and cross-component, completing an end-to-end customer
@@ -57,6 +63,27 @@ slices, not technical layers—is
 [Claim 17](17-jit-vertical-slicing-one-piece-flow.md). Several teams
 therefore change the same components. LeSS says that makes modern
 engineering practices, especially continuous integration, essential.
+
+### Technical excellence exists for continuous integration
+
+LeSS lists continuous integration with clean code, architecture and
+design, testing, TDD, test automation, and continuous delivery. Those
+are not peers. They exist so several feature teams can integrate one
+product continuously.
+
+TDD and splitting large changes keep the system working so a developer
+can integrate after a few minutes, not after a feature. Fast tests and a
+fast build keep people from batching. Clean code, refactoring, and
+craftsmanship support optimistic mainline integration. A shorter build
+cycle even forces better product structure. Continuous delivery is that
+same working system taken further, not a second purpose beside CI.
+
+The purpose is the practice, not the server
+([Claim 21](21-ci-practice-is-not-a-ci-system.md)).
+
+> **Continuous integration is not an item on the technical-excellence
+> list. The list exists so a LeSS product group can integrate
+> continuously.**
 
 ### Self-management is bounded
 
@@ -117,11 +144,15 @@ toward user value.
 
 ### Continuous integration is jidoka-like and JIT-like
 
+The proposal holds because continuous integration is both jidoka-like
+and JIT-like.
+
 **Jidoka-like:** keep a stable working system. Small changes enter the
 shared mainline frequently; automated builds and tests detect a
 meaningful break; the signal is visible; fixing has priority. LeSS
-compares the CI system to an andon. Stop & Fix, and why a red pipeline
-must actually halt work, is
+compares the **CI system**—not CI—to an andon
+([Claim 21](21-ci-practice-is-not-a-ci-system.md)). Stop & Fix, and
+why a red pipeline must actually halt work, is
 [Claim 19](19-stop-and-fix.md).
 
 **JIT-like:** remove unintegrated work in process. Instead of
@@ -177,6 +208,10 @@ translation. This claim adds:
 Memorable:
 
 > **Integrate continuously; collaborate just in time.**
+>
+> **Continuous integration is not an item on the technical-excellence
+> list. The list exists so a LeSS product group can integrate
+> continuously.**
 
 AI can make candidate changes cheap enough to create far more parallel
 code, tests, designs, and plans. In a weak technical system that output
@@ -228,7 +263,8 @@ Doughnut examples of CI pulling useful collaboration are queued on
    Integration](https://less.works/less/technical-excellence/continuous-integration).
    Connects CI to small batches, removal of unintegrated WIP, a stable system,
    jidoka, visible andon-like feedback, stop-and-fix, and learning without
-   blame.
+   blame. TDD, fast tests, and clean code appear as what makes frequent
+   integration possible.
 4. The LeSS Company, [Coordination &
    Integration](https://less.works/less/framework/coordination-and-integration).
    Describes decentralized coordination, “communicate in code,” frequent

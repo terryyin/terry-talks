@@ -86,12 +86,14 @@ bookmarks the week; it is not a `git log A..B` ancestry range.
 
 ## Later phases — queued searches
 
-### Whole Product Focus and continuous integration — Claims 3 and 8
+### Whole Product Focus and continuous integration — Claims 3, 8, and 21
 
 Original hypothesis, split from
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md). [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) states
-the technical-excellence bridge. This item is the empirical case.
+the technical-excellence bridge. [Claim
+21](21-ci-practice-is-not-a-ci-system.md) separates that practice from
+a CI system. This item is the empirical case.
 
 > **In the doughnut LeSS in Action setting, continuous integration of
 > interdependent user-centric work pulls useful cross-team collaboration
@@ -106,6 +108,8 @@ Look for:
 - How much of the effect depends on training design (one week, coaching,
   Whole Product Focus) versus practices that transfer to ordinary
   product groups.
+- A green pipeline or always-passing build that was not CI (delayed
+  mainline integration), or genuine CI whose andon was still primitive.
 
 ### Judgment descent — Claim 6
 

@@ -175,10 +175,12 @@ people have learned the work by hand.
 
 Software can do the same for **known, executable conditions**: the build
 breaks, a regression fails, a type is wrong, an invariant is violated, a
-deploy rolls back. That is the jidoka side of continuous integration in
+deploy rolls back. That is the jidoka side of a **CI system**
+([Claim 21](21-ci-practice-is-not-a-ci-system.md)), which can support
+the continuous-integration practice in
 [Claim
-8](08-technical-excellence-enables-jit-coordination-in-less.md) and the
-judgment-embedding loop in [Claim
+8](08-technical-excellence-enables-jit-coordination-in-less.md), and
+the judgment-embedding loop in [Claim
 6](06-jidoka-embeds-routine-judgment.md).
 
 The material limit is that many software abnormalities are **semantic**.
