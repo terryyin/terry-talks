@@ -27,6 +27,12 @@ future discussion, not a set of conclusions.
 - Can technical excellence make AI-generated changes meet the integrated
   product quickly enough that real dependencies pull teams into focused,
   self-managed collaboration rather than planned coordination overhead?
+  A working answer is
+  [Claim 8](claims/08-technical-excellence-enables-jit-coordination-in-less.md):
+  LeSS's coordination and integration channels overlap under continuous
+  integration; AI does not raise the importance of mainline CI (it was
+  never less); use AI to reduce volume and uncertainty, and slow down
+  rather than create debt faster.
 - Where does the analogy break down because software work combines discovery
   and production? A working answer is
   [Claim 11](claims/11-physical-production-and-software-differences.md):
@@ -65,7 +71,10 @@ future discussion, not a set of conclusions.
   3](claims/03-jidoka-enables-jit-trusts-respect-grows.md) and
   [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md)),
   including a green pipeline that is not CI
-  ([Claim 21](claims/21-ci-practice-is-not-a-ci-system.md));
+  ([Claim 21](claims/21-ci-practice-is-not-a-ci-system.md)); the full
+  sequence from AI-assisted change to integration signal, conversation,
+  stop-and-fix, and delivered user value
+  ([Claim 8](claims/08-technical-excellence-enables-jit-coordination-in-less.md));
   **smart → dumb** and **smart → gone**, and preferred unit/E2E plus
   same-gates-for-human-and-AI examples
   ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)).

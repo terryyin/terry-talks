@@ -111,6 +111,26 @@ Look for:
 - A green pipeline or always-passing build that was not CI (delayed
   mainline integration), or genuine CI whose andon was still primitive.
 
+### AI-assisted change through to user value — Claim 8
+
+[Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md)
+still needs one concrete doughnut sequence for the talk.
+
+> **AI-assisted change → integration signal → conversation →
+> stop-and-fix → delivered user value.**
+
+Look for:
+
+- A small AI-assisted change that met the shared product quickly.
+- The signal (related mainline change, merge conflict, red check) that
+  made coordination concrete.
+- The decentralized conversation—just talk, not a coordinating role.
+- Stop-and-fix, then a customer-centric increment, not only a green
+  pipeline.
+- Counter-examples: generated volume that never became a small
+  stoppable change; tests that duplicated code structure and protected
+  no behavior; duplicated solutions that broke cohesion.
+
 ### Judgment descent — Claim 6
 
 [Claim 6](06-jidoka-embeds-routine-judgment.md) needs software examples

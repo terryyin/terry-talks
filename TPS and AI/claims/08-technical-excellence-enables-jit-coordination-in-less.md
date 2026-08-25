@@ -1,7 +1,7 @@
 # Claim 8: Technical excellence enables JIT coordination in LeSS
 
 **Status: Provisional — Whole Product Focus needs technical excellence;
-JIT coordination is interpretive; TE-for-CI is a proposed contrast**
+TE-for-CI is a proposed contrast**
 
 ## Original claim / hypothesis
 
@@ -33,9 +33,11 @@ A proposal. The contrast with LeSS's catalog is the point.
 
 ## Reconciled claim
 
-LeSS's own material supports the dependency. Complete local autonomy,
-freedom from repetitive work as the definition of technical excellence,
-and **JIT coordination** as a named LeSS rule are not.
+LeSS's own material supports the dependency. Complete local autonomy
+and freedom from repetitive work as the definition of technical
+excellence are not. LeSS does not name **JIT coordination**. It says
+that when you integrate continuously, the coordination and integration
+channels overlap.
 
 > **Technical excellence makes Whole Product Focus workable.
 > Self-managing feature teams change one shared product; in a LeSS
@@ -101,8 +103,14 @@ whole-product increment.
 
 Those constraints are enabling. A reliable shared product and visible
 evidence let a team act without waiting for a coordinating manager.
-[Claim 12](12-respect-for-people-who-can-think.md) is the human
-capability being pulled.
+Use the strongest quality gate from day one. Decide **style** once,
+openly and early, and enforce it with the strictest automatic lint and
+style checker. That frees people from arguing about style so they can
+focus on **intention**. [Claim
+10](10-freedom-and-trust-reinforce-through-jidoka.md) owns that
+enabling-constraint reading of freedom. [Claim
+12](12-respect-for-people-who-can-think.md) is the human capability
+being pulled.
 
 ### Not freedom from repetitive work
 
@@ -134,6 +142,18 @@ accelerate waste and distance people from the work.
 > **Technical excellence encodes previously learned judgment as closed
 > stops and preventive design, so later use needs less live judgment
 > and people retain authority for exceptions.**
+
+Whether those practices have actually encoded **dumb** / **gone**
+judgment, rather than stacked **smart** inventory, is not something a
+dashboard can tell. It is the team's knowledge and awareness.
+Management without Go-See
+([Claim 16](16-go-see-ai-harness.md)) will not understand it. A team
+can look right—end-to-end customer value, continuous integration, fast
+user feedback, full test coverage—and still have tests that only
+duplicate the code structure and protect no behavior, or duplicated
+solutions that break cohesion. Nothing replaces the people who can see
+that. That is [Claim
+12](12-respect-for-people-who-can-think.md).
 
 [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md) owns the
 freedom-and-trust theme. Technical excellence does not decide what is
@@ -169,7 +189,21 @@ free to make incompatible local decisions.
 CI is therefore a shared, rapidly updated representation of the product
 that teams can use to coordinate.
 
-### Integration can pull collaboration; it is not the only coordination
+### Integration and coordination overlap
+
+LeSS's own statement:
+
+> **Why coordination and integration? Because when you are integrating
+> continuously, the coordination and integration channels strongly
+> overlap: integration requires coordination, and coordination results
+> in integration.**
+
+That is the LeSS wording, not a mapping of team interaction onto kanban
+replenishment. [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md) still names the
+organizational translation **Whole Product Focus**. This claim is the
+technical overlap: continuous integration is both the integration
+channel and the coordination channel.
 
 LeSS prefers **decentralized and informal coordination**:
 
@@ -183,16 +217,21 @@ conversation in advance; keep integration frequent enough that a real
 interaction becomes visible early; let that need pull the relevant
 people.
 
-Calling this **JIT coordination** is an interpretation, not a named LeSS
-rule or a literal kanban implementation. Nor is CI the only mechanism:
-multi-team refinement, design workshops, component communities, scouts,
-travelers, and open spaces can expose or anticipate dependencies. The
-stronger claim is not “all coordination begins with a failed
-integration.” It is:
+Nor is CI the only mechanism: multi-team refinement, design workshops,
+component communities, scouts, travelers, and open spaces can expose or
+anticipate dependencies. The stronger claim is not “all coordination
+begins with a failed integration.” It is:
 
 > **Technical excellence lets teams defer much detailed coordination
 > until evidence from the evolving shared product makes the right
 > collaboration concrete.**
+
+A CI signal that “overwhelms the product group with noisy, coupled
+interruptions” is already a problem, not a normal cost of the overlap.
+A merge conflict—or a red check—should draw the teams that share the
+work. If the same cause repeats, they should already have done that
+decentralized coordination. Because only the two sides in conflict are
+involved, it does not interrupt every team.
 
 ## Emerging implication for the talk
 
@@ -213,40 +252,43 @@ Memorable:
 > list. The list exists so a LeSS product group can integrate
 > continuously.**
 
-AI can make candidate changes cheap enough to create far more parallel
-code, tests, designs, and plans. In a weak technical system that output
-becomes inventory. In a stronger system, small AI-assisted changes meet
-the shared product and its executable evidence quickly. People remain
-responsible for whether the change is valuable, whether the evidence is
-sufficient, and what the system should learn.
+AI does not make direct mainline integration *more* important. It was
+never less. The practice does not change. Use AI to **reduce volume**
+(the doughnut project's post-change-refactor skill is one example) and to **reduce
+uncertainty**, not to increase either.
+
+**Slow down means avoid overproduction**—do not fill idle capacity with
+unwanted output. If the work is creating debt, speed is not the remedy.
+**1973 is the strongest overproduction case.** 1985 and 2008 as
+keep-people years are [Claim
+12](12-respect-for-people-who-can-think.md).
+
+TPS became famous because Toyota *cut production to actual need*
+instead of keeping the line busy. Sales fell; dealer stock rose; Eiji
+Toyoda says they were the first domestic maker to cut output, while
+others still increased it. Ohno: Toyota suffered less, and the world
+then noticed the production system. Overproduction is “the most
+terrible” waste.
+
+> **Slow down = do not overproduce. When demand falls, cut to actual
+> need. Do not keep people busy by creating inventory.**
+
+Keeping the people, and using slack to improve rather than firing them,
+is [Claim 12](12-respect-for-people-who-can-think.md): Respect for
+People is respect for people who can think. Generating unwanted code is
+the software form of the output other makers still increased in early
+1974.
 
 > **As generation becomes cheaper, technical excellence matters more—not
 > mainly so every team can generate independently, but so generated work
 > meets shared reality early enough for people to self-manage the
-> consequences.**
+> consequences. Do not create debt faster.**
 
 ## Questions still open
 
-- Is **JIT coordination** still useful as this claim's interpretive
-  label now that Claim 3 names the LeSS translation **Whole Product
-  Focus**, or could it be confused with a claim that LeSS formally maps
-  team interaction to kanban replenishment?
-- How can a product group tell whether its engineering practices have
-  encoded learned judgment (**dumb** / **gone**) rather than stacked
-  **smart** inventory in tests, pipelines, and generated checks?
-- What minimum common constraints—Definition of Done, tests,
-  architectural boundaries, integration policy, product direction—make
-  local freedom safe?
-- How can a product group tell whether a CI signal is creating focused
-  collaboration or overwhelming teams with noisy, coupled interruptions?
-- Does AI make direct mainline integration more important, or does the
-  volume and uncertainty of generated work require additional
-  containment before it reaches the shared product?
-- What concrete example can show the full sequence from AI-assisted
-  change to integration signal, conversation, stop-and-fix, and
-  delivered user value?
-
-Doughnut examples of CI pulling useful collaboration are queued on
+None remaining on this claim. The full doughnut sequence from
+AI-assisted change to integration signal, conversation, stop-and-fix,
+and delivered user value is queued on
 [Claim 13](13-doughnut-project-examples.md).
 
 ## Sources consulted
@@ -269,6 +311,12 @@ Doughnut examples of CI pulling useful collaboration are queued on
    Integration](https://less.works/less/framework/coordination-and-integration).
    Describes decentralized coordination, “communicate in code,” frequent
    synchronization, and “just talk” when a relevant change creates a need.
+   Craig Larman and Bas Vodde, *Large-Scale Scrum: More with LeSS*,
+   chapter Coordination & Integration: under continuous integration the
+   coordination and integration channels strongly overlap—integration
+   requires coordination, and coordination results in integration. The
+   public design principle is [coordination through
+   integration](https://less.works/less/adoption/more-with-less-organizational-design-principles).
 5. The LeSS Company, [Self-Management](https://less.works/less/management/self-managing-teams).
    Defines the team's responsibility for executing work and managing its own
    process and progress.
@@ -286,3 +334,13 @@ Doughnut examples of CI pulling useful collaboration are queued on
    Current primary account of jidoka freeing people from machine watching,
    detecting and stopping abnormalities, preserving kaizen, and JIT linking
    processes in continuous flow according to actual need.
+9. Toyota Motor Corporation, [Response to the First Oil
+   Crisis](https://www.toyota-global.com/company/history_of_toyota/75years/text/entering_the_automotive_business/chapter2/section4/item1.html),
+   *75 Years of Toyota*. Production curtailed January–March 1974; Eiji
+   Toyoda: first among domestic makers to cut output while others still
+   increased it; dealer inventory then cleared.
+10. Taiichi Ohno (1978/1988), *Toyota Production System: Beyond Large-Scale
+    Production*. TPS drew attention because Toyota suffered less in the
+    1973 oil crisis; overproduction is the worst waste. Keeping people
+    rather than hiring-for-peaks-and-firing is [Claim
+    12](12-respect-for-people-who-can-think.md).

@@ -78,6 +78,52 @@ people displaying their **capabilities** by running and improving the work.
 failure mode: without challenge, support, and real problems, Respect becomes
 pressure rather than growth.
 
+### A downturn shows whether people are labor or thinkers
+
+“Invest in people” can still mean cut them when output falls. Respect
+for People in this claim's sense is the opposite: when demand falls you
+still need people who can think. You do not fire them to make the
+numbers, and you do not keep them busy by making inventory. [Claim
+8](08-technical-excellence-enables-jit-coordination-in-less.md) owns
+the other half: **slow down means avoid overproduction.** This claim
+owns why the people stay.
+
+**1950 is the exception that taught the later practice.** After the
+Dodge Line crisis Toyota cut about 1,500 people and 10% of wages.
+Kiichiro Toyoda resigned. The 1962 Joint Declaration of Labor and
+Management is the vow not to repeat that rupture. The financial crisis
+itself is in [Claim
+4](04-jit-assurance-resourcefulness-and-constraint.md)'s historical
+index.
+
+**1973–74** is why TPS became famous as an operating system, and why
+regulars were not a 1950-style cut. Ohno: hiring for a peak and laying
+people off—or recruiting early retirees—when recession hits are bad
+practices; management's job is to identify excess manpower and use it.
+A Toyota case study finds the buffers were temporary and seasonal
+workers, overtime, and new-graduate hiring; real wages still fell.
+Headcount of regulars still rose through 1974. How Toyota *cut
+production to actual need* while other makers still increased output is
+Claim 8.
+
+**1985–87 (Plaza Accord):** operating income fell about 35%. Toyota's
+own history is cost reduction and muda, not a layoff and not extra
+output to occupy people. Headcount rose. Bonus talks were stormy. The
+people stayed so they could keep thinking and improving.
+
+**2008–09** is the closest idle-days picture, and even there salary is
+not 100%. Toyota's 75-year history: Japan used company holidays at
+**80% of base salary**; overseas it “placed greater emphasis on saving
+jobs than layoffs” and used **work sharing** at fourteen affiliates,
+covering more than 30,000 people. U.S. regular manufacturing team
+members were kept; non-production days went to training and
+improvement. That is making people, not utilizing labor until the
+volume returns.
+
+> **Keep the people who can think. Use the slack to improve. Do not
+> fire them to make the numbers, and do not keep them busy by creating
+> inventory.**
+
 ### The four skills are a software mapping, not Toyota's list
 
 Toyota does not publish problem-solving, facilitation, analysis, and
@@ -148,7 +194,11 @@ For AI-augmented software development, the test is not whether people are
 treated kindly while models generate. It is whether the system still
 produces people who can think about the product. Keep problem-solving,
 review, and teaching in the work. Saved time is capacity to learn, not
-proof that thinking is no longer the job. Pull, stop, and deskilling
+proof that thinking is no longer the job. When generation is cheap, the
+temptation is to keep people “busy” with extra output—the software form
+of overproduction. Claim 8 owns that stop. This claim owns why the
+people are still there: slack is for kaizen, not for a second pile of
+generated work, and not for a layoff. Pull, stop, and deskilling
 mechanisms are [Claims 4](04-jit-assurance-resourcefulness-and-constraint.md),
 [6](06-jidoka-embeds-routine-judgment.md), and
 [10](10-freedom-and-trust-reinforce-through-jidoka.md).
@@ -161,8 +211,12 @@ mechanisms are [Claims 4](04-jit-assurance-resourcefulness-and-constraint.md),
 - Should the four-skill list stay as a software mnemonic, or collapse to
   **problem-solving and teaching others to solve problems**, with
   collaboration handled under Whole Product Focus?
-- What one concrete story shows the difference from “invest in people”
-  without becoming a second lecture on lean failures?
+
+The concrete story that is not “invest in people” is the downturn test
+above: keep the people who can think; use slack to improve; do not fire
+them and do not occupy them with inventory. Overproduction as the paired
+stop is [Claim
+8](08-technical-excellence-enables-jit-coordination-in-less.md).
 
 ## Sources consulted
 
@@ -204,5 +258,38 @@ mechanisms are [Claims 4](04-jit-assurance-resourcefulness-and-constraint.md),
    [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md). Deskilling,
    amplification, and jidoka-with-AI evidence remain in
    [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md).
+8. Toyota Motor Corporation, [Labor-Management Relations:
+   Outline](https://www.toyota-global.com/company/history_of_toyota/75years/data/company_information/personnel/labor-management_relations/outline.html)
+   and [Resignation of President Kiichiro
+   Toyoda](https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter2/section6/item6_d.html),
+   *75 Years of Toyota*. 1950: about 1,500-person staff reduction and a 10%
+   wage cut; Kiichiro resigns; 1962 Joint Declaration of Labor and
+   Management as the vow not to repeat that rupture.
+9. Taiichi Ohno (1978/1988), *Toyota Production System: Beyond Large-Scale
+   Production*. Hiring for a peak and laying people off in a recession are
+   bad practices—identify excess manpower and use it. Overproduction as
+   the paired stop is sourced on [Claim
+   8](08-technical-excellence-enables-jit-coordination-in-less.md).
+10. Toyota Motor Corporation, [Surging
+    Yen](https://www.toyota-global.com/company/history_of_toyota/75years/text/leaping_forward_as_a_global_corporation/chapter2/section2/item1.html)
+    and [Comprehensive Cost Reduction
+    Activities](https://www.toyota-global.com/company/history_of_toyota/75years/text/leaping_forward_as_a_global_corporation/chapter2/section2/item2.html),
+    *75 Years of Toyota*. Plaza Accord profit crash; Challenge 50; muda,
+    not layoff. [Changes in the Number of
+    Employees](https://www.toyota-global.com/company/history_of_toyota/75years/data/company_information/personnel/employee/index.html):
+    unconsolidated headcount rose 1985–87.
+11. Toyota Motor Corporation, [Financial
+    Losses](https://www.toyota-global.com/company/history_of_toyota/75years/text/leaping_forward_as_a_global_corporation/chapter5/section1/item3.html),
+    *75 Years of Toyota*. 2008–09: Japan company holidays at 80% of base
+    salary; overseas, save jobs rather than layoffs, work sharing at
+    fourteen affiliates covering more than 30,000 people. [NYT, 13 Feb
+    2009](https://www.nytimes.com/2009/02/13/business/13auto.html): no
+    plan to eliminate full-time U.S. factory jobs; non-production days
+    paid for training and plant work; voluntary exits.
+12. Masato Oka and Takeshi Kimura (2003), [“Managing an Ageing Labour
+    Force”](https://doi.org/10.1111/1468-0440.00248), *The Geneva Papers
+    on Risk and Insurance*, 28(4). First oil crisis: regulars not
+    dismissed; buffers were overtime, temporary and seasonal workers,
+    new-graduate hiring, and a real-wage cut.
 
 **Still open for talk wording of the four skills versus Cho's line.**
