@@ -10,7 +10,7 @@ those details and explain how poka-yoke relates to TPS.
 
 The scattered uses were already doing different jobs:
 
-- [Claim 1](01-changing-significance-of-tps.md): AI should support
+- [Claim 1](01-tps-reasoning-not-mechanisms.md): AI should support
   **jidoka and poka-yoke**; preventive design (remove unnecessary code,
   make illegal states unrepresentable) is the poka-yoke form of spent
   judgment, complementary to executable checks.
@@ -162,7 +162,7 @@ re-teach the TPS relationship there.
 
 ### AI does not get a free pass on ownership
 
-[Claim 1](01-changing-significance-of-tps.md) already has the rule: an
+[Claim 1](01-tps-reasoning-not-mechanisms.md) already has the rule: an
 AI-generated safeguard becomes part of the team's jidoka or poka-yoke
 only when the team can understand, verify, own, and improve it.
 Generated tests fail; generated refactorings change behavior. The LEI

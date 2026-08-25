@@ -1,4 +1,4 @@
-# Claim 1: The changing significance of TPS
+# Claim 1: The useful transfer from TPS is system reasoning, not manufacturing mechanisms
 
 **Status: Provisional — limited to Toyota's own account and Claim 4's
 chronology**

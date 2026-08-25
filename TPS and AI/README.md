@@ -18,7 +18,7 @@ explicitly changed to **Finalized**.
 
 The claims below are **Provisional**:
 
-1. [The changing significance of TPS](claims/01-changing-significance-of-tps.md)
+1. [The useful transfer from TPS is system reasoning, not manufacturing mechanisms](claims/01-tps-reasoning-not-mechanisms.md)
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
 3. [Jidoka frees, JIT entrusts, Respect for People supports growth](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
 4. [JIT creates assurance through resourceful capability, not abundance](claims/04-jit-assurance-resourcefulness-and-constraint.md)

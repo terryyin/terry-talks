@@ -9,7 +9,7 @@ Terry's original wording**
 > materially change how pull, small batches, jidoka, and changeover reduction
 > work?
 
-[Claim 1](01-changing-significance-of-tps.md) already says software has a
+[Claim 1](01-tps-reasoning-not-mechanisms.md) already says software has a
 different mixture of production, discovery, and change, and that the
 useful transfer is Toyota's system reasoning, not a literal copy of
 mechanisms. [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md)
@@ -194,7 +194,7 @@ AI makes the limit sharper, not weaker. Generated output can look
 finished while remaining unverified. Jidoka still belongs on every
 condition the team has learned to specify. It cannot autonomate the
 novel exception. That is why [Claim
-1](01-changing-significance-of-tps.md) keeps people responsible for
+1](01-tps-reasoning-not-mechanisms.md) keeps people responsible for
 customer value and acceptable risk.
 
 ### How changeover reduction changes

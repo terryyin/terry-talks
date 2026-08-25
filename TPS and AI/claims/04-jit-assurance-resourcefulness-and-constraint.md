@@ -36,7 +36,7 @@ inventory.
 
 This section is the talk's **historical index** for TPS and JIT. Other
 claims, including
-[Claim 1](01-changing-significance-of-tps.md), point here rather than
+[Claim 1](01-tps-reasoning-not-mechanisms.md), point here rather than
 retelling the chronology or substituting a later lean-production vogue for
 Toyota's own timeline.
 
