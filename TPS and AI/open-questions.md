@@ -42,12 +42,6 @@ future discussion, not a set of conclusions.
   [Claim
   4](claims/04-jit-assurance-resourcefulness-and-constraint.md) already
   has the stacking warning.
-- Empathy, a sense of romance, and critical thinking as a **human
-  intelligence** layer: keep on [Claim
-  6](claims/06-jidoka-embeds-routine-judgment.md), move to [Claim
-  12](claims/12-respect-for-people-who-can-think.md), or split? Romance
-  has no Toyota primary yet.
-
 ## Evidence to collect
 
 - Primary Toyota sources defining TPS and the Toyota Way today.

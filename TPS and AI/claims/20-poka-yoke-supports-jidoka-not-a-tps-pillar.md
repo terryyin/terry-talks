@@ -34,9 +34,8 @@ The scattered uses were already doing different jobs:
 
 This is a lightly edited record of that request. This claim owns the
 **TPS relationship** and the **name**. Claim 6 still owns the layers of
-judgment (prevent / detect-and-stop / investigate-and-learn, plus an
-opened human-intelligence layer). Claim 19 still owns the stop. Claim 5
-still owns changeover.
+judgment (prevent / detect-and-stop / investigate-and-learn). Claim 19
+still owns the stop. Claim 5 still owns changeover.
 
 ## Research-based adjustment
 

@@ -24,7 +24,7 @@ The claims below are **Provisional**:
 4. [JIT creates assurance through resourceful capability, not abundance](claims/04-jit-assurance-resourcefulness-and-constraint.md)
 5. [SMED for software means cheap changeovers so customer-centric focus is not interrupted](claims/05-smed-software-changeover-and-ai-friendly-context.md)
 6. [Jidoka embeds previously learned judgment so adaptive attention can learn](claims/06-jidoka-embeds-routine-judgment.md)
-7. [“The Algorithm” shares TPS roots and spirit](claims/07-the-algorithm-and-tps-family-resemblance.md)
+7. [The Algorithm has a TPS family resemblance; it is not a proven extension of TPS](claims/07-the-algorithm-and-tps-family-resemblance.md)
 8. [Technical excellence enables JIT coordination in LeSS](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
 9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md)
 10. [Freedom and trust can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
