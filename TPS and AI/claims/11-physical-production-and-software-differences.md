@@ -147,6 +147,10 @@ In software, a small batch is a **small unique increment of an evolving
 product**: a small done item, a small integrated change, a small release.
 The batch is not “one more copy of the same car.” Transaction cost is
 thinking, setup, verification, and integration, not only machine setup.
+How to cut that increment from the requirement—a thin vertical slice of
+user value, not a technical layer, confirmed by 一個ずつ確認—is
+[Claim 17](17-jit-vertical-slicing-one-piece-flow.md).
+
 LeSS already connects this to queueing: large variable batches of
 features, documents, or unintegrated code lengthen cycle time
 nonlinearly. Naive appeal to Little's Law is not a guarantee in

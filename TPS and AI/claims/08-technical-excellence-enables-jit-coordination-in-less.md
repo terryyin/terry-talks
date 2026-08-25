@@ -48,8 +48,11 @@ delivery under technical excellence.
 
 This dependency becomes stronger with feature teams. A feature team is
 long-lived, cross-functional, and cross-component, and completes an
-end-to-end customer feature. Several feature teams consequently change the
-same components and share ownership of the product code. LeSS says this makes
+end-to-end customer feature. How those features are cut so each can be
+confirmed by 一個ずつ確認—vertical slices, not technical layers—is
+[Claim 17](17-jit-vertical-slicing-one-piece-flow.md). Several feature
+teams consequently change the same components and share ownership of the
+product code. LeSS says this makes
 modern engineering practices—especially continuous integration—essential.
 
 Technical excellence is therefore not a polish added after LeSS has created

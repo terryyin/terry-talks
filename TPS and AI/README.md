@@ -33,6 +33,8 @@ The claims below are **Provisional**:
 13. [Doughnut CI pulls useful cross-team collaboration](claims/13-doughnut-ci-useful-collaboration.md)
 14. [Ebata's JIT teaching can be corroborated in print](claims/14-ebata-jit-teaching-in-print.md)
 15. [Extreme conditions interrupt JIT; they do not refute capable response](claims/15-extreme-conditions-interrupt-jit.md)
+16. [Go-See is firsthand facts; in AI work that includes the harness](claims/16-go-see-ai-harness.md)
+17. [JIT in software prefers vertical slices of user value; one-piece flow is 一個ずつ確認](claims/17-jit-vertical-slicing-one-piece-flow.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).

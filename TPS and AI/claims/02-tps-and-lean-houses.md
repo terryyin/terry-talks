@@ -35,7 +35,9 @@ and with high quality.
 
 This corrects my uncertainty about **one-piece flow**. Flow is not the roof.
 Toyota describes continuous flow as part of synchronizing production under
-Just-in-Time, alongside pull and producing at the pace of sales.
+Just-in-Time, alongside pull and producing at the pace of sales. How that
+flow is cut in software—vertical slices of user value, confirmed by
+一個ずつ確認—is [Claim 17](17-jit-vertical-slicing-one-piece-flow.md).
 
 ### Then compare Larman and Vodde's Lean Thinking House
 

@@ -168,7 +168,9 @@ For AI-augmented software development:
 - Do not generate implementations, specifications, or backlog items early just
   because generation is cheap. That creates intellectual inventory.
 - Pull a candidate from a real, current need and shorten the time from need to
-  a verified response.
+  a verified response. Cutting that need as a thin vertical slice of user
+  value, confirmed by 一個ずつ確認, is
+  [Claim 17](17-jit-vertical-slicing-one-piece-flow.md).
 - Preserve headroom for review, diagnosis, integration, and unexpected
   problems instead of treating maximum utilization as the goal.
 - Use tests, validation, observability, stop conditions, and rollback as forms
