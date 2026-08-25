@@ -22,11 +22,14 @@ the tension pair**
 > coordinate in a Just-in-Time manner. It avoids producing detailed plans long
 > before they are needed and avoids the high cost of changing those plans.
 
-This is a lightly edited record of Terry's hypothesis. [Claim
-3](03-jidoka-enables-jit-trusts-respect-grows.md) uses **entrusts** for JIT:
-capable people close to the work own the resourceful response. That is
-Terry's reading of JIT's intention, not Toyota's definition, and not a report
-of how people experience the system. Mutual trust sits under Respect for
+This is a lightly edited record of Terry's hypothesis. The
+freedom-from-repetitive-work reading of jidoka is superseded in Claims
+[3](03-jidoka-enables-jit-trusts-respect-grows.md) and
+[6](06-jidoka-embeds-routine-judgment.md); this claim keeps the theme,
+not that definition. Claim 3 uses **entrusts** for JIT: capable people
+close to the work own the resourceful response. That is Terry's reading
+of JIT's intention, not Toyota's definition, and not a report of how
+people experience the system. Mutual trust sits under Respect for
 People.
 
 The proposed reinforcing loop is:
@@ -39,8 +42,9 @@ The proposed reinforcing loop is:
 ## Reconciled claim
 
 The theme is defensible. Freedom and trust as simple opposites, jidoka as
-freedom from constraint, individual freedom from every specialization,
-trust as faith, and “trust eliminates planning” are not.
+freedom from constraint or from repetitive work, individual freedom from
+every specialization, trust as faith, and “trust eliminates planning” are
+not.
 
 > **The real tension is freedom versus coercive control.** Trust and
 > enabling constraints can reinforce one another. Jidoka constrains what is
@@ -74,9 +78,12 @@ surveillance.
 
 ### Jidoka supplies enabling constraints
 
-[Claim 6](06-jidoka-embeds-routine-judgment.md) owns where that judgment
-lives: detect a specified abnormality, stop it, bring people to the
-exception. This claim adds the human meaning of that constraint:
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has
+**frees by empowering**. [Claim 6](06-jidoka-embeds-routine-judgment.md)
+owns where that judgment lives: previously learned judgment becomes a
+closed stop (**dumb**) or is designed out (**gone**), so adaptive
+attention is free for what is still **smart**. This claim adds the human
+meaning of that constraint:
 
 > **Constrain what is already known to be abnormal so that people have more
 > freedom and attention for what is not yet known.**
@@ -176,7 +183,7 @@ outsourced: people who can think.
 
 Memorable:
 
-> **Automate the known. Stop the abnormal. Free people to learn. Entrust a
+> **Encode the known. Stop the abnormal. Free people to learn. Entrust a
 > capable response to real need. Let visible capability earn mutual trust.**
 
 The strongest version of the theme is not that TPS resolves freedom and
@@ -199,9 +206,9 @@ trust once and for all:
   only one link—for example, a novel failure becoming a test, a design
   constraint, broader team capability, and then less need for prior
   approval?
-- Which freedoms matter most: from routine watching, from repetitive work,
-  from specialist dependency, to stop, to change the process, or to decide
-  how to meet a product need?
+- Which freedoms matter most: from watching the routine, from re-judging
+  what is already known, from specialist dependency, to stop, to change
+  the process, or to decide how to meet a product need?
 - What evidence would show that saved AI time became learning and value
   rather than more output or higher utilization expectations?
 - Who owns and can change an automated constraint? What makes a technical

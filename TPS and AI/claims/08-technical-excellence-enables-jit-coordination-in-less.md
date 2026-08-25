@@ -77,25 +77,37 @@ evidence let a team act without waiting for a coordinating manager.
 [Claim 12](12-respect-for-people-who-can-think.md) is the human
 capability being pulled.
 
-### Not merely freedom from repetitive work
+### Not freedom from repetitive work
 
-The jidoka connection supports *part* of the freedom claim. Toyota:
-detect a known abnormality, stop, make it visible, bring people to
-respond—no continuous machine watching. Software analogues include
-automated builds, tests, checks, and deployments; designs that prevent
-invalid states; fast feedback; and regression evidence that preserves
-earlier learning.
+The original hypothesis defined technical excellence as freeing people
+from repetitive work. LeSS does not, and that is no longer the jidoka
+connection.
 
-**Freedom from repetitive work** is too broad as a definition. Skilled
-teams still maintain, test, refactor, operate, and practice. Automation
-built before the work is understood can accelerate waste or distance
-people from the system. Narrower:
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the people
+side: jidoka **frees people by empowering them**—the right and
+expectation to signal, stop, respond, and improve. Known abnormal work
+is made visible and stoppable so attention can move to judgment,
+learning, and kaizen.
 
-> **Technical excellence removes or automates repeatable overhead where
-> the system has learned enough to do so, while preserving fast evidence
-> and human authority for exceptions.**
+[Claim 6](06-jidoka-embeds-routine-judgment.md) owns where that judgment
+lives. Knowledge should move **smart → dumb → gone**: a closed,
+self-protected stop, or the failure designed out. Software analogues
+are not any automation. Automated builds and tests that actually halt
+are **dumb**; unrepresentable invalid states are **gone**
+([Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md)). Checks
+that still need a person to interpret the failure, or generated
+artifacts that look finished until someone re-judges them, are **smart**
+inventory. [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md)
+already warns that AI can stack that inventory quickly.
 
-[Claim 6](06-jidoka-embeds-routine-judgment.md) owns that loop.
+Skilled teams still investigate, maintain, refactor, operate, and
+practice. Encoding judgment the system has not yet learned can
+accelerate waste and distance people from the work.
+
+> **Technical excellence encodes previously learned judgment as closed
+> stops and preventive design, so later use needs less live judgment
+> and people retain authority for exceptions.**
+
 [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md) owns the
 freedom-and-trust theme. Technical excellence does not decide what is
 valuable: a strong component organization can still optimize internal
@@ -184,9 +196,9 @@ sufficient, and what the system should learn.
   label now that Claim 3 names the LeSS translation **Whole Product
   Focus**, or could it be confused with a claim that LeSS formally maps
   team interaction to kanban replenishment?
-- Which repetitive work is genuinely eliminated by technical excellence,
-  and which work is only displaced into maintaining tests, pipelines,
-  environments, and platform capabilities?
+- How can a product group tell whether its engineering practices have
+  encoded learned judgment (**dumb** / **gone**) rather than stacked
+  **smart** inventory in tests, pipelines, and generated checks?
 - What minimum common constraints—Definition of Done, tests,
   architectural boundaries, integration policy, product direction—make
   local freedom safe?
