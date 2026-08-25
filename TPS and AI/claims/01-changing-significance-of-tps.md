@@ -128,13 +128,11 @@ context-specific. The complete TPS–AI connection is therefore the talk's
 research-informed synthesis, not a directly tested result; legal responsibility
 also depends on jurisdiction, role, contract, and application.
 
-## Remaining research boundary
+## Domain differences
 
-One topic remains separate from this claim: which material differences between
-physical production and software development change how TPS relationships
-operate in practice. This is recorded in
-[Research Question 11](11-physical-production-and-software-differences.md)
-without a hypothesis yet.
+Which material differences change how TPS relationships operate in
+practice is developed in
+[Claim 11](11-physical-production-and-software-differences.md).
 
 ## Sources consulted
 

@@ -1,7 +1,6 @@
 # Claim 4: JIT creates assurance through resourceful capability, not abundance
 
-**Status: Provisional — history and capacity mechanism corrected; not a
-demonstrated worker feeling**
+**Status: Provisional — not a demonstrated worker feeling**
 
 ## Original claim / hypothesis
 
@@ -15,22 +14,11 @@ conventional utilization measure might label excessive. A person can remain
 calm because the system has enough room to respond rather than needing every
 resource to be busy in advance.
 
-Terry's initial historical explanation is that JIT was invented in Japan after
-World War II, when the country and Toyota had very little material, money, or
-demand, and Japan lacked full autonomy under the U.S.-led occupation. In that
-setting, JIT meant improvising and being resourceful with what was available
-while doing one's best to satisfy the customer's need.
-
-The resulting people claim is:
-
-> **JIT trusts Toyota's people to be resourceful, and jidoka enables them to do
-> so.**
-
 ## Reconciled claim
 
-> **JIT replaces reassurance from stockpiles and early production with
-> confidence in responsive capability. Jidoka is one of the mechanisms that
-> makes that confidence workable.**
+> **JIT replaces confidence from stockpiles with confidence in a capable
+> response.** Jidoka is one of the mechanisms that makes that confidence
+> workable.
 
 This is not confidence based on abundance. It is confidence that actual demand
 can be met by a coordinated, flexible, reliable, and continually improving
@@ -44,51 +32,40 @@ report that workers feel trusted or calm. Mutual trust sits under Respect for
 People. This claim is about the **source of assurance**—capability instead of
 inventory.
 
-### Conceived before the war, realized across eras
+### Before, during, postwar, recovery
 
-Kiichiro Toyoda was already using the phrase Just-in-Time while planning
+**Before.** Kiichiro Toyoda was already using Just-in-Time while planning
 Toyota's new automobile plant. When the Koromo Plant began operating in 1938,
 each process was to make only the required daily quantity and stop after
-delivering it. Wartime control and material rationing made that system
-impossible to sustain; Toyota suspended it.
+delivering it. His reasoning is a coordination problem: a mountain of parts
+cannot make a car if one necessary part is missing, and money alone cannot
+organize tens of thousands of parts.
 
-Occupation, GHQ production permissions, the Dodge Line contraction, and the
-1949–1950 crisis—unsold vehicles trapping scarce funds—then shaped postwar
-experiments. Japan regained sovereignty in 1952. Toyota dates full realization
-of JIT to the supermarket method and kanban from 1954.
+**During.** Wartime control and material rationing made that system impossible
+to sustain; Toyota suspended it.
+
+**Postwar.** Occupation, GHQ production permissions, the Dodge Line
+contraction, and the 1949–1950 crisis—unsold vehicles trapping scarce
+funds—shaped experiments. Toyota had old equipment, few orders, limited funds,
+and a severe productivity disadvantage relative to U.S. mass producers.
+Toyota's early English-language TPS account connects Japan's lack of natural
+resources to eliminating waste and making full use of people's capabilities.
+Constraint was real; it did not mechanically create JIT. Irregular supplier
+deliveries hindered experiments. Nissan faced much of the same environment and
+developed a different system. Limited finance may matter more than scarce
+material: low inventory avoids trapping cash and space, but production still
+needs reliable material when it is triggered.
+
+**Recovery.** Japan regained sovereignty in 1952. Toyota dates full realization
+of JIT to the supermarket method and kanban from 1954, through a long effort
+to close the productivity gap with American manufacturers.
 
 > **Kiichiro conceived JIT before the war. Wartime controls interrupted it.
-> Toyota developed it into a practical system through postwar experiments,
-> financial crisis, limited demand, and a long effort to close the productivity
-> gap with American manufacturers.**
+> Toyota made it a practical system through postwar experiment and recovery.**
 
-It is therefore too compressed to say that JIT was invented after World War II
-because occupied Japan had nothing. Occupation is real background; it does not
-cause the original idea. No source found so far links Japan's loss of
-sovereignty to a philosophy of trusting workers to improvise. Occupation-era
-democratization strengthened organized labor, and Toyota's 1950 crisis
-culminated in a bitter dispute over layoffs. “Trust in people” was not an
-automatic consequence of national powerlessness.
-
-### Constraint mattered, but did not mechanically create JIT
-
-Postwar Toyota had old equipment, few orders, limited funds, and a severe
-productivity disadvantage relative to U.S. mass producers. Toyota's early
-English-language TPS account connects Japan's lack of natural resources to
-eliminating waste and making full use of people's capabilities. Kiichiro's
-reasoning is a coordination problem: a mountain of parts cannot make a car if
-one necessary part is missing, and money alone cannot organize tens of
-thousands of parts.
-
-Scarcity is not a sufficient cause. Wartime rationing **blocked** JIT;
-irregular supplier deliveries hindered postwar experiments. Nissan faced much
-of the same environment and developed a different system. Demand immediately
-after the war was low, but Toyota was initially producing mostly similar
-civilian trucks—variety became important later. Limited finance may matter
-more than scarce material: low inventory avoids trapping cash and space, but
-production still needs reliable material when it is triggered. A Toyota–Nissan
-comparison attributes more to Toyota's habit of self-testing and adapting than
-to environment alone.
+COVID and the Russia–Ukraine war are a modern analogue of that interruption,
+not a refutation of capable response. That argument is
+[Claim 15](15-extreme-conditions-interrupt-jit.md).
 
 > **Do not compensate for uncertainty by accumulating everything in advance.
 > Improve the organization's ability to detect actual need, coordinate a
@@ -131,16 +108,14 @@ capacity can be visible and tolerated rather than turned into unneeded output.
 TPS still asks whether people, equipment, and time can be used more
 effectively.
 
-The original “rest assured” intuition is better named **operational
-confidence** or **readiness**:
+Call this **operational confidence** or **readiness**:
 
 > **We do not need to make it early, because we have built the capability to
 > make it when it is needed.**
 
-[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already treats the
-trust reading as intention and philosophy, not worker experience: the
-organization can enjoy JIT while people still suffer stress. Felt assurance is
-not part of the definition of JIT.
+Felt assurance is not part of the definition of JIT. The organization can
+enjoy the system while people still suffer stress—see
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md).
 
 ### Resourcefulness is disciplined, distributed problem solving
 
@@ -185,8 +160,8 @@ become recurring crisis rather than dependable responsiveness.
 
 A compact candidate:
 
-> **JIT entrusts a capable response, not inventory. Jidoka makes that
-> capability dependable.**
+> **JIT replaces confidence from stockpiles with confidence in a capable
+> response.** Jidoka makes that capability dependable.
 
 For AI-augmented software development:
 

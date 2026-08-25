@@ -342,6 +342,10 @@ SMED is not a recipe to transplant literally.
 The analogy is strongest at the level of **system design**: reduce the
 recurrent overhead that makes small feedback batches uneconomical while
 protecting the irreducible learning and judgment in product development.
+[Claim 11](11-physical-production-and-software-differences.md) places this
+break in the wider map: the product is also the process, so changeover
+reconstructs knowledge in a moving system rather than returning a machine
+to a known production mode.
 
 ## Emerging implication for the talk
 

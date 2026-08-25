@@ -26,7 +26,12 @@ future discussion, not a set of conclusions.
   product quickly enough that real dependencies pull teams into focused,
   self-managed collaboration rather than planned coordination overhead?
 - Where does the analogy break down because software work combines discovery
-  and production?
+  and production? A working answer is
+  [Claim 11](claims/11-physical-production-and-software-differences.md):
+  the mixture changes units, signals, and inventory; it is not a binary of
+  factory versus lab. Remaining talk choices (one sequence example, AI
+  set-based exploration versus overproduction, operations as a third mode)
+  stay on that claim.
 
 ## Evidence to collect
 

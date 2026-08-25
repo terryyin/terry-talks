@@ -57,11 +57,9 @@ let people handle a novel need and make the next response more reliable.
 Without those conditions, tight coupling and low buffers produce pressure
 rather than a resourceful response.
 
-The history does not support a simple origin story in which occupied Japan
-had few resources and therefore trusted workers to improvise. Kiichiro
-Toyoda conceived JIT before the war; Toyota made it practical later.
 [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) keeps the
-chronology and the related assurance reading.
+chronology—before the war, wartime interruption, postwar experiment, and
+recovery—and the related assurance reading.
 
 An oral teaching shared with Terry by Kazumasa Ebata resembles this JIT side
 more closely than any published English source found so far. The full text,
@@ -93,13 +91,13 @@ system that treats people as capable of learning and gives them
 responsibility, challenge, support, teamwork, and real problems. Respect
 alone does not guarantee growth.
 
-A stronger claim—that Respect for People is the realization that **people
-who can think** are the company's most important assets—is recorded in
+What Respect for People is *for*—people who can think, grown by the work
+itself, not a generic asset slogan—is
 [Claim 12](12-respect-for-people-who-can-think.md).
 
-Differences between physical production and software that limit the JIT
-analogy are out of scope here; they remain
-[Research Question 11](11-physical-production-and-software-differences.md).
+Differences between physical production and software that change how pull,
+batches, jidoka, and changeover work are the subject of
+[Claim 11](11-physical-production-and-software-differences.md).
 
 ## Emerging implication for the talk
 
