@@ -34,6 +34,19 @@ future discussion, not a set of conclusions.
   factory versus lab. Remaining talk choices (one sequence example, AI
   set-based exploration versus overproduction, operations as a third mode)
   stay on that claim.
+- Is stacking **judgment-dependent** knowledge (generated analysis, unowned
+  tests, patches that still need a person to re-judge) the distinctive
+  failure of AI-assisted development, as opposed to merely generating too
+  much code? [Claim
+  6](claims/06-jidoka-embeds-routine-judgment.md) now names that split;
+  [Claim
+  4](claims/04-jit-assurance-resourcefulness-and-constraint.md) already
+  has the stacking warning.
+- Empathy, a sense of romance, and critical thinking as a **human
+  intelligence** layer: keep on [Claim
+  6](claims/06-jidoka-embeds-routine-judgment.md), move to [Claim
+  12](claims/12-respect-for-people-who-can-think.md), or split? Romance
+  has no Toyota primary yet.
 
 ## Evidence to collect
 
