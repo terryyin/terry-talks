@@ -77,6 +77,48 @@ pressure to improve the development system. The analogy to SMED is therefore
 not imported from manufacturing arbitrarily. LeSS already treats the overhead
 of each short cycle as something the organization must systematically reduce.
 
+### Mixed-model heijunka is why SMED is a perfection goal, not a pit-crew hobby
+
+The EOQ story above is the economics. The TPS reason to accept that
+economics is **heijunka of mix under JIT**—not a third pillar. Given a
+known demand mix, a mass producer still batches by type to avoid
+changeovers. Toyota sequences types **alternately** (and, on assembly,
+mixed-model one-by-one as far as the process allows). That imposes
+frequent switching. Without setup reduction, mixed-model is too
+expensive, so the plant hides in large lots, delays feedback, and passes
+mura upstream.
+
+JIT and one-piece flow **forbid treating large process batches as the
+plan**. SMED is therefore the kaizen toward perfection: drive changeover
+cost down until the smallest honest lot—ideally one—is economical.
+Toyota still runs **small lots** in stamping and has historically grouped
+colors in paint; those are remaining constraints under improvement. They
+are not a license to hide, and they are not a pillar. Pillars remain
+jidoka and JIT.
+
+### A vertical slice *is* a mixed-model changeover
+
+A thin vertical slice of user value
+([Claim 17](17-jit-vertical-slicing-one-piece-flow.md)) is done only when
+the increment is confirmable. That forces the team across **components
+and disciplines** on the same item—UI, domain, data, test,
+integration—then a **different** mix on the next item. Feature teams
+exist so that switch is organizationally possible. Component teams and
+horizontal layer programs are the software form of batching by machine
+type.
+
+If that changeover stays expensive—handoffs, private ownership, slow
+verification, irrecoverable mental or agent context—EOQ returns. Humans
+batch by specialty. AI batches by generating the unsplit tree.
+Utilization looks high; 一個ずつ確認 is late. Lower the switching cost
+and thin end-to-end items become the rational plan, for people and for
+AI. Launching more agents does not substitute for that kaizen; it can
+move the bottleneck to review and integration.
+
+> **High changeover cost makes batching by type—or by layer—look
+> efficient even when the mix is known. Cheap changeover makes thin
+> vertical slices the economical way to follow actual need.**
+
 ### The LeSS changeover is primarily organizational
 
 The strongest mapping is not “a programmer is a stamping press.” It is:
@@ -349,6 +391,10 @@ to a known production mode.
 
 ## Emerging implication for the talk
 
+> **Heijunka of mix is why SMED matters: alternate types, don't hide in
+> lots. A vertical slice demands the same cheap switch across components
+> and disciplines—for people and for AI.**
+
 The original idea can be sharpened to:
 
 > **LeSS needs cheap product-level changeovers, not constant developer
@@ -466,5 +512,18 @@ The deeper claim is:
     UC Berkeley EECS Technical Report UCB/EECS-2026-52. Evidence that
     executable environments and dense verifiers materially shape agent
     capability and feedback-driven performance.
+15. Lean Enterprise Institute, [Heijunka](https://www.lean.org/lexicon-terms/heijunka/).
+    Mix leveling of a known weekly mix versus mass-producer type-batches.
+16. Paul S. Adler, Barbara Goldoftas, and David I. Levine (1999),
+    [“Flexibility Versus Efficiency? A Case Study of Model Changeovers in
+    the Toyota Production
+    System”](https://doi.org/10.1287/orsc.10.1.43), *Organization Science*,
+    10(1). Known monthly mix produced each day by alternating types; setup
+    cost explains type-batching at Big Three plants.
+17. Toyota Motor Corporation, [“Development and Deployment of the Toyota
+    Production
+    System”](https://www.toyota-global.com/company/history_of_toyota/75years/text/entering_the_automotive_business/chapter1/section4/item4.html),
+    *75 Years of Toyota*. Production leveling of items and volumes so JIT
+    could go further.
 
 **Still open for further discussion and fact-checking.**

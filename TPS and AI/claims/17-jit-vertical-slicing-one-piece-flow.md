@@ -24,14 +24,16 @@ propositions:
 
 ## Research-based adjustment
 
-The three propositions hold. The names need the same layer caution as
-[Claim 2](02-tps-and-lean-houses.md): **one-piece flow** (一個流し) is
-Toyota's ideal form of continuous flow under Just-in-Time, not a third
-pillar. **Vertical slice** is agile/LeSS language, not a Toyota term.
-**一個ずつ確認** is Terry's name for that flow's quality heart: confirm
-this piece before sending it on. English gloss: piece-by-piece
-confirmation. A secondary story calls the origin one-by-one confirmation.
-It is teaching language, not Toyota's official name for a pillar.
+The three propositions hold. **One-piece flow and 一個ずつ確認 are not a
+pillar. They are part of JIT.** The names need the same layer caution as
+[Claim 2](02-tps-and-lean-houses.md): Toyota's official overview has two
+pillars only—jidoka and Just-in-Time. **One-piece flow** (一個流し) is
+the ideal form of continuous flow **under** that JIT pillar. **Vertical
+slice** is agile/LeSS language, not a Toyota term. **一個ずつ確認** is
+Terry's name for that flow's quality heart: confirm this piece before
+sending it on. English gloss: piece-by-piece confirmation. A secondary
+story calls the origin one-by-one confirmation. It is teaching language,
+not Toyota's official name for a pillar.
 
 > **Under JIT, decompose the flow of user value into thin vertical slices,
 > not into technical layers. The detailed solution is then pulled by a real
@@ -60,6 +62,15 @@ uses small lots where a process cannot yet flow one-by-one (stamping,
 paint). The goal is the minimum inventory that keeps flow, not a slogan of
 zero.
 
+A vertical slice **imposes changeover**: the same team (or human–AI
+system) must move across components and disciplines to finish one
+confirmable piece, then a different mix for the next. That cost is why
+horizontal programs and specialist queues reappear. Reducing it is
+SMED-like kaizen—[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md)—not
+a new TPS pillar. Heijunka of mix is the sequencing reason the factory
+alternates types even when the mix is known; that argument lives in
+Claims 4 and 5.
+
 ### 一個ずつ確認 is why that flow learns
 
 Batch-and-queue hides defects in the pile. Toyota's 1992 TPS booklet says
@@ -81,8 +92,8 @@ pits; of ten cast blocks, only one or two survived boring. Defects were
 discovered at the next process, after a small batch had already been made.
 
 Do not present 一個ずつ確認 or the Kitano/Chapados origin as a Toyota
-pillar name. Do present the operational point, which Toyota sources do
-support:
+pillar name. They are part of JIT. Do present the operational point,
+which Toyota sources do support:
 
 > **One-piece flow is not only shorter lead time. It is 一個ずつ確認:
 > confirmation close enough to the work that the system can still learn.**

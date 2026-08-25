@@ -65,6 +65,12 @@ This strongly supports Terry's allocation intuition:
 > **Do not spend scarce human attention repeatedly watching for a condition
 > that the process can recognize and stop on by itself.**
 
+[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) uses the same
+split for AI capacity: let AI take repetitive work and filter value-adding
+work for people; use low-intelligence autonomation to **protect previous
+intentions** rather than stacking judgment-dependent output into the
+product.
+
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) states the people-side:
 jidoka frees people by empowering them—the right and expectation to signal,
 stop, respond, and improve. This claim is about where that judgment lives in

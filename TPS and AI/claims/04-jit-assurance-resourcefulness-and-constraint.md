@@ -87,21 +87,16 @@ or time.
   keeping the minimum needed for a workable pull loop.
 - **Unused capacity after need is met:** acceptable and preferable to
   overproduction.
-- **Capacity cushion:** some headroom may be needed to absorb variation and
-  respond quickly; leveling, maintenance, standard work, small lots, and
-  flexible resources also reduce the variation that would demand a large
-  cushion.
+- **Capacity cushion:** some headroom may be needed to absorb variation.
+  How much depends on context. It is not the talk question to settle.
 - **Excess capacity:** persistent capacity with no foreseeable need is a
   candidate for kaizen, not the source of JIT's efficiency.
 
-Hopp and Spearman argue that variability must be buffered by some combination
-of inventory, capacity, or customer waiting time. On their reading, Toyota
-shifted part of that protection from inventory to **capacity**—maintenance and
-recovery windows, and problem solvers available to support the line. As
-variability fell, that cushion could shrink.
-
-> **Bounded, purposeful response capacity can replace some inventory. It is
-> readiness held for variation, not unlimited slack held without a purpose.**
+Hopp and Spearman still apply as factory physics: variability is buffered by
+some mix of inventory, capacity, or time. That does not tell the audience
+what TPS is trying to become, or what number of idle people or agents to
+hold. The interesting JIT internals are mixed-model flow and cheap
+changeover, below.
 
 JIT therefore challenges **utilization as the definition of efficiency**. Idle
 capacity can be visible and tolerated rather than turned into unneeded output.
@@ -116,6 +111,34 @@ Call this **operational confidence** or **readiness**:
 Felt assurance is not part of the definition of JIT. The organization can
 enjoy the system while people still suffer stress—see
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md).
+
+### Even a known mix is made alternately; SMED makes that affordable
+
+Even when the **mix for the period is known**, Toyota still does not run
+all of type A, then all of type B. **Heijunka of mix** sequences different
+types **alternately** so work content and upstream withdrawals stay level.
+That is not a third pillar, and not only a reaction to uncertain orders.
+Volume leveling (same total per day despite lumpy shipments) *is* a
+response to mura of rate. Mix leveling is required **anyway** once more
+than one type shares the line. Toyota's history says items and volumes
+were equalized so Just-in-Time could be implemented at a higher level.
+Official TPS still has two pillars: jidoka and JIT. Flow, pull, takt,
+heijunka, one-piece flow, and SMED live **inside** JIT.
+
+Alternating types without cheap changeover is ruinously expensive. Long
+setup makes a large lot look rational: amortize the die change. **SMED**
+is the kaizen that attacks that cost so small-lot mixed-model flow is
+economical. Large finished-goods banks and large process batches are not
+the strategy. Remaining lots in stamping or paint are constraints under
+improvement, not a license to hide in batches.
+
+How software cuts the flow of user value into thin slices is
+[Claim 17](17-jit-vertical-slicing-one-piece-flow.md). How the team
+affords the resulting switch across components and disciplines is
+[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md).
+
+> **JIT's assurance is mixed-model capability with cheap changeover—not a
+> stockpile, and not a debate about how much slack to hold.**
 
 ### Resourcefulness is disciplined, distributed problem solving
 
@@ -152,6 +175,29 @@ Heijunka, standardized work, maintenance, supplier relationships, team
 support, and Respect for People are also required. Otherwise low buffers
 become recurring crisis rather than dependable responsiveness.
 
+### Supporting conditions before WIP can safely fall
+
+Before inventory or work in process can safely be reduced, remove
+**constraints that stop teams integrating and coordinating by themselves**.
+In software that is the technical and organizational side of
+[Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md):
+shared product, continuous integration, stop-and-fix, and the authority
+to collaborate when the integrated product makes a need visible. A
+component handoff, a private mainline, or a coordinating manager in the
+path are the software form of a constraint that forces stockpiles of
+unintegrated work.
+
+Conventions for **collaborative decision-making** also have to exist and
+keep improving. That is the nemawashi reading in
+[Claim 9](09-nemawashi-self-organized-deliberation-in-less.md): the people
+closest to the knowledge can prepare a decision without waiting for a
+manager to convene every conversation, and they keep those conventions
+under kaizen. Without that, low WIP becomes either paralysis or heroic
+escalation.
+
+> **Reduce WIP only as far as teams can integrate, coordinate, and decide
+> for themselves. Take away the constraints; improve the conventions.**
+
 ## Emerging implication for the talk
 
 > **JIT is not “we have plenty, so we can handle demand later.” It is “we have
@@ -161,7 +207,9 @@ become recurring crisis rather than dependable responsiveness.
 A compact candidate:
 
 > **JIT replaces confidence from stockpiles with confidence in a capable
-> response.** Jidoka makes that capability dependable.
+> mixed-model response.** Even a known mix is made alternately; that is
+> only cheap if changeover is cheap. Jidoka makes that response
+> dependable.
 
 For AI-augmented software development:
 
@@ -171,25 +219,32 @@ For AI-augmented software development:
   a verified response. Cutting that need as a thin vertical slice of user
   value, confirmed by 一個ずつ確認, is
   [Claim 17](17-jit-vertical-slicing-one-piece-flow.md).
-- Preserve headroom for review, diagnosis, integration, and unexpected
-  problems instead of treating maximum utilization as the goal.
-- Use tests, validation, observability, stop conditions, and rollback as forms
-  of jidoka that make fast generation safe enough to pull on demand.
-- Convert successful improvisation into clearer context, standards, tools, and
-  automation so the same problem does not require heroics again.
+- AI can take some **repetitive** work and filter **value-adding** work for
+  people. That is the useful use of capacity.
+- AI can also be **misused** to stack **judgment-dependent** work into the
+  product, very quickly. Throughput then rises while quality and the ability
+  to finish fall. Faros's 2026 *Acceleration Whiplash* report is telemetry
+  evidence of that pattern: epics and merge rate up; incidents per PR more
+  than tripled; bugs per developer up 54%; code churn up about 9×; review
+  time and unreviewed merges both up. The scarce capacity is not model
+  calls. It is human judgment, review, and the system's ability to absorb
+  change without hiding defects in a generated pile.
+- Use **low-intelligence autonomation**—tests, types, stop conditions,
+  rollback, recorded constraints—to protect **previous intentions** and
+  cut cognitive load for the next human or AI. That is
+  [Claim 6](06-jidoka-embeds-routine-judgment.md): spend judgment once;
+  make the learning reusable. Do not spend high attention re-watching what
+  the process can already stop.
 
 The desired state is **fast, trustworthy response capacity**—not a stockpile of
 generated answers or an army of idle agents.
 
 ## Questions still open
 
-- What level of headroom is necessary for responsiveness without becoming
-  waste, and how is that decision made under variable demand?
-- Which supporting conditions are indispensable before inventory or work in
-  progress can safely be reduced?
-- In AI-augmented development, what is the relevant capacity: developer
-  attention, model calls, test throughput, review bandwidth, deployment
-  capacity, or the ability to restore context quickly?
+- What one Toyota mix-leveling picture belongs on stage (known weekly mix
+  sequenced alternately vs lumpy orders leveled by volume)?
+- How sharply should Faros's vendor telemetry be caveated (correlation of
+  high vs low AI adoption within firms, not a controlled experiment)?
 
 ## Sources consulted
 
@@ -236,5 +291,30 @@ generated answers or an army of idle agents.
     real relationship between lean and safety/ergonomics please stand
     up?”](https://doi.org/10.1016/j.apergo.2021.103673), *Applied Ergonomics*,
     100, 103673. Tests felt assurance against reported JIT-related stress.
+11. Toyota Motor Corporation, [“Development and Deployment of the Toyota
+    Production
+    System”](https://www.toyota-global.com/company/history_of_toyota/75years/text/entering_the_automotive_business/chapter1/section4/item4.html),
+    *75 Years of Toyota*. Equalize items and volumes so JIT can be
+    implemented at a higher level.
+12. Lean Enterprise Institute, [Heijunka](https://www.lean.org/lexicon-terms/heijunka/).
+    Mix leveling of a known weekly mix versus mass-producer type-batches;
+    heijunka as a foundation of JIT, not a third pillar.
+13. Lean Enterprise Institute, [Just-in-Time
+    Production](https://www.lean.org/lexicon-terms/just-in-time-production/).
+    JIT comprised of pull, takt, and continuous flow, relying on heijunka.
+14. Paul S. Adler, Barbara Goldoftas, and David I. Levine (1999),
+    [“Flexibility Versus Efficiency? A Case Study of Model Changeovers in
+    the Toyota Production
+    System”](https://doi.org/10.1287/orsc.10.1.43), *Organization Science*,
+    10(1). NUMMI produced a known monthly mix each day, alternating types;
+    Big Three plants batched by model because they did not attack setup.
+15. Faros AI, [*The AI Engineering Impact Report 2026: The Acceleration
+    Whiplash*](https://www.faros.ai/research/ai-acceleration-whiplash)
+    and [ten
+    takeaways](https://www.faros.ai/blog/ai-acceleration-whiplash-takeaways).
+    Telemetry from ~22,000 developers / 4,000 teams: throughput up;
+    incidents, bugs, churn, review load, and unreviewed merges up as AI
+    adoption rises. Vendor study, not a controlled experiment.
 
-**Still open for talk choices on headroom and AI capacity.**
+**Headroom sizing is off the talk. Mix-leveling, self-coordination, and
+AI's two uses of capacity remain the live points.**

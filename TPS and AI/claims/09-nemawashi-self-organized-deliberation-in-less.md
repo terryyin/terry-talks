@@ -47,7 +47,11 @@ Product Focus and a self-managed response, not fixed coordination ties. The
 important question is not merely whether discussion happens without a manager.
 It is whether the people with relevant knowledge can initiate the necessary
 conversations, surface disagreement early, improve a proposal, and still know
-who owns the decision.
+who owns the decision. [Claim
+4](04-jit-assurance-resourcefulness-and-constraint.md) now treats those
+conventions as a **supporting condition** for reducing WIP: take away
+constraints on self-integration and self-coordination, and keep
+collaborative decision-making under kaizen.
 
 The ADR process in this repository is a useful candidate example, with one
 important boundary. It deliberately separates:
