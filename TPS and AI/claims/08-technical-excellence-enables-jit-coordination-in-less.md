@@ -128,7 +128,9 @@ Its **jidoka-like** side is the commitment to keep a stable working system.
 Small changes enter the shared mainline frequently; automated builds and tests
 detect a meaningful break; the signal is visible; and fixing the break has
 priority. LeSS compares the CI system to an andon and tells teams to make it
-easy to fail fast, stop and fix, and learn without blame.
+easy to fail fast, stop and fix, and learn without blame. The named
+Stop & Fix practice, and why a red pipeline must actually halt work, is
+[Claim 19](19-stop-and-fix.md).
 
 Its **JIT-like** side is the removal of unintegrated work in process. Instead
 of accumulating changes on branches or in components and reconciling a large

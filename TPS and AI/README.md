@@ -22,8 +22,8 @@ The claims below are **Provisional**:
 2. [TPS House, Lean House, and levels of abstraction](claims/02-tps-and-lean-houses.md)
 3. [Jidoka frees, JIT entrusts, Respect for People supports growth](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
 4. [JIT creates assurance through resourceful capability, not abundance](claims/04-jit-assurance-resourcefulness-and-constraint.md)
-5. [SMED for software means cheap deliberate changeovers, not constant switching](claims/05-smed-software-changeover-and-ai-friendly-context.md)
-6. [Jidoka embeds routine judgment so adaptive intelligence can learn](claims/06-jidoka-embeds-routine-judgment.md)
+5. [SMED for software means cheap changeovers so customer-centric focus is not interrupted](claims/05-smed-software-changeover-and-ai-friendly-context.md)
+6. [Jidoka embeds previously learned judgment so adaptive attention can learn](claims/06-jidoka-embeds-routine-judgment.md)
 7. [“The Algorithm” shares TPS roots and spirit](claims/07-the-algorithm-and-tps-family-resemblance.md)
 8. [Technical excellence enables JIT coordination in LeSS](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
 9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md)
@@ -35,6 +35,8 @@ The claims below are **Provisional**:
 15. [Extreme conditions interrupt JIT; they do not refute capable response](claims/15-extreme-conditions-interrupt-jit.md)
 16. [Go-See is firsthand facts; in AI work that includes the harness](claims/16-go-see-ai-harness.md)
 17. [JIT in software prefers vertical slices of user value; one-piece flow is 一個ずつ確認](claims/17-jit-vertical-slicing-one-piece-flow.md)
+18. [Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is a worked example](claims/18-continuous-improvement-towards-perfection.md)
+19. [Stop & Fix is the jidoka response; tests, fail-fast, and CI/CD must actually halt work](claims/19-stop-and-fix.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).

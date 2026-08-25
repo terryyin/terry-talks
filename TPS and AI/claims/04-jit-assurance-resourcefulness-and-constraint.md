@@ -149,7 +149,10 @@ setup makes a large lot look rational: amortize the die change. **SMED**
 is the kaizen that attacks that cost so small-lot mixed-model flow is
 economical. Large finished-goods banks and large process batches are not
 the strategy. Remaining lots in stamping or paint are constraints under
-improvement, not a license to hide in batches.
+improvement, not a license to hide in batches. That never-done
+trajectory—kaizen toward cheap changeover, not a finished setup
+project—is
+[Claim 18](18-continuous-improvement-towards-perfection.md).
 
 How software cuts the flow of user value into thin slices is
 [Claim 17](17-jit-vertical-slicing-one-piece-flow.md). How the team
@@ -247,12 +250,12 @@ For AI-augmented software development:
   capacity is not model calls. It is human judgment, review, and the
   system's ability to absorb change without hiding defects in a generated
   pile.
-- Use **low-intelligence autonomation**—tests, types, stop conditions,
-  rollback, recorded constraints—to protect **previous intentions** and
-  cut cognitive load for the next human or AI. That is
+- Use tests, types, stop conditions, rollback, and recorded constraints
+  to protect **previous intentions** and cut cognitive load for the next
+  human or AI. That is
   [Claim 6](06-jidoka-embeds-routine-judgment.md): spend judgment once;
-  make the learning reusable. Do not spend high attention re-watching what
-  the process can already stop.
+  make the learning reusable. Do not spend adaptive attention re-watching
+  what the process can already stop.
 
 The desired state is **fast, trustworthy response capacity**—not a stockpile of
 generated answers or an army of idle agents.

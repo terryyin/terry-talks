@@ -62,9 +62,9 @@ complementary forms:
 - **preventive design through poka-yoke:** removing unnecessary code, making
   illegal states unrepresentable, and preventing known mistakes by design.
 
-These are Terry's “low-intelligence” and “no-intelligence” layers, but neither
-is literally without intelligence. Both embody judgment spent earlier, as
-[Claim 6](06-jidoka-embeds-routine-judgment.md) develops.
+Both embody judgment spent earlier. [Claim
+6](06-jidoka-embeds-routine-judgment.md) names them prevent-by-design and
+detect-and-stop, not levels of intelligence.
 
 AI can still help when no durable mechanism results. Novel investigation,
 explanation, and genuinely one-off work may be valuable in themselves. The risk

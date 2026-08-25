@@ -95,6 +95,11 @@ The corrected claim is therefore:
 > synthesis: managers-as-teachers as foundation, Respect for People and
 > Continuous Improvement as pillars, toward a perfection goal.**
 
+LeSS also names **Continuous Improvement Towards Perfection** as its own
+principle. That naming, the TPS vs Toyota Way vs LeSS layer, and SMED as
+a worked example of the never-done trajectory are
+[Claim 18](18-continuous-improvement-towards-perfection.md).
+
 ## Emerging implication for the talk
 
 Show the official Toyota TPS overview first and use it to explain how the two
@@ -146,6 +151,11 @@ copy a house or transfer a manufacturing mechanism by name. It is to ask:
   and which remain useful?
 - Should SMED and poka-yoke appear as supporting practices beneath the TPS
   pillars, or only as examples within particular system relationships?
+  SMED as a worked example of continuous improvement toward perfection,
+  still inside JIT, is
+  [Claim 18](18-continuous-improvement-towards-perfection.md). Poka-yoke
+  placement is still open. Stop & Fix as the jidoka *response* (not a
+  third pillar) is [Claim 19](19-stop-and-fix.md).
 - Which enabling conditions must accompany a transferred mechanism so that it
   produces learning and responsiveness rather than pressure, interruption, or
   more unverified output?

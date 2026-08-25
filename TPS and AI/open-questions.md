@@ -22,6 +22,8 @@ future discussion, not a set of conclusions.
 - Which TPS ideas become more important when work can be generated faster:
   jidoka, stop-the-line behavior, visual management, small batches, pull,
   respect for people, continuous improvement, or something else?
+  LeSS's named principle and SMED as a never-done example are
+  [Claim 18](claims/18-continuous-improvement-towards-perfection.md).
 - Can technical excellence make AI-generated changes meet the integrated
   product quickly enough that real dependencies pull teams into focused,
   self-managed collaboration rather than planned coordination overhead?

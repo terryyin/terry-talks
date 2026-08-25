@@ -62,14 +62,20 @@ uses small lots where a process cannot yet flow one-by-one (stamping,
 paint). The goal is the minimum inventory that keeps flow, not a slogan of
 zero.
 
-A vertical slice **imposes changeover**: the same team (or human–AI
-system) must move across components and disciplines to finish one
-confirmable piece, then a different mix for the next. That cost is why
+A vertical slice **imposes changeover**: the same feature team must
+move across components and disciplines to finish one confirmable piece,
+then a different mix for the next. AI is a common tool, not a second
+unit of analysis. That local switching **is** an interruption of
+component and discipline focus; what LeSS refuses to interrupt is the
+customer-centric slice. The cost of the accepted interruption is why
 horizontal programs and specialist queues reappear. Reducing it is
-SMED-like kaizen—[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md)—not
-a new TPS pillar. Heijunka of mix is the sequencing reason the factory
-alternates types even when the mix is known; that argument lives in
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
+SMED-like kaizen—[Claim
+5](05-smed-software-changeover-and-ai-friendly-context.md)—not
+a new TPS pillar. Working several customer-centric items at once is
+how that changeover cost reappears as **spill-over**; Vodde's public
+treatment is on that claim. Heijunka of mix is the sequencing reason
+the factory alternates types even when the mix is known; that argument
+lives in [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
 
 ### 一個ずつ確認 is why that flow learns
 
