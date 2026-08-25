@@ -91,8 +91,8 @@ it.
 | **Respect for People** | The older name was **baka-yoke** (fool-proofing). It was changed because it insulted the people doing the work. *Poka* is an inadvertent error; *yoke* is prevention. The assumption is that people will slip, so the process should change—not that operators are fools who must be watched. Toyota's TPS purpose includes making work easier and less burdensome. |
 | **Kaizen** | Once a failure mode is understood, "be more careful" is not the countermeasure. Encode the learning so the error cannot recur, or cannot continue unnoticed. That is the prevent-then-detect half of [Claim 6](06-jidoka-embeds-routine-judgment.md)'s loop. |
 
-The software-useful cut in Claim 6—**prevent by construction** versus
-**detect and stop**—is still the right allocation of judgment. It is
+The software-useful cut in Claim 6—**gone** (prevent by design) versus
+**dumb** (detect and stop)—is still the right allocation of judgment. It is
 slightly sharper than Shingo's vocabulary. Shingo's poka-yoke includes
 both **control / shutdown** (the process cannot proceed) and **warning**
 (a lamp, buzzer, or other signal). Toyota's official example is a
