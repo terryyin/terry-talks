@@ -1,6 +1,7 @@
 # Claim 10: Freedom and trust can reinforce one another through jidoka
 
-**Status: Provisional — not finalized**
+**Status: Provisional — theme defensible; freedom versus trust is not
+the tension pair**
 
 ## Original claim / hypothesis
 
@@ -35,206 +36,151 @@ The proposed reinforcing loop is:
 > demonstrated capability makes trust warranted → less detailed control is
 > needed in advance → real need can pull responsible action just in time.**
 
-## Research-based adjustment
+## Reconciled claim
 
-The theme is defensible, but **freedom and trust are not simple opposites**.
-The apparent opposition usually comes from placing freedom against control:
-when an organization distrusts people, it may respond with approvals,
-surveillance, detailed plans, narrow roles, and rules imposed from outside the
-work. Those controls can reduce freedom without necessarily producing
-trustworthy outcomes.
+The theme is defensible. Freedom and trust as simple opposites, jidoka as
+freedom from constraint, individual freedom from every specialization,
+trust as faith, and “trust eliminates planning” are not.
 
-The opposite extreme also fails. Freedom without shared purpose, capability,
-evidence, or limits asks others to accept unbounded risk. That can provoke more
-control rather than more trust.
+> **The real tension is freedom versus coercive control.** Trust and
+> enabling constraints can reinforce one another. Jidoka constrains what is
+> already known to be abnormal so people have more freedom and attention
+> for what is not yet known. Visible, responsible use of that freedom makes
+> less detailed control warranted. JIT **entrusts** a capable response;
+> mutual trust sits under Respect for People.
 
-The stronger tension pair is therefore:
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has the
+triad and that vocabulary. [Claim
+8](08-technical-excellence-enables-jit-coordination-in-less.md) already has
+bounded self-management and the technical precondition. This claim is the
+**talk theme**: how freedom and trust can live together.
 
-> **Freedom versus coercive control.**
+### Freedom versus coercive control
 
-Trust and enabling control can instead be complements. Organizational research
-distinguishes controls designed to help people master and improve their work
-from controls designed mainly to force compliance. A standard, test, stop
-condition, or visible workflow does not have one fixed human meaning. It can
-give a worker usable evidence and authority, or it can become an instrument for
-monitoring and blame.
+When an organization distrusts people, it may respond with approvals,
+surveillance, detailed plans, narrow roles, and rules imposed from outside
+the work. Those controls can reduce freedom without producing trustworthy
+outcomes. The opposite extreme also fails. Freedom without shared purpose,
+capability, evidence, or limits asks others to accept unbounded risk, and
+can provoke more control rather than more trust.
 
-### Jidoka supplies enabling constraints, not freedom from constraint
+Organizational research distinguishes **enabling** control (helps people
+master and improve the work) from **coercive** control (forces
+compliance). A standard, test, stop condition, or visible workflow has no
+one human meaning: it can give a worker usable evidence and authority, or
+become an instrument for monitoring and blame. [Claim
+16](16-go-see-ai-harness.md) already warns that the same signal can become
+surveillance.
 
-Toyota's current account of jidoka combines several moves:
+### Jidoka supplies enabling constraints
 
-- people first learn and improve the work;
-- a known abnormal condition is built into the equipment or process;
-- the process stops automatically, or a person has authority to stop it;
-- the abnormality becomes visible and defective work is contained;
-- people respond, investigate, and prevent recurrence; and
-- no one has to spend all their attention merely watching normal operation.
-
-This supports Claim 6's description of automation as **crystallized prior
-learning**. A test, invariant, safe interface, monitor, or stop rule can make
-earlier judgment reusable. The constraint frees attention precisely because it
-preserves something already learned and makes the boundary visible.
-
-Jidoka therefore offers a more exact relationship between freedom and control:
+[Claim 6](06-jidoka-embeds-routine-judgment.md) owns where that judgment
+lives: detect a specified abnormality, stop it, bring people to the
+exception. This claim adds the human meaning of that constraint:
 
 > **Constrain what is already known to be abnormal so that people have more
 > freedom and attention for what is not yet known.**
 
 That freedom is substantive only when people retain the information, time,
-skill, and authority to respond. A gate that blocks work but can be understood
-or changed only by a remote specialist creates dependency, not agency. A noisy
-alarm that people cannot safely act on creates burden, not freedom. An
-automated check used to rank or punish workers turns an enabling mechanism into
-a coercive one.
+skill, and authority to respond. A gate that only a remote specialist can
+understand or change creates dependency. A noisy alarm people cannot
+safely act on creates burden. An automated check used to rank or punish
+workers turns an enabling mechanism into a coercive one. Automation can
+also hide specialist knowledge rather than free an individual from every
+technical area: [Claim
+8](08-technical-excellence-enables-jit-coordination-in-less.md) already has
+LeSS as collectively cross-functional teams, not unconstrained independence.
 
-### LeSS needs bounded self-management, not unconstrained independence
-
-LeSS explicitly makes teams responsible for executing work and for monitoring
-and managing their process and progress. Its management guidance says teams
-decide how to work and how to improve; managers build organizational
-capability rather than direct the team's daily method.
-
-That is meaningful freedom, but it exists inside common bounds: one product,
-one Product Backlog, shared product direction, an integrated increment, and a
-common Definition of Done. Transparency is not supposed to give managers a
-remote-control dashboard. It gives the people doing the work and the wider
-product group shared evidence from which to inspect and adapt.
-
-The LeSS version of the Scrum Guide makes the trust relationship explicit at
-this broader level. It says that Scrum's values, together with transparency,
-inspection, and adaptation, come to life building trust. Trust is thus not a
-permission granted once in the absence of evidence. It can grow through
-repeatedly visible, responsible adaptation.
-
-Technical excellence makes this organizational freedom less costly. Shared
-code ownership, small changes, continuous integration, executable evidence,
-and easy recovery let feature teams change one product without waiting for a
-component owner to perform every step. But technical excellence alone does not
-free every individual from every specialization. LeSS retains individual
-skills and areas of focus while making the team collectively cross-functional.
-Learning, pairing, collaboration, and organizational design are needed to
-spread capability; automation by itself can merely hide specialist knowledge.
-
-### Trust should be earned by capability, not demanded as faith
+### Trust is earned by visible capability
 
 This **trust** is the Respect-for-People / LeSS sense of mutual, warranted
-confidence. It is not Toyota's definition of JIT. JIT **entrusts** the
-response; Respect for People is where mutual trust lives. [Claim
-3](03-jidoka-enables-jit-trusts-respect-grows.md) also records that the
-organization can enjoy JIT while people still suffer stress.
-
-Claim 4 reframed JIT confidence as reliance on responsive capability rather
-than on stockpiles. The same correction is needed here.
+confidence. It is not Toyota's definition of JIT. [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md) records that the
+organization can enjoy JIT while people still suffer stress. [Claim
+4](04-jit-assurance-resourcefulness-and-constraint.md) already reframed JIT
+confidence as reliance on responsive capability rather than stockpiles.
 
 An organization cannot declare people resourceful and then remove plans,
-buffers, support, and expertise. Nor should it demand that people trust an AI
-because its output is fast or fluent. Trust becomes warranted through visible
-evidence that the human-and-technical system can:
+buffers, support, and expertise. Nor should it demand that people trust an
+AI because its output is fast or fluent. Trust becomes warranted through
+visible evidence that the human-and-technical system can detect actual
+need, make small changes cheaply, expose abnormality early, stop or
+contain harm, bring capable people to exceptions, recover when wrong, and
+leave the system more capable after learning.
 
-- detect actual need instead of producing work in advance;
-- make small changes without disproportionate switching cost;
-- expose uncertainty and abnormality early;
-- stop or contain harm;
-- bring capable people to exceptions;
-- recover when a response is wrong; and
-- leave the system more capable after learning.
+The loop is reciprocal. Leaders give real authority and room to respond.
+People use that freedom to learn, meet commitments, surface problems, and
+improve the shared system. Those observable behaviors justify less
+detailed direction next time.
 
-This is a reciprocal loop rather than a one-way management concession. Leaders
-give people real authority and room to respond. People use that freedom to
-learn, meet commitments, surface problems, and improve the shared system.
-Those observable behaviors justify less detailed direction next time.
+The loop can also run backward. If every failure produces more approvals,
+or if freedom is used to accumulate invisible work and local optimization,
+the system creates evidence for distrust. Freedom and trust reinforce each
+other only when problems can be made visible without making honesty
+dangerous.
 
-The loop can also run backward. If every failure produces more approvals, or
-if freedom is used to accumulate invisible work and local optimization, the
-system creates evidence for distrust. Freedom and trust reinforce each other
-only when problems can be made visible without making honesty dangerous.
+LeSS's Scrum Guide says Scrum's values, with transparency, inspection, and
+adaptation, come to life building trust. Transparency is not a
+remote-control dashboard. It gives the people doing the work shared
+evidence from which to inspect and adapt.
 
-### JIT reduces premature commitment; it does not abolish planning
-
-Terry's link to long-lead planning is directionally strong. Claim 8 found that
-technical excellence lets teams defer much detailed coordination until the
-evolving shared product makes the right collaboration concrete. Small changes
-and continuous integration also reduce the cost of discovering that a plan
-must change.
-
-The claim should not become “trust eliminates planning.” LeSS still has product
-direction, an ordered backlog, refinement, Sprint Planning, and shared quality
-expectations. The JIT-like move is to avoid converting distant uncertainty
-into detailed commitments and handoffs earlier than useful.
+That warranted trust does not abolish planning. [Claim
+8](08-technical-excellence-enables-jit-coordination-in-less.md) already
+found that technical excellence lets teams defer much detailed
+coordination until the shared product makes the right collaboration
+concrete. LeSS still has product direction, an ordered backlog,
+refinement, Sprint Planning, and shared quality.
 
 > **Plan direction and constraints early enough to align the product. Pull
 > detailed decisions and collaboration from the latest real need and evidence.**
 
 Trust makes that deferral socially possible; technical excellence makes it
-economically possible. If changing integrated software remains slow or
-dangerous, management has a rational incentive to demand more prediction and
-approval in advance.
+economically possible.
 
-### AI amplifies both sides of the system
+### AI amplifies both sides
 
-Calling AI a **beast of automation** is a talk metaphor, not a research term.
-It is useful because AI expands the range of work that can be delegated beyond
-fixed, deterministic routines. It can generate code, plans, tests, analysis,
-and decisions at a speed that can overwhelm review, integration, and human
-learning.
+Calling AI a **beast of automation** is a talk metaphor. It is useful
+because AI expands what can be delegated beyond fixed routines, at a speed
+that can overwhelm review, integration, and human learning.
 
-Recent evidence supports neither automatic liberation nor automatic harm:
+Recent evidence supports neither automatic liberation nor automatic harm.
+DORA's 2025 research describes AI as an amplifier of existing
+organizational strengths and weaknesses. A 2026 randomized study of
+developers learning a new library found lower immediate mastery with AI
+assistance on average; participants who used AI to seek explanations did
+better than those who mainly delegated production. The study was small and
+does not establish long-term effects. Bainbridge's ironies of automation
+warn that automating the easy work can leave people with the rarest
+exceptions while weakening the practice needed to handle them. Toyota's
+2025 Global AI Accelerator explicitly roots its AI effort in jidoka and
+says people should remain at the heart of technological change.
 
-- DORA's 2025 research describes AI as an amplifier of an organization's
-  existing strengths and weaknesses; the underlying system matters more than
-  the tool alone.
-- A 2026 randomized study of developers learning a new library found lower
-  immediate mastery with AI assistance on average, while participants who used
-  AI to seek explanations and build comprehension did better than those who
-  mainly delegated production. The study was small and does not establish
-  long-term effects, but it directly challenges the assumption that saved time
-  automatically becomes learning.
-- Bainbridge's classic “ironies of automation” warns that automation can leave
-  people responsible for the rarest and hardest exceptions while weakening
-  the involvement needed to handle them.
-- Toyota's own 2025 Global AI Accelerator explicitly roots its AI effort in
-  jidoka, pairs AI deployment with human-resource development, and says people
-  should remain at the heart of technological change.
+TPS does not make AI harmless. It supplies a design question:
 
-TPS therefore does not provide a technique for making AI harmless. It provides
-a demanding design question:
+> **Does this automation preserve and extend the capability of people to
+> see, stop, understand, learn, and improve—or does it make them dependent
+> on a system they are still expected to supervise?**
 
-> **Does this automation preserve and extend the capability of people to see,
-> stop, understand, learn, and improve—or does it make them dependent on a
-> system they are still expected to supervise?**
-
-AI releases people for critical thinking only if the organization deliberately
-protects critical thinking. Saved time can otherwise become higher output
-targets, more generated inventory, reduced practice, and eventual deskilling.
+AI releases people for critical thinking only if the organization protects
+critical thinking. Saved time can otherwise become higher output targets,
+more generated inventory, reduced practice, and deskilling. [Claim
+12](12-respect-for-people-who-can-think.md) owns what must not be
+outsourced: people who can think.
 
 ## Emerging implication for the talk
-
-The central theme can be stated as:
 
 > **Freedom without trustworthy capability becomes risk. Control without
 > freedom becomes compliance. Jidoka turns learned judgment into enabling
 > constraints, giving people room to handle novelty while making known harm
 > visible and stoppable.**
 
-A more memorable formulation is:
+Memorable:
 
 > **Automate the known. Stop the abnormal. Free people to learn. Entrust a
 > capable response to real need. Let visible capability earn mutual trust.**
 
-The TPS–LeSS–AI bridge is then:
-
-| Idea | Contribution to the loop |
-|---|---|
-| **Jidoka** | Preserves known judgment, contains abnormality, and releases attention without removing human stop authority. |
-| **Technical excellence** | Makes evidence, integration, recovery, and change cheap enough for teams to act without specialist queues or excessive approval. |
-| **LeSS self-management** | Places process, progress, and improvement decisions with the people doing the shared product work. |
-| **Respect for People** | Treats people as capable of learning and gives them challenge, support, responsibility, and room to grow. Mutual trust belongs here. |
-| **JIT** | Actual need pulls work and collaboration; the system **entrusts** people close to the work with a resourceful response. |
-| **Trust** | Under Respect for People and LeSS values: grows from visible responsible action and allows less detailed control. Distinct from JIT's operational definition. |
-| **AI** | Multiplies automation and adaptive generation, amplifying either the enabling loop or its coercive, deskilling opposite. |
-
-The strongest version of the theme is not that TPS resolves freedom and trust
-once and for all. It is:
+The strongest version of the theme is not that TPS resolves freedom and
+trust once and for all:
 
 > **TPS shows how a system can continually convert learning into constraints
 > that make greater freedom responsible—and use that freedom to produce the
@@ -242,81 +188,69 @@ once and for all. It is:
 
 ## Questions still open
 
-- Given that JIT **entrusts** a response while mutual trust sits under Respect
-  for People, is **Freedom and Trust** still the right theme title, or would
-  **warranted trust**, **confidence**, **assurance**, or **reliance** be
-  clearer for the organizational-trust side?
-- Is **Freedom and Trust** stronger as an apparent paradox introduced early in
-  the talk, or as the conclusion the earlier claims gradually construct?
-- What concrete story can show the whole reinforcing loop rather than only one
-  link—for example, a novel failure becoming a test, a design constraint,
-  broader team capability, and then less need for prior approval?
-- Which freedoms matter most: freedom from routine watching, from repetitive
-  work, from specialist dependency, to stop, to change the process, or to
-  decide how to meet a product need?
-- What evidence would show that saved AI time became learning and value rather
-  than more output or higher utilization expectations?
-- Who owns and can change an automated constraint? What makes a technical gate
-  enabling rather than coercive in practice?
-- Which skills must people continue to practice even when AI can perform the
-  normal case, so they remain capable of supervision and exception handling?
-- When is detailed advance planning still cheaper and safer than JIT response,
-  especially for irreversible, regulated, or high-consequence decisions?
+- Given that JIT **entrusts** a response while mutual trust sits under
+  Respect for People, is **Freedom and Trust** still the right theme
+  title, or would **warranted trust**, **confidence**, **assurance**, or
+  **reliance** be clearer for the organizational-trust side?
+- Is **Freedom and Trust** stronger as an apparent paradox introduced
+  early in the talk, or as the conclusion the earlier claims gradually
+  construct?
+- What concrete story can show the whole reinforcing loop rather than
+  only one link—for example, a novel failure becoming a test, a design
+  constraint, broader team capability, and then less need for prior
+  approval?
+- Which freedoms matter most: from routine watching, from repetitive work,
+  from specialist dependency, to stop, to change the process, or to decide
+  how to meet a product need?
+- What evidence would show that saved AI time became learning and value
+  rather than more output or higher utilization expectations?
+- Who owns and can change an automated constraint? What makes a technical
+  gate enabling rather than coercive in practice?
+- When is detailed advance planning still cheaper and safer than JIT
+  response, especially for irreversible, regulated, or high-consequence
+  decisions?
 
 ## Sources consulted
 
 1. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
-   Current primary account of TPS as making work easier, jidoka as human wisdom
-   added to automation, abnormality detection and stop authority, freedom from
-   machine watching, prevention of recurrence, and continuing human kaizen.
-2. Y. Sugimori, K. Kusunoki, F. Cho, and S. Uchikawa (1977),
-   [“Toyota production system and Kanban system: Materialization of
-   just-in-time and respect-for-human
-   system”](https://doi.org/10.1080/00207547708943149), *International Journal
-   of Production Research*, 15(6), 553–564. Early Toyota-authored account
-   connecting JIT and jidoka with visible control, delegated authority,
-   responsibility, worker participation, and respect for humanity.
-3. Toyota Motor Corporation and four Toyota Group companies (2025), [“Five
-   Toyota Group Companies to Accelerate Skill Development and Innovation in AI
-   and Software”](https://global.toyota/en/newsroom/corporate/42805724.html).
-   Primary source explicitly grounding Toyota's Global AI Accelerator in
-   jidoka while pairing AI investment with practical education, career
-   development, knowledge transfer, and people-centered technological change.
-4. The LeSS Company, [Self-Management](https://less.works/less/management/self-managing-teams)
-   and [Role of Manager](https://less.works/less/management/role-of-manager).
-   Define team authority over process and progress and recast managers as
-   builders of organizational problem-solving capability.
-5. The LeSS Company, [Scrum Guide — LeSS
+   Current primary account of TPS as making work easier, jidoka as human
+   wisdom added to automation, abnormality detection and stop authority,
+   freedom from machine watching, prevention of recurrence, and continuing
+   human kaizen.
+2. Toyota Motor Corporation and four Toyota Group companies (2025), [“Five
+   Toyota Group Companies to Accelerate Skill Development and Innovation in
+   AI and
+   Software”](https://global.toyota/en/newsroom/corporate/42805724.html).
+   Primary source grounding Toyota's Global AI Accelerator in jidoka while
+   pairing AI investment with education, career development, knowledge
+   transfer, and people-centered technological change.
+3. The LeSS Company, [Scrum Guide — LeSS
    version](https://less.works/less/scrum-guide). Connects self-management,
    respect for people as capable and independent, transparency, inspection,
    adaptation, and the building of trust.
-6. The LeSS Company, [Technical
-   Excellence](https://less.works/less/technical-excellence) and [Continuous
-   Integration](https://less.works/less/technical-excellence/continuous-integration).
-   Ground the claim that technical agility, shared evidence, small batches,
-   jidoka-like stop-and-fix, and rapid integration enable flexible team action.
-7. Paul S. Adler and Bryan Borys (1996), [“Two Types of Bureaucracy: Enabling
-   and Coercive”](https://www.jstor.org/stable/2393986), *Administrative
-   Science Quarterly*, 41(1), 61–89. Distinguishes formalization that helps
-   people master their work from formalization used to force effort and
-   compliance.
-8. Fabrice Lumineau (2023), [“Rethinking Control and Trust Dynamics in and
+4. Paul S. Adler and Bryan Borys (1996), [“Two Types of Bureaucracy:
+   Enabling and Coercive”](https://www.jstor.org/stable/2393986),
+   *Administrative Science Quarterly*, 41(1), 61–89. Distinguishes
+   formalization that helps people master their work from formalization
+   used to force effort and compliance.
+5. Fabrice Lumineau (2023), [“Rethinking Control and Trust Dynamics in and
    between Organizations”](https://doi.org/10.1111/joms.12999), *Journal of
-   Management Studies*. Reviews the conditions under which control and trust
-   complement, undermine, or substitute for one another.
-9. Lisanne Bainbridge (1983), [“Ironies of
+   Management Studies*. Reviews the conditions under which control and
+   trust complement, undermine, or substitute for one another.
+6. Lisanne Bainbridge (1983), [“Ironies of
    Automation”](https://doi.org/10.1016/0005-1098(83)90046-8), *Automatica*,
    19(6), 775–779. Warns that automation can leave people with difficult
    exceptions while eroding the involvement needed to handle them.
-10. DORA (2025), [*State of AI-assisted Software
-    Development*](https://dora.dev/research/2025/dora-report/). Reports AI as
-    an amplifier of existing organizational strengths and weaknesses rather
-    than an independent transformation mechanism.
-11. Judy Hanwen Shen and Alex Tamkin (2026), [“How AI Assistance Impacts the
-    Formation of Coding
-    Skills”](https://www.anthropic.com/research/AI-assistance-coding-skills).
-    Preliminary randomized evidence that AI use can trade off against immediate
-    mastery, while comprehension-seeking usage patterns preserve more learning.
+7. DORA (2025), [*State of AI-assisted Software
+   Development*](https://dora.dev/research/2025/dora-report/). Reports AI as
+   an amplifier of existing organizational strengths and weaknesses rather
+   than an independent transformation mechanism.
+8. Judy Hanwen Shen and Alex Tamkin (2026), [“How AI Assistance Impacts the
+   Formation of Coding
+   Skills”](https://www.anthropic.com/research/AI-assistance-coding-skills).
+   Preliminary randomized evidence that AI use can trade off against
+   immediate mastery, while comprehension-seeking usage patterns preserve
+   more learning.
 
 **Still open for further discussion and fact-checking.**
