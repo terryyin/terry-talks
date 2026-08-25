@@ -141,29 +141,29 @@ must not be outsourced.
 
 ### Reusable capability after an AI episode
 
-Whether an episode leaves reusable capability (a dumber stop, a gone
-path) rather than a one-off patch plus extra artifacts to re-judge
-depends first on **the model**. Providers train and market
-coding-specialized models; that is real. It is not a public label
-called “good engineering preference,” and SWE-bench-style training can
-reward making tests pass—including cheating, deleting tests, or
-keeping going when told not to stop. Cursor's own eval write-up:
-hacking attempts increased when the model was instructed to keep
-working without stopping. So “pick the engineering-labelled model”
-is a practitioner bet, not a guarantee. Excessive local instruction
-can mitigate a poorly aligned prior. It can also fight you when the
-next model arrives: either it ignores the old prompt, or it follows
-an outdated one too faithfully. Instruction steering reduces some
-failure modes; it does not replace the prior, and it is weaker than
-changing the environment (the actual stop).
+Terry's **personal bet for the talk**, said as such: whether an
+episode leaves reusable capability depends **first on the model**.
+Harness text and shared gates matter, but they sit on top of the
+prior. That ranking is not measured here. Say it is a bet.
 
-Second, write engineering principles for **both “I” and AI**, put
-them in the harness (rules, skills) so both read the same text, and
-put **the same gates** on human work and AI work. [Claim
-16](16-go-see-ai-harness.md) owns seeing the harness. This claim owns
-what those gates are *for*: they must not be optional manners for the
-agent. Doughnut already does some of this. More concrete test
-examples are queued on
+What is sourced is narrower. Providers train and market
+coding-specialized models; that is real. It is not a public label
+called “good engineering preference.” SWE-bench-style training can
+reward making tests pass—including cheating, deleting tests, or
+keeping going when told not to stop. Cursor's eval write-up: hacking
+attempts increased when the model was instructed to keep working
+without stopping. Excessive local instruction can mitigate a poorly
+aligned prior. It can also fight you when the next model arrives:
+either it ignores the old prompt, or it follows an outdated one too
+faithfully. Instruction steering is weaker than an actual stop.
+
+Second, still do the work you control: write engineering principles
+for **both “I” and AI**, put them in the harness (rules, skills) so
+both read the same text, and put **the same gates** on human work and
+AI work. [Claim 16](16-go-see-ai-harness.md) owns seeing the harness.
+This claim owns what those gates are *for*: they must not be optional
+manners for the agent. Doughnut already does some of this. More
+concrete test examples are queued on
 [Claim 13](13-doughnut-project-examples.md).
 
 From doughnut's current harness, the same rules bind a person and an
@@ -182,18 +182,12 @@ agent:
   test failure caused by the current change—fix it. Do **not**
   continue past a Jidoka stop without the developer.
 
-That last pair is the allocation: AI may clear **dumb** problems after
-a dumb stop; it may not dissolve the stop, and it may not take the
-judgments the stop was meant to surface.
-
-The original open question—“which high-consequence judgments should
-deliberately resist automation even if an AI can recommend?”—was
-unclear. Doughnut's execute-plan Jidoka **does** count, but as
-**keeping those judgments human by stopping**, not as refusing to
-have a stop. Value, design, credentials, and undiagnosed failure stay
-with the person. A plausible agent recommendation is not enough to
-proceed. That is different from a type error or a red scenario, where
-the stop is already closed and the agent may try to fix.
+Those five stay **human**—the talk list, not a doughnut quirk:
+**value**, **design**, **credentials**, **undiagnosed failure**, and
+**ambiguity**. Stop and wait. A plausible agent recommendation is not
+enough to proceed. AI may still clear **dumb** problems after a dumb
+stop (a type error, a red scenario caused by the current change). It
+may not dissolve that stop, and it may not take the five.
 
 ## Talk implication
 
@@ -207,25 +201,22 @@ the stop is already closed and the agent may try to fix.
 > work, plus extra inventory to re-judge, climb the descent
 > backwards. After a dumb stop, AI may filter and fix dumb problems.
 > It must not delete the stop to proceed, and it must not take the
-> value and design judgments the stop was meant to bring a person to.
+> judgments that stay human: value, design, credentials, undiagnosed
+> failure, and ambiguity.
 
 Judge an AI episode by whether it leaves the system more capable—a
 clearer boundary, an unrepresentable invalid state, a regression
 oracle, a local stop, better evidence, or a documented reason the
 judgment must remain human—not by whether the same difficult problem
-was solved again with more tokens.
+was solved again with more tokens. Say **model first** out loud as
+Terry's bet, not as a measured result.
 
 ## Questions still open
 
 - Doughnut-sourced **smart → dumb** and **smart → gone** examples, and
   preferred unit/E2E examples that show reusable capability, are queued
-  on [Claim 13](13-doughnut-project-examples.md); search not started.
-- How much of “reusable capability” is really the model prior versus
-  harness text versus the same gates on human and AI work? The ranking
-  “model first” is a practitioner bet; see sources.
-- Are doughnut execute-plan Jidoka categories (value, design,
-  credentials, undiagnosed failure, ambiguity) the talk's list of
-  judgments that stay human, or only a local instance?
+  on [Claim 13](13-doughnut-project-examples.md); training weeks
+  located; example search not started.
 
 ## Sources consulted
 

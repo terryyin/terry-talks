@@ -59,8 +59,9 @@ future discussion, not a set of conclusions.
   review or verification costs.
 - Examples from the doughnut project used in Terry's LeSS in Action
   trainings. The search list lives on
-  [Claim 13](claims/13-doughnut-project-examples.md) (backlog; search not
-  started). Currently queued: CI pulling useful collaboration ([Claims
+  [Claim 13](claims/13-doughnut-project-examples.md) (backlog; training
+  weeks located; example search not started). Currently queued: CI
+  pulling useful collaboration ([Claims
   3](claims/03-jidoka-enables-jit-trusts-respect-grows.md) and
   [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md));
   **smart → dumb** and **smart → gone**, and preferred unit/E2E plus
