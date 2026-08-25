@@ -42,6 +42,7 @@ future discussion, not a set of conclusions.
   [Claim
   4](claims/04-jit-assurance-resourcefulness-and-constraint.md) already
   has the stacking warning.
+
 ## Evidence to collect
 
 - Primary Toyota sources defining TPS and the Toyota Way today.
@@ -56,10 +57,14 @@ future discussion, not a set of conclusions.
   capabilities beyond conventional production.
 - Evidence about AI's effect on software generation speed and on downstream
   review or verification costs.
-- Empirical evidence that continuous integration across feature teams exposes
-  dependencies early and triggers useful cross-team collaboration. Pull
-  examples later from the doughnut project used in Terry's LeSS in Action
-  trainings ([Claim 13](claims/13-doughnut-ci-useful-collaboration.md)).
+- Examples from the doughnut project used in Terry's LeSS in Action
+  trainings. The search list lives on
+  [Claim 13](claims/13-doughnut-project-examples.md) (backlog; search not
+  started). Currently queued: CI pulling useful collaboration ([Claims
+  3](claims/03-jidoka-enables-jit-trusts-respect-grows.md) and
+  [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md));
+  **smart → dumb** and **smart → gone**
+  ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)).
 
 ## Candidate future claims
 

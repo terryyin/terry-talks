@@ -80,7 +80,7 @@ that much detailed coordination can wait until the evolving integrated
 product makes it useful, and that teams then self-manage the response.
 [Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md)
 develops this bridge. Empirical doughnut examples are the subject of
-[Claim 13](13-doughnut-ci-useful-collaboration.md).
+[Claim 13](13-doughnut-project-examples.md).
 
 ### Respect for People helps people grow
 
@@ -116,8 +116,8 @@ exception; and turn what they learn into a more capable system.
 
 ## Questions still open
 
-None remaining on this claim. Doughnut examples are [Claim
-13](13-doughnut-ci-useful-collaboration.md). Ebata corroboration and
+None remaining on this claim. Doughnut examples are queued on [Claim
+13](13-doughnut-project-examples.md). Ebata corroboration and
 attribution are [Claim 14](14-ebata-jit-teaching-in-print.md).
 
 ## Sources consulted

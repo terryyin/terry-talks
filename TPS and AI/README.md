@@ -30,7 +30,7 @@ The claims below are **Provisional**:
 10. [Freedom and trust can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
 11. [Software mixes production and discovery inside a product that is also the process](claims/11-physical-production-and-software-differences.md)
 12. [Respect for People is respect for people who can think](claims/12-respect-for-people-who-can-think.md)
-13. [Doughnut CI pulls useful cross-team collaboration](claims/13-doughnut-ci-useful-collaboration.md)
+13. [Doughnut project as an evidence backlog for other claims](claims/13-doughnut-project-examples.md)
 14. [Ebata's JIT teaching can be corroborated in print](claims/14-ebata-jit-teaching-in-print.md)
 15. [Extreme conditions interrupt JIT; they do not refute capable response](claims/15-extreme-conditions-interrupt-jit.md)
 16. [Go-See is firsthand facts; in AI work that includes the harness](claims/16-go-see-ai-harness.md)

@@ -146,7 +146,9 @@ was solved again with more tokens.
 ## Questions still open
 
 - What is the best concrete software example that traverses all three
-  rungs?
+  rungs? Doughnut-sourced **smart → dumb** and **smart → gone**
+  examples are queued on
+  [Claim 13](13-doughnut-project-examples.md); search not started.
 - When is a generated test, evaluator, or “root-cause” explanation
   dumb (closed, owned, stops work) versus smart (looks like knowledge,
   still needs interpretation)? When, if ever, is a probabilistic AI
