@@ -16,7 +16,7 @@ pulls collaboration. They help each other because a cohesive solution is in
 their common interest.
 
 This claim was split from [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md).
-That claim keeps the LeSS translation as Whole Product Focus. [Claim
+Claim 3's LeSS translation is **Whole Product Focus**. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) states the
 technical-excellence bridge. This claim is the empirical case: concrete
 doughnut examples that show the collaboration is useful, not merely noisy.

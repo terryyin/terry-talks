@@ -10,6 +10,8 @@
 
 ## Current position
 
-There is no hypothesis to defend or adjust yet. Research this question before
-drawing an implication for the talk. Preserve the distinction between the two
-domains without reducing it to a simple “production versus discovery” binary.
+There is no hypothesis to defend or adjust yet. [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md) left these differences out
+of scope. Research this question before drawing an implication for the talk.
+Preserve the distinction between the two domains without reducing it to a
+simple “production versus discovery” binary.

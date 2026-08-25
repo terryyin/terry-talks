@@ -165,9 +165,11 @@ This closely matches Terry's proposed JIT pattern:
 > relevant people into collaboration.**
 
 Calling this **JIT coordination** is an interpretation, not a named LeSS rule
-or a literal kanban implementation. The analogy is about timing and pull:
-coordination occurs when shared work reveals a need, in the amount and among
-the people needed to resolve it.
+or a literal kanban implementation. [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md) names the LeSS translation
+**Whole Product Focus**, not dependable inter-team relationships: integration
+conflict pulls collaboration because a cohesive customer-centric solution is a
+common interest, and earlier refinement is not forbidden.
 
 Nor is CI the only coordination mechanism in LeSS. Multi-team refinement and
 planning, design workshops, component communities, scouts, travelers, and
@@ -201,20 +203,25 @@ value-directed chain needs all of the following:
 
 The adjusted claim is therefore:
 
-> **LeSS relies on technical excellence to make self-managing feature teams
-> technically capable of changing one shared product. Continuous integration
-> reduces hidden work in process, exposes abnormalities and dependencies, and
-> gives teams a real-time signal for direct collaboration. Customer-centric
-> teams and one ordered backlog orient that capability toward user value.**
+> **LeSS relies on technical excellence to make Whole Product Focus workable.
+> Self-managing feature teams change one shared product; continuous
+> integration reduces hidden work in process, exposes abnormalities and
+> dependencies, and pulls collaboration when integration conflicts.
+> Customer-centric teams and one ordered backlog orient that capability
+> toward user value.**
 
 ## Emerging implication for the talk
 
 This claim supplies a direct bridge from TPS to LeSS rather than merely saying
 that both are “lean.”
 
-> **Jidoka makes frequent integration safe enough to expose reality. JIT says
-> not to stockpile changes or coordination in advance. Self-managing teams
-> respond to the need that the integrated product reveals.**
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) supplies the LeSS
+translation. This claim adds the technical precondition:
+
+> **Technical excellence makes Whole Product Focus workable: jidoka makes
+> frequent integration safe enough to expose reality; JIT entrusts teams not
+> to stockpile changes or coordination in advance; self-managing teams
+> respond to the need the integrated product reveals.**
 
 The memorable formulation for the talk could be:
 
@@ -247,8 +254,10 @@ The AI-era thesis may therefore be:
 
 ## Questions still open
 
-- Is **JIT coordination** memorable and defensible, or could it be confused
-  with a claim that LeSS formally maps team interaction to kanban replenishment?
+- Is **JIT coordination** still useful as this claim's interpretive label now
+  that Claim 3 names the LeSS translation **Whole Product Focus**, or could it
+  be confused with a claim that LeSS formally maps team interaction to kanban
+  replenishment?
 - What case study provides the strongest empirical evidence that frequent
   integration actually triggered useful cross-team collaboration rather than
   merely creating interruptions? Doughnut examples are the subject of
@@ -258,8 +267,6 @@ The AI-era thesis may therefore be:
   and platform capabilities?
 - What minimum common constraints—Definition of Done, tests, architectural
   boundaries, integration policy, product direction—make local freedom safe?
-- When should teams anticipate a dependency through refinement or a design
-  workshop rather than wait for code integration to reveal it?
 - How can a product group tell whether a CI signal is creating focused
   collaboration or overwhelming teams with noisy, coupled interruptions?
 - Does AI make direct mainline integration more important, or does the volume

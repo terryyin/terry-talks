@@ -22,9 +22,11 @@
 > before they are needed and avoids the high cost of changing those plans.
 
 This is a lightly edited record of Terry's hypothesis. [Claim
-3](03-jidoka-enables-jit-trusts-respect-grows.md) kept **entrusts** for JIT:
-responsibility for the response, as Terry's reading of JIT's intention, not
-Toyota's definition. Toyota puts mutual trust under Respect for People.
+3](03-jidoka-enables-jit-trusts-respect-grows.md) uses **entrusts** for JIT:
+capable people close to the work own the resourceful response. That is
+Terry's reading of JIT's intention, not Toyota's definition, and not a report
+of how people experience the system. Mutual trust sits under Respect for
+People.
 
 The proposed reinforcing loop is:
 
@@ -114,6 +116,12 @@ Learning, pairing, collaboration, and organizational design are needed to
 spread capability; automation by itself can merely hide specialist knowledge.
 
 ### Trust should be earned by capability, not demanded as faith
+
+This **trust** is the Respect-for-People / LeSS sense of mutual, warranted
+confidence. It is not Toyota's definition of JIT. JIT **entrusts** the
+response; Respect for People is where mutual trust lives. [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md) also records that the
+organization can enjoy JIT while people still suffer stress.
 
 Claim 4 reframed JIT confidence as reliance on responsive capability rather
 than on stockpiles. The same correction is needed here.
@@ -210,8 +218,8 @@ The central theme can be stated as:
 
 A more memorable formulation is:
 
-> **Automate the known. Stop the abnormal. Free people to learn. Let visible
-> capability earn trust. Coordinate from real need.**
+> **Automate the known. Stop the abnormal. Free people to learn. Entrust a
+> capable response to real need. Let visible capability earn mutual trust.**
 
 The TPS–LeSS–AI bridge is then:
 
@@ -220,9 +228,9 @@ The TPS–LeSS–AI bridge is then:
 | **Jidoka** | Preserves known judgment, contains abnormality, and releases attention without removing human stop authority. |
 | **Technical excellence** | Makes evidence, integration, recovery, and change cheap enough for teams to act without specialist queues or excessive approval. |
 | **LeSS self-management** | Places process, progress, and improvement decisions with the people doing the shared product work. |
-| **Respect for People** | Treats people as capable of learning and gives them challenge, support, responsibility, and room to grow. |
-| **Trust** | Grows from visible responsible action and allows less detailed control and earlier commitment. |
-| **JIT** | Lets actual need pull work and collaboration instead of stockpiling output, plans, and decisions. |
+| **Respect for People** | Treats people as capable of learning and gives them challenge, support, responsibility, and room to grow. Mutual trust belongs here. |
+| **JIT** | Actual need pulls work and collaboration; the system **entrusts** people close to the work with a resourceful response. |
+| **Trust** | Under Respect for People and LeSS values: grows from visible responsible action and allows less detailed control. Distinct from JIT's operational definition. |
 | **AI** | Multiplies automation and adaptive generation, amplifying either the enabling loop or its coercive, deskilling opposite. |
 
 The strongest version of the theme is not that TPS resolves freedom and trust
@@ -234,9 +242,10 @@ once and for all. It is:
 
 ## Questions still open
 
-- Claim 3 kept **entrusts** for JIT. Should this theme still be titled
-  **Freedom and Trust**, or use **warranted trust**, **confidence**,
-  **assurance**, or **reliance**?
+- Given that JIT **entrusts** a response while mutual trust sits under Respect
+  for People, is **Freedom and Trust** still the right theme title, or would
+  **warranted trust**, **confidence**, **assurance**, or **reliance** be
+  clearer for the organizational-trust side?
 - Is **Freedom and Trust** stronger as an apparent paradox introduced early in
   the talk, or as the conclusion the earlier claims gradually construct?
 - What concrete story can show the whole reinforcing loop rather than only one
@@ -253,9 +262,6 @@ once and for all. It is:
   normal case, so they remain capable of supervision and exception handling?
 - When is detailed advance planning still cheaper and safer than JIT response,
   especially for irreversible, regulated, or high-consequence decisions?
-- How should the talk acknowledge lean implementations in which stop rules,
-  transparency, and low buffers became pressure or surveillance rather than
-  freedom and trust?
 
 ## Sources consulted
 

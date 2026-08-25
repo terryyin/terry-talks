@@ -2,15 +2,6 @@
 
 **Status: Provisional — triad wording accepted; not a Toyota quotation**
 
-## Original claim / hypothesis
-
-> **Jidoka enables people; Just-in-Time trusts people; Respect for People
-> grows people.**
-
-This is Terry's formulation. Targeted searches did not locate it as an
-established formulation in Toyota material. Present it as **Terry's
-synthesis**, not as a Toyota principle or quotation.
-
 ## Reconciled claim
 
 > **Jidoka frees people by empowering them. JIT entrusts them with responding
@@ -97,7 +88,7 @@ develops this bridge. Empirical doughnut examples are the subject of
 
 Toyota places mutual trust under Respect and personal and professional
 growth under Teamwork, both within Respect for People. Liker likewise joins
-respect with challenge and growth. The original wording is shorthand for a
+respect with challenge and growth. This wording is shorthand for a
 system that treats people as capable of learning and gives them
 responsibility, challenge, support, teamwork, and real problems. Respect
 alone does not guarantee growth.

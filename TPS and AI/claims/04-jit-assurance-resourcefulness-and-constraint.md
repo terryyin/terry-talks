@@ -36,11 +36,13 @@ This is not confidence based on abundance. It is confidence that actual demand
 can be met by a coordinated, flexible, reliable, and continually improving
 system.
 
-The people-side reading belongs with
-[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md): Toyota defines JIT as
-pull of actual need, and places mutual trust under Respect for People. This
-claim is about the **source of assurance**—capability instead of
-inventory—not a demonstrated feeling of calm among workers.
+The people-side reading is settled in
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md): JIT **entrusts**
+capable people close to the work with a resourceful response to actual need.
+That is Terry's reading of JIT's intention, not Toyota's definition, and not a
+report that workers feel trusted or calm. Mutual trust sits under Respect for
+People. This claim is about the **source of assurance**—capability instead of
+inventory.
 
 ### Conceived before the war, realized across eras
 
@@ -135,11 +137,10 @@ confidence** or **readiness**:
 > **We do not need to make it early, because we have built the capability to
 > make it when it is needed.**
 
-Sources describe production logic. They do not show that people in JIT systems
-feel calm. Poorly designed lean and JIT implementations can produce stress and
-work intensification, as [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md)
-notes. Treat felt assurance as a possible result of a mature, supportive
-system—not as part of the definition of JIT.
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already treats the
+trust reading as intention and philosophy, not worker experience: the
+organization can enjoy JIT while people still suffer stress. Felt assurance is
+not part of the definition of JIT.
 
 ### Resourcefulness is disciplined, distributed problem solving
 
@@ -184,8 +185,8 @@ become recurring crisis rather than dependable responsiveness.
 
 A compact candidate:
 
-> **JIT trusts capability, not inventory. Jidoka makes that capability
-> dependable.**
+> **JIT entrusts a capable response, not inventory. Jidoka makes that
+> capability dependable.**
 
 For AI-augmented software development:
 

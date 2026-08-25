@@ -65,6 +65,11 @@ This strongly supports Terry's allocation intuition:
 > **Do not spend scarce human attention repeatedly watching for a condition
 > that the process can recognize and stop on by itself.**
 
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) states the people-side:
+jidoka frees people by empowering them—the right and expectation to signal,
+stop, respond, and improve. This claim is about where that judgment lives in
+the process.
+
 But jidoka is not simply “low intelligence replaces high intelligence.” Human
 wisdom first defines and engineers the detection, and human judgment remains
 necessary when an exception occurs. The automation contains **crystallized

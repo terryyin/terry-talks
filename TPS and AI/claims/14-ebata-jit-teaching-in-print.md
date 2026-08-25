@@ -31,9 +31,9 @@ do the unnecessary.
 
 This is oral teaching, not a found canonical triad. Parenthetical notes are
 Terry's. It was split from
-[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md), which uses the
-teaching as the closest Japanese-language resemblance to the JIT side of
-Terry's mnemonic.
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md). Claim 3's JIT side
+is **entrusts** a resourceful response to real need; this teaching is the
+closest Japanese-language resemblance found so far.
 
 ## Research-based adjustment
 

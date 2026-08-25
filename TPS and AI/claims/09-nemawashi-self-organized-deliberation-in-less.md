@@ -38,11 +38,14 @@ agreement, by reducing surprise during implementation, or by some combination
 of these effects.
 
 Third, the fit with LeSS should be tested against LeSS's actual account of
-self-managing teams and decentralized coordination. The important question is
-not merely whether discussion happens without a manager. It is whether the
-people with relevant knowledge can initiate the necessary conversations,
-surface disagreement early, improve a proposal, and still know who owns the
-decision.
+self-managing teams and decentralized coordination. [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md) already rejects dependable
+inter-team relationships as the LeSS translation. Nemawashi must fit Whole
+Product Focus and a self-managed response, not fixed coordination ties. The
+important question is not merely whether discussion happens without a manager.
+It is whether the people with relevant knowledge can initiate the necessary
+conversations, surface disagreement early, improve a proposal, and still know
+who owns the decision.
 
 The ADR process in this repository is a useful candidate example, with one
 important boundary. It deliberately separates:
@@ -61,9 +64,11 @@ of group consensus or team-level self-organization.
 
 ## Emerging implication for the talk
 
-If the historical and LeSS links are supported, nemawashi may extend the
-talk's account of Just-in-Time coordination from responding to integrated work
-into preparing consequential decisions:
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) names the LeSS
+translation **Whole Product Focus**: integration of shared work can pull
+collaboration; earlier conversation is not forbidden. If the historical and
+LeSS links are supported, nemawashi may extend that account from responding
+to integrated work into preparing consequential decisions:
 
 > **Self-organization does not require decisions to arrive without
 > preparation. Nemawashi can let the people closest to the knowledge surface

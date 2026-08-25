@@ -18,11 +18,12 @@ People who can do these things, and who keep acquiring more knowledge, are
 the most important assets to the company.
 
 This claim was split from [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md).
-That claim keeps the triad mnemonic and the finding that Toyota places
-mutual trust under Respect for People, while growth is supported through
-challenge, teamwork, and kaizen. This claim asks what Respect for People is
-*for*: not a soft accompaniment to jidoka and JIT, but recognition that those
-pillars only work through people who can think.
+Claim 3's reconciled result is that jidoka frees people by empowering them,
+JIT **entrusts** a resourceful response to real need, and Respect for People
+helps them grow through challenge, teamwork, and kaizen. Toyota places mutual
+trust under Respect. Respect alone does not guarantee growth. This claim asks
+what Respect for People is *for*: not a soft accompaniment to jidoka and JIT,
+but recognition that those pillars only work through people who can think.
 
 ## Research-based adjustment
 
