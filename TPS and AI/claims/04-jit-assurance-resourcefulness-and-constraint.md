@@ -123,13 +123,12 @@ enjoy the system while people still suffer stress—see
 Even when the **mix for the period is known**, Toyota still does not run
 all of type A, then all of type B. **Heijunka of mix** sequences different
 types **alternately** so work content and upstream withdrawals stay level.
-That is not a third pillar, and not only a reaction to uncertain orders.
-Volume leveling (same total per day despite lumpy shipments) *is* a
+That is not only a reaction to uncertain orders. Volume leveling (same
+total per day despite lumpy shipments) *is* a
 response to mura of rate. Mix leveling is required **anyway** once more
 than one type shares the line. Toyota's history says items and volumes
 were equalized so Just-in-Time could be implemented at a higher level.
-Official TPS still has two pillars: jidoka and JIT. Flow, pull, takt,
-heijunka, one-piece flow, and SMED live **inside** JIT.
+Flow, pull, takt, heijunka, one-piece flow, and SMED live **inside** JIT.
 
 On stage, one two-row sequence is enough. Same known weekly mix; only the
 order changes. Lean Enterprise Institute's shirt example (five A, three B,
@@ -320,7 +319,7 @@ snapshot among many.
     Stage picture: known weekly mix (5 A, 3 B, 2 C, 2 D) as type-batches
     versus the repeating mixed sequence. The same page's lumpy-orders
     example is volume leveling, not the lead picture. Heijunka as a
-    foundation of JIT, not a third pillar.
+    foundation of JIT.
 13. Lean Enterprise Institute, [Just-in-Time
     Production](https://www.lean.org/lexicon-terms/just-in-time-production/).
     JIT comprised of pull, takt, and continuous flow, relying on heijunka.

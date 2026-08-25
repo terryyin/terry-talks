@@ -24,9 +24,7 @@ The transfer is strong. The origin needs the same layer distinction as
 **jidoka** and **Just-in-Time**; **Go-See** is Toyota's English gloss of
 **genchi genbutsu** (現地現物, actual place, actual thing), a Toyota Way
 value under Continuous Improvement. Shop-floor practice and popular TPS
-glossaries still treat it as part of how TPS is lived. That is close enough
-for the talk if the layer is named, not close enough to call Go-See a TPS
-pillar.
+glossaries still treat it as part of how TPS is lived.
 
 > **Go-See is genchi genbutsu: go to the actual place and the actual thing
 > to grasp facts, rather than deciding from reports. In AI-augmented work
@@ -34,7 +32,7 @@ pillar.
 > process. Entering it is how you see what actually happened—not watching
 > the agent all day, and not trusting its summary.**
 
-### Placement: Toyota Way value, TPS habit, not a TPS pillar
+### Placement: Toyota Way value, TPS habit
 
 Toyota Way 2001 names five concepts under two pillars. Continuous
 Improvement holds **Challenge**, **Kaizen**, and **Genchi Genbutsu** (“go
@@ -53,17 +51,13 @@ So:
 
 | Source | How it places Go-See |
 |---|---|
-| **Toyota TPS overview** | Does not list it as a pillar. Pillars remain jidoka and JIT. |
 | **Toyota Way 2001** | One of five values; under Continuous Improvement. |
 | **Toyota Europe / UK** | English: “Go and see for yourself.” UK lists it in a TPS glossary. |
 | **LeSS** | **Go See**; Toyota Way 2001 as the origin for the management practice. |
 
-This is the same caution as [Claim 9](09-nemawashi-self-organized-deliberation-in-less.md)
-for nemawashi: belonging in Toyota thinking is not the same as sitting on
-the TPS house as a peer of jidoka and JIT. [Claim
-12](12-respect-for-people-who-can-think.md) already uses genchi genbutsu
-as the Toyota name for the analysis practice, not as a “skill” Toyota
-lists.
+[Claim 12](12-respect-for-people-who-can-think.md) already uses genchi
+genbutsu as the Toyota name for the analysis practice, not as a “skill”
+Toyota lists.
 
 ### Place versus act; not a walk-around
 
@@ -213,7 +207,7 @@ where that seeing now has to reach.
    worst of all.” LeSS cites this as Hayashi08.
 7. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
-   Current official TPS: jidoka and JIT, not Go-See as a pillar. Layer
+   Current official TPS: jidoka and JIT. Layer
    distinction already in
    [Claim 2](02-tps-and-lean-houses.md).
 

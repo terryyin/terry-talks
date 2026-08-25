@@ -24,16 +24,14 @@ propositions:
 
 ## Research-based adjustment
 
-The three propositions hold. **One-piece flow and 一個ずつ確認 are not a
-pillar. They are part of JIT.** The names need the same layer caution as
-[Claim 2](02-tps-and-lean-houses.md): Toyota's official overview has two
-pillars only—jidoka and Just-in-Time. **One-piece flow** (一個流し) is
-the ideal form of continuous flow **under** that JIT pillar. **Vertical
-slice** is agile/LeSS language, not a Toyota term. **一個ずつ確認** is
-Terry's name for that flow's quality heart: confirm this piece before
-sending it on. English gloss: piece-by-piece confirmation. A secondary
-story calls the origin one-by-one confirmation. It is teaching language,
-not Toyota's official name for a pillar.
+The three propositions hold. **One-piece flow and 一個ずつ確認 are part
+of JIT.** **One-piece flow** (一個流し) is the ideal form of continuous
+flow **under** JIT. **Vertical slice** is agile/LeSS language, not a
+Toyota term. **一個ずつ確認** is Terry's name for that flow's quality
+heart: confirm this piece before sending it on. English gloss:
+piece-by-piece confirmation. A secondary story calls the origin
+one-by-one confirmation. It is teaching language, not Toyota's official
+name.
 
 > **Under JIT, decompose the flow of user value into thin vertical slices,
 > not into technical layers. The detailed solution is then pulled by a real
@@ -69,11 +67,11 @@ unit of analysis. That local switching **is** an interruption of
 component and discipline focus; what LeSS refuses to interrupt is the
 customer-centric slice. The cost of the accepted interruption is why
 horizontal programs and specialist queues reappear. Reducing it is
-SMED-like kaizen—[Claim
-5](05-smed-software-changeover-and-ai-friendly-context.md)—not
-a new TPS pillar. Working several customer-centric items at once is
-how that changeover cost reappears as **spill-over**; Vodde's public
-treatment is on that claim. Heijunka of mix is the sequencing reason
+SMED-like kaizen
+([Claim 5](05-smed-software-changeover-and-ai-friendly-context.md)).
+Working several customer-centric items at once is how that changeover
+cost reappears as **spill-over**; Vodde's public treatment is on that
+claim. Heijunka of mix is the sequencing reason
 the factory alternates types even when the mix is known; that argument
 lives in [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
 
@@ -97,9 +95,7 @@ after a cylinder-block mold was finally completed, machining revealed
 pits; of ten cast blocks, only one or two survived boring. Defects were
 discovered at the next process, after a small batch had already been made.
 
-Do not present 一個ずつ確認 or the Kitano/Chapados origin as a Toyota
-pillar name. They are part of JIT. Do present the operational point,
-which Toyota sources do support:
+Toyota sources do support the operational point:
 
 > **One-piece flow is not only shorter lead time. It is 一個ずつ確認:
 > confirmation close enough to the work that the system can still learn.**

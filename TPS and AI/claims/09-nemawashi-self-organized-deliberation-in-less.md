@@ -29,7 +29,7 @@ claim should establish whether Toyota presents nemawashi as part of TPS, as a
 Toyota Way management practice, or as a broader Japanese practice that Toyota
 uses. These answers overlap, but they are not interchangeable. [Claim
 16](16-go-see-ai-harness.md) works the same distinction for Go-See / genchi
-genbutsu: Toyota Way value and shop-floor habit, not a TPS pillar.
+genbutsu: Toyota Way value and shop-floor habit.
 
 Second, the role of nemawashi in a decision needs clarification. It may
 describe the informal groundwork that precedes a formal decision—sharing a

@@ -22,20 +22,18 @@ propositions:
 ## Research-based adjustment
 
 The first proposition is exact. The origin is Toyota, with the same
-layer caution as [Claim 2](02-tps-and-lean-houses.md) and
-[Claim 16](16-go-see-ai-harness.md): **it is not a TPS pillar.** SMED
-remains inside JIT; what it illustrates here is the *trajectory*.
+layer distinction as [Claim 2](02-tps-and-lean-houses.md) and
+[Claim 16](16-go-see-ai-harness.md). SMED remains inside JIT; what it
+illustrates here is the *trajectory*.
 
 > **LeSS names Continuous Improvement Towards Perfection as a core
-> principle and traces it to Toyota via lean thinking. Toyota's official
-> TPS overview still has two pillars—jidoka and Just-in-Time—while
-> everyone implements daily kaizen and is never finished. Continuous
-> Improvement is a Toyota Way pillar; “towards perfection” is how lean
-> thinking and LeSS name the unattainable ideal that keeps that kaizen
-> from becoming a change project with an end date. SMED is a worked
-> example of that trajectory: successive experiments toward near-zero
-> changeover so mixed-model flow, and cheap change of direction, become
-> economical.**
+> principle and traces it to Toyota via lean thinking. Everyone
+> implements daily kaizen and is never finished. Continuous Improvement
+> is a Toyota Way pillar; “towards perfection” is how lean thinking and
+> LeSS name the unattainable ideal that keeps that kaizen from becoming
+> a change project with an end date. SMED is a worked example of that
+> trajectory: successive experiments toward near-zero changeover so
+> mixed-model flow, and cheap change of direction, become economical.**
 
 ### LeSS names the principle and says it comes from Toyota
 
@@ -61,8 +59,7 @@ LeSS itself locates the idea:
 > introduction draws on the Toyota background.
 
 So the talk can say **LeSS took this from Toyota via lean thinking.** It
-should not say LeSS invented it, and it should not collapse that
-attribution into “it is a TPS pillar.”
+should not say LeSS invented it.
 
 LeSS also names **Lean Thinking** as a separate principle whose goal is
 perfection. That is the house restated in
@@ -75,7 +72,7 @@ the SMED example, not the house diagram.
 
 | Source | How it places the idea |
 |---|---|
-| **Toyota TPS overview** | Two pillars remain **jidoka** and **Just-in-Time**. The system is “the complete elimination of waste in pursuit of the most efficient methods.” All employees implement daily incremental kaizen; Toyota says it is still implementing kaizen to TPS “day and night.” Kaizen is how TPS is lived and evolved, not a third pillar. |
+| **Toyota TPS overview** | The system is “the complete elimination of waste in pursuit of the most efficient methods.” All employees implement daily incremental kaizen; Toyota says it is still implementing kaizen to TPS “day and night.” Kaizen is how TPS is lived and evolved. |
 | **Toyota Way 2001** | Two pillars: **Continuous Improvement** and **Respect for People**. “We are never satisfied with where we are.” Under Continuous Improvement: Challenge, Kaizen, and Genchi Genbutsu. [Claim 16](16-go-see-ai-harness.md) already owns Go-See / genchi genbutsu. |
 | **Womack and Jones, *Lean Thinking*** | Five principles; the last is **pursue perfection**—repeatedly. Already compared in [Claim 7](07-the-algorithm-and-tps-family-resemblance.md). |
 | **Larman/Vodde Lean Thinking House** | Continuous Improvement as a pillar; **perfection** as the goal / roof. [Claim 2](02-tps-and-lean-houses.md). |
@@ -102,7 +99,6 @@ That is the software-shaped twin of cheap changeover.
 
 ### SMED is the trajectory, not a new home for the method
 
-SMED is not a pillar and does not move out of JIT.
 [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) already
 has why it exists: even a known mix is made alternately; that is only
 cheap if changeover is cheap. [Claim
@@ -171,8 +167,7 @@ After the TPS overview (jidoka and JIT) and the Toyota Way / LeSS house
 (Claim 2), name this principle in LeSS's words so the audience hears a
 familiar LeSS idea with its Toyota layer made explicit:
 
-> **Never done. Not a TPS pillar—the operating pillars remain jidoka and
-> JIT—but the way Toyota lives those pillars, and the way LeSS refuses
+> **Never done. How Toyota lives jidoka and JIT, and how LeSS refuses
 > to treat adoption as a project with an end date.**
 
 Then make it concrete with SMED rather than with a second house lecture:

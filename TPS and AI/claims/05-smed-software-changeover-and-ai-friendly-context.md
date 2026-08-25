@@ -49,7 +49,7 @@ steps: separate internal from external setup, convert internal work to
 external wherever possible, then streamline what remains. Fewer touches
 may result. They are not the definition.
 
-SMED is not a pillar. It lives **inside JIT**. [Claim
+SMED lives **inside JIT**. [Claim
 4](04-jit-assurance-resourcefulness-and-constraint.md) already has the
 factory reason: even a known mix is made alternately; that is only cheap
 if changeover is cheap. [Claim

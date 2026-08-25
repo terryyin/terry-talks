@@ -18,10 +18,9 @@ without halt is not jidoka.
 
 ## Research-based adjustment
 
-**Stop & Fix is not a TPS pillar.** Toyota's official overview still has
-two pillars: jidoka and Just-in-Time. Stopping immediately when an
-abnormality is detected is **inside jidoka**. Toyota's current account:
-jidoka is “automation with a human touch”; when an abnormality occurs,
+Stopping immediately when an abnormality is detected is **inside
+jidoka**. Toyota's current account: jidoka is “automation with a human
+touch”; when an abnormality occurs,
 the machine stops automatically or the operator pulls the stop cord;
 that prevents defective outflow, makes the abnormality clear, and
 enables prevention of recurrence. The andon makes the stop visible so
@@ -33,13 +32,13 @@ time. In that telling, jidoka (machines and people who can detect and
 stop) is the foundation for building in quality. The Larman/Vodde lean
 house used in [Claim 2](02-tps-and-lean-houses.md) puts “promote
 stop-and-fix” in the **foundation**, with managers-as-teachers and Go
-See—not beside jidoka as a third pillar.
+See.
 
-So three layers, same caution as elsewhere in this folder:
+So three layers:
 
 | Layer | What Stop & Fix is |
 |---|---|
-| **TPS pillar** | It is not one. It is the stop-and-contain-and-prevent-recurrence half of **jidoka**. |
+| **TPS / jidoka** | The stop-and-contain-and-prevent-recurrence half of **jidoka**. |
 | **Toyota Way (Liker)** | Principle 5: a culture of stopping to fix, so quality is right the first time. |
 | **LeSS / lean house** | Foundation practice: promote stop-and-fix. CI is compared to an andon. |
 
@@ -65,7 +64,7 @@ abnormality is not allowed to become normal inventory.
 
 ### Software methods
 
-Terry's three methods fit that split. They are not three extra pillars.
+Terry's three methods fit that split.
 
 | Method | What it detects | What Stop & Fix requires |
 |---|---|---|

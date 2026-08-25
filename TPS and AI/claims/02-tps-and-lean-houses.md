@@ -154,8 +154,8 @@ copy a house or transfer a manufacturing mechanism by name. It is to ask:
   SMED as a worked example of continuous improvement toward perfection,
   still inside JIT, is
   [Claim 18](18-continuous-improvement-towards-perfection.md). Poka-yoke
-  placement is still open. Stop & Fix as the jidoka *response* (not a
-  third pillar) is [Claim 19](19-stop-and-fix.md).
+  placement is still open. Stop & Fix as the jidoka *response* is
+  [Claim 19](19-stop-and-fix.md).
 - Which enabling conditions must accompany a transferred mechanism so that it
   produces learning and responsiveness rather than pressure, interruption, or
   more unverified output?
