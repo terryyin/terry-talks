@@ -167,7 +167,7 @@ analysis, design, test, and coding.
 
 | Practice | TPS name, qualified | How it cheapens a local jump |
 |---|---|---|
-| **Simplified, mistake-proofed design** | Closest to **poka-yoke** and information hiding. [Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns poka-yoke; [Claim 6](06-jidoka-embeds-routine-judgment.md) owns prevent vs detect vs learn. | Invalid states cannot be constructed; a module can be used with little knowledge of another. TDD and low coupling let the team enter one component without reconstructing the rest. |
+| **Simplified, mistake-proofed design** | Closest to **poka-yoke** and information hiding. [Claim 20](20-poka-yoke-supports-jidoka.md) owns poka-yoke; [Claim 6](06-jidoka-embeds-routine-judgment.md) owns prevent vs detect vs learn. | Invalid states cannot be constructed; a module can be used with little knowledge of another. TDD and low coupling let the team enter one component without reconstructing the rest. |
 | **Automated tests** | **Jidoka** when they detect, stop, and make an abnormality visible. They also cheapen checking: SMED-like externalized verification. | Coding and checking can alternate without reconstructing a manual test procedure. The oracle is previous judgment made executable. |
 | **One-command remaining setup** | **OTED**: ASQ’s “reduction of die setup to a single step,” the SMED extreme toward zero setup. | Clone, build, test, or deploy becomes one motion, so working memory is spent on the customer problem, not on reconstructing the environment. |
 
@@ -315,7 +315,7 @@ backlog (inventory):
 1. Prefer **no additional representation**—the cheapest software is
    software that is not there.
 2. Make illegal states unrepresentable (poka-yoke;
-   [Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md)).
+   [Claim 20](20-poka-yoke-supports-jidoka.md)).
 3. Highly cohesive design: once-and-only-once; related things close.
 4. Intention-revealing names that map to the business domain.
 5. Purpose of the code revealed by automated tests, which also prove it.
@@ -367,8 +367,8 @@ not a reason to launch more unfinished work.
 
 - When is a component still too large or coupled for this trade-off,
   even with TDD, tests, and one-command setup?
-- Does calling one-command remaining setup **OTED** help a Tokyo LeSS
-  audience, or does it over-claim the factory extreme?
+- Does calling one-command remaining setup **OTED** help, or does it
+  over-claim the Toyota factory extreme?
 
 Skipped: changeover-time boundary (when a clock on the weekly-report
 sequence would stop); Sprint-boundary termination of current work.

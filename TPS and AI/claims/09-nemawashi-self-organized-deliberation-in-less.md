@@ -28,7 +28,7 @@ hypothesis contains three related propositions to investigate:
 The LeSS application is an interpretation, not a named LeSS practice. The
 origin needs the same layer distinction as
 [Claim 16](16-go-see-ai-harness.md) for Go-See and
-[Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) for
+[Claim 20](20-poka-yoke-supports-jidoka.md) for
 poka-yoke.
 
 > **Nemawashi is Japanese groundwork for a change, not a TPS pillar.

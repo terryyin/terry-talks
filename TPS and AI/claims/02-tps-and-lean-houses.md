@@ -86,7 +86,7 @@ principle. That naming, the TPS vs Toyota Way vs LeSS layer, and SMED as
 a worked example of the never-done trajectory are
 [Claim 18](18-continuous-improvement-towards-perfection.md). Poka-yoke
 is a supporting method under jidoka:
-[Claim 20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md). Stop & Fix
+[Claim 20](20-poka-yoke-supports-jidoka.md). Stop & Fix
 as the jidoka response is [Claim 19](19-stop-and-fix.md).
 
 ## Implication for the talk

@@ -38,7 +38,7 @@ The claims below are **Provisional**:
 17. [JIT in software prefers vertical slices of user value; one-piece flow is 一個ずつ確認](claims/17-jit-vertical-slicing-one-piece-flow.md)
 18. [Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is a worked example](claims/18-continuous-improvement-towards-perfection.md)
 19. [Stop & Fix is the jidoka response; tests, fail-fast, and CI/CD must actually halt work](claims/19-stop-and-fix.md)
-20. [Poka-yoke mistake-proofs a known error at the source; it supports jidoka, it is not a TPS pillar](claims/20-poka-yoke-supports-jidoka-not-a-tps-pillar.md)
+20. [Poka-yoke mistake-proofs a known error at the source; it supports jidoka](claims/20-poka-yoke-supports-jidoka.md)
 21. [CI is a developer practice; a CI system is an andon](claims/21-ci-practice-is-not-a-ci-system.md)
 
 Questions that cut across the claims are collected in

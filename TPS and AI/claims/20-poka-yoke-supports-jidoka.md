@@ -1,4 +1,4 @@
-# Claim 20: Poka-yoke mistake-proofs a known error at the source; it supports jidoka, it is not a TPS pillar
+# Claim 20: Poka-yoke mistake-proofs a known error at the source; it supports jidoka
 
 **Status: Provisional — hypothesis extracted from Claims 1, 2, 5, 6, 11,
 and 19; TPS relationship sourced; not a finalized talk beat**
@@ -35,33 +35,25 @@ changeover.
 
 ## Research-based adjustment
 
-> **Poka-yoke is not a third TPS pillar.** Toyota's operating system has
-> two pillars: **jidoka** and **Just-in-Time**. Poka-yoke is a supporting
-> quality method: mistake-proof a *known* error so it cannot occur, or
-> so it is immediately obvious at the source. Toyota itself presents
-> fail-safe poka-yoke devices under autonomation. Shingo formalized the
-> same idea as Zero Quality Control: distinguish inadvertent **errors**
-> from **defects**, then use source inspection and poka-yoke so defects
-> never form. That is the relationship: poka-yoke is one of the ways
-> jidoka builds quality into the process, which is why low-inventory JIT
-> can survive. Prefer prevention by construction to repeatedly detecting
-> the same failure. Do not collapse every good design, every test, or
-> jidoka itself into the name.
+> **Poka-yoke is a supporting quality method under jidoka:** mistake-proof
+> a *known* error so it cannot occur, or so it is immediately obvious at
+> the source. Toyota itself presents fail-safe poka-yoke devices under
+> autonomation. Shingo formalized the same idea as Zero Quality Control:
+> distinguish inadvertent **errors** from **defects**, then use source
+> inspection and poka-yoke so defects never form. That is the
+> relationship: poka-yoke is one of the ways jidoka builds quality into
+> the process, which is why low-inventory JIT can survive. Prefer
+> prevention by construction to repeatedly detecting the same failure.
+> Do not collapse every good design, every test, or jidoka itself into
+> the name.
 
-### Not a pillar: Toyota's placement
+### Toyota's placement: under jidoka
 
-Toyota's current TPS overview still names two pillars. Jidoka (also
-called autonomation) is "preventing defective products by automatically
-stopping a machine when an abnormality occurs," which removes the need
-for a person to watch machines continuously. Just-in-Time is produce or
-transport only what is needed, when it is needed, in the amount needed.
-
-On the same official plant-tour page, under **exploring autonomation**,
+On Toyota's official plant-tour page, under **exploring autonomation**,
 Toyota shows a separate beat: "Avoiding Simple Mistakes Through
 Fail-Safe Devices called Poka-yoke." The example is a screwdriver
 linked to a check for loose screws; a red lamp alerts the worker.
-That is Toyota calling poka-yoke a **fail-safe under jidoka**, not a
-peer of jidoka and JIT.
+That is Toyota calling poka-yoke a **fail-safe under jidoka**.
 
 Lean commentary that stays close to that placement treats poka-yoke as
 a tool of the jidoka pillar: detect or prevent a defect, stop rather
@@ -72,8 +64,7 @@ simple, and invented in kaizen, not dreamed up as equipment that is
 "people-proof."
 
 Placement is settled here: **supporting practice under jidoka**, shown
-inside that relationship, not drawn as a third pillar on Toyota's
-overview. SMED stays under JIT, as
+inside that relationship. SMED stays under JIT, as
 [Claim 18](18-continuous-improvement-towards-perfection.md) already has
 it.
 
@@ -176,11 +167,10 @@ call instead of changing the structure keeps paying for reconstruction.
 
 A compact candidate, sitting next to Claims 1, 2, 5, 6, and 19:
 
-> **Do not add a third pillar to Toyota's TPS overview.** Jidoka and
-> JIT remain the two. Under jidoka, show poka-yoke: for a known
-> mistake, change the process so people need not rely on vigilance.
-> That is how quality at the source makes pull survivable, and how
-> spent judgment frees attention for what is still novel.
+> **Under jidoka, show poka-yoke:** for a known mistake, change the
+> process so people need not rely on vigilance. That is how quality at
+> the source makes pull survivable, and how spent judgment frees
+> attention for what is still novel.
 
 On stage, one software fixture is enough: a type or constructor that
 cannot represent the illegal state, or a UI that does not offer the
@@ -246,5 +236,5 @@ a component jump stays cheap. It should not stop to define poka-yoke.
    Revisited](https://blog.janestreet.com/effective-ml-revisited/).
    "Make illegal states unrepresentable."
 
-**TPS relationship sourced: supporting method under jidoka, not a third
-pillar. Naming and one on-stage software fixture remain live.**
+**TPS relationship sourced: supporting method under jidoka. Naming and
+one on-stage software fixture remain live.**

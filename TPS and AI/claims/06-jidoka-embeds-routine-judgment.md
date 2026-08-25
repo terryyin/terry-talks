@@ -22,7 +22,7 @@ improve. [Claim
 pairing: stop conditions protect previous intentions rather than
 stacking judgment-dependent output. [Claim 19](19-stop-and-fix.md)
 owns the halt. [Claim
-20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns poka-yoke
+20](20-poka-yoke-supports-jidoka.md) owns poka-yoke
 as prevention supporting jidoka. This claim is **where that judgment
 lives**.
 

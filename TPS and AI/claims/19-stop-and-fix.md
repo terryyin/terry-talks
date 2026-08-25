@@ -44,7 +44,7 @@ So three layers:
 
 [Claim 6](06-jidoka-embeds-routine-judgment.md) already owns where
 previously learned judgment lives. [Claim
-20](20-poka-yoke-supports-jidoka-not-a-tps-pillar.md) owns poka-yoke as
+20](20-poka-yoke-supports-jidoka.md) owns poka-yoke as
 the prevent-at-source method. [Claim
 3](03-jidoka-enables-jit-trusts-respect-grows.md) already owns that
 jidoka *frees* people by giving them the right and expectation to
