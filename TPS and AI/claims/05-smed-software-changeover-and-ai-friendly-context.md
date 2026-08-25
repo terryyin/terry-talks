@@ -66,23 +66,59 @@ direction—is
 > vertical slices the economical way to follow actual need.**
 
 Launching more agents does not substitute for that kaizen. It can move
-the bottleneck to review and integration. Even with AI, a team should
-not work several user-centric items at once. That is one-piece flow
-([Claim 17](17-jit-vertical-slicing-one-piece-flow.md)), and it is how
-Bas Vodde treats **spill-over**: items *started* but not finished at
-Sprint end. The usual cause is many items in progress at the same time.
-The best teams he has worked with try to work **one item at a time**.
-Picking fewer items in planning does not, by itself, reduce spill-over;
-finishing what was started—or splitting it customer-centrically inside
-the Sprint—does. Shortcuts to “finish” are worse than spill-over.
-Unstarted selected items can be thrown out; they are not spill-over.
+the bottleneck to review and integration.
 
-Vodde’s public treatment is the LeSS blog post [Dealing with Spill-over
-Items](https://less.works/blog/2024/09/03/dealing-with-item-spillover-in-teams.html)
-(also on LinkedIn) and the spill-over metric in his LeSS Conference 2025
-talk [The Product
-Backlog](https://www.youtube.com/watch?v=G2gq0stySvs). Ahead of the 2026
-Tokyo conference he said he would probably talk about spill-over there.
+### One customer item at a time: Vodde's spill-over
+
+Bas Vodde's 2020 post, 2024 blog, and 2025 Amsterdam keynote are **one
+argument**. Spill-over is items *started* but not finished at Sprint
+end. It is not items selected and never started: those may be thrown
+out. “Did the team finish everything it selected?” is a bad metric.
+
+Spill-over matters for three reasons. Between Sprints the product
+should have no WIP so the Product Owner can reprioritize; started
+unfinished work removes that choice. It is usually a team habit:
+people work individualistically on many items at once, and unfinished
+work becomes a buffer to stay inside a specialty and avoid learning.
+It also marks weak incremental engineering: surprises appear at
+integration instead of on this piece.
+
+The 2020 post names the origin. Single-specialization causes work
+imbalance. The usual quick-fixes—people on more than one team, extra
+work so everyone is busy, starting next Sprint's design or last
+Sprint's QA—produce half-done items. “Carry-over” and “spill-over”
+are not Scrum. They are signs of dysfunctional Scrum: individual
+responsibility for a specialty instead of team responsibility for the
+customer-centric item.
+
+What to do is equally stable across the three publications. The best
+teams work **one item at a time**. Pair or mob when the next task
+leaves someone's specialty. Use Sprint Planning Two as a design
+meeting so tasks coordinate that one item. Check two or three days
+before the end of the Sprint. If the remainder will not fit, split
+*customer-centrically* inside the Sprint—not into tasks—and put the
+other fragment back on the backlog. Take spill-over to the
+retrospective. Do not treat “pick fewer items in planning” as the
+fix: spill-over is not caused by how many were selected. Do not take
+shortcuts to look finished; a lower-quality Done is worse than
+spill-over. In the 2025 talk, Wärtsilä's average started-unfinished
+(or unsplit) items per team was about 0.8—low compared with typical
+organizations. That number is for insight into development, not for
+reporting upward.
+
+This claim is why that one-item discipline is *economical* when the
+item is a vertical slice. The weekly-report feature jumps frontend,
+backend, data, and render. Without cheap component and discipline
+changeover, specialists start a second item so they stay busy—exactly
+Vodde's quick-fix. AI makes starting that second item cheaper. The
+constraint does not move: one customer-centric item, finished or
+split, then a deliberate changeover.
+
+Tokyo 2026 is the **same** Global LeSS Conference as this talk. If
+Vodde covers spill-over as team health, do not re-teach the metric.
+Complement it: SMED, poka-yoke, jidoka, and OTED are how a feature
+team can stay on one cross-component item, and why more agents are
+not a license for more unfinished work.
 
 ### Deliberate changeover, not interruption
 
@@ -350,8 +386,7 @@ unsolved customer problem.
 backlog (inventory):
 
 1. Prefer **no additional representation**—the cheapest software is
-   software that is not there. (Terry’s list opened “No code is better
-   than no code”; read that as no-code-over-code, not a tautology.)
+   software that is not there.
 2. Make illegal states unrepresentable (poka-yoke).
 3. Highly cohesive design: once-and-only-once; related things close.
 4. Intention-revealing names that map to the business domain.
@@ -379,7 +414,9 @@ learns cumulatively.
 > one component or one discipline.** Reduce the cost of those local
 > switches, and of the changeover between cycles. The unit on stage is
 > the **feature team**; AI is the common tool. The weekly-report slice
-> is the changeover to watch.
+> is the changeover to watch. In Tokyo, if Vodde owns spill-over as
+> team health, this talk owns why one cross-component item is
+> affordable.
 
 SMED's practical question:
 
@@ -402,26 +439,21 @@ not a reason to launch more unfinished work.
 
 ## Questions still open
 
-- **Changeover-time boundary** (clarified, not yet answered). This was
-  not “when may we abandon the Sprint goal?” It was: if we ever *time*
-  a SMED-like changeover for the weekly-report slice, when does the
-  clock stop? When the team first reproduces a failure in a new
-  component, when the first edit is verified, when the increment is
-  integrated, or when a customer can confirm the report? Skip until
-  that measurement is actually needed.
-- Sprint-boundary termination of current work: skipped for now.
 - When is a component still too large or coupled for this trade-off,
   even with TDD, tests, and one-command setup?
 - Does calling one-command remaining setup **OTED** help a Tokyo LeSS
   audience, or does it over-claim the factory extreme?
 
-Talk choices now recorded: unit of analysis is the feature team; AI is
-a common tool; the weekly-report slice is the changeover to show;
+Skipped: changeover-time boundary (when a clock on the weekly-report
+sequence would stop); Sprint-boundary termination of current work.
+
+Talk choices recorded: unit of analysis is the feature team; AI is a
+common tool; the weekly-report slice is the changeover to show;
 correctness practices and the externalization order are as above; test
 automation is the main software jidoka method, with Stop & Fix in
 [Claim 19](19-stop-and-fix.md); parallel AI work is limited by
-one-piece flow and Vodde’s spill-over, not by launching more unfinished
-items.
+one-piece flow and Vodde’s spill-over. Tokyo 2026 is the same
+conference: complement Vodde on spill-over, do not re-teach it.
 
 ## Sources consulted
 
@@ -513,28 +545,32 @@ items.
     Automation](https://less.works/less/technical-excellence/test-automation).
     Automated safety net as paramount for feature teams with shared
     code; frequent execution keeps that net cheap to maintain.
-20. Bas Vodde (2024), [Dealing with Spill-over
-    Items](https://less.works/blog/2024/09/03/dealing-with-item-spillover-in-teams.html),
-    LeSS blog (also [LinkedIn](https://www.linkedin.com/pulse/dealing-spill-over-items-bas-vodde-xuwue)).
-    Spill-over is started-but-unfinished work; one item at a time;
-    customer-centric splits inside the Sprint; do not take shortcuts.
-21. Bas Vodde (2025), [The Product
+20. Bas Vodde — **one spill-over argument**, three publications:
+    (a) [Overcoming the false dichotomy of Specialization vs
+    Generalization with
+    Scrum](https://less.works/blog/2020/06/16/specialization-vs-generalization-with-scrum.html)
+    (2020): single-specialization quick-fixes produce half-done work;
+    “carry-over” / “spill-over” are not Scrum.
+    (b) [Dealing with Spill-over
+    Items](https://less.works/blog/2024/09/03/dealing-with-item-spillover-in-teams.html)
+    (2024; also
+    [LinkedIn](https://www.linkedin.com/pulse/dealing-spill-over-items-bas-vodde-xuwue)):
+    definition; agility, habits, and engineering; one item at a time;
+    split customer-centrically inside the Sprint; no shortcuts.
+    (c) [The Product
     Backlog](https://www.youtube.com/watch?v=G2gq0stySvs), LeSS
-    Conference 2025, Amsterdam. Spill-over as a team-dynamics metric;
-    unstarted items may be thrown out; started items must be finished
-    or split.
-22. Bas Vodde (2020), [Overcoming the false dichotomy of Specialization
-    vs Generalization with
-    Scrum](https://less.works/blog/2020/06/16/specialization-vs-generalization-with-scrum.html).
-    “Carry-over” and “spill-over” are not Scrum; they are signs of
-    dysfunctional Scrum.
-23. Yaron Minsky (2010), [Effective
+    Conference 2025, Amsterdam
+    ([slides](https://less.works/conferenza/sessions/2025-global-less-conference-amsterdam-keynote-the-product-backlog-455)):
+    started items must be finished or split; unstarted items may be
+    thrown out; spill-over as a development-insight metric, not an
+    upward report.
+21. Yaron Minsky (2010), [Effective
     ML](https://blog.janestreet.com/effective-ml/) / [Effective ML
     Revisited](https://blog.janestreet.com/effective-ml-revisited/).
     “Make illegal states unrepresentable.”
-24. Eric Evans (2003), *Domain-Driven Design*. Ubiquitous language.
-25. Kent Beck, *Extreme Programming Explained*. Once and only once.
-26. John Sweller, cognitive load theory. Extraneous load from poor
+22. Eric Evans (2003), *Domain-Driven Design*. Ubiquitous language.
+23. Kent Beck, *Extreme Programming Explained*. Once and only once.
+24. John Sweller, cognitive load theory. Extraneous load from poor
     representation, as distinct from the intrinsic difficulty of the
     problem.
 
@@ -542,4 +578,5 @@ Mix-leveling sources for why SMED exists under JIT are in
 [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
 
 **Talk choices recorded for unit of analysis, the weekly-report
-changeover, correctness practices, and spill-over.**
+changeover, correctness practices, and spill-over. Tokyo 2026: same
+conference; complement Vodde, do not re-teach spill-over.**

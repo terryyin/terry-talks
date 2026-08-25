@@ -70,10 +70,12 @@ horizontal programs and specialist queues reappear. Reducing it is
 SMED-like kaizen
 ([Claim 5](05-smed-software-changeover-and-ai-friendly-context.md)).
 Working several customer-centric items at once is how that changeover
-cost reappears as **spill-over**; Vodde's public treatment is on that
-claim. Heijunka of mix is the sequencing reason
-the factory alternates types even when the mix is known; that argument
-lives in [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
+cost reappears as **spill-over**. Vodde's 2020, 2024, and 2025
+treatments are one argument, digested in
+[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md).
+Heijunka of mix is the sequencing reason the factory alternates types
+even when the mix is known; that argument lives in
+[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
 
 ### 一個ずつ確認 is why that flow learns
 
