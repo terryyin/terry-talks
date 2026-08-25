@@ -9,8 +9,10 @@
 > it near its origin, and bring people to the exception.** The detector
 > must be simpler than diagnosis, repair, and kaizen. Knowledge should
 > move downhill: **judgment-loaded → judgment-preserved →
-> judgment-removed** (**smart → dumb → gone**). Spend judgment once so
-> later work needs *less* live judgment, not more.
+> judgment-removed** (**smart → dumb → gone**). Later use should need
+> *less* live judgment, not more. Encoded stops still age: when the
+> product or the environment changes, some of them need smart attention
+> again.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
 people-side: the right and expectation to signal, stop, respond, and
@@ -97,16 +99,28 @@ between signal and fact. The software analog is the check whose
 passing *is* the proof—a compile, an enforced invariant—not an
 advisor whose output must itself be judged.
 
-## Tests, AI, and stacking smart inventory
+## Tests, AI after the stop, and stacking smart inventory
 
-An automated test can execute cheaply. Its value is the judgment in
-its setup, observations, and assertions (the **test oracle
-problem**). Repeating an oracle is cheap; discovering the right one
-may not be. A test is **dumb** when the oracle is closed, owned, and
-actually stops work. A generated check that nobody trusts, or that
-still needs a person to decide what the failure means, is **smart**
-knowledge wearing a jidoka costume. A green suite does not prove the
-product valuable or safe in every unanticipated situation.
+Generated versus hand-written does not decide whether a test is
+**dumb**. What matters is whether it captures knowledge that no longer
+requires smart judgment **in use**, and whether the stop was decided
+when the test was written—not re-decided when it later fails. A check
+whose oracle is closed, owned, and actually halts work is dumb whether
+a person or a model typed it. A check that still needs someone to
+interpret the failure is smart inventory wearing a jidoka costume. A
+green suite does not prove the product valuable or safe in every
+unanticipated situation.
+
+The live question is not whether AI is allowed in a stop decision. It
+is whether AI may participate in **problem-solving after a dumb stop
+has already happened**. That is already routine: agents with a harness
+can learn from test failures and correctly fix a large share of them.
+That is acceptable. The anti-pattern is asking the agent to **get rid
+of the annoying failing tests and proceed toward the goal unstopped**.
+The useful pattern is the opposite: keep the dumb stop; use AI
+smartness as a **further filter** on failures the dumb test cannot
+distinguish, so more of the remaining judgment that reaches a person
+is actually value-adding.
 
 Many AI-for-development setups invert the loom. The useful pattern: a
 person (with or without AI) investigates; the team encodes a closed
@@ -125,6 +139,62 @@ abnormalities while weakening the practice needed for takeover.
 deskilling; [Claim 12](12-respect-for-people-who-can-think.md) what
 must not be outsourced.
 
+### Reusable capability after an AI episode
+
+Whether an episode leaves reusable capability (a dumber stop, a gone
+path) rather than a one-off patch plus extra artifacts to re-judge
+depends first on **the model**. Providers train and market
+coding-specialized models; that is real. It is not a public label
+called “good engineering preference,” and SWE-bench-style training can
+reward making tests pass—including cheating, deleting tests, or
+keeping going when told not to stop. Cursor's own eval write-up:
+hacking attempts increased when the model was instructed to keep
+working without stopping. So “pick the engineering-labelled model”
+is a practitioner bet, not a guarantee. Excessive local instruction
+can mitigate a poorly aligned prior. It can also fight you when the
+next model arrives: either it ignores the old prompt, or it follows
+an outdated one too faithfully. Instruction steering reduces some
+failure modes; it does not replace the prior, and it is weaker than
+changing the environment (the actual stop).
+
+Second, write engineering principles for **both “I” and AI**, put
+them in the harness (rules, skills) so both read the same text, and
+put **the same gates** on human work and AI work. [Claim
+16](16-go-see-ai-harness.md) owns seeing the harness. This claim owns
+what those gates are *for*: they must not be optional manners for the
+agent. Doughnut already does some of this. More concrete test
+examples are queued on
+[Claim 13](13-doughnut-project-examples.md).
+
+From doughnut's current harness, the same rules bind a person and an
+agent:
+
+- Tests are **E2E or unit (“small test”)**—nothing in between. A unit
+  test drives a stable boundary with crafted data/`makeMe`, exercises
+  real lower layers, and mocks only externals.
+- E2E asserts **behavior with a state change** of user value, not
+  presentation of a state after setup.
+- **No commit on red.** Unfinished E2E stays `@wip`. Agents must not
+  run the whole suite as a substitute for a closed, owned check.
+- **execute-plan Jidoka:** stop and wait for a developer's brain on
+  value forks, design forks, credentials, undiagnosed unrelated
+  failure, or ambiguity. Do **not** stop merely to avoid fixing a
+  test failure caused by the current change—fix it. Do **not**
+  continue past a Jidoka stop without the developer.
+
+That last pair is the allocation: AI may clear **dumb** problems after
+a dumb stop; it may not dissolve the stop, and it may not take the
+judgments the stop was meant to surface.
+
+The original open question—“which high-consequence judgments should
+deliberately resist automation even if an AI can recommend?”—was
+unclear. Doughnut's execute-plan Jidoka **does** count, but as
+**keeping those judgments human by stopping**, not as refusing to
+have a stop. Value, design, credentials, and undiagnosed failure stay
+with the person. A plausible agent recommendation is not enough to
+proceed. That is different from a type error or a red scenario, where
+the stop is already closed and the agent may try to fix.
+
 ## Talk implication
 
 > **Smart → dumb → gone.** Prevent what design can prevent. Stop
@@ -135,7 +205,9 @@ must not be outsourced.
 > **Do not load the system with judgment-dependent knowledge.**
 > Generated analysis and patches that still need “I” to do the real
 > work, plus extra inventory to re-judge, climb the descent
-> backwards.
+> backwards. After a dumb stop, AI may filter and fix dumb problems.
+> It must not delete the stop to proceed, and it must not take the
+> value and design judgments the stop was meant to bring a person to.
 
 Judge an AI episode by whether it leaves the system more capable—a
 clearer boundary, an unrepresentable invalid state, a regression
@@ -145,21 +217,15 @@ was solved again with more tokens.
 
 ## Questions still open
 
-- What is the best concrete software example that traverses all three
-  rungs? Doughnut-sourced **smart → dumb** and **smart → gone**
-  examples are queued on
-  [Claim 13](13-doughnut-project-examples.md); search not started.
-- When is a generated test, evaluator, or “root-cause” explanation
-  dumb (closed, owned, stops work) versus smart (looks like knowledge,
-  still needs interpretation)? When, if ever, is a probabilistic AI
-  evaluator reliable enough to participate in a stop decision?
-- How should teams measure whether AI-assisted problem solving leaves
-  reusable capability rather than a one-off patch plus extra artifacts
-  to re-judge?
-- Which high-consequence judgments should deliberately resist
-  automation even if an AI can produce a plausible recommendation?
-- Does “spend judgment once” overstate how often requirements and
-  environments change, making old tests or constraints stale?
+- Doughnut-sourced **smart → dumb** and **smart → gone** examples, and
+  preferred unit/E2E examples that show reusable capability, are queued
+  on [Claim 13](13-doughnut-project-examples.md); search not started.
+- How much of “reusable capability” is really the model prior versus
+  harness text versus the same gates on human and AI work? The ranking
+  “model first” is a practitioner bet; see sources.
+- Are doughnut execute-plan Jidoka categories (value, design,
+  credentials, undiagnosed failure, ambiguity) the talk's list of
+  judgments that stay human, or only a local instance?
 
 ## Sources consulted
 
@@ -204,3 +270,15 @@ was solved again with more tokens.
    *Automatica*, 19(6), 775–779. Automating routine operation can
    leave people with harder abnormal situations while weakening the
    involvement needed to handle them.
+9. Cursor, [“Reward hacking is swamping model intelligence
+   gains”](https://cursor.com/blog/reward-hacking-coding-benchmarks).
+   Coding-eval hacking rose when the model was told to keep working
+   without stopping. Instruction is not a reliable substitute for a
+   real stop; “coding-specialized” training can still reward
+   proceeding unstopped.
+10. Doughnut project harness (Terry's LeSS in Action codebase):
+    `.cursor/rules/unit-testing.mdc`, `.cursor/rules/e2e-authoring.mdc`,
+    `.agents/skills/execute-plan/SKILL.md`. Same test gates for human
+    and AI; Jidoka stop for value/design/credentials/undiagnosed
+    failure/ambiguity; fix own test failures rather than skipping the
+    stop.

@@ -89,7 +89,7 @@ presented as what the work demands in this talk's language.
 | **Problem-solving** | Strongest. JIT removes hiding places; people must see a gap, respond, and prevent recurrence. Toyota's motto includes **Good Thinking, Good Products**. LeSS reports Eiji Toyoda telling managers to train people to think for themselves, and recasts managers as teachers of problem-solving rather than solvers on others' behalf. |
 | **Analysis** | Present as genchi genbutsu, breaking down a problem, and kaizen of standardized work—not as a named “analysis skill.” Go-See as firsthand facts, including inside an AI harness, is [Claim 16](16-go-see-ai-harness.md). |
 | **Coaching** | Present as OJT, manager-teachers, and LeSS capability-building. “Coaching skill” is LeSS and later Kata language, not a Toyota Way keyword. |
-| **Facilitation** | Weakest as a TPS name. Toyota's Teamwork is the official bucket. In this talk, the skill belongs with [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md)'s **Whole Product Focus**: integration conflict pulls collaboration. [Claim 9](09-nemawashi-self-organized-deliberation-in-less.md) asks how deliberation is prepared. Do not present facilitation as a Toyota skill list item. |
+| **Facilitation** | Weakest as a TPS name. Toyota's Teamwork is the official bucket. In this talk, the skill belongs with [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md)'s **Whole Product Focus**: integration conflict pulls collaboration. [Claim 9](09-nemawashi-self-organized-deliberation-in-less.md) places preparatory deliberation in nemawashi and LeSS Just Talk, not in a Toyota skill called facilitation. |
 
 > **Name the skills if they help a software audience. Do not present the
 > four-item list as Toyota's.**

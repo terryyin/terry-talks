@@ -63,7 +63,8 @@ future discussion, not a set of conclusions.
   started). Currently queued: CI pulling useful collaboration ([Claims
   3](claims/03-jidoka-enables-jit-trusts-respect-grows.md) and
   [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md));
-  **smart → dumb** and **smart → gone**
+  **smart → dumb** and **smart → gone**, and preferred unit/E2E plus
+  same-gates-for-human-and-AI examples
   ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)).
 
 ## Candidate future claims

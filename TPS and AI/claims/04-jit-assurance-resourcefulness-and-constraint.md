@@ -252,9 +252,10 @@ For AI-augmented software development:
 - Use tests, types, stop conditions, rollback, and recorded constraints
   to protect **previous intentions** and cut cognitive load for the next
   human or AI. That is
-  [Claim 6](06-jidoka-embeds-routine-judgment.md): spend judgment once;
-  make the learning reusable. Do not spend adaptive attention re-watching
-  what the process can already stop.
+  [Claim 6](06-jidoka-embeds-routine-judgment.md): encode a closed stop
+  so later use needs less live judgment (**smart → dumb → gone**). Do
+  not spend adaptive attention re-watching what the process can already
+  stop. Encoded stops still age.
 
 The desired state is **fast, trustworthy response capacity**—not a stockpile of
 generated answers or an army of idle agents.

@@ -59,6 +59,27 @@ Counter-examples (generated checks nobody trusts, “smart” inventory
 that still needs re-judging) can be noted if they appear, but the
 request is for good descents.
 
+### Preferred tests and same gates for “I” and AI — Claim 6
+
+[Claim 6](06-jidoka-embeds-routine-judgment.md) also needs concrete
+doughnut examples of **preferred unit tests, E2E tests, and gates that
+apply to human and AI work the same way**—the harness text that is
+supposed to leave reusable capability after an AI episode, not only a
+one-off patch. The current rules and execute-plan skill are already
+cited there in brief; this item is for worked examples in the tests
+themselves.
+
+Look for:
+
+- Unit (“small test”) examples that drive a stable boundary with
+  `makeMe` / data rather than a mock forest.
+- E2E examples that assert a user-valued state change, not
+  presentation-only.
+- Gates that stop both a person and an agent (no commit on red,
+  `@wip` for unfinished E2E, execute-plan Jidoka categories).
+- Counter-examples where an agent (or a person) would be tempted to
+  delete or skip a failing test to proceed.
+
 ## Talk implication
 
 Once examples are pulled, they belong in the owning claims. This file
