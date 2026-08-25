@@ -36,9 +36,13 @@ future discussion, not a set of conclusions.
 ## Evidence to collect
 
 - Primary Toyota sources defining TPS and the Toyota Way today.
-- Historical sources for the development and international diffusion of TPS
-  and lean production.
-- Larman and Vodde's original Lean Thinking house and accompanying explanation.
+- Toyota's own chronology of TPS/JIT is the historical index in
+  [Claim 4](claims/04-jit-assurance-resourcefulness-and-constraint.md). Do
+  not collect a second lean-diffusion history unless a later claim needs it.
+- Larman and Vodde's 2009 house diagram and the *More with LeSS* lean-thinking
+  principle are in [Claim 2](claims/02-tps-and-lean-houses.md). Remaining: the
+  2008 book text around the diagram's center (product development, 14 Toyota
+  Way principles).
 - Evidence about Toyota's software, mobility, invention, and experimentation
   capabilities beyond conventional production.
 - Evidence about AI's effect on software generation speed and on downstream

@@ -69,7 +69,7 @@ horizontal programs and specialist queues reappear. Reducing it is
 SMED-like kaizen—[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md)—not
 a new TPS pillar. Heijunka of mix is the sequencing reason the factory
 alternates types even when the mix is known; that argument lives in
-Claims 4 and 5.
+[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
 
 ### 一個ずつ確認 is why that flow learns
 

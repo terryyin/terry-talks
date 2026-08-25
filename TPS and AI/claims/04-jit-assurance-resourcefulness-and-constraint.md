@@ -34,6 +34,12 @@ inventory.
 
 ### Before, during, postwar, recovery
 
+This section is the talk's **historical index** for TPS and JIT. Other
+claims, including
+[Claim 1](01-changing-significance-of-tps.md), point here rather than
+retelling the chronology or substituting a later lean-production vogue for
+Toyota's own timeline.
+
 **Before.** Kiichiro Toyoda was already using Just-in-Time while planning
 Toyota's new automobile plant. When the Koromo Plant began operating in 1938,
 each process was to make only the required daily quantity and stop after
@@ -124,6 +130,19 @@ than one type shares the line. Toyota's history says items and volumes
 were equalized so Just-in-Time could be implemented at a higher level.
 Official TPS still has two pillars: jidoka and JIT. Flow, pull, takt,
 heijunka, one-piece flow, and SMED live **inside** JIT.
+
+On stage, one two-row sequence is enough. Same known weekly mix; only the
+order changes. Lean Enterprise Institute's shirt example (five A, three B,
+two C, two D):
+
+- Batch by type: A A A A A B B B C C D D
+- Mix leveling: A A B C D A A B C D A B
+
+NUMMI ran the same logic on a known monthly mix: 75% A and 25% B became
+A A A B all day, not weeks of A then a week of B. Do not lead with the
+lumpy-orders bar chart (200 Monday, 50 Wednesday, plant at 100 a day).
+That is volume leveling of rate-mura. It is real, and it is the other
+half of heijunka, but it teaches the wrong first lesson for this claim.
 
 Alternating types without cheap changeover is ruinously expensive. Long
 setup makes a large lot look rational: amortize the die change. **SMED**
@@ -223,12 +242,11 @@ For AI-augmented software development:
   people. That is the useful use of capacity.
 - AI can also be **misused** to stack **judgment-dependent** work into the
   product, very quickly. Throughput then rises while quality and the ability
-  to finish fall. Faros's 2026 *Acceleration Whiplash* report is telemetry
-  evidence of that pattern: epics and merge rate up; incidents per PR more
-  than tripled; bugs per developer up 54%; code churn up about 9×; review
-  time and unreviewed merges both up. The scarce capacity is not model
-  calls. It is human judgment, review, and the system's ability to absorb
-  change without hiding defects in a generated pile.
+  to finish fall. Vendor telemetry keeps repeating that pattern; Faros's
+  2026 *Acceleration Whiplash* is a recent snapshot among many. The scarce
+  capacity is not model calls. It is human judgment, review, and the
+  system's ability to absorb change without hiding defects in a generated
+  pile.
 - Use **low-intelligence autonomation**—tests, types, stop conditions,
   rollback, recorded constraints—to protect **previous intentions** and
   cut cognitive load for the next human or AI. That is
@@ -241,10 +259,9 @@ generated answers or an army of idle agents.
 
 ## Questions still open
 
-- What one Toyota mix-leveling picture belongs on stage (known weekly mix
-  sequenced alternately vs lumpy orders leveled by volume)?
-- How sharply should Faros's vendor telemetry be caveated (correlation of
-  high vs low AI adoption within firms, not a controlled experiment)?
+None remaining on this claim. The stage picture is mix leveling of a
+known mix, not lumpy orders by volume. Faros is a casual telemetry
+snapshot among many.
 
 ## Sources consulted
 
@@ -297,8 +314,10 @@ generated answers or an army of idle agents.
     *75 Years of Toyota*. Equalize items and volumes so JIT can be
     implemented at a higher level.
 12. Lean Enterprise Institute, [Heijunka](https://www.lean.org/lexicon-terms/heijunka/).
-    Mix leveling of a known weekly mix versus mass-producer type-batches;
-    heijunka as a foundation of JIT, not a third pillar.
+    Stage picture: known weekly mix (5 A, 3 B, 2 C, 2 D) as type-batches
+    versus the repeating mixed sequence. The same page's lumpy-orders
+    example is volume leveling, not the lead picture. Heijunka as a
+    foundation of JIT, not a third pillar.
 13. Lean Enterprise Institute, [Just-in-Time
     Production](https://www.lean.org/lexicon-terms/just-in-time-production/).
     JIT comprised of pull, takt, and continuous flow, relying on heijunka.
@@ -312,9 +331,9 @@ generated answers or an army of idle agents.
     Whiplash*](https://www.faros.ai/research/ai-acceleration-whiplash)
     and [ten
     takeaways](https://www.faros.ai/blog/ai-acceleration-whiplash-takeaways).
-    Telemetry from ~22,000 developers / 4,000 teams: throughput up;
-    incidents, bugs, churn, review load, and unreviewed merges up as AI
-    adoption rises. Vendor study, not a controlled experiment.
+    One of many recent vendor snapshots: throughput up; incidents, bugs,
+    churn, review load, and unreviewed merges up as AI adoption rises.
+    Casual illustration of a now-familiar pattern, not a trial.
 
 **Headroom sizing is off the talk. Mix-leveling, self-coordination, and
 AI's two uses of capacity remain the live points.**

@@ -1,6 +1,7 @@
 # Claim 5: SMED for software means cheap deliberate changeovers, not constant switching
 
-**Status: Provisional — not finalized**
+**Status: Provisional — name, method, and switching-vs-changeover
+corrected**
 
 ## Original claim / hypothesis
 
@@ -16,439 +17,198 @@ software, this points toward creating an **AI-friendly development context** in
 which a human or AI can move to the next valuable item without spending a long
 time reconstructing the environment and relevant knowledge.
 
-## Research-based adjustment
+## Reconciled claim
 
-The central connection is promising, but it needs four corrections:
+> **LeSS needs cheap product-level changeovers, not constant developer
+> switching.** Stable feature teams, small done increments, shared
+> ownership, reproducible environments, and fast verification let the
+> product group act on new feedback without large stranded batches or
+> organizational reshuffling.
 
-1. The standard term is **SMED: Single-Minute Exchange of Die**.
-2. SMED reduces the elapsed cost of changeover; it is not defined as reducing
-   the number of steps.
-3. LeSS seeks the ability to change direction at short, deliberate boundaries,
-   not frequent interruption of unfinished programming work.
-4. In software, “switching cost” is not one thing. Organizational, technical,
-   and cognitive changeovers have different causes and countermeasures.
+The name is **SMED: Single-Minute Exchange of Die**. “Single minute”
+means a single-digit number of minutes—less than ten—not necessarily one
+minute. The method reduces **elapsed changeover cost**, not the count of
+steps: separate internal from external setup, convert internal work to
+external wherever possible, then streamline what remains. Fewer touches
+may result. They are not the definition.
 
-### Terminology: SMED is the correct name
-
-The established term is **Single-Minute Exchange of Die (SMED)**. “Single
-minute” means a **single-digit number of minutes—less than ten minutes**—not
-necessarily one minute.
-
-The American Society for Quality separately defines **one-touch exchange of
-dies** as reducing die setup to a single step. This likely explains Terry's
-memory. **OTED** is the more commonly documented abbreviation for the
-one-touch idea. Some secondary sources use **STED** for “Single-Touch Exchange
-of Die,” but that is not the standard name for Shigeo Shingo's setup-reduction
-method. Unless the talk is tracing a particular source that uses STED, it
-should say **SMED**.
-
-SMED is also broader than eliminating steps. Shingo's method is commonly
-summarized in three stages:
-
-1. **Separate internal from external setup.** Internal work requires the
-   machine to be stopped; external work can be done while it is still running.
-2. **Convert internal setup to external setup** wherever possible.
-3. **Streamline all remaining setup operations**, internal and external.
-
-Streamlining can include eliminating, simplifying, standardizing, preparing,
-parallelizing, or redesigning operations. Fewer touches may be one result, but
-the governing measure is shorter, more reliable changeover.
-
-### Why quick changeover matters: it changes the economics of batch size
-
-The strategic effect of SMED is not merely recovering a few minutes of machine
-capacity. When changing a machine is expensive, producing a large batch before
-changing it appears economical. That creates inventory, delays feedback, and
-makes the system slow to respond to a different mix of customer demand.
-
-When changeover becomes cheap, smaller lots become practical. Production can
-follow current pull more closely and change product mix more frequently without
-paying a prohibitive setup penalty each time.
-
-The transferable reasoning is:
-
-> **High changeover cost makes large batches look efficient. Reducing
-> changeover cost makes small-batch flow and responsiveness practical.**
-
-LeSS's queueing discussion describes a closely related dynamic in product
-development. Shortening cycles makes the old transaction overhead of analysis,
-testing, integration, and deployment repeatedly painful; that pain creates
-pressure to improve the development system. The analogy to SMED is therefore
-not imported from manufacturing arbitrarily. LeSS already treats the overhead
-of each short cycle as something the organization must systematically reduce.
-
-### Mixed-model heijunka is why SMED is a perfection goal, not a pit-crew hobby
-
-The EOQ story above is the economics. The TPS reason to accept that
-economics is **heijunka of mix under JIT**—not a third pillar. Given a
-known demand mix, a mass producer still batches by type to avoid
-changeovers. Toyota sequences types **alternately** (and, on assembly,
-mixed-model one-by-one as far as the process allows). That imposes
-frequent switching. Without setup reduction, mixed-model is too
-expensive, so the plant hides in large lots, delays feedback, and passes
-mura upstream.
-
-JIT and one-piece flow **forbid treating large process batches as the
-plan**. SMED is therefore the kaizen toward perfection: drive changeover
-cost down until the smallest honest lot—ideally one—is economical.
-Toyota still runs **small lots** in stamping and has historically grouped
-colors in paint; those are remaining constraints under improvement. They
-are not a license to hide, and they are not a pillar. Pillars remain
-jidoka and JIT.
-
-### A vertical slice *is* a mixed-model changeover
-
-A thin vertical slice of user value
-([Claim 17](17-jit-vertical-slicing-one-piece-flow.md)) is done only when
-the increment is confirmable. That forces the team across **components
-and disciplines** on the same item—UI, domain, data, test,
-integration—then a **different** mix on the next item. Feature teams
-exist so that switch is organizationally possible. Component teams and
-horizontal layer programs are the software form of batching by machine
-type.
-
-If that changeover stays expensive—handoffs, private ownership, slow
-verification, irrecoverable mental or agent context—EOQ returns. Humans
-batch by specialty. AI batches by generating the unsplit tree.
-Utilization looks high; 一個ずつ確認 is late. Lower the switching cost
-and thin end-to-end items become the rational plan, for people and for
-AI. Launching more agents does not substitute for that kaizen; it can
-move the bottleneck to review and integration.
+SMED is not a pillar. It lives **inside JIT**. [Claim
+4](04-jit-assurance-resourcefulness-and-constraint.md) already has the
+factory reason: even a known mix is made alternately; that is only cheap
+if changeover is cheap. [Claim
+17](17-jit-vertical-slicing-one-piece-flow.md) already has the software
+cut: a vertical slice forces the same team across components and
+disciplines, then a different mix on the next item. This claim is how
+that switch is **afforded**.
 
 > **High changeover cost makes batching by type—or by layer—look
 > efficient even when the mix is known. Cheap changeover makes thin
 > vertical slices the economical way to follow actual need.**
 
-### The LeSS changeover is primarily organizational
+Launching more agents does not substitute for that kaizen. It can move
+the bottleneck to review and integration.
 
-The strongest mapping is not “a programmer is a stamping press.” It is:
+### Deliberate changeover, not interruption
 
-| Manufacturing | LeSS product development |
-|---|---|
-| A stable production resource changes from one product type to another. | A stable feature team finishes one customer item and takes another. |
-| Long setup encourages large runs and infrequent changes. | Specialist ownership, handoffs, and fragile tooling encourage large projects and resist reprioritization. |
-| Short setup permits smaller lots responding to actual demand. | Cross-functional, cross-component capability permits small end-to-end items selected by current product priority. |
-| The die changes; the machine is not rebuilt for every product. | The work changes; the long-lived team is not dissolved and reassembled for every item. |
-
-LeSS defines a feature team as long-lived, cross-functional, and
-cross-component, completing many end-to-end customer features one by one. It
-uses one Product Backlog for the product, does not pre-assign its items to
-teams, and continuously reprioritizes it. Continuous integration and shared
-code ownership support multiple teams working across the same product.
-
-These choices reduce **organizational changeover cost**:
-
-- no project organization has to be assembled around each new item;
-- fewer specialist queues and cross-team handoffs have to be negotiated;
-- knowledge mismatch becomes a trigger for learning rather than a permanent
-  routing constraint;
-- more teams can take high-priority work from the shared backlog; and
-- the same team carries its collaboration capability from one item to the
-  next.
-
-This does not mean every item can be assigned randomly to every team. LeSS
-explicitly says current knowledge still matters. The aim is to prevent narrow
-specialization from making product priority impossible to follow, while
-growing broad capability over time.
-
-### Short full-cycle feedback does not mean constant interruption
-
-The phrase **short iterative full-cycle feedback** describes repeatedly doing
-the whole development cycle rather than passing work through long phases. A
-LeSS team clarifies, implements, tests, integrates, and contributes to one
-whole product increment within the Sprint, then learns from the result and
-feedback.
-
-This creates frequent **decision points** at which the Product Backlog can be
-reordered. It does not imply that the Product Owner should replace a team's
-goal whenever a new idea appears. LeSS's Scrum guidance protects the selected
-goal during the Sprint. A materially invalidated Sprint can be terminated, but
-that is intentionally disruptive; otherwise new priorities wait until the
-next Sprint.
-
-A critical distinction is therefore:
+**Short iterative full-cycle feedback** means repeatedly doing the whole
+development cycle, not interrupting unfinished programming whenever a
+new idea appears. LeSS protects the selected Sprint goal. A materially
+invalidated Sprint can be terminated; that is disruptive. Otherwise new
+priorities wait until the next Sprint.
 
 | Kind of switch | Desired response |
 |---|---|
 | **Changeover after a done item or short feedback cycle** | Make it cheap so the next highest-value item can start quickly. |
-| **Safe suspension of unfinished work because feedback invalidated it** | Preserve state, limit stranded WIP, and make resumption or abandonment explicit. |
-| **Routine interruption and multitasking within unfinished work** | Reduce it; cheap tooling does not eliminate cognitive disruption. |
+| **Safe suspension because feedback invalidated the work** | Preserve state; make resumption or abandonment explicit. |
+| **Routine interruption and multitasking inside unfinished work** | Reduce it. Cheap tooling does not cancel cognitive disruption. |
 
-Research on interrupted programming reinforces this distinction. Parnin and
-Rugaber found task resumption to be a frequent problem: only 10% of observed
-sessions resumed programming activity in under a minute, and programmers
-usually navigated through code and other artifacts before editing. They
-identified externalizing working state, reviewing the task, inspecting source
-history, and executing the program as resumption strategies.
-
-The implication is not “make developers switch more.” It is:
+Parnin and Rugaber found task resumption expensive: only 10% of observed
+sessions resumed programming in under a minute. The implication is not
+“make developers switch more.”
 
 > **Finish small items and protect focus. When a switch is valuable or
-> unavoidable, make the working state reconstructible rather than depending
-> on one person's short-term memory.**
+> unavoidable, make the working state reconstructible rather than
+> depending on one person's short-term memory.**
 
-### Three distinct software changeover costs
+### The LeSS changeover is organizational first
+
+The strongest mapping is not “a programmer is a stamping press.” A
+long-lived feature team finishes one customer item and takes another.
+The work changes; the team is not rebuilt. Long setup in that mapping is
+specialist ownership, handoffs, and fragile tooling. Short setup is
+cross-functional, cross-component capability on one Product Backlog,
+continuously reprioritized, with shared code and continuous integration.
+
+That does not make every item assignable to every team. Current knowledge
+still matters. The aim is to stop narrow specialization from making
+product priority impossible to follow, while growing broad capability
+over time.
+
+### Three distinct costs
 
 Treating all switching as “context switching” hides where to improve.
 
 | Cost | Examples | Primary countermeasures |
 |---|---|---|
-| **Organizational** | Finding the only expert, transferring ownership, forming a project team, waiting for another component team, obtaining routine approval | Long-lived feature teams, broad product definition, shared ownership, generalizing specialists, clear decision rights |
-| **Technical/environmental** | Cloning and building, dependency installation, credentials, data fixtures, branch conflicts, slow tests, manual deployment, finding the correct command | Reproducible environments, isolated workspaces, scripted setup, representative fixtures, fast layered checks, CI/CD, safe permissions |
-| **Cognitive/informational** | Understanding the goal, rebuilding the code model, locating rationale, recalling unfinished reasoning, determining the next step | Bounded items, explicit outcomes and constraints, discoverable decisions, cohesive code, source history, executable examples, current handoff notes |
+| **Organizational** | The only expert, ownership transfer, a project team, waiting on a component team, routine approval | Long-lived feature teams, shared ownership, generalizing specialists, clear decision rights |
+| **Technical** | Clone and build, credentials, fixtures, branch conflicts, slow tests, manual deploy | Reproducible environments, isolated workspaces, fast layered checks, CI/CD |
+| **Cognitive** | Goal, code model, rationale, unfinished reasoning, next step | Bounded items, discoverable decisions, cohesive code, executable examples, current handoff notes |
 
-The costs interact. A clean worktree does not explain what the customer needs;
-a detailed ticket does not make a failing build executable; a feature team
-cannot move freely through a product whose tests take days or whose components
-are privately owned.
+The costs interact. A clean worktree does not explain what the customer
+needs; a detailed ticket does not make a failing build executable.
 
-### A software translation of the SMED method
+A large queue of finely analyzed items is invested WIP. People's grasp of
+old details becomes hazy and stale. Preparing every distant backlog item
+is the software form of producing inventory.
 
-SMED can be used as a thinking method without claiming that software work is
-the same as die stamping.
+### Internal setup is item-specific; external setup is reusable readiness
 
-#### 1. Observe and define the actual changeover
+**Internal** here is not “the physical machine is stopped.” It is setup
+that must occur after this item is selected and before the first
+trustworthy evidence of progress on it. Understanding this user's
+problem, confirming a risky assumption, reproducing this defect: those
+are internal.
 
-For a team or coding agent, measure from **authorization to take the next
-item** until the system produces the **first trustworthy evidence of progress**
-on it. The end point should not be the first keystroke or generated patch;
-those can create apparent speed without validated direction.
+**External** is reusable readiness that can exist before any particular
+item is chosen: a reproducible environment, declared toolchains, one
+discoverable verification command, representative data, navigable
+boundaries, decisions recorded near the affected system, and long-lived
+team capability.
 
-Observe where time and effort go:
+Convert what can be converted. Streamline the rest. Customer intent,
+novel domain reasoning, and the consequences of a unique change are
+development, not pure waste. Split a small end-to-end outcome; start
+from a reproducible example when that helps; leave the workspace legible
+if the work is suspended.
 
-- locating the task's purpose and acceptance evidence;
-- finding relevant code and prior decisions;
-- creating an isolated workspace;
-- installing dependencies or obtaining permitted access;
-- reproducing the current behavior;
-- running a focused check; and
-- waiting for a person, shared environment, or specialized team.
+### Jidoka is not setup reduction
 
-#### 2. Separate internal and external setup
-
-For software, **internal** does not mean “work done while a physical machine is
-stopped.” It means setup that must occur after this specific item is selected
-and before useful verified work on it can begin.
-
-Examples of necessarily item-specific internal setup include understanding the
-current user's problem, confirming a risky assumption, and reproducing this
-particular defect.
-
-External setup is reusable readiness that can exist before any particular item
-is chosen:
-
-- a reproducible development environment;
-- dependencies and toolchains declared as code;
-- one discoverable command for focused and broad verification;
-- representative test data that does not require production access;
-- product and repository boundaries that are easy to navigate;
-- decisions and constraints recorded near the affected system; and
-- long-lived team capability across components and disciplines.
-
-#### 3. Convert internal setup to external readiness
-
-Possible conversions include:
-
-- replace bespoke environment construction with a versioned setup script or
-  development container;
-- replace waiting for a specialist to run a check with safe self-service
-  tooling;
-- replace manual creation of branches, worktrees, fixtures, and logs with
-  automated isolated workspaces;
-- preserve a suspended task's goal, diff, test state, evidence, uncertainties,
-  and next step in durable artifacts; and
-- turn recurring explanations into discoverable source-level constraints,
-  examples, or automated checks.
-
-Preparation should be pulled by likely near-term need. Elaborating every
-distant backlog item would be the software equivalent of producing inventory.
-LeSS warns that a large queue of finely analyzed items is invested WIP and that
-people's grasp of old details becomes hazy and stale.
-
-#### 4. Streamline the irreducible item-specific setup
-
-Some context cannot and should not be prepared in advance. Customer intent,
-novel domain reasoning, and the consequences of a unique change are part of
-development, not pure waste.
-
-The aim is to make that necessary learning focused and evidence-rich:
-
-- split work into a small end-to-end outcome with explicit non-goals;
-- begin from a reproducible example or failing check when appropriate;
-- keep code cohesive enough that a change has a comprehensible locality;
-- make architectural constraints and exceptions discoverable;
-- provide fast tests, type checks, static analysis, and runtime feedback;
-- return a reviewable diff with the evidence run and uncertainty exposed; and
-- leave the workspace in a legible state if the work is suspended.
-
-### Jidoka helps with abnormal switches, but is not setup reduction
-
-Jidoka and SMED solve different problems. SMED reduces changeover overhead.
-Jidoka detects abnormality, stops or contains it, makes it visible, and creates
-the conditions for people to respond and prevent recurrence.
-
-In software, automated tests, compilation, type checks, observability, stop
-conditions, and rollback can play jidoka-like roles. They can lower the cost of
-an abnormal switch indirectly by:
-
-- catching a problem near its origin before it contaminates more work;
-- preserving an executable signal of what is wrong;
-- making the reason for stopping visible;
-- narrowing the context that has to be reconstructed; and
-- preventing an urgent defect from turning into an open-ended investigation.
-
-But jidoka may also **cause** an immediate interruption: stop and fix is meant
-to interrupt normal flow when continuing would be worse. Its value is not that
-switching becomes free. It makes abnormality response bounded, visible, and
-learnable.
-
-A precise relationship is:
+Jidoka and SMED solve different problems. SMED reduces the overhead of a
+necessary changeover. Jidoka detects abnormality, stops or contains it,
+and creates the conditions to respond and prevent recurrence. Tests,
+types, observability, stop conditions, and rollback can play that role.
+They may **cause** an interruption: stop-and-fix is meant to. That
+mechanism is [Claim 6](06-jidoka-embeds-routine-judgment.md).
 
 > **SMED reduces the overhead of a necessary changeover. Jidoka makes the
-> abnormality that may trigger a changeover explicit and containable. Kaizen
-> removes the recurrent causes of both.**
+> abnormality that may trigger a changeover explicit and containable.
+> Kaizen removes the recurrent causes of both.**
 
-### “AI-friendly development context” means operational readiness, not a giant prompt
+### AI-friendly means operational readiness, not a giant prompt
 
-Repository-level AI research supports the importance of context but also shows
-why the phrase must include more than documentation. SWE-bench tasks give a
-model an issue and a real repository; resolving them can require long-context
-reasoning, coordinated changes across files, and interaction with an execution
-environment. Recent work on software-engineering agents treats **executable
-environments and verifiers**—compilers, tests, analyzers, and runtime
-feedback—as a primary axis of agent capability.
-
-A concrete working definition is:
+SWE-bench and agent research treat **executable environments and
+verifiers** as a primary axis of capability, not documentation volume.
 
 > **An AI-friendly development context is a development system in which a
-> suitably capable human or AI agent can take a current, bounded item, discover
-> the relevant constraints, create an isolated executable workspace, obtain
-> trustworthy feedback, and return a reviewable evidence-bearing change
-> without reconstructing routine setup from tribal knowledge.**
+> suitably capable human or AI agent can take a current, bounded item,
+> discover the relevant constraints, create an isolated executable
+> workspace, obtain trustworthy feedback, and return a reviewable
+> evidence-bearing change without reconstructing routine setup from
+> tribal knowledge.**
 
-Such a context has three layers:
+Three layers: **persistent product readiness** (coherent code, tools,
+verifiers, shared ownership); **current item readiness** (outcome,
+evidence, constraints, unresolved questions); **change and handoff
+readiness** (isolated diff, commands and results, uncertainty, next
+step).
 
-1. **Persistent product readiness** — coherent code, explicit boundaries,
-   reproducible tools, safe access, fast verifiers, shared ownership, and
-   discoverable durable decisions.
-2. **Current item readiness** — the user problem or desired outcome, why it is
-   now important, acceptance evidence, constraints and non-goals, a starting
-   state, and unresolved questions.
-3. **Change and handoff readiness** — an isolated diff, commands and results,
-   assumptions, remaining uncertainty, current failure state, and the next
-   useful step.
-
-This context is **human-friendly for the same reasons**. AI makes its quality
-more visible because an agent cannot quietly rely on years of undocumented
-organizational memory. Creating a huge instruction file is neither the goal
-nor sufficient: documentation can be stale, undiscoverable, or contradicted by
-the running system. The strongest context is concise where prose is needed and
-executable where behavior can be checked.
-
-### What should be measured
-
-If this claim becomes an improvement program, useful system measures include:
-
-- time from taking an item to the first trustworthy reproduced or passing
-  check;
-- time from a feedback-driven priority decision to starting the new highest
-  value item;
-- proportion of high-priority items that most feature teams can take without
-  a handoff or reorganization;
-- setup failures and routine human interventions per item;
-- time to restore a safely suspended task;
-- verification latency from a change to a useful signal; and
-- WIP abandoned or stranded when direction changes.
-
-These should remain diagnostic measures, not targets for gaming. Optimizing
-“time to first edit,” number of agent tasks started, or raw utilization could
-increase unverified output and multitasking while making full-cycle delivery
-slower.
+This context is human-friendly for the same reasons. AI makes its quality
+more visible because an agent cannot quietly rely on undocumented
+organizational memory. A huge instruction file is neither the goal nor
+sufficient.
 
 ### Where the analogy breaks
 
-SMED is not a recipe to transplant literally.
-
-- A die change selects a known production mode; a software item often requires
-  discovering both the problem and the solution.
-- Manufacturing changeover time is mostly non-value-adding overhead. Rebuilding
-  a software mental model may include necessary learning that directly affects
-  product quality.
-- A machine can alternate repeatably between known settings. Each software
-  change alters the product and may alter the environment for later changes.
-- A feature team learns cumulatively. Treating people or agents as fungible
-  machines would destroy the stable capability LeSS is trying to create.
-- Parallel AI work can hide rather than remove changeover cost by moving the
-  bottleneck to review, integration, verification, or human attention.
-
-The analogy is strongest at the level of **system design**: reduce the
-recurrent overhead that makes small feedback batches uneconomical while
-protecting the irreducible learning and judgment in product development.
-[Claim 11](11-physical-production-and-software-differences.md) places this
-break in the wider map: the product is also the process, so changeover
-reconstructs knowledge in a moving system rather than returning a machine
-to a known production mode.
+A die change returns a machine to a known production mode. A software
+item often requires discovering both the problem and the solution, and
+each change alters the product for later work. [Claim
+11](11-physical-production-and-software-differences.md) owns that break.
+Do not treat people or agents as fungible machines: a feature team
+learns cumulatively.
 
 ## Emerging implication for the talk
 
-> **Heijunka of mix is why SMED matters: alternate types, don't hide in
-> lots. A vertical slice demands the same cheap switch across components
-> and disciplines—for people and for AI.**
+> **Protect focus within the cycle; reduce changeover cost between
+> cycles.**
 
-The original idea can be sharpened to:
+SMED's practical question:
 
-> **LeSS needs cheap product-level changeovers, not constant developer
-> switching. Stable feature teams, small done increments, shared ownership,
-> reproducible environments, and fast verification let the product group act
-> on new feedback without large stranded batches or organizational reshuffling.**
+> **When we move to the next valuable item, which setup truly requires
+> the current work to stop, which preparation can be made reusable, and
+> which remaining steps can be eliminated or simplified?**
 
-SMED supplies a practical improvement question:
+> **AI-friendly is not prompt-rich. It is context-ready and
+> feedback-rich.**
 
-> **When we move to the next valuable item, which setup truly requires the
-> current work to stop, which preparation can be made reusable, and which
-> remaining steps can be eliminated or simplified?**
+Candidate implementation is becoming faster, so more of the changeover
+may be spent reconstructing intent, preparing a safe environment, and
+obtaining trustworthy feedback. That leftover cost is still changeover,
+not a reason to launch more unfinished work.
 
-AI raises the stakes. Candidate implementation is becoming faster, so a larger
-share of the changeover may be spent reconstructing intent, preparing a safe
-environment, and obtaining trustworthy feedback. Launching more agents does
-not solve that. It may simply create more partially done inventory waiting for
-human judgment.
-
-Possible compact formulations are:
-
-> **Apply SMED to development context: make the next valuable change cheap to
-> start and fast to verify.**
-
-> **Protect focus within the cycle; reduce changeover cost between cycles.**
-
-> **AI-friendly is not prompt-rich. It is context-ready and feedback-rich.**
-
-The deeper claim is:
-
-> **Adaptiveness is a production capability. An organization can only afford
-> to learn and change direction frequently when finishing, changing over, and
-> verifying the next small increment are all inexpensive.**
+> **Adaptiveness is a production capability. An organization can only
+> afford to learn and change direction frequently when finishing,
+> changing over, and verifying the next small increment are all
+> inexpensive.**
 
 ## Questions still open
 
-- What should be the unit of analysis in the talk: an individual developer, a
-  feature team, the whole product group, an AI agent, or a human–AI system?
-- Is **changeover cost** clearer than **switching cost**, given that switching
-  is commonly associated with harmful multitasking?
-- Which real development changeover should be observed and mapped end to end
-  to test the proposed SMED translation?
-- What is the right boundary for changeover time: first reproduced failure,
-  first verified edit, first integrated result, or first customer feedback?
-- Which AI-context practices demonstrably improve correctness rather than only
-  speed or token use?
-- How much product and domain knowledge can be externalized without creating
-  stale documentation or prematurely refined backlog inventory?
-- When should feedback terminate current work immediately rather than wait for
-  the next Sprint boundary?
-- Does test automation function better in the talk as jidoka, as externalized
-  context, as a verifier, or as all three at different abstraction levels?
-- How can parallel AI work be limited by review and integration capacity so it
-  does not become hidden WIP?
+- What should be the unit of analysis on stage: a developer, a feature
+  team, the product group, an AI agent, or a human–AI system?
+- Which real development changeover should be observed end to end?
+- What is the right boundary for changeover time: first reproduced
+  failure, first verified edit, first integrated result, or first
+  customer feedback?
+- Which AI-context practices demonstrably improve correctness rather
+  than only speed or token use?
+- How much product and domain knowledge can be externalized without
+  creating stale documentation or prematurely refined backlog inventory?
+- When should feedback terminate current work immediately rather than
+  wait for the next Sprint boundary?
+- Does test automation function better in the talk as jidoka, as
+  externalized context, as a verifier, or as all three at different
+  levels?
+- How can parallel AI work be limited by review and integration capacity
+  so it does not become hidden WIP?
 
 ## Sources consulted
 
@@ -462,68 +222,56 @@ The deeper claim is:
    Foundational presentation of the setup-reduction system.
 3. Shigeo Shingo (1996), [*Quick Changeover for Operators: The SMED
    System*](https://www.routledge.com/Quick-Changeover-for-Operators-The-SMED-System-1st-Edition/Shingo/p/book/9781563271250).
-   Publisher's table of contents for the three stages: separate, convert, and
-   streamline setup operations.
+   Three stages: separate, convert, and streamline setup operations.
 4. American Society for Quality, [Quality
-   Glossary](https://asq.org/quality-resources/quality-glossary). Definitions
-   of single-minute exchange of dies, internal and external setup, and
-   one-touch exchange of dies as setup reduced to a single step.
+   Glossary](https://asq.org/quality-resources/quality-glossary).
+   Definitions of SMED, internal and external setup, and one-touch
+   exchange of dies as setup reduced to a single step.
 5. Large-Scale Scrum, [Feature
-   Teams](https://less.works/less/structure/feature-teams). Definition and
-   rationale for long-lived, cross-functional, cross-component teams,
-   end-to-end items, continuous integration, shared ownership, and reduced
-   handoffs and multitasking.
+   Teams](https://less.works/less/structure/feature-teams). Long-lived,
+   cross-functional, cross-component teams, end-to-end items, shared
+   ownership, and reduced handoffs.
 6. Large-Scale Scrum, [Product
-   Backlog](https://less.works/less/framework/product-backlog). One shared,
-   prioritized backlog whose items are not pre-assigned to teams.
+   Backlog](https://less.works/less/framework/product-backlog). One
+   shared, prioritized backlog whose items are not pre-assigned to
+   teams.
 7. Large-Scale Scrum, [Customer-Centric
-   Thinking](https://less.works/less/principles/customer-centric). Direct
-   customer connection, continuous reprioritization, and end-to-end feature
-   organization.
+   Thinking](https://less.works/less/principles/customer-centric).
+   Continuous reprioritization and end-to-end feature organization.
 8. Large-Scale Scrum, [Sprint
-   Planning](https://less.works/less/scrum/sprint-planning). Small high-priority
-   items, protection from routine mid-Sprint goal changes, and the deliberate
-   ability to reprioritize at the next Sprint.
+   Planning](https://less.works/less/scrum/sprint-planning). Protection
+   from routine mid-Sprint goal changes; reprioritize at the next
+   Sprint.
 9. Large-Scale Scrum, [Flow & Queueing
-   Theory](https://less.works/less/principles/queueing_theory). Relationship
-   among small batches, short cycles, transaction overhead, WIP, multitasking,
-   feature teams, and the staleness risk of refining too much backlog.
-10. Pete Deemer, Gabrielle Benefield, Craig Larman, and Bas Vodde (2012), [*The
-    Scrum Primer 2.0*](https://goodagile.com/scrumprimer/scrumprimer20.pdf).
-    Describes Scrum as combining short iterative full-cycle feedback loops,
-    cross-functional teams, and lowering the cost of change.
+   Theory](https://less.works/less/principles/queueing_theory). Small
+   batches, short cycles, transaction overhead, WIP, and the staleness
+   risk of refining too much backlog.
+10. Pete Deemer, Gabrielle Benefield, Craig Larman, and Bas Vodde (2012),
+    [*The Scrum Primer
+    2.0*](https://goodagile.com/scrumprimer/scrumprimer20.pdf). Short
+    iterative full-cycle feedback and lowering the cost of change.
 11. Chris Parnin and Spencer Rugaber (2011), [“Resumption Strategies for
     Interrupted Programming
     Tasks”](https://doi.org/10.1007/s11219-010-9104-9), *Software Quality
-    Journal*, 19, 5–34. Empirical evidence on resumption cost, reconstruction
-    of task context, externalization, source history, and execution as a cue.
+    Journal*, 19, 5–34. Resumption cost and reconstruction of task
+    context.
 12. Gina Venolia, Robert DeLine, and Thomas LaToza (2005), [“Software
     Development at Microsoft
     Observed”](https://www.microsoft.com/en-us/research/publication/software-development-at-microsoft-observed/),
-    Microsoft Research Technical Report MSR-TR-2005-140. Evidence about rich
-    mental code models, code rationale, and disruptive task switching.
-13. Carlos E. Jimenez et al. (2023), [“SWE-bench: Can Language Models Resolve
-    Real-World GitHub Issues?”](https://arxiv.org/abs/2310.06770). Establishes
-    repository-level AI tasks that combine an issue, codebase, coordinated
-    multi-file reasoning, and an execution environment.
-14. Manish Shetty (2026), [*Scaling Environments and Verifiers for Software
-    Engineering
+    Microsoft Research Technical Report MSR-TR-2005-140. Mental code
+    models and disruptive task switching.
+13. Carlos E. Jimenez et al. (2023), [“SWE-bench: Can Language Models
+    Resolve Real-World GitHub
+    Issues?”](https://arxiv.org/abs/2310.06770). Repository-level AI
+    tasks combining an issue, codebase, and execution environment.
+14. Manish Shetty (2026), [*Scaling Environments and Verifiers for
+    Software Engineering
     Agents*](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2026/EECS-2026-52.html),
-    UC Berkeley EECS Technical Report UCB/EECS-2026-52. Evidence that
-    executable environments and dense verifiers materially shape agent
-    capability and feedback-driven performance.
-15. Lean Enterprise Institute, [Heijunka](https://www.lean.org/lexicon-terms/heijunka/).
-    Mix leveling of a known weekly mix versus mass-producer type-batches.
-16. Paul S. Adler, Barbara Goldoftas, and David I. Levine (1999),
-    [“Flexibility Versus Efficiency? A Case Study of Model Changeovers in
-    the Toyota Production
-    System”](https://doi.org/10.1287/orsc.10.1.43), *Organization Science*,
-    10(1). Known monthly mix produced each day by alternating types; setup
-    cost explains type-batching at Big Three plants.
-17. Toyota Motor Corporation, [“Development and Deployment of the Toyota
-    Production
-    System”](https://www.toyota-global.com/company/history_of_toyota/75years/text/entering_the_automotive_business/chapter1/section4/item4.html),
-    *75 Years of Toyota*. Production leveling of items and volumes so JIT
-    could go further.
+    UC Berkeley EECS Technical Report UCB/EECS-2026-52. Executable
+    environments and dense verifiers as an axis of agent capability.
 
-**Still open for further discussion and fact-checking.**
+Mix-leveling sources for why SMED exists under JIT are in
+[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
+
+**Still open for talk choices on the unit of analysis and a real
+changeover to observe.**

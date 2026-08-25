@@ -1,24 +1,21 @@
 # Claim 1: The changing significance of TPS
 
-**Status: Provisional — core direction supported; absolute wording adjusted**
+**Status: Provisional — limited to Toyota's own account and Claim 4's
+chronology**
 
 ## Reconciled claim
 
-TPS developed inside Toyota over many decades and remains foundational to the
-company. The special significance of the 1980s–1990s is not that TPS suddenly
-became important, but that Toyota's production system became an
-internationally recognized reference model, particularly through the emergence
-and popularization of **lean production**.
+TPS developed inside Toyota over many decades and remains the company's named
+production system. Toyota still presents **jidoka** and **Just-in-Time** as
+its two operating pillars. That is enough for this claim: TPS is not a
+historical curiosity, and it did not begin as an export brand.
 
-The economic change since then should not be described as “manufacturing drove
-growth then; innovation drives growth now.” Manufacturing can be innovative,
-and software and services also need effective production systems. A more
-defensible observation is:
-
-> Developed economies have shifted strongly toward services and
-> knowledge-intensive activities, while competitive advantage and productivity
-> growth increasingly depend on innovation, technology, software, human
-> knowledge, and other intangible assets.
+The chronology of that development—prewar conception, wartime interruption,
+postwar experiment, and recovery into a practical system—is the talk's
+historical index in
+[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md). Later
+international lean teaching is not that origin story, and this claim does not
+rest on it.
 
 TPS therefore has not simply become less important. Its relevance changes when
 the work has a different mixture of production, discovery, and change.
@@ -135,6 +132,10 @@ practice is developed in
 [Claim 11](11-physical-production-and-software-differences.md).
 
 ## Sources consulted
+
+Historical chronology and its Toyota sources are in
+[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md). This list
+supports the remaining argument.
 
 1. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
