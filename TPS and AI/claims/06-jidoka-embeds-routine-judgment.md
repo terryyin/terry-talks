@@ -47,8 +47,8 @@ Toyota currently defines jidoka as “automation with a human touch”: human
 wisdom added to automation. People first learn the work by hand, define
 what counts as abnormal, and build detection and stop into the process.
 Sakichi Toyoda's loom did not merely move automatically. It made a
-bounded judgment—a broken thread—and stopped rather than producing
-defective cloth. A worker no longer had to watch one machine
+bounded judgment—detecting a broken thread—and stopped rather than
+producing defective cloth. A worker no longer had to watch one machine
 continuously.
 
 Autonomation does **not** mean the machine has general autonomy or
@@ -116,11 +116,12 @@ Two costs, not one intelligence level:
 - **execution cost:** often low and repeatable;
 - **knowledge-creation cost:** potentially high.
 
-A check becomes jidoka-like when it detects a meaningful abnormality
-near its origin, stops or contains propagation, and makes the
-abnormality visible. Detection without halt is [Claim
-19](19-stop-and-fix.md). A green suite does not establish that the
-product is correct, valuable, or safe in every unanticipated situation.
+Tests detect only the properties their oracles observe under the
+conditions exercised. A green suite does not establish that the product
+is correct, valuable, or safe in every unanticipated situation. A check
+becomes jidoka-like when it detects a meaningful abnormality near its
+origin and stops or contains it. Detection without halt is [Claim
+19](19-stop-and-fix.md).
 
 ### Three complementary layers, not ranks of intelligence
 
