@@ -5,7 +5,8 @@ classes; queue ordered for the Tokyo talk; item 1 ranked from four
 tagged AI-era weeks; item 2 ranked from four tagged I-era weeks;
 item 3: observation-in-class beats git (parked specs, not
 layer-first infra); item 4 ranked from latest-code descent +
-Claim 24 counter**
+Claim 24 counter; item 5 ranked from latest-code harness (unit +
+E2E + mock-forest counter)**
 
 ## Role
 
@@ -788,7 +789,117 @@ delete instead of making an illegal FK unrepresentable.
 
 ### 5. Preferred tests (Claim 6)
 
-Not yet pulled.
+Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
+week. Hunt from `backend/src/test` `MakeMe` factories and
+`e2e_test` cucumber that then checks persisted note/recall; skipped
+item 4's performance/FK tests. Ranked by how completely the example
+matches the look-fors (unit with `makeMe` at a stable boundary, E2E
+state change not presentation, optional structure-duplicating
+counter), then stage discussability. All entries below are current
+project-owned harness (Terry Yin) — clearance is no.
+
+#### Priority 1 — controller answer leaves a GOOD recall log
+
+- **Priority:** 1
+- **Example:** `backend/src/test/java/com/odde/donut/controllers/RecallPromptAnswerControllerTest.java`
+  — `correctAnswerLeavesAGoodRecallLogLinkedToTheAnswer`.
+  `RecallPromptControllerTestBase` builds the note, tracker, and
+  MCQ prompt with `makeMe` (`aNote().notebookOwnedBy`,
+  `aMemoryTrackerFor`, `aRecallPrompt().withMcqForNote`) against
+  the real Spring test DB (`ControllerTestBase`: `@SpringBootTest`
+  `@Transactional`). The test drives `controller.answer`, then
+  `getRecallLogs` and asserts one `Grade.GOOD` log whose
+  `answerId` is the persisted answer. The only mock is
+  `@MockitoBean(name = "officialOpenAiClient")` — an external, not
+  a collaborator forest. Most complete unit: stable controller
+  boundary, crafted `makeMe` data, real lower layers, mock only
+  OpenAI, and the assertion is recall state, not request shape.
+- **Source:** latest code (HEAD `e683b74615`)
+- **Slide:** *Preferred tests: E2E or unit — nothing in between*
+- **Use:** shown harness text — the unit half (makeMe + controller
+  + persisted recall log); evidence a good episode leaves this
+  reusable check, not a one-off patch
+- **Clearance:** no — current harness owned by the project
+
+#### Priority 2 — note property edits persist after reload
+
+- **Priority:** 2
+- **Example:** `e2e_test/features/note_creation_and_update/note_edit.feature`
+  scenario *Rich note property edits persist after reload*. After
+  setup frontmatter (`diligence: high`, `topic: training`), the
+  user adds `status` / `draft`, renames `topic` to `domain` /
+  `wiki`, then reloads the note. The Then is the persisted
+  properties (`status` draft, `domain` wiki, `diligence` still
+  high, old `topic` gone) — not a visible button. Completeness
+  matches the E2E look-for (user-valued note state after reload);
+  ranked below Priority 1 because the slide's distinctive doughnut
+  word is `makeMe`, which this scenario does not show.
+- **Source:** latest code (HEAD `e683b74615`)
+- **Slide:** *Preferred tests: E2E or unit — nothing in between*
+- **Use:** shown harness text — the E2E half (cucumber that checks
+  persisted note properties after reload)
+- **Clearance:** no — current harness owned by the project
+
+#### Priority 3 — extract-request JSON built from a mock forest
+
+- **Priority:** 3
+- **Example:** `backend/src/test/java/com/odde/donut/services/ai/AiNoteAutomationServiceExtractRequestTest.java`
+  — `buildExtractNoteRequestBodyReflectsSelectedLayoutItems`.
+  Constructs `AiNoteAutomationService` with mocks of
+  `GlobalSettingsService`, `FocusContextRetrievalService`,
+  `FocusContextMarkdownRenderer`, and `OpenAiApiHandler` (plus a
+  hand-built `Note`, no `makeMe`). Asserts OpenAI request JSON
+  keys (`model`, `instructions`, `text.format` `json_schema`) and
+  instruction-string fragments (`"id" : "p1-1"`, selected item
+  ids). Duplicates the request-builder's structure; protects no
+  user-valued persist. The OpenAI mock would be a legitimate
+  external; the rest is an internal mock forest.
+- **Source:** latest code (HEAD `e683b74615`)
+- **Slide:** *Preferred tests: E2E or unit — nothing in between*
+- **Use:** spoken counter — over-mocking plus a snapshot of
+  internals; contrast with Priority 1 (and 2) as reusable
+  capability
+- **Clearance:** no — current harness owned by the project
+
+#### Also considered (second unit, second E2E, weaker counters)
+
+- **Exact-match search (`makeMe`, no mocks):**
+  `backend/src/test/java/com/odde/donut/services/search/NoteSearchServiceExactMatchTest.java`
+  — `shouldPutExactMatchFirstWhenSearching` crafts `Pam` /
+  `Diazepam` notes with `makeMe.aNote(…).notebook(…).please()` and
+  drives `NoteSearchService` on the real DB, zero mocks. Same
+  unit family as Priority 1; ranked below because the boundary is
+  a search service rather than a controller, and it does not
+  illustrate “mock only externals.”
+- **Same Good-recall through the browser:**
+  `e2e_test/features/recall/spaced_repetition.feature` scenario
+  *Memory Tracker shows a GOOD RecallLog after just-review Good*
+  — assimilate, choose Good, visit the tracker, Then a GOOD
+  RecallLog. Same user-valued recall state as Priority 1; ranked
+  below Priority 2 because the Then is on the tracker page with
+  no reload (easier to hear as presentation). First scenario of
+  that file (assimilate then day-1/day-2 counts) is the same
+  family.
+- **Notebook / folder readme persist after reload:**
+  `e2e_test/features/notebooks/notebook_creation.feature` and
+  `e2e_test/features/folder_organization/folder_page_readme.feature`
+  — same reload shape as Priority 2, weaker than note-property
+  authoring.
+- **In-memory FSRS scheduling:**
+  `MemoryTrackerCorrectRecallSchedulingTest` /
+  `MemoryTrackerRecallSchedulingTestBase` — `makeMe` with
+  `inMemoryPlease()`, no Spring DB. Real domain object, weaker
+  “lower layers.”
+- **Closed item-4 stops:** `RecallStatsPerformanceTest` and
+  `DeletableEntityFkClosureTest` were not re-used.
+- **Weaker counters:**
+  `SemanticNoteSearchServiceEmptyEmbeddingTest` mocks
+  `NoteRepository` / embeddings and *does* protect empty-query
+  behavior. `frontend/tests/toolbars/MainMenu.recall.spec.ts`
+  mocks `useRecallData` and asserts a `.recall-count` of `"789"`
+  — presentation / in-between; doughnut still files Vitest page
+  tests as unit, so it is a muddier spoken contrast than
+  Priority 3's request-JSON forest.
 
 ### 6. Same gates for “I” and AI (Claim 6)
 
@@ -849,10 +960,16 @@ tests; DTO `@Pattern` / Quiz spelling-vs-MCQ UI /
 `--error-on-warnings`; Gradle has no warnings-as-errors; SET
 NULL `34560f0412` does not qualify). Ranked: (1) N+1 query
 bound; (2) OS-invalid titles; (3) Biome leftover `"warn"` as
-Claim 24 counter (*Stop & Fix*).
+Claim 24 counter (*Stop & Fix*). Item 5 from latest doughnut
+HEAD `e683b74615` 2026-08-26 (`MakeMe` controller tests +
+`e2e_test` persist-after-reload; skipped item-4 performance/FK
+tests). Ranked: (1) recall-answer GOOD log with `makeMe`; (2)
+note-property edits persist after reload; (3) extract-request
+JSON from an internal mock forest.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
 for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.
 Item 2 ranked from four tagged I-era weeks. Item 3: observation-in-class
 beats git. Item 4 ranked from latest-code descent + Claim 24
-counter.**
+counter. Item 5 ranked from latest-code harness (unit + E2E +
+mock-forest counter).**

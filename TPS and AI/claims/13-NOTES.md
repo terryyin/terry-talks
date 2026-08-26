@@ -1,7 +1,7 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Items 1–4 done; next is 5.
+[Claim 13](13-doughnut-project-examples.md). Items 1–5 done; next is 6.
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor
@@ -105,13 +105,11 @@ no MCQ choice UI. Control: `@focus` tags fail CI. SET NULL is not
 poka-yoke. Biome leftover `"warn"` left for 4c. Gradle has no
 warnings-as-errors.
 
-### 4c — Behavior — planned
+### 4c — Behavior — done
 
-Counter for Claim 24: a parked linter/compiler warning pile, expected-
-event logs that fill context, or a detector everyone continues past —
-latest code or CI config; 1 example. Then rank the whole item-4 set.
-Target slide: *Stop & Fix* (the dashboard-not-a-stop contrast). Done
-when item-4 subsection complete.
+Counter: Biome leftover `"warn"` (CI `biome check` without
+`--error-on-warnings`). Item 4 ranked: (1) recall-stats N+1 stop;
+(2) OS-invalid titles gone; (3) Biome warn pile on *Stop & Fix*.
 
 ### 5 — Behavior — planned
 
