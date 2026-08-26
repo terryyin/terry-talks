@@ -1,10 +1,7 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Item 1 ranked; 2a
-candidates recorded; next is 2b.
-Other agents may commit unrelated files — only edit Claim 13 / this
-NOTES. Skip post-change-refactor (prose).
+[Claim 13](13-doughnut-project-examples.md). Items 1–2 ranked; next is 3.
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor
@@ -81,13 +78,12 @@ counter); KJ/nivraman assessment merge; Teh O Beng ignore-then-mock;
 nivraman approved-column revert. No delayed-mainline branches.
 2b ranks and adds 2023-11-20 / 2024-08-19.
 
-### 2b — Behavior — planned
+### 2b — Behavior — done
 
-Same for 2023-11-20 (`79d2cf5a2c8b..ff302653b8ad`) and 2024-08-19
-(`25c6b27a1419..285690caa57b`); rank to 1–3 with slide mapping. Target
-slides: *Continuous integration is a practice, not a system* (a green
-service that wasn't CI, if found) and *Let the shared product pull
-collaboration* (positive episode). Done when item-2 subsection complete.
+Item 2 ranked: (1) Fisher/Leo FineTuningData merge 2023-10-30;
+(2) `@ignore`-then-delete unused feature 2023-10-30; (3) KJ/nivraman
+assessment merge 2024-06-03. 2023-11-20 / 2024-08-19 hashes in
+also-considered (item 3 stockpile pointer: andreas `20ea977a2c`).
 
 ### 3 — Behavior — planned
 
