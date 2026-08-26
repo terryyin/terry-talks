@@ -746,9 +746,30 @@ Claim 21.
 - The shared product pulls the right people together, just in time
 - Slowing down means **not overproducing** — do not create debt faster
 
+Cursor, January 2026: extract a child note from a checklist point.
+The shared recall screen (`Assimilation.vue`) records a conflict leftover;
+lint stops an unused import; the user sees a loading modal while the child
+is created.
+
 <!--
 Claim 8. Nemawashi (Claim 9) and the Ebata teaching (Claim 14) support
 these JIT beats.
+
+Chain: `c2d800a378` (AI-tool infra) → `6f54cc1bd1` (extract-to-child
+API) → `9eb162a918` (E2E/type; body records `# Conflicts:
+frontend/src/components/recall/Assimilation.vue`) → `b62b0a183b`
+(lint stop: unused `NoteCreationController` import) → user-visible
+`0a60a9cbfb` (LoadingModal while creating a child from a checklist
+point). Same afternoon `34e121906e` / `bdc83aaa78` also edited
+`Assimilation.vue`.
+
+Spoken callback: the `/sync` beat on *AI can produce plausible
+software faster…* — this January chain is the same kind of tool
+kept small and stoppable, the **freed** pole of that contrast. Do
+not retell the July `/sync` episode.
+
+Spoken backup if January drops: item 1 P2 — Claude restores note
+properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
 -->
 
 ---
