@@ -1,8 +1,8 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Items 1–2 ranked; item 3
-asks Terry (git missed stockpile). Next is 4a.
+[Claim 13](13-doughnut-project-examples.md). Items 1–3 done; 4a
+candidates recorded. Next is 4b.
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor

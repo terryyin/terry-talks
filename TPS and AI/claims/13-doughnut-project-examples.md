@@ -4,7 +4,8 @@
 classes; queue ordered for the Tokyo talk; item 1 ranked from four
 tagged AI-era weeks; item 2 ranked from four tagged I-era weeks;
 item 3: observation-in-class beats git (parked specs, not
-layer-first infra)**
+layer-first infra); item 4a: two latest-code smart→dumb candidates
+(rank waits for 4c)**
 
 ## Role
 
@@ -630,6 +631,83 @@ in-progress on one user-facing surface.
 
 ### 4. Judgment descent (Claims 6, 20, 24)
 
+Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
+week. Hunt started from CI (`Backend-unit-tests` runs
+`backend/gradlew -p backend test`) then tests whose comments or
+introducing commits name a live failure. **4a only here.** Rank
+1–3 waits for 4c. 4b (poka-yoke / unrepresentable states /
+won't-compile-or-ship, including warnings-as-errors) and 4c
+(parked warnings / detectors everyone continues past) are still
+empty.
+
+#### 4a. Smart → dumb (candidates)
+
+Closed, owned stops whose firing *is* the evidence and that halt
+`gradlew test` (CI red). Not generic feature tests. Git history of
+each file shows it was added to encode a live bug. Both are
+project-owned harness (Terry Yin), not student class-week work.
+
+##### 4a candidate — recall-stats N+1 query bound
+
+- **Priority:** 4a candidate (rank 1–3 with 4c)
+- **Example:** `backend/src/test/java/com/odde/donut/services/RecallStatsPerformanceTest.java`
+  — added in `0bd1dd2995` (“perf(recall-stats): fix endpoint N+1
+  timeout with projection query”). Production timed out at ~200
+  answered recalls because a native `SELECT rp.*` hydrated
+  `RecallPrompt` and its eager answer/MCQ associations (one query
+  per prompt). The test flushes and evicts, then asserts
+  `prepareStatementCount < 10` while `compute()` still returns
+  200 reviews. A later red is the N+1 coming back — not a
+  judgment of “is this slow enough.” Still on HEAD after the
+  package rename (`a3aafb83eb`).
+- **Source:** latest code (HEAD `e683b74615`; introducing
+  `0bd1dd2995`)
+- **Slide:** *Smart → dumb → gone*
+- **Use:** spoken beat — investigation (timeout) encoded as a
+  closed stop whose firing is the evidence
+- **Clearance:** no — current harness owned by the project (not a
+  class-week student bug)
+
+##### 4a candidate — FK closure fails CI on hard-delete
+
+- **Priority:** 4a candidate (rank 1–3 with 4c)
+- **Example:** Same afternoon as a live delete failure. `34560f0412`
+  (“fix(db): allow memory tracker delete when conversation
+  references prompt”) SET NULLs `conversation_ibfk_4` and adds
+  `MemoryTrackerDeleteControllerTest.shouldHardDeleteMemoryTrackerWhenItsRecallPromptHasAConversation`.
+  Six minutes later `eb6a1db962` (“test(db): fail CI when FK
+  blocks hard-deletable entity delete”) adds
+  `backend/src/test/java/com/odde/donut/configs/DeletableEntityFkClosureTest.java`:
+  walk CASCADE from `memory_tracker` and fail if any reachable FK
+  is NO ACTION / RESTRICT (unless allowlisted with a reason). The
+  failure message *is* the restricting path. The controller test
+  is the specific bug; the schema walk is the closed stop that
+  still halts CI if a later migration reintroduces the shape.
+- **Source:** latest code (HEAD `e683b74615`; introducing
+  `34560f0412` / `eb6a1db962`)
+- **Slide:** *Smart → dumb → gone*
+- **Use:** spoken backup beat — same descent on a schema
+  invariant; leave the SET NULL migration itself for 4b/gone if
+  that hunt wants it
+- **Clearance:** no — current harness owned by the project (not a
+  class-week student bug)
+
+##### 4a also considered (leave for 4b / 4c / item 5)
+
+- `scripts/check_focus_tags.sh` in CI (`Lint-N-Backend-Generated-Types-For-Frontend`)
+  — won't-ship control, not a live-bug encoding; 4b.
+- Assimilation queue “regression” tests (`e3642081a0`) and
+  `QuestionGenerationBatchOutputFixtureTest` — pin a spec or a
+  fixture contract, not a production investigation.
+- LoadingModal / CLI cursor “regression” tests — layout/TTY
+  reachability, weaker closed oracle than query-count or FK path.
+
+#### 4b. Smart → gone / control (Claim 20)
+
+Not yet pulled.
+
+#### 4c. Counter (Claim 24) + ranking
+
 Not yet pulled.
 
 ### 5. Preferred tests (Claim 6)
@@ -687,9 +765,12 @@ item 2 ranked with 2023-11-20 and 2024-08-19 2026-08-26
 (author-date windows; merge/CI-fix/`@ignore`/`@skip`/cross-author
 files). Item 3 reused those hashes 2026-08-26 (one-author file
 order on named commits; no new week scan): parked specs, not
-layer-first infra; observation-in-class beats git.
+layer-first infra; observation-in-class beats git. Item 4a from
+latest doughnut HEAD `e683b74615` 2026-08-26 (CI `Backend-unit-tests`
++ `git log --follow` on regression/fail-CI tests): N+1 query bound
+and FK-closure walk; rank waits for 4c.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
 for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.
 Item 2 ranked from four tagged I-era weeks. Item 3: observation-in-class
-beats git.**
+beats git. Item 4a: two latest-code smart→dumb candidates.**
