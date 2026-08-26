@@ -28,23 +28,7 @@ system responsive and learnable (Claim 1).
 
 ---
 
-layout: two-cols-header
----
-
-# I make invisible problems visible
-
-::left::
-
-## In the code
-
-I created **Lizard** — the open-source complexity analyzer that turns
-sprawling code into something a team can see and discuss.
-
-Used from **Nokia** and **Ericsson** to CERN's **ATLAS** experiment.
-
-::right::
-
-## In the system
+# About Me
 
 I coach **LeSS** and technical practices at **Odd-e**.
 
