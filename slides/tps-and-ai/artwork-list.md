@@ -62,12 +62,16 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### 3. Toyoda Type G automatic loom photograph
 
+- **Status:** done — `public/toyoda-type-g-automatic-loom.jpg`
 - **Slide:** "The loom's closed stop"
 - **Placement:** large, right half of the slide; the founding jidoka
   artifact deserves a real photograph, not an illustration
-- **Source:** Wikimedia Commons ("Toyoda automatic loom, Type G") or
-  the Toyota Commemorative Museum of Industry and Technology. Verify
-  license; attribute.
+- **Source:** [Daderot, "Toyoda Automatic Loom - National Museum of
+  Nature and Science, Tokyo - DSC07343.JPG"](https://commons.wikimedia.org/wiki/File:Toyoda_Automatic_Loom_-_National_Museum_of_Nature_and_Science,_Tokyo_-_DSC07343.JPG),
+  own work, photographed at the National Museum of Nature and Science,
+  Tokyo
+- **License:** [CC0 1.0 Universal Public Domain
+  Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ### 4. Andon cord / andon board photograph
 

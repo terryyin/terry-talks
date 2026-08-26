@@ -87,12 +87,13 @@ a lower band on **Freedom vs. entrustment?**, keeping 任せる / 信頼
 typeset above. Targeted typecheck and deck build passed; rendered
 inspection confirmed the text and illustration remain distinct.
 
-### S6 — Behavior — planned
+### S6 — Behavior — done
 
-Find a Type G loom photograph; insert large on the right of **The
-loom's closed stop**; attribute on-slide. Wikimedia has a CC0 candidate
-(National Museum of Nature and Science, Tokyo). Done when the photo is
-in `public/`, licensed, attributed.
+Added Daderot's CC0 Type G loom photograph as
+`public/toyoda-type-g-automatic-loom.jpg`, placed it large on the right
+of **The loom's closed stop**, and attributed the source, license, and
+museum exhibit on-slide. Targeted typecheck and deck build passed;
+rendered inspection confirmed the attribution remains readable.
 
 ### S7 — Behavior — planned
 

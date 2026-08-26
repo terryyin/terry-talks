@@ -261,12 +261,21 @@ Claim 6.
 -->
 
 ---
+layout: image-right
+image: /toyoda-type-g-automatic-loom.jpg
+backgroundSize: contain
+---
 
 # The loom's closed stop
 
 The loom stops itself on a broken thread — nobody watches it.
 
 A **closed stop**: the abnormality halts the work, not a person's vigilance.
+
+<div class="absolute bottom-3 left-[102%] z-10 w-[96%] rounded bg-white/85 px-2 py-1 text-right text-[10px] leading-tight text-gray-700">
+  Photo: Daderot, via <a href="https://commons.wikimedia.org/wiki/File:Toyoda_Automatic_Loom_-_National_Museum_of_Nature_and_Science,_Tokyo_-_DSC07343.JPG">Wikimedia Commons</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a><br>
+  Exhibit: National Museum of Nature and Science, Tokyo
+</div>
 
 <!--
 Claim 6 — the founding jidoka story.
