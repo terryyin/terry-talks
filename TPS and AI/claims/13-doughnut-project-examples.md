@@ -2,7 +2,8 @@
 
 **Status: Backlog — training weeks located; search scoped to 4+4 tagged
 classes; queue ordered for the Tokyo talk; item 1 ranked from four
-tagged AI-era weeks**
+tagged AI-era weeks; item 2 unranked candidates from 2023-10-30 and
+2024-06-03 (2b ranks and adds the other two I-era weeks)**
 
 ## Role
 
@@ -384,7 +385,171 @@ commits) added nothing: no Cursor or Claude in messages or trailers.
 
 ### 2. Whole Product Focus + CI (Claims 3, 8, 21)
 
-Not yet pulled.
+Two of four tagged I-era weeks scanned (author-date windows, not
+ancestry): 2023-10-30 activity 2023-10-31–2023-11-05 (181 commits in
+the window; Phase 1 bookmark `aaff641177a2..3d44c24c3b0c` listed 362)
+and 2024-06-03 activity 2024-06-03–2024-06-09 (248 commits; bookmark
+`aac607b1dd60..8233f639fc20` listed 249). Hunt narrowed to
+merge/conflict, revert, CI-fix, `@ignore`/skip, and cross-author
+file collisions. Git shows **authors** and **shared files**, not
+teams or conversation — that limit stands for every entry below.
+How much of the effect is training design (one week, Whole Product
+Focus, coaches on the same files) versus transferable practice is
+not settled here; 2024 especially has Terry Yin at 95 of 248
+commits. Unranked / candidate — 2b ranks to 1–3, maps slides, and
+adds 2023-11-20 and 2024-08-19. No WIP messages, conflict leftover
+trailers, or long-lived delayed-mainline branches showed in these
+two windows (same-day PR `#993` is not delayed integration).
+
+#### Candidate — Fisher merge meets Leo on FineTuningData.vue
+
+- **Priority:** unranked / candidate
+- **Example:** Same afternoon, Fisher Chuang `b100b89a1b`
+  (retrieve training-file list on `AiAdvisorService` /
+  `RestAiControllerTrainingFileTest`) and Leo `c4eb78c961`
+  (upload control on
+  `frontend/src/components/admin/FineTuningData.vue`). Fisher
+  `26db675c54` merges `origin/main` and keeps both increments.
+  The rest of the week Isaac Lu (trigger / file list), Kevin Hou
+  (upload), Leo (upload + OpenAI errors), and LOG
+  (upload-and-training API) keep landing customer-centric admin
+  work on that Vue, `FineTuningService.java`, and the upload
+  feature. Closest I-era picture of integration pulling focused
+  follow-up on one user-facing surface — still authors, not
+  teams.
+- **Source:** 2023-10-30 class, activity 2023-10-31–2023-11-05,
+  bookmark `aaff641177a2..3d44c24c3b0c`
+- **Slide:** likely *Let the shared product pull collaboration*
+  (2b maps)
+- **Use:** spoken beat — shared product pulls the next people;
+  Whole Product Focus as the reason the collision is useful
+- **Clearance:** yes — class-week student work (see Questions
+  still open)
+
+#### Candidate — `@ignore` to green, then delete the unused feature
+
+- **Priority:** unranked / candidate
+- **Example:** Leo `3ad9e439ad` “fix build CI fail” moves
+  `@ignore` to the whole
+  `automate_upload_and_training.feature` (scenarios that had been
+  ignored one-by-one). LOG `21bb04c4d1` later **deletes** that
+  unused feature — the silenced spec never became a working
+  mainline increment. Same week Kevin Hou `fb52a1d1c3` /
+  `c807891a29` “workaround to fix CI” toggles `@ignore` on the
+  upload-success scenario, and `fe73c87971` “ignore to prepare
+  for frontend implementation” parks more of
+  `upload_fine_tuning_data.feature`. By the week’s newest
+  bookmark that upload file has no `@ignore` (LOG and others
+  implemented the OpenAI responses). Green pipeline by silencing
+  E2E, then either implement or throw the spec away. Primitive
+  stop; the service staying green is not the practice.
+- **Source:** 2023-10-30 class, activity 2023-10-31–2023-11-05,
+  bookmark `aaff641177a2..3d44c24c3b0c`
+- **Slide:** likely *Continuous integration is a practice, not a
+  system* (2b maps)
+- **Use:** spoken counter — always-green by `@ignore` is not CI;
+  contrast with the FineTuningData merge if that one is discussable
+- **Clearance:** yes — class-week student work (see Questions
+  still open)
+
+#### Candidate — KJ offline generate meets nivraman online on RestAssessmentController
+
+- **Priority:** unranked / candidate
+- **Example:** KJ `000fa9e1c3` starts generate-assessment;
+  `13736eccb7` returns an empty list when the notebook has fewer
+  than five notes. An hour later nivraman `3e0add90f0` “fix merge”
+  on `RestAssessmentController.java` keeps a 500 throw instead of
+  the empty list, then `93564956bd` adds generate **online**
+  assessment questions on that controller. On the bazaar UI the
+  same afternoon Teh O Beng (offline generate button / page) and
+  Kewen, Tan `9413d0074c` (move start-assessment onto
+  `BazaarNotebookButtons.vue`) share the entry point; KJ is on
+  that Vue too. Two customer-centric assessment slices meeting
+  in one controller and one button file. Terry Yin `6c71201c33`
+  “merge on and offline” later that week (2024-06-09) consolidates
+  the streams — that later commit is coach/training-design more
+  than a transferable student practice (do not overclaim it as
+  cross-team CI).
+- **Source:** 2024-06-03 class, activity 2024-06-03–2024-06-09,
+  bookmark `aac607b1dd60..8233f639fc20`
+- **Slide:** likely *Let the shared product pull collaboration*
+  (2b maps)
+- **Use:** spoken beat if 2023 FineTuningData is not discussable
+  — interdependent assessment work pulled a merge fix
+- **Clearance:** yes — class-week student work (see Questions
+  still open)
+
+#### Candidate — Teh O Beng `@ignore` then mock, same afternoon
+
+- **Priority:** unranked / candidate
+- **Example:** Teh O Beng `b660072471` “Ignore test” puts
+  `@ignore` on the display-assessment-questions outline in
+  `generate_assessment_questions.feature`. Same afternoon
+  `6f92fbc440` “Fix test” replaces it with
+  `@usingMockedOpenAiService`. Short disable-to-green, then a
+  real stub — weaker than the 2023 unused-feature deletion, but
+  the same primitive stop on a user-centric bazaar item. Nearby
+  KJ `21b08ccab5` “fix insufficient notes test” touches the same
+  feature plus `RestAssessmentController` (ties to the merge
+  candidate above).
+- **Source:** 2024-06-03 class, activity 2024-06-03–2024-06-09,
+  bookmark `aac607b1dd60..8233f639fc20`
+- **Slide:** likely *Continuous integration is a practice, not a
+  system* (2b maps)
+- **Use:** spoken miniature of the `@ignore` counter if 2023 is
+  not used; or a callback that the 2024 merge week still silenced
+  a scenario to stay green
+- **Clearance:** yes — class-week student work (see Questions
+  still open)
+
+#### Candidate — nivraman approved-column revert then re-add
+
+- **Priority:** unranked / candidate
+- **Example:** nivraman `12685f65cf` adds an approved column on
+  `QuizQuestion` / a Flyway migration, `9fa469bb66` reverts it
+  the same day, `645a796d5f` puts approved back the next morning
+  (`d4aa0d82d5` reviewed column follows). Oscillation on the
+  mainline, not a long-lived branch. Weak delayed-integration
+  picture; stronger as “the shared entity moved before the
+  increment was stable.” Cats / Daryl / nivraman / KJ also
+  collide that week on `RestQuizQuestionController.java` and
+  `quiz_manual_add.feature` (add vs approve vs list) — a second
+  Whole Product Focus cluster 2b can weigh against the
+  assessment merge.
+- **Source:** 2024-06-03 class, activity 2024-06-03–2024-06-09,
+  bookmark `aac607b1dd60..8233f639fc20`
+- **Slide:** likely *Continuous integration is a practice, not a
+  system* or a caution under *Let the shared product pull
+  collaboration* (2b maps)
+- **Use:** only if 2b needs a delayed/unstable-mainline beat;
+  integration happened, the increment was not yet a small
+  stoppable change
+- **Clearance:** yes — class-week student work (see Questions
+  still open)
+
+#### Also considered (hashes for 2b / Claim 21)
+
+- Genuine CI whose stop was still primitive (2023-10-30): Leo
+  `f221aa45ed` “format code for pass CI”; Isaac Lu `636ac268a3`
+  “Fix Lint Error on CI”; LOG `d46cb75145` / `9b67839fc7` /
+  `a765f72b96` and Kevin `ec8eb0557c` “fix ci” — the service
+  halted, the halt was lint/format/test-fix, not a product
+  conversation.
+- Kevin Hou reverts of overlapping autoupload specs:
+  `d21ce59429`, `ad3ecc7cfb` (2023-10-30). Interruption on
+  `admin_trigger_fine_tuning_directly.feature` / OpenAI mocks;
+  what was missing is not in git.
+- Isaac Lu `491019a99f` revert of the OpenAI file-list mock, then
+  `36419eb786` retrieve-on-button (2023-10-30). Stop-and-fix on
+  a shared mock, thin collaboration signal.
+- Tapas `696a17cc8c` merge `origin/main` (2024-06-03) — two-line
+  test conflict in `RestAssessmentControllerTests.java`. Real
+  integrate-to-mainline, too small a story.
+- Later-era Claim 21 hint, **not** 2a evidence: choucw045
+  disable-tests-to-green `a2060f1d70` (re-enable `ee9ca9aa68` /
+  `29712022b1`; nearby `6df4f71aa8`) from item 1 also-considered,
+  AI-era. Same primitive-stop shape as the 2023 `@ignore`
+  candidates.
 
 ### 3. Bottom-up batch vs slice (Claim 17)
 
@@ -435,7 +600,10 @@ stays a backlog and an index, not a second lecture.
 Doughnut git log (author name, email, author date) in the sibling
 `doughnut` repo. Phase 1 inventory retrieved 2026-08-25. Item 1
 candidate scan of 2025-01-06 and 2026-01-26 retrieved 2026-08-26;
-2025-04-14 and 2026-07-27 ranked with them 2026-08-26.
+2025-04-14 and 2026-07-27 ranked with them 2026-08-26. Item 2
+unranked scan of 2023-10-30 and 2024-06-03 retrieved 2026-08-26
+(author-date windows; merge/CI-fix/`@ignore`/cross-author files).
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
-for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.**
+for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.
+Item 2 unranked candidates from two of four tagged I-era weeks.**

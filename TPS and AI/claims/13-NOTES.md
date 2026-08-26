@@ -1,15 +1,19 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). S0 and 1a landed; next is
-1b.
+[Claim 13](13-doughnut-project-examples.md). Item 1 ranked; 2a
+candidates recorded; next is 2b.
+Other agents may commit unrelated files — only edit Claim 13 / this
+NOTES. Skip post-change-refactor (prose).
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor
 or Claude — not `AiController` / prompt-feature commits, and not an
-author named Cursor Agent. Scan author-date windows, not ancestry.
-Deck/artwork files (`slides/tps-and-ai/*`) may be dirty from parallel
-work; leave them alone.
+author named Cursor Agent. Scan author-date windows, not ancestry;
+Phase 1 bookmark commit counts can differ from the author-date
+window (2023-10-30 listed 362, window had 181). Other agents may
+commit unrelated files — only edit Claim 13 / this NOTES. Skip
+post-change-refactor (prose).
 
 ## Deliverable — the "one place"
 
@@ -62,22 +66,20 @@ candidates: extract-to-child + Assimilation conflict; Claude Add
 button; Cursor test refactor; counters: disable-tests-to-green,
 Cursor volume that shipped). 1b ranks.
 
-### 1b — Behavior — planned
+### 1b — Behavior — done
 
-Same scan for 2025-04-14 (`99bdb147adfc..516aa68aeede`) and 2026-07-27
-(`61e29c666a5c..3cb5c87baba1`); then rank the **combined** item-1 pool
-(including 1a's five) to 1–3 prioritized examples with slide mapping.
-Reuse 1a's AI-assisted rule. Target slides: *Let the shared product
-pull collaboration* (flagship story walking takeaway 5) and the
-*freed vs constrained* diagnostic (callback). Done when the item-1
-subsection is complete.
+Item 1 ranked: (1) Cursor extract-to-child / Assimilation.vue
+2026-01-26; (2) Claude restore note properties on export 2026-07-27;
+(3) Cursor `/sync` volume 2026-07-27. 2025-04-14 had no Cursor/Claude
+trailers. Also-considered hashes kept for items 2, 3, 6.
 
-### 2a — Behavior — planned
+### 2a — Behavior — done
 
-Scan I-era weeks 2023-10-30 (`aaff641177a2..3d44c24c3b0c`, 362 commits)
-and 2024-06-03 (`aac607b1dd60..8233f639fc20`, 249) for
-integration-pulls-collaboration episodes and counter-episodes
-(interruption, flaky integration, delayed mainline). Record candidates.
+Unranked item-2 pool from 2023-10-30 and 2024-06-03: FineTuningData
+merge (positive); `@ignore`-then-delete unused feature (Claim 21
+counter); KJ/nivraman assessment merge; Teh O Beng ignore-then-mock;
+nivraman approved-column revert. No delayed-mainline branches.
+2b ranks and adds 2023-11-20 / 2024-08-19.
 
 ### 2b — Behavior — planned
 
