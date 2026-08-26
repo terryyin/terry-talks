@@ -6,17 +6,18 @@ future discussion, not a set of conclusions.
 ## Talk framing
 
 - What is the exact title for the Tokyo LeSS Conference talk? Working
-  answer: **Freedom and Entrustment**, subtitle **What AI-Augmented
-  Development and LeSS Can Learn from the TPS**. The theme matches
+  answer: **Freedom and Trust**, subtitle **TPS Reasoning for
+  AI-Augmented LeSS**. The theme matches
   [Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md).
   The early-talk slogan (*How do you know if the organization is using
-  AI right? If the teams are more freed than constrained by what they
-  built.*) is one leading page, not the title. **Constrained** there
-  means leftover ownership; jidoka is a closed stop or gate.
+  AI right? If the teams are getting less constrained by what they
+  built, not more.*) is one leading page, not the title. **Constrained**
+  means leftover ownership, unfinished and judgment-dependent work, and
+  inability to take the next highest-value item.
 - What is the promised audience takeaway? Working answer: drafted as
-  the five-point takeaway list in
+  four takeaways plus the “Same gates for I and AI” rule in
   [Main theme and stage setting](main-theme-and-stage-setting.md),
-  closed by the Freedom and Entrustment triad.
+  closed by the Freedom and Trust loop.
 - Is the talk primarily about applying TPS philosophy to AI-augmented software,
   or about using the contrast with TPS to expose what is newly difficult?
   Working answer: as in the subtitle. Not applying TPS to software, but
@@ -45,7 +46,7 @@ future discussion, not a set of conclusions.
   Working answer: a **supporting argument**, not the thesis. Use it on
   the jidoka / preserve-knowledge slide. [Claim
   6](claims/06-jidoka-embeds-routine-judgment.md) owns the beat. The
-  thesis remains Freedom and Entrustment
+  thesis remains Freedom and Trust
   ([Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)).
 - In AI-augmented development, where does the bottleneck actually move: problem
   selection, specification, verification, integration, deployment, learning,
@@ -85,7 +86,7 @@ future discussion, not a set of conclusions.
   much code? [Claim
   6](claims/06-jidoka-embeds-routine-judgment.md) now names that split;
   [Claim
-  4](claims/04-jit-assurance-resourcefulness-and-constraint.md) already
+  4](claims/04-jit-assurance-resourcefulness-not-abundance.md) already
   has the stacking warning. A leftover compiler or linter warning is
   that remainder in miniature:
   [Claim 24](claims/24-warnings-as-stop-no-news-is-good-news.md).
@@ -104,7 +105,7 @@ future discussion, not a set of conclusions.
 
 - Primary Toyota sources defining TPS and the Toyota Way today.
 - Toyota's own chronology of TPS/JIT is the historical index in
-  [Claim 4](claims/04-jit-assurance-resourcefulness-and-constraint.md). Do
+  [Claim 4](claims/04-jit-assurance-resourcefulness-not-abundance.md). Do
   not collect a second lean-diffusion history unless a later claim needs it.
 - Larman and Vodde's 2009 house diagram and the *More with LeSS* lean-thinking
   principle are in [Claim 2](claims/02-tps-and-lean-houses.md). Remaining: the

@@ -85,7 +85,7 @@ That is the software-shaped twin of cheap changeover.
 
 ### SMED is the TPS example: a perfection goal, then kaizen toward it
 
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) already
+[Claim 4](04-jit-assurance-resourcefulness-not-abundance.md) already
 has why cheap changeover exists under JIT.
 [Claim 5](05-smed-software-changeover-and-ai-friendly-context.md)
 already has the name, the staged method, OTED, and the software cut.

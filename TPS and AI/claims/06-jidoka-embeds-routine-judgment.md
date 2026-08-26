@@ -19,7 +19,7 @@ still queued; model-first is a bet**
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
 people-side: the right and expectation to signal, stop, respond, and
 improve. [Claim
-4](04-jit-assurance-resourcefulness-and-constraint.md) owns the JIT
+4](04-jit-assurance-resourcefulness-not-abundance.md) owns the JIT
 pairing: stop conditions protect previous intentions rather than
 stacking judgment-dependent output. [Claim 19](19-stop-and-fix.md)
 owns the halt. [Claim
@@ -195,7 +195,7 @@ may not dissolve that stop, and it may not take the five.
 > **Generation is cheap; judgment is expensive** is a supporting
 > argument for this jidoka cluster, not the talk's central thesis.
 > [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md) owns
-> Freedom and Entrustment.
+> Freedom and Trust.
 
 Cheap generation does not move the bottleneck to a later pipeline
 stage—problem selection, specification, verification, integration,

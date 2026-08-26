@@ -63,7 +63,7 @@ working time could still absorb reductions.
 
 [Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md)
 owns the paired argument against overproduction. [Claim
-4](04-jit-assurance-resourcefulness-and-constraint.md) owns the longer
+4](04-jit-assurance-resourcefulness-not-abundance.md) owns the longer
 historical account.
 
 ## Translation to software and AI

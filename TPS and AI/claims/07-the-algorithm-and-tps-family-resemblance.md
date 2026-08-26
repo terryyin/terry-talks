@@ -74,7 +74,7 @@ instruction to challenge every step can produce a radical redesign.
 
 The five labels do not by themselves express customer pull and limits on
 work in process
-([Claim 4](04-jit-assurance-resourcefulness-and-constraint.md));
+([Claim 4](04-jit-assurance-resourcefulness-not-abundance.md));
 jidoka's detect, stop, contain, and prevent
 ([Claims 3](03-jidoka-enables-jit-trusts-respect-grows.md) and
 [6](06-jidoka-embeds-routine-judgment.md)); standards and learning loops

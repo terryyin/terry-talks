@@ -36,15 +36,15 @@ definition here.
 |---|---|---|
 | **Encoded jidoka** | Learned judgment in a closed, stoppable form: detect a specified abnormality, halt, contain, prevent recurrence. Tests that actually stop, types, poka-yoke, an andon. Smart → dumb → gone. | [6](06-jidoka-embeds-routine-judgment.md), [19](19-stop-and-fix.md), [20](20-poka-yoke-supports-jidoka.md), [21](21-ci-practice-is-not-a-ci-system.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
 | **Adaptive attention** | Room, information, skill, and authority to investigate what is not yet known, rather than watch the routine or re-judge the known. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [6](06-jidoka-embeds-routine-judgment.md), [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
-| **Capability to respond** | Resourceful, close-to-the-work response to actual need: detect, coordinate, change cheaply, recover, leave the system more capable. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [4](04-jit-assurance-resourcefulness-and-constraint.md) |
+| **Capability to respond** | Resourceful, close-to-the-work response to actual need: detect, coordinate, change cheaply, recover, leave the system more capable. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [4](04-jit-assurance-resourcefulness-not-abundance.md) |
 | **People who can think** | People grown by the work: problem solving, facilitation, analysis, coaching, independent kaizen. | [12](12-respect-for-people-who-can-think.md) |
 | **Warranted trust** | Mutual, evidenced confidence. Not faith, and not Toyota's definition of JIT. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
 | **Coercive control** | Approvals, surveillance, detailed plans far in advance, narrow roles, rules imposed from outside the work. | [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
-| **Pull from actual need** | Work and collaboration triggered by concrete need: JIT operationally; Whole Product Focus in LeSS. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [4](04-jit-assurance-resourcefulness-and-constraint.md), [8](08-technical-excellence-enables-jit-coordination-in-less.md), [17](17-jit-vertical-slicing-one-piece-flow.md) |
+| **Pull from actual need** | Work and collaboration triggered by concrete need: JIT operationally; Whole Product Focus in LeSS. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [4](04-jit-assurance-resourcefulness-not-abundance.md), [8](08-technical-excellence-enables-jit-coordination-in-less.md), [17](17-jit-vertical-slicing-one-piece-flow.md) |
 | **Technical excellence** | Cheap, safe change of one shared product so several feature teams can integrate continuously. The catalog exists *for* that integration. | [8](08-technical-excellence-enables-jit-coordination-in-less.md) |
 | **Visible product evidence** | Current integrated working software, plus visible abnormalities and dependencies. Transparency for the people doing the work, not a remote-control dashboard. | [8](08-technical-excellence-enables-jit-coordination-in-less.md), [16](16-go-see-ai-harness.md), [21](21-ci-practice-is-not-a-ci-system.md) |
 | **AI generation volume** | Candidate solutions, tests, analysis, and patches produced quickly. Not yet owned, verified, or encoded. | [1](01-tps-reasoning-not-mechanisms.md), [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
-| **Judgment-stacked inventory** | Unverified, unowned, still-smart work in process: generated analysis, patches that look finished until a person re-judges them, tests nobody can trust, leftover warnings. Software's analogue of stockpiling. | [4](04-jit-assurance-resourcefulness-and-constraint.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
+| **Judgment-stacked inventory** | Unverified, unowned, still-smart work in process: generated analysis, patches that look finished until a person re-judges them, tests nobody can trust, leftover warnings. Software's analogue of stockpiling. | [4](04-jit-assurance-resourcefulness-not-abundance.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
 
 ## Canonical links
 
@@ -153,14 +153,15 @@ gone** is this loop, not a one-time cleanup.
 Runs backward when detectors stay smart: every check still needs a
 thinker, so encoded jidoka never rises and attention never returns.
 
-### R2 — Freedom and entrustment
+### R2 — Freedom and trust
 
 **Adaptive attention → Capability to respond → Warranted trust → (−)
 Coercive control → Pull from actual need → Capability to respond**
 
 [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)'s proposed
-loop, drawn as a cycle. The polarity is **freedom and entrustment**
-(jidoka frees, JIT entrusts). Mutual **warranted trust** sits under
+loop, drawn as a cycle. The theme is **freedom and trust**; entrustment
+is the action inside the loop (jidoka frees, JIT entrusts). Mutual
+**warranted trust** sits under
 Respect for People; in this diagram it is the evidence that makes
 entrustment social. Jidoka and technical excellence create room so a
 team can take the next highest-value item. Demonstrated capability
@@ -242,7 +243,7 @@ Two **−** links: reinforcing. Direction depends on starting condition.
   that AI amplifies the underlying system is this loop, not a separate
   AI pillar.
 
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md): do not
+[Claim 4](04-jit-assurance-resourcefulness-not-abundance.md): do not
 compensate for uncertainty by accumulating everything in advance.
 [Claim 11](11-physical-production-and-software-differences.md): do not
 stockpile unverified work. R5 is those warnings as a cycle.
@@ -278,7 +279,7 @@ them named:
 - **Go See** — how visible product evidence stays firsthand, including
   the AI harness; [Claim 16](16-go-see-ai-harness.md).
 - **Utilization pressure** filling unused capacity after need is met —
-  [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md). A
+  [Claim 4](04-jit-assurance-resourcefulness-not-abundance.md). A
   candidate extra **+** from “keep busy” into judgment-stacked
   inventory. Add when a story needs it.
 - **The Algorithm** — family resemblance, not a loop in this map;

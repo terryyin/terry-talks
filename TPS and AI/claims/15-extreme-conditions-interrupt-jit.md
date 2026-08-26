@@ -5,7 +5,7 @@ COVID and Russia–Ukraine cases researched; not a finalized talk beat**
 
 ## Original claim / hypothesis
 
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) records that
+[Claim 4](04-jit-assurance-resourcefulness-not-abundance.md) records that
 Kiichiro conceived JIT before the war, wartime controls and rationing made
 the 1938 Koromo system impossible to sustain, and Toyota later realized it
 through postwar experiments. That raises a current question:

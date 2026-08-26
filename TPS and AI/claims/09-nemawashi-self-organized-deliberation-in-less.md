@@ -168,7 +168,7 @@ channel—but they are not the same timescale.
 | Product priority | The Product Owner | Teams and stakeholders prepare information; they do not replace PO authority. |
 | Organizational design | Managers (if any) and adopters | Closest to classical Toyota circulation of a proposal toward people who can change the system. |
 
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) already
+[Claim 4](04-jit-assurance-resourcefulness-not-abundance.md) already
 treats those conventions as a **supporting condition** for reducing
 WIP: take away what stops self-integration and self-coordination,
 and keep collaborative decision-making under kaizen. Without that, low

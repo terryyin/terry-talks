@@ -1,27 +1,30 @@
-# Claim 10: Freedom and entrustment can reinforce one another through jidoka
+# Claim 10: Freedom and trust can reinforce one another through jidoka
 
-**Status: Provisional — theme is Freedom and Entrustment; early-talk
-slogan recorded; matching story still open**
+**Status: Provisional — theme is Freedom and Trust; early-talk slogan
+recorded; matching story still open**
 
 ## Claim
 
-> **The polarity is freedom and entrustment.** They look like opposites:
-> to hand over important work, it seems you must control people in
-> advance; to give freedom, it seems you cannot really hand over the work
-> that matters. Jidoka's closed stops make freedom responsible, so
-> the organization can **entrust** a capable response to real need.
-> Visible, responsible use of that freedom makes entrustment warranted.
-> Mutual trust sits under Respect for People.
+> **The relationship is freedom and trust.** They are not literal
+> opposites, but organizations can mistakenly treat them as a tradeoff:
+> freedom without shared purpose, capability, and evidence can look like
+> unbounded risk, while seeking assurance through coercive control reduces
+> freedom without necessarily producing trustworthy outcomes. Jidoka's
+> closed stops make known harm visible and stoppable. Technical excellence
+> makes responsible response visible. Together they let teams use freedom
+> well and give the organization reason to **entrust** the next important
+> need. Repeated responsible response deepens mutual trust under Respect
+> for People.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has the
-triad: jidoka **frees**, JIT **entrusts**. Mutual trust is the
-relationship that grows when that polarity is held, not the other pole.
-Coercive control is the false resolution when the organization cannot
-hold both. [Claim
+sequence: jidoka **frees**, JIT **entrusts**, and mutual trust grows
+under Respect for People. Entrustment is the action inside the loop,
+not its other pole. Coercive control is the false resolution when the
+organization seeks trust by removing freedom. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) already
 has bounded self-management and the technical precondition. This claim
-is the **talk theme**: how freedom and entrustment can live together,
-and how that earns mutual trust.
+is the **talk theme**: how freedom and trust can reinforce each other,
+and how visible capability lets consequential work be entrusted.
 
 The loop is **R2** in the draft causal loop diagram of how TPS reasoning
 can inspire LeSS+AI: [Claim
@@ -94,7 +97,7 @@ This **trust** is the Respect-for-People / LeSS sense of mutual,
 warranted confidence. It is not Toyota's definition of JIT. [Claim
 3](03-jidoka-enables-jit-trusts-respect-grows.md) records that the
 organization can enjoy JIT while people still suffer stress. [Claim
-4](04-jit-assurance-resourcefulness-and-constraint.md) already reframed
+4](04-jit-assurance-resourcefulness-not-abundance.md) already reframed
 JIT confidence as reliance on responsive capability rather than
 stockpiles.
 
@@ -195,7 +198,8 @@ Early-talk slogan (one of the first slides):
 
 > **How do you know if the organization is using AI right?**
 >
-> If the teams are more freed than constrained by what they built.
+> **If the teams are getting less constrained by what they built, not
+> more.**
 
 That means less leftover ownership, less WIP, more ability to take the
 next highest-value item and acquire the knowledge it needs.
@@ -203,19 +207,21 @@ next highest-value item and acquire the knowledge it needs.
 Memorable close:
 
 > **Encode the known. Stop the abnormal. Free people to learn. Entrust a
-> capable response to real need. Let visible capability earn mutual
+> capable response to real need. Let visible capability deepen mutual
 > trust.**
 
-The theme is **Freedom and Entrustment**. Close with that triad: free,
-**entrust**, earn mutual trust.
+The theme is **Freedom and Trust**. Entrustment is the action inside the
+loop: free people to respond, **entrust** real need, and deepen mutual
+trust.
 
 The strongest version of the theme is not that TPS resolves freedom and
-entrustment once and for all:
+trust once and for all:
 
-> **TPS shows how a system can continually convert learning into
-> closed stops that make greater freedom responsible—and use that freedom
-> to produce the next learning on which deeper entrustment, and then
-> mutual trust, can rest.**
+> **TPS offers a system-design lens: continually convert learning into
+> closed stops that make greater freedom responsible, use that freedom
+> to produce the next learning, and let repeated visible capability
+> deepen mutual trust—so the next important need can be entrusted without
+> coercive control.**
 
 ## Questions still open
 

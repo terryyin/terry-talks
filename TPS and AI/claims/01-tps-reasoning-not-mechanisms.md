@@ -11,7 +11,7 @@ named production system. Toyota still presents **jidoka** and
 **Just-in-Time** as its two operating pillars.
 
 The chronology of that development is the talk's historical index in
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md). Later
+[Claim 4](04-jit-assurance-resourcefulness-not-abundance.md). Later
 international lean teaching is a different story.
 
 How TPS applies changes when the work has a different mixture of
@@ -110,7 +110,7 @@ responsibility depends on jurisdiction, role, contract, and application.
 ## Sources consulted
 
 Historical chronology and its Toyota sources are in
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md). This list
+[Claim 4](04-jit-assurance-resourcefulness-not-abundance.md). This list
 supports the remaining argument.
 
 1. Toyota Motor Corporation, [Toyota Production

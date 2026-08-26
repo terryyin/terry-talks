@@ -24,7 +24,7 @@ remains. Fewer touches may result; they are a consequence, not the
 definition.
 
 SMED lives **inside JIT**. [Claim
-4](04-jit-assurance-resourcefulness-and-constraint.md) has the factory
+4](04-jit-assurance-resourcefulness-not-abundance.md) has the factory
 reason: even a known mix is made alternately; that is only cheap if
 changeover is cheap. [Claim
 17](17-jit-vertical-slicing-one-piece-flow.md) has the software cut: a
@@ -498,4 +498,4 @@ sequence would stop); Sprint-boundary termination of current work.
     problem.
 
 Mix-leveling sources for why SMED exists under JIT are in
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md).
+[Claim 4](04-jit-assurance-resourcefulness-not-abundance.md).

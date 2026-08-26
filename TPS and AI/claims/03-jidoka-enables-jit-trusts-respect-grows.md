@@ -51,7 +51,7 @@ let people handle a novel need and make the next response more reliable.
 Without those conditions, tight coupling and low buffers produce pressure
 rather than a resourceful response.
 
-[Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) owns the
+[Claim 4](04-jit-assurance-resourcefulness-not-abundance.md) owns the
 chronology and the source of assurance: capability instead of inventory.
 
 An oral teaching shared with Terry by Kazumasa Ebata resembles this JIT side
