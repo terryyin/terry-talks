@@ -1,8 +1,10 @@
-# Claim 18: Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is a worked example
+# Claim 18: Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is the TPS example, Definition of Done the LeSS measure
 
-**Status: Provisional — initial reconciliation; named principle and layers
-supported; TPS-pillar origin, LeSS's two-pillar wording as Toyota's, the
-chairman-naming anecdote, and SMED method recap withdrawn**
+**Status: Provisional — origin and layers supported; stage labels are the
+LeSS principle plus kaizen; SMED is the TPS perfection-goal example,
+Definition of Done the LeSS measure; TPS-pillar origin, LeSS's two-pillar
+wording as Toyota's, the chairman-naming anecdote, and SMED method recap
+withdrawn**
 
 ## Claim
 
@@ -14,12 +16,15 @@ chairman-naming anecdote, and SMED method recap withdrawn**
 > reducing effort, time, space, cost, and mistakes. LeSS joins those two
 > phrases so kaizen cannot become a change project with an end date.
 > Official TPS pillars remain jidoka and JIT; daily kaizen is how TPS is
-> lived. SMED is a worked example of that trajectory, not a new home for
-> the method: cheap changeover is never finished.**
+> lived. On stage, keep both names: the LeSS principle and kaizen. SMED
+> is the TPS example of that shape: name a perfection goal, then keep
+> doing kaizen toward it. Definition of Done is LeSS's measure of the
+> same trajectory for teams.**
 
 The original hypothesis asked whether the LeSS principle is also from
-TPS, and whether SMED is a good example. The example holds as
-interpretation. The origin needs the same layer distinction as
+TPS, and whether SMED is a good example. SMED holds as the TPS worked
+case. Definition of Done is the LeSS measure, not a rival example. The
+origin needs the same layer distinction as
 [Claim 2](02-tps-and-lean-houses.md).
 
 ## What the research supports
@@ -46,8 +51,11 @@ LeSS itself locates the idea:
 > introduction draws on the Toyota background.
 
 The talk can say **LeSS took this from Toyota via lean thinking.** It
-should not say LeSS invented it. It should also not repeat that LeSS
-sentence as Toyota's or Womack and Jones's taxonomy. Toyota Way 2001
+should not say LeSS invented it. On stage, keep the LeSS principle name
+and **kaizen**; do not substitute a third slogan such as “never done.”
+LeSS already says adoption and improvement are never finished; that is
+the consequence, not the label. Do not repeat that LeSS sentence as
+Toyota's or Womack and Jones's taxonomy. Toyota Way 2001
 names the pillar **Continuous Improvement**, not “towards perfection.”
 Womack and Jones name **pursue perfection** as a fifth principle, not as
 one of two pillars. LeSS also has a separate **Lean Thinking** principle
@@ -84,28 +92,50 @@ the LeSS vision it sometimes uses:
 
 That is the software-shaped twin of cheap changeover.
 
-### SMED is the trajectory, not a new home for the method
+### SMED is the TPS example: a perfection goal, then kaizen toward it
 
 [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) already
 has why cheap changeover exists under JIT.
 [Claim 5](05-smed-software-changeover-and-ai-friendly-context.md)
 already has the name, the staged method, OTED, and the software cut.
-What this claim adds is the *never-done* shape: leftover changeover cost
-is still under improvement, not “good enough for this quarter.”
+What this claim adds is the principle's shape. SMED names a hard
+perfection goal—single-digit minutes, then one-touch, then setup that
+does not interfere with production—and treats leftover changeover cost
+as still under kaizen, not “good enough for this quarter.”
 
 LeSS describes the same dynamic without naming SMED: pull systems with
 small batches combined with kaizen lower the transaction cost of a
 process cycle. High changeover cost is that transaction cost. Small
 batches look wasteful until kaizen attacks it. Then mix leveling,
 vertical slices, and frequent change of direction become economical.
-That is why SMED is a good example of the principle, not merely a setup
-trick under JIT.
 
-Do not present SMED as how LeSS implements the principle. LeSS
-implements it as endless inspect-and-adapt: master a baseline,
-experiment, make the better way the new temporary standard, repeat.
-SMED is one historically vivid case of that loop applied to a cost that
-otherwise forces large batches.
+Do not present SMED as how LeSS implements the principle. It is the TPS
+worked example of naming a perfection goal and never declaring the
+kaizen finished.
+
+### Definition of Done is how LeSS teams measure the principle
+
+LeSS's tool of measurement for the teams' Continuous Improvement Towards
+Perfection is the **Definition of Done**. Creating it starts by listing
+every activity currently required to ship to end customers. LeSS calls
+that list a **perfection goal** for the organization: do all of it for
+each item every Sprint. The Definition of Done is the subset the teams
+can actually complete inside the Sprint. The gap is **Undone Work**. A
+Definition of Done is perfect when it equals Potentially Shippable.
+
+Teams expand the Definition of Done toward that goal. That expansion is
+visible: a weaker Definition of Done means more Undone Work, more hidden
+risk and delay; a stronger one means closer to shippable each Sprint.
+That is how you see whether the principle is happening, not whether a
+change program closed.
+
+A common product-wide Definition of Done as an enabling constraint on
+self-management stays on
+[Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md).
+This claim is the other job: Definition of Done as the measure of
+Continuous Improvement Towards Perfection. Build-time toward one second
+and abolishing a coordination role are other LeSS experiments toward
+perfection; they are not the measure.
 
 Go-See, Respect for People, one-piece flow, jidoka, the Lean Thinking
 house, and SMED method stay on [Claims
@@ -122,37 +152,39 @@ Sprint goal.
 ## Implication for the talk
 
 After the TPS overview (jidoka and JIT) and the Toyota Way / LeSS house
-(Claim 2), name this principle in LeSS's words so the audience hears a
-familiar LeSS idea with its Toyota layer made explicit:
+(Claim 2), name this principle in LeSS's words, and name **kaizen** as
+the lived practice:
 
-> **Never done. How Toyota lives jidoka and JIT, and how LeSS refuses
-> to treat adoption as a project with an end date.**
+> **Continuous Improvement Towards Perfection. Kaizen is how it is
+> lived: master a baseline, experiment, make the better way the new
+> temporary standard, repeat. Adoption is not a project with an end
+> date.**
 
-Then make it concrete with SMED rather than with a second house lecture:
+Then two concretes, not a second house lecture:
 
-> **SMED is kaizen toward cheaper changeover. You do not finish setup
-> reduction. You keep converting, streamlining, and challenging the
-> leftover cost so mixed-model flow—and, in software, cheap change of
-> direction—stays economical.**
+> **SMED is the TPS example: set a perfection goal for changeover, then
+> keep converting, streamlining, and challenging the leftover cost so
+> mixed-model flow stays economical.**
 
-The AI-era turn is the same “never done,” aimed at the leftover cost
-Claim 5 already names. Generation of a candidate change is getting
-cheaper. Reconstructing intent, preparing a safe environment, and
-obtaining trustworthy feedback are still changeover. Launching more
-agents does not substitute for that kaizen. Declaring “we have adopted
-AI” is the change-program mistake LeSS is warning against.
+> **Definition of Done is how LeSS teams measure the same thing: the
+> gap between today's Done and shippable to the customer. Expanding
+> that definition is the principle made visible.**
+
+The AI-era turn is the same kaizen, aimed at the leftover cost Claim 5
+already names, and at what still sits outside Done. Generation of a
+candidate change is getting cheaper. Reconstructing intent, preparing a
+safe environment, and obtaining trustworthy feedback are still
+changeover. Launching more agents does not substitute for that kaizen,
+and it does not expand Done. Declaring “we have adopted AI” is the
+change-program mistake LeSS is warning against.
 
 > **When generation is cheap, the perfection vision is still cheap,
-> trustworthy change of direction—not more unfinished parallel work.**
+> trustworthy change of direction—and a Done that actually ships—not
+> more unfinished parallel work.**
 
 ## Questions still open
 
-- On stage, is the memorable label **Continuous Improvement Towards
-  Perfection** (LeSS), **kaizen** (Toyota), or **never done**?
-- Is SMED the strongest single example, or should the talk pair it with
-  a LeSS experiment (Definition of Done expansion, build-time toward
-  one second, abolishing a coordination role) so the audience sees the
-  principle in product-development clothes?
+None remaining on this claim.
 
 ## Sources consulted
 
@@ -162,43 +194,48 @@ AI” is the change-program mistake LeSS is warning against.
    thinking; the “two pillars of Lean Thinking” wording (LeSS's, not
    Toyota's); small batches plus kaizen lowering transaction cost;
    chairman-naming anecdote (LeSS-only).
-2. The LeSS Company, [Principles
+2. The LeSS Company, [Definition of
+   Done](https://less.works/less/framework/definition-of-done). Required
+   ship-to-customer activities as a perfection goal; Definition of Done
+   as the Sprint subset; Undone Work as the gap; perfect Done equals
+   Potentially Shippable; expand Done toward that goal.
+3. The LeSS Company, [Principles
    Overview](https://less.works/less/principles/overview). One-sentence
    statement of the principle; Lean Thinking principle whose goal is
    perfection.
-3. The LeSS Company, [Continuous
+4. The LeSS Company, [Continuous
    Improvement](https://less.works/less/adoption/continuous-improvement)
    (adoption). Perfection vision; Toyota JIT / one-piece flow as classic
    ideal; LeSS vision of changing direction at any time without
    additional cost.
-4. The LeSS Company, [Lean
+5. The LeSS Company, [Lean
    Thinking](https://less.works/less/principles/lean-thinking). Two
    pillars of lean as Continuous Improvement and Respect for People,
    attributed to Toyota Way voices; separate from Womack and Jones's
    five principles.
-5. Toyota Motor Corporation, [Toyota Production
+6. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
    Two pillars jidoka and JIT; complete elimination of waste; daily
    incremental kaizen; TPS still being improved.
-6. Toyota Motor Corporation, [Toyota Way
+7. Toyota Motor Corporation, [Toyota Way
    2001](https://www.toyota-global.com/company/history_of_toyota/75years/data/conditions/philosophy/toyotaway2001.html).
    Continuous Improvement and Respect for People; never satisfied with
    where we are; the Way must evolve and will continue to be updated.
-7. Toyota Motor Corporation, [Toyota Way 2020 / Toyota Code of
+8. Toyota Motor Corporation, [Toyota Way 2020 / Toyota Code of
    Conduct](https://global.toyota/en/company/vision-and-philosophy/toyotaway_code-of-conduct/index.html)
    and [Code of
    Conduct](https://global.toyota/pages/global_toyota/company/vision-and-philosophy/code_of_conduct_001_en_2.pdf).
    2020 describes ten actions toward the Toyota Philosophy, not a
    restatement of the 2001 two-pillar labels.
-8. Toyota Motor Europe, [The Toyota
+9. Toyota Motor Europe, [The Toyota
    Way](https://www.toyota-europe.com/about-us/toyota-vision-and-philosophy/the-toyota-way).
    Toyota Way 2020 still: evolve with kaizen; never accept the status
    quo.
-9. James P. Womack and Daniel T. Jones (1996/2003), [*Lean
-   Thinking*](https://www.lean.org/store/book/lean-thinking-2/). Fifth
-   principle: pursue perfection. Comparison already in
-   [Claim 7](07-the-algorithm-and-tps-family-resemblance.md).
-10. Craig Larman and Bas Vodde (2016), *Large-Scale Scrum: More with
+10. James P. Womack and Daniel T. Jones (1996/2003), [*Lean
+    Thinking*](https://www.lean.org/store/book/lean-thinking-2/). Fifth
+    principle: pursue perfection. Comparison already in
+    [Claim 7](07-the-algorithm-and-tps-family-resemblance.md).
+11. Craig Larman and Bas Vodde (2016), *Large-Scale Scrum: More with
     LeSS*, “Lean thinking” principle. House restated toward a perfection
     goal; already sourced in
     [Claim 2](02-tps-and-lean-houses.md).

@@ -109,7 +109,10 @@ when it is not, decides how to work, and resolves conflicts in its
 process. It does not reinvent product direction. Teams share one product,
 one Product Backlog, one Product Owner, a common Definition of Done, one
 product-level Sprint, and the obligation to create an integrated
-whole-product increment.
+whole-product increment. Expanding that Definition of Done toward
+shippable is how teams measure Continuous Improvement Towards Perfection;
+that job is
+[Claim 18](18-continuous-improvement-towards-perfection.md).
 
 > **LeSS gives teams authority over how they execute, monitor, and adapt
 > their work, inside common product direction, quality, and integration

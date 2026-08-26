@@ -1,8 +1,8 @@
 # Claim 19: Stop & Fix is actually responding to a jidoka signal; a detector everyone continues past is a dashboard
 
-**Status: Provisional — initial reconciliation; TPS / Toyota Way / LeSS
-layers sourced; Toyota's exception is fixed-position stop, not a parked
-red; not a finalized talk beat**
+**Status: Provisional — layers sourced; Toyota's exception is
+fixed-position stop, not a parked red; label, andon-versus-sequence,
+and fail-fast beat still open**
 
 ## Claim
 
@@ -12,19 +12,21 @@ red; not a finalized talk beat**
 > a fail-fast, or a CI service that everyone continues past is a
 > dashboard, not jidoka.
 
-This corrects the original hypothesis on five points. Toyota names
-**jidoka**, not Stop & Fix; “stopping immediately when abnormalities
-are detected” is inside that pillar. **Stop & Fix** is LeSS English
-(lean-thinking foundation; CI: “DO ‘stop and fix’ when the build
-breaks”). Liker names a Toyota Way *culture* of stopping to fix—2004
-Principle 5, 2021 Principle 6. Tests, fail-fast, and a **CI service**
-are detectors; they count as jidoka only if work actually stops.
-Ranking tests as “main” is Terry's, not a source fact. Shore contrasts
-fail-fast with **failing slowly** (workaround, default, catch-all),
-not with “defensive programming.” LeSS compared the safety net to
-andon and called it a **CI system**. The talk says **CI
+Toyota names the pillar **jidoka**, not Stop & Fix: detect, stop
+(machine or person), make visible (**andon**), prevent recurrence, and
+free people from watching. The andon is the display, not the stop.
+**Stop & Fix** is LeSS English: the lean-thinking house promotes it;
+CI says “DO ‘stop and fix’ when the build breaks,” and fixing the
+broken build is first priority; a failing automated suite is a huge
+queue. Liker names a Toyota Way *culture* of stopping to fix—2004
+Principle 5, 2021 Principle 6—with rapid support to contain, then
+solve.
+
+Tests, fail-fast, and a **CI service** are detectors. They count as
+jidoka only if work actually stops. The talk says **CI
 service**—[Claim 21](21-ci-practice-is-not-a-ci-system.md) owns that
-name.
+name. LeSS compared the safety net to an andon and called it a CI
+system.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
 right to stop. [Claim 6](06-jidoka-embeds-routine-judgment.md) owns
@@ -32,17 +34,9 @@ where that judgment lives. [Claim
 20](20-poka-yoke-supports-jidoka.md) owns poka-yoke. This claim owns
 the **halt**.
 
-## What the research supports
-
-| Layer | What is named |
-|---|---|
-| **TPS / jidoka** | Detect, stop (machine or person), make visible (**andon**), prevent recurrence, free people from watching. The andon is the display, not the stop. Plant tour: work does not resume until the problem is resolved. |
-| **Toyota Way (Liker)** | A culture of stopping to identify out-of-standard conditions and build in quality. Rapid support to contain, then solve. |
-| **LeSS** | Foundation: promote stop-and-fix. CI: fail fast, stop & fix, learn without blame; fixing the broken build is first priority. Testing: a failing automated suite is a huge queue. |
-
 ### Toyota's exception is not a parked red
 
-LeSS is right that stop-the-line does not mean blindly stopping all
+Stop-the-line does not mean blindly stopping all
 work. The mechanism is **fixed-position stop** (Liker and Meier):
 cord or call button → yellow; the line continues to the end of the
 work zone; if resolved in that window, the line never stops; if not,
@@ -58,7 +52,7 @@ exception. The abnormality must not become normal inventory.
 | Method | Detects | Stop & Fix requires |
 |---|---|---|
 | **Automated tests** | A known scenario no longer holds | The failing test is the current work, not a parked queue. |
-| **Fail-fast** | An illegal or unexpected condition now | Do not swallow it. Shore: fail immediately and visibly. In production, make the abnormality visible to people who can respond—not silently continue, and not an unexplained crash. |
+| **Fail-fast** | An illegal or unexpected condition now | Do not swallow it. Shore: fail immediately and visibly, against **failing slowly** (workaround, default, catch-all). In production, make the abnormality visible to people who can respond—not silently continue, and not an unexplained crash. |
 | **CI service** | The integrated product is not in the agreed working state | Do not keep merging or starting the next slice on a red mainline. A CI service is not CI ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). |
 
 Tests are often the cheapest re-runnable closed question ([Claim
@@ -117,6 +111,3 @@ while the suite stays red.
    Fast”](https://www.martinfowler.com/ieeeSoftware/failFast.pdf),
    *IEEE Software*. Fail immediately and visibly; a crash is never
    appropriate—use a global handler so people can respond.
-
-**Layer and halt sourced. Label, andon-versus-software-sequence, and
-whether fail-fast is its own beat remain live.**

@@ -62,10 +62,12 @@ only prevention, jidoka = only detection."
 > stop, respond, and improve. Poka-yoke is a method under that pillar
 > for a known mistake, preferably so the mistake cannot occur.**
 
-SMED stays under JIT, as
-[Claim 18](18-continuous-improvement-towards-perfection.md) already
-has it. Quality at the source is why low-inventory JIT can survive;
-that pairing is [Claim
+SMED stays under JIT:
+[Claims 4](04-jit-assurance-resourcefulness-and-constraint.md) and
+[5](05-smed-software-changeover-and-ai-friendly-context.md). The
+perfection-goal trajectory of that same work is
+[Claim 18](18-continuous-improvement-towards-perfection.md). Quality at
+the source is why low-inventory JIT can survive; that pairing is [Claim
 3](03-jidoka-enables-jit-trusts-respect-grows.md), not a second
 definition of poka-yoke.
 

@@ -30,8 +30,8 @@ changeover is cheap. [Claim
 17](17-jit-vertical-slicing-one-piece-flow.md) has the software cut: a
 vertical slice forces the same team across components and disciplines,
 then a different mix on the next item. This claim is how that switch is
-**afforded**. The same SMED work as never-ending kaizen toward near-zero
-changeover is
+**afforded**. The same SMED work as a perfection goal plus kaizen toward
+near-zero changeover is
 [Claim 18](18-continuous-improvement-towards-perfection.md).
 
 > **High changeover cost makes batching by type—or by layer—look

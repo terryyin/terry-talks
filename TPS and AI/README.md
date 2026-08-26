@@ -36,7 +36,7 @@ The claims below are **Provisional**:
 15. [Extreme conditions interrupt JIT; they do not refute capable response](claims/15-extreme-conditions-interrupt-jit.md)
 16. [Go-See is firsthand facts; in AI work that includes the harness](claims/16-go-see-ai-harness.md)
 17. [Thin vertical slices make software flow and confirmation possible](claims/17-jit-vertical-slicing-one-piece-flow.md)
-18. [Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is a worked example](claims/18-continuous-improvement-towards-perfection.md)
+18. [Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is the TPS example, Definition of Done the LeSS measure](claims/18-continuous-improvement-towards-perfection.md)
 19. [Stop & Fix is actually responding to a jidoka signal; a detector everyone continues past is a dashboard](claims/19-stop-and-fix.md)
 20. [Poka-yoke mistake-proofs a known error at the source; it supports jidoka](claims/20-poka-yoke-supports-jidoka.md)
 21. [CI is a developer practice; a CI service is not CI](claims/21-ci-practice-is-not-a-ci-system.md)

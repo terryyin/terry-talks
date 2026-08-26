@@ -125,7 +125,7 @@ Alternating types without cheap changeover is ruinously expensive. Long
 setup makes a large lot look rational: amortize the die change. **SMED**
 is the kaizen that attacks that cost so small-lot mixed-model flow is
 economical. Remaining lots in stamping or paint are constraints under
-improvement. That never-done trajectory is
+improvement. That perfection-goal trajectory is
 [Claim 18](18-continuous-improvement-towards-perfection.md).
 
 How software cuts the flow of user value into thin slices is

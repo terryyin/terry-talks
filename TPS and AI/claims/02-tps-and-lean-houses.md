@@ -82,9 +82,9 @@ labels are grounded in Toyota terminology. The diagrams still show
 different layers.
 
 LeSS also names **Continuous Improvement Towards Perfection** as its own
-principle. That naming, the TPS vs Toyota Way vs LeSS layer, and SMED as
-a worked example of the never-done trajectory are
-[Claim 18](18-continuous-improvement-towards-perfection.md). Poka-yoke
+principle. That naming, the TPS vs Toyota Way vs LeSS layer, SMED as the
+TPS perfection-goal example, and Definition of Done as the LeSS measure
+are [Claim 18](18-continuous-improvement-towards-perfection.md). Poka-yoke
 is a supporting method under jidoka:
 [Claim 20](20-poka-yoke-supports-jidoka.md). Stop & Fix
 as the jidoka response is [Claim 19](19-stop-and-fix.md).
