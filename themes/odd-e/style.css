@@ -1,14 +1,20 @@
 /*
- * Odd-e branding: light grey background + logo watermark. Originally
+ * Odd-e branding: off-white paper background + logo watermark. Originally
  * ported 1:1 from the legacy odde_training_template reveal.js template
- * (top-left, 6% scale), but that collided with heading text once headings
- * got proper sizing (see styles/index.ts) — moved to top-right and shrunk
- * so titles never need to clear it. The watermark is an overlay so a
- * layout can use its own full-bleed background without replacing it.
+ * (top-left, 6% scale, light grey #cdcdcd), but that collided with heading
+ * text once headings got proper sizing (see styles/index.ts) — moved to
+ * top-right and shrunk so titles never need to clear it. The watermark is
+ * an overlay so a layout can use its own full-bleed background without
+ * replacing it. Canvas color is the sumi-e off-white paper ground
+ * (#ece6dc), sampled from generated talk art.
  */
+.slidev-page,
+.slidev-layout {
+  background-color: #ece6dc;
+}
+
 .slidev-layout {
   position: relative;
-  background-color: #cdcdcd;
 }
 
 .slidev-layout::after {
