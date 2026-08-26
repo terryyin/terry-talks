@@ -331,6 +331,12 @@ Move learned judgment downhill:
 
 Do not load the system with output that still needs a person to re-judge.
 
+<img
+  src="/smart-dumb-gone.png"
+  alt=""
+  class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
+/>
+
 <!--
 Claims 6 and 20 (poka-yoke supports jidoka).
 -->

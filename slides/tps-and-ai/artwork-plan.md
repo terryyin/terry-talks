@@ -110,10 +110,12 @@ the monitor displays in G5 and G6 recognizable as Claude Code; all
 pixels outside each screen mask remain unchanged. Targeted typecheck,
 deck build, and rendered sequence inspection passed.
 
-### S9 — Behavior — planned
+### S9 — Behavior — done
 
-Generate G7 (three descending steps, 16:9 wide strip); insert under the
-list on **Smart → dumb → gone**. Slide text supplies the labels.
+Generated G7 as `public/smart-dumb-gone.png` and placed it as a wide
+strip under the three-step list on **Smart → dumb → gone**. Targeted
+typecheck and deck build passed; rendered inspection confirmed the
+typeset labels remain readable above the art.
 
 ### S10 — Behavior — planned
 

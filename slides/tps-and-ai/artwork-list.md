@@ -166,6 +166,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G7. Smart → dumb → gone
 
+- **Status:** done — `public/smart-dumb-gone.png`
 - **Slide:** "Smart → dumb → gone"
 - **Placement:** wide strip under the three-step list; slide text
   supplies the labels
