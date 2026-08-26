@@ -57,6 +57,13 @@ future discussion, not a set of conclusions.
   [Claim
   4](claims/04-jit-assurance-resourcefulness-and-constraint.md) already
   has the stacking warning.
+- Honest trunk-based CI and disposable prototypes look like opposites:
+  real integration entangles experiments so there is no clean delete,
+  yet spent experiments still need to leave the product. A working
+  answer is
+  [Claim 23](claims/23-ci-and-disposable-prototypes-tension-pair.md): it
+  is a tension pair, native to LeSS, made louder by AI. Remaining:
+  doughnut episode.
 
 ## Evidence to collect
 

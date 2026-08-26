@@ -14,7 +14,9 @@ comparison kept as history; XP beat kept; Tokyo placement not chosen**
 This claim owns the **names**. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) owns
 why the practice matters. [Claim 19](19-stop-and-fix.md) owns the
-halt.
+halt. What that honesty costs when a hypothesis is later
+rejected—entanglement, roll-forward deletion—is
+[Claim 23](23-ci-and-disposable-prototypes-tension-pair.md).
 
 The talk says **CI service** (Fowler): less ambiguous than LeSS's **CI
 system**. LeSS compared the safety net to an **andon**; that

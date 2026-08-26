@@ -44,7 +44,12 @@ another piece. The software translation is:
 
 “Finish this slice before starting another” can be a useful team-level
 WIP policy, but it is not the definition of one-piece flow and need not
-prohibit parallel flow across several teams.
+prohibit parallel flow across several teams. When honest integration
+assimilates an experiment so later work entangles with it, clean
+deletion may mean rolling the current system forward rather than
+revert. That tension pair—honest trunk-based CI and disposable
+prototypes—is
+[Claim 23](23-ci-and-disposable-prototypes-tension-pair.md).
 
 ### Vertical slicing is the software bridge, not TPS vocabulary
 

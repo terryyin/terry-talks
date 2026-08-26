@@ -168,6 +168,10 @@ LeSS prefers **decentralized and informal coordination**:
 2. **Just talk:** when a dependency becomes relevant, contact the other
    team directly rather than invoke a formal coordination mechanism.
 
+That influence is the upside of honest CI. When the hypothesis later
+fails, the same entanglement is why delete is not a clean revert—
+[Claim 23](23-ci-and-disposable-prototypes-tension-pair.md).
+
 Keep integration frequent enough that a real interaction becomes visible
 early; let that need pull the relevant people. Multi-team refinement,
 design workshops, component communities, scouts, travelers, and open

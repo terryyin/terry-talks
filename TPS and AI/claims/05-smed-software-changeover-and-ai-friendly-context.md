@@ -82,6 +82,10 @@ covers spill-over as team health, complement it: SMED, poka-yoke,
 jidoka, and OTED are how a feature team can stay on one cross-component
 item, and why more agents are not a license for more unfinished work.
 
+Spill-over here is team and Sprint. Started experimental work that has
+already entered the product, beyond the Sprint item, is
+[Claim 23](23-ci-and-disposable-prototypes-tension-pair.md).
+
 ### Deliberate changeover, not interruption
 
 **Short iterative full-cycle feedback** means repeatedly doing the whole

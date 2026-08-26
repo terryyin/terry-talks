@@ -163,7 +163,9 @@ out-learn, then converges. That is not overproduction of identical
 vehicles. In AI-augmented work, generating many candidates can be
 set-based learning **or** overproduction, depending on whether the
 extras are used to learn and then discarded, or left as unverified
-inventory.
+inventory. Whether those extras stayed isolated, or had already been
+assimilated into the trunk, is
+[Claim 23](23-ci-and-disposable-prototypes-tension-pair.md).
 
 ### How jidoka changes
 
