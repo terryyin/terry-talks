@@ -221,9 +221,16 @@ Toyota's explanation of its operating system
 
 **Larman & Vodde's Lean Thinking house**
 
-Pillars: **Respect for People** · **Continuous Improvement**
+<img
+  src="/lean-thinking-house.png"
+  alt="Lean Thinking house with Respect for People and Continuous Improvement pillars"
+  class="mx-auto mt-2 h-[310px] w-full object-contain"
+/>
 
-Foundation: managers-as-teachers, toward a perfection goal
+<div class="mt-1 text-center text-[9px] leading-tight opacity-70">
+  Larman & Vodde, <em>Scaling Lean and Agile Development</em>, Fig. 3.1 (2009)<br>
+  <a href="https://less.works/resources/graphics/book-images">Creative Commons for presentations via less.works</a>
+</div>
 
 <!--
 Show Toyota's official overview first, then the Larman/Vodde synthesis —

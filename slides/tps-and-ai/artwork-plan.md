@@ -125,12 +125,13 @@ Kept the left column as sourced text, documented the license evidence,
 and added on-slide attribution. Targeted typecheck, deck build, and
 rendered slide inspection passed.
 
-### S11 — Behavior — planned
+### S11 — Behavior — done
 
-Use Larman & Vodde's Lean Thinking house on the right column of **Two
-houses, different layers**. [less.works book images](https://less.works/resources/graphics/book-images)
-are Creative Commons for presentations (Figure 3.1). Attribute
-on-slide.
+Added Larman & Vodde's Lean Thinking house (Figure 3.1) as
+`public/lean-thinking-house.png` in the right column of **Two houses,
+different layers**, with an on-slide source and Creative Commons
+presentation attribution. Targeted typecheck, deck build, and rendered
+slide inspection passed.
 
 ### S12 — Behavior — planned
 

@@ -60,10 +60,15 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### 2. Larman & Vodde's Lean Thinking house
 
+- **Status:** implemented — `public/lean-thinking-house.png`
 - **Slide:** "Two houses, different layers", right column
 - **Placement:** the right column's visual anchor
-- **Source:** less.works (Lean Thinking page) or the Larman/Vodde
-  scaling books. Check reuse permission; attribute on-slide.
+- **Source:** Larman & Vodde, *Scaling Lean and Agile Development*,
+  [Figure 3.1: Lean Thinking
+  House](https://less.works/book-original/scaling-book-images/scaling-agile-lean-development-thinking-tools/chapter-3-toyota-house-en.pdf)
+- **License:** [Creative Commons for presentations per
+  less.works](https://less.works/resources/graphics/book-images);
+  attributed on-slide
 
 ### 3. Toyoda Type G automatic loom photograph
 
