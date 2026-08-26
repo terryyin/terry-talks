@@ -30,7 +30,7 @@ Deck-local work — no new ADR ([ADR-0000](../../docs/adrs/0000-use-adrs-accepte
 
 | ID | Question | Recommendation |
 |----|----------|----------------|
-| **D1** | G5/G6 vs the Type G photo | Two **follow-on slides** after the photo, so the loom keeps its own moment |
+| **D1 — decided** | G5/G6 vs the Type G photo | Two **follow-on slides** after the photo, so the loom keeps its own moment |
 | **D2** | Where G9 (torii) goes | **"Same gates for I and AI" section divider** as full-bleed; the gates content slide stays text-only |
 | **D3** | How much of Claim 22 appears | A **two-loop** mermaid (inventory-feeding vs slice-shrinking / Figure 2), not the full engine |
 
@@ -95,11 +95,12 @@ of **The loom's closed stop**, and attributed the source, license, and
 museum exhibit on-slide. Targeted typecheck and deck build passed;
 rendered inspection confirmed the attribution remains readable.
 
-### S7 — Behavior — planned
+### S7 — Behavior — done
 
-After D1 and S6: generate G5 (watching the loom / watching the AI,
-16:9) and insert as the first follow-on (or click-reveal, if D1 goes
-the other way). The Type G photo keeps its own moment.
+Generated G5 as `public/watching-the-loom-watching-the-ai.png` and added
+it as the first separate follow-on after **The loom's closed stop**.
+Targeted typecheck and deck build passed; rendered sequence inspection
+confirmed the Type G photograph keeps its own moment.
 
 ### S8 — Behavior — planned
 

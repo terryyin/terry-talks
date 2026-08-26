@@ -136,10 +136,9 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 ### G5. Watching the loom / watching the AI (mirrored pair, 1 of 2)
 
 - **Status:** done — `public/watching-the-loom-watching-the-ai.png`
-- **Slide:** "The loom's closed stop"
-- **Placement:** pairs with G6 as a before/after beat around the Type G
-  photograph (item 3) — either click-reveals on that slide or a
-  follow-on slide, so the photo keeps its own moment
+- **Slide:** first follow-on after "The loom's closed stop"
+- **Placement:** first of two separate follow-on slides; G6 follows as
+  the second, so the Type G photograph (item 3) keeps its own moment
 - **Prompt:** A weary factory worker with a sad face, chin in hand,
   seated and forced to keep watching a power loom that runs by itself;
   the scene reflects below as a dark mirrored shadow in which the same
@@ -149,8 +148,8 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G6. Called by the stop (mirrored pair, 2 of 2)
 
-- **Slide:** "The loom's closed stop"
-- **Placement:** second half of the pair with G5
+- **Slide:** second follow-on after "The loom's closed stop"
+- **Placement:** second of two separate follow-on slides, after G5
 - **Why this mirror:** the closed stop summons human judgment exactly
   when it is needed — the developer arrives to an agent that halted
   itself and flagged the abnormality, and the lightbulb is the learning
