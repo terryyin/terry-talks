@@ -65,6 +65,10 @@ manufacturing tourist.
 -->
 
 ---
+layout: image-right
+image: /preaching-to-the-buddha.png
+backgroundSize: contain
+---
 
 # 釈迦に説法
 

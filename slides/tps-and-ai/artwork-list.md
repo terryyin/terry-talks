@@ -103,6 +103,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G2. Preaching to the Buddha
 
+- **Status:** done — `public/preaching-to-the-buddha.png`
 - **Slide:** "釈迦に説法"
 - **Placement:** spot illustration, right side
 - **Prompt:** A tiny enthusiastic figure gesturing mid-lecture at the

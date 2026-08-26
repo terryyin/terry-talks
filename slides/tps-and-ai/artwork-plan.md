@@ -66,12 +66,12 @@ reference, saved as `public/closing-crane-aloft.png`. Static-browser
 inspection confirmed a readable quotation in the left negative space,
 the matching crane aloft, no generated text, and intact watermark.
 
-### S3 — Behavior — planned
+### S3 — Behavior — done
 
-Generate G2 (preaching to the Buddha, square); insert on **釈迦に説法**,
-right side. First spot — try Slidev's built-in `image-right`. Done when
-the illustration sits beside the existing bullets without crowding
-them.
+Generated G2 as `public/preaching-to-the-buddha.png` and placed it on
+**釈迦に説法** with Slidev's built-in `image-right` layout. Targeted
+typecheck and deck build passed; rendered inspection confirmed the
+illustration sits beside the bullets without crowding them.
 
 ### S4 — Behavior — planned
 
