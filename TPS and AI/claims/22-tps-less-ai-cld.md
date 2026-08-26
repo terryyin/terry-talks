@@ -230,8 +230,7 @@ Two **−** links: reinforcing. Direction depends on starting condition.
 - **Vicious:** high stacked inventory → attention consumed by
   re-judgment → encoding falls → inventory rises. AI generation volume
   injects **+** into inventory, raising the gain. DORA's 2025 finding
-  that AI amplifies the underlying system is this loop, not a separate
-  AI pillar.
+  that AI amplifies the underlying system is this loop.
 
 [Claim 4](04-jit-assurance-resourcefulness-not-abundance.md): do not
 compensate for uncertainty by accumulating everything in advance.

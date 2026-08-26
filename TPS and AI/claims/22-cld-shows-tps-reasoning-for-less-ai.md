@@ -46,8 +46,7 @@ Used carefully it makes two talk moves that a parts list cannot:
 
 1. Show that the same structure can run as a virtuous or a vicious
    cycle.
-2. Show where AI sits: **an injection that raises the gain**, not a
-   third TPS pillar.
+2. Show where AI sits: **an injection that raises the gain**.
 
 The companion groups the existing claims into five reinforcing loops
 and one balancing loop, and presents two slide figures as views of
@@ -155,7 +154,7 @@ modelling form and the amplifier finding.
 3. DORA (2025), [*State of AI-assisted Software
    Development*](https://dora.dev/research/2025/dora-report/). Reports
    AI as an amplifier of the underlying organizational system. In the
-   companion CLD that is R5's gain, not a new pillar.
+   companion CLD that is R5's gain.
 4. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
    Primary account of the two operating pillars this map still uses:

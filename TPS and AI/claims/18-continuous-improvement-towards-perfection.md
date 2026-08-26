@@ -13,7 +13,7 @@ example, Definition of Done the LeSS measure**
 > perfection as the last lean-thinking principle: there is no end to
 > reducing effort, time, space, cost, and mistakes. LeSS joins those two
 > phrases so kaizen cannot become a change project with an end date.
-> Official TPS pillars remain jidoka and JIT; daily kaizen is how TPS is
+> Toyota's TPS overview names jidoka and JIT; daily kaizen is how TPS is
 > lived. On stage, keep both names: the LeSS principle and kaizen. SMED
 > is the TPS example of that shape: name a perfection goal, then keep
 > doing kaizen toward it. Definition of Done is LeSS's measure of the
@@ -46,20 +46,19 @@ LeSS itself locates the idea:
 
 The talk can say **LeSS took this from Toyota via lean thinking.** On
 stage, keep the LeSS principle name and **kaizen**. LeSS already says
-adoption and improvement are never finished; that is the consequence,
-not a third slogan. LeSS's “two pillars of Lean Thinking” wording is
-LeSS's, not Toyota's or Womack and Jones's taxonomy. Toyota Way 2001
-names the pillar **Continuous Improvement**, not “towards perfection.”
-Womack and Jones name **pursue perfection** as a fifth principle, not as
-one of two pillars. LeSS also has a separate **Lean Thinking** principle
-whose goal is perfection; that house is
+adoption and improvement are never finished; that is the consequence.
+LeSS's “two pillars of Lean Thinking” wording is LeSS's, not Toyota's
+or Womack and Jones's taxonomy. Toyota Way 2001 names the pillar
+**Continuous Improvement**. Womack and Jones name **pursue
+perfection** as a fifth principle. LeSS also has a separate **Lean
+Thinking** principle whose goal is perfection; that house is
 [Claim 2](02-tps-and-lean-houses.md).
 
 ### Three layers, not one origin
 
 | Source | What it actually names |
 |---|---|
-| **Toyota TPS overview** | Pillars **jidoka** and **Just-in-Time**. All employees implement daily incremental kaizen; Toyota is still improving TPS “day and night.” Kaizen is how TPS is lived, not a third official pillar. |
+| **Toyota TPS overview** | Pillars **jidoka** and **Just-in-Time**. All employees implement daily incremental kaizen; Toyota is still improving TPS “day and night.” Kaizen is how TPS is lived. |
 | **Toyota Way 2001** | Two pillars: **Continuous Improvement** and **Respect for People**. “We are never satisfied with where we are.” Under Continuous Improvement: Challenge, Kaizen, and Genchi Genbutsu. |
 | **Womack and Jones, *Lean Thinking*** | Five principles; the last is **pursue perfection**. Already compared in [Claim 7](07-the-algorithm-and-tps-family-resemblance.md). |
 | **LeSS** | A named principle joining the Toyota Way pillar with the lean-thinking goal. Practices listed under it include Go See, kaizen, value and waste, perfection challenge, work toward flow, and respect for people. |

@@ -78,7 +78,7 @@ excellence makes the shared product and its abnormalities visible soon
 enough for teams to collaborate just in time
 ([Claim 8](claims/08-technical-excellence-enables-jit-coordination-in-less.md)).
 
-AI enters as an amplifier, not a third pillar. Generation is cheap;
+AI enters as an amplifier. Generation is cheap;
 judgment is expensive — a supporting argument owned by the jidoka
 cluster ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)), not
 the thesis. The bottleneck is people's cognitive ability to fully

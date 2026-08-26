@@ -1,21 +1,20 @@
 # Claim 9: Nemawashi supports self-organized deliberation in LeSS
 
-**Status: Provisional — Japanese practice and Toyota habit, not a TPS
-pillar; LeSS mapping and doughnut path settled; stage name is a
-clearance choice**
+**Status: Provisional — Japanese practice and Toyota habit; LeSS
+mapping and doughnut path settled; stage name is a clearance choice**
 
 ## Claim
 
-> **Nemawashi is Japanese groundwork for a change, not a TPS pillar.
-> Toyota uses it as a decision habit: discuss problems and options with
+> **Nemawashi is Japanese groundwork for a change. Toyota uses it as a
+> decision habit: discuss problems and options with
 > those affected, improve the proposal, then implement quickly. Authority
 > stays explicit. LeSS does not use the word. The useful mapping is Just
 > Talk and informal networks preparing a named decision—not
 > manager-convened consensus, and not a synonym for agreement.**
 
-The same layer distinction as [Claim 16](16-go-see-ai-harness.md) for
-Go-See and [Claim 20](20-poka-yoke-supports-jidoka.md) for poka-yoke:
-Toyota uses the habit; it is not a peer of jidoka and JIT.
+Place it as [Claim 16](16-go-see-ai-harness.md) places Go-See and
+[Claim 20](20-poka-yoke-supports-jidoka.md) places poka-yoke: a habit
+Toyota uses.
 
 The software analogue is doughnut's **advice process**: how a draft ADR
 is announced, who gets to reshape it, and how it becomes Accepted. It
@@ -24,7 +23,7 @@ solo playbook. Doughnut adapted that path from a product group whose
 minutes call the company **Whale**. Whale is **Wärtsilä**. Keep both
 names here. Using the company name on stage depends on clearance.
 
-### Japanese practice, Toyota Way habit, not a TPS pillar
+### Japanese practice, Toyota Way habit
 
 **Nemawashi** is older than Toyota. Japanese dictionaries keep the
 gardening sense—cut and prepare a tree's roots before transplanting—and
@@ -45,17 +44,16 @@ already hears that ambivalence. Keep 下工作 in this claim.
 
 | Source | How it places nemawashi |
 |---|---|
-| **Toyota's official TPS overview** | Not named. The two pillars remain **jidoka** and **Just-in-Time**. |
-| **Toyota Way 2001** | Not one of the five concepts (Challenge, Kaizen, Genchi Genbutsu, Respect, Teamwork). Official English for genchi genbutsu already includes going to the source “to make correct decisions, **build consensus** and achieve goals.” Consensus sits inside Go-See, not as a sixth value. |
-| **TMMK TPS Terms** (public, 2006) | Named among plant TPS terms: preliminary work with affected sections before a change. Teaching language for an English-speaking factory, not a third pillar. |
+| **Toyota's official TPS overview** | The overview names **jidoka** and **Just-in-Time**. |
+| **Toyota Way 2001** | Five concepts: Challenge, Kaizen, Genchi Genbutsu, Respect, Teamwork. Official English for genchi genbutsu already includes going to the source “to make correct decisions, **build consensus** and achieve goals.” Consensus sits inside Go-See. |
+| **TMMK TPS Terms** (public, 2006) | Named among plant TPS terms: preliminary work with affected sections before a change. Teaching language for an English-speaking factory. |
 | **Toyota UK glossary** | Informal groundwork and consensus-building; first step in decision-making; TPS *and* Japanese culture. |
 | **Liker, Principle 13** | English lean literature's named home: make decisions slowly by consensus, thoroughly considering options; implement rapidly. Nemawashi is the process of discussing problems and potential solutions with those affected. |
 
 The *habit* and the *word on a list* are different questions. Toyota
 people used the practice. Toyota's own 2001 booklet, as Toyota describes
-it publicly, does not make nemawashi a sixth value. The English
-literature path meets the name in Liker's *Toyota Way*, not in Toyota
-Way 2001. Overseas plants taught the word as TPS vocabulary to
+it publicly, names five concepts. The English literature path meets the
+name in Liker's *Toyota Way*, not in Toyota Way 2001. Overseas plants taught the word as TPS vocabulary to
 English-speaking team members (TMMK's glossary by 2006). John Shook,
 writing later about Toyota HQ in the 1980s, describes the habit (A3
 conversations) with the Japanese word; that is testimony about
@@ -347,15 +345,13 @@ table above is research background, not a talk beat.
 
 1. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
-   Current official TPS: jidoka and Just-in-Time. Nemawashi is not a
-   pillar. Layer distinction already in
-   [Claim 2](02-tps-and-lean-houses.md).
+   Current official TPS: jidoka and Just-in-Time. Layer distinction
+   already in [Claim 2](02-tps-and-lean-houses.md).
 2. Toyota Motor Corporation, [Toyota Way
    2001](https://www.toyota-global.com/company/history_of_toyota/75years/data/conditions/philosophy/toyotaway2001.html)
    and [Human Resources
    Development](https://www.toyota-global.com/company/history_of_toyota/75years/text/leaping_forward_as_a_global_corporation/chapter4/section7/item4.html)
-   in *75 Years of Toyota*. Two pillars; five concepts. Nemawashi is not
-   among them.
+   in *75 Years of Toyota*. Two pillars; five concepts.
 3. Toyota Motor Corporation, [Supplier Sustainability
    Guidelines](https://global.toyota/pages/global_toyota/sustainability/esg/supplier_csr_en.pdf)
    and the 2003 [management-system
@@ -366,7 +362,7 @@ table above is research background, not a talk beat.
    Terms](https://web.archive.org/web/20060821234526/http://www.toyotageorgetown.com:80/terms.asp)
    (Wayback Machine, 21 August 2006). Plant TPS glossary: nemawashi as
    preliminary work to involve other sections before a change that would
-   affect them. Two pillars remain JIT and jidoka.
+   affect them.
 5. Toyota UK, [What is
    nemawashi?](https://mag.toyota.co.uk/nemawashi-toyota-production-system/).
    Informal groundwork and consensus-building as the first step in

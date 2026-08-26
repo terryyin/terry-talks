@@ -5,13 +5,12 @@ fixture still queued; leftover warnings owned by Claim 24**
 
 ## Claim
 
-> **Poka-yoke is a supporting quality method under jidoka, not a second
-> pillar and not jidoka itself.** Toyota practices it. Shingo coined
-> the name as a later addition. For a known inadvertent error, change
-> the process so the error cannot occur, or so it is immediately
-> obvious at the source. Prefer prevention. Do not equate poka-yoke
-> with prevention only, or collapse every good design or every test
-> into the name.
+> **Poka-yoke is a supporting quality method under jidoka.** Toyota
+> practices it. Shingo coined the name as a later addition. For a known
+> inadvertent error, change the process so the error cannot occur, or so
+> it is immediately obvious at the source. Prefer prevention. Do not
+> equate poka-yoke with prevention only, or collapse every good design
+> or every test into the name.
 
 This claim owns the **TPS relationship** and the **name**. [Claim
 6](06-jidoka-embeds-routine-judgment.md) owns smart → dumb → gone.
@@ -83,8 +82,7 @@ hunt (same search as Claims 6 and 24). Until pulled, Robinson
 is the sourced proof that detection poka-yoke is not a test of
 whether the feature worked. Then [Claim
 24](24-warnings-as-stop-no-news-is-good-news.md): one warning pile
-versus a quiet gate—the software punchline of control versus warning,
-not a second TPS topic.
+versus a quiet gate—the software punchline of control versus warning.
 
 ## Questions still open
 

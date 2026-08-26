@@ -305,8 +305,7 @@ flowchart LR
   EJ -->|"-"| INV
 ```
 
-AI is not a third pillar — it **raises the gain** on the loop you are
-already running.
+AI **raises the gain** on the loop you are already running.
 
 <!--
 Figure 2 of Claim 22's companion CLD (R5), overlaying the engine's R1.
@@ -412,6 +411,7 @@ Do not load the system with output that still needs a person to re-judge.
 
 <!--
 Claims 6 and 20 (poka-yoke supports jidoka).
+Gone: the best part is no part — the failure can no longer occur.
 -->
 
 ---
