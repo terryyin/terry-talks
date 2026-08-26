@@ -4,7 +4,7 @@ Multi-session slice plan for embedding **narrative lines and code
 snippets** from [Claim 13](../../TPS%20and%20AI/claims/13-doughnut-project-examples.md)
 into [slides.md](slides.md), oriented by
 [main-theme-and-stage-setting.md](../../TPS%20and%20AI/main-theme-and-stage-setting.md).
-In progress (S1–S4 landed). Revised after a critical selection
+In progress (S1–S5 landed). Revised after a critical selection
 review (2026-08-26). Slides are referenced by title only.
 
 Deck-local work — no new ADR
@@ -141,15 +141,12 @@ a query-count stop; **Gone** = OS-invalid titles unrepresentable
 and artwork band kept; left column squeezed to 68% so the snippet
 sits above the band. Rendered on slide 19.
 
-### S5 — Behavior — planned
+### S5 — Behavior — done
 
-**P3** on *The gates do not care who authored the change*: narrative of
-the execute-plan Jidoka stop (do not guess the UX) → person decides →
-Cursor implements the detour without deleting the stop. Optional 2–3
-lines of leftover plan text. Do not touch *Five judgments stay
-human*.
-
-**Check:** takeaway 4 is now an episode, not only a slogan.
+**P3** on *The gates…*: episode is on-slide (Jidoka stop → person
+decides leave-recall / Resume → Cursor implements without
+dissolving the stop) plus two leftover plan lines. Slogan kept.
+Five judgments untouched. Rendered on slide 23.
 
 ### S6 — Behavior — planned
 
@@ -180,6 +177,9 @@ signal → stop-and-fix → user value.
 
 ## Discoveries (planning)
 
+- S5 (2026-08-26): leftover plan text (“Do not guess the UX”)
+  fits under the episode on the gates slide. Five-judgments
+  remains the list-only slide.
 - S4 (2026-08-26): 1-line query-count leftover fits with the
   dropper inset and 44% artwork band after squeezing the left
   column. Later embeds on artwork-heavy slides should assume that

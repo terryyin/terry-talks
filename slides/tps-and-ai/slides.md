@@ -612,8 +612,30 @@ The product standard and stop conditions do not weaken according to
 After a dumb stop, AI may help fix dumb problems —
 it must **not dissolve the stop**.
 
+A Jidoka stop binds the agent on a recall-to-note detour. The person
+decides — leave recall, return via Resume — and Cursor implements
+the detour without dissolving the stop.
+
+```
+A detour into a note is recorded separately.
+Do not guess the UX.
+```
+
 <!--
 Claim 6.
+
+Episode leftover: execute-plan Jidoka on doughnut
+`.planning/quick/001-morning-cognitive-index/PLAN.md` slice 6
+(*A detour into a note is recorded separately*). Stop:
+`0b56ebc81a` — no mid-question note affordance; PLAN.md says
+**Do not guess the UX** and waits. Author Terry Yin (no Cursor
+trailer). Person: `a24d4141b2` — leave RecallPage, return via
+Resume. Cursor: `f078923b63` implements detour time (feature +
+tests) without deleting or `@wip`-away the stop.
+
+Spoken counter: `a2060f1d70` disabled two backend tests to pass
+the pipeline (re-enable `ee9ca9aa68` / `29712022b1`) — dissolve
+the stop to green; the opposite of this episode.
 -->
 
 ---
@@ -753,6 +775,12 @@ Claims 18 and 5 (SMED, software changeover, AI-friendly context).
 - Honest CI **versus** disposable prototypes — a real tension pair
 - Extreme conditions interrupt JIT
 - The Algorithm's family resemblance
+
+<img
+  src="/tension-loop.png"
+  alt=""
+  class="absolute bottom-[2%] left-[8%] h-[48%] w-[84%] object-contain"
+/>
 
 <!--
 Claims 23, 15, 7.
