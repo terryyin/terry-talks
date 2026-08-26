@@ -17,6 +17,14 @@
   position: relative;
 }
 
+/*
+ * Section titles sit in a grid cell (see layouts/section.vue). Drop the
+ * default h1 margin so the heading is optically centered.
+ */
+.slidev-layout.section h1 {
+  margin-bottom: 0;
+}
+
 .slidev-layout::after {
   position: absolute;
   top: 3%;
