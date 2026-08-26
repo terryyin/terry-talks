@@ -36,6 +36,39 @@ system responsive and learnable (Claim 1).
 - terry@odd-e.com
 
 ---
+
+# 釈迦に説法
+
+*Preaching to the Buddha* — sharing about TPS, in Tokyo, at a LeSS
+conference.
+
+But TPS has inspired and benefited me so much — before the AI era, and
+even more in it — that I cannot resist shamelessly sharing.
+
+- Software is **not a factory** — it mixes discovery and production in
+  one evolving product
+- So this talk takes TPS as **inspiration and reasoning**, never a recipe
+  to apply directly
+
+<!--
+Carries the talk boundary up front so it need not repeat later:
+Claims 1 (reasoning, not mechanisms) and 11 (software differences).
+-->
+
+---
+layout: center
+class: text-center
+---
+
+# One lineage of inspiration
+
+**TPS** inspired **XP** and the Agile movement,
+
+then **LeSS** —
+
+and now, **AI-augmented development**.
+
+---
 layout: center
 class: text-center
 ---
@@ -57,8 +90,7 @@ Claim 10.
 - Unfinished, judgment-dependent work
 - Unable to take the next highest-value item
 
-Constrained does **not** mean the absence of product direction, quality
-standards, or accountability.
+Being **constrained** ≠ taking **responsibility**
 
 ---
 layout: statement
@@ -68,7 +100,20 @@ layout: statement
 
 A generated branch, test, analysis, or design is not yet capability.
 Until it is understood, owned, integrated, and judged, it is **inventory**
-someone must supervise or re-judge.
+someone must supervise or re-judge — teams **constrained** by what they
+built.
+
+Or AI helps make the next slice smaller and known failures easier to
+prevent or stop — teams **freed** by what they built.
+
+## **AI speeds whichever loop you feed.**
+
+<!--
+Sets the AI stage early: this talk is also about AI-augmented development.
+Connects back to the diagnostic (freed vs constrained) and forward to the
+loops. Loop map: Claim 22; generation cheap / judgment expensive belongs
+to the jidoka cluster (Claim 6).
+-->
 
 ---
 layout: section
@@ -111,6 +156,35 @@ The main message. Claim 10.
 -->
 
 ---
+layout: two-cols-header
+---
+
+# Two houses, different layers
+
+::left::
+
+**Toyota's official TPS overview**
+
+Pillars: **Jidoka** · **Just-in-Time**
+
+Toyota's explanation of its operating system
+(not labelled a house)
+
+::right::
+
+**Larman & Vodde's Lean Thinking house**
+
+Pillars: **Respect for People** · **Continuous Improvement**
+
+Foundation: managers-as-teachers, toward a perfection goal
+
+<!--
+Show Toyota's official overview first, then the Larman/Vodde synthesis —
+related but different layers, not a taxonomy. Do not present an unsourced
+house-shaped TPS diagram as Toyota's. Claim 2.
+-->
+
+---
 
 # The triad
 
@@ -124,52 +198,6 @@ soon enough for teams to collaborate just in time.
 
 <!--
 Claims 3, 12, 8.
--->
-
----
-layout: statement
----
-
-# AI is an amplifier, not a third pillar
-
-AI can inject judgment-dependent inventory faster than people can encode it —
-or help make the next slice smaller and known failures easier to prevent
-or stop.
-
-## **AI speeds whichever loop you feed.**
-
-<!--
-Generation is cheap; judgment is expensive — owned by the jidoka cluster
-(Claim 6), not the thesis. Loop map: Claim 22.
--->
-
----
-layout: section
----
-
-# TPS reasoning, not factory mechanisms
-
----
-
-# Borrow the reasoning, not the mechanisms
-
-- The two operating pillars: jidoka and JIT
-- The house: what holds it up, and why
-
-<!--
-Claims 1 and 2 (TPS and lean houses).
--->
-
----
-
-# Software is not a factory
-
-Software mixes **discovery** and **production** inside one evolving product.
-
-What survives the translation — and what does not.
-
-<!--
-Claim 11.
 -->
 
 ---
