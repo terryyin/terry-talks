@@ -80,10 +80,12 @@ on **Constrained by what they built** using S3's built-in `image-right`
 layout. Targeted typecheck and deck build passed; rendered inspection
 confirmed the image and bullets remain uncrowded.
 
-### S5 — Behavior — planned
+### S5 — Behavior — done
 
-Generate G4 (tilted balance, 16:9 lower band); insert on **Freedom vs.
-entrustment?**. Kanji 任せる / 信頼 stay typeset above the art.
+Generated G4 as `public/freedom-entrustment-balance.png` and placed it as
+a lower band on **Freedom vs. entrustment?**, keeping 任せる / 信頼
+typeset above. Targeted typecheck and deck build passed; rendered
+inspection confirmed the text and illustration remain distinct.
 
 ### S6 — Behavior — planned
 

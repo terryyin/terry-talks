@@ -121,6 +121,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G4. The apparent tradeoff — tilted balance
 
+- **Status:** done — `public/freedom-entrustment-balance.png`
 - **Slide:** "Freedom vs. entrustment?"
 - **Placement:** lower half; the kanji pair 任せる / 信頼 stays typeset
   in the slide above the art, never generated

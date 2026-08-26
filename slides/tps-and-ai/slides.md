@@ -174,6 +174,12 @@ matters.
 
 **Entrust**, 任せる · **trust**, 信頼
 
+<img
+  src="/freedom-entrustment-balance.png"
+  alt=""
+  class="absolute bottom-[2%] left-[8%] h-[34%] w-[84%] object-contain"
+/>
+
 <!--
 Language contrast for the mixed international / Japanese audience.
 TPS shows they reinforce each other instead — next slide. Claim 10.
