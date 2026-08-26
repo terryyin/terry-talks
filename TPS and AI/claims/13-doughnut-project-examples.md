@@ -181,6 +181,43 @@ Look for:
 - Counter-examples where an agent (or a person) would be tempted to
   delete or skip a failing test to proceed.
 
+### Harness failure that makes Go-See concrete — Claim 16
+
+[Claim 16](16-go-see-ai-harness.md) needs one doughnut episode where
+inspecting the harness—not the agent's summary—is how the facts become
+visible.
+
+Look for the best single failure among:
+
+- Wrong context
+- A misleading tool call
+- A rule that did not fire
+- A permission failure
+
+### Bottom-up batch versus one vertical slice — Claim 17
+
+[Claim 17](17-jit-vertical-slicing-one-piece-flow.md) needs a contrast of
+queued layer work with one integrated vertical slice, without implying
+that all parallel work is forbidden.
+
+Training weeks instruct one-piece flow. Some people may still try to
+build from the bottom up: batch the lower-level infra first, then
+integrate, then make it work for the user.
+
+Look for:
+
+- A person who stockpiled infra or component work before a user-visible
+  increment, despite the one-piece-flow instruction.
+- Contrast with a nearby slice that went end-to-end and integrated.
+- Healthy parallel flow in the same week (several people, several
+  in-progress slices) so the example does not teach “only one thing at a
+  time in the whole class.”
+
+Constraint: git history has no team membership. Week ranges identify
+class weeks, not teams. Follow **one user's** commit sequence (files
+touched, order of infra versus user-facing work) rather than a team
+label. Observation in class, if remembered, may be stronger than git.
+
 ## Talk implication
 
 Once examples are pulled, they belong in the owning claims. This file

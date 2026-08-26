@@ -90,7 +90,12 @@ future discussion, not a set of conclusions.
   ([Claim 8](claims/08-technical-excellence-enables-jit-coordination-in-less.md));
   **smart → dumb** and **smart → gone**, and preferred unit/E2E plus
   same-gates-for-human-and-AI examples
-  ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)).
+  ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)); a harness
+  failure (wrong context, misleading tool call, a rule that did not
+  fire, or a permission failure) that makes Go-See concrete
+  ([Claim 16](claims/16-go-see-ai-harness.md)); bottom-up infra batch
+  versus one vertical slice, following one user if git has no team
+  ([Claim 17](claims/17-jit-vertical-slicing-one-piece-flow.md)).
 
 ## Candidate future claims
 

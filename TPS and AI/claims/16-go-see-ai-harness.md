@@ -60,6 +60,10 @@ harness traces to surveil or blame people would conflict with that purpose.
 
 ## Implication for the talk
 
+On stage, introduce **genchi genbutsu** and **Go See** together once.
+They name the same practice: Toyota Way Japanese and LeSS / lean
+English.
+
 > **Toyota Way: genchi genbutsu—go to the source for the facts. In AI work,
 > do not manage by the agent's summary. See the product first; when the
 > process is opaque, inspect the harness that actually ran. Let jidoka pull
@@ -73,10 +77,12 @@ the investigation its purpose.
 
 ## Questions still open
 
-- Should the talk say **Go See**, **genchi genbutsu**, or introduce both once?
-- Which single harness failure best makes the idea concrete: wrong context, a
-  misleading tool call, a rule that did not fire, or a permission failure?
-- Does this need its own beat, or one sentence under jidoka?
+- Which single doughnut-project harness failure best makes the idea
+  concrete: wrong context, a misleading tool call, a rule that did not
+  fire, or a permission failure? Queued on
+  [Claim 13](13-doughnut-project-examples.md).
+- Does this need its own beat, or one sentence under jidoka? Decide
+  later.
 
 ## Sources consulted
 
