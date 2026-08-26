@@ -47,3 +47,13 @@
 #slidev-goto-dialog.-top-20 {
   top: -100vh !important;
 }
+
+/*
+ * Leftover example narratives (`.doughnut-example` on tps-and-ai).
+ * Smaller and slightly dimmer than claim copy so the episode reads as
+ * illustration, not slogan. Unused on other decks.
+ */
+.slidev-layout .doughnut-example {
+  font-size: 0.88em;
+  color: #5c564e;
+}
