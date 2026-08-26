@@ -1,14 +1,14 @@
 # Claim 13: Doughnut project as an evidence backlog for other claims
 
 **Status: Backlog — training weeks located; search scoped to 4+4 tagged
-classes; queue ordered for the Tokyo talk; item 1 ranked from four
-tagged AI-era weeks; item 2 ranked from four tagged I-era weeks;
-item 3: observation-in-class beats git (parked specs, not
-layer-first infra); item 4 ranked from latest-code descent +
-Claim 24 counter; item 5 ranked from latest-code harness (unit +
-E2E + mock-forest counter); item 6 ranked from latest-code
-Jidoka-stop episode + same-gates harness; item 7 ranked from
-worktree pre-commit hook (wrong tree / misleading commit)**
+classes; queue ordered for the Tokyo talk; items 1–2 ranked from
+tagged class weeks (item 1 four AI-era, item 2 four I-era); item 3
+ask-Terry (observation-in-class beats git); item 4 ranked from
+latest-code descent + Claim 24 counter; item 5 ranked from
+latest-code harness (unit + E2E + mock-forest counter); item 6
+ranked from latest-code Jidoka-stop episode + same-gates harness;
+item 7 ranked from latest-code worktree pre-commit hook (wrong tree
+/ misleading commit)**
 
 ## Role
 
@@ -367,7 +367,7 @@ commits) added nothing: no Cursor or Claude in messages or trailers.
 - **Clearance:** yes — class-week student work (see Questions
   still open)
 
-#### Also considered (hashes for items 2, 3, 6)
+#### Also considered (hashes for items 3, 6)
 
 - Ian Chen Claude Add on `Assimilation.vue` the same hour:
   `3490df802d`, later `9a4630b103` (2026-01-26). Same-file
@@ -1074,6 +1074,21 @@ stays a backlog and an index, not a second lecture.
 ## Questions still open
 
 - Which of the tagged weeks are discussable in a public talk?
+- **Clearance list** — ranked examples whose Clearance is yes
+  (class-week student work). Project-owned harness examples
+  (Clearance: no) are not listed. Item 3 has none ranked.
+  - Item 1 Priority 1 — Cursor extract-to-child meets
+    Assimilation.vue — week 2026-01-26
+  - Item 1 Priority 2 — Claude restores note properties on a
+    shared export — week 2026-07-27
+  - Item 1 Priority 3 — Cursor `/sync` pull as generated volume
+    that shipped — week 2026-07-27
+  - Item 2 Priority 1 — Fisher merge meets Leo on
+    FineTuningData.vue — week 2023-10-30
+  - Item 2 Priority 2 — `@ignore` to green, then delete the unused
+    feature — week 2023-10-30
+  - Item 2 Priority 3 — KJ offline generate meets nivraman online
+    on RestAssessmentController — week 2024-06-03
 - Is the week of 2025-02-17 a class (5 other emails; smallest AI-era
   hit) or a smaller session to drop? It is not in the search set.
 - Item 3 (Claim 17 / *Pull, don't stockpile*): git from the tagged
@@ -1128,10 +1143,11 @@ permission text and execute-plan nested-skip skill not ranked).
 Ranked: (1) worktree pre-commit wrote the wrong tree.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
-for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.
-Item 2 ranked from four tagged I-era weeks. Item 3: observation-in-class
-beats git. Item 4 ranked from latest-code descent + Claim 24
-counter. Item 5 ranked from latest-code harness (unit + E2E +
-mock-forest counter). Item 6 ranked from latest-code Jidoka-stop
-episode + same-gates harness. Item 7 ranked from latest-code
-worktree pre-commit hook (wrong tree / misleading commit).**
+for the Tokyo talk. Items 1–2 ranked from tagged class weeks (item 1
+four AI-era, item 2 four I-era). Item 3 ask-Terry
+(observation-in-class beats git). Item 4 ranked from latest-code
+descent + Claim 24 counter. Item 5 ranked from latest-code harness
+(unit + E2E + mock-forest counter). Item 6 ranked from latest-code
+Jidoka-stop episode + same-gates harness. Item 7 ranked from
+latest-code worktree pre-commit hook (wrong tree / misleading
+commit).**
