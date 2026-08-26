@@ -2,7 +2,8 @@
 
 Multi-session slice plan for landing the list in
 [artwork-list.md](artwork-list.md) onto [slides.md](slides.md). Planned
-only; execution not started. Slides are referenced by title only.
+work through S17 has landed; the remaining slices below reflect the
+current artwork list. Slides are referenced by title only.
 
 Deck-local work — no new ADR ([ADR-0000](../../docs/adrs/0000-use-adrs-accepted.md)).
 
@@ -23,7 +24,7 @@ Deck-local work — no new ADR ([ADR-0000](../../docs/adrs/0000-use-adrs-accepte
 
 - Extra Odd-e logos on cover and Thank you — the theme already
   watermarks every slide (`themes/odd-e/images/odd-e-logo.png`).
-- **G8** (andon illustration) — only if S12's photo hunt fails license.
+- The Lizard asset on **About Me** — skipped by owner decision.
 - Slides listed in `artwork-list.md` as intentionally without artwork.
 
 ## Decisions (needed before those slices)
@@ -32,14 +33,13 @@ Deck-local work — no new ADR ([ADR-0000](../../docs/adrs/0000-use-adrs-accepte
 |----|----------|----------------|
 | **D1 — decided** | G5/G6 vs the Type G photo | Two **follow-on slides** after the photo, so the loom keeps its own moment |
 | **D2 — decided** | Where G9 (torii) goes | **"Same gates for I and AI" section divider** as full-bleed; the gates content slide stays text-only |
-| **D3 — decided** | How much of Claim 22 appears | A **two-loop** mermaid (inventory-feeding vs slice-shrinking / Figure 2), not the full engine |
 
 ## Order
 
 S0 → S1 → S2 (visual voice; G14 needs G1) → S3–S5 (spots) → S6 then
 S7–S8 (photo, then mirrors) → S9 → Finds S10–S12 (S11 is unblocked;
 S10 and S12 may stop for a license call) → D2 then S13 → S14–S17 →
-S18 → S19–S22.
+S18 (mechanism photo) → S19 (G15 action) → S20–S22.
 
 ---
 
@@ -176,20 +176,26 @@ inspection passed.
 
 ### S18 — Behavior — planned
 
-Own asset on **About me**: Lizard logo or GitHub repo card (from the
-Lizard project, not this repo).
+Verify the attachment-specific CC-BY-SA 4.0 license for
+AllAboutLean's Type G dropper-mechanism photograph. If it clears, save
+it deck-locally and insert it as a small attributed inset beside
+**Dumb** on **Smart → dumb → gone**. If it does not clear, document the
+result in `artwork-list.md` and leave the slide ready for G15 alone.
 
 ### S19 — Behavior — planned
 
-Build a mermaid (or SVG) flow on **One lineage of inspiration**:
-TPS → XP / Agile → LeSS → AI-augmented development. Needs crisp text;
-not AI art.
+Generate G15's mechanically accurate two-panel loom stop as a 16:9
+strip and click-reveal it in place after G7 on **Smart → dumb → gone**.
+Exactly one dropper falls a few centimeters onto the feeler bar; no
+electrical mechanism or generated labels. If one generation cannot
+keep the panels consistent, generate the panels separately and compose
+them in this slice. Check the rendered before/after click sequence.
 
 ### S20 — Behavior — planned
 
-After D3: two-loop mermaid on **AI speeds whichever loop you feed**
-(inventory-feeding vs slice-shrinking / Claim 22 Figure 2). Click-reveals
-if it still reads. Not the full engine diagram.
+Build a Mermaid or SVG flow on **One lineage of inspiration**:
+TPS → XP / Agile → LeSS → AI-augmented development. Keep all text crisp
+and editable; this is not AI art.
 
 ### S21 — Behavior — planned
 
@@ -200,8 +206,8 @@ frees / entrusts / grows on the edges.
 
 Five Iconify icons on **Five judgments stay human** (value, design,
 credentials, undiagnosed failure, ambiguity). Use one family from the
-sets already in the lockfile (`carbon` / `ph`). Then read through; delete
-this plan file.
+sets already in the lockfile (`carbon` / `ph`). Keep each label typeset
+and verify the five judgments remain scannable.
 
 ## Guardrails
 
