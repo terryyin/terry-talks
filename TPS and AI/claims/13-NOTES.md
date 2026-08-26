@@ -1,8 +1,13 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Planned only; execution not
-started.
+[Claim 13](13-doughnut-project-examples.md). S0 scaffold is in the claim;
+example search starts at 1a.
+
+**Learnings:** Index subsection 2 is titled "Whole Product Focus + CI"
+(spell out WPF). Clearance bullets point at Questions still open. Do
+not touch `themes/odd-e/style.css` if it appears dirty — it is not
+this plan.
 
 ## Deliverable — the "one place"
 
@@ -43,10 +48,10 @@ slice is time-boxed; if a week overruns 5 minutes, narrow the scan
 (merge commits, revert/fix message patterns, cross-author file
 collisions) instead of reading every commit.
 
-### S0 — Structure — planned
+### S0 — Structure — done
 
-Add the empty "Examples pulled — prioritized" scaffold (7 subsections +
-entry format) to Claim 13. Unlocks recording slice 1a findings.
+Empty "Examples pulled — prioritized" index in Claim 13 (format legend
++ 7 stubs). Next: 1a records into subsection 1.
 
 ### 1a — Behavior — planned
 

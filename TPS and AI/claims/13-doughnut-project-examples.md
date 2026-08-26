@@ -264,6 +264,50 @@ Look for the best single failure among:
 - A rule that did not fire
 - A permission failure
 
+## Examples pulled — prioritized
+
+Index for talk-ready doughnut examples from the later-phase queue
+above. Each entry names the target slide and how the example would
+be used.
+
+Each entry uses this format:
+
+- **Priority** (1–3 within the item)
+- **Example** — commit hashes / file paths + one-line story
+- **Source** — tagged week range, or latest code
+- **Slide** — which slide in `slides/tps-and-ai/slides.md`
+- **Use** — spoken beat, bullet, or shown artifact
+- **Clearance** — needs Terry's public-discussability check? (see
+  Questions still open)
+
+### 1. Flagship AI sequence (Claim 8)
+
+Not yet pulled.
+
+### 2. Whole Product Focus + CI (Claims 3, 8, 21)
+
+Not yet pulled.
+
+### 3. Bottom-up batch vs slice (Claim 17)
+
+Not yet pulled.
+
+### 4. Judgment descent (Claims 6, 20, 24)
+
+Not yet pulled.
+
+### 5. Preferred tests (Claim 6)
+
+Not yet pulled.
+
+### 6. Same gates for “I” and AI (Claim 6)
+
+Not yet pulled.
+
+### 7. Go-See harness failure (Claim 16)
+
+Not yet pulled.
+
 ## Dropped — not talk-blocking
 
 Dropped items remain true as workshop observations if they turn up
