@@ -4,8 +4,8 @@
 classes; queue ordered for the Tokyo talk; item 1 ranked from four
 tagged AI-era weeks; item 2 ranked from four tagged I-era weeks;
 item 3: observation-in-class beats git (parked specs, not
-layer-first infra); item 4a: two latest-code smart→dumb candidates
-(rank waits for 4c)**
+layer-first infra); item 4a: two latest-code smart→dumb candidates;
+item 4b: two gone/poka-yoke + one control (rank waits for 4c)**
 
 ## Role
 
@@ -634,11 +634,9 @@ in-progress on one user-facing surface.
 Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
 week. Hunt started from CI (`Backend-unit-tests` runs
 `backend/gradlew -p backend test`) then tests whose comments or
-introducing commits name a live failure. **4a only here.** Rank
-1–3 waits for 4c. 4b (poka-yoke / unrepresentable states /
-won't-compile-or-ship, including warnings-as-errors) and 4c
-(parked warnings / detectors everyone continues past) are still
-empty.
+introducing commits name a live failure. **4a and 4b here.** Rank
+1–3 waits for 4c. 4c (parked warnings / detectors everyone
+continues past) is still empty.
 
 #### 4a. Smart → dumb (candidates)
 
@@ -704,7 +702,95 @@ project-owned harness (Terry Yin), not student class-week work.
 
 #### 4b. Smart → gone / control (Claim 20)
 
-Not yet pulled.
+Prevention poka-yoke (illegal state unrepresentable) plus one
+control (won't compile / won't ship). Not feature tests. Rank
+1–3 waits for 4c. SET NULL `34560f0412` does **not** qualify:
+it *allows* `conversation.recall_prompt_id` NULL on delete
+instead of making an illegal FK unrepresentable.
+
+##### 4b candidate — OS-invalid display names cannot be authored
+
+- **Priority:** 4b candidate (rank 1–3 with 4c)
+- **Example:** A known wiki-link / filename mistake: titles
+  containing `\ / : * ? " < > |` or ASCII controls. Write DTOs
+  (`NoteUpdateTitleDTO`, `FolderCreationRequest`,
+  `FolderRenameRequest`, `NotebookUpdateRequest`) carry
+  `@Pattern(regexp = DisplayNamePathSeparators.REGEXP)` so those
+  characters cannot pass Bean Validation — they are not a
+  representable title on the authoring path. `DisplayName` the
+  value type only trims surrounding whitespace (including
+  zero-width); it does not itself reject `/`. `dfbde33184`
+  (“fix: reject remaining OS-invalid characters in display
+  names”) closed the remaining authoring hole after
+  `55e5e55edc` sanitization; `445656f73a` converted historical
+  rows on migrate. Validation tests name the illegal charset,
+  not “can the user rename a note.”
+- **Source:** latest code (HEAD `e683b74615`; introducing
+  `55e5e55edc` / `dfbde33184` / `445656f73a`; type trim
+  `6e54f544cb`)
+- **Slide:** *Smart → dumb → gone*
+- **Use:** spoken “gone” beat — a known illegal title cannot be
+  authored (API schema), leftovers rewritten
+- **Clearance:** no — current harness/schema owned by the
+  project
+
+##### 4b candidate — spelling tracker has no MCQ choice UI
+
+- **Priority:** 4b candidate (rank 1–3 with 4c)
+- **Example:** `frontend/src/components/recall/Quiz.vue` mounts
+  `SpellingQuestionDisplay` when `currentMemoryTracker.spelling`
+  is set; otherwise `ContestableQuestion` (MCQ choices via
+  `RecallPromptComponent` only if `recallPrompt.mcq`). A spelling
+  tracker never gets choice buttons, so “answer spelling by
+  picking an MCQ index” is not a UI path. Same family:
+  `AssimilationButtons.vue` omits “Remember spelling” unless
+  `showSpellingOption` (`AssimilationSettings.vue` hides it when
+  a SPELLING tracker already exists). That matches UNIQUE
+  `user_note_spelling_active` on `memory_tracker` (one live row
+  per user/note/type/property_key). The unique index is ordinary
+  schema uniqueness; the missing button is the poka-yoke UI.
+- **Source:** latest code (HEAD `e683b74615`)
+- **Slide:** *Smart → dumb → gone*
+- **Use:** spoken backup — missing UI path, not a test of
+  whether recall scoring works
+- **Clearance:** no — current UI owned by the project
+
+##### 4b candidate — `@focus` in features will not ship
+
+- **Priority:** 4b control (rank 1–3 with 4c)
+- **Example:** `scripts/check_focus_tags.sh` — any `@focus` in
+  `e2e_test/features/**/*.feature` exits 1. CI job
+  `Lint-N-Backend-Generated-Types-For-Frontend` runs it before
+  types-gen and `pnpm lint:all`. Known inadvertent error:
+  `@focus` would skip the other scenarios. This is Shingo
+  **control** (will not proceed / will not ship), not prevention
+  (you can still type `@focus` locally) and not a product-feature
+  test. Same job: `frontend:lint` is `biome check . && vue-tsc
+  --noEmit` (type errors won't compile). Gradle `JavaCompile`
+  sets encoding only — **no** `allWarningsAsErrors` /
+  `-Werror`. Biome still has leftover `"warn"` rules and CI does
+  not pass `--error-on-warnings` (leave for 4c).
+- **Source:** latest code (HEAD `e683b74615`; introducing
+  `57ca35a9c4`; CI `.github/workflows/ci.yml`)
+- **Slide:** *Smart → dumb → gone*
+- **Use:** spoken control beat — won't ship; contrast with 4c if
+  a skippable warning pile is found
+- **Clearance:** no — current CI owned by the project
+
+##### 4b also considered
+
+- SET NULL `34560f0412` (`fk_conversation_recall_prompt` ON
+  DELETE SET NULL): makes a NULL FK representable so hard-delete
+  can proceed. Opposite of unrepresentable. 4a already owns the
+  FK-closure *test*.
+- `chk_notebook_name_nonempty` CHECK and
+  `uk_notebook_ownership_name`: empty or duplicate notebook
+  names cannot persist. Real schema poka-yoke, but closer to
+  generic uniqueness / NOT EMPTY than the OS-invalid charset.
+- `Grade.fromValue` (FSRS G must be 1–4): constructor-like
+  enum, generic “use an enum.”
+- `check_wip_tags.sh` (same CI job, max 5 `@wip`): related
+  won't-ship cap, weaker than `@focus` skipping the suite.
 
 #### 4c. Counter (Claim 24) + ranking
 
@@ -768,9 +854,13 @@ order on named commits; no new week scan): parked specs, not
 layer-first infra; observation-in-class beats git. Item 4a from
 latest doughnut HEAD `e683b74615` 2026-08-26 (CI `Backend-unit-tests`
 + `git log --follow` on regression/fail-CI tests): N+1 query bound
-and FK-closure walk; rank waits for 4c.
+and FK-closure walk. Item 4b from the same HEAD 2026-08-26 (DTO
+`@Pattern` / Quiz spelling-vs-MCQ UI / `check_focus_tags.sh` in
+CI; SET NULL `34560f0412` does not qualify; Gradle has no
+warnings-as-errors): rank waits for 4c.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
 for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.
 Item 2 ranked from four tagged I-era weeks. Item 3: observation-in-class
-beats git. Item 4a: two latest-code smart→dumb candidates.**
+beats git. Item 4a: two latest-code smart→dumb candidates. Item 4b:
+two gone/poka-yoke + one control.**

@@ -1,8 +1,8 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Items 1–3 done; 4a
-candidates recorded. Next is 4b.
+[Claim 13](13-doughnut-project-examples.md). Items 1–3 done; 4a–4b
+candidates recorded. Next is 4c (counter + rank).
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor
@@ -93,12 +93,11 @@ volume ≠ one person stockpiling infra first. Ask Terry who (if anyone)
 built backend/API/component before a user-visible increment. Parallel
 contrast: FineTuningData week already on item 2.
 
-### 4a — Behavior — planned
+### 4a — Behavior — done
 
-Latest doughnut code: **smart → dumb** — 1–2 closed, owned stops whose
-firing *is* the evidence and that halt work (a test/type/check born
-from a live investigation, if the history of the file shows it).
-Target slide: *Smart → dumb → gone*.
+Latest-code smart→dumb candidates: RecallStatsPerformanceTest N+1
+bound (`0bd1dd2995`); DeletableEntityFkClosureTest (`eb6a1db962`).
+History shows investigation origin. `@focus` check left for 4b.
 
 ### 4b — Behavior — planned
 
