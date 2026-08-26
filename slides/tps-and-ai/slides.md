@@ -454,8 +454,12 @@ Claim 6 — the stop preserves freedom while creating an opportunity to learn.
 -->
 
 ---
+class: "[&>h1]:!mb-2"
+---
 
 # Smart → dumb → gone
+
+<div class="w-[68%] space-y-0.5 text-[15px] leading-snug [&_p]:my-0 [&_ol]:my-0 [&_li]:my-0 [&_.slidev-code-wrapper]:!my-0 [&_pre]:!my-0 [&_pre]:!py-0.5 [&_pre]:!text-[13px] [&_pre]:!leading-tight">
 
 Move learned judgment downhill:
 
@@ -464,6 +468,16 @@ Move learned judgment downhill:
 3. **Gone:** prevention — the failure can no longer occur (poka-yoke)
 
 Do not load the system with output that still needs a person to re-judge.
+
+**Dumb:** a recall-stats timeout is encoded as a query-count stop.
+
+**Gone:** OS-invalid titles are unrepresentable (`@Pattern`).
+
+```java
+assertThat(prepareStatementCount, lessThan(10L));
+```
+
+</div>
 
 <div class="absolute right-[4%] top-[18%] z-10 w-[22%] overflow-hidden rounded border border-stone-300 bg-white shadow-sm">
   <img
@@ -492,6 +506,18 @@ Do not load the system with output that still needs a person to re-judge.
 <!--
 Claims 6 and 20 (poka-yoke supports jidoka).
 Gone: the best part is no part — the failure can no longer occur.
+
+Dumb leftover: `RecallStatsPerformanceTest` — production timed out at
+~200 answered recalls (native `SELECT rp.*` hydrated each prompt's
+eager associations). The stop is `getPrepareStatementCount()`
+`lessThan(10L)` while `compute()` still returns 200 reviews. Hash:
+`0bd1dd2995`.
+
+Gone leftover: write DTOs (`NoteUpdateTitleDTO`, `FolderCreationRequest`,
+`FolderRenameRequest`, `NotebookUpdateRequest`) carry
+`@Pattern(regexp = DisplayNamePathSeparators.REGEXP)` so
+`\ / : * ? " < > |` cannot be authored. Hashes: `dfbde33184` /
+`55e5e55edc` / `445656f73a`.
 -->
 
 ---

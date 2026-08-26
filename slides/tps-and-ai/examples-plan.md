@@ -4,7 +4,7 @@ Multi-session slice plan for embedding **narrative lines and code
 snippets** from [Claim 13](../../TPS%20and%20AI/claims/13-doughnut-project-examples.md)
 into [slides.md](slides.md), oriented by
 [main-theme-and-stage-setting.md](../../TPS%20and%20AI/main-theme-and-stage-setting.md).
-In progress (S1–S3 landed). Revised after a critical selection
+In progress (S1–S4 landed). Revised after a critical selection
 review (2026-08-26). Slides are referenced by title only.
 
 Deck-local work — no new ADR
@@ -132,18 +132,14 @@ tracker / MCQ prompt → `controller.answer` → `Grade.GOOD` log).
 Three rules kept. Persist-after-reload and mock-forest in notes.
 No follow-on slide. Rendered on slide 20 without overflow.
 
-### S4 — Behavior — planned
+### S4 — Behavior — done
 
-**P1** on *Smart → dumb → gone*: two narrative lines (N+1 timeout
-encoded as a query-count stop; OS-invalid titles unrepresentable via
-`@Pattern`). At most one snippet — the assert itself, 1–3 lines
-(`prepareStatementCount < 10`), because the artwork band already
-takes the bottom 44% of this slide. Keep the existing three-step
-list and artwork. Doughnut is already introduced (S2); open in
-product language.
-
-**Check:** audience can hear **dumb** vs **gone** without a new slide;
-the snippet coexists with the artwork at render.
+**P1** on *Smart → dumb → gone*: **Dumb** = recall-stats timeout as
+a query-count stop; **Gone** = OS-invalid titles unrepresentable
+(`@Pattern`); one leftover line
+`assertThat(prepareStatementCount, lessThan(10L))`. List, dropper,
+and artwork band kept; left column squeezed to 68% so the snippet
+sits above the band. Rendered on slide 19.
 
 ### S5 — Behavior — planned
 
@@ -184,6 +180,10 @@ signal → stop-and-fix → user value.
 
 ## Discoveries (planning)
 
+- S4 (2026-08-26): 1-line query-count leftover fits with the
+  dropper inset and 44% artwork band after squeezing the left
+  column. Later embeds on artwork-heavy slides should assume that
+  squeeze, not a follow-on slide.
 - S3 (2026-08-26): six-line `makeMe` leftover fits with the three
   rules on slide 20. Later snippets can copy that trim (helpers
   collapsed; leftover is the assert). S4’s *Smart → dumb → gone*
