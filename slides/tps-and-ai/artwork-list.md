@@ -46,12 +46,17 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### 1. Toyota's official TPS overview graphic
 
+- **Status:** fallback — no reusable official graphic found. Toyota's
+  [TPS overview](https://global.toyota/en/company/vision-and-philosophy/production-system/index.html)
+  and [Virtual Plant Tour](https://global.toyota/en/company/plant-tours/production-system/index.html)
+  explain the two pillars but do not offer a TPS overview as a
+  downloadable asset. Toyota's [Terms of
+  Use](https://global.toyota/en/terms-of-use/index.html) reserve reuse of
+  site graphics except content specifically provided for download; the
+  [Downloadable Assets](https://global.toyota/en/downloadable-assets/index.html)
+  catalog does not include a TPS overview. The slide therefore uses
+  sourced text and no Toyota graphic.
 - **Slide:** "Two houses, different layers", left column
-- **Placement:** the left column's visual anchor
-- **Source:** Toyota Global website, Vision & Philosophy → Toyota
-  Production System page. Must be Toyota's own graphic — the speaker
-  note explicitly forbids presenting an unsourced house-shaped diagram
-  as Toyota's (Claim 2). Attribute on-slide.
 
 ### 2. Larman & Vodde's Lean Thinking house
 

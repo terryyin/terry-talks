@@ -213,6 +213,10 @@ Pillars: **Jidoka** · **Just-in-Time**
 Toyota's explanation of its operating system
 (not labelled a house)
 
+<div class="mt-6 text-[11px] leading-tight opacity-70">
+  Source: <a href="https://global.toyota/en/company/vision-and-philosophy/production-system/index.html">Toyota Motor Corporation, “Toyota Production System”</a>
+</div>
+
 ::right::
 
 **Larman & Vodde's Lean Thinking house**

@@ -117,14 +117,13 @@ strip under the three-step list on **Smart → dumb → gone**. Targeted
 typecheck and deck build passed; rendered inspection confirmed the
 typeset labels remain readable above the art.
 
-### S10 — Behavior — planned
+### S10 — Behavior — done
 
-Find Toyota's **own** TPS overview graphic for the left column of **Two
-houses, different layers**. Official page
-(global.toyota, Vision & Philosophy → Toyota Production System) is
-prose and history photos, not a house. If nothing licensable is found,
-leave the left column as sourced text — do not paste an unsourced house
-(Claim 2). Attribute on-slide.
+Toyota's official TPS pages provide no downloadable overview graphic,
+and its terms reserve reuse of site graphics except designated downloads.
+Kept the left column as sourced text, documented the license evidence,
+and added on-slide attribution. Targeted typecheck, deck build, and
+rendered slide inspection passed.
 
 ### S11 — Behavior — planned
 
