@@ -183,14 +183,14 @@ evidence, and placed it as a small attributed inset beside **Dumb** on
 **Smart → dumb → gone**. Targeted typecheck, deck build, and rendered
 slide inspection passed.
 
-### S19 — Behavior — planned
+### S19 — Behavior — done
 
-Generate G15's mechanically accurate two-panel loom stop as a 16:9
-strip and click-reveal it in place after G7 on **Smart → dumb → gone**.
-Exactly one dropper falls a few centimeters onto the feeler bar; no
-electrical mechanism or generated labels. If one generation cannot
-keep the panels consistent, generate the panels separately and compose
-them in this slice. Check the rendered before/after click sequence.
+Generated G15 as the 16:9 `public/loom-jidoka-mechanism.png` and
+click-revealed it in G7's footprint on **Smart → dumb → gone**. The
+two consistent panels show exactly one thin vertical dropper falling a
+short distance onto the feeler bar, with no electrical mechanism or
+generated labels. Targeted typecheck, deck build, and rendered
+before/after click inspection passed.
 
 ### S20 — Behavior — planned
 

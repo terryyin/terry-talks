@@ -359,7 +359,7 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
 
 ### G15. Loom jidoka mechanism — smart idea, dumb mechanism
 
-- **Status:** not yet generated — instruction ready, worker to pick up
+- **Status:** done — `public/loom-jidoka-mechanism.png`
 - **Slide:** "Smart → dumb → gone"
 - **Placement:** click-reveal after G7's strip on the same slide, same
   wide-strip footprint so it swaps in place; slide text supplies all

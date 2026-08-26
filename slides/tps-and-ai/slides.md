@@ -431,6 +431,13 @@ Do not load the system with output that still needs a person to re-judge.
   class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
 />
 
+<img
+  v-click
+  src="/loom-jidoka-mechanism.png"
+  alt=""
+  class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
+/>
+
 <!--
 Claims 6 and 20 (poka-yoke supports jidoka).
 Gone: the best part is no part — the failure can no longer occur.
