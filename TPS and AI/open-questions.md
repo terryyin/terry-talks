@@ -6,7 +6,12 @@ future discussion, not a set of conclusions.
 ## Talk framing
 
 - What is the exact title and promised audience takeaway for the Tokyo LeSS
-  Conference talk?
+  Conference talk? Working answer: the **theme** is **Freedom and
+  Entrustment** ([Claim
+  10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)). An
+  early-talk slogan: *How do you know if the organization is using AI
+  right? If the teams are more freed than constrained by what they built.*
+  The cover title is still the longer TPS/AI conference wording.
 - Is the talk primarily about applying TPS philosophy to AI-augmented software,
   or about using the contrast with TPS to expose what is newly difficult?
 - Which audience assumptions about TPS, lean, LeSS, and AI can safely be made?

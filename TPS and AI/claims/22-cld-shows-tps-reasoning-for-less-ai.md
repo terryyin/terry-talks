@@ -26,10 +26,11 @@ argument: [22-tps-less-ai-cld.md](22-tps-less-ai-cld.md).
 ## Research-based adjustment
 
 The hypothesis is the right *form* for [Claim
-1](01-tps-reasoning-not-mechanisms.md). That claim already says the
-useful transfer is the reasoning by which Toyota made a whole system
-responsive and learnable, and that one should examine pull, jidoka,
-small batches, technical excellence, human agency, and continuous
+1](01-tps-reasoning-not-mechanisms.md). Claim 10 now names the polarity
+**freedom and entrustment**; the current loop text lives there. Claim 1
+already says the useful transfer is the reasoning by which Toyota made a
+whole system responsive and learnable, and that one should examine pull,
+jidoka, small batches, technical excellence, human agency, and continuous
 improvement for the **relationships** they create. A causal loop
 diagram (CLD) is a notation for those relationships. It does not add a
 new Toyota or LeSS source.
@@ -54,7 +55,7 @@ CLD](22-tps-less-ai-cld.md).
 | Loop | What it is | Already owned by |
 |---|---|---|
 | **R1 Encode and free** | Known abnormality becomes a closed constraint; attention returns to novelty; novelty becomes the next constraint. | [6](06-jidoka-embeds-routine-judgment.md) |
-| **R2 Freedom and trust** | Capability earns warranted trust; less coercive control lets actual need pull the next capable response. Vicious: failure invites more advance control, which starves that capability. | [10](10-freedom-and-trust-reinforce-through-jidoka.md), [3](03-jidoka-enables-jit-trusts-respect-grows.md) |
+| **R2 Freedom and entrustment** | Capability warrants *entrusting* the next highest-value item; coercive control falls so actual need can pull. Vicious: failure invites more advance control, which starves that capability. Mutual trust sits under Respect for People. | [10](10-freedom-and-trust-reinforce-through-jidoka.md), [3](03-jidoka-enables-jit-trusts-respect-grows.md) |
 | **R3 Excellence for integration** | Technical excellence makes one product continuously integrable; that evidence encodes stops and pulls collaboration. | [8](08-technical-excellence-enables-jit-coordination-in-less.md) |
 | **R4 Work makes people** | Pull and real problems grow people who can think; that capability is what JIT and jidoka run on. | [12](12-respect-for-people-who-can-think.md) |
 | **R5 Inventory, attention, and AI** | Stacked still-smart work consumes attention, which prevents encoding, which stacks more work. AI generation injects into that inventory. | [4](04-jit-assurance-resourcefulness-and-constraint.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md) |
@@ -62,11 +63,11 @@ CLD](22-tps-less-ai-cld.md).
 
 > **TPS can inspire LeSS+AI as a system of loops, not as a list of
 > practices.** Encoded jidoka frees attention. That capability, made
-> visible in one product, earns trust so actual need can pull work and
-> collaboration. Respect for People is the growth of people who can
-> think inside that system. AI does not replace a loop. It speeds
-> generation relative to encoding, and so amplifies whichever direction
-> R5 is already running.
+> visible in one product, warrants *entrustment* so actual need can pull
+> work and collaboration. Mutual trust grows under Respect for People:
+> people who can think inside that system. AI does not replace a loop. It
+> speeds generation relative to encoding, and so amplifies whichever
+> direction R5 is already running.
 
 That last sentence is the DORA 2025 amplifier finding, drawn as
 structure rather than as a slogan. Comprehension-seeking versus

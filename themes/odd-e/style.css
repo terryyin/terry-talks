@@ -13,3 +13,15 @@
   background-position: 97% 3%;
   background-size: 4%;
 }
+
+/*
+ * Slidev's "goto slide" search box (press `g`) parks itself at
+ * `top: -5rem` when closed, assuming that's enough to clear the
+ * viewport. With only a few slides and long titles, the closed
+ * dropdown list is taller than 5rem, so it still pokes into the
+ * top-right corner on every slide, including in the play view.
+ * Force it fully off-screen in the closed state only.
+ */
+#slidev-goto-dialog.-top-20 {
+  top: -100vh !important;
+}

@@ -57,7 +57,7 @@ This table is the source of truth. The figures are views of it.
 | Adaptive attention | **+** | People who can think | The work itself is the school; that needs room to think. |
 | Adaptive attention | **+** `//` | Encoded jidoka | Investigate the novel (smart), then put what is now known into a closed detector (dumb) or remove the question (gone). |
 | People who can think | **+** | Capability to respond | JIT and jidoka only work through people who can think. |
-| Capability to respond | **+** `//` | Warranted trust | Visible, responsible use of freedom makes less detailed control warranted. |
+| Capability to respond | **+** `//` | Warranted trust | Visible, responsible use of freedom warrants *entrusting* the next highest-value item. |
 | Capability to respond | **+** `//` | Encoded jidoka | Kaizen after a real response preserves the learning. |
 | Warranted trust | **−** | Coercive control | Mutual confidence reduces the perceived need for advance control. |
 | Coercive control | **−** | Pull from actual need | Detailed plans and approvals push work before the need is concrete. |
@@ -153,20 +153,24 @@ gone** is this loop, not a one-time cleanup.
 Runs backward when detectors stay smart: every check still needs a
 thinker, so encoded jidoka never rises and attention never returns.
 
-### R2 — Freedom and trust
+### R2 — Freedom and entrustment
 
 **Adaptive attention → Capability to respond → Warranted trust → (−)
 Coercive control → Pull from actual need → Capability to respond**
 
 [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)'s proposed
-loop, drawn as a cycle. Jidoka and technical excellence create room and
-authority. Demonstrated capability makes trust warranted. Less detailed
-control is needed in advance. Real need can pull responsible action.
-That action is further evidence of capability.
+loop, drawn as a cycle. The polarity is **freedom and entrustment**
+(jidoka frees, JIT entrusts). Mutual **warranted trust** sits under
+Respect for People; in this diagram it is the evidence that makes
+entrustment social. Jidoka and technical excellence create room so a
+team can take the next highest-value item. Demonstrated capability
+warrants that *entrustment*. Coercive control falls. The Product Owner
+can pull from actual user value instead of leftover WIP. That action is
+further evidence of capability.
 
-Two **−** links (trust reduces control; control reduces pull) keep the
-loop reinforcing: more trust → more pull → more capability → more
-trust.
+Two **−** links (warranted trust reduces coercive control; coercive
+control reduces pull) keep the loop reinforcing: more warranted trust →
+more pull → more capability → more warranted trust.
 
 The same loop is vicious when every failure produces more approvals, or
 when freedom is used to hide work. Then coercive control rises,

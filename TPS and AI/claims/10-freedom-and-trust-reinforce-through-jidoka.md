@@ -1,7 +1,7 @@
-# Claim 10: Freedom and trust can reinforce one another through jidoka
+# Claim 10: Freedom and entrustment can reinforce one another through jidoka
 
-**Status: Provisional — theme defensible; polarity is freedom and
-entrustment; talk title still Freedom and Trust**
+**Status: Provisional — theme is Freedom and Entrustment; early-talk
+slogan recorded**
 
 ## Original claim / hypothesis
 
@@ -30,14 +30,18 @@ not that definition. Claim 3 uses **entrusts** for JIT: capable people
 close to the work own the resourceful response. That is Terry's reading
 of JIT's intention, not Toyota's definition, and not a report of how
 people experience the system. Mutual trust sits under Respect for
-People.
+People. The working polarity is therefore **freedom and
+entrustment**—jidoka **frees**, JIT **entrusts**—not freedom versus
+trust. Mutual trust is what grows when that polarity is held.
 
 The proposed reinforcing loop is:
 
-> **Jidoka and technical excellence preserve learning → routine burden and
-> switching cost fall → people gain room and authority to learn and respond →
-> demonstrated capability makes trust warranted → less detailed control is
-> needed in advance → real need can pull responsible action just in time.**
+> **Jidoka and technical excellence preserve learning → routine burden,
+> leftover WIP, and specialist lock-in fall → teams gain room to acquire
+> knowledge and take the next highest-value item → demonstrated capability
+> makes *entrustment* warranted → the Product Owner can pull from actual
+> user value instead of from leftover work → real need pulls a responsible
+> response just in time.**
 
 That loop is **R2** in the draft causal loop diagram of how TPS
 reasoning can inspire LeSS+AI: [Claim
@@ -51,24 +55,44 @@ freedom from constraint or from repetitive work, individual freedom from
 every specialization, trust as faith, and “trust eliminates planning” are
 not.
 
-> **The real tension is freedom versus coercive control.** Trust and
-> enabling constraints can reinforce one another. Jidoka constrains what is
-> already known to be abnormal so people have more freedom and attention
-> for what is not yet known. Visible, responsible use of that freedom makes
-> less detailed control warranted. JIT **entrusts** a capable response;
-> mutual trust sits under Respect for People.
+The **talk theme** is **Freedom and Entrustment**, matching [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md): jidoka **frees**, JIT
+**entrusts**. Mutual trust sits under Respect for People. It is the
+relationship that grows when the polarity is held, not the other pole.
+Coercive control is the false resolution when the organization cannot
+hold both.
+
+> **The polarity is freedom and entrustment.** They look like opposites:
+> to hand over important work, it seems you must constrain people in
+> advance; to give freedom, it seems you cannot really hand over the work
+> that matters. Jidoka's enabling constraints make freedom responsible, so
+> the organization can **entrust** a capable response to real need.
+> Visible, responsible use of that freedom makes entrustment warranted.
+> Mutual trust sits under Respect for People.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has the
 triad and that vocabulary. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) already has
 bounded self-management and the technical precondition. This claim is the
-**talk theme**: how freedom and trust can live together.
+**talk theme**: how freedom and entrustment can live together, and how
+that earns mutual trust.
 
-### Freedom versus coercive control
+### The freedom that matters to the organization
+
+The freedom that matters most is not “from watching the machine” as a
+slogan. It is that the **Product Owner can entrust teams with the
+highest user value**, and that a **team has the freedom not to be
+constrained** by legacy responsibilities, WIP, or the inability to
+acquire new knowledge. Entrustment without that freedom is theater: the
+PO “gives” the item, but no team can actually take it. Freedom without
+entrustment is local optimization: teams improve inside a fiefdom while
+the important work stays elsewhere.
+
+### The false resolution is coercive control
 
 When an organization distrusts people, it may respond with approvals,
-surveillance, detailed plans, narrow roles, and rules imposed from outside
-the work. Those controls can reduce freedom without producing trustworthy
+surveillance, detailed *solution* plans stockpiled far in advance, narrow
+roles, and rules imposed from outside the work. Those controls can reduce freedom without producing trustworthy
 outcomes. The opposite extreme also fails. Freedom without shared purpose,
 capability, evidence, or limits asks others to accept unbounded risk, and
 can provoke more control rather than more trust.
@@ -94,12 +118,14 @@ meaning of that constraint:
 > freedom and attention for what is not yet known.**
 
 That freedom is substantive only when people retain the information, time,
-skill, and authority to respond. A gate that only a remote specialist can
-understand or change creates dependency. A noisy alarm people cannot
-safely act on creates burden. An automated check used to rank or punish
-workers turns an enabling mechanism into a coercive one. Automation can
-also hide specialist knowledge rather than free an individual from every
-technical area: [Claim
+skill, and authority to respond. A noisy alarm people cannot safely act
+on creates burden. Who owns and can change an automated constraint:
+**collective ownership**. A gate is enabling when the people who hit it
+can understand, change, and improve it, with the test as shared evidence.
+A gate is coercive when only a remote specialist can change it, or when
+it is used to rank, monitor, or punish. Automation can also hide
+specialist knowledge rather than free an individual from every technical
+area: [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) already has
 LeSS as collectively cross-functional teams, not unconstrained independence.
 
@@ -122,32 +148,44 @@ leave the system more capable after learning.
 
 The loop is reciprocal. Leaders give real authority and room to respond.
 People use that freedom to learn, meet commitments, surface problems, and
-improve the shared system. Those observable behaviors justify less
-detailed direction next time.
+improve the shared system. Those observable behaviors warrant
+*entrusting* the next highest-value item.
 
 The loop can also run backward. If every failure produces more approvals,
 or if freedom is used to accumulate invisible work and local optimization,
-the system creates evidence for distrust. Freedom and trust reinforce each
-other only when problems can be made visible without making honesty
-dangerous.
+the system creates evidence against further entrustment. Freedom and
+entrustment reinforce each other only when problems can be made visible
+without making honesty dangerous. Mutual trust is that relationship
+under Respect for People.
 
 LeSS's Scrum Guide says Scrum's values, with transparency, inspection, and
 adaptation, come to life building trust. Transparency is not a
 remote-control dashboard. It gives the people doing the work shared
 evidence from which to inspect and adapt.
 
-That warranted trust does not abolish planning. [Claim
+That warranted trust does not abolish planning. **Detailed advance
+planning is always needed.** It is a different kind of detail than most
+development teams stockpile. The details that belong up front are how to
+cut work so value and feedback can arrive early—not how to implement the
+whole solution before the need is concrete. That includes confirming user
+value, choosing the perspective and technique of decomposing (treat the
+disease without killing the patient), making the highest-priority slices
+small enough, deciding what “done” looks like, deciding how feedback will
+arrive, and the high-consequence decisions also called architecture.
+[Claim 17](17-jit-vertical-slicing-one-piece-flow.md) owns the shape of
+those slices. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) already
-found that technical excellence lets teams defer much detailed
-coordination until the shared product makes the right collaboration
-concrete. LeSS still has product direction, an ordered backlog,
-refinement, Sprint Planning, and shared quality.
+found that technical excellence then lets teams defer much detailed
+*coordination of the solution* until the shared product makes the right
+collaboration concrete. LeSS still has product direction, an ordered
+backlog, refinement, Sprint Planning, and shared quality.
 
-> **Plan direction and constraints early enough to align the product. Pull
-> detailed decisions and collaboration from the latest real need and evidence.**
+> **Plan the cut, the value, the feedback, and the irreversible
+> constraints in detail. Pull the detailed solution and the detailed
+> collaboration from the latest real need.**
 
-Trust makes that deferral socially possible; technical excellence makes it
-economically possible.
+Entrustment makes that deferral socially possible; technical excellence
+makes it economically possible.
 
 ### AI amplifies both sides
 
@@ -175,7 +213,9 @@ TPS does not make AI harmless. It supplies a design question:
 
 AI releases people for critical thinking only if the organization protects
 critical thinking. Saved time can otherwise become higher output targets,
-more generated inventory, reduced practice, and deskilling. [Claim
+more generated inventory, reduced practice, and deskilling. The diagnostic
+is the early-talk slogan below: teams more freed than constrained by what
+they built—not more output or higher utilization. [Claim
 12](12-respect-for-people-who-can-think.md) owns what must not be
 outsourced: people who can think.
 
@@ -186,41 +226,47 @@ outsourced: people who can think.
 > constraints, giving people room to handle novelty while making known harm
 > visible and stoppable.**
 
-Memorable:
+Early-talk slogan (one of the first slides):
+
+> **How do you know if the organization is using AI right?**
+>
+> If the teams are more freed than constrained by what they built.
+
+That means less leftover ownership, less WIP, more ability to take the
+next highest-value item and acquire the knowledge it needs.
+
+Memorable close:
 
 > **Encode the known. Stop the abnormal. Free people to learn. Entrust a
 > capable response to real need. Let visible capability earn mutual trust.**
 
+The theme is **Freedom and Entrustment**. Close with that triad: free,
+**entrust**, earn mutual trust. Do not treat trust as the opposite of
+freedom.
+
 The strongest version of the theme is not that TPS resolves freedom and
-trust once and for all:
+entrustment once and for all:
 
 > **TPS shows how a system can continually convert learning into constraints
 > that make greater freedom responsible—and use that freedom to produce the
-> next learning on which deeper trust can rest.**
+> next learning on which deeper entrustment, and then mutual trust, can
+> rest.**
 
 ## Questions still open
 
-- Given that JIT **entrusts** a response while mutual trust sits under
-  Respect for People, is **Freedom and Trust** still the right theme
-  title, or would **warranted trust**, **confidence**, **assurance**, or
-  **reliance** be clearer for the organizational-trust side?
-- Is **Freedom and Trust** stronger as an apparent paradox introduced
-  early in the talk, or as the conclusion the earlier claims gradually
-  construct?
-- What concrete story can show the whole reinforcing loop rather than
-  only one link—for example, a novel failure becoming a test, a design
-  constraint, broader team capability, and then less need for prior
-  approval?
-- Which freedoms matter most: from watching the routine, from re-judging
-  what is already known, from specialist dependency, to stop, to change
-  the process, or to decide how to meet a product need?
-- What evidence would show that saved AI time became learning and value
-  rather than more output or higher utilization expectations?
-- Who owns and can change an automated constraint? What makes a technical
-  gate enabling rather than coercive in practice?
-- When is detailed advance planning still cheaper and safer than JIT
-  response, especially for irreversible, regulated, or high-consequence
-  decisions?
+- What *real* story matches this **imaginary** loop (search alike; do
+  not present as fact)? A Product Owner's highest-value item is “pay in
+  installments.” No team can take it: billing is a leftover fiefdom,
+  checkout is full of WIP, and nobody can acquire the payments knowledge
+  in time. A first thin slice (“pay by card for one SKU”) hits a novel
+  failure: an AI-suggested retry double-charges. The team stops, writes
+  an idempotency test (known-abnormal becomes dumb), extracts the
+  constraint into the shared product, and any team can change it
+  (collective ownership). A second team can take installments. The PO can
+  *entrust* the next highest-value item without an architecture review
+  board. Evidence the AI time was not wasted: the group is less
+  constrained by the billing component they built, not busier producing
+  more payment methods.
 
 ## Sources consulted
 
