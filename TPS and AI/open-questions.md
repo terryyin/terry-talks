@@ -57,7 +57,9 @@ future discussion, not a set of conclusions.
   6](claims/06-jidoka-embeds-routine-judgment.md) now names that split;
   [Claim
   4](claims/04-jit-assurance-resourcefulness-and-constraint.md) already
-  has the stacking warning.
+  has the stacking warning. A leftover compiler or linter warning is
+  that remainder in miniature:
+  [Claim 24](claims/24-warnings-as-stop-no-news-is-good-news.md).
 - Honest trunk-based CI and disposable prototypes look like opposites:
   real integration entangles experiments so there is no clean delete,
   yet spent experiments still need to leave the product. A working
@@ -103,7 +105,11 @@ future discussion, not a set of conclusions.
   fire, or a permission failure) that makes Go-See concrete
   ([Claim 16](claims/16-go-see-ai-harness.md)); bottom-up infra batch
   versus one vertical slice, following one user if git has no team
-  ([Claim 17](claims/17-jit-vertical-slicing-one-piece-flow.md)).
+  ([Claim 17](claims/17-jit-vertical-slicing-one-piece-flow.md)); a
+  poka-yoke fixture that is not “just a test” or “just good design,”
+  plus leftover warnings or noisy logs versus a quiet channel
+  ([Claims 20](claims/20-poka-yoke-supports-jidoka.md) and
+  [24](claims/24-warnings-as-stop-no-news-is-good-news.md)).
 
 ## Candidate future claims
 

@@ -194,6 +194,24 @@ Look for the best single failure among:
 - A rule that did not fire
 - A permission failure
 
+### Poka-yoke fixtures and leftover warnings — Claims 20 and 24
+
+[Claim 20](20-poka-yoke-supports-jidoka.md) needs one software fixture
+that is clearly poka-yoke, not “just a test” or “just good design.”
+[Claim 24](24-warnings-as-stop-no-news-is-good-news.md) needs the
+contrast: a skippable warning or noisy log versus a quiet channel.
+
+Look for:
+
+- **Prevention:** a type, constructor, schema, or UI path that makes a
+  known illegal state unrepresentable—not general “good design,” and
+  not a test of whether the feature works.
+- **Control:** a check that will not compile or will not ship
+  (including warnings treated as errors).
+- **Counter:** a parked linter or compiler warning pile; tests that
+  verify behavior rather than encoding a known specifiable mistake;
+  logs of expected events that fill a person's or agent's context.
+
 ### Bottom-up batch versus one vertical slice — Claim 17
 
 [Claim 17](17-jit-vertical-slicing-one-piece-flow.md) needs a contrast of

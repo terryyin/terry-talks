@@ -54,7 +54,10 @@ display that does not drive daily action is not visual management.
 
 [Claim 6](06-jidoka-embeds-routine-judgment.md) owns how much live
 judgment that signal still requires. [Claim 19](19-stop-and-fix.md)
-owns the halt. This claim only refuses to call the tool CI.
+owns the halt. [Claim
+24](24-warnings-as-stop-no-news-is-good-news.md) owns keeping that
+channel quiet enough to act on. This claim only refuses to call the
+tool CI.
 
 ### XP did the practice before there was a CI service
 

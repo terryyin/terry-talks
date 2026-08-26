@@ -44,8 +44,10 @@ system.
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
 right to stop. [Claim 6](06-jidoka-embeds-routine-judgment.md) owns
 where that judgment lives. [Claim
-20](20-poka-yoke-supports-jidoka.md) owns poka-yoke. This claim owns
-the **halt**—as culture, not as an automatic consequence of the
+20](20-poka-yoke-supports-jidoka.md) owns poka-yoke. [Claim
+24](24-warnings-as-stop-no-news-is-good-news.md) owns leftover
+warnings as unpaid judgment. This claim owns the
+**halt**—as culture, not as an automatic consequence of the
 detector.
 
 ### Toyota's exception is not a parked red

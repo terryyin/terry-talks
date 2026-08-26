@@ -34,7 +34,7 @@ definition here.
 
 | Variable | What rises or falls | Claim owners |
 |---|---|---|
-| **Encoded jidoka** | Learned judgment in a closed, stoppable form: detect a specified abnormality, halt, contain, prevent recurrence. Tests that actually stop, types, poka-yoke, an andon. Smart → dumb → gone. | [6](06-jidoka-embeds-routine-judgment.md), [19](19-stop-and-fix.md), [20](20-poka-yoke-supports-jidoka.md), [21](21-ci-practice-is-not-a-ci-system.md) |
+| **Encoded jidoka** | Learned judgment in a closed, stoppable form: detect a specified abnormality, halt, contain, prevent recurrence. Tests that actually stop, types, poka-yoke, an andon. Smart → dumb → gone. | [6](06-jidoka-embeds-routine-judgment.md), [19](19-stop-and-fix.md), [20](20-poka-yoke-supports-jidoka.md), [21](21-ci-practice-is-not-a-ci-system.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
 | **Adaptive attention** | Room, information, skill, and authority to investigate what is not yet known, rather than watch the routine or re-judge the known. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [6](06-jidoka-embeds-routine-judgment.md), [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
 | **Capability to respond** | Resourceful, close-to-the-work response to actual need: detect, coordinate, change cheaply, recover, leave the system more capable. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [4](04-jit-assurance-resourcefulness-and-constraint.md) |
 | **People who can think** | People grown by the work: problem solving, facilitation, analysis, coaching, independent kaizen. | [12](12-respect-for-people-who-can-think.md) |
@@ -44,7 +44,7 @@ definition here.
 | **Technical excellence** | Cheap, safe change of one shared product so several feature teams can integrate continuously. The catalog exists *for* that integration. | [8](08-technical-excellence-enables-jit-coordination-in-less.md) |
 | **Visible product evidence** | Current integrated working software, plus visible abnormalities and dependencies. Transparency for the people doing the work, not a remote-control dashboard. | [8](08-technical-excellence-enables-jit-coordination-in-less.md), [16](16-go-see-ai-harness.md), [21](21-ci-practice-is-not-a-ci-system.md) |
 | **AI generation volume** | Candidate solutions, tests, analysis, and patches produced quickly. Not yet owned, verified, or encoded. | [1](01-tps-reasoning-not-mechanisms.md), [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
-| **Judgment-stacked inventory** | Unverified, unowned, still-smart work in process: generated analysis, patches that look finished until a person re-judges them, tests nobody can trust. Software's analogue of stockpiling. | [4](04-jit-assurance-resourcefulness-and-constraint.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md) |
+| **Judgment-stacked inventory** | Unverified, unowned, still-smart work in process: generated analysis, patches that look finished until a person re-judges them, tests nobody can trust, leftover warnings. Software's analogue of stockpiling. | [4](04-jit-assurance-resourcefulness-and-constraint.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
 
 ## Canonical links
 

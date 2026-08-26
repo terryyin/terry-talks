@@ -22,8 +22,9 @@ improve. [Claim
 pairing: stop conditions protect previous intentions rather than
 stacking judgment-dependent output. [Claim 19](19-stop-and-fix.md)
 owns the halt. [Claim
-20](20-poka-yoke-supports-jidoka.md) owns poka-yoke
-as prevention supporting jidoka. This claim is **where that judgment
+20](20-poka-yoke-supports-jidoka.md) owns poka-yoke.
+[Claim 24](24-warnings-as-stop-no-news-is-good-news.md) owns leftover
+warnings as unpaid judgment. This claim is **where that judgment
 lives**.
 
 Toyota's jidoka is “automation with a human touch”: people learn the
@@ -197,7 +198,9 @@ may not dissolve that stop, and it may not take the five.
 > **Do not load the system with judgment-dependent knowledge.**
 > Generated analysis and patches that still need “I” to do the real
 > work, plus extra inventory to re-judge, climb the descent
-> backwards. After a dumb stop, AI may filter and fix dumb problems.
+> backwards. A leftover warning is that remainder in miniature
+> ([Claim 24](24-warnings-as-stop-no-news-is-good-news.md)). After a
+> dumb stop, AI may filter and fix dumb problems.
 > It must not delete the stop to proceed, and it must not take the
 > judgments that stay human: value, design, credentials, undiagnosed
 > failure, and ambiguity.

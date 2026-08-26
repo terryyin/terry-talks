@@ -57,6 +57,8 @@ stream all day. **Jidoka** makes a known abnormality visible and stoppable;
 The combination is: surface the abnormality, inspect the actual product and
 process, involve the people closest to the work, and improve the system. Using
 harness traces to surveil or blame people would conflict with that purpose.
+A harness that narrates normal operation until the window is full is
+[Claim 24](24-warnings-as-stop-no-news-is-good-news.md), not Go-See.
 
 ## Implication for the talk
 

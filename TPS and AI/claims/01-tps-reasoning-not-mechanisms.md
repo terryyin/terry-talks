@@ -54,8 +54,8 @@ amplifier of the system around it.
 The discipline for that situation is jidoka: improve the work, define a
 known abnormality, and build detection and stopping into the process so
 people respond to the exception rather than watch normal operation.
-Prevention by design (poka-yoke) is a supporting method under that same
-pillar:
+Poka-yoke is a supporting method under that same pillar (prefer
+prevention by design):
 [Claim 20](20-poka-yoke-supports-jidoka.md). Where the
 judgment lives, and the descent **smart → dumb → gone**, is
 [Claim 6](06-jidoka-embeds-routine-judgment.md).
