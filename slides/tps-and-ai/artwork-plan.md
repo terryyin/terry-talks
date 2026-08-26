@@ -45,13 +45,12 @@ S18 → S19–S22.
 
 ## Slices
 
-### S0 — Structure — planned
+### S0 — Structure — done
 
-Move the Odd-e logo off `.slidev-layout`'s `background-image` onto a
-`::after` overlay (same 97% / 3% / 4% look). Today that CSS will fight
-Slidev `background:` and crop or hide full-bleed art. Unlocks S1.
-Check: cover-with-bleed can show art; every other slide still grey +
-watermark. This is the only deck using `themes/odd-e`.
+The Odd-e logo now uses a pointer-transparent `::after` overlay at the
+same top-right scale, leaving `.slidev-layout`'s background available for
+full-bleed art. Targeted typecheck and deck build passed; static output
+confirmed the grey base and watermark are independent. Unlocks S1.
 
 ### S1 — Behavior — planned
 

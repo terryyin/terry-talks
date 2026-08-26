@@ -3,15 +3,23 @@
  * ported 1:1 from the legacy odde_training_template reveal.js template
  * (top-left, 6% scale), but that collided with heading text once headings
  * got proper sizing (see styles/index.ts) — moved to top-right and shrunk
- * so titles never need to clear it. Applies to every layout via the
- * .slidev-layout base class that Slidev's client always renders.
+ * so titles never need to clear it. The watermark is an overlay so a
+ * layout can use its own full-bleed background without replacing it.
  */
 .slidev-layout {
+  position: relative;
   background-color: #cdcdcd;
-  background-image: url('./images/odd-e-logo.png');
-  background-repeat: no-repeat;
-  background-position: 97% 3%;
-  background-size: 4%;
+}
+
+.slidev-layout::after {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  width: 4%;
+  aspect-ratio: 165 / 169;
+  background: url('./images/odd-e-logo.png') center / contain no-repeat;
+  content: '';
+  pointer-events: none;
 }
 
 /*
