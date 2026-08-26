@@ -336,18 +336,20 @@ No. 16](https://www.jsme.or.jp/kikaiisan/heritage_016_en.html);
 [AllAboutLean, "The Toyoda Model G Loom (with
 Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
 
-### 6. Dropper mechanism photo (find — checked, viable but limited)
+### 6. Dropper mechanism photo
 
+- **Status:** done — `public/type-g-dropper-mechanism.jpg`
 - **Slide:** "Smart → dumb → gone"
 - **Placement:** small inset beside the "Dumb" line, as the real
   artifact anchoring G15's illustration
-- **Source:** AllAboutLean's Model G post (link above) photographs the
-  museum's demonstration model — droppers hanging on warps. Roser's
-  own images are CC-BY-SA 4.0 per his [permission
-  page](https://www.allaboutlean.com/permission-for-images/); verify
-  the license on the specific image's attachment page and attribute
-  on-slide: "By Christoph Roser at AllAboutLean.com under the free
-  CC-BY-SA 4.0 license", with links to the post and license.
+- **Source:** Christoph Roser's ["Toyoda Model G Automatic Loom Detail
+  Warp Break Stop"](https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/)
+  photograph from AllAboutLean's [Model G
+  post](https://www.allaboutlean.com/toyoda-model-g/); the attachment
+  page identifies Roser as the creator and explicitly licenses this
+  file under [CC-BY-SA
+  4.0](https://creativecommons.org/licenses/by-sa/4.0/), attributed
+  on-slide
 - **Checked and ruled out:** Wikimedia Commons has only whole-machine
   Type G photos (no mechanism close-up); the museum's own animations
   and virtual-tour media are copyrighted; Sakichi's public-domain

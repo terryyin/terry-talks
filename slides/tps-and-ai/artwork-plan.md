@@ -174,13 +174,14 @@ as a wide band under the bullets on **Continuous improvement towards
 perfection**. Targeted typecheck, deck build, and rendered slide
 inspection passed.
 
-### S18 — Behavior — planned
+### S18 — Behavior — done
 
-Verify the attachment-specific CC-BY-SA 4.0 license for
-AllAboutLean's Type G dropper-mechanism photograph. If it clears, save
-it deck-locally and insert it as a small attributed inset beside
-**Dumb** on **Smart → dumb → gone**. If it does not clear, document the
-result in `artwork-list.md` and leave the slide ready for G15 alone.
+Verified that the exact AllAboutLean attachment identifies Christoph
+Roser as creator and explicitly licenses the photograph under CC BY-SA
+4.0. Saved it as `public/type-g-dropper-mechanism.jpg`, documented the
+evidence, and placed it as a small attributed inset beside **Dumb** on
+**Smart → dumb → gone**. Targeted typecheck, deck build, and rendered
+slide inspection passed.
 
 ### S19 — Behavior — planned
 

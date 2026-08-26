@@ -414,6 +414,17 @@ Move learned judgment downhill:
 
 Do not load the system with output that still needs a person to re-judge.
 
+<div class="absolute right-[4%] top-[18%] z-10 w-[22%] overflow-hidden rounded border border-stone-300 bg-white shadow-sm">
+  <img
+    src="/type-g-dropper-mechanism.jpg"
+    alt="Rows of metal droppers hanging from the Type G loom's warp threads"
+    class="block w-full"
+  />
+  <div class="px-1.5 py-1 text-[8px] leading-tight text-gray-600">
+    Photo: <a href="https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/">Christoph Roser, AllAboutLean.com</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  </div>
+</div>
+
 <img
   src="/smart-dumb-gone.png"
   alt=""
