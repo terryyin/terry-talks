@@ -112,6 +112,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G3. Constrained by what they built
 
+- **Status:** done — `public/constrained-by-what-they-built.png`
 - **Slide:** "Constrained by what they built"
 - **Placement:** spot illustration, right half
 - **Prompt:** Three small figures tethered by threads to a towering,

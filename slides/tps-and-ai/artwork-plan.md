@@ -73,11 +73,12 @@ Generated G2 as `public/preaching-to-the-buddha.png` and placed it on
 typecheck and deck build passed; rendered inspection confirmed the
 illustration sits beside the bullets without crowding them.
 
-### S4 — Behavior — planned
+### S4 — Behavior — done
 
-Generate G3 (tethered figures / crates, 4:3); insert on **Constrained
-by what they built**, copying S3's placement. No new layout unless S3
-had to invent one.
+Generated G3 as `public/constrained-by-what-they-built.png` and placed it
+on **Constrained by what they built** using S3's built-in `image-right`
+layout. Targeted typecheck and deck build passed; rendered inspection
+confirmed the image and bullets remain uncrowded.
 
 ### S5 — Behavior — planned
 

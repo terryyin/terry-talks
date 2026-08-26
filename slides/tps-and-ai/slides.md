@@ -116,6 +116,10 @@ Claim 10.
 -->
 
 ---
+layout: image-right
+image: /constrained-by-what-they-built.png
+backgroundSize: contain
+---
 
 # Constrained by what they built
 
