@@ -201,10 +201,12 @@ the deck's existing diagram convention. Targeted typecheck, deck build,
 and rendered inspection confirmed all four stages remain readable and
 unclipped.
 
-### S21 — Behavior — planned
+### S21 — Behavior — done
 
-SVG triangle on **The triad**: Jidoka / JIT / Respect for People, with
-frees / entrusts / grows on the edges.
+Replaced **The triad** bullets with an editable inline SVG connecting
+Jidoka / JIT / Respect for People through frees / entrusts / grows.
+Targeted typecheck, deck build, and rendered inspection confirmed the
+labels are readable and unclipped.
 
 ### S22 — Behavior — planned
 

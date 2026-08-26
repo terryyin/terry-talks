@@ -264,10 +264,50 @@ house-shaped TPS diagram as Toyota's. Claim 2.
 
 # The triad
 
-- **Jidoka frees** people from watching and re-judging the known
-- **JIT entrusts** capable people with responding resourcefully to real need
-  instead of stockpiling output in advance
-- **Respect for People grows** the people who can think — on whom both depend
+<svg class="mx-auto mt-1 h-[330px] w-[88%]" viewBox="0 0 900 360" role="img" aria-labelledby="triad-title triad-description">
+  <title id="triad-title">Jidoka, Just-in-Time, and Respect for People</title>
+  <desc id="triad-description">
+    A triangle showing that Jidoka frees attention, Just-in-Time entrusts
+    response to real need, and Respect for People grows capability.
+  </desc>
+  <path
+    d="M 450 62 L 155 290 L 745 290 Z"
+    fill="none"
+    stroke="#78716c"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  <g font-family="inherit" text-anchor="middle">
+    <g transform="translate(300 165) rotate(-38)">
+      <rect x="-82" y="-24" width="164" height="48" rx="24" fill="#ece6dc" />
+      <text y="7" fill="#b33a2b" font-weight="700" style="font-size: 28px">frees</text>
+    </g>
+    <text x="305" y="207" fill="#57534e" style="font-size: 16px">attention for real need</text>
+    <g transform="translate(600 165) rotate(38)">
+      <rect x="-82" y="-24" width="164" height="48" rx="24" fill="#ece6dc" />
+      <text y="7" fill="#b33a2b" font-weight="700" style="font-size: 28px">grows</text>
+    </g>
+    <text x="595" y="207" fill="#57534e" style="font-size: 16px">capability to respond</text>
+    <g transform="translate(450 290)">
+      <rect x="-95" y="-25" width="190" height="50" rx="25" fill="#ece6dc" />
+      <text y="8" fill="#b33a2b" font-weight="700" style="font-size: 28px">entrusts</text>
+    </g>
+    <text x="450" y="328" fill="#57534e" style="font-size: 16px">response instead of stockpiles</text>
+    <g transform="translate(450 58)">
+      <rect x="-112" y="-34" width="224" height="68" rx="16" fill="#292524" />
+      <text y="10" fill="#fffaf3" font-weight="700" style="font-size: 31px">Jidoka</text>
+    </g>
+    <g transform="translate(155 290)">
+      <rect x="-112" y="-34" width="224" height="68" rx="16" fill="#292524" />
+      <text y="10" fill="#fffaf3" font-weight="700" style="font-size: 31px">JIT</text>
+    </g>
+    <g transform="translate(745 290)">
+      <rect x="-135" y="-42" width="270" height="84" rx="16" fill="#292524" />
+      <text y="-4" fill="#fffaf3" font-weight="700" style="font-size: 25px">Respect for</text>
+      <text y="27" fill="#fffaf3" font-weight="700" style="font-size: 25px">People</text>
+    </g>
+  </g>
+</svg>
 
 Technical excellence keeps the shared product and its abnormalities visible
 soon enough for teams to collaborate just in time.
