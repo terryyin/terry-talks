@@ -587,6 +587,12 @@ Claims 12 and 3.
 - LeSS: an expanding **Definition of Done** as the measure of the same
   improvement
 
+<img
+  src="/pit-stop-changeover.png"
+  alt=""
+  class="absolute bottom-[2%] left-[8%] h-[48%] w-[84%] object-contain"
+/>
+
 <!--
 Claims 18 and 5 (SMED, software changeover, AI-friendly context).
 -->

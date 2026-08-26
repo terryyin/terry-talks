@@ -167,10 +167,12 @@ as the sole accent, and placed it on the right half of **Continuous
 integration is a practice, not a system**. The one-liner remains the
 caption. Targeted typecheck, deck build, and rendered inspection passed.
 
-### S17 — Behavior — planned
+### S17 — Behavior — done
 
-Generate G13 (pit-stop changeover, 16:9 wide); insert under the bullets
-on **Continuous improvement towards perfection**.
+Generated G13 as the 16:9 `public/pit-stop-changeover.png` and placed it
+as a wide band under the bullets on **Continuous improvement towards
+perfection**. Targeted typecheck, deck build, and rendered slide
+inspection passed.
 
 ### S18 — Behavior — planned
 

@@ -245,6 +245,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G13. Pit-stop changeover (SMED)
 
+- **Status:** implemented — `public/pit-stop-changeover.png`
 - **Slide:** "Continuous improvement towards perfection"
 - **Placement:** wide strip under the two bullets
 - **Prompt:** A pit-stop scene: a small race car paused while four crew
