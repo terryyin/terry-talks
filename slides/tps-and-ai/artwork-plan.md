@@ -39,7 +39,8 @@ Deck-local work — no new ADR ([ADR-0000](../../docs/adrs/0000-use-adrs-accepte
 S0 → S1 → S2 (visual voice; G14 needs G1) → S3–S5 (spots) → S6 then
 S7–S8 (photo, then mirrors) → S9 → Finds S10–S12 (S11 is unblocked;
 S10 and S12 may stop for a license call) → D2 then S13 → S14–S17 →
-S18 (mechanism photo) → S19 (G15 action) → S20–S22.
+S18 (mechanism photo) → S19 (G15 action) → S20–S22 → S23 (G16 tension
+loop).
 
 ---
 
@@ -211,6 +212,16 @@ Five Iconify icons on **Five judgments stay human** (value, design,
 credentials, undiagnosed failure, ambiguity). Use one family from the
 sets already in the lockfile (`carbon` / `ph`). Keep each label typeset
 and verify the five judgments remain scannable.
+
+### S23 — Behavior — planned
+
+Generate G16's infinity-loop tension band as a 16:9 wide strip and
+place it under the bullets on **Tensions and honest limits** (the slide
+has left the intentionally-without-artwork list; its first bullet
+supplies the Honest CI / disposable prototypes labels — never in the
+image). One unbroken ribbon: tightly woven left lobe, fraying right
+lobe shedding paper scraps, vermilion accent at the crossing. Check the
+rendered slide.
 
 ## Guardrails
 

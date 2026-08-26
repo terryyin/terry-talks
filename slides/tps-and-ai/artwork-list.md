@@ -262,6 +262,24 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
   sky, wings fully extended, the open palm far below and small; large
   empty space for a quotation; 16:9.
 
+### G16. Tension loop — honest CI and disposable prototypes
+
+- **Status:** prompt ready, not generated
+- **Slide:** "Tensions and honest limits"
+- **Placement:** wide strip under the bullet list; the first bullet
+  supplies the two labels (Honest CI / disposable prototypes) — never
+  in the image
+- **Why generated:** the tension is conceptual — one endless band whose
+  two lobes have opposite characters says "both, forever, in the same
+  system" without argument text
+- **Prompt:** A single continuous ribbon forming a wide horizontal
+  infinity loop. The left lobe is tightly woven, solid and even, like
+  load-bearing cloth; the right lobe frays into loose, provisional,
+  sketchy strokes shedding small scraps of crumpled paper that drift
+  downward and fade. The ribbon stays one unbroken band through both
+  characters; vermilion accent at the central crossing point; 16:9
+  wide strip.
+
 ---
 
 ## Build in-slide (diagrams and icons, not AI art)
@@ -279,7 +297,8 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
   four variables. Done — embedded as mermaid; reprises the early
   statement slide's punchline once the engine has been walked.
 - **"The triad":** triangle of Jidoka / JIT / Respect for
-  People with the frees / entrusts / grows verbs on the edges. SVG.
+  People with the frees / entrusts / grows verbs on the edges. Done —
+  embedded as inline SVG; labels stay typeset text.
 - **"Five judgments stay human":** five icons (value,
   design, credentials, undiagnosed failure, ambiguity) from the
   Iconify sets already available in Slidev — consistent with each
@@ -294,8 +313,7 @@ speeds whichever loop you feed" slide later in the deck), the "The
 apparent tradeoff" and "JIT flow in LeSS" section dividers, the
 main-message quote, "Jidoka preserves knowledge", "Preferred tests: E2E or unit —
 nothing in between", "Let the shared product pull collaboration",
-"Respect for People: grow people who can think", "Tensions and honest
-limits", and "Takeaways". The "Same gates" divider and "The gates do
+"Respect for People: grow people who can think", and "Takeaways". The "Same gates" divider and "The gates do
 not care who authored the change" share G9 — whichever does not take
 it stays text-only. The stark, text-only look serves the "small
 collection of memorable points" goal; the quote slides in particular
