@@ -178,14 +178,13 @@ reduces how much must be held in mind. Do not collapse every good
 design move into poka-yoke.
 
 Automated tests play two jobs. As jidoka they may *cause* a stop; that
-is [Claim 6](06-jidoka-embeds-routine-judgment.md) and [Claim
-19](19-stop-and-fix.md). As changeover kaizen they remove the internal
-setup of “reconstruct how we check this.” LeSS treats the automated
-safety net as paramount once several feature teams share code. Frequent
-execution keeps that net cheap to maintain. A test that is ignored,
-slow, or unactionable helps neither job. Test automation is the **main**
-software method of jidoka; fail-fast and CI/CD that actually halt
-delivery are others.
+is [Claim 6](06-jidoka-embeds-routine-judgment.md) for the encoded
+judgment and [Claim 19](19-stop-and-fix.md) for the halt. As changeover
+kaizen they remove the internal setup of “reconstruct how we check
+this.” LeSS treats the automated safety net as paramount once several
+feature teams share code. Frequent execution keeps that net cheap to
+maintain. A test that is ignored, slow, or unactionable helps neither
+job.
 
 OTED is remaining setup reduced to one touch, not every script a team
 happens to own. The software analogue is remaining setup that a human

@@ -1,124 +1,88 @@
-# Claim 19: Stop & Fix is the jidoka response; tests, fail-fast, and CI/CD must actually halt work
+# Claim 19: Stop & Fix is actually responding to a jidoka signal; a detector everyone continues past is a dashboard
 
-**Status: Provisional — hypothesis stated; TPS / Toyota Way / LeSS
-layer sourced; not a finalized talk beat**
+**Status: Provisional — initial reconciliation; TPS / Toyota Way / LeSS
+layers sourced; Toyota's exception is fixed-position stop, not a parked
+red; not a finalized talk beat**
 
-## Original claim / hypothesis
+## Claim
 
-> **Stop & Fix from TPS should be a named claim.** Test automation is
-> the main method of jidoka in software development, but not the only
-> one. Fail-fast—the opposite of defensive programming—is another.
-> CI/CD that stops delivery and forces the teams to stop and fix is
-> another.
+> **Jidoka already includes stopping when an abnormality is detected.
+> Stop & Fix is LeSS's name for actually doing that: contain, fix, and
+> prevent recurrence, rather than working around the signal.** A test,
+> a fail-fast, or a CI system that everyone continues past is a
+> dashboard, not jidoka.
 
-This is a lightly edited record of Terry's hypothesis. It was split from
-[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md), where
-tests also cheapen changeover. This claim owns the **stop**: detection
-without halt is not jidoka.
+This corrects the original hypothesis on five points. Toyota names
+**jidoka**, not Stop & Fix; “stopping immediately when abnormalities
+are detected” is inside that pillar. **Stop & Fix** is LeSS English
+(lean-thinking foundation; CI: “DO ‘stop and fix’ when the build
+breaks”). Liker names a Toyota Way *culture* of stopping to fix—2004
+Principle 5, 2021 Principle 6. Tests, fail-fast, and a **CI system**
+are detectors; they count as jidoka only if work actually stops.
+Ranking tests as “main” is Terry's, not a source fact. Shore contrasts
+fail-fast with **failing slowly** (workaround, default, catch-all),
+not with “defensive programming.” LeSS's andon is the **CI
+system**, not “CI/CD”—[Claim
+21](21-ci-practice-is-not-a-ci-system.md) owns that name.
 
-## Research-based adjustment
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
+right to stop. [Claim 6](06-jidoka-embeds-routine-judgment.md) owns
+where that judgment lives. [Claim
+20](20-poka-yoke-supports-jidoka.md) owns poka-yoke. This claim owns
+the **halt**.
 
-Stopping immediately when an abnormality is detected is **inside
-jidoka**. Toyota's current account: jidoka is “automation with a human
-touch”; when an abnormality occurs,
-the machine stops automatically or the operator pulls the stop cord;
-that prevents defective outflow, makes the abnormality clear, and
-enables prevention of recurrence. The andon makes the stop visible so
-people respond only when there is an abnormality.
+## What the research supports
 
-Jeffrey Liker's Toyota Way **Principle 5** names the culture: build a
-culture of stopping to fix problems, to get quality right the first
-time. In that telling, jidoka (machines and people who can detect and
-stop) is the foundation for building in quality. The Larman/Vodde lean
-house used in [Claim 2](02-tps-and-lean-houses.md) puts “promote
-stop-and-fix” in the **foundation**, with managers-as-teachers and Go
-See.
-
-So three layers:
-
-| Layer | What Stop & Fix is |
+| Layer | What is named |
 |---|---|
-| **TPS / jidoka** | The stop-and-contain-and-prevent-recurrence half of **jidoka**. |
-| **Toyota Way (Liker)** | Principle 5: a culture of stopping to fix, so quality is right the first time. |
-| **LeSS / lean house** | Foundation practice: promote stop-and-fix. The **CI system** is compared to an andon ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). |
+| **TPS / jidoka** | Detect, stop (machine or person), make visible (**andon**), prevent recurrence, free people from watching. The andon is the display, not the stop. Plant tour: work does not resume until the problem is resolved. |
+| **Toyota Way (Liker)** | A culture of stopping to identify out-of-standard conditions and build in quality. Rapid support to contain, then solve. |
+| **LeSS** | Foundation: promote stop-and-fix. CI: fail fast, stop & fix, learn without blame; fixing the broken build is first priority. Testing: a failing automated suite is a huge queue. |
 
-[Claim 6](06-jidoka-embeds-routine-judgment.md) already owns where
-previously learned judgment lives. [Claim
-20](20-poka-yoke-supports-jidoka.md) owns poka-yoke as
-the prevent-at-source method. [Claim
-3](03-jidoka-enables-jit-trusts-respect-grows.md) already owns that
-jidoka *frees* people by giving them the right and expectation to
-signal, stop, respond, and improve. This claim is the operational
-requirement those claims assume:
+### Toyota's exception is not a parked red
 
-> **Jidoka is the capability to detect and stop. Stop & Fix is the
-> discipline of actually stopping, containing, fixing, and preventing
-> recurrence—rather than working around the signal.**
+LeSS is right that stop-the-line does not mean blindly stopping all
+work. The mechanism is **fixed-position stop** (Liker and Meier):
+cord or call button → yellow; the line continues to the end of the
+work zone; if resolved in that window, the line never stops; if not,
+it stops at the fixed position and the andon turns red.
 
-A test suite that is red and ignored, a type error that is suppressed, a
-CI build that everyone continues past: those detect. They do not stop.
-LeSS is blunt: “DO ‘stop and fix’ when the build breaks.” Fixing the
-broken build is first priority because it affects everybody. “We’re too
-busy dealing with problems to fix our broken build” is the anti-pattern.
-LeSS also says a stop-the-line attitude does not mean blindly stopping
-all work; even Toyota does not do that. The requirement is that the
-abnormality is not allowed to become normal inventory.
+Signal immediately; designed response window; then halt if unresolved.
+LeSS's analogue is a **multi-stage CI system**. Parking a red test,
+suppressing a type error, or merging on a red mainline is **not** that
+exception. The abnormality must not become normal inventory.
 
 ### Software methods
 
-Terry's three methods fit that split.
-
-| Method | What it detects | What Stop & Fix requires |
+| Method | Detects | Stop & Fix requires |
 |---|---|---|
-| **Automated tests** | A known scenario no longer holds; simple assertions are previous judgment made executable | The failing test is not parked. Work on the customer item pauses until the signal is understood, contained, and either fixed or explicitly accepted as a new intention. |
-| **Fail-fast** | An illegal or unexpected condition at the moment it occurs | Do not swallow the abnormality (defensive `catch` that logs and continues is the software form of producing defective cloth). Prefer to make continuation impossible until someone responds. |
-| **CI/CD that stops delivery** | The integrated product is not in the agreed working state | Do not keep merging, deploying, or starting the next slice on a red mainline. The pipeline is a **CI system**: an andon, not a report, and not itself CI ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). |
+| **Automated tests** | A known scenario no longer holds | The failing test is the current work, not a parked queue. |
+| **Fail-fast** | An illegal or unexpected condition now | Do not swallow it. Shore: fail immediately and visibly. In production, make the abnormality visible to people who can respond—not silently continue, and not an unexplained crash. |
+| **CI system** | The integrated product is not in the agreed working state | Do not keep merging or starting the next slice on a red mainline. The pipeline is andon, not CI ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). |
 
-Automated tests are the **main** method because they are cheap to
-re-run, encode a specific intention, and recall attention only on
-failure—exactly the previous judgment made executable in [Claim
-6](06-jidoka-embeds-routine-judgment.md). They are
-not sufficient. Fail-fast covers conditions no test anticipated.
-CI/CD covers the whole-product increment several feature teams share.
+Tests are often the cheapest re-runnable closed question ([Claim
+6](06-jidoka-embeds-routine-judgment.md)); they are not sufficient.
+Generation makes it cheap to continue past the signal. Claim 6 already
+has: do not delete the stop to proceed. This claim adds only that the
+red check is the **current work**, not a second item in parallel.
 
-Defensive programming that keeps the process running after a violated
-assumption hides the andon. Fail-fast is closer to pulling the cord.
+## Implication for the talk
 
-### AI makes Stop & Fix more important, not less
+> **Jidoka without Stop & Fix is a dashboard. Tests, fail-fast, and a
+> CI system only count when the team actually stops, contains, and
+> learns. AI makes continuing past the signal cheaper; the discipline
+> therefore matters more.**
 
-Generation makes it cheap to continue: more candidate patches, more
-skipped failures, more “we'll fix the suite later.” That is working
-around the stop. The team remains the unit of analysis; AI is a common
-tool. The tool can propose a fix. The team still has to **stop**—treat
-the red test, the type error, or the broken pipeline as the current
-work—rather than launching another user-centric item in parallel.
-
-That last point is the same one-piece-flow / spill-over constraint as
-[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md) and
-[Claim 17](17-jit-vertical-slicing-one-piece-flow.md).
-
-## Emerging implication for the talk
-
-A compact candidate, sitting next to Claims 3, 5, 6, 8, and 21:
-
-> **Jidoka without Stop & Fix is a dashboard. Tests, fail-fast, and
-> CI/CD only count when the team actually halts, contains, and learns.
-> AI makes continuing past the signal cheaper; the discipline therefore
-> matters more.**
-
-On stage, one red check that the team treats as the work—not a second
-agent tasked while the suite stays red—shows the claim.
+On stage, one red check treated as the work—not a second agent tasked
+while the suite stays red.
 
 ## Questions still open
 
-- Is **Stop & Fix** the memorable English label, or should the talk
-  stay with Toyota's “stop immediately when abnormalities are
-  detected,” Liker's Principle 5 wording, or LeSS's “stop & fix”?
-- How much of the andon / stop-cord picture belongs on a Tokyo slide
-  versus one software sequence (test fails → team stops → fix or
-  new intention → prevent recurrence)?
-- When is continuing past a red check the Toyota exception (do not
-  blindly stop all work) rather than the anti-pattern?
+- Is **Stop & Fix** the memorable English, or Toyota's “stop
+  immediately…” or Liker's culture wording?
+- How much andon / cord on a Tokyo slide versus one software sequence
+  (signal → response window → halt or new intention → prevent
+  recurrence)?
 - Does fail-fast need its own beat, or is it an example under tests
   and types?
 
@@ -127,25 +91,31 @@ agent tasked while the suite stays red—shows the claim.
 1. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
    Jidoka: stop immediately when abnormalities are detected; machine
-   stop or operator stop cord; andon; prevent recurrence; people
-   respond when there is an abnormality.
-2. Jeffrey K. Liker (2004), *The Toyota Way*, Principle 5: Build a
-   culture of stopping to fix problems, to get quality right the first
-   time. Jidoka as the foundation for building in quality.
-3. Craig Larman and Bas Vodde (2009), lean-thinking house used in
-   [Claim 2](02-tps-and-lean-houses.md). Foundation includes promote
-   stop-and-fix.
-4. Large-Scale Scrum, [Continuous
+   stop or operator stop cord; andon; prevent recurrence.
+2. Toyota Motor Corporation, [Toyota Virtual Plant Tour: Toyota
+   Production
+   System](https://global.toyota/en/company/plant-tours/production-system/).
+   Call button lights the andon; work does not resume until the
+   problem is resolved.
+3. Jeffrey K. Liker (2021), *The Toyota Way*, second edition,
+   Principle 6: stopping to identify out-of-standard conditions and
+   build in quality. 2004 first edition: Principle 5, “stopping to fix
+   problems, to get quality right the first time.”
+4. Jeffrey K. Liker and David Meier (2006), *The Toyota Way
+   Fieldbook*. Fixed-position stop. Cited by LeSS as [LM06a].
+5. Craig Larman and Bas Vodde (2009), lean-thinking house in [Claim
+   2](02-tps-and-lean-houses.md). Foundation: promote stop-and-fix.
+6. Large-Scale Scrum, [Continuous
    Integration](https://less.works/less/technical-excellence/continuous-integration).
-   CI as andon; fail fast, stop & fix, learn without blame; fixing the
-   broken build is first priority; do not blindly stop all work.
-5. Large-Scale Scrum, [Thinking About
+   CI system as andon; stop & fix when the build breaks; multi-stage
+   CI as analogue of fixed-position stop.
+7. Large-Scale Scrum, [Thinking About
    Testing](https://less.works/less/technical-excellence/thinking-about-testing).
-   Test fails → stop and fix; failing automated tests as a huge queue
-   and loss of transparency.
-6. Jim Shore (2004), [“Fail
+   Test fails → stop and fix; failing tests as a huge queue.
+8. Jim Shore (2004), [“Fail
    Fast”](https://www.martinfowler.com/ieeeSoftware/failFast.pdf),
-   *IEEE Software*. Crash or halt at the violated assumption rather
-   than continuing in an undefined state.
+   *IEEE Software*. Fail immediately and visibly; a crash is never
+   appropriate—use a global handler so people can respond.
 
-**Still open for the on-stage label and one software stop sequence.**
+**Layer and halt sourced. Label, andon-versus-software-sequence, and
+whether fail-fast is its own beat remain live.**
