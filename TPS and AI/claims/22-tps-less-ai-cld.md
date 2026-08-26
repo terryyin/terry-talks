@@ -1,4 +1,4 @@
-# Draft CLD: TPS reasoning that can inspire LeSS+AI
+# CLD: TPS reasoning that can inspire LeSS+AI
 
 Companion diagram to [Claim
 22](22-cld-shows-tps-reasoning-for-less-ai.md). This file is the

@@ -24,7 +24,7 @@ has bounded self-management and the technical precondition. This claim
 is the **talk theme**: how freedom and entrustment can live together,
 and how that earns mutual trust.
 
-The loop is **R2** in the draft causal loop diagram of how TPS reasoning
+The loop is **R2** in the causal loop diagram of how TPS reasoning
 can inspire LeSS+AI: [Claim
 22](22-cld-shows-tps-reasoning-for-less-ai.md), diagram in
 [22-tps-less-ai-cld.md](22-tps-less-ai-cld.md).

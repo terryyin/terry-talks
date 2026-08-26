@@ -37,7 +37,7 @@ production, discovery, and change.
 
 Examine pull, jidoka, small batches, technical excellence, human agency,
 and continuous improvement for the **relationships** they create. A
-draft of those relationships as loops is [Claim
+map of those relationships as loops is [Claim
 22](22-cld-shows-tps-reasoning-for-less-ai.md); the diagram is the
 companion [CLD](22-tps-less-ai-cld.md).
 

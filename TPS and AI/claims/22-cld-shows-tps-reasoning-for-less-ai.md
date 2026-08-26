@@ -1,7 +1,9 @@
 # Claim 22: A causal loop diagram can show how TPS reasoning inspires LeSS+AI
 
-**Status: Provisional — talk-device hypothesis; the diagram is a map of
-existing claims, not a new empirical result**
+**Status: Provisional — talk device settled: three slide figures (at
+most six variables each) in the companion CLD; doughnut walkthrough
+stories still open; the diagram is a map of existing claims, not a
+new empirical result**
 
 ## Original claim / hypothesis
 
@@ -19,8 +21,8 @@ install beside AI, but loops in which jidoka, JIT, technical excellence,
 and Respect for People reinforce one another—and in which AI changes the
 gain.
 
-This is a lightly edited record of Terry's hypothesis. The draft diagram
-is a companion file, so the model can move without rewriting the
+This is a lightly edited record of Terry's hypothesis. The diagram is
+a companion file, so the model can move without rewriting the
 argument: [22-tps-less-ai-cld.md](22-tps-less-ai-cld.md).
 
 ## Research-based adjustment
@@ -47,9 +49,10 @@ Used carefully it makes two talk moves that a parts list cannot:
 2. Show where AI sits: **an injection that raises the gain**, not a
    third TPS pillar.
 
-The draft groups the existing claims into five reinforcing loops and
-one balancing loop. R2 and R5 each run both ways. Detail, polarities,
-and omitted mechanisms live only in the [companion
+The companion groups the existing claims into five reinforcing loops
+and one balancing loop, and presents three slide figures as views of
+those loops. R2 and R5 each run both ways. Detail, polarities, and
+omitted mechanisms live only in the [companion
 CLD](22-tps-less-ai-cld.md).
 
 | Loop | What it is | Already owned by |
@@ -89,13 +92,20 @@ of B” does not belong on it.
 > **Do not teach TPS as a toolkit to install beside AI. Show the loops.
 > Ask which loop AI is currently amplifying.**
 
-For a slide, walk one loop until it closes, then add AI as a gain on
-inventory—not as a cloud labelled “transformation.” R2 is the theme
-loop ([Claim
-10](10-freedom-and-trust-reinforce-through-jidoka.md)). R5 is why the
-theme gets harder when generation is cheap. R3 is why the talk is a
-LeSS talk: Whole Product Focus needs technical excellence so evidence
-and collaboration can be pulled.
+The slide form is settled: the companion's three figures, each at
+most six variables, with no overview figure — the full map stays in
+its Canonical links table. Walk a figure's loop until it closes, then
+add AI as a gain on inventory—not as a cloud labelled
+“transformation.” Figure 1, **Freedom and entrustment — the engine**
+(R1 and R2), serves the main-message beat: R2 is the theme loop
+([Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)).
+Figure 2, **AI as amplifier** (R5), serves the “AI speeds whichever
+loop you feed” beat: R5 is why the theme gets harder when generation
+is cheap; on a slide it reads as an overlay on Figure 1's R1. Figure
+3, **One product pulls collaboration** (R3 plus its branch), serves
+the LeSS JIT-flow beat — let the shared product pull collaboration:
+R3 is why the talk is a LeSS talk, because Whole Product Focus needs
+technical excellence so evidence and collaboration can be pulled.
 
 Memorable:
 
@@ -112,19 +122,22 @@ relationships:
 
 ## Questions still open
 
-- Is a CLD a slide the audience should see, a speaker-only map, or a
-  writing tool that never appears?
-- One overview figure, or walk R2 then overlay R5? Figure 1 already
-  has nine variables.
-- Are **Encoded jidoka** and **Technical excellence** distinct enough
-  on a slide, or do they collapse into one “built-in quality / cheap
-  change” node for the talk?
-- Should **Nemawashi**, **Go See**, **SMED**, or utilization pressure
-  become loops, or stay inside the variables as they do in the draft?
+The slide-form questions are settled in “Emerging implication for
+the talk” above: the figures are audience-visible slides, not a
+speaker-only map or a writing-only tool. **Encoded jidoka** and
+**Technical excellence** stay distinct nodes rather than collapsing
+into one: Figure 1's engine needs only Encoded jidoka, and where they
+do share Figure 3, R3 runs through both. **Nemawashi**, **Go See**,
+**SMED**, and utilization pressure stay inside the variables, as the
+companion's “Left off the diagram on purpose” section records. The
+risk of reading as a completed system-dynamics paper is contained by
+the at-most-six-variables cap and by having no overview figure. Final
+embedding and styling of the figures in the deck is a deck decision,
+not made here.
+
 - What doughnut story walks R2 all the way around—and what story shows
-  R5 turning vicious under AI volume?
-- Where is the CLD at risk of looking like a completed system-dynamics
-  paper rather than a talk device?
+  R5 turning vicious under AI volume? Owned with [Claim
+  13](13-doughnut-project-examples.md).
 
 ## Sources consulted
 
@@ -134,7 +147,7 @@ modelling form and the amplifier finding.
 1. John D. Sterman (2000), *Business Dynamics: Systems Thinking and
    Modeling for a Complex World*. Standard account of causal-loop
    notation: variables, **+**/**−** links, reinforcing and balancing
-   loops, and delays. The draft CLD follows that discipline; it is
+   loops, and delays. The CLD follows that discipline; it is
    not a calibrated model of the kind the book also teaches.
 2. Donella H. Meadows (2008), *Thinking in Systems*. Reinforcing and
    balancing loops as a way to see system behavior; leverage often
@@ -142,7 +155,7 @@ modelling form and the amplifier finding.
 3. DORA (2025), [*State of AI-assisted Software
    Development*](https://dora.dev/research/2025/dora-report/). Reports
    AI as an amplifier of the underlying organizational system. In the
-   draft that is R5's gain, not a new pillar.
+   companion CLD that is R5's gain, not a new pillar.
 4. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
    Primary account of the two operating pillars this map still uses:

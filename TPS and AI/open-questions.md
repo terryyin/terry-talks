@@ -33,11 +33,12 @@ future discussion, not a set of conclusions.
   Working answer: keep it simple and interesting. A small collection of
   main points that are easy to remember.
 - Is a causal loop diagram of the TPS→LeSS+AI reasoning a slide, a
-  speaker map, or only a writing tool? Working draft:
-  [Claim 22](claims/22-cld-shows-tps-reasoning-for-less-ai.md) and
-  [the companion CLD](claims/22-tps-less-ai-cld.md). Leave the form
-  open as the diagram develops; if it is good, use it directly in the
-  slides.
+  speaker map, or only a writing tool? Working answer: settled as
+  audience-visible slide figures — three small CLDs (each at most six
+  variables) in [the companion CLD](claims/22-tps-less-ai-cld.md),
+  argued in
+  [Claim 22](claims/22-cld-shows-tps-reasoning-for-less-ai.md). Final
+  embedding in the deck is a deck decision.
 
 ## Central tension
 
