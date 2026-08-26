@@ -4,9 +4,9 @@ Companion diagram to [Claim
 22](22-cld-shows-tps-reasoning-for-less-ai.md). This file is the
 **model**. The claim is the **argument for using a model**.
 
-Draft. Variable names, polarities, and which loops belong on a slide
-will move. The diagram is a qualitative map of the existing claims, not
-a calibrated simulation.
+The slide figure set is settled: the three named figures below.
+Polarities remain interpretive readings of the claims, and the map
+stays qualitative, not a calibrated simulation.
 
 ## How to read
 
@@ -75,66 +75,76 @@ This table is the source of truth. The figures are views of it.
 | Judgment-stacked inventory | **−** | Adaptive attention | Re-judging the known consumes the attention jidoka was meant to free. |
 | Judgment-stacked inventory | **−** | Visible product evidence | Unintegrated, unowned output hides the real product and delays abnormality. |
 
-## Figure 1 — The operating engine
+## Figures
 
-TPS pillars and the LeSS translation, without AI. Read top to bottom as
-[Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)'s sequence,
-then follow the return arrows that close the loops.
+These three figures are the slide set: views of the canonical link
+table trimmed to presentation scale, at most six variables each. The
+full map lives in the table, not in any figure, and the loop arguments
+live in the Loop catalog, not in the captions.
+
+### Figure 1 — Freedom and entrustment — the engine
+
+[Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)'s theme
+drawn as two coupled reinforcing loops: jidoka frees (R1), JIT
+entrusts (R2). The figure deliberately omits canonical links a slide
+does not need — e.g. Coercive control → (−) Adaptive attention, and
+the delayed Capability to respond → Encoded jidoka.
 
 ```mermaid
 flowchart TB
   EJ[Encoded jidoka]
   AA[Adaptive attention]
-  THINK[People who can think]
   CAP[Capability to respond]
   WT[Warranted trust]
   CC[Coercive control]
   PULL[Pull from actual need]
-  TE[Technical excellence]
-  VIS[Visible product evidence]
 
   EJ -->|"+"| AA
-  AA -->|"+"| THINK
+  AA -->|"delay +"| EJ
   AA -->|"+"| CAP
-  THINK -->|"+"| CAP
   CAP -->|"delay +"| WT
   WT -->|"-"| CC
   CC -->|"-"| PULL
-  CC -->|"-"| AA
   PULL -->|"+"| CAP
-  PULL -->|"+"| THINK
-  CAP -->|"delay +"| EJ
-  AA -->|"delay +"| EJ
-
-  TE -->|"+"| VIS
-  EJ -->|"+"| TE
-  VIS -->|"+"| PULL
-  VIS -->|"+"| EJ
-  VIS -->|"delay +"| WT
 ```
 
-## Figure 2 — AI as amplifier
+### Figure 2 — AI as amplifier
 
-Same engine, with the injection that changes the gain. AI does not add
-a third pillar. It strengthens whichever direction the inventory loop
-is already running.
+R5 with the AI injection. It shares Encoded jidoka and Adaptive
+attention with Figure 1, so on a slide it reads as an overlay on
+Figure 1's R1.
 
 ```mermaid
 flowchart TB
   AI[AI generation volume]
   INV[Judgment-stacked inventory]
-  EJ[Encoded jidoka]
   AA[Adaptive attention]
-  THINK[People who can think]
-  VIS[Visible product evidence]
+  EJ[Encoded jidoka]
 
   AI -->|"+"| INV
-  EJ -->|"-"| INV
-  THINK -->|"-"| INV
   INV -->|"-"| AA
-  INV -->|"-"| VIS
   AA -->|"delay +"| EJ
+  EJ -->|"-"| INV
+```
+
+### Figure 3 — One product pulls collaboration
+
+[Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md)'s
+chain drawn as R3 plus its branch, Visible product evidence → Pull
+from actual need. That payoff branch is why this map belongs in a
+LeSS talk.
+
+```mermaid
+flowchart TB
+  TE[Technical excellence]
+  VIS[Visible product evidence]
+  EJ[Encoded jidoka]
+  PULL[Pull from actual need]
+
+  TE -->|"+"| VIS
   VIS -->|"+"| EJ
+  EJ -->|"+"| TE
+  VIS -->|"+"| PULL
 ```
 
 ## Loop catalog
