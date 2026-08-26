@@ -538,6 +538,10 @@ Claims 4 (assurance by resourcefulness, not abundance) and
 -->
 
 ---
+layout: image-right
+image: /green-light-stockpile.png
+backgroundSize: contain
+---
 
 # Continuous integration is a practice, not a system
 

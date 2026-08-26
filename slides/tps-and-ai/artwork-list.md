@@ -235,6 +235,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G12. Green light on a stockpile
 
+- **Status:** implemented — `public/green-light-stockpile.png`
 - **Slide:** "Continuous integration is a practice, not a system"
 - **Placement:** right half; the slide's one-liner is the caption
 - **Prompt:** A towering mountain of stacked crates inside a warehouse

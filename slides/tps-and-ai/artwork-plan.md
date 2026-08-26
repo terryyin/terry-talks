@@ -160,11 +160,12 @@ Generated G11 as the square `public/thin-vertical-slice.png` and placed
 it beside the pull sequence on **Pull, don't stockpile**. Targeted
 typecheck, deck build, and rendered slide inspection passed.
 
-### S16 — Behavior — planned
+### S16 — Behavior — done
 
-Generate G12 (green light on a stockpile, 4:3; accent is green, not
-vermilion); insert on **Continuous integration is a practice, not a
-system**, right half. The one-liner is the caption.
+Generated G12 as the 4:3 `public/green-light-stockpile.png`, with green
+as the sole accent, and placed it on the right half of **Continuous
+integration is a practice, not a system**. The one-liner remains the
+caption. Targeted typecheck, deck build, and rendered inspection passed.
 
 ### S17 — Behavior — planned
 
