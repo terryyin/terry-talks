@@ -1,7 +1,8 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Items 1–6 done; next is 7.
+[Claim 13](13-doughnut-project-examples.md). Items 1–7 done; last is 8
+(read-through, clearance list, delete this NOTES).
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor
@@ -117,23 +118,19 @@ Preferred tests from latest harness: (1) RecallPromptAnswerControllerTest
 `makeMe` + persist GOOD recall log; (2) note_edit persist-after-reload
 E2E; (3) counter AiNoteAutomationServiceExtractRequestTest mock forest.
 
-### 6 — Behavior — planned
+### 6 — Behavior — done
 
-Latest harness config for the gates (no-commit-on-red hook, execute-plan
-Jidoka — e.g. Jidoka-stop trail in recent doughnut commit messages) plus
-one episode where the same stop bound a person and an agent, or the
-counter (someone/something tempted to delete a failing test). 1–2
-examples. Target slide: *The gates do not care who authored the change*
-(takeaway 4).
+(1) Jidoka-stop `0b56ebc81a` → person `a24d4141b2` → Cursor
+`f078923b63` (same stop, both sides); (2) harness: pre-commit is
+format-only; no-commit-on-red/Jidoka live in planning.mdc and
+execute-plan. Counter `a2060f1d70` also-considered.
 
-### 7 — Behavior — planned
+### 7 — Behavior — done
 
-One best Go-See failure — wrong context, misleading tool call, rule
-that did not fire, or permission failure — from doughnut harness docs,
-plan notes, or logs. If the artifacts cannot show one, record a
-concrete question for Terry instead of forcing a weak example. Target
-slide: *Go-See may mean entering the AI harness*. Use: the single
-story making genchi genbutsu concrete.
+Go-See: 2026-07-24 worktree `git commit` succeeded while pre-commit
+`$HOOK_DIR/../..` wrote the main checkout (empty or wrong tree). Fix
+`1c696d455d`. Item 6's `0b56ebc81a` is a correct stop, not this
+failure.
 
 ### 8 — Behavior — planned
 
