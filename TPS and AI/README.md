@@ -30,7 +30,7 @@ evidence backlog.
 7. [The Algorithm has a TPS family resemblance; it is not a proven extension of TPS](claims/07-the-algorithm-and-tps-family-resemblance.md)
 8. [Technical excellence enables JIT coordination in LeSS](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
 9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md)
-10. [Freedom and trust can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
+10. [Freedom and entrustment can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
 11. [Software mixes production and discovery inside a product that is also the process](claims/11-physical-production-and-software-differences.md)
 12. [Respect for People cultivates people who can think](claims/12-respect-for-people-who-can-think.md)
 13. [Doughnut project as an evidence backlog for other claims](claims/13-doughnut-project-examples.md)

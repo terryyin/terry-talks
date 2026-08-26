@@ -1,30 +1,28 @@
-# Claim 10: Freedom and trust can reinforce one another through jidoka
+# Claim 10: Freedom and entrustment can reinforce one another through jidoka
 
-**Status: Provisional — theme is Freedom and Trust; early-talk slogan
-recorded; matching story still open**
+**Status: Provisional — theme is Freedom and Entrustment; early-talk
+slogan recorded; matching story still open**
 
 ## Claim
 
-> **The relationship is freedom and trust.** They are not literal
-> opposites, but organizations can mistakenly treat them as a tradeoff:
-> freedom without shared purpose, capability, and evidence can look like
-> unbounded risk, while seeking assurance through coercive control reduces
-> freedom without necessarily producing trustworthy outcomes. Jidoka's
-> closed stops make known harm visible and stoppable. Technical excellence
-> makes responsible response visible. Together they let teams use freedom
-> well and give the organization reason to **entrust** the next important
-> need. Repeated responsible response deepens mutual trust under Respect
-> for People.
+> **The polarity is freedom and entrustment.** They are not literal
+> opposites, but organizations mistakenly treat them as a tradeoff: to
+> hand over important work, it seems you must constrain people in
+> advance; to give real freedom, it seems you cannot hand over the work
+> that matters. Jidoka's enabling constraints make freedom responsible,
+> so the organization can **entrust** a capable response to real need.
+> Visible, responsible use of that freedom makes entrustment warranted.
+> Mutual trust sits under Respect for People.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has the
-sequence: jidoka **frees**, JIT **entrusts**, and mutual trust grows
-under Respect for People. Entrustment is the action inside the loop,
-not its other pole. Coercive control is the false resolution when the
-organization seeks trust by removing freedom. [Claim
+triad: jidoka **frees**, JIT **entrusts**. Mutual trust is the
+relationship that grows when that polarity is held, not the other pole.
+Coercive control is the false resolution when the organization cannot
+hold both. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) already
 has bounded self-management and the technical precondition. This claim
-is the **talk theme**: how freedom and trust can reinforce each other,
-and how visible capability lets consequential work be entrusted.
+is the **talk theme**: how freedom and entrustment can live together,
+and how that earns mutual trust.
 
 The loop is **R2** in the draft causal loop diagram of how TPS reasoning
 can inspire LeSS+AI: [Claim
@@ -66,22 +64,22 @@ authority, or become an instrument for monitoring and blame. [Claim
 16](16-go-see-ai-harness.md) already warns that the same signal can
 become surveillance.
 
-### Jidoka supplies closed stops
+### Jidoka supplies enabling constraints
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has
 **frees by empowering**. [Claim 6](06-jidoka-embeds-routine-judgment.md)
 owns where that judgment lives: previously learned judgment becomes a
 closed stop (**dumb**) or is designed out (**gone**), so adaptive
 attention is free for what is still **smart**. This claim adds the human
-meaning of that stop:
+meaning of that constraint:
 
-> **Stop what is already known to be abnormal so that people have
+> **Constrain what is already known to be abnormal so that people have
 > more freedom and attention for what is not yet known.**
 
 That freedom is substantive only when people retain the information,
 time, skill, and authority to respond. A noisy alarm people cannot
 safely act on creates burden. Who owns and can change an automated
-stop: **collective ownership**. A gate is enabling when the people
+constraint: **collective ownership**. A gate is enabling when the people
 who hit it can understand, change, and improve it, with the test as
 shared evidence. A gate is coercive when only a remote specialist can
 change it, or when it is used to rank, monitor, or punish. Automation
@@ -190,16 +188,15 @@ outsourced: people who can think.
 ## Implication for the talk
 
 > **Freedom without trustworthy capability becomes risk. Control without
-> freedom becomes compliance. Jidoka turns learned judgment into closed
-> stops, giving people room to handle novelty while making known
+> freedom becomes compliance. Jidoka turns learned judgment into enabling
+> constraints, giving people room to handle novelty while making known
 > harm visible and stoppable.**
 
 Early-talk slogan (one of the first slides):
 
 > **How do you know if the organization is using AI right?**
 >
-> **If the teams are getting less constrained by what they built, not
-> more.**
+> If the teams are more freed than constrained by what they built.
 
 That means less leftover ownership, less WIP, more ability to take the
 next highest-value item and acquire the knowledge it needs.
@@ -207,21 +204,19 @@ next highest-value item and acquire the knowledge it needs.
 Memorable close:
 
 > **Encode the known. Stop the abnormal. Free people to learn. Entrust a
-> capable response to real need. Let visible capability deepen mutual
+> capable response to real need. Let visible capability earn mutual
 > trust.**
 
-The theme is **Freedom and Trust**. Entrustment is the action inside the
-loop: free people to respond, **entrust** real need, and deepen mutual
-trust.
+The theme is **Freedom and Entrustment**. Close with that triad: free,
+**entrust**, earn mutual trust.
 
 The strongest version of the theme is not that TPS resolves freedom and
-trust once and for all:
+entrustment once and for all:
 
-> **TPS offers a system-design lens: continually convert learning into
-> closed stops that make greater freedom responsible, use that freedom
-> to produce the next learning, and let repeated visible capability
-> deepen mutual trust—so the next important need can be entrusted without
-> coercive control.**
+> **TPS shows how a system can continually convert learning into
+> constraints that make greater freedom responsible—and use that freedom
+> to produce the next learning on which deeper entrustment, and then
+> mutual trust, can rest.**
 
 ## Questions still open
 

@@ -6,18 +6,18 @@ future discussion, not a set of conclusions.
 ## Talk framing
 
 - What is the exact title for the Tokyo LeSS Conference talk? Working
-  answer: **Freedom and Trust**, subtitle **TPS Reasoning for
-  AI-Augmented LeSS**. The theme matches
+  answer: **Freedom and Entrustment**, subtitle **What AI-Augmented
+  Development and LeSS Can Learn from the TPS**. The theme matches
   [Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md).
   The early-talk slogan (*How do you know if the organization is using
-  AI right? If the teams are getting less constrained by what they
-  built, not more.*) is one leading page, not the title. **Constrained**
+  AI right? If the teams are more freed than constrained by what they
+  built.*) is one leading page, not the title. **Constrained**
   means leftover ownership, unfinished and judgment-dependent work, and
   inability to take the next highest-value item.
 - What is the promised audience takeaway? Working answer: drafted as
-  four takeaways plus the “Same gates for I and AI” rule in
+  the five-point takeaway list in
   [Main theme and stage setting](main-theme-and-stage-setting.md),
-  closed by the Freedom and Trust loop.
+  closed by the Freedom and Entrustment triad.
 - Is the talk primarily about applying TPS philosophy to AI-augmented software,
   or about using the contrast with TPS to expose what is newly difficult?
   Working answer: as in the subtitle. Not applying TPS to software, but
@@ -46,7 +46,7 @@ future discussion, not a set of conclusions.
   Working answer: a **supporting argument**, not the thesis. Use it on
   the jidoka / preserve-knowledge slide. [Claim
   6](claims/06-jidoka-embeds-routine-judgment.md) owns the beat. The
-  thesis remains Freedom and Trust
+  thesis remains Freedom and Entrustment
   ([Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)).
 - In AI-augmented development, where does the bottleneck actually move: problem
   selection, specification, verification, integration, deployment, learning,

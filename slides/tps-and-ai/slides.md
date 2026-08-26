@@ -1,9 +1,10 @@
 ---
 theme: ../../themes/odd-e
 layout: cover
-title: What AI-Augmented Development Can Learn from the Toyota Production System
+title: Freedom and Entrustment
 info: |
-  ## What AI-Augmented Development Can Learn from the Toyota Production System
+  ## Freedom and Entrustment
+  What AI-Augmented Development and LeSS Can Learn from the TPS
   Terry Yin, Odd-e — Tokyo LeSS Conference
 class: text-center
 transition: slide-left
@@ -11,7 +12,9 @@ mdc: true
 colorSchema: light
 ---
 
-# What AI-Augmented Development Can Learn from the Toyota Production System
+# Freedom and Entrustment
+
+What AI-Augmented Development and LeSS Can Learn from the TPS
 
 Terry Yin · Odd-e
 

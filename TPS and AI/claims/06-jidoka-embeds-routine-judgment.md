@@ -195,7 +195,7 @@ may not dissolve that stop, and it may not take the five.
 > **Generation is cheap; judgment is expensive** is a supporting
 > argument for this jidoka cluster, not the talk's central thesis.
 > [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md) owns
-> Freedom and Trust.
+> Freedom and Entrustment.
 
 Cheap generation does not move the bottleneck to a later pipeline
 stage—problem selection, specification, verification, integration,

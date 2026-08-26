@@ -153,14 +153,14 @@ gone** is this loop, not a one-time cleanup.
 Runs backward when detectors stay smart: every check still needs a
 thinker, so encoded jidoka never rises and attention never returns.
 
-### R2 — Freedom and trust
+### R2 — Freedom and entrustment
 
 **Adaptive attention → Capability to respond → Warranted trust → (−)
 Coercive control → Pull from actual need → Capability to respond**
 
 [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)'s proposed
-loop, drawn as a cycle. The theme is **freedom and trust**; entrustment
-is the action inside the loop (jidoka frees, JIT entrusts). Mutual
+loop, drawn as a cycle. The theme is **freedom and entrustment**
+(jidoka frees, JIT entrusts). Mutual
 **warranted trust** sits under
 Respect for People; in this diagram it is the evidence that makes
 entrustment social. Jidoka and technical excellence create room so a
