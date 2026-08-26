@@ -47,7 +47,10 @@ evidence backlog.
 24. [A warning left visible after triage is unpaid judgment; keep the interrupt channel quiet](claims/24-warnings-as-stop-no-news-is-good-news.md)
 
 Questions that cut across the claims are collected in
-[Open questions](open-questions.md).
+[Open questions](open-questions.md). The talk's theme, framing, and
+draft takeaway list are in
+[Main theme and stage setting](main-theme-and-stage-setting.md); the
+claims are the workshop behind that talk, not its outline.
 
 ## Working method
 

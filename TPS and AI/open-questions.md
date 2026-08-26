@@ -12,7 +12,10 @@ future discussion, not a set of conclusions.
   The early-talk slogan (*How do you know if the organization is using
   AI right? If the teams are more freed than constrained by what they
   built.*) is one leading page, not the title.
-- What is the promised audience takeaway?
+- What is the promised audience takeaway? Working answer: drafted as
+  the five-point takeaway list in
+  [Main theme and stage setting](main-theme-and-stage-setting.md),
+  closed by the Freedom and Entrustment triad.
 - Is the talk primarily about applying TPS philosophy to AI-augmented software,
   or about using the contrast with TPS to expose what is newly difficult?
   Working answer: as in the subtitle. Not applying TPS to software, but
