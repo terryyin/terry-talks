@@ -2,13 +2,13 @@
 
 **Status: Backlog — training weeks located; search scoped to 4+4 tagged
 classes; queue ordered for the Tokyo talk; items 1–2 ranked from
-tagged class weeks (item 1 four AI-era, item 2 four I-era); item 3
-ask-Terry (observation-in-class beats git); item 4 ranked from
-latest-code descent + Claim 24 counter; item 5 ranked from
-latest-code harness (unit + E2E + mock-forest counter); item 6
-ranked from latest-code Jidoka-stop episode + same-gates harness;
-item 7 ranked from latest-code worktree pre-commit hook (wrong tree
-/ misleading commit)**
+tagged class weeks (stage: tools and weeks, no student names);
+item 3 skipped for this talk (git missed stockpile; may return);
+item 4 ranked from latest-code descent + Claim 24 counter; item 5
+ranked from latest-code harness (unit + E2E + mock-forest
+counter); item 6 ranked from latest-code Jidoka-stop episode +
+same-gates harness; item 7 ranked from latest-code worktree
+pre-commit hook (wrong tree / misleading commit)**
 
 ## Role
 
@@ -277,6 +277,10 @@ Index for talk-ready doughnut examples from the later-phase queue
 above. Each entry names the target slide and how the example would
 be used.
 
+**On stage:** do not name students. Naming the tool (Cursor,
+Claude) and the class week is OK. Hashes below are for the
+speaker's notes, not for slides. Terry Yin as coach may be named.
+
 Each entry uses this format:
 
 - **Priority** (1–3 within the item)
@@ -284,8 +288,8 @@ Each entry uses this format:
 - **Source** — tagged week range, or latest code
 - **Slide** — which slide in `slides/tps-and-ai/slides.md`
 - **Use** — spoken beat, bullet, or shown artifact
-- **Clearance** — needs Terry's public-discussability check? (see
-  Questions still open)
+- **Clearance** — public-discussability (see Questions still
+  open)
 
 ### 1. Flagship AI sequence (Claim 8)
 
@@ -302,31 +306,32 @@ commits) added nothing: no Cursor or Claude in messages or trailers.
 #### Priority 1 — Cursor extract-to-child meets Assimilation.vue
 
 - **Priority:** 1
-- **Example:** Brian Zheng, Cursor-coauthored `c2d800a378` (AI-tool
+- **Example:** Cursor-coauthored `c2d800a378` (AI-tool
   infrastructure) → `6f54cc1bd1` (extract-to-child API) →
   `9eb162a918` (E2E mock / type fixes; body records `# Conflicts:
   frontend/src/components/recall/Assimilation.vue`) → `b62b0a183b`
   (stop-and-fix: unused `NoteCreationController` import that failed
   CI lint) → user-visible `0a60a9cbfb` (LoadingModal while creating
-  a child from a checklist point). Same afternoon, Ezra
-  `34e121906e` / `bdc83aaa78` and others also edited
-  `Assimilation.vue`. Most complete chain: named AI, recorded
-  conflict leftover, lint stop, customer-visible increment. Cursor
-  trailers are on the infra/API/conflict/lint commits, not on
-  earlier `f3c7a626fc` (promote point to child).
+  a child from a checklist point). Same afternoon, other authors
+  `34e121906e` / `bdc83aaa78` also edited `Assimilation.vue`. Most
+  complete chain: named AI, recorded conflict leftover, lint stop,
+  customer-visible increment. Cursor trailers are on the
+  infra/API/conflict/lint commits, not on earlier `f3c7a626fc`
+  (promote point to child).
 - **Source:** 2026-01-26 class, activity 2026-01-26–2026-01-31,
   bookmark `8c26f6f321e8..16ab060b448b`
 - **Slide:** *Let the shared product pull collaboration*
 - **Use:** spoken walking takeaway 5 — the flagship sequence
-- **Clearance:** yes — class-week student work (see Questions
-  still open)
+  (tool + week; no student names)
+- **Clearance:** stage-OK without names — tools and week only
+  (2026-08-26)
 
 #### Priority 2 — Claude restores note properties on a shared export
 
 - **Priority:** 2
-- **Example:** Ben Huang `c4f5098c5e` (not AI-named) stripped
-  internal frontmatter from exported note bodies in
-  `NotebookZipBuilder.java`. Next day Eric Yeh, Claude-coauthored
+- **Example:** `c4f5098c5e` (not AI-named) stripped internal
+  frontmatter from exported note bodies in
+  `NotebookZipBuilder.java`. Next day, Claude-coauthored
   `b03ac76f8a` (41 insertions, 4 files) writes the author’s
   property block verbatim so a push after export cannot clear every
   note property. Related mainline on the same zip builder; the AI
@@ -337,24 +342,25 @@ commits) added nothing: no Cursor or Claude in messages or trailers.
 - **Source:** 2026-07-27 class, activity 2026-07-27–2026-08-02,
   bookmark `61e29c666a5c..3cb5c87baba1`
 - **Slide:** *Let the shared product pull collaboration*
-- **Use:** spoken backup beat if January is not discussable — same
-  takeaway 5 on a CLI-class export contract
-- **Clearance:** yes — class-week student work (see Questions
-  still open)
+- **Use:** spoken backup beat if January is not used — same
+  takeaway 5 on a CLI-class export contract (tool + week; no
+  student names)
+- **Clearance:** stage-OK without names — tools and week only
+  (2026-08-26)
 
 #### Priority 3 — Cursor `/sync` pull as generated volume that shipped
 
 - **Priority:** 3
-- **Example:** Joy-kgo, Cursor-coauthored `7b61a5705c` — `/sync`
-  pull of remote note changes in one commit (12 files, 558
-  insertions: `applyPull.ts`, `syncSlashCommand.tsx`, E2E, a
-  1000-note performance check). Lands on CLI files six authors
-  were already sharing that week. Same-day `fce957dd3d` (Cursor)
-  pins `/export` tree/body. User-facing, and it met the shared
-  product, but it never became a small stoppable change. Stronger
-  volume counter than Brian `ba8874c992` (366 lines, 15 files, no
-  integration signal). Same-day Eric Yeh Claude `c657c674ad` then
-  fixes a `/sync` usage-error spinner on that surface.
+- **Example:** Cursor-coauthored `7b61a5705c` — `/sync` pull of
+  remote note changes in one commit (12 files, 558 insertions:
+  `applyPull.ts`, `syncSlashCommand.tsx`, E2E, a 1000-note
+  performance check). Lands on CLI files six authors were already
+  sharing that week. Same-day `fce957dd3d` (Cursor) pins `/export`
+  tree/body. User-facing, and it met the shared product, but it
+  never became a small stoppable change. Stronger volume counter
+  than `ba8874c992` (366 lines, 15 files, no integration signal).
+  Same-day Claude `c657c674ad` then fixes a `/sync` usage-error
+  spinner on that surface.
 - **Source:** 2026-07-27 class, activity 2026-07-27–2026-08-02,
   bookmark `61e29c666a5c..3cb5c87baba1`
 - **Slide:** *If the teams are more freed than constrained by
@@ -363,30 +369,30 @@ commits) added nothing: no Cursor or Claude in messages or trailers.
   product group can absorb it* is the inventory beat)
 - **Use:** spoken callback — generated volume that shipped on a
   shared surface; contrast with Priority 1 (and 2) as small
-  stoppable AI change
-- **Clearance:** yes — class-week student work (see Questions
-  still open)
+  stoppable AI change (tool + week; no student names)
+- **Clearance:** stage-OK without names — tools and week only
+  (2026-08-26)
 
 #### Also considered (hashes for items 3, 6)
 
-- Ian Chen Claude Add on `Assimilation.vue` the same hour:
-  `3490df802d`, later `9a4630b103` (2026-01-26). Same-file
-  collision; stop-and-fix on *this* increment is thin.
-- etta.huang Claude seed of push baseline at export, after Ben
-  Huang’s (not AI-named) conflict labels: `2cda698d4b` →
-  `b13f858a5c` → `8df4357e7a` (2026-07-27). Related mainline on
+- Claude Add on `Assimilation.vue` the same hour: `3490df802d`,
+  later `9a4630b103` (2026-01-26). Same-file collision;
+  stop-and-fix on *this* increment is thin.
+- Claude seed of push baseline at export, after a (not AI-named)
+  conflict-label commit: `2cda698d4b` → `b13f858a5c` →
+  `8df4357e7a` (2026-07-27). Related mainline on
   `pushBaseline.ts`; larger than Priority 2 (212 insertions plus
   a known-issues doc).
-- Eric Yeh Claude `/lint` and other CLI trailers the same week (38
-  total including Priority 2): `24aff39cb8`…`3bce909a92`, plus
+- Claude `/lint` and other CLI trailers the same week (38 total
+  including Priority 2): `24aff39cb8`…`3bce909a92`, plus
   frontend Untitled stop-and-fix `19e427404a`. Many small slices
   (freed pole) but weak collaboration signal — one author grinding
   a CLI.
-- Brian Zheng Cursor volume `ba8874c992` (2026-01-26). Same
-  counter as Priority 3, less integration.
-- choucw045 disable-tests-to-green `a2060f1d70` (re-enable
-  `ee9ca9aa68` / `29712022b1`; nearby `6df4f71aa8`). **Not**
-  AI-assisted; keep for item 6 / Claim 21, not this flagship.
+- Cursor volume `ba8874c992` (2026-01-26). Same counter as
+  Priority 3, less integration.
+- Disable-tests-to-green `a2060f1d70` (re-enable `ee9ca9aa68` /
+  `29712022b1`; nearby `6df4f71aa8`). **Not** AI-assisted; keep
+  for item 6 / Claim 21, not this flagship.
 
 ### 2. Whole Product Focus + CI (Claims 3, 8, 21)
 
@@ -409,228 +415,199 @@ practice is not settled here; 2024-06-03 has Terry Yin at 95 of
 248 commits, 2024-08-19 at 31 of 191. No long-lived
 delayed-mainline branches showed. 2023-11-20 and 2024-08-19 did
 not unseat the 2023-10-30 pair on completeness; their hashes sit
-in also-considered (including a Wärtsilä-external `@skip` week
-that needs extra clearance).
+in also-considered (including a 2024-08-19 `@skip` week with
+in-company externals — not ranked for Tokyo).
 
-#### Priority 1 — Fisher merge meets Leo on FineTuningData.vue
+#### Priority 1 — Two increments merge on FineTuningData.vue
 
 - **Priority:** 1
-- **Example:** Same afternoon, Fisher Chuang `b100b89a1b`
-  (retrieve training-file list on `AiAdvisorService` /
-  `RestAiControllerTrainingFileTest`) and Leo `c4eb78c961`
-  (upload control on
-  `frontend/src/components/admin/FineTuningData.vue`). Fisher
+- **Example:** Same afternoon, `b100b89a1b` (retrieve
+  training-file list on `AiAdvisorService` /
+  `RestAiControllerTrainingFileTest`) and `c4eb78c961` (upload
+  control on `frontend/src/components/admin/FineTuningData.vue`).
   `26db675c54` merges `origin/main` and keeps both increments.
-  The rest of the week Isaac Lu (trigger / file list), Kevin Hou
-  (upload), Leo (upload + OpenAI errors), and LOG
-  (upload-and-training API) keep landing customer-centric admin
-  work on that Vue, `FineTuningService.java`, and the upload
-  feature. Closest I-era picture of integration pulling focused
-  follow-up on one user-facing surface — still authors, not
-  teams.
+  The rest of the week other authors keep landing
+  customer-centric admin work on that Vue,
+  `FineTuningService.java`, and the upload feature (trigger /
+  file list, upload, OpenAI errors, upload-and-training API).
+  Closest I-era picture of integration pulling focused follow-up
+  on one user-facing surface — still authors, not teams.
 - **Source:** 2023-10-30 class, activity 2023-10-31–2023-11-05,
   bookmark `aaff641177a2..3d44c24c3b0c`
 - **Slide:** *Let the shared product pull collaboration*
 - **Use:** spoken beat — shared product pulls the next people;
   Whole Product Focus as the reason the collision is useful
-- **Clearance:** yes — class-week student work (see Questions
-  still open)
+  (week only; no student names)
+- **Clearance:** stage-OK without names — week only (2026-08-26)
 
 #### Priority 2 — `@ignore` to green, then delete the unused feature
 
 - **Priority:** 2
-- **Example:** Leo `3ad9e439ad` “fix build CI fail” moves
-  `@ignore` to the whole
-  `automate_upload_and_training.feature` (scenarios that had been
-  ignored one-by-one). LOG `21bb04c4d1` later **deletes** that
-  unused feature — the silenced spec never became a working
-  mainline increment. Same week Kevin Hou `fb52a1d1c3` /
+- **Example:** `3ad9e439ad` “fix build CI fail” moves `@ignore`
+  to the whole `automate_upload_and_training.feature` (scenarios
+  that had been ignored one-by-one). `21bb04c4d1` later
+  **deletes** that unused feature — the silenced spec never
+  became a working mainline increment. Same week `fb52a1d1c3` /
   `c807891a29` “workaround to fix CI” toggles `@ignore` on the
   upload-success scenario, and `fe73c87971` “ignore to prepare
   for frontend implementation” parks more of
   `upload_fine_tuning_data.feature`. By the week’s newest
-  bookmark that upload file has no `@ignore` (LOG and others
-  implemented the OpenAI responses). Green pipeline by silencing
-  E2E, then either implement or throw the spec away. Primitive
-  stop; the service staying green is not the practice.
+  bookmark that upload file has no `@ignore` (others implemented
+  the OpenAI responses). Green pipeline by silencing E2E, then
+  either implement or throw the spec away. Primitive stop; the
+  service staying green is not the practice.
 - **Source:** 2023-10-30 class, activity 2023-10-31–2023-11-05,
   bookmark `aaff641177a2..3d44c24c3b0c`
 - **Slide:** *Continuous integration is a practice, not a system*
 - **Use:** spoken counter — always-green by `@ignore` is not CI;
-  contrast with Priority 1 if that merge is discussable
-- **Clearance:** yes — class-week student work (see Questions
-  still open)
+  contrast with Priority 1 (week only; no student names)
+- **Clearance:** stage-OK without names — week only (2026-08-26)
 
-#### Priority 3 — KJ offline generate meets nivraman online on RestAssessmentController
+#### Priority 3 — Offline generate meets online on RestAssessmentController
 
 - **Priority:** 3
-- **Example:** KJ `000fa9e1c3` starts generate-assessment;
+- **Example:** `000fa9e1c3` starts generate-assessment;
   `13736eccb7` returns an empty list when the notebook has fewer
-  than five notes. An hour later nivraman `3e0add90f0` “fix merge”
-  on `RestAssessmentController.java` keeps a 500 throw instead of
+  than five notes. An hour later `3e0add90f0` “fix merge” on
+  `RestAssessmentController.java` keeps a 500 throw instead of
   the empty list, then `93564956bd` adds generate **online**
   assessment questions on that controller. On the bazaar UI the
-  same afternoon Teh O Beng (offline generate button / page) and
-  Kewen, Tan `9413d0074c` (move start-assessment onto
-  `BazaarNotebookButtons.vue`) share the entry point; KJ is on
-  that Vue too. Two customer-centric assessment slices meeting
-  in one controller and one button file. Completeness is below
-  Priority 1 (the merge keeps a 500 rather than both increments
-  landing). Terry Yin `6c71201c33` “merge on and offline” later
-  that week (2024-06-09) consolidates the streams — that later
-  commit is coach/training-design more than a transferable
-  student practice (do not overclaim it as cross-team CI).
+  same afternoon an offline generate button/page and
+  `9413d0074c` (move start-assessment onto
+  `BazaarNotebookButtons.vue`) share the entry point. Two
+  customer-centric assessment slices meeting in one controller
+  and one button file. Completeness is below Priority 1 (the
+  merge keeps a 500 rather than both increments landing). Terry
+  Yin `6c71201c33` “merge on and offline” later that week
+  (2024-06-09) consolidates the streams — that later commit is
+  coach/training-design more than a transferable student
+  practice (do not overclaim it as cross-team CI).
 - **Source:** 2024-06-03 class, activity 2024-06-03–2024-06-09,
   bookmark `aac607b1dd60..8233f639fc20`
 - **Slide:** *Let the shared product pull collaboration*
-- **Use:** spoken backup if 2023 FineTuningData is not
-  discussable — interdependent assessment work pulled a merge
-  fix
-- **Clearance:** yes — class-week student work (see Questions
-  still open)
+- **Use:** spoken backup if the 2023 FineTuningData week is not
+  used — interdependent assessment work pulled a merge fix
+  (week only; no student names)
+- **Clearance:** stage-OK without names — week only (2026-08-26)
 
 #### Also considered (hashes for item 3, item 6, Claim 21 backup)
 
-- 2024-08-19 `@skip` to green (Claim 21 backup; Wärtsilä
-  external authors — extra clearance): Pasi Honkanen
-  `396412bb0e` / `1d4b875f4b` “Skipping the failing test” /
-  “Added the skip tag” on
+- 2024-08-19 `@skip` to green (Claim 21 backup; in-company
+  external class — not ranked): `396412bb0e` / `1d4b875f4b`
+  “Skipping the failing test” / “Added the skip tag” on
   `certificate_default_expiration.feature`; `1ad38c0171`
   un-skips two scenarios and `@skip`s a `@wip` one on
-  `certificate_expiration.feature`. Ståhlström `eafd8de2c9`
-  “fix: skip test” on `notebook_questions.feature`. Mainline
-  kept moving; the stop was skip, not a product conversation.
-  Weaker than Priority 2: the silenced specs were later
-  implemented or coach-rewritten (Terry cleanup 2024-08-24–
-  2024-08-25), not thrown away. Same primitive-stop shape as
-  Teh O Beng `b660072471` → `6f92fbc440` `@ignore` then
-  `@usingMockedOpenAiService` (2024-06-03).
-- 2024-08-19 cross-author expiry oscillation: Ståhlström
-  `f57421c98c` “use the expiry date in the certificate” →
-  `203414ef9e` reverts it; Pasi `84e65039d9` reapplies, then
-  `304e268059` uses the setting in `CertificatePopup.vue`.
-  Stronger than nivraman `12685f65cf` / `9fa469bb66` /
-  `645a796d5f` approved-column revert/re-add (2024-06-03, same
-  author) — still interruption more than two items advancing.
-- 2023-11-20 two-story merge (weaker positive): VRR
-  `cd6e3c031e` merges `origin/main` keeping VRR `79c84ede07`
-  (clarifying-questions feature) and kirrousel `d370aaa2f8`
+  `certificate_expiration.feature`. `eafd8de2c9` “fix: skip
+  test” on `notebook_questions.feature`. Mainline kept moving;
+  the stop was skip, not a product conversation. Weaker than
+  Priority 2: the silenced specs were later implemented or
+  coach-rewritten (Terry cleanup 2024-08-24–2024-08-25), not
+  thrown away. Same primitive-stop shape as `b660072471` →
+  `6f92fbc440` `@ignore` then `@usingMockedOpenAiService`
+  (2024-06-03).
+- 2024-08-19 cross-author expiry oscillation: `f57421c98c`
+  “use the expiry date in the certificate” → `203414ef9e`
+  reverts it; `84e65039d9` reapplies, then `304e268059` uses
+  the setting in `CertificatePopup.vue`. Stronger than
+  `12685f65cf` / `9fa469bb66` / `645a796d5f` approved-column
+  revert/re-add (2024-06-03, same author) — still interruption
+  more than two items advancing.
+- 2023-11-20 two-story merge (weaker positive): `cd6e3c031e`
+  merges `origin/main` keeping `79c84ede07`
+  (clarifying-questions feature) and `d370aaa2f8`
   (refine-note-details feature). Spec files meeting, not a
   working-increment collision like Priority 1. Same week
   `RichHtmlEditor.vue` / `AiAdvisorService.java` take both
-  streams (kirrousel, Marija, Wolfgang, Goran, Johannes,
-  deko96).
-- Item 3 stockpile: andreas `20ea977a2c` “hardening: removing
-  feature file for a future story”
+  streams.
+- Item 3 stockpile pointers (parked for this talk): `20ea977a2c`
+  “hardening: removing feature file for a future story”
   (`note_topic_inline_autocompletion.feature`, 2023-11-20).
-  Alex Schwartz `ab26ff36ba` first scenario `@ignored`, then
-  `d1ae53129b` revert of a rename — parked spec, not a vertical
-  slice yet.
+  `ab26ff36ba` first scenario `@ignored`, then `d1ae53129b`
+  revert of a rename — parked spec, not a vertical slice yet.
 - Item 6 gates (skip/ignore to proceed): the `@skip`/`@ignore`
-  hashes above, plus andreas `80a0c8ce53` `@ignore` on
+  hashes above, plus `80a0c8ce53` `@ignore` on
   details-autocompletion (later implemented; week-end bookmark
   has `@usingMockedOpenAiService` only). Later-era, **not**
-  I-era evidence: choucw045 disable-tests-to-green `a2060f1d70`
+  I-era evidence: disable-tests-to-green `a2060f1d70`
   (re-enable `ee9ca9aa68` / `29712022b1`; nearby `6df4f71aa8`).
-- Genuine CI whose stop was still primitive (2023-10-30): Leo
-  `f221aa45ed` “format code for pass CI”; Isaac Lu `636ac268a3`
-  “Fix Lint Error on CI”; LOG `d46cb75145` / `9b67839fc7` /
-  `a765f72b96` and Kevin `ec8eb0557c` “fix ci”. Kevin Hou
-  overlapping-spec reverts `d21ce59429`, `ad3ecc7cfb`; Isaac Lu
-  `491019a99f` → `36419eb786` mock revert then retrieve-on-button.
-  2024-06-03 Tapas `696a17cc8c` merge — two-line test conflict.
-  2024-08-19 Ville Häsä `a39888e72e` “fix merge conflict”
-  (not a merge commit; adds approval-list scenarios) and
-  Ståhlström `25234bc442` “fix conflict” (four lines in
-  `certificates.ts`).
+- Genuine CI whose stop was still primitive (2023-10-30):
+  `f221aa45ed` “format code for pass CI”; `636ac268a3` “Fix
+  Lint Error on CI”; `d46cb75145` / `9b67839fc7` /
+  `a765f72b96` and `ec8eb0557c` “fix ci”. Overlapping-spec
+  reverts `d21ce59429`, `ad3ecc7cfb`; `491019a99f` →
+  `36419eb786` mock revert then retrieve-on-button.
+  2024-06-03 `696a17cc8c` merge — two-line test conflict.
+  2024-08-19 `a39888e72e` “fix merge conflict” (not a merge
+  commit; adds approval-list scenarios) and `25234bc442`
+  “fix conflict” (four lines in `certificates.ts`).
 
 ### 3. Bottom-up batch vs slice (Claim 17)
 
-Reused item 1–2 hashes only (no new week scan). Followed **one
-user's** file order on the Item 3 pointers and on the
-FineTuningData / extract-to-child sequences already in this
-index. Git has no team membership: week ranges identify class
-weeks, not teams.
+**Skipped for this talk** (2026-08-26). Git from the tagged weeks
+shows parked `@ignore` specs and same-story layering, not one
+person stockpiling infra before a user-visible increment. Terry
+may return with a remembered class episode; until then *Pull,
+don't stockpile* has no doughnut example.
 
-**Observation-in-class beats git here.** The look-for is one
-person who stockpiled infra or component work before a
-user-visible increment, despite the one-piece-flow instruction —
-plus a nearby end-to-end slice and healthy parallel flow in the
-same week so the example does not teach “only one thing at a time
-in the whole class.” What git shows is parked specs and
-same-story layering, not that pattern. Do not force a talk story
-from these hashes.
+Reused item 1–2 hashes only (no new week scan). Week ranges
+identify classes, not teams.
 
-#### Why the pointers are not the look-for
+#### Why git did not fill this item
 
-- **Parked specs, not layer-first infra.** andreas `20ea977a2c`
+- **Parked specs, not layer-first infra.** `20ea977a2c`
   (2023-11-24) deletes
   `note_topic_inline_autocompletion.feature` “for a future story”
-  — throwing away a queued spec, not landing unused backend. Alex
-  Schwartz `ab26ff36ba` first scenario `@ignored` on
+  — throwing away a queued spec, not landing unused backend.
+  `ab26ff36ba` first scenario `@ignored` on
   `note_details_inline_autocompletion.feature`, then
-  `d1ae53129b` revert of a rename. Kevin Hou `fe73c87971`
-  “ignore to prepare for frontend implementation” parks two
-  scenarios on `upload_fine_tuning_data.feature` *after* he had
+  `d1ae53129b` revert of a rename. `fe73c87971` “ignore to
+  prepare for frontend implementation” parks two scenarios on
+  `upload_fine_tuning_data.feature` *after* that author had
   already been editing `FineTuningData.vue` (`3445b28d60`,
   `58f766a17f`).
-- **Vertical-ish, not bottom-up.** Brian Zheng `f3c7a626fc`
-  (2026-01-27) is user-facing `Assimilation.vue` + E2E first; the
-  next day's Cursor `c2d800a378` → `6f54cc1bd1` → `9eb162a918` is
-  AI tool / API / Vue for the same extract-to-child bite, not
-  unused inventory. `4d6841b2ef` LoadingModal then `0a60a9cbfb`
-  is extract-a-component inside that bite.
-- **Volume is not stockpile.** Brian `ba8874c992` and Joy-kgo
-  `7b61a5705c` dump many layers in one commit; that is generated
-  volume, not infra queued then later made user-visible.
-- **One author stayed on the API.** Fisher Chuang's
-  FineTuningData-week commits (`6a319f1825` … `e02d74ca62`) are
-  `RestAiController` / `AiAdvisorService` / tests (plus one
-  generated TS types file). He never follows with his own Vue
-  increment, so git cannot show “this person stockpiled, then
-  later shipped UI.” Item 2 already uses Fisher `b100b89a1b` +
-  Leo `c4eb78c961` + merge `26db675c54` as integration on one
-  surface, not as a batch queue.
-- **Hidden-then-unveil is still not infra.** Alex `6c50a4a466`
+- **Vertical-ish, not bottom-up.** `f3c7a626fc` (2026-01-27) is
+  user-facing `Assimilation.vue` + E2E first; the next day's
+  Cursor `c2d800a378` → `6f54cc1bd1` → `9eb162a918` is AI tool /
+  API / Vue for the same extract-to-child bite, not unused
+  inventory. `4d6841b2ef` LoadingModal then `0a60a9cbfb` is
+  extract-a-component inside that bite.
+- **Volume is not stockpile.** `ba8874c992` and `7b61a5705c`
+  dump many layers in one commit; that is generated volume, not
+  infra queued then later made user-visible.
+- **One author stayed on the API.** FineTuningData-week commits
+  `6a319f1825` … `e02d74ca62` are `RestAiController` /
+  `AiAdvisorService` / tests (plus one generated TS types file).
+  That author never follows with their own Vue increment, so git
+  cannot show “this person stockpiled, then later shipped UI.”
+  Item 2 already uses `b100b89a1b` + `c4eb78c961` + merge
+  `26db675c54` as integration on one surface, not as a batch
+  queue.
+- **Hidden-then-unveil is still not infra.** `6c50a4a466`
   “launching … by removing the easter egg” on
   `RichHtmlEditor.vue` (2023-11-23) gates a user-facing editor,
   not a backend stockpile.
 
 #### Contrast already on the index (not a second hunt)
 
-Same week as Kevin's `@ignore`: Leo `c4eb78c961` lands upload on
-`FineTuningData.vue` the afternoon of 2023-10-31; Fisher
-`26db675c54` merges both increments. Isaac Lu, Kevin Hou, Leo,
-and LOG keep landing customer-centric admin work on that Vue and
+Same week as the `@ignore` counter: `c4eb78c961` lands upload on
+`FineTuningData.vue` the afternoon of 2023-10-31; `26db675c54`
+merges both increments. Several authors keep landing
+customer-centric admin work on that Vue and
 `FineTuningService.java` (item 2 Priority 1). That is the healthy
 parallel-flow contrast — several people, several in-progress
 slices.
 
-#### Priority — none ranked
+#### Priority — none ranked (parked)
 
-- **Priority:** none ranked — git does not show the look-for
-- **Example:** observation-in-class; hashes above are parked
-  specs, same-story layering, or volume, not one person
-  stockpiling infra before a user-visible increment
+- **Priority:** none ranked — skipped for Tokyo this pass
+- **Example:** observation-in-class if Terry returns; hashes
+  above are parked specs, same-story layering, or volume
 - **Source:** reused 2023-10-30 (`aaff641177a2..3d44c24c3b0c`),
   2023-11-20 (`79d2cf5a2c8b..ff302653b8ad`), and 2026-01-26
   (`8c26f6f321e8..16ab060b448b`) hashes from items 1–2
 - **Slide:** *Pull, don't stockpile*
-- **Use:** not for stage until Terry names a class episode; if
-  the limit must be spoken, git shows parked `@ignore` specs,
-  not queued layers
-- **Clearance:** class-week student work unless noted
-
-#### Ask Terry
-
-In a tagged class, who (if anyone) built backend, API, or a
-shared component *before* any user-visible increment of that
-story, despite the one-piece-flow instruction? Name the person
-and the story (even if the week is already in this index). Git
-will not show team membership or the coaching conversation; a
-remembered episode beats these hashes. Nearby contrast to keep:
-FineTuningData week (2023-10-30) already has several authors
-in-progress on one user-facing surface.
+- **Use:** not for stage this talk
+- **Clearance:** n/a — no ranked example
 
 ### 4. Judgment descent (Claims 6, 20, 24)
 
@@ -980,15 +957,15 @@ both “I” and AI read.
   following implementation in that trail, so the arc is
   incomplete compared with Priority 1.
 - **Disable tests to green (class-week counter, not
-  AI-assisted):** choucw045 `a2060f1d70` “disabled 2 backend
-  tests to pass the pipeline” (2025-01-08); re-enable
-  `ee9ca9aa68` / `29712022b1`; nearby `6df4f71aa8`. AI-era
-  class week 2025-01-06. Tempted to disable the stop to proceed —
-  the opposite of Priority 1. Same hashes as item 1 / item 2
+  AI-assisted):** `a2060f1d70` “disabled 2 backend tests to pass
+  the pipeline” (2025-01-08); re-enable `ee9ca9aa68` /
+  `29712022b1`; nearby `6df4f71aa8`. AI-era class week
+  2025-01-06. Tempted to disable the stop to proceed — the
+  opposite of Priority 1. Same hashes as item 1 / item 2
   also-considered.
-- **I-era `@ignore`/`@skip`:** item 2 Priority 2 Leo
-  `3ad9e439ad` and also-considered Pasi/Ståhlström `@skip`
-  hashes. Primitive stop; not a second ranked counter here.
+- **I-era `@ignore`/`@skip`:** item 2 Priority 2 `3ad9e439ad`
+  and also-considered `@skip` hashes. Primitive stop; not a
+  second ranked counter here.
 
 ### 7. Go-See harness failure (Claim 16)
 
@@ -1073,32 +1050,15 @@ stays a backlog and an index, not a second lecture.
 
 ## Questions still open
 
-- Which of the tagged weeks are discussable in a public talk?
-- **Clearance list** — ranked examples whose Clearance is yes
-  (class-week student work). Project-owned harness examples
-  (Clearance: no) are not listed. Item 3 has none ranked.
-  - Item 1 Priority 1 — Cursor extract-to-child meets
-    Assimilation.vue — week 2026-01-26
-  - Item 1 Priority 2 — Claude restores note properties on a
-    shared export — week 2026-07-27
-  - Item 1 Priority 3 — Cursor `/sync` pull as generated volume
-    that shipped — week 2026-07-27
-  - Item 2 Priority 1 — Fisher merge meets Leo on
-    FineTuningData.vue — week 2023-10-30
-  - Item 2 Priority 2 — `@ignore` to green, then delete the unused
-    feature — week 2023-10-30
-  - Item 2 Priority 3 — KJ offline generate meets nivraman online
-    on RestAssessmentController — week 2024-06-03
+- **Stage naming (settled 2026-08-26):** do not name students;
+  tools (Cursor, Claude) and class weeks are OK. Ranked items
+  1–2 are cleared under that rule. Items 4–7 are project-owned
+  harness (no student names).
 - Is the week of 2025-02-17 a class (5 other emails; smallest AI-era
   hit) or a smaller session to drop? It is not in the search set.
-- Item 3 (Claim 17 / *Pull, don't stockpile*): git from the tagged
-  weeks shows parked `@ignore` specs and same-story layering, not
-  one person stockpiling infra before a user-visible increment. In
-  a tagged class, who (if anyone) built backend, API, or a shared
-  component before any user-visible increment of that story,
-  despite the one-piece-flow instruction? Name the person and the
-  story. FineTuningData week (2023-10-30) already supplies the
-  parallel-flow contrast.
+- Item 3 (*Pull, don't stockpile*) — skipped for this talk.
+  Git did not show a stockpile-vs-slice episode. Return later
+  if a remembered class story shows up.
 
 ## Sources consulted
 
@@ -1111,7 +1071,7 @@ item 2 ranked with 2023-11-20 and 2024-08-19 2026-08-26
 (author-date windows; merge/CI-fix/`@ignore`/`@skip`/cross-author
 files). Item 3 reused those hashes 2026-08-26 (one-author file
 order on named commits; no new week scan): parked specs, not
-layer-first infra; observation-in-class beats git. Item 4 from
+layer-first infra; skipped for this talk (Terry may return). Item 4 from
 latest doughnut HEAD `e683b74615` 2026-08-26 (CI
 `Backend-unit-tests` + `git log --follow` on regression/fail-CI
 tests; DTO `@Pattern` / Quiz spelling-vs-MCQ UI /
@@ -1143,11 +1103,10 @@ permission text and execute-plan nested-skip skill not ranked).
 Ranked: (1) worktree pre-commit wrote the wrong tree.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
-for the Tokyo talk. Items 1–2 ranked from tagged class weeks (item 1
-four AI-era, item 2 four I-era). Item 3 ask-Terry
-(observation-in-class beats git). Item 4 ranked from latest-code
-descent + Claim 24 counter. Item 5 ranked from latest-code harness
-(unit + E2E + mock-forest counter). Item 6 ranked from latest-code
-Jidoka-stop episode + same-gates harness. Item 7 ranked from
-latest-code worktree pre-commit hook (wrong tree / misleading
-commit).**
+for the Tokyo talk. Items 1–2 ranked from tagged class weeks (stage:
+tools and weeks, no student names). Item 3 skipped for this talk.
+Item 4 ranked from latest-code descent + Claim 24 counter. Item 5
+ranked from latest-code harness (unit + E2E + mock-forest counter).
+Item 6 ranked from latest-code Jidoka-stop episode + same-gates
+harness. Item 7 ranked from latest-code worktree pre-commit hook
+(wrong tree / misleading commit).**
