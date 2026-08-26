@@ -1,140 +1,98 @@
-# Claim 24: A leftover warning is unpaid judgment; spend it now so “no news” can mean good news
+# Claim 24: A warning left visible after triage is unpaid judgment; keep the interrupt channel quiet
 
-**Status: Provisional — hypothesis recorded; factory warning devices
-distinguished from skippable software warnings; doughnut episode
-queued**
+**Status: Provisional — reconciled after research; warning policy narrowed to
+selected diagnostics in owned code; doughnut episode queued**
 
-## Original claim / hypothesis
+## Claim
 
-In software development, keep warnings as errors. A warning should
-trigger Stop & Fix. Warnings are for people (and now AI) to *read*.
-Leaving them accumulates judgment-dependent solutions. The judgment
-should be spent **now**. Excessive warnings and logs also fill an
-AI's (and a person's) context window, which costs tokens. Clean them
-along the way. **“No news is good news”** is the principle.
+> **A warning left visible after triage is unpaid judgment.** For checks the
+> team owns, fix the cause, narrow or remove a poor rule, or record a specific
+> suppression with its reason. Gate the selected diagnostics so a new warning
+> stops integration. Keep the interrupt channel quiet. “No news” is good news
+> only when the check demonstrably ran.
 
-This claim owns the **quiet abnormality channel** in software:
-warnings-as-errors, leftover logs, and the rule that a skippable
-warning is unpaid judgment. [Claim
-20](20-poka-yoke-supports-jidoka.md) still owns poka-yoke and the
-control-versus-warning *names*. [Claim 19](19-stop-and-fix.md) still
-owns the culture of actually stopping. [Claim
-6](06-jidoka-embeds-routine-judgment.md) still owns where judgment
-lives. [Claim 16](16-go-see-ai-harness.md) still owns Go-See into the
-harness when the process is in question.
+The original “warnings as errors” rule was too broad. GCC defines a warning as
+a diagnostic for code that is risky or may contain an error, **not** as an
+error by definition; it also documents cases where correct code can appear
+wrong. `-Werror` and ESLint's `--max-warnings 0` enforce a chosen policy, not
+the reliability of every available warning. GNU Gnulib accordingly recommends
+`-Werror` for maintainers but not ordinary installation builds, where platform
+and system-header variation can break unowned builds. Separate third-party
+output so it neither breaks that boundary nor teaches the team to ignore its
+own checks.
 
-## Research-based adjustment
+Every warning left visible without a policy makes each later person or agent
+triage it again. Research interviews found that false positives and warning
+presentation deter developers from using static analysis. Suppression is
+sometimes right, but it must be narrow and maintained: a 2025 study found that
+50.8% of the suppressions it examined affected no current warning, and some
+unintentionally hid future warnings.
 
-The hypothesis is right about skippable software warnings. It would
-be too strong if it said Toyota never uses a warning device, or that
-the talk is about flipping a compiler flag as a TPS mechanism.
+## What “no news is good news” means
 
-### A factory warning can still be jidoka; a skippable log is a dashboard
+This is Terry's software heuristic, **not a sourced TPS slogan** or a ban on
+factory warnings. Toyota's plant tour shows a red-lamp poka-yoke under
+jidoka/autonomation. [Claim
+20](20-poka-yoke-supports-jidoka.md) owns control versus warning; [Claim
+19](19-stop-and-fix.md) owns whether people actually respond.
 
-Shingo's **warning** poka-yoke (lamp, buzzer) and Toyota's plant-tour
-screwdriver / red lamp are real. They count as quality at the source
-only if someone actually responds
-([Claim 19](19-stop-and-fix.md)). Software's usual failure is
-different: the “warning” sits in a list of hundreds, the build stays
-green, and both people and models learn to continue past it. That is
-the dashboard Claim 19 already named, not a lamp at the station.
+It applies to an **interrupting channel** such as a CI result,
+compiler/linter summary, or tool output placed into an agent's context. Its
+silence is useful only when:
 
-**Treat warnings as errors** is the software form of promoting that
-warning to Shingo's **control** (will not proceed). `-Werror`,
-`--max-warnings 0`, or an equivalent gate is one fixture, not the
-thesis. A check that is not worth a stop should not remain a
-warning either.
+- the check demonstrably ran;
+- routine success output is compact; and
+- any emitted warning is new and actionable.
 
-### Spend the judgment now
+Silence is not proof if the detector failed or produced no data. Prometheus
+explicitly warns that missing time series are difficult to handle and advises
+exporting a default value for expected series. The quiet must be earned by a
+working check, not by muting it.
 
-A warning is an open question aimed at a thinker. Reading it *is*
-the work. After that moment, only three honest endings exist:
+Do not delete normal telemetry. Google SRE uses it for trends, debugging, and
+security analysis while requiring human alerts to be actionable and
+high-signal. Keep evidence available, but out of the interrupt channel and
+agent prompt by default. Long-context experiments show that models do not
+always find relevant information robustly among distractors; that supports
+compact agent-facing output, not discarded operational evidence.
 
-1. **Fix** — the abnormality is gone; the check can stay as control.
-2. **Narrow, owned suppression** — this instance is not an
-   abnormality, with a reason next to the code.
-3. **Remove or demote the check** — it was never worth a stop; stop
-   pretending it is a warning.
+## Implication for the talk
 
-Leaving it is a fourth ending that is not honest: a
-**judgment-dependent** remainder for someone else, later, including
-an agent ([Claim 6](06-jidoka-embeds-routine-judgment.md)).
-Generation makes that remainder cheap to grow and expensive to
-re-read.
-
-Third-party and upgrade warnings are not an exception to spending
-judgment. They are a containment decision: pin, wrap, or accept with
-an owned expiry. “We will get to it” is stacking.
-
-### “No news is good news” is signal design, not a ban on surfacing problems
-
-Visual management works when an abnormality *stands out*. Liker,
-quoted by LeSS: a display that does not drive daily action is not
-visual management. Ballé: too much visual information distracts and
-defeats the purpose. A channel that always speaks never speaks.
-
-**“No news is good news”** is the principle for the *abnormality
-channel*: compile output, linter, CI annotations, and the logs we
-dump into a person's or an agent's context. Silence means standard.
-A new line is a cord.
-
-That is not “hide problems so the board stays green.” Muting a check
-to restore silence is the same dashboard. The quiet has to be
-*earned* by spending judgment, not by turning the lamp off.
-
-Logs of expected events are the same failure in another costume.
-[Claim 16](16-go-see-ai-harness.md) still wants a readable harness
-when Go-See is needed. This claim says: do not narrate normal
-operation into that window. Tokens spent on leftover warnings are
-tokens not spent on the exception.
-
-## Emerging implication for the talk
-
-> **A warning is for reading now. Leaving it stacks unpaid judgment
-> and teaches people and models to ignore the next one. Promote the
-> check to a stop, or honestly drop it. Keep the channel quiet.
-> No news is good news.**
-
-On stage, one beat after poka-yoke's control-versus-warning split:
-the software warning pile is not Toyota's lamp. Then one fixture:
-warnings-as-errors, or a log line that should not have been there.
-Do not teach compiler flags as TPS.
+On stage, use one warning pile versus a zero-warning gate over selected checks.
+Do not present `-Werror` as TPS or equate quiet alerts with absent
+observability.
 
 ## Questions still open
 
-- Doughnut-sourced leftover-warning or log-noise episode, and a
-  contrast where the channel was kept quiet, queued on
-  [Claim 13](13-doughnut-project-examples.md) with the poka-yoke
-  fixture search; example search not started.
-- How much of “clean logs along the way” belongs on a Tokyo slide
-  versus remaining a speaker note for AI cost?
+- Doughnut-sourced warning-pile versus quiet-gate episode, queued on [Claim
+  13](13-doughnut-project-examples.md); example search not started.
 
 ## Sources consulted
 
-1. Shigeo Shingo (1986), [*Zero Quality Control: Source Inspection and the
-   Poka-Yoke
-   System*](https://www.routledge.com/Zero-Quality-Control-Source-Inspection-and-the-Poka-Yoke-System/Shingo/p/book/9780915299072).
-   Control (will not proceed) versus warning (lamp, buzzer). Placement
-   and naming remain [Claim 20](20-poka-yoke-supports-jidoka.md).
-2. Toyota Motor Corporation, [Toyota Virtual Plant Tour: Toyota Production
-   System](https://global.toyota/en/company/plant-tours/production-system/).
-   Screwdriver / red-lamp warning poka-yoke under autonomation.
-3. Jeffrey K. Liker and Michael Hoseus (2008), *Toyota Culture*. Quoted
-   by LeSS: visual presentation is not visual management unless it
-   drives daily action. Already cited on
-   [Claim 21](21-ci-practice-is-not-a-ci-system.md).
-4. Michael Ballé, ["Why does visual management at a Toyota plant look so
-   much different than at
-   ours?"](https://www.lean.org/the-lean-post/articles/why-does-visual-management-at-a-toyota-plant-look-so-much-different-than-at-ours/).
-   Too much visual information distracts and defeats the purpose.
-5. Jim Shore (2004), [“Fail
-   Fast”](https://www.martinfowler.com/ieeeSoftware/failFast.pdf),
-   *IEEE Software*. Fail immediately and visibly. The halt itself is
-   [Claim 19](19-stop-and-fix.md).
-6. GCC, [Warning
-   Options](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html).
-   `-Werror` as one named fixture for treating warnings as errors, not
-   as the thesis.
-
-**Hypothesis recorded. Factory warning ≠ skippable software warning.
-Spend judgment now; quiet is earned. Doughnut episode still queued.**
+1. Toyota Motor Corporation, [Toyota Virtual Plant Tour: Toyota Production
+   System](https://global.toyota/en/company/plant-tours/production-system/):
+   red-lamp poka-yoke under jidoka/autonomation.
+2. GCC, [Warning
+   Options](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html): warning
+   semantics, selection, suppression, and `-Werror`.
+3. GNU Gnulib, [Warnings
+   module](https://www.gnu.org/software/gnulib/manual/html_node/warnings.html):
+   maintainer use of `-Werror` and the portability boundary.
+4. ESLint, [Command Line Interface
+   Reference](https://eslint.org/docs/latest/use/command-line-interface#--max-warnings):
+   warning thresholds as nonzero exit status.
+5. Brittany Johnson et al. (2013), [“Why Don't Software Developers Use Static
+   Analysis Tools to Find Bugs?”](https://research.google/pubs/why-dont-software-developers-use-static-analysis-tools-to-find-bugs/),
+   ICSE: false positives and warning presentation as barriers.
+6. Huimin Hu et al. (2025), [“An Empirical Study of Suppressed Static Analysis
+   Warnings”](https://software-lab.org/publications/fse2025_suppressions.pdf),
+   FSE: suppression growth, staleness, and accidental hiding of later warnings.
+7. Google, [*Site Reliability Engineering*: “Monitoring Distributed
+   Systems”](https://sre.google/sre-book/monitoring-distributed-systems/):
+   retained telemetry versus actionable, low-noise alerts.
+8. Prometheus, [Instrumentation best
+   practices](https://prometheus.io/docs/practices/instrumentation/#avoid-missing-metrics):
+   avoiding ambiguous missing data.
+9. Nelson F. Liu et al. (2024), [“Lost in the Middle: How Language Models Use
+   Long Contexts”](https://arxiv.org/abs/2307.03172), *TACL*: relevant
+   information is not used robustly at every position in long input.

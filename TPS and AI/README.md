@@ -42,7 +42,7 @@ The claims below are **Provisional**:
 21. [CI is a developer practice; a CI service is not CI](claims/21-ci-practice-is-not-a-ci-system.md)
 22. [A causal loop diagram can show how TPS reasoning inspires LeSS+AI](claims/22-cld-shows-tps-reasoning-for-less-ai.md) ([draft CLD](claims/22-tps-less-ai-cld.md))
 23. [Honest trunk-based CI and disposable prototypes are a tension pair](claims/23-ci-and-disposable-prototypes-tension-pair.md)
-24. [A leftover warning is unpaid judgment; spend it now so “no news” can mean good news](claims/24-warnings-as-stop-no-news-is-good-news.md)
+24. [A warning left visible after triage is unpaid judgment; keep the interrupt channel quiet](claims/24-warnings-as-stop-no-news-is-good-news.md)
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md).

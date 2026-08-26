@@ -177,7 +177,7 @@ people have learned the work by hand.
 
 Software can do the same for **known, executable conditions**: the build
 breaks, a regression fails, a type is wrong, an invariant is violated, a
-deploy rolls back. That is the jidoka side of a **CI system**
+deploy rolls back. That is the jidoka side of a **CI service**
 ([Claim 21](21-ci-practice-is-not-a-ci-system.md)), which can support
 the continuous-integration practice in
 [Claim
