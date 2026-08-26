@@ -192,11 +192,13 @@ short distance onto the feeler bar, with no electrical mechanism or
 generated labels. Targeted typecheck, deck build, and rendered
 before/after click inspection passed.
 
-### S20 — Behavior — planned
+### S20 — Behavior — done
 
-Build a Mermaid or SVG flow on **One lineage of inspiration**:
-TPS → XP / Agile → LeSS → AI-augmented development. Keep all text crisp
-and editable; this is not AI art.
+Built the editable Mermaid flow TPS → XP / Agile → LeSS →
+AI-augmented development on **One lineage of inspiration**, following
+the deck's existing diagram convention. Targeted typecheck, deck build,
+and rendered inspection confirmed all four stages remain readable and
+unclipped.
 
 ### S21 — Behavior — planned
 

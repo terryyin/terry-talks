@@ -95,6 +95,17 @@ class: text-center
 
 # One lineage of inspiration
 
+```mermaid {scale: 0.9}
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 20}}}%%
+flowchart LR
+  TPS[TPS]
+  XP[XP /<br>Agile]
+  LESS[LeSS]
+  AI[AI-augmented<br>development]
+
+  TPS --> XP --> LESS --> AI
+```
+
 **TPS** inspired **XP** and the Agile movement,
 
 then **LeSS** —

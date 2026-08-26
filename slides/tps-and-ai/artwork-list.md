@@ -268,7 +268,8 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 - **"One lineage of inspiration":** simple flow diagram
   TPS → XP / Agile → LeSS → AI-augmented development. Mermaid or SVG;
-  needs crisp text.
+  needs crisp text. Done — embedded as Mermaid; labels stay typeset
+  text.
 - **"The engine of freedom and entrustment"** (after "The triad"):
   Figure 1 of the Claim 22 companion CLD — loops R1+R2, six
   variables. Done — embedded as mermaid; labels stay typeset text.
