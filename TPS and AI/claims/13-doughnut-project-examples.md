@@ -1,6 +1,7 @@
 # Claim 13: Doughnut project as an evidence backlog for other claims
 
-**Status: Backlog — training weeks located; examples not yet pulled**
+**Status: Backlog — training weeks located; search scoped to 4+4 tagged
+classes; examples not yet pulled**
 
 ## Role
 
@@ -15,9 +16,10 @@ sprints, and continuously integrate. Feature teams each focus on
 customer-centric value. When they integrate, conflict in the shared
 product can pull collaboration.
 
-Phase 1 (locate the class weeks) is done. Do not pull examples into
-owning claims until Terry asks. Adding a claim to the later-phase list
-does not authorize pulling examples.
+Phase 1 (locate the class weeks) is done. Search is limited to the
+tagged weeks. Do not pull examples into owning claims until Terry
+asks. Adding a claim to the later-phase list does not authorize
+pulling examples.
 
 ## Phase 1 — Locate training weeks
 
@@ -39,50 +41,62 @@ bookmarks the week; it is not a `git log A..B` ancestry range.
 
 ### AI-era classes (10)
 
-| Week of | Activity | Others | Commits | Range |
-|---|---|---:|---:|---|
-| 2025-01-06 | 2025-01-07–2025-01-12 | 12 | 187 | `84193ef8f8fa..6f7cd48544aa` |
-| 2025-02-17 | 2025-02-17–2025-02-21 | 5 | 64 | `97d57317606b..1dc1d3325a27` |
-| 2025-04-14 | 2025-04-14–2025-04-20 | 12 | 124 | `99bdb147adfc..516aa68aeede` |
-| 2025-05-19 | 2025-05-19–2025-05-25 | 7 | 111 | `73358631a6c3..1370ae9d9467` |
-| 2025-08-25 | 2025-08-25–2025-08-29 | 8 | 73 | `bb0457047326..ac94f595785d` |
-| 2025-09-15 | 2025-09-15–2025-09-19 | 6 | 102 | `3637b76e768e..33c6f2503bfb` |
-| 2025-09-29 | 2025-09-29–2025-10-05 | 11 | 88 | `1320a4f157be..33d81fa06172` |
-| 2026-01-26 | 2026-01-26–2026-01-31 | 14 | 147 | `8c26f6f321e8..16ab060b448b` |
-| 2026-04-20 | 2026-04-20–2026-04-24 | 6 | 73 | `27fc4019fdb5..f6e8a195e8cb` |
-| 2026-07-27 | 2026-07-27–2026-08-02 | 6 | 121 | `61e29c666a5c..3cb5c87baba1` |
+| Week of | Activity | Others | Commits | Range | Search |
+|---|---|---:|---:|---|---|
+| 2025-01-06 | 2025-01-07–2025-01-12 | 12 | 187 | `84193ef8f8fa..6f7cd48544aa` | yes |
+| 2025-02-17 | 2025-02-17–2025-02-21 | 5 | 64 | `97d57317606b..1dc1d3325a27` |  |
+| 2025-04-14 | 2025-04-14–2025-04-20 | 12 | 124 | `99bdb147adfc..516aa68aeede` | yes |
+| 2025-05-19 | 2025-05-19–2025-05-25 | 7 | 111 | `73358631a6c3..1370ae9d9467` |  |
+| 2025-08-25 | 2025-08-25–2025-08-29 | 8 | 73 | `bb0457047326..ac94f595785d` |  |
+| 2025-09-15 | 2025-09-15–2025-09-19 | 6 | 102 | `3637b76e768e..33c6f2503bfb` |  |
+| 2025-09-29 | 2025-09-29–2025-10-05 | 11 | 88 | `1320a4f157be..33d81fa06172` |  |
+| 2026-01-26 | 2026-01-26–2026-01-31 | 14 | 147 | `8c26f6f321e8..16ab060b448b` | yes |
+| 2026-04-20 | 2026-04-20–2026-04-24 | 6 | 73 | `27fc4019fdb5..f6e8a195e8cb` |  |
+| 2026-07-27 | 2026-07-27–2026-08-02 | 6 | 121 | `61e29c666a5c..3cb5c87baba1` | yes |
 
 ### I-era classes (27)
 
-| Week of | Activity | Others | Commits | Range |
-|---|---|---:|---:|---|
-| 2021-04-12 | 2021-04-12–2021-04-18 | 8 | 150 | `ed09515ea21c..8944b620b47e` |
-| 2021-10-04 | 2021-10-04–2021-10-10 | 12 | 78 | `5f53dd7eb6fe..6a74ca3477ce` |
-| 2021-11-08 | 2021-11-08–2021-11-13 | 10 | 53 | `1a5e85fe0d92..fd5eb827f57d` |
-| 2021-12-06 | 2021-12-06–2021-12-10 | 12 | 90 | `3224a9963909..f6a2368ccee5` |
-| 2022-02-07 | 2022-02-07–2022-02-13 | 9 | 71 | `d77fd544e14a..60c5c13de063` |
-| 2022-02-21 | 2022-02-22–2022-02-27 | 10 | 74 | `b47967f8a15d..75fbe6bfb873` |
-| 2022-04-11 | 2022-04-12–2022-04-16 | 13 | 106 | `a8bbf679ebe1..899805261816` |
-| 2022-06-13 | 2022-06-14–2022-06-19 | 13 | 117 | `7911c9219d49..f434c2041349` |
-| 2022-09-05 | 2022-09-05–2022-09-11 | 6 | 89 | `01612ddf287d..45c186720636` |
-| 2022-09-26 | 2022-09-26–2022-10-02 | 14 | 103 | `bbd88a490058..3c996607713f` |
-| 2022-10-03 | 2022-10-04–2022-10-08 | 10 | 129 | `2a0ffcf26015..dbfa3d8d3859` |
-| 2023-01-30 | 2023-01-30–2023-02-05 | 6 | 154 | `74d50be24753..24e95133a994` |
-| 2023-02-06 | 2023-02-06–2023-02-12 | 10 | 120 | `b3940e14a7b2..c50b0cbd2659` |
-| 2023-03-27 | 2023-03-27–2023-04-02 | 8 | 86 | `6f20bf4a990e..56eea2223ceb` |
-| 2023-08-21 | 2023-08-21–2023-08-27 | 7 | 140 | `950f34c179cc..3693de1fe687` |
-| 2023-10-09 | 2023-10-10–2023-10-15 | 6 | 153 | `eee8d7ff0d25..5c121dd4e1e6` |
-| 2023-10-30 | 2023-10-31–2023-11-05 | 9 | 362 | `aaff641177a2..3d44c24c3b0c` |
-| 2023-11-20 | 2023-11-20–2023-11-26 | 9 | 221 | `79d2cf5a2c8b..ff302653b8ad` |
-| 2024-04-01 | 2024-04-02–2024-04-07 | 7 | 115 | `f0637d3758f4..75aa22142f3b` |
-| 2024-04-15 | 2024-04-15–2024-04-21 | 7 | 141 | `ab6dd8fad634..72094c9d67fa` |
-| 2024-06-03 | 2024-06-03–2024-06-09 | 7 | 249 | `aac607b1dd60..8233f639fc20` |
-| 2024-06-10 | 2024-06-10–2024-06-16 | 6 | 178 | `8b8078db3fc5..00957ce01f56` |
-| 2024-07-01 | 2024-07-01–2024-07-07 | 7 | 163 | `21c7ea9b3ded..37e65ef9cb87` |
-| 2024-07-15 | 2024-07-15–2024-07-21 | 15 | 149 | `4b3608e98684..71d0f97b4f42` |
-| 2024-08-19 | 2024-08-19–2024-08-25 | 11 | 189 | `25c6b27a1419..285690caa57b` |
-| 2024-08-26 | 2024-08-26–2024-08-30 | 10 | 124 | `d85d4d9dfc09..4a41d6e3652d` |
-| 2024-10-07 | 2024-10-08–2024-10-13 | 10 | 121 | `a52378416c91..10d14993d2c7` |
+| Week of | Activity | Others | Commits | Range | Search |
+|---|---|---:|---:|---|---|
+| 2021-04-12 | 2021-04-12–2021-04-18 | 8 | 150 | `ed09515ea21c..8944b620b47e` |  |
+| 2021-10-04 | 2021-10-04–2021-10-10 | 12 | 78 | `5f53dd7eb6fe..6a74ca3477ce` |  |
+| 2021-11-08 | 2021-11-08–2021-11-13 | 10 | 53 | `1a5e85fe0d92..fd5eb827f57d` |  |
+| 2021-12-06 | 2021-12-06–2021-12-10 | 12 | 90 | `3224a9963909..f6a2368ccee5` |  |
+| 2022-02-07 | 2022-02-07–2022-02-13 | 9 | 71 | `d77fd544e14a..60c5c13de063` |  |
+| 2022-02-21 | 2022-02-22–2022-02-27 | 10 | 74 | `b47967f8a15d..75fbe6bfb873` |  |
+| 2022-04-11 | 2022-04-12–2022-04-16 | 13 | 106 | `a8bbf679ebe1..899805261816` |  |
+| 2022-06-13 | 2022-06-14–2022-06-19 | 13 | 117 | `7911c9219d49..f434c2041349` |  |
+| 2022-09-05 | 2022-09-05–2022-09-11 | 6 | 89 | `01612ddf287d..45c186720636` |  |
+| 2022-09-26 | 2022-09-26–2022-10-02 | 14 | 103 | `bbd88a490058..3c996607713f` |  |
+| 2022-10-03 | 2022-10-04–2022-10-08 | 10 | 129 | `2a0ffcf26015..dbfa3d8d3859` |  |
+| 2023-01-30 | 2023-01-30–2023-02-05 | 6 | 154 | `74d50be24753..24e95133a994` |  |
+| 2023-02-06 | 2023-02-06–2023-02-12 | 10 | 120 | `b3940e14a7b2..c50b0cbd2659` |  |
+| 2023-03-27 | 2023-03-27–2023-04-02 | 8 | 86 | `6f20bf4a990e..56eea2223ceb` |  |
+| 2023-08-21 | 2023-08-21–2023-08-27 | 7 | 140 | `950f34c179cc..3693de1fe687` |  |
+| 2023-10-09 | 2023-10-10–2023-10-15 | 6 | 153 | `eee8d7ff0d25..5c121dd4e1e6` |  |
+| 2023-10-30 | 2023-10-31–2023-11-05 | 9 | 362 | `aaff641177a2..3d44c24c3b0c` | yes |
+| 2023-11-20 | 2023-11-20–2023-11-26 | 9 | 221 | `79d2cf5a2c8b..ff302653b8ad` | yes |
+| 2024-04-01 | 2024-04-02–2024-04-07 | 7 | 115 | `f0637d3758f4..75aa22142f3b` |  |
+| 2024-04-15 | 2024-04-15–2024-04-21 | 7 | 141 | `ab6dd8fad634..72094c9d67fa` |  |
+| 2024-06-03 | 2024-06-03–2024-06-09 | 7 | 249 | `aac607b1dd60..8233f639fc20` | yes |
+| 2024-06-10 | 2024-06-10–2024-06-16 | 6 | 178 | `8b8078db3fc5..00957ce01f56` |  |
+| 2024-07-01 | 2024-07-01–2024-07-07 | 7 | 163 | `21c7ea9b3ded..37e65ef9cb87` |  |
+| 2024-07-15 | 2024-07-15–2024-07-21 | 15 | 149 | `4b3608e98684..71d0f97b4f42` |  |
+| 2024-08-19 | 2024-08-19–2024-08-25 | 11 | 189 | `25c6b27a1419..285690caa57b` | yes |
+| 2024-08-26 | 2024-08-26–2024-08-30 | 10 | 124 | `d85d4d9dfc09..4a41d6e3652d` |  |
+| 2024-10-07 | 2024-10-08–2024-10-13 | 10 | 121 | `a52378416c91..10d14993d2c7` |  |
+
+### Search set — four classes per era, by commit count
+
+`Search = yes` is the later-phase git scope. Untagged weeks stay on
+the inventory; expand the set only if the eight lack an example.
+Selection is highest commit count in each era, not a judgement of
+which class was “best.”
+
+For searches **during** a class (most queued items), stay inside the
+tagged week's range. For **post-class** cleanup ([Claim
+23](23-ci-and-disposable-prototypes-tension-pair.md)), search the
+interval **after** a tagged week and before the next class burst.
 
 ## Already pulled — not a training-week search
 
@@ -96,6 +110,9 @@ minutes (company name on stage still needs clearance). This is not a
 class-week git search.
 
 ## Later phases — queued searches
+
+Scope: `Search = yes`. Do not scan untagged weeks unless the tagged
+set lacks an example.
 
 ### Whole Product Focus and continuous integration — Claims 3, 8, and 21
 
@@ -269,14 +286,15 @@ stays a backlog and an index, not a second lecture.
 
 ## Questions still open
 
-- Which of these weeks are discussable in a public talk?
+- Which of the tagged weeks are discussable in a public talk?
+- Which queued searches should be filled first from the tagged weeks?
 - Is the week of 2025-02-17 a class (5 other emails; smallest AI-era
-  hit) or a smaller session to drop?
-- Which queued searches should be filled first from these weeks?
+  hit) or a smaller session to drop? It is not in the search set.
 
 ## Sources consulted
 
 Doughnut git log (author name, email, author date) in the sibling
 `doughnut` repo, retrieved 2026-08-25.
 
-**Phase 1 done. Example search not started.**
+**Phase 1 done. Search set tagged (4+4 by commit count). Example
+search not started.**

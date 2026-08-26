@@ -1,8 +1,8 @@
 # Claim 19: Stop & Fix is the culture of actually responding to a jidoka signal; a detector everyone continues past is a dashboard
 
-**Status: Provisional — Stop & Fix kept as the English; Liker assimilated
-as culture; Toyota's exception is who stops, not a plant-wide freeze;
-fail-fast is jidoka in the product, not a separate beat**
+**Status: Provisional — Stop & Fix kept as the English; Toyota's
+exception is who stops, not a plant-wide freeze; fail-fast is jidoka
+in the product**
 
 ## Claim
 
@@ -52,11 +52,11 @@ detector.
 
 ### Toyota's exception is not a parked red
 
-Stop-the-line does not mean blindly stopping all
-work. The mechanism is **fixed-position stop** (Liker and Meier):
-cord or call button → yellow; the line continues to the end of the
-work zone; if resolved in that window, the line never stops; if not,
-it stops at the fixed position and the andon turns red.
+Stop-the-line does not mean blindly stopping all work. The mechanism is
+**fixed-position stop** (Liker and Meier): cord or call button →
+yellow; the line continues to the end of the work zone; if resolved in
+that window, the line never stops; if not, it stops at the fixed
+position and the andon turns red.
 
 Signal immediately; designed response window; then halt if unresolved.
 In software, a red CI service does not mean everybody drops current

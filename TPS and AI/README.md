@@ -17,7 +17,9 @@ The discussion is at the claim-forming and fact-checking stage. Nothing in this
 folder should be treated as a finalized talk argument unless its status is
 explicitly changed to **Finalized**.
 
-The claims below are **Provisional**:
+The claims below are **Provisional**. Most now present one current
+opinion. Claims 15 and 22 still show the forming path. Claim 13 is an
+evidence backlog.
 
 1. [The useful transfer from TPS is system reasoning, not manufacturing mechanisms](claims/01-tps-reasoning-not-mechanisms.md)
 2. [Toyota's TPS overview and the Lean Thinking house show different layers](claims/02-tps-and-lean-houses.md)
@@ -34,14 +36,14 @@ The claims below are **Provisional**:
 13. [Doughnut project as an evidence backlog for other claims](claims/13-doughnut-project-examples.md)
 14. [Ebata's JIT teaching can be corroborated in print](claims/14-ebata-jit-teaching-in-print.md)
 15. [Extreme conditions interrupt JIT; they do not refute capable response](claims/15-extreme-conditions-interrupt-jit.md)
-16. [Go-See is firsthand facts; in AI work that includes the harness](claims/16-go-see-ai-harness.md)
+16. [Go-See means firsthand facts; AI work may require entering the harness](claims/16-go-see-ai-harness.md)
 17. [Thin vertical slices make software flow and confirmation possible](claims/17-jit-vertical-slicing-one-piece-flow.md)
 18. [Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is the TPS example, Definition of Done the LeSS measure](claims/18-continuous-improvement-towards-perfection.md)
 19. [Stop & Fix is the culture of actually responding to a jidoka signal; a detector everyone continues past is a dashboard](claims/19-stop-and-fix.md)
 20. [Poka-yoke mistake-proofs a known error at the source; it supports jidoka](claims/20-poka-yoke-supports-jidoka.md)
 21. [CI is a developer practice; a CI service is not CI](claims/21-ci-practice-is-not-a-ci-system.md)
 22. [A causal loop diagram can show how TPS reasoning inspires LeSS+AI](claims/22-cld-shows-tps-reasoning-for-less-ai.md) ([draft CLD](claims/22-tps-less-ai-cld.md))
-23. [Honest trunk-based CI and disposable prototypes are a tension pair](claims/23-ci-and-disposable-prototypes-tension-pair.md)
+23. [Honest CI and disposable prototypes are a tension pair](claims/23-ci-and-disposable-prototypes-tension-pair.md)
 24. [A warning left visible after triage is unpaid judgment; keep the interrupt channel quiet](claims/24-warnings-as-stop-no-news-is-good-news.md)
 
 Questions that cut across the claims are collected in
@@ -76,4 +78,6 @@ from concrete manufacturing mechanisms toward their operating principles,
 management philosophy, and underlying reasoning. Then ask which ideas survive,
 change, or become more important when AI makes candidate software solutions
 cheap and fast to generate while judging correctness, usefulness, value, and
-appropriateness remains comparatively expensive.
+appropriateness remains comparatively expensive. That contrast is a
+supporting argument for the jidoka cluster, not the talk's thesis
+([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)).

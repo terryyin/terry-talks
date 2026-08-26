@@ -1,7 +1,8 @@
 # Claim 6: Jidoka embeds previously learned judgment so adaptive attention can learn
 
-**Status: Provisional — judgment descent settled; doughnut examples still
-queued; model-first is a bet**
+**Status: Provisional — judgment descent settled; cheap-generation
+supporting argument and bottleneck-as-journey settled; doughnut examples
+still queued; model-first is a bet**
 
 ## Claim
 
@@ -189,6 +190,30 @@ enough to proceed. AI may still clear **dumb** problems after a dumb
 stop (a type error, a red scenario caused by the current change). It
 may not dissolve that stop, and it may not take the five.
 
+## Generation is cheap; the bottleneck is the journey
+
+> **Generation is cheap; judgment is expensive** is a supporting
+> argument for this jidoka cluster, not the talk's central thesis.
+> [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md) owns
+> Freedom and Entrustment.
+
+Cheap generation does not move the bottleneck to a later pipeline
+stage—problem selection, specification, verification, integration,
+deployment, learning, or governance. Any of those can be flooded with
+still-smart output. The scarce capacity is people's **cognitive
+ability to fully experience the problem-solving journey and to
+comprehend both the problem and the solution**.
+
+That is why stacking still-smart artifacts is the distinctive failure
+already named above: the person who must judge did not live the path
+that produced the artifact, and the next problem has even less room
+for a real journey. [Claim
+12](12-respect-for-people-who-can-think.md) owns what must not be
+outsourced; [Claim
+10](10-freedom-and-trust-reinforce-through-jidoka.md) owns deskilling.
+This claim owns the encoding that keeps remaining attention able to
+walk the next problem.
+
 ## Implication for the talk
 
 > **Smart → dumb → gone.** Prevent what design can prevent. Stop
@@ -213,11 +238,17 @@ judgment must remain human—not by whether the same difficult problem
 was solved again with more tokens. Say **model first** out loud as
 Terry's bet, not as a measured result.
 
-On stage, say jidoka **embeds previously learned judgment** in a closed
-detector so adaptive attention is free. Do not say it is the main way
-the organization **preserves acquired knowledge**: kaizen, ADRs, and
-conversation also store knowledge; jidoka encodes the part that can
-become a stop.
+On stage, one **jidoka / preserve-knowledge** slide uses the supporting
+argument, then unpacks it:
+
+> **Jidoka preserves knowledge.** Generation is cheap; judgment is
+> expensive. Encode what we already know. Leave people able to
+> experience the next problem and comprehend the solution.
+
+Say jidoka **embeds previously learned judgment** in a closed detector
+so adaptive attention is free. Do not say it is the organization's
+only knowledge store: kaizen, ADRs, and conversation also store
+knowledge; jidoka encodes the part that can become a stop.
 
 ## Questions still open
 

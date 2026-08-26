@@ -38,9 +38,21 @@ future discussion, not a set of conclusions.
 
 - Is “generation is cheap; judgment is expensive” the central thesis, one
   supporting argument, or merely an opening hypothesis?
+  Working answer: a **supporting argument**, not the thesis. Use it on
+  the jidoka / preserve-knowledge slide. [Claim
+  6](claims/06-jidoka-embeds-routine-judgment.md) owns the beat. The
+  thesis remains Freedom and Entrustment
+  ([Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)).
 - In AI-augmented development, where does the bottleneck actually move: problem
   selection, specification, verification, integration, deployment, learning,
   or governance?
+  Working answer: not those pipeline stages. The bottleneck is people's
+  **cognitive ability to fully experience the problem-solving journey
+  and to comprehend the problem and the solution**. Owned with the
+  jidoka cluster on [Claim
+  6](claims/06-jidoka-embeds-routine-judgment.md);
+  [Claim 12](claims/12-respect-for-people-who-can-think.md) owns what
+  must not be outsourced.
 - Which TPS ideas become more important when work can be generated faster:
   jidoka, stop-the-line behavior, visual management, small batches, pull,
   respect for people, continuous improvement, or something else?
@@ -75,7 +87,7 @@ future discussion, not a set of conclusions.
   [Claim 24](claims/24-warnings-as-stop-no-news-is-good-news.md).
   Talk placement is on that claim: a jidoka sub-beat after poka-yoke,
   not an independent TPS topic.
-- Honest trunk-based CI and disposable prototypes look like opposites:
+- Honest CI and disposable prototypes look like opposites:
   real integration entangles experiments so there is no clean delete,
   yet spent experiments still need to leave the product. A working
   answer is
@@ -98,11 +110,14 @@ future discussion, not a set of conclusions.
 - Evidence about Toyota's software, mobility, invention, and experimentation
   capabilities beyond conventional production.
 - Evidence about AI's effect on software generation speed and on downstream
-  review or verification costs.
+  review or verification costs. Those queues filling is a symptom; the
+  bottleneck is on [Claim
+  6](claims/06-jidoka-embeds-routine-judgment.md).
 - Examples from the doughnut project used in Terry's LeSS in Action
   trainings. The search list lives on
   [Claim 13](claims/13-doughnut-project-examples.md) (backlog; training
-  weeks located; example search not started). [Claim
+  weeks located; search scoped to 4 AI-era + 4 I-era classes by commit
+  count; example search not started). [Claim
   9](claims/09-nemawashi-self-organized-deliberation-in-less.md)
   already pulled doughnut's ADR propose-to-accept path (Whale /
   Wärtsilä minutes; not a class-week search). Currently queued: CI
@@ -137,8 +152,8 @@ stated the hypothesis. While forming, keep the sequence:
 **original claim → research-based adjustment → emerging implication → open
 questions**
 
-Once the opinion is settled, collapse that path into one current claim, as
-Claims 1–6 now do.
+Once the opinion is settled, collapse that path into one current claim,
+as the settled claims now do.
 
 ### Backlog
 

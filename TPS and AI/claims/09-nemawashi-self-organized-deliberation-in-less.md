@@ -1,36 +1,10 @@
 # Claim 9: Nemawashi supports self-organized deliberation in LeSS
 
-**Status: Provisional — origin of the word, LeSS mapping,
-doughnut/Whale path, and talk wording researched; stage example name
-still a clearance choice; not a finalized talk beat**
+**Status: Provisional — Japanese practice and Toyota habit, not a TPS
+pillar; LeSS mapping and doughnut path settled; stage name is a
+clearance choice**
 
-## Original claim / hypothesis
-
-> Nemawashi also comes from TPS—or perhaps more broadly from the Toyota Way.
-> It is a good way to support self-organized discussion and decision-making in
-> LeSS. The ADR process in this project can provide an example.
-
-This is a lightly edited record of Terry's hypothesis. "This project" is
-doughnut, not this talks repo. The analogue is how an ADR is **proposed
-and moved toward accepted**, not the ADR template or file format. The
-hypothesis contains three related propositions to investigate:
-
-1. **Origin:** nemawashi belongs to TPS, the Toyota Way, or the wider context
-   from which both developed.
-2. **LeSS application:** nemawashi can help people organize deliberation and
-   prepare decisions without relying on a manager to coordinate every
-   conversation.
-3. **Concrete example:** doughnut's ADR process—announce a proposal, go
-   around the people who care, then the author accepts—can make that
-   pattern visible in a form familiar to software developers.
-
-## Research-based adjustment
-
-The LeSS application is an interpretation, not a named LeSS practice. The
-origin needs the same layer distinction as
-[Claim 16](16-go-see-ai-harness.md) for Go-See and
-[Claim 20](20-poka-yoke-supports-jidoka.md) for
-poka-yoke.
+## Claim
 
 > **Nemawashi is Japanese groundwork for a change, not a TPS pillar.
 > Toyota uses it as a decision habit: discuss problems and options with
@@ -39,7 +13,18 @@ poka-yoke.
 > Talk and informal networks preparing a named decision—not
 > manager-convened consensus, and not a synonym for agreement.**
 
-### Placement: Japanese practice, Toyota Way habit, not a TPS pillar
+The same layer distinction as [Claim 16](16-go-see-ai-harness.md) for
+Go-See and [Claim 20](20-poka-yoke-supports-jidoka.md) for poka-yoke:
+Toyota uses the habit; it is not a peer of jidoka and JIT.
+
+The software analogue is doughnut's **advice process**: how a draft ADR
+is announced, who gets to reshape it, and how it becomes Accepted. It
+is not the Nygard template, the filename suffixes, or this talks repo's
+solo playbook. Doughnut adapted that path from a product group whose
+minutes call the company **Whale**. Whale is **Wärtsilä**. Keep both
+names here. Using the company name on stage depends on clearance.
+
+### Japanese practice, Toyota Way habit, not a TPS pillar
 
 **Nemawashi** is older than Toyota. Japanese dictionaries keep the
 gardening sense—cut and prepare a tree's roots before transplanting—and
@@ -56,15 +41,7 @@ calls both a political technique of persuasion and compromise, usually
 one-on-one, before a formal meeting. It is not automatically **裏工作**
 (secret intrigue). It *is* the reading in which preparatory consultation
 manufactures consent or becomes an invisible veto. A Tokyo audience
-already hears that ambivalence in nemawashi. Keep 下工作 in this claim.
-
-Toyota did not invent it. Toyota UK's glossary says the word came to mean
-an informal process of laying a foundation and building consensus **within
-the Toyota Production System—and Japanese culture itself**. The same
-article calls it an aspect of the Toyota Way, part of TPS, and one item in
-a popular thirteen-term glossary that also includes poka-yoke and hansei.
-That mixed placement is teaching language, not Toyota's operating
-architecture.
+already hears that ambivalence. Keep 下工作 in this claim.
 
 | Source | How it places nemawashi |
 |---|---|
@@ -74,41 +51,30 @@ architecture.
 | **Toyota UK glossary** | Informal groundwork and consensus-building; first step in decision-making; TPS *and* Japanese culture. |
 | **Liker, Principle 13** | English lean literature's named home: make decisions slowly by consensus, thoroughly considering options; implement rapidly. Nemawashi is the process of discussing problems and potential solutions with those affected. |
 
-The original hypothesis's “TPS—or perhaps more broadly the Toyota Way”
-is the right *uncertainty*, and the broader answer is the accurate one.
-Nemawashi is a Japanese decision habit Toyota uses. It is not a peer of
-jidoka and JIT.
-
 The *habit* and the *word on a list* are different questions. Toyota
 people used the practice. Toyota's own 2001 booklet, as Toyota describes
 it publicly, does not make nemawashi a sixth value. The English
-literature path—including this claim's original hypothesis—meets the
-name in Liker's *Toyota Way*, not in Toyota Way 2001. Overseas plants
-taught the word as TPS vocabulary to English-speaking team members
-(TMMK's glossary by 2006). John Shook, writing later about Toyota HQ in
-the 1980s, describes the habit (A3 conversations) with the Japanese
-word; that is testimony about practice, not a dated internal pamphlet
-from Ohno's era.
+literature path meets the name in Liker's *Toyota Way*, not in Toyota
+Way 2001. Overseas plants taught the word as TPS vocabulary to
+English-speaking team members (TMMK's glossary by 2006). John Shook,
+writing later about Toyota HQ in the 1980s, describes the habit (A3
+conversations) with the Japanese word; that is testimony about
+practice, not a dated internal pamphlet from Ohno's era.
 
 ### What it does in a decision
 
 Nemawashi is the informal work *before* a formal decision, not the
-allocation of decision rights. Share the situation, seek opinions, surface
-concerns, revise the proposal, then take the formal step. Toyota UK:
-successful nemawashi lets changes go ahead with the **consent** of the
-parties. Liker: once a decision is made, the stage is set for **rapid
-implementation**.
+allocation of decision rights. Share the situation, seek opinions,
+surface concerns, revise the proposal, then take the formal step.
+Toyota UK: successful nemawashi lets changes go ahead with the
+**consent** of the parties. Liker: once a decision is made, the stage
+is set for **rapid implementation**.
 
-Liker and Meier are explicit that the surface slogan misleads:
-
-> The real key is not consensus but exploring potential problems and
-> solutions to get to the best possible answer.
-
-When someone brings a solution, the questions are: how do you know the
-real problem, and **who have you spoken to**? The second question is
-nemawashi as a quality check on the thinking, not a vote.
-
-Those effects should not be collapsed into one word:
+Liker and Meier: the real key is not consensus but exploring potential
+problems and solutions to get to the best possible answer. When someone
+brings a solution, the questions are: how do you know the real problem,
+and **who have you spoken to**? The second question is nemawashi as a
+quality check on the thinking, not a vote.
 
 | Effect | Supported? |
 |---|---|
@@ -119,31 +85,31 @@ Those effects should not be collapsed into one word:
 | The formal decision itself | No. Ringi, an A3 review, a management approval, or moving an ADR from Proposed to Accepted is later. The conversations are what produce the artifact. |
 
 Art Smalley's useful cut: the A3 (or ringi-sho) is the **artifact**;
-nemawashi is the **process** that produces it. Skip the conversations and
-the document stalls or is sent back, often because the process was wrong,
-not because the idea was.
+nemawashi is the **process** that produces it. Skip the conversations
+and the document stalls or is sent back, often because the process was
+wrong, not because the idea was.
 
-Liker's product-development illustration is the K4 (*kozokeikaku*) binder
-of study drawings before vehicle styling is frozen: engineering issues and
-countermeasures circulate widely—more than a hundred signatures in the
-case he reports, including a non-engineer vice president—so integration
-problems are argued on paper before metal. That is preparatory
-consultation changing a proposal, with a chief engineer still owning the
-vehicle.
+Liker's product-development illustration is the K4 (*kozokeikaku*)
+binder of study drawings before vehicle styling is frozen: engineering
+issues and countermeasures circulate widely—more than a hundred
+signatures in the case he reports, including a non-engineer vice
+president—so integration problems are argued on paper before metal.
+That is preparatory consultation changing a proposal, with a chief
+engineer still owning the vehicle.
 
 ### Who retains authority
 
-Toyota's preferred pattern in Liker's chapter on this principle is group
-consensus **with management approval**. Management can still take input
-and then decide, especially if the group cannot align or speed is
+Toyota's preferred pattern in Liker's chapter on this principle is
+group consensus **with management approval**. Management can still take
+input and then decide, especially if the group cannot align or speed is
 required. The philosophy is maximum involvement *appropriate to the
 situation*, not a rule that the group governs.
 
-The typical Toyota picture in that literature is also **hierarchical**:
-someone junior develops a proposal and circulates it for management
-approval. By the formal meeting, surprise opposition should already have
-been heard. That is prepared decision-making. It is not, by itself,
-LeSS-style self-management.
+The typical Toyota picture in that literature is also
+**hierarchical**: someone junior develops a proposal and circulates it
+for management approval. By the formal meeting, surprise opposition
+should already have been heard. That is prepared decision-making. It
+is not, by itself, LeSS-style self-management.
 
 A Tokyo audience already knows the ambivalent everyday word. The same
 practice can be:
@@ -153,39 +119,33 @@ practice can be:
 - **coercive:** 下工作 that manufactures consent, hides disagreement, or
   becomes an invisible veto chain.
 
-Keep that split visible. Nemawashi is not automatically cooperative just
-because consultation happened.
+Keep that split visible. Nemawashi is not automatically cooperative
+just because consultation happened.
 
 ### LeSS does not name nemawashi
 
-Primary LeSS material on self-management, coordination, communities, and
-the Product Owner does not discuss nemawashi. The connection is an
+Primary LeSS material on self-management, coordination, communities,
+and the Product Owner does not discuss nemawashi. The connection is an
 interpretation from overlapping habits, not a LeSS label.
 
-What LeSS actually specifies:
+What LeSS actually specifies (detail of bounded self-management is
+[Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md)):
 
-- A self-managing team executes the work, monitors progress, decides
-  **how** to work, and handles its own process conflicts. It does not, by
-  the Hackman ladder LeSS cites, own organizational design or product
-  direction.
-- **All prioritization goes through the Product Owner.** Clarification is
-  as direct as possible between teams and customers. The PO is a
-  connector, not an intermediary—and not a coordinating project manager
-  of conversations.
+- A self-managing team executes the work and decides **how** to work.
+  It does not own organizational design or product direction.
+- **All prioritization goes through the Product Owner.** Clarification
+  is as direct as possible between teams and customers.
 - **Cross-team coordination is decided by the teams.** Prefer
   decentralized, informal coordination. Emphasize **Just Talk** and
-  informal networks: communicate in code, multi-team meetings, component
-  mentors, travelers, scouts, open space.
-- A component mentor is a teacher and steward, **not a gate**. Code is
-  not approved through that person.
+  informal networks.
+- A component mentor is a teacher and steward, **not a gate**.
 - Managers are optional. If they exist, they improve the development
-  system (Go See, Stop & Fix, experiments over conformance), not the
-  Sprint.
+  system, not the Sprint.
 
-[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already rejects
-dependable inter-team relationships as the LeSS translation. Nemawashi
-must fit **Whole Product Focus**: integration of shared work can pull
-collaboration; earlier conversation is not forbidden. [Claim
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already
+rejects dependable inter-team relationships as the LeSS translation.
+Nemawashi must fit **Whole Product Focus**: integration of shared work
+can pull collaboration; earlier conversation is not forbidden. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) is the
 technical precondition that makes that pull cheap enough.
 
@@ -200,8 +160,6 @@ channel—but they are not the same timescale.
 | Failure if skipped | Hidden dependency, late conflict, coordinating-role bottleneck | Surprise opposition, rework in implementation, a meeting that is the first hearing |
 | Failure if overdone | Formal coordination theatre | Slow politics, hidden approval, consent without disagreement |
 
-The mapping by **scope**:
-
 | Scope | Who owns the decision | What preparatory talk is |
 |---|---|---|
 | How one team works | The team | Ordinary team conversation. Do not dress it up as a Toyota ritual. |
@@ -211,43 +169,30 @@ The mapping by **scope**:
 | Organizational design | Managers (if any) and adopters | Closest to classical Toyota circulation of a proposal toward people who can change the system. |
 
 [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) already
-treats those conventions as a **supporting condition** for reducing WIP:
-take away constraints on self-integration and self-coordination, and keep
-collaborative decision-making under kaizen. Without that, low WIP becomes
-paralysis or heroic escalation. The research supports that reading. It
-does not support saying LeSS “uses nemawashi.”
+treats those conventions as a **supporting condition** for reducing
+WIP: take away constraints on self-integration and self-coordination,
+and keep collaborative decision-making under kaizen. Without that, low
+WIP becomes paralysis or heroic escalation. The research supports that
+reading. It does not support saying LeSS “uses nemawashi.”
 
-### The example is doughnut's propose-to-accept path, not "how ADRs work"
-
-The software analogue is doughnut's **advice process**: how a draft ADR
-is announced, who gets to reshape it, and how it becomes Accepted. It is
-not the Nygard template, the filename suffixes, or this talks repo's
-solo playbook.
-
-Doughnut adapted that path from a product group whose minutes call the
-company **Whale**. Whale is **Wärtsilä**. Keep both names in this claim.
-Using the company name on stage depends on clearance.
-
-#### The problem they started with
+### Doughnut's propose-to-accept path
 
 Years ago the product had dedicated architects. Telling them to leave
-decisions to the teams did not work: teams still treated the architects
-as the real decision-makers, deferred, and nothing moved. Removing the
-architect roles swung the other way—some teams decided in isolation,
-others were too nervous to decide at all.
+decisions to the teams did not work: teams still deferred, and nothing
+moved. Removing the architect roles swung the other way—some teams
+decided in isolation, others were too nervous to decide at all.
 
 The architecture community then quietly became an architectural
-**decision forum**. Because a decision might happen there, everyone felt
-obliged to attend. It filled with people who had nothing to contribute
-and no one actually sharing. It stopped working as a community.
+**decision forum**. Because a decision might happen there, everyone
+felt obliged to attend. It filled with people who had nothing to
+contribute and no one actually sharing. It stopped working as a
+community.
 
 The fix: strip decision-making out of the community entirely. The
 community became discussion and learning only. Decisions moved to a
 defined process. Doughnut's Accepted ADR 0000 states the same lesson:
 architectural choices must not depend on a standing architect, nor on a
 community that becomes an accidental decision forum.
-
-#### The advice process — this is the nemawashi mapping
 
 The process is a version of the [advice
 process](https://www.reinventingorganizationswiki.com/Theory/Advice_Process/)
@@ -267,14 +212,10 @@ difference: nemawashi usually still has a **formal decision point**
 keeps that point: status stays Proposed while advice is sought; moving
 it to Accepted *is* the named decision. They **rhyme**—go around the
 people who care, then a named decision—and they are not identical.
-That is why the analogue is the **path to accepted**, not the record
-format. Smalley's cut still holds: the ADR file is the artifact; going
-around the people who care is the process that produces it.
+Smalley's cut still holds: the ADR file is the artifact; going around
+the people who care is the process that produces it.
 
-#### Only the start and the end are mandatory
-
-Applied to architecture, this becomes an "ADR process" (they borrowed the
-term and added "process"). Only two steps are mandatory:
+Only two steps are mandatory:
 
 1. **Announce the start.** Whale posts to a single Slack announcement
    channel: "I'm going to make a decision about X." People raise a hand
@@ -282,9 +223,8 @@ term and added "process"). Only two steps are mandatory:
    ahead. Several do → the author sorts out how to discuss it (workshop,
    thread, whatever). That middle is left entirely to the author.
    Doughnut's playbook is the same shape: tell the team you are deciding
-   *X* and link the draft (PR, chat, or meeting). People who want to
-   contribute opt in; people who only need the outcome wait for
-   approval.
+   *X* and link the draft. People who want to contribute opt in; people
+   who only need the outcome wait for approval.
 2. **Announce the decision and hold an info session.** Once the author
    feels there is enough agreement—or enough discussion—they approve it
    **themselves**, announce it, and run an info session so people who
@@ -295,22 +235,15 @@ term and added "process"). Only two steps are mandatory:
 Whale's announcement channel is read-only and mandatory to follow: the
 org runs on Slack with a huge number of channels, so discussion traffic
 must not live there. If you want to debate, you forward it elsewhere.
-That is groundwork without forcing the whole department into the thread.
-
 Whale's 0000 ("Use ADR") writes those two announcements as templates:
-`ADR Proposal: "name"` (GitHub link, optional discussion session) and
-`ADR Approval: "name"` (GitHub link, info session). Announce the
-proposal relatively early so the right people can contribute. The
-author receives feedback until there are no more significant open
-issues. People who only want the outcome wait for the second
-announcement. If you strongly disagree after that, escalate through the
-architecture community or management.
+`ADR Proposal: "name"` and `ADR Approval: "name"`. Announce the
+proposal relatively early. The author receives feedback until there
+are no more significant open issues. If you strongly disagree after
+approval, escalate through the architecture community or management.
 
 Doughnut's living playbook is the same path in compact form: Draft
 (Proposed) → Announce start → Discuss (author owns the form) → Decide
 yourself → Announce end → Supersede later rather than silently rewrite.
-
-#### Safety valves, not a second decision body
 
 Two features exist mostly to make people comfortable with the autonomy:
 
@@ -323,8 +256,7 @@ Two features exist mostly to make people comfortable with the autonomy:
 - **Every decision is only a recommendation.** A team picking up work
   can go against an ADR if their context demands it. The expectation is
   that other teams speak up, or the team updates the ADR. The process
-  never removes a team's authority over its own work. Peer
-  accountability keeps it healthy.
+  never removes a team's authority over its own work.
 
 That is the LeSS-relevant split: CoPs and the architecture community
 **teach and discuss**; they do not stamp. A component mentor or CoP
@@ -339,12 +271,11 @@ mode the minutes already lived through.
 | Hierarchical circulation for stamps | **Absent.** Anyone may propose and, after advice, decide | This talks repo's solo soak-and-accept playbook |
 | Consent so implementation is not a surprise fight | Mandatory announcement channel (Whale) or shared start/end announcements (doughnut); info session for people who skipped the debate | Unanimous enthusiasm, or a vote |
 
-The valuable demonstration is the split the original claim needs: people
-closest to the knowledge can improve a proposal without a manager
-convening the conversation, and without a community owning the call. The
-author still decides. Authority stays explicit.
+People closest to the knowledge can improve a proposal without a
+manager convening the conversation, and without a community owning the
+call. The author still decides. Authority stays explicit.
 
-## Emerging implication for the talk
+## Implication for the talk
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) names the LeSS
 translation **Whole Product Focus**. If this claim is used, it extends
@@ -389,21 +320,16 @@ nemawashi. A CoP coordinator or component mentor who becomes a stamp
 along the path is the architecture-community-as-decision-forum failure
 the minutes already recorded, which LeSS already rejects.
 
-On stage, show the rhyme with the advice process (go around, then
-decide) and the difference: nemawashi still has a later formal point;
-doughnut's Accepted *is* that point. Do not flatten them, and do not
-make the difference the whole beat.
-
 On stage, **Whale / Wärtsilä** vs **doughnut only** is a clearance
 choice, not a content choice. The process is the same either way.
 
 For AI-augmented work the same split gets sharper. Generation makes
 proposals, RFCs, and “decision records” cheap. That does not go around
 the roots. An agent's review is not nemawashi. A posted document is not
-the people who will live with the change. Cheap drafts raise the value of
-preparatory challenge and of an explicit owner—the same jidoka concern as
-[Claim 6](06-jidoka-embeds-routine-judgment.md): do not stack
-unjudged artifacts and call the pile alignment.
+the people who will live with the change. Cheap drafts raise the value
+of preparatory challenge and of an explicit owner—the same jidoka
+concern as [Claim 6](06-jidoka-embeds-routine-judgment.md): do not
+stack unjudged artifacts and call the pile alignment.
 
 ## Questions still open
 
@@ -490,6 +416,3 @@ table above is research background, not a talk beat.
     the cited 0000 is **Wärtsilä**. Keep both names here; talk use of
     the company name depends on clearance. Participants named in the
     notes include Bas, Terry, and Viktor.
-
-**Still open: whether the stage example is Wärtsilä, Whale, or doughnut
-only (clearance).**

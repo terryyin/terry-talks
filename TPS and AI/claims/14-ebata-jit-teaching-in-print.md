@@ -1,17 +1,20 @@
 # Claim 14: Ebata's JIT teaching can be corroborated in print
 
-**Status: Provisional — corroboration researched; no verbatim published
-match found for the four lines or Ohno's coda; family resemblance
-identified line by line; attribution question still open**
+**Status: Provisional — no verbatim published match; family resemblance
+per line; staging attribution of Terry's notes still open**
 
-## Original claim / hypothesis
+## Claim
 
-> **Kazumasa Ebata's oral JIT teaching can be corroborated in published
-> Japanese TPS sources, and should be attributed on stage as teaching plus
-> Terry's notes, not as a Toyota quotation.**
+> **No published Japanese TPS or Ohno source reproduces Ebata's four JIT
+> lines, or Ohno's "余計なことはするな," as a verbatim quoted passage.
+> Each line has a family resemblance to well-documented, citable Ohno
+> themes. The four-line structure and the parenthetical classification
+> look like Ebata's (or a TPS teacher's) own pedagogical condensation,
+> not a found canonical text. On stage, attribute it as Ebata's teaching
+> plus Terry's notes — not as a Toyota quotation.**
 
-Some of Terry's JIT learning comes from Kazumasa Ebata, whose father is a
-TPS champion at Toyota. Ebata shared:
+Some of Terry's JIT learning comes from Kazumasa Ebata, whose father is
+a TPS champion at Toyota. Ebata shared:
 
 > **ジャストインタイム**
 >
@@ -26,32 +29,22 @@ TPS champion at Toyota. Ebata shared:
 > **大野耐一:** 余計なことはするな！
 
 A working English rendering, using Terry's classifications: follow the
-customer's voice (fact ← experience and collaboration); be resourceful with
-what you have (fact ← collaboration); deliver quickly (a provider's hope);
-discard the developer's imagination (skill, not speculation). Ohno: do not
-do the unnecessary.
+customer's voice (fact ← experience and collaboration); be resourceful
+with what you have (fact ← collaboration); deliver quickly (a
+provider's hope); discard the developer's imagination (skill, not
+speculation). Ohno: do not do the unnecessary.
 
-This is oral teaching, not a found canonical triad. Parenthetical notes are
-Terry's. It was split from
-[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md). Claim 3's JIT side
-is **entrusts** a resourceful response to real need; this teaching is the
-closest Japanese-language resemblance found so far.
-
-## Research-based adjustment
-
-> **No published Japanese TPS or Ohno source reproduces these four JIT
-> lines, or Ohno's "余計なことはするな," as a verbatim quoted passage.
-> Each line has a family resemblance to well-documented, citable Ohno
-> themes; the four-line structure and the parenthetical classification
-> look like Ebata's (or a TPS teacher's) own pedagogical condensation,
-> not a found canonical text.**
+This is oral teaching, not a found canonical triad. Parenthetical notes
+are Terry's. It was split from
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md). Claim 3's JIT
+side is **entrusts** a resourceful response to real need; this teaching
+is the closest Japanese-language resemblance found so far.
 
 Searches covered Ohno's most-repeated secondary quote compilations
 (鬼十訓, 語録, "先生の言葉" series), Toyota's own JIT description, and
 targeted phrase searches for each line and the coda. None returned the
 four lines together, and none returned "余計なことはするな" or
-"余計なことをするな" attributed to Ohno. What follows is what each line
-does resemble.
+"余計なことをするな" attributed to Ohno.
 
 ### Line 1 — 顧客の声に従う (follow the customer's voice)
 
@@ -94,42 +87,29 @@ would misstate the very teaching it cites.
 No match for this phrasing was found. The closest documented family
 resemblance is genchi genbutsu and Ohno's fact-over-assumption stance:
 **"百聞は一見にしかず、百見は一行にしかず"** (hearing about it a hundred
-times is not as good as seeing it once; seeing it a hundred times is not
-as good as doing it once), attested in more than one secondary
-compilation without a primary citation. That is a general preference for
-firsthand fact, not a statement about a developer's imagined
+times is not as good as seeing it once; seeing it a hundred times is
+not as good as doing it once), attested in more than one secondary
+compilation without a primary citation. That is a general preference
+for firsthand fact, not a statement about a developer's imagined
 requirements or about software.
 
 ### Ohno's coda — 余計なことはするな
 
-Not found as a sentence. The most citable list of Ohno's own precepts in
-circulation, **大野耐一の鬼十訓** (secondary compilation, ten items,
+Not found as a sentence. The most citable list of Ohno's own precepts
+in circulation, **大野耐一の鬼十訓** (secondary compilation, ten items,
 fetched in full), does not contain it. Ohno's documented anti-waste
 teaching — overproduction as the worst of the seven wastes, kaizen with
 no endpoint — is thematically consistent with "do not do the
 unnecessary," but that is a summary of a large body of teaching, not an
 attested sentence to quote.
 
-### A note on the search itself
-
 Some AI-generated search-result summaries returned confident Japanese
 wording that did not survive a direct fetch-and-read of the page they
 were said to come from. Only wording confirmed on the page itself is
-reported above; unverifiable summarized quotes were discarded rather
-than counted as corroboration. Treat any future search-tool "quote" the
-same way before citing it in this claim.
+reported above. Treat any future search-tool "quote" the same way
+before citing it in this claim.
 
-## Emerging implication for the talk
-
-The search did not find a published match, so keep the attribution the
-original claim already recommended: **Ebata's teaching, plus Terry's
-classification notes — not a Toyota quotation, not a found canonical
-triad.** That is now the better-supported reading, not just the cautious
-one.
-
-Each line still rhymes with citable, well-documented Ohno teaching, and
-that resemblance can be used on stage without overclaiming it as the
-same text:
+## Implication for the talk
 
 > **Ebata's four lines are not a Toyota publication. But each one rhymes
 > with something Ohno himself is on record saying: the answer isn't
@@ -145,17 +125,14 @@ literal "follow the customer's voice."
 
 ## Questions still open
 
-- How should the parenthetical notes (fact, hope, skill) be attributed on
-  stage so they are not heard as Ebata's or Toyota's? Unchanged — a
-  staging choice, not a research question.
-- Not pursued: whether Ebata's father (the TPS champion mentioned in the
-  original claim) is himself named or published anywhere. Skipped
-  because investigating a private individual by relation without Terry
-  supplying the name goes beyond what this claim needs.
+- How should the parenthetical notes (fact, hope, skill) be attributed
+  on stage so they are not heard as Ebata's or Toyota's? A staging
+  choice, not a research question.
 
-Resolved by this pass: which texts resemble the four lines and the coda,
-and how close the match is (family resemblance only, itemized above, not
-wording or structure).
+Not pursued: whether Ebata's father (the TPS champion mentioned above)
+is himself named or published anywhere. Skipped because investigating a
+private individual by relation without Terry supplying the name goes
+beyond what this claim needs.
 
 ## Sources consulted
 
@@ -182,6 +159,3 @@ wording or structure).
 7. [大野耐一](https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%87%8E%E8%80%90%E4%B8%80),
    Japanese Wikipedia. Ohno's own JIT definition: "in time" as exactly
    when needed, not "on time" or merely fast.
-
-**No published match for the four-line teaching or the coda; family
-resemblance only, documented per line above.**

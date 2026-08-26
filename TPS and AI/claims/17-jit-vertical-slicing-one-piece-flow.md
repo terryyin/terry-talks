@@ -1,6 +1,6 @@
 # Claim 17: Thin vertical slices make software flow and confirmation possible
 
-**Status: Provisional — reconciled with Toyota and LeSS research;
+**Status: Provisional — settled with Toyota and LeSS research;
 一個ずつ確認 kept with Kitano's English; doughnut contrast queued on
 Claim 13**
 
@@ -21,10 +21,8 @@ Claim 13**
 Flow also requires little unfinished work, few queues or handoffs, and
 frequent integration. A customer-centric backlog item is still a
 hypothesis, not proof of actual need ([Claim
-11](11-physical-production-and-software-differences.md)). A small running
-slice makes that proof cheaper to seek.
-
-## What the research supports
+11](11-physical-production-and-software-differences.md)). A small
+running slice makes that proof cheaper to seek.
 
 ### One-piece flow is movement without a batch queue
 
@@ -47,62 +45,62 @@ WIP policy, but it is not the definition of one-piece flow and need not
 prohibit parallel flow across several teams. When honest integration
 assimilates an experiment so later work entangles with it, clean
 deletion may mean rolling the current system forward rather than
-revert. That tension pair—honest trunk-based CI and disposable
+revert. That tension pair—honest CI and disposable
 prototypes—is
 [Claim 23](23-ci-and-disposable-prototypes-tension-pair.md).
 
 ### Vertical slicing is the software bridge, not TPS vocabulary
 
 LeSS recommends incrementally building cross-layer architectural slices
-of customer-centric features instead of completing horizontal subsystems
-apart from customer features. Its feature teams complete end-to-end
-features one by one. This gives software a unit that can reach the
-integrated product and be judged.
+of customer-centric features instead of completing horizontal
+subsystems apart from customer features. Its feature teams complete
+end-to-end features one by one. This gives software a unit that can
+reach the integrated product and be judged.
 
 A horizontal split is not automatically a batch. It becomes
-batch-and-queue when layer or component work accumulates, passes through
-specialist handoffs, and postpones an integrated result. A vertical
-slice merely makes avoiding that condition possible. [Claim
-8](08-technical-excellence-enables-jit-coordination-in-less.md) owns the
-feature teams and continuous integration needed to realize it.
+batch-and-queue when layer or component work accumulates, passes
+through specialist handoffs, and postpones an integrated result. A
+vertical slice merely makes avoiding that condition possible. [Claim
+8](08-technical-excellence-enables-jit-coordination-in-less.md) owns
+the feature teams and continuous integration needed to realize it.
 
 ### One-by-one confirmation and 一個ずつ確認
 
-Mikio Kitano's 1997 keynote deck, copyrighted Toyota Motor Manufacturing,
-is titled *Toyota Production System: One-by-One Confirmation*. Kitano
-presents it as a broad TPS discipline of doing the work right the first
-time. He says JIT **reinforces** it by making quality traceable and
-confirmed at every step, and by not making more without a downstream
-request.
+Mikio Kitano's 1997 keynote deck, copyrighted Toyota Motor
+Manufacturing, is titled *Toyota Production System: One-by-One
+Confirmation*. Kitano presents it as a broad TPS discipline of doing
+the work right the first time. He says JIT **reinforces** it by making
+quality traceable and confirmed at every step, and by not making more
+without a downstream request.
 
-Confirmation and JIT are mutually supporting; **one-by-one confirmation**
-is not another name for one-piece flow. The sources document Kitano's
-English phrase, not **一個ずつ確認** as a canonical Japanese Toyota
-term. The Japanese is Terry's rendering.
+Confirmation and JIT are mutually supporting; **one-by-one
+confirmation** is not another name for one-piece flow. The sources
+document Kitano's English phrase, not **一個ずつ確認** as a canonical
+Japanese Toyota term. The Japanese is Terry's rendering.
 
 ### Product feedback adds a second kind of confirmation
 
-Manufacturing flow confirms conformance close to the process that created
-the unit. In software, tests, types, integration, and review can
-similarly confirm known quality conditions. Jidoka is the stop when such
-a condition fails.
+Manufacturing flow confirms conformance close to the process that
+created the unit. In software, tests, types, integration, and review
+can similarly confirm known quality conditions. Jidoka is the stop when
+such a condition fails.
 
-Those checks cannot confirm that a novel product change is useful. LeSS's
-**Take a Bite** supplies the missing product-development loop: split off
-one tiny customer-centric end-to-end item, implement it, obtain feedback,
-and only then return to more splitting. Early user or customer feedback
-is enabled by a thin slice; it is **not part of the definition of
-one-piece flow**.
+Those checks cannot confirm that a novel product change is useful.
+LeSS's **Take a Bite** supplies the missing product-development loop:
+split off one tiny customer-centric end-to-end item, implement it,
+obtain feedback, and only then return to more splitting. Early user or
+customer feedback is enabled by a thin slice; it is **not part of the
+definition of one-piece flow**.
 
 ## Implication for the talk
 
 On stage, introduce **one-by-one confirmation** and **一個ずつ確認**
 together once: Kitano's sourced English, and Terry's rendering.
 
-> **JIT asks work to flow without stockpiling. In software, make the unit
-> a thin, customer-centric vertical slice. Let it pull the lower-level
-> solution, integrate it quickly, and confirm it one by one: quality in
-> the product, usefulness through feedback.**
+> **JIT asks work to flow without stockpiling. In software, make the
+> unit a thin, customer-centric vertical slice. Let it pull the
+> lower-level solution, integrate it quickly, and confirm it one by
+> one: quality in the product, usefulness through feedback.**
 
 For AI-augmented development: generated endpoints, schemas, and designs
 are unfinished inventory until integrated and judged. Pull one thin
@@ -111,9 +109,9 @@ product, and then take the next bite.
 
 ## Questions still open
 
-- What single doughnut example best contrasts queued layer work with one
-  integrated vertical slice without implying that all parallel work is
-  forbidden? Queued on
+- What single doughnut example best contrasts queued layer work with
+  one integrated vertical slice without implying that all parallel work
+  is forbidden? Queued on
   [Claim 13](13-doughnut-project-examples.md).
 
 ## Sources consulted

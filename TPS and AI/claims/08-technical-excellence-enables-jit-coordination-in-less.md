@@ -4,46 +4,7 @@
 the engineering catalog exists so a LeSS group can integrate
 continuously**
 
-## Original claim / hypothesis
-
-> LeSS relies on technical excellence, related to jidoka, to enable people and
-> teams. It frees them—largely through ways of working they control—from
-> repetitive work so that they can concentrate on adding value for users.
->
-> More importantly, technical excellence enables teams to integrate
-> continuously and then coordinate through self-management in a Just-in-Time
-> fashion: integration reveals a need, and that need leads the teams to
-> collaborate.
->
-> This is how the talk about TPS and AI is related to LeSS.
-
-This is a lightly edited record of Terry's hypothesis. The proposed causal
-chain is:
-
-> **Technical excellence → continuous integration → visible dependency or
-> abnormality → self-managed collaboration when needed → more attention for
-> user value.**
-
-### Additional hypothesis: technical excellence is for continuous integration
-
-> Because continuous integration is so important in a LeSS organization,
-> CI should not be considered a part of Technical Excellence. The entire
-> Technical Excellence is for the purpose of Continuous Integration.
-
-This is the record of a second hypothesis: the catalog exists *for*
-continuous integration, rather than listing CI as one peer practice.
-
-## Reconciled claim
-
-The causal chain holds. In a LeSS group the engineering practices exist
-so several feature teams can integrate one product continuously. Jidoka's
-people-side—empowerment, encoded judgment, freedom and trust—is [Claims
-3](03-jidoka-enables-jit-trusts-respect-grows.md),
-[6](06-jidoka-embeds-routine-judgment.md), and
-[10](10-freedom-and-trust-reinforce-through-jidoka.md). This claim is the
-**technical precondition** for [Claim
-3](03-jidoka-enables-jit-trusts-respect-grows.md)'s **Whole Product
-Focus**.
+## Claim
 
 > **Technical excellence makes Whole Product Focus workable.
 > Self-managing feature teams change one shared product; in a LeSS
@@ -53,16 +14,31 @@ Focus**.
 > become concrete. Customer-centric teams and one ordered backlog
 > orient that capability toward user value.**
 
+Jidoka's people-side—empowerment, encoded judgment, freedom and
+entrustment—is [Claims
+3](03-jidoka-enables-jit-trusts-respect-grows.md),
+[6](06-jidoka-embeds-routine-judgment.md), and
+[10](10-freedom-and-trust-reinforce-through-jidoka.md). This claim is
+the **technical precondition** for [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md)'s **Whole Product
+Focus**.
+
+The causal chain:
+
+> **Technical excellence → continuous integration → visible dependency
+> or abnormality → self-managed collaboration when needed → more
+> attention for user value.**
+
 ### Organizational agility is constrained by technical agility
 
-LeSS states that as a property of the system, not as polish after
-self-managing teams exist. Changing reporting lines cannot make a product
-group responsive when the product is slow or dangerous to change.
+LeSS states that as a property of the system. Changing reporting lines
+cannot make a product group responsive when the product is slow or
+dangerous to change.
 
 The dependency is stronger with feature teams: long-lived,
-cross-functional, and cross-component, completing an end-to-end customer
-feature. How those features are cut so each can be confirmed—vertical
-slices, not technical layers—is
+cross-functional, and cross-component, completing an end-to-end
+customer feature. How those features are cut so each can be
+confirmed—vertical slices, not technical layers—is
 [Claim 17](17-jit-vertical-slicing-one-piece-flow.md). Several teams
 therefore change the same components. LeSS says that makes modern
 engineering practices, especially continuous integration, essential.
@@ -75,8 +51,8 @@ practices exist so several feature teams can integrate one product
 continuously.
 
 TDD and splitting large changes keep the system working so a developer
-can integrate after a few minutes, not after a feature. Fast tests and a
-fast build keep people from batching. Clean code, refactoring, and
+can integrate after a few minutes, not after a feature. Fast tests and
+a fast build keep people from batching. Clean code, refactoring, and
 craftsmanship support optimistic mainline integration. A shorter build
 cycle even forces better product structure. Continuous delivery is that
 same working system taken further.
@@ -104,14 +80,14 @@ capability being pulled.
 
 ### Self-management is bounded
 
-The team executes the work, monitors whether it is on track, takes action
-when it is not, decides how to work, and resolves conflicts in its
-process. It does not reinvent product direction. Teams share one product,
-one Product Backlog, one Product Owner, a common Definition of Done, one
-product-level Sprint, and the obligation to create an integrated
-whole-product increment. Expanding that Definition of Done toward
-shippable is how teams measure Continuous Improvement Towards Perfection;
-that job is
+The team executes the work, monitors whether it is on track, takes
+action when it is not, decides how to work, and resolves conflicts in
+its process. It does not reinvent product direction. Teams share one
+product, one Product Backlog, one Product Owner, a common Definition of
+Done, one product-level Sprint, and the obligation to create an
+integrated whole-product increment. Expanding that Definition of Done
+toward shippable is how teams measure Continuous Improvement Towards
+Perfection; that job is
 [Claim 18](18-continuous-improvement-towards-perfection.md).
 
 > **LeSS gives teams authority over how they execute, monitor, and adapt
@@ -191,7 +167,7 @@ involved, it does not interrupt every team. A CI signal that overwhelms
 the product group with noisy, coupled interruptions is a problem in the
 overlap, not its normal cost.
 
-## Emerging implication for the talk
+## Implication for the talk
 
 This claim is the technical bridge from TPS to LeSS. [Claim
 3](03-jidoka-enables-jit-trusts-respect-grows.md) supplies Whole Product

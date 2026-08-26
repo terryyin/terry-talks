@@ -1,8 +1,8 @@
 # Claim 21: CI is a developer practice; a CI service is not CI
 
 **Status: Provisional — names settled (CI service); LeSS andon is
-history, not the tool's name; XP beat in; Tokyo placement and doughnut
-episode still open**
+history, not the tool's name; Tokyo placement and doughnut episode
+still open**
 
 ## Claim
 
@@ -46,18 +46,18 @@ machine. There is little point in that manual process when automation
 is freely available. “Continuous Build Services” would have been a
 better name for the daemons.
 
-That was early XP. Beck (1999): integrate after no more than a few
-hours; build from scratch; all tests pass or the changes are
-discarded. Fowler credits Beck and C3 for the practice, and
-CruiseControl as the first CI service—useful, not essential. In
-*Extreme Programming Explained*, second edition, Beck writes a TPS
-chapter: stop the line; Ohno's greatest waste is overproduction in
-software. The XP principle **Flow** is taken from lean manufacturing.
-Do not tell C3 as a copy of *The Toyota Way*; that book is later. The
-citable claim is the 2004 philosophy: XP is to be read with TPS. At
-LeSS scale the manual arrangement would be fragile, which is why LeSS
-then scales a CI system. On stage: **the practice came first; the
-service does not prove it.**
+Beck (1999): integrate after no more than a few hours; build from
+scratch; all tests pass or the changes are discarded. Fowler credits
+Beck and C3 for the practice, and CruiseControl as the first CI
+service—useful, not essential. In *Extreme Programming Explained*,
+second edition, Beck writes a TPS chapter: stop the line; Ohno's
+greatest waste is overproduction in software. The XP principle
+**Flow** is taken from lean manufacturing. Do not tell C3 as a copy
+of *The Toyota Way*; that book is later. The citable claim is the
+2004 philosophy: XP is to be read with TPS. At LeSS scale the manual
+arrangement would be fragile, which is why LeSS then scales a CI
+system. On stage: **the practice came first; the service does not
+prove it.**
 
 ## Implication for the talk
 

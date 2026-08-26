@@ -1,10 +1,8 @@
 # Claim 18: Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is the TPS example, Definition of Done the LeSS measure
 
-**Status: Provisional — origin and layers supported; stage labels are the
-LeSS principle plus kaizen; SMED is the TPS perfection-goal example,
-Definition of Done the LeSS measure; TPS-pillar origin, LeSS's two-pillar
-wording as Toyota's, the chairman-naming anecdote, and SMED method recap
-withdrawn**
+**Status: Provisional — origin and layers supported; stage labels are
+the LeSS principle plus kaizen; SMED is the TPS perfection-goal
+example, Definition of Done the LeSS measure**
 
 ## Claim
 
@@ -21,13 +19,9 @@ withdrawn**
 > doing kaizen toward it. Definition of Done is LeSS's measure of the
 > same trajectory for teams.**
 
-The original hypothesis asked whether the LeSS principle is also from
-TPS, and whether SMED is a good example. SMED holds as the TPS worked
-case. Definition of Done is the LeSS measure, not a rival example. The
-origin needs the same layer distinction as
-[Claim 2](02-tps-and-lean-houses.md).
-
-## What the research supports
+The origin needs the same layer distinction as
+[Claim 2](02-tps-and-lean-houses.md). SMED is the TPS worked case.
+Definition of Done is the LeSS measure, not a rival example.
 
 ### LeSS names the principle and says the idea comes from Toyota
 
@@ -50,12 +44,11 @@ LeSS itself locates the idea:
 > continuous improvement—comes originally from Toyota, some of this
 > introduction draws on the Toyota background.
 
-The talk can say **LeSS took this from Toyota via lean thinking.** It
-should not say LeSS invented it. On stage, keep the LeSS principle name
-and **kaizen**; do not substitute a third slogan such as “never done.”
-LeSS already says adoption and improvement are never finished; that is
-the consequence, not the label. Do not repeat that LeSS sentence as
-Toyota's or Womack and Jones's taxonomy. Toyota Way 2001
+The talk can say **LeSS took this from Toyota via lean thinking.** On
+stage, keep the LeSS principle name and **kaizen**. LeSS already says
+adoption and improvement are never finished; that is the consequence,
+not a third slogan. LeSS's “two pillars of Lean Thinking” wording is
+LeSS's, not Toyota's or Womack and Jones's taxonomy. Toyota Way 2001
 names the pillar **Continuous Improvement**, not “towards perfection.”
 Womack and Jones name **pursue perfection** as a fifth principle, not as
 one of two pillars. LeSS also has a separate **Lean Thinking** principle
@@ -75,9 +68,7 @@ Toyota Way 2020 is ten actions toward the Toyota Philosophy, not a
 restatement of the 2001 pillar labels; Toyota Europe still says evolve
 with kaizen and never accept the status quo. Keep the two-pillar
 attribution on 2001. The 2001-to-2020 comparison stays on
-[Claim 2](02-tps-and-lean-houses.md). LeSS's anecdote that chairman
-Toyoda renamed the booklet *Toyota Way 2001* to mark “no final process”
-is LeSS-only; do not cite it as Toyota's. Toyota's 75-year page already
+[Claim 2](02-tps-and-lean-houses.md). Toyota's 75-year page already
 says the Way must evolve and will continue to be updated.
 
 Perfection is not a state to declare. LeSS's pictures of the ideal
@@ -109,25 +100,26 @@ process cycle. High changeover cost is that transaction cost. Small
 batches look wasteful until kaizen attacks it. Then mix leveling,
 vertical slices, and frequent change of direction become economical.
 
-Do not present SMED as how LeSS implements the principle. It is the TPS
-worked example of naming a perfection goal and never declaring the
-kaizen finished.
+SMED is the TPS worked example of naming a perfection goal and never
+declaring the kaizen finished. It is not how LeSS implements the
+principle.
 
 ### Definition of Done is how LeSS teams measure the principle
 
-LeSS's tool of measurement for the teams' Continuous Improvement Towards
-Perfection is the **Definition of Done**. Creating it starts by listing
-every activity currently required to ship to end customers. LeSS calls
-that list a **perfection goal** for the organization: do all of it for
-each item every Sprint. The Definition of Done is the subset the teams
-can actually complete inside the Sprint. The gap is **Undone Work**. A
-Definition of Done is perfect when it equals Potentially Shippable.
+LeSS's tool of measurement for the teams' Continuous Improvement
+Towards Perfection is the **Definition of Done**. Creating it starts by
+listing every activity currently required to ship to end customers.
+LeSS calls that list a **perfection goal** for the organization: do all
+of it for each item every Sprint. The Definition of Done is the subset
+the teams can actually complete inside the Sprint. The gap is **Undone
+Work**. A Definition of Done is perfect when it equals Potentially
+Shippable.
 
 Teams expand the Definition of Done toward that goal. That expansion is
-visible: a weaker Definition of Done means more Undone Work, more hidden
-risk and delay; a stronger one means closer to shippable each Sprint.
-That is how you see whether the principle is happening, not whether a
-change program closed.
+visible: a weaker Definition of Done means more Undone Work, more
+hidden risk and delay; a stronger one means closer to shippable each
+Sprint. That is how you see whether the principle is happening, not
+whether a change program closed.
 
 A common product-wide Definition of Done as an enabling constraint on
 self-management stays on
@@ -192,8 +184,7 @@ None remaining on this claim.
    Perfection](https://less.works/less/principles/continuous-improvement-towards-perfection).
    Named principle; never-done adoption; traced to Toyota via lean
    thinking; the “two pillars of Lean Thinking” wording (LeSS's, not
-   Toyota's); small batches plus kaizen lowering transaction cost;
-   chairman-naming anecdote (LeSS-only).
+   Toyota's); small batches plus kaizen lowering transaction cost.
 2. The LeSS Company, [Definition of
    Done](https://less.works/less/framework/definition-of-done). Required
    ship-to-customer activities as a perfection goal; Definition of Done

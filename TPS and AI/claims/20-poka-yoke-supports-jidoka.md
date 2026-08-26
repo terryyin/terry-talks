@@ -6,12 +6,12 @@ fixture still queued; leftover warnings owned by Claim 24**
 ## Claim
 
 > **Poka-yoke is a supporting quality method under jidoka, not a second
-> pillar and not jidoka itself.** Toyota practices it. It is not in
-> original TPS: Shingo coined the name as a later addition. For a
-> known inadvertent error, change the process so the error cannot
-> occur, or so it is immediately obvious at the source. Prefer
-> prevention. Do not equate poka-yoke with prevention only, or collapse
-> every good design or every test into the name.
+> pillar and not jidoka itself.** Toyota practices it. Shingo coined
+> the name as a later addition. For a known inadvertent error, change
+> the process so the error cannot occur, or so it is immediately
+> obvious at the source. Prefer prevention. Do not equate poka-yoke
+> with prevention only, or collapse every good design or every test
+> into the name.
 
 This claim owns the **TPS relationship** and the **name**. [Claim
 6](06-jidoka-embeds-routine-judgment.md) owns smart → dumb → gone.

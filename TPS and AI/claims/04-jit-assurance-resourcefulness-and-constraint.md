@@ -213,10 +213,10 @@ For AI-augmented software development:
   product, very quickly. Throughput then rises while quality and the ability
   to finish fall. Vendor telemetry keeps repeating that pattern; Faros's
   2026 *Acceleration Whiplash* is a recent snapshot among many. The scarce
-  capacity is not model calls. It is human judgment, review, and the
-  system's ability to absorb change without hiding defects in a generated
-  pile. Encoding that judgment so later use needs less live attention is
-  [Claim 6](06-jidoka-embeds-routine-judgment.md).
+  capacity is not model calls. [Claim
+  6](06-jidoka-embeds-routine-judgment.md) owns the bottleneck, and how
+  encoding previously learned judgment leaves later use needing less live
+  attention.
 
 The desired state is **fast, trustworthy response capacity**—not a stockpile of
 generated answers or an army of idle agents.

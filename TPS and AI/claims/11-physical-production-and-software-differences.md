@@ -1,43 +1,34 @@
 # Claim 11: Software mixes production and discovery inside a product that is also the process
 
-**Status: Provisional — working hypothesis formed from research; not
-Terry's original wording**
+**Status: Provisional — mixture and four mechanism changes settled;
+talk sequence, set-based vs overproduction, and operations as a third
+mode still open**
 
-## Original question
+## Claim
 
-> Which differences between physical production and software development
-> materially change how pull, small batches, jidoka, and changeover reduction
-> work?
+> **Software work is neither a factory making identical units nor a lab
+> doing only discovery. It is a mixture of production-like and
+> discovery-like activity inside one evolving product that is also the
+> production system. That mixture changes the units, signals, and
+> inventory of pull, small batches, jidoka, and changeover. The
+> transferable content is still the relationships: do not stockpile
+> unverified work; expose and contain known abnormalities; respond and
+> improve capability.**
 
-[Claim 1](01-tps-reasoning-not-mechanisms.md) already says software has a
-different mixture of production, discovery, and change, and that the
+[Claim 1](01-tps-reasoning-not-mechanisms.md) already says software has
+a different mixture of production, discovery, and change, and that the
 useful transfer is Toyota's system reasoning, not a literal copy of
 mechanisms. [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md)
 points here for how those differences change pull, batches, jidoka, and
 changeover.
 
-## Working hypothesis
-
-> **Software work is neither a factory making identical units nor a lab
-> doing only discovery. It is a mixture of production-like and
-> discovery-like activity inside one evolving product that is also the
-> production system. That mixture changes the units, signals, and inventory
-> of pull, small batches, jidoka, and changeover. The transferable content
-> is still the relationships: do not stockpile unverified work; expose and
-> contain known abnormalities; respond and improve capability.**
-
-Do not reduce the distinction to “production versus discovery.” Physical
-production already includes discovery (kaizen, problem solving, new-model
-introduction). Software already includes production-like work (builds,
-tests, integration, deployment, operations, repeating a known procedure).
-The mistake is to treat either domain as only one of those modes.
-
-## Research-based adjustment
-
-The hypothesis holds. Toyota itself did not treat production and product
-development as one system. The software mapping fails when it copies
-factory mechanisms, and it also fails when it discards TPS because
-“software is knowledge work.”
+Physical production already includes discovery (kaizen, problem
+solving, new-model introduction). Software already includes
+production-like work (builds, tests, integration, deployment,
+operations, repeating a known procedure). The mistake is to treat
+either domain as only one of those modes. The software mapping fails
+when it copies factory mechanisms, and it also fails when it discards
+TPS because “software is knowledge work.”
 
 ### Toyota already distinguished production from development
 
@@ -54,18 +45,19 @@ summarize Toyota's two main processes as:
 
 - **Development — out-learn** the competition by generating, using, and
   remembering useful knowledge.
-- **Production — out-improve** the competition through short cycles, small
-  batches and queues, stop-and-fix, and relentless waste removal.
+- **Production — out-improve** the competition through short cycles,
+  small batches and queues, stop-and-fix, and relentless waste removal.
 
 They add that these are not mutually exclusive: development also
 improves, and production also learns. Poppendieck's mapping is the same
 kind of move: software development is part of **product development**;
 transfer **principles**, not manufacturing practices.
 
-So the talk should not present TPS as Toyota's only relevant system, nor
-present software as a plant. LeSS sits closer to lean product development
-of a software product, using production-like technical excellence so that
-the evolving product can be pulled, stopped, and improved.
+The talk should not present TPS as Toyota's only relevant system, nor
+present software as a plant. LeSS sits closer to lean product
+development of a software product, using production-like technical
+excellence so that the evolving product can be pulled, stopped, and
+improved.
 
 ### Four material differences
 
@@ -102,13 +94,14 @@ press.
 
 ### How pull changes
 
-In TPS, pull means making only what is needed, when it is needed, in the
-amount needed. The supermarket loop replenishes a **known** part after
-actual pickup. Hopp and Spearman argue that the operational core of pull
-is an **explicit WIP cap**, not the metaphor of tugging material.
+In TPS, pull means making only what is needed, when it is needed, in
+the amount needed. The supermarket loop replenishes a **known** part
+after actual pickup. Hopp and Spearman argue that the operational core
+of pull is an **explicit WIP cap**, not the metaphor of tugging
+material.
 
-In software, three different signals get called “pull,” and they are not
-the same:
+In software, three different signals get called “pull,” and they are
+not the same:
 
 1. **A backlog item is a hypothesis**, not consumption of a known part.
    Selecting it authorizes discovery and production of a unique change.
@@ -129,13 +122,13 @@ The material change is the **weakness of the customer-consumption
 signal** and the **invisibility of inventory**. Physical kanban is
 visible on bins. Software inventory is bits on a disk. LeSS treats
 queues of specifications, unintegrated code, and untested components as
-WIP that hides defects and delays feedback. Plan A is to eradicate those
-queues by changing the system (feature teams, continuous integration),
-not to run a factory kanban on a waterfall.
+WIP that hides defects and delays feedback. Plan A is to eradicate
+those queues by changing the system (feature teams, continuous
+integration), not to run a factory kanban on a waterfall.
 
-AI tightens this. Cheap generation creates more candidate inventory, not
-more validated need. Pulling a generated patch because it was easy to
-make is push.
+AI tightens this. Cheap generation creates more candidate inventory,
+not more validated need. Pulling a generated patch because it was easy
+to make is push.
 
 ### How small batches change
 
@@ -144,18 +137,19 @@ The economic gain is less inventory, faster mix response, and quicker
 discovery of defects in the batch.
 
 In software, a small batch is a **small unique increment of an evolving
-product**: a small done item, a small integrated change, a small release.
-The batch is not “one more copy of the same car.” Transaction cost is
-thinking, setup, verification, and integration, not only machine setup.
-How to cut that increment from the requirement—a thin vertical slice of
-user value, not a technical layer, confirmed by 一個ずつ確認—is
+product**: a small done item, a small integrated change, a small
+release. The batch is not “one more copy of the same car.” Transaction
+cost is thinking, setup, verification, and integration, not only
+machine setup. How to cut that increment from the requirement—a thin
+vertical slice of user value, not a technical layer, confirmed by
+一個ずつ確認—is
 [Claim 17](17-jit-vertical-slicing-one-piece-flow.md).
 
 LeSS already connects this to queueing: large variable batches of
 features, documents, or unintegrated code lengthen cycle time
 nonlinearly. Naive appeal to Little's Law is not a guarantee in
-high-variability software work; reducing WIP remains worthwhile because
-it is inventory, hides defects, and reduces transparency.
+high-variability software work; reducing WIP remains worthwhile
+because it is inventory, hides defects, and reduces transparency.
 
 Set-based concurrent engineering shows another non-factory use of
 “many”: Toyota explores **sets of alternatives** in development to
@@ -175,9 +169,10 @@ brings people to respond and prevent recurrence. The loom example works
 because the abnormal condition can be engineered into the machine after
 people have learned the work by hand.
 
-Software can do the same for **known, executable conditions**: the build
-breaks, a regression fails, a type is wrong, an invariant is violated, a
-deploy rolls back. That is the jidoka side of a **CI service**
+Software can do the same for **known, executable conditions**: the
+build breaks, a regression fails, a type is wrong, an invariant is
+violated, a deploy rolls back. That is the jidoka side of a **CI
+service**
 ([Claim 21](21-ci-practice-is-not-a-ci-system.md)), which can support
 the continuous-integration practice in
 [Claim
@@ -185,14 +180,15 @@ the continuous-integration practice in
 the judgment-embedding loop in [Claim
 6](06-jidoka-embeds-routine-judgment.md).
 
-The material limit is that many software abnormalities are **semantic**.
-A missing bolt can be sensed as presence or absence. “This is the wrong
-product,” “this design will not age,” and “this generated function
-matches the tests but not the need” cannot be reduced to a thread-break
-sensor. Poka-yoke and tests encode prior learning; they do not replace
-judgment of value, usefulness, or sufficiency of evidence. [Claim
-20](20-poka-yoke-supports-jidoka.md) owns poka-yoke;
-this claim owns the semantic limit.
+The material limit is that many software abnormalities are
+**semantic**. A missing bolt can be sensed as presence or absence.
+“This is the wrong product,” “this design will not age,” and “this
+generated function matches the tests but not the need” cannot be
+reduced to a thread-break sensor. Poka-yoke and tests encode prior
+learning; they do not replace judgment of value, usefulness, or
+sufficiency of evidence. [Claim
+20](20-poka-yoke-supports-jidoka.md) owns poka-yoke; this claim owns
+the semantic limit.
 
 AI makes the limit sharper, not weaker. Generated output can look
 finished while remaining unverified. Jidoka still belongs on every
@@ -203,24 +199,25 @@ customer value and acceptable risk.
 
 ### How changeover reduction changes
 
-[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md) already
-maps SMED and where that analogy breaks. The domain reason is the
-product-as-process difference above: a die change returns a machine to a
-**known production mode**; a software changeover reconstructs purpose,
-code, and environment in a **product that has itself changed**.
-Manufacturing setup is mostly non-value-adding overhead; rebuilding a
-software mental model often includes necessary learning.
+[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md)
+already maps SMED and where that analogy breaks. The domain reason is
+the product-as-process difference above: a die change returns a machine
+to a **known production mode**; a software changeover reconstructs
+purpose, code, and environment in a **product that has itself
+changed**. Manufacturing setup is mostly non-value-adding overhead;
+rebuilding a software mental model often includes necessary learning.
 
-Cheap changeover still matters: high setup cost makes large batches look
-efficient. The unit of improvement is organizational, technical, and
-cognitive readiness—not swapping a physical die.
+Cheap changeover still matters: high setup cost makes large batches
+look efficient. The unit of improvement is organizational, technical,
+and cognitive readiness—not swapping a physical die.
 
-## Emerging implication for the talk
+## Implication for the talk
 
 Use this claim as the boundary on every TPS-to-software mapping:
 
-> **Copy the relationships, not the factory. Software mixes production-like
-> delivery with discovery inside one product that is also the process.**
+> **Copy the relationships, not the factory. Software mixes
+> production-like delivery with discovery inside one product that is
+> also the process.**
 
 A compact sequence for the four mechanisms:
 
@@ -229,10 +226,11 @@ A compact sequence for the four mechanisms:
 > abnormalities automatically. Make the next valuable change cheap to
 > start and fast to verify. Leave novel judgment with people.**
 
-For AI-augmented development, the factory temptation is stronger because
-candidates become cheap to produce. That does not turn software into
-vehicle assembly. It increases invisible inventory and moves the
-bottleneck to review, integration, and judgment. The TPS relationships
+For AI-augmented development, the factory temptation is stronger
+because candidates become cheap to produce. That does not turn software
+into vehicle assembly. It increases invisible inventory. The bottleneck
+does not move to a later pipeline stage
+([Claim 6](06-jidoka-embeds-routine-judgment.md)). The TPS relationships
 become more important, not less, provided the talk does not pretend a
 backlog ticket is a kanban for a known part, or that a passing test is
 the same as a thread-break stop.
@@ -240,13 +238,13 @@ the same as a thread-break stop.
 ## Questions still open
 
 - Which concrete talk example best shows all four mechanism changes in
-  one sequence: a pulled item, a small integrated change, a jidoka stop,
-  and a cheap next changeover?
+  one sequence: a pulled item, a small integrated change, a jidoka
+  stop, and a cheap next changeover?
 - When is exploring multiple AI-generated alternatives set-based
   learning, and when is it overproduction of intellectual inventory?
-- Which software work is stable enough to treat as production (repeatable
-  checks, deploys, operational procedures), and which must remain
-  discovery?
+- Which software work is stable enough to treat as production
+  (repeatable checks, deploys, operational procedures), and which must
+  remain discovery?
 - Does operations of a running service belong in this claim as a third
   mode—production of the live system—or should the talk keep the
   comparison to development of the product?
@@ -309,5 +307,3 @@ the same as a thread-break stop.
     *MIT Sloan Management Review*. Development explores sets of
     alternatives rather than producing one repeating design as if it
     were a production run.
-
-**Working hypothesis ready for Terry to accept, adjust, or reject.**

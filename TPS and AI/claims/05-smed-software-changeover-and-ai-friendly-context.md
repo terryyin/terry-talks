@@ -38,8 +38,10 @@ near-zero changeover is
 > efficient even when the mix is known. Cheap changeover makes thin
 > vertical slices the economical way to follow actual need.**
 
-Launching more agents does not substitute for that kaizen. It can move
-the bottleneck to review and integration.
+Launching more agents does not substitute for that kaizen. It can flood
+review and integration with still-smart work; those queues filling is
+not the bottleneck moving. [Claim
+6](06-jidoka-embeds-routine-judgment.md) owns where it actually sits.
 
 ### One customer item at a time: Vodde's spill-over
 
