@@ -1,5 +1,5 @@
 ---
-description: Behavior/Structure slice grammar and post-change refactor gate for local work
+description: Behavior/Structure slice grammar and execute-plan wrap-up for local work
 alwaysApply: true
 ---
 
@@ -11,10 +11,19 @@ alwaysApply: true
   by the **immediate next** Behavior it unlocks).
 - Decompose with **slice-planning** (`.agents/skills/slice-planning/`). Order
   by outcome, not by layer; size each slice to finish in ~5 minutes including
-  checks.
+  checks. Execute with **execute-plan**
+  (`.agents/skills/execute-plan/`). Do not create `.planning/` or adopt GSD.
 - **Time-box:** a fix/edit attempt over 5 minutes — scrutinize the breakdown;
   over 10 minutes — stop, stash WIP, re-decompose smaller (see the skill for
   detail).
+- **Jidoka** — Before starting a slice and after finishing it: stop for
+  developer judgment on value/design forks, credentials, undiagnosed
+  unrelated failure, or ambiguity (see **execute-plan**). Do not stop merely
+  to avoid fixing a check failure caused by the current change.
+- **Wrap-up (required on execute-plan):** Jidoka → post-change-refactor →
+  update plan → commit. Invoking execute-plan authorizes one commit per
+  closed slice. Do **not** push unless asked. This repo has no CD deploy
+  gate.
 - Before committing a slice, run **post-change-refactor**
   (`.agents/skills/post-change-refactor/`) on the uncommitted change: collapse
   duplication, fix naming, consolidate shotgun surgery, delete dead/redundant

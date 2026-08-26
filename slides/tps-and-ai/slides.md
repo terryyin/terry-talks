@@ -28,12 +28,47 @@ system responsive and learnable (Claim 1).
 
 ---
 
-# About me
+layout: two-cols-header
+---
 
-- **Terry Yin** — Odd-e
-- Creator of **Lizard**, an open-source cyclomatic-complexity / code-complexity analysis tool
-- Practitioner of Lean, LeSS, and Toyota Production System thinking applied to software delivery
-- terry@odd-e.com
+# I make invisible problems visible
+
+::left::
+
+## In the code
+
+I created **Lizard** — the open-source complexity analyzer that turns
+sprawling code into something a team can see and discuss.
+
+Used from **Nokia** and **Ericsson** to CERN's **ATLAS** experiment.
+
+::right::
+
+## In the system
+
+I coach **LeSS** and technical practices at **Odd-e**.
+
+Nearly **30 years** building software, including a decade inside Nokia R&D —
+and I still program.
+
+<div class="mt-6 text-xl opacity-70">
+Still programming. Still learning. Now asking what AI should free us from.
+</div>
+
+<div class="mt-4 text-lg opacity-60">
+Terry Yin · Singapore · terry@odd-e.com
+</div>
+
+<!--
+Lizard makes complexity visible in code; TPS makes abnormalities visible in
+a system. This is why I came to TPS through software problems, not as a
+manufacturing tourist.
+
+[Sources]
+- https://less.works/profiles/terry-yin
+- https://github.com/terryyin/lizard
+[/Sources]
+-->
 
 ---
 

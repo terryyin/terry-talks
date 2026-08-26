@@ -14,7 +14,9 @@ with one observable outcome (or one Structure change for the immediate next
 Behavior only).
 
 This repo has no roadmap tool (no GSD, no `.planning/`) — a slice is simply
-the unit of work you commit.
+the unit of work you commit. Execution is **execute-plan**, not this skill.
+
+Output: a written plan (file or session list) + `## SLICE PLAN WRITTEN`.
 </objective>
 
 <context>
@@ -29,7 +31,8 @@ the unit of work you commit.
 
 Track slices with the session's task list. Only write a standalone plan note
 for work that will span multiple sessions (e.g. a `NOTES.md` beside the deck
-or claim being built) — delete it once every slice in it has landed.
+or claim being built) — **execute-plan** deletes it once every slice has
+landed. Do not create `.planning/`.
 </context>
 
 <process>
@@ -44,8 +47,8 @@ When a fix / edit / "make it work" attempt overruns the time-box:
 
 For the hard trigger: stop, summarize what you learned, `git stash` (or
 revert) uncommitted WIP, decompose the remaining work into smaller slices,
-then report and wait (or execute the first smaller slice if already
-authorized).
+then report and wait (or hand the first smaller slice to **execute-plan**
+if already authorized).
 </step>
 
 <step name="decompose">
@@ -71,9 +74,8 @@ multi-section claim), alternate:
    read-through for prose (claims, open questions, ADRs).
 3. Repeat until the whole slice reads/builds clean.
 
-Land a commit after a beat (or a few) reach a clean check — not mid-draft.
-Don't deliberately leave `pnpm build` or `pnpm typecheck` broken across a
-commit.
+Leave checks green for wrap-up — **execute-plan** commits; the implementer
+does not. Don't deliberately leave `pnpm build` or `pnpm typecheck` broken.
 </step>
 
 <step name="write_plan">
@@ -84,7 +86,8 @@ For multi-session work only, state per slice:
 - Behavior: what changes, for whom, and how you'll know it's done
 - Structure: internal change + which **immediate next** Behavior it unlocks
 
-Delete the note once every slice in it has landed.
+Do not implement the slices here. Hand execution to **execute-plan** when
+the developer asks (or already asked in the same turn).
 </step>
 
 </process>
@@ -94,11 +97,35 @@ Delete the note once every slice in it has landed.
 - NEVER leave a stray planning note behind after the work has landed
 - NEVER plan a slice that deliberately ends with a broken build/typecheck —
   land only after a clean check
+- NEVER implement feature/content work during planning (except a tiny
+  fix discovered while reading)
+- NEVER create `.planning/` or GSD artifacts
 </guardrails>
 
 <success_criteria>
-- [ ] Every slice is Behavior or Structure, stop-safe, one observable outcome
-- [ ] No plan file left behind for work that already landed
-- [ ] Clear next action (execute, decide, or wait)
+- Every slice is Behavior or Structure, stop-safe, one observable outcome
+- Plan written to a NOTES/PLAN file or the session list (not `.planning/`)
+- Final output includes `## SLICE PLAN WRITTEN`
 </success_criteria>
+
+<output>
+Report to the developer:
+
+1. Plan location and slice summary.
+2. Key design decisions.
+3. Discoveries affecting remaining work.
+
+```
+## SLICE PLAN WRITTEN
+```
+
+Then wait unless they already asked to execute — in that case invoke
+**execute-plan**.
 </output>
+
+<out_of_scope>
+- Do not implement slices during planning.
+- Do not add plans under `.planning/` or introduce GSD.
+- Do not plan a slice that deliberately ends with a broken
+  typecheck/build.
+</out_of_scope>

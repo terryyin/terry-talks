@@ -31,5 +31,6 @@ because `show` is a reserved pnpm alias for its own registry-info command —
 Accepted ADRs via `adr-awareness` (do not approve).
 
 **Workflow:** Break work into stop-safe Behavior/Structure slices via
-`slice-planning`; run `post-change-refactor` on the uncommitted change before
-each commit.
+`slice-planning`; execute with `execute-plan` (Jidoka → post-change-refactor
+→ update plan → commit per slice). Do not push unless asked. No GSD and no
+`.planning/`.

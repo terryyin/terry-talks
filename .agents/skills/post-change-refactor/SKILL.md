@@ -6,7 +6,7 @@ description: >-
   code, but Jidoka-stop before unapproved cross-subsystem refactoring. Remove
   duplication, unclear naming, shotgun surgery, dead/redundant code, and
   oversized code files; run related checks only when the refactor edits.
-  Local slice wrap-up overlay for slice-planning. Use after a slice, before
+  Local slice wrap-up overlay for execute-plan. Use after a slice, before
   commit, or on: refactor change, clean up change, post-change refactor,
   before commit cleanup, tidy current change.
 ---
@@ -16,8 +16,8 @@ Clean concepts implicated by the **current uncommitted change** so they are
 cohesive, capability-named, and non-speculative, then return control for
 commit.
 
-Purpose: local wrap-up gate for `slice-planning`. Structure-only: no new
-Behavior.
+Purpose: local wrap-up gate required by `execute-plan`. Structure-only: no
+new Behavior.
 
 Output: refactored tree + `## REFACTOR COMPLETE`, or an impact report +
 `## REFACTOR JIDOKA STOP`. **Do not commit** — the caller commits.
@@ -62,8 +62,12 @@ deck's content. A shared-theme change touching many decks' rendering is
 cross-cutting — see the Jidoka gate below and consider whether it should be
 an ADR (`adr-awareness`) instead of an ad hoc refactor.
 
-**Invokers:** self-invoked as the last step of a slice (`slice-planning`), or
-an on-demand request ("refactor this", "clean up before commit").
+Optional caller context (when spawned from execute-plan):
+- Plan path and current slice text (for the immediate-next-slice
+  justification boundary)
+
+**Invokers:** `execute-plan` (fresh sub-agent before commit), or an
+on-demand request ("refactor this", "clean up before commit").
 </context>
 
 <process>
