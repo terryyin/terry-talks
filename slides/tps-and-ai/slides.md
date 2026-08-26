@@ -26,7 +26,7 @@ What AI-Augmented Development and LeSS Can Learn from the TPS
 
 Terry Yin · Odd-e
 
-Tokyo LeSS Conference
+Tokyo LeSS Conference · 2026
 
 </div>
 
