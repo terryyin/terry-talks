@@ -6,9 +6,9 @@ slogan recorded; matching story still open**
 ## Claim
 
 > **The polarity is freedom and entrustment.** They look like opposites:
-> to hand over important work, it seems you must constrain people in
+> to hand over important work, it seems you must control people in
 > advance; to give freedom, it seems you cannot really hand over the work
-> that matters. Jidoka's enabling constraints make freedom responsible, so
+> that matters. Jidoka's closed stops make freedom responsible, so
 > the organization can **entrust** a capable response to real need.
 > Visible, responsible use of that freedom makes entrustment warranted.
 > Mutual trust sits under Respect for People.
@@ -63,29 +63,29 @@ authority, or become an instrument for monitoring and blame. [Claim
 16](16-go-see-ai-harness.md) already warns that the same signal can
 become surveillance.
 
-### Jidoka supplies enabling constraints
+### Jidoka supplies closed stops
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has
 **frees by empowering**. [Claim 6](06-jidoka-embeds-routine-judgment.md)
 owns where that judgment lives: previously learned judgment becomes a
 closed stop (**dumb**) or is designed out (**gone**), so adaptive
 attention is free for what is still **smart**. This claim adds the human
-meaning of that constraint:
+meaning of that stop:
 
-> **Constrain what is already known to be abnormal so that people have
+> **Stop what is already known to be abnormal so that people have
 > more freedom and attention for what is not yet known.**
 
 That freedom is substantive only when people retain the information,
 time, skill, and authority to respond. A noisy alarm people cannot
 safely act on creates burden. Who owns and can change an automated
-constraint: **collective ownership**. A gate is enabling when the people
+stop: **collective ownership**. A gate is enabling when the people
 who hit it can understand, change, and improve it, with the test as
 shared evidence. A gate is coercive when only a remote specialist can
 change it, or when it is used to rank, monitor, or punish. Automation
 can also hide specialist knowledge rather than free an individual from
 every technical area: [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) already
-has LeSS as collectively cross-functional teams, not unconstrained
+has LeSS as collectively cross-functional teams, not unbounded
 independence.
 
 ### Trust is earned by visible capability
@@ -142,7 +142,7 @@ collaboration concrete. LeSS still has product direction, an ordered
 backlog, refinement, Sprint Planning, and shared quality.
 
 > **Plan the cut, the value, the feedback, and the irreversible
-> constraints in detail. Pull the detailed solution and the detailed
+> decisions in detail. Pull the detailed solution and the detailed
 > collaboration from the latest real need.**
 
 Entrustment makes that deferral socially possible; technical excellence
@@ -187,8 +187,8 @@ outsourced: people who can think.
 ## Implication for the talk
 
 > **Freedom without trustworthy capability becomes risk. Control without
-> freedom becomes compliance. Jidoka turns learned judgment into enabling
-> constraints, giving people room to handle novelty while making known
+> freedom becomes compliance. Jidoka turns learned judgment into closed
+> stops, giving people room to handle novelty while making known
 > harm visible and stoppable.**
 
 Early-talk slogan (one of the first slides):
@@ -213,7 +213,7 @@ The strongest version of the theme is not that TPS resolves freedom and
 entrustment once and for all:
 
 > **TPS shows how a system can continually convert learning into
-> constraints that make greater freedom responsible—and use that freedom
+> closed stops that make greater freedom responsible—and use that freedom
 > to produce the next learning on which deeper entrustment, and then
 > mutual trust, can rest.**
 
@@ -226,7 +226,7 @@ entrustment once and for all:
   in time. A first thin slice (“pay by card for one SKU”) hits a novel
   failure: an AI-suggested retry double-charges. The team stops, writes
   an idempotency test (known-abnormal becomes dumb), extracts the
-  constraint into the shared product, and any team can change it
+  stop into the shared product, and any team can change it
   (collective ownership). A second team can take installments. The PO
   can *entrust* the next highest-value item without an architecture
   review board. Evidence the AI time was not wasted: the group is less

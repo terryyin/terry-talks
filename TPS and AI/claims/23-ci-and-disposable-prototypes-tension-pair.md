@@ -14,7 +14,7 @@ open**
 > but its code cannot provide that shared-system feedback. Integrate
 > it and the feedback becomes more complete, but the code must be
 > production quality and may acquire dependencies that make disposal
-> harder. Both are good ideas; each constrains the other.
+> harder. Both are good ideas; each limits the other.
 
 Here **complete feedback** means complete *integration-cycle*
 feedback. CI does not by itself establish customer value. [Claim
@@ -100,7 +100,7 @@ deletion impossible.
 > **Honest CI and disposable prototypes are a tension pair.** A
 > throwaway spike buys cheap learning by giving up complete
 > shared-system feedback. An integrated experiment buys that feedback
-> by accepting production constraints and removal work. Keep both
+> by accepting production obligations and removal work. Keep both
 > values explicit—and design the removal boundary when the experiment
 > enters the product.
 

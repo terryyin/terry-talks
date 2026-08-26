@@ -75,7 +75,7 @@ This claim is why that one-item discipline is *economical* when the item
 is a vertical slice. The weekly-report feature jumps frontend, backend,
 data, and render. Without cheap component and discipline changeover,
 specialists start a second item so they stay busy—exactly Vodde's
-quick-fix. AI makes starting that second item cheaper. The constraint
+quick-fix. AI makes starting that second item cheaper. The discipline
 does not move: one customer-centric item, finished or split, then a
 deliberate changeover.
 
@@ -280,14 +280,14 @@ verifiers** as a primary axis of capability, not documentation volume.
 
 > **An AI-friendly development context is a development system in which a
 > feature team, using AI as a common tool, can take a current, bounded
-> item, discover the relevant constraints, create an isolated executable
+> item, discover the relevant bounds, create an isolated executable
 > workspace, obtain trustworthy feedback, and return a reviewable
 > evidence-bearing change without reconstructing routine setup from
 > tribal knowledge.**
 
 Three layers: **persistent product readiness** (coherent code, tools,
 verifiers, shared ownership); **current item readiness** (outcome,
-evidence, constraints, unresolved questions); **change and handoff
+evidence, bounds, unresolved questions); **change and handoff
 readiness** (isolated diff, commands and results, uncertainty, next
 step).
 

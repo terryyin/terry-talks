@@ -121,7 +121,7 @@ hidden risk and delay; a stronger one means closer to shippable each
 Sprint. That is how you see whether the principle is happening, not
 whether a change program closed.
 
-A common product-wide Definition of Done as an enabling constraint on
+A common product-wide Definition of Done as a shared quality gate on
 self-management stays on
 [Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md).
 This claim is the other job: Definition of Done as the measure of

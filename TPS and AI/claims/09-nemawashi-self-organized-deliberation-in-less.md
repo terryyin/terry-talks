@@ -170,7 +170,7 @@ channel—but they are not the same timescale.
 
 [Claim 4](04-jit-assurance-resourcefulness-and-constraint.md) already
 treats those conventions as a **supporting condition** for reducing
-WIP: take away constraints on self-integration and self-coordination,
+WIP: take away what stops self-integration and self-coordination,
 and keep collaborative decision-making under kaizen. Without that, low
 WIP becomes paralysis or heroic escalation. The research supports that
 reading. It does not support saying LeSS “uses nemawashi.”

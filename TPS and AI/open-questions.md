@@ -11,7 +11,8 @@ future discussion, not a set of conclusions.
   [Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md).
   The early-talk slogan (*How do you know if the organization is using
   AI right? If the teams are more freed than constrained by what they
-  built.*) is one leading page, not the title.
+  built.*) is one leading page, not the title. **Constrained** there
+  means leftover ownership; jidoka is a closed stop or gate.
 - What is the promised audience takeaway? Working answer: drafted as
   the five-point takeaway list in
   [Main theme and stage setting](main-theme-and-stage-setting.md),

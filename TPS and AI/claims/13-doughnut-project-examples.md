@@ -248,7 +248,7 @@ Look for:
   in-progress slices) so the example does not teach “only one thing at a
   time in the whole class.”
 
-Constraint: git history has no team membership. Week ranges identify
+Limit: git history has no team membership. Week ranges identify
 class weeks, not teams. Follow **one user's** commit sequence (files
 touched, order of infra versus user-facing work) rather than a team
 label. Observation in class, if remembered, may be stronger than git.

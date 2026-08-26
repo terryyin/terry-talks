@@ -38,23 +38,28 @@ One of the first slides asks the diagnostic question:
 >
 > If the teams are more freed than constrained by what they built.
 
-That slogan is a leading page, not the title. It plants the tension
-the talk then resolves: everyone in the room is being pushed to adopt
-AI, and the visible result is often more generated output, fuller
-review queues, and busier people — the opposite of freedom. TPS faced
-the same temptation with automation and inventory, and answered with
-jidoka, Just-in-Time, and Respect for People.
+That slogan is a leading page, not the title. **Constrained** here is
+leftover ownership, WIP, and the inability to take the next item —
+not jidoka's **closed stop** or **gate**, and not coercive advance
+control or an impediment to integration.
+
+The slogan plants the tension the talk then resolves: everyone in the
+room is being pushed to adopt AI, and the visible result is often more
+generated output, fuller review queues, and busier people — the
+opposite of freedom. TPS faced the same temptation with automation and
+inventory, and answered with jidoka, Just-in-Time, and Respect for
+People.
 
 ## The main message
 
 Freedom and entrustment look like opposites: to hand over the work
-that matters, it seems you must constrain people in advance; to give
+that matters, it seems you must control people in advance; to give
 real freedom, it seems you cannot hand over the work that matters. The
 talk's message is that TPS shows how they reinforce each other instead
 ([Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)):
 
 > **TPS shows how a system can continually convert learning into
-> constraints that make greater freedom responsible — and use that
+> closed stops that make greater freedom responsible — and use that
 > freedom to produce the next learning on which deeper entrustment,
 > and then mutual trust, can rest.**
 

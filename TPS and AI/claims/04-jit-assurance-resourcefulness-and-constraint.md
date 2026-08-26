@@ -38,7 +38,7 @@ funds—shaped experiments. Toyota had old equipment, few orders, limited funds,
 and a severe productivity disadvantage relative to U.S. mass producers.
 Toyota's early English-language TPS account connects Japan's lack of natural
 resources to eliminating waste and making full use of people's capabilities.
-Constraint was real; it did not mechanically create JIT. Irregular supplier
+Scarcity was real; it did not mechanically create JIT. Irregular supplier
 deliveries hindered experiments. Nissan faced much of the same environment and
 developed a different system. Limited finance may matter more than scarce
 material: low inventory avoids trapping cash and space, but production still
@@ -124,7 +124,7 @@ it teaches the wrong first lesson for this claim, so do not lead with it.
 Alternating types without cheap changeover is ruinously expensive. Long
 setup makes a large lot look rational: amortize the die change. **SMED**
 is the kaizen that attacks that cost so small-lot mixed-model flow is
-economical. Remaining lots in stamping or paint are constraints under
+economical. Remaining lots in stamping or paint are still under
 improvement. That perfection-goal trajectory is
 [Claim 18](18-continuous-improvement-towards-perfection.md).
 
@@ -174,13 +174,13 @@ become recurring crisis rather than dependable responsiveness.
 ### Supporting conditions before WIP can safely fall
 
 Before inventory or work in process can safely be reduced, remove
-**constraints that stop teams integrating and coordinating by themselves**.
+**what stops teams integrating and coordinating by themselves**.
 In software that is the technical and organizational side of
 [Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md):
 shared product, continuous integration, stop-and-fix, and the authority
 to collaborate when the integrated product makes a need visible. A
 component handoff, a private mainline, or a coordinating manager in the
-path are the software form of a constraint that forces stockpiles of
+path are the software form of a barrier that forces stockpiles of
 unintegrated work.
 
 Conventions for **collaborative decision-making** also have to exist and
@@ -192,7 +192,7 @@ under kaizen. Without that, low WIP becomes either paralysis or heroic
 escalation.
 
 > **Reduce WIP only as far as teams can integrate, coordinate, and decide
-> for themselves. Take away the constraints; improve the conventions.**
+> for themselves. Take away what stops them; improve the conventions.**
 
 ## Implication for the talk
 

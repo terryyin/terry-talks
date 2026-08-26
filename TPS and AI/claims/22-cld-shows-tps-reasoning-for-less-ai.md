@@ -54,7 +54,7 @@ CLD](22-tps-less-ai-cld.md).
 
 | Loop | What it is | Already owned by |
 |---|---|---|
-| **R1 Encode and free** | Known abnormality becomes a closed constraint; attention returns to novelty; novelty becomes the next constraint. | [6](06-jidoka-embeds-routine-judgment.md) |
+| **R1 Encode and free** | Known abnormality becomes a closed stop; attention returns to novelty; novelty becomes the next stop. | [6](06-jidoka-embeds-routine-judgment.md) |
 | **R2 Freedom and entrustment** | Capability warrants *entrusting* the next highest-value item; coercive control falls so actual need can pull. Vicious: failure invites more advance control, which starves that capability. Mutual trust sits under Respect for People. | [10](10-freedom-and-trust-reinforce-through-jidoka.md), [3](03-jidoka-enables-jit-trusts-respect-grows.md) |
 | **R3 Excellence for integration** | Technical excellence makes one product continuously integrable; that evidence encodes stops and pulls collaboration. | [8](08-technical-excellence-enables-jit-coordination-in-less.md) |
 | **R4 Work makes people** | Pull and real problems grow people who can think; that capability is what JIT and jidoka run on. | [12](12-respect-for-people-who-can-think.md) |

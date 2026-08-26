@@ -52,7 +52,7 @@ This table is the source of truth. The figures are views of it.
 
 | From | | To | Why, in one line |
 |---|---|---|---|
-| Encoded jidoka | **+** | Adaptive attention | Known abnormality is constrained; attention is free for novelty. |
+| Encoded jidoka | **+** | Adaptive attention | Known abnormality is encoded as a closed stop; attention is free for novelty. |
 | Adaptive attention | **+** | Capability to respond | People can investigate, stop, and improve instead of firefighting the known. |
 | Adaptive attention | **+** | People who can think | The work itself is the school; that needs room to think. |
 | Adaptive attention | **+** `//` | Encoded jidoka | Investigate the novel (smart), then put what is now known into a closed detector (dumb) or remove the question (gone). |
@@ -143,7 +143,7 @@ flowchart TB
 
 **Encoded jidoka → Adaptive attention → Encoded jidoka**
 
-Jidoka constrains what is already known to be abnormal so people have
+Jidoka stops what is already known to be abnormal so people have
 more freedom and attention for what is not yet known. That attention
 investigates novelty and, after a delay, puts reliable learning into a
 simpler detector or removes the question. [Claim
@@ -176,7 +176,7 @@ The same loop is vicious when every failure produces more approvals, or
 when freedom is used to hide work. Then coercive control rises,
 attention falls, capability falls, and the next failure “justifies”
 still more control. Adding approvals *intends* to contain failure; that
-intent is not the loop polarity. Enabling constraints (encoded jidoka)
+intent is not the loop polarity. Closed stops (encoded jidoka)
 are the other response to failure; they belong in R1, not here.
 
 ### R3 — Technical excellence for continuous integration

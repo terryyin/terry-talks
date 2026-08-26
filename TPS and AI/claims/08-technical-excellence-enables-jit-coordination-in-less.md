@@ -29,7 +29,7 @@ The causal chain:
 > or abnormality → self-managed collaboration when needed → more
 > attention for user value.**
 
-### Organizational agility is constrained by technical agility
+### Organizational agility is limited by technical agility
 
 LeSS states that as a property of the system. Changing reporting lines
 cannot make a product group responsive when the product is slow or
@@ -91,17 +91,16 @@ Perfection; that job is
 [Claim 18](18-continuous-improvement-towards-perfection.md).
 
 > **LeSS gives teams authority over how they execute, monitor, and adapt
-> their work, inside common product direction, quality, and integration
-> constraints.**
+> their work, inside common product direction, quality, and integration.**
 
-Those constraints are enabling. A reliable shared product and visible
+Those shared agreements are enabling. A reliable shared product and visible
 evidence let a team act without waiting for a coordinating manager.
 Use the strongest quality gate from day one. Decide **style** once,
 openly and early, and enforce it with the strictest automatic lint and
 style checker. That frees people from arguing about style so they can
 focus on **intention**. [Claim
 10](10-freedom-and-trust-reinforce-through-jidoka.md) owns that
-enabling-constraint reading of freedom.
+closed-stop reading of freedom.
 
 ### Continuous integration is jidoka-like and JIT-like
 
@@ -224,7 +223,7 @@ and delivered user value is queued on
 
 1. The LeSS Company, [Technical
    Excellence](https://less.works/less/technical-excellence). States that
-   organizational agility is constrained by technical agility and groups the
+   organizational agility is limited by technical agility and groups the
    engineering practices that keep a product high-quality and flexible.
 2. The LeSS Company, [Feature
    Teams](https://less.works/less/structure/feature-teams). Defines
