@@ -97,9 +97,10 @@ future discussion, not a set of conclusions.
   yet spent experiments still need to leave the product. A working
   answer is
   [Claim 23](claims/23-ci-and-disposable-prototypes-tension-pair.md): it
-  is a tension pair, native to LeSS, made louder by AI. Remaining: the
-  doughnut episode of post-class surgical removal, queued on
-  [Claim 13](claims/13-doughnut-project-examples.md).
+  is a tension pair, native to LeSS, made louder by AI. The doughnut
+  post-class cleanup episode is dropped from the talk queue on
+  [Claim 13](claims/13-doughnut-project-examples.md): the tensions
+  slide can name the pair without that story.
 
 ## Evidence to collect
 
@@ -119,35 +120,13 @@ future discussion, not a set of conclusions.
   bottleneck is on [Claim
   6](claims/06-jidoka-embeds-routine-judgment.md).
 - Examples from the doughnut project used in Terry's LeSS in Action
-  trainings. The search list lives on
-  [Claim 13](claims/13-doughnut-project-examples.md) (backlog; training
-  weeks located; search scoped to 4 AI-era + 4 I-era classes by commit
-  count; example search not started). [Claim
+  trainings. The ordered hunt is on
+  [Claim 13](claims/13-doughnut-project-examples.md): training weeks
+  located; 4+4 class search set; queue ordered for the Tokyo talk;
+  example search not started. [Claim
   9](claims/09-nemawashi-self-organized-deliberation-in-less.md)
   already pulled doughnut's ADR propose-to-accept path (Whale /
-  Wärtsilä minutes; not a class-week search). Currently queued: CI
-  pulling useful collaboration ([Claims
-  3](claims/03-jidoka-enables-jit-trusts-respect-grows.md) and
-  [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md)),
-  including a green CI service that is not CI
-  ([Claim 21](claims/21-ci-practice-is-not-a-ci-system.md)); the full
-  sequence from AI-assisted change to integration signal, conversation,
-  stop-and-fix, and delivered user value
-  ([Claim 8](claims/08-technical-excellence-enables-jit-coordination-in-less.md));
-  **smart → dumb** and **smart → gone**, and preferred unit/E2E plus
-  same-gates-for-human-and-AI examples
-  ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)); a harness
-  failure (wrong context, misleading tool call, a rule that did not
-  fire, or a permission failure) that makes Go-See concrete
-  ([Claim 16](claims/16-go-see-ai-harness.md)); bottom-up infra batch
-  versus one vertical slice, following one user if git has no team
-  ([Claim 17](claims/17-jit-vertical-slicing-one-piece-flow.md)); a
-  poka-yoke fixture that is not “just a test” or “just good design,”
-  plus leftover warnings or noisy logs versus a quiet channel
-  ([Claims 20](claims/20-poka-yoke-supports-jidoka.md) and
-  [24](claims/24-warnings-as-stop-no-news-is-good-news.md)); post-class
-  surgical removal of an abandoned feature entangled with wanted work
-  ([Claim 23](claims/23-ci-and-disposable-prototypes-tension-pair.md)).
+  Wärtsilä minutes; not a class-week search).
 
 ## Candidate future claims
 

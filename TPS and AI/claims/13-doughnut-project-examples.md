@@ -1,14 +1,14 @@
 # Claim 13: Doughnut project as an evidence backlog for other claims
 
 **Status: Backlog — training weeks located; search scoped to 4+4 tagged
-classes; examples not yet pulled**
+classes; queue ordered for the Tokyo talk; examples not yet pulled**
 
 ## Role
 
 This file is not a TPS thesis of its own. It is the queue for **concrete
 examples and evidence from the doughnut project** (Terry's LeSS in Action
-setting) that other claims need. Claims keep the argument; this claim
-keeps the search list.
+setting) that the Tokyo talk can put on stage. Claims keep the argument;
+this claim keeps the search list.
 
 Terry uses doughnut in LeSS in Action trainings: multiple teams work at
 the same time on interdependent user-centric features, in one-week
@@ -19,7 +19,10 @@ product can pull collaboration.
 Phase 1 (locate the class weeks) is done. Search is limited to the
 tagged weeks. Do not pull examples into owning claims until Terry
 asks. Adding a claim to the later-phase list does not authorize
-pulling examples.
+pulling examples. The later-phase order is **talk leverage**, not
+slide order: fill first what the current deck
+([main theme](../main-theme-and-stage-setting.md),
+[slides](../../slides/tps-and-ai/slides.md)) can actually use.
 
 ## Phase 1 — Locate training weeks
 
@@ -93,10 +96,9 @@ the inventory; expand the set only if the eight lack an example.
 Selection is highest commit count in each era, not a judgement of
 which class was “best.”
 
-For searches **during** a class (most queued items), stay inside the
-tagged week's range. For **post-class** cleanup ([Claim
-23](23-ci-and-disposable-prototypes-tension-pair.md)), search the
-interval **after** a tagged week and before the next class burst.
+Stay inside the tagged week's range. Post-class intervals are not in
+scope: that hunt was dropped with [Claim
+23](23-ci-and-disposable-prototypes-tension-pair.md).
 
 ## Already pulled — not a training-week search
 
@@ -112,16 +114,39 @@ class-week git search.
 ## Later phases — queued searches
 
 Scope: `Search = yes`. Do not scan untagged weeks unless the tagged
-set lacks an example.
+set lacks an example. Fill from the top.
 
-### Whole Product Focus and continuous integration — Claims 3, 8, and 21
+### 1. AI-assisted change through to user value — Claim 8
+
+[Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md)
+still needs one concrete doughnut sequence for the talk. This is the
+flagship story: it shows the diagnostic (freed vs constrained) and
+walks takeaway 5 through an AI episode.
+
+> **AI-assisted change → integration signal → conversation →
+> stop-and-fix → delivered user value.**
+
+Look for:
+
+- A small AI-assisted change that met the shared product quickly.
+- The signal (related mainline change, merge conflict, red check) that
+  made coordination concrete.
+- The decentralized conversation—just talk, not a coordinating role.
+- Stop-and-fix, then a customer-centric increment, not only a green
+  pipeline.
+- Counter-examples: generated volume that never became a small
+  stoppable change; tests that duplicated code structure and protected
+  no behavior; duplicated solutions that broke cohesion.
+
+### 2. Whole Product Focus and continuous integration — Claims 3, 8, and 21
 
 Original hypothesis, split from
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md). [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) states
 the technical-excellence bridge. [Claim
 21](21-ci-practice-is-not-a-ci-system.md) separates that practice from
-a CI service. This item is the empirical case.
+a CI service. I-era weeks can serve this item. Takeaway 5; the JIT
+slides.
 
 > **In the doughnut LeSS in Action setting, continuous integration of
 > interdependent user-centric work pulls useful cross-team collaboration
@@ -139,101 +164,12 @@ Look for:
 - A green CI service or always-passing build that was not CI (delayed
   mainline integration), or genuine CI whose stop was still primitive.
 
-### AI-assisted change through to user value — Claim 8
-
-[Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md)
-still needs one concrete doughnut sequence for the talk.
-
-> **AI-assisted change → integration signal → conversation →
-> stop-and-fix → delivered user value.**
-
-Look for:
-
-- A small AI-assisted change that met the shared product quickly.
-- The signal (related mainline change, merge conflict, red check) that
-  made coordination concrete.
-- The decentralized conversation—just talk, not a coordinating role.
-- Stop-and-fix, then a customer-centric increment, not only a green
-  pipeline.
-- Counter-examples: generated volume that never became a small
-  stoppable change; tests that duplicated code structure and protected
-  no behavior; duplicated solutions that broke cohesion.
-
-### Judgment descent — Claim 6
-
-[Claim 6](06-jidoka-embeds-routine-judgment.md) needs software examples
-of the downhill movement **judgment-loaded → judgment-preserved →
-judgment-removed** (**smart → dumb → gone**). From doughnut, look for
-**good** examples of:
-
-- **smart → dumb:** live investigation encoded as a closed, owned stop
-  (a test, type, or check whose firing *is* the evidence and that
-  actually halts work).
-- **smart → gone:** a known failure made impossible or irrelevant by
-  design (invalid state unrepresentable, path removed, simpler
-  structure) so neither detection nor rescue is still required.
-
-Counter-examples (generated checks nobody trusts, “smart” inventory
-that still needs re-judging) can be noted if they appear, but the
-request is for good descents.
-
-### Preferred tests and same gates for “I” and AI — Claim 6
-
-[Claim 6](06-jidoka-embeds-routine-judgment.md) also needs concrete
-doughnut examples of **preferred unit tests, E2E tests, and gates that
-apply to human and AI work the same way**—the harness text that is
-supposed to leave reusable capability after an AI episode, not only a
-one-off patch. The current rules and execute-plan skill are already
-cited there in brief; this item is for worked examples in the tests
-themselves.
-
-Look for:
-
-- Unit (“small test”) examples that drive a stable boundary with
-  `makeMe` / data rather than a mock forest.
-- E2E examples that assert a user-valued state change, not
-  presentation-only.
-- Gates that stop both a person and an agent (no commit on red,
-  `@wip` for unfinished E2E, execute-plan Jidoka categories).
-- Counter-examples where an agent (or a person) would be tempted to
-  delete or skip a failing test to proceed.
-
-### Harness failure that makes Go-See concrete — Claim 16
-
-[Claim 16](16-go-see-ai-harness.md) needs one doughnut episode where
-inspecting the harness—not the agent's summary—is how the facts become
-visible.
-
-Look for the best single failure among:
-
-- Wrong context
-- A misleading tool call
-- A rule that did not fire
-- A permission failure
-
-### Poka-yoke fixtures and leftover warnings — Claims 20 and 24
-
-[Claim 20](20-poka-yoke-supports-jidoka.md) needs one software fixture
-that is clearly poka-yoke, not “just a test” or “just good design.”
-[Claim 24](24-warnings-as-stop-no-news-is-good-news.md) needs the
-contrast: a skippable warning or noisy log versus a quiet channel.
-
-Look for:
-
-- **Prevention:** a type, constructor, schema, or UI path that makes a
-  known illegal state unrepresentable—not general “good design,” and
-  not a test of whether the feature works.
-- **Control:** a check that will not compile or will not ship
-  (including warnings treated as errors).
-- **Counter:** a parked linter or compiler warning pile; tests that
-  verify behavior rather than encoding a known specifiable mistake;
-  logs of expected events that fill a person's or agent's context.
-
-### Bottom-up batch versus one vertical slice — Claim 17
+### 3. Bottom-up batch versus one vertical slice — Claim 17
 
 [Claim 17](17-jit-vertical-slicing-one-piece-flow.md) needs a contrast of
 queued layer work with one integrated vertical slice, without implying
-that all parallel work is forbidden.
+that all parallel work is forbidden. Takeaway 2 (*Pull, don't
+stockpile*).
 
 Training weeks instruct one-piece flow. Some people may still try to
 build from the bottom up: batch the lower-level infra first, then
@@ -253,31 +189,93 @@ class weeks, not teams. Follow **one user's** commit sequence (files
 touched, order of infra versus user-facing work) rather than a team
 label. Observation in class, if remembered, may be stronger than git.
 
-### Post-class surgical removal of an abandoned feature — Claim 23
+### 4. Judgment descent — Claims 6, 20, and 24
 
-[Claim 23](23-ci-and-disposable-prototypes-tension-pair.md) needs one
-doughnut episode of **post-class cleanup**: an undone or abandoned
-feature that could not be reverted cleanly because it was already
-entangled with features that stayed.
+[Claim 6](06-jidoka-embeds-routine-judgment.md) needs software examples
+of **smart → dumb → gone** (takeaway 3). [Claim
+20](20-poka-yoke-supports-jidoka.md) is the *gone* fixture on that
+slide — clearly poka-yoke, not “just a test” or “just good design.”
+[Claim 24](24-warnings-as-stop-no-news-is-good-news.md) is the Stop &
+Fix contrast: a skippable warning versus a quiet channel. One hunt;
+split into owning claims when pulled.
 
-> **When unfinished or experimental code is in the shared product,
-> later wanted work can depend on it. Removing the rejected path is
-> then a surgical change to today's system, not a clean revert.**
+Look for **good** examples of:
+
+- **smart → dumb:** live investigation encoded as a closed, owned stop
+  (a test, type, or check whose firing *is* the evidence and that
+  actually halts work).
+- **smart → gone / prevention poka-yoke:** a type, constructor, schema,
+  or UI path that makes a known illegal state unrepresentable — not a
+  test of whether the feature works, and not general “good design.”
+- **Control:** a check that will not compile or will not ship
+  (including warnings treated as errors).
+- **Counter (Claim 24):** a parked linter or compiler warning pile;
+  logs of expected events that fill a person's or agent's context; a
+  detector everyone continues past.
+
+Generated checks nobody trusts, and “smart” inventory that still needs
+re-judging, can be noted if they appear; the request is for good
+descents.
+
+### 5. Preferred tests that leave reusable capability — Claim 6
+
+The deck has a preferred-tests slide in the jidoka cluster
+(*Preferred tests: E2E or unit — nothing in between*). [Claim
+6](06-jidoka-embeds-routine-judgment.md) states the rules; this item
+is for worked examples in the tests themselves — harness text that
+leaves reusable capability after an AI episode, not only a one-off
+patch.
 
 Look for:
 
-- Cleanup **after** a training week, not during the class burst.
-  Instructors (Terry Yin, Tan Yeong Sheng) often do this work.
-- An unfinished, undone, or abandoned feature that left the product.
-- Removal that is manual and surgical: edits inside files that also
-  keep wanted behavior, not a whole-commit revert of the feature's
-  introduction.
-- Evidence of entanglement: wanted features that used types, routes,
-  data, or helpers from the abandoned path, so deletion required
-  forward refactoring.
+- Unit (“small test”) examples that drive a stable boundary with
+  `makeMe` / crafted data rather than a mock forest.
+- E2E examples that assert a user-valued state change, not
+  presentation-only.
+- Counter-examples: tests that duplicate code structure and protect
+  no behavior.
 
-A clean revert of an isolated experiment is a useful contrast if it
-appears, but the request is the leaked-boundary case.
+### 6. Same gates for “I” and AI — Claim 6
+
+Takeaway 4. The five human judgments are already the talk list, not a
+doughnut hunt. [Claim 6](06-jidoka-embeds-routine-judgment.md) already
+cites doughnut's current harness (E2E or unit, no commit on red,
+execute-plan Jidoka). What the slide still needs is one episode where
+the gate did not weaken according to who authored the change.
+
+Look for:
+
+- A stop that bound a person and an agent the same way.
+- After a dumb stop: AI helping fix a dumb problem *without* deleting
+  or skipping the stop.
+- Counter: an agent or a person tempted to delete or skip a failing
+  test to proceed.
+
+### 7. Harness failure that makes Go-See concrete — Claim 16
+
+[Claim 16](16-go-see-ai-harness.md) has its own slide. One doughnut
+episode where inspecting the harness — not the agent's summary — is
+how the facts become visible.
+
+Look for the best single failure among:
+
+- Wrong context
+- A misleading tool call
+- A rule that did not fire
+- A permission failure
+
+## Dropped — not talk-blocking
+
+Dropped items remain true as workshop observations if they turn up
+while searching the queue. They are not queued: the talk would not
+use a dedicated result.
+
+- **Post-class surgical removal of an abandoned feature** ([Claim
+  23](23-ci-and-disposable-prototypes-tension-pair.md)). Lowest topic
+  (*Tensions and honest limits*); not a takeaway. The slide can name
+  the tension pair without a doughnut cleanup story. That search also
+  needed the interval *after* a tagged week, which is outside the
+  class-week scope used above.
 
 ## Talk implication
 
@@ -287,7 +285,6 @@ stays a backlog and an index, not a second lecture.
 ## Questions still open
 
 - Which of the tagged weeks are discussable in a public talk?
-- Which queued searches should be filled first from the tagged weeks?
 - Is the week of 2025-02-17 a class (5 other emails; smallest AI-era
   hit) or a smaller session to drop? It is not in the search set.
 
@@ -296,5 +293,5 @@ stays a backlog and an index, not a second lecture.
 Doughnut git log (author name, email, author date) in the sibling
 `doughnut` repo, retrieved 2026-08-25.
 
-**Phase 1 done. Search set tagged (4+4 by commit count). Example
-search not started.**
+**Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
+for the Tokyo talk. Example search not started.**

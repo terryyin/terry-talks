@@ -76,8 +76,8 @@ observability. Parent slogan: [Claim
 ## Questions still open
 
 - Doughnut-sourced warning-pile versus quiet-gate episode, queued on
-  [Claim 13](13-doughnut-project-examples.md); example search not
-  started.
+  [Claim 13](13-doughnut-project-examples.md) with Claim 6's judgment
+  descent; example search not started.
 
 ## Sources consulted
 

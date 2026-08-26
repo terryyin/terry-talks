@@ -1,7 +1,7 @@
 # Claim 23: Honest CI and disposable prototypes are a tension pair
 
-**Status: Provisional — tension pair retained; doughnut example still
-open**
+**Status: Provisional — tension pair retained; doughnut episode dropped
+from the talk queue**
 
 ## Claim
 
@@ -104,10 +104,11 @@ deletion impossible.
 > values explicit—and design the removal boundary when the experiment
 > enters the product.
 
-The doughnut episode is queued on
-[Claim 13](13-doughnut-project-examples.md): post-class cleanup that
-surgically removed an undone or abandoned feature because it was
-already entangled with features that stayed.
+The doughnut post-class cleanup episode is **dropped** from the talk
+queue on [Claim 13](13-doughnut-project-examples.md). The tensions
+slide can name the pair without that story. If a leaked-boundary
+removal turns up while searching class weeks, it can still land here;
+it is not a fill-first hunt.
 
 ## Sources consulted
 

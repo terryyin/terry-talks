@@ -78,7 +78,8 @@ form of disconnecting the device.
 > quality in.
 
 On stage, one doughnut fixture, queued on
-[Claim 13](13-doughnut-project-examples.md). Until pulled, Robinson
+[Claim 13](13-doughnut-project-examples.md) as part of the judgment-descent
+hunt (same search as Claims 6 and 24). Until pulled, Robinson
 is the sourced proof that detection poka-yoke is not a test of
 whether the feature worked. Then [Claim
 24](24-warnings-as-stop-no-news-is-good-news.md): one warning pile
@@ -88,8 +89,8 @@ not a second TPS topic.
 ## Questions still open
 
 - Doughnut-sourced prevention and control fixtures, queued on
-  [Claim 13](13-doughnut-project-examples.md); example search not
-  started.
+  [Claim 13](13-doughnut-project-examples.md) with Claim 6's judgment
+  descent; example search not started.
 
 ## Sources consulted
 

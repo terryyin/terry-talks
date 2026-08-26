@@ -163,8 +163,9 @@ for **both “I” and AI**, put them in the harness (rules, skills) so
 both read the same text, and put **the same gates** on human work and
 AI work. [Claim 16](16-go-see-ai-harness.md) owns seeing the harness.
 This claim owns what those gates are *for*: they must not be optional
-manners for the agent. Doughnut already does some of this. More
-concrete test examples are queued on
+manners for the agent. Doughnut already does some of this (the
+bullets below). A talk-shaped same-gates episode and worked
+preferred-test examples are queued on
 [Claim 13](13-doughnut-project-examples.md).
 
 From doughnut's current harness, the same rules bind a person and an
@@ -252,9 +253,10 @@ knowledge; jidoka encodes the part that can become a stop.
 
 ## Questions still open
 
-- Doughnut-sourced **smart → dumb** and **smart → gone** examples, and
-  preferred unit/E2E examples that show reusable capability, are queued
-  on [Claim 13](13-doughnut-project-examples.md); training weeks
+- Doughnut-sourced **smart → dumb** and **smart → gone** examples,
+  one same-gates episode, and preferred unit/E2E examples for the
+  preferred-tests slide are queued on
+  [Claim 13](13-doughnut-project-examples.md); training weeks
   located; example search not started.
 
 ## Sources consulted

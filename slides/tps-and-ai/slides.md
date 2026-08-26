@@ -247,6 +247,25 @@ Claims 6 and 20 (poka-yoke supports jidoka).
 
 ---
 
+# Preferred tests: E2E or unit — nothing in between
+
+Where "dumb" lives in software — tests that hold the encoded judgment:
+
+- A **unit test** drives a stable boundary with crafted data —
+  real lower layers, mock only externals
+- An **E2E test** asserts a user-valued **state change**, not presentation
+- **No commit on red**; unfinished E2E stays `@wip`
+
+A good AI episode leaves **reusable capability** like these —
+not a one-off patch.
+
+<!--
+Claim 6 — preferred unit/E2E style: the harness text "I" and AI both
+read. Worked doughnut examples queued on Claim 13.
+-->
+
+---
+
 # Stop & Fix
 
 A detector everyone continues past is only a **dashboard**.
