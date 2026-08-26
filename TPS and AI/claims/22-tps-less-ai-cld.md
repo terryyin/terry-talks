@@ -4,7 +4,7 @@ Companion diagram to [Claim
 22](22-cld-shows-tps-reasoning-for-less-ai.md). This file is the
 **model**. The claim is the **argument for using a model**.
 
-The slide figure set is settled: the three named figures below.
+The slide figure set is settled: the two named figures below.
 Polarities remain interpretive readings of the claims, and the map
 stays qualitative, not a calibrated simulation.
 
@@ -77,7 +77,7 @@ This table is the source of truth. The figures are views of it.
 
 ## Figures
 
-These three figures are the slide set: views of the canonical link
+These two figures are the slide set: views of the canonical link
 table trimmed to presentation scale, at most six variables each. The
 full map lives in the table, not in any figure, and the loop arguments
 live in the Loop catalog, not in the captions.
@@ -125,26 +125,6 @@ flowchart TB
   INV -->|"-"| AA
   AA -->|"delay +"| EJ
   EJ -->|"-"| INV
-```
-
-### Figure 3 — One product pulls collaboration
-
-[Claim 8](08-technical-excellence-enables-jit-coordination-in-less.md)'s
-chain drawn as R3 plus its branch, Visible product evidence → Pull
-from actual need. That payoff branch is why this map belongs in a
-LeSS talk.
-
-```mermaid
-flowchart TB
-  TE[Technical excellence]
-  VIS[Visible product evidence]
-  EJ[Encoded jidoka]
-  PULL[Pull from actual need]
-
-  TE -->|"+"| VIS
-  VIS -->|"+"| EJ
-  EJ -->|"+"| TE
-  VIS -->|"+"| PULL
 ```
 
 ## Loop catalog

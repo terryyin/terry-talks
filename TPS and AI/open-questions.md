@@ -34,7 +34,7 @@ future discussion, not a set of conclusions.
   main points that are easy to remember.
 - Is a causal loop diagram of the TPS→LeSS+AI reasoning a slide, a
   speaker map, or only a writing tool? Working answer: settled as
-  audience-visible slide figures — three small CLDs (each at most six
+  audience-visible slide figures — two small CLDs (each at most six
   variables) in [the companion CLD](claims/22-tps-less-ai-cld.md),
   argued in
   [Claim 22](claims/22-cld-shows-tps-reasoning-for-less-ai.md). Final

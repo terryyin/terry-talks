@@ -1,6 +1,6 @@
 # Claim 22: A causal loop diagram can show how TPS reasoning inspires LeSS+AI
 
-**Status: Provisional — talk device settled: three slide figures (at
+**Status: Provisional — talk device settled: two slide figures (at
 most six variables each) in the companion CLD; doughnut walkthrough
 stories still open; the diagram is a map of existing claims, not a
 new empirical result**
@@ -50,7 +50,7 @@ Used carefully it makes two talk moves that a parts list cannot:
    third TPS pillar.
 
 The companion groups the existing claims into five reinforcing loops
-and one balancing loop, and presents three slide figures as views of
+and one balancing loop, and presents two slide figures as views of
 those loops. R2 and R5 each run both ways. Detail, polarities, and
 omitted mechanisms live only in the [companion
 CLD](22-tps-less-ai-cld.md).
@@ -92,7 +92,7 @@ of B” does not belong on it.
 > **Do not teach TPS as a toolkit to install beside AI. Show the loops.
 > Ask which loop AI is currently amplifying.**
 
-The slide form is settled: the companion's three figures, each at
+The slide form is settled: the companion's two figures, each at
 most six variables, with no overview figure — the full map stays in
 its Canonical links table. Walk a figure's loop until it closes, then
 add AI as a gain on inventory—not as a cloud labelled
@@ -101,11 +101,11 @@ add AI as a gain on inventory—not as a cloud labelled
 ([Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)).
 Figure 2, **AI as amplifier** (R5), serves the “AI speeds whichever
 loop you feed” beat: R5 is why the theme gets harder when generation
-is cheap; on a slide it reads as an overlay on Figure 1's R1. Figure
-3, **One product pulls collaboration** (R3 plus its branch), serves
-the LeSS JIT-flow beat — let the shared product pull collaboration:
-R3 is why the talk is a LeSS talk, because Whole Product Focus needs
-technical excellence so evidence and collaboration can be pulled.
+is cheap; on a slide it reads as an overlay on Figure 1's R1. R3 is
+not a slide figure: it stays a speaker-side loop in the companion's
+Loop catalog, and its LeSS JIT-flow beat stays text-only. R3 remains
+why the talk is a LeSS talk — Whole Product Focus needs technical
+excellence so evidence and collaboration can be pulled.
 
 Memorable:
 
@@ -124,14 +124,14 @@ relationships:
 
 The slide-form questions are settled in “Emerging implication for
 the talk” above: the figures are audience-visible slides, not a
-speaker-only map or a writing-only tool. **Encoded jidoka** and
-**Technical excellence** stay distinct nodes rather than collapsing
-into one: Figure 1's engine needs only Encoded jidoka, and where they
-do share Figure 3, R3 runs through both. **Nemawashi**, **Go See**,
-**SMED**, and utilization pressure stay inside the variables, as the
-companion's “Left off the diagram on purpose” section records. The
-risk of reading as a completed system-dynamics paper is contained by
-the at-most-six-variables cap and by having no overview figure. Final
+speaker-only map or a writing-only tool. Whether **Encoded jidoka**
+and **Technical excellence** should collapse into one node is moot:
+the slide set draws only Encoded jidoka, and Technical excellence
+stays a catalog variable. **Nemawashi**, **Go See**, **SMED**, and
+utilization pressure stay inside the variables, as the companion's
+“Left off the diagram on purpose” section records. The risk of
+reading as a completed system-dynamics paper is contained by the
+at-most-six-variables cap and by having no overview figure. Final
 embedding and styling of the figures in the deck is a deck decision,
 not made here.
 
