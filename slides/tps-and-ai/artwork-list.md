@@ -264,7 +264,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G16. Tension loop — honest CI and disposable prototypes
 
-- **Status:** prompt ready, not generated
+- **Status:** done — `public/tension-loop.png`
 - **Slide:** "Tensions and honest limits"
 - **Placement:** wide strip under the bullet list; the first bullet
   supplies the two labels (Honest CI / disposable prototypes) — never
