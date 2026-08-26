@@ -1,13 +1,15 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). S0 scaffold is in the claim;
-example search starts at 1a.
+[Claim 13](13-doughnut-project-examples.md). S0 and 1a landed; next is
+1b.
 
-**Learnings:** Index subsection 2 is titled "Whole Product Focus + CI"
-(spell out WPF). Clearance bullets point at Questions still open. Do
-not touch `themes/odd-e/style.css` if it appears dirty — it is not
-this plan.
+**Learnings:** Spell out Whole Product Focus (not WPF) in the index.
+Treat AI-assisted only when a commit message or trailer names Cursor
+or Claude — not `AiController` / prompt-feature commits, and not an
+author named Cursor Agent. Scan author-date windows, not ancestry.
+Deck/artwork files (`slides/tps-and-ai/*`) may be dirty from parallel
+work; leave them alone.
 
 ## Deliverable — the "one place"
 
@@ -53,24 +55,22 @@ collisions) instead of reading every commit.
 Empty "Examples pulled — prioritized" index in Claim 13 (format legend
 + 7 stubs). Next: 1a records into subsection 1.
 
-### 1a — Behavior — planned
+### 1a — Behavior — done
 
-Scan AI-era weeks 2025-01-06 (`84193ef8f8fa..6f7cd48544aa`, 187
-commits) and 2026-01-26 (`8c26f6f321e8..16ab060b448b`, 147) for item-1
-candidate sequences: AI-assisted change → integration signal →
-stop-and-fix → user value. Git shows signals (conflict, red-check fix,
-cross-author follow-ups), not conversations — note that limit per
-candidate. Done when candidates (or a ruled-out verdict) are recorded
-in Claim 13 with hashes.
+Unranked item-1 pool in Claim 13 from 2025-01-06 and 2026-01-26 (five
+candidates: extract-to-child + Assimilation conflict; Claude Add
+button; Cursor test refactor; counters: disable-tests-to-green,
+Cursor volume that shipped). 1b ranks.
 
 ### 1b — Behavior — planned
 
 Same scan for 2025-04-14 (`99bdb147adfc..516aa68aeede`) and 2026-07-27
-(`61e29c666a5c..3cb5c87baba1`); then rank the item-1 pool to 1–3
-prioritized examples with slide mapping. Target slides: *Let the shared
-product pull collaboration* (as the flagship story walking takeaway 5)
-and the *freed vs constrained* diagnostic (callback). Done when the
-item-1 subsection is complete.
+(`61e29c666a5c..3cb5c87baba1`); then rank the **combined** item-1 pool
+(including 1a's five) to 1–3 prioritized examples with slide mapping.
+Reuse 1a's AI-assisted rule. Target slides: *Let the shared product
+pull collaboration* (flagship story walking takeaway 5) and the
+*freed vs constrained* diagnostic (callback). Done when the item-1
+subsection is complete.
 
 ### 2a — Behavior — planned
 

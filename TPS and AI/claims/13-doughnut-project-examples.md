@@ -1,7 +1,8 @@
 # Claim 13: Doughnut project as an evidence backlog for other claims
 
 **Status: Backlog — training weeks located; search scoped to 4+4 tagged
-classes; queue ordered for the Tokyo talk; examples not yet pulled**
+classes; queue ordered for the Tokyo talk; item 1 has unranked
+candidates from 2025-01-06 and 2026-01-26 (1b ranks)**
 
 ## Role
 
@@ -282,7 +283,108 @@ Each entry uses this format:
 
 ### 1. Flagship AI sequence (Claim 8)
 
-Not yet pulled.
+Scan of the first two tagged AI-era weeks (author-date windows, not
+ancestry): 2025-01-06 and 2026-01-26. AI-assisted is recorded only
+when a commit message or trailer names Cursor or Claude; these weeks
+have no author named Cursor Agent / Copilot. Product-feature commits
+about AI prompts or `AiController` are not treated as AI-assisted.
+Git shows merge/conflict/CI/cross-author file follow-ups, not the
+decentralized conversation. The other tagged AI-era weeks
+(2025-04-14, 2026-07-27) are unscanned here.
+
+Unranked pool — 1b ranks to 1–3 and maps slides. Shared across every
+candidate below: clearance is class-week student work; conversation
+is not in git. Ranked-entry fields (priority, slide, use) wait for 1b
+except mapping hints already obvious from that slice's target slides.
+Each candidate records example, source, and git-signal limit.
+
+#### Candidate — Cursor extract-to-child meets Assimilation.vue
+
+- **Example:** Brian Zheng, Cursor-coauthored
+  `c2d800a378` (AI-tool infrastructure) → `6f54cc1bd1` (extract-to-child API)
+  → `9eb162a918` (E2E mock / type fixes; commit body records
+  `# Conflicts: frontend/src/components/recall/Assimilation.vue`)
+  → `b62b0a183b` (stop-and-fix: unused `NoteCreationController`
+  import that failed CI lint) → user-visible
+  `0a60a9cbfb` (LoadingModal while creating a child from a
+  checklist point). Same afternoon, Ezra
+  `34e121906e` / `bdc83aaa78` and others also edited
+  `Assimilation.vue`. Earlier `f3c7a626fc` (promote point to child)
+  is the customer increment but has **no** Cursor trailer.
+- **Source:** 2026-01-26 class, activity 2026-01-26–2026-01-31,
+  bookmark `8c26f6f321e8..16ab060b448b`
+- **Slide:** *Let the shared product pull collaboration* (1b maps)
+- **Git-signal limit:** Cursor is proven by `Co-authored-by: Cursor
+  <cursoragent@cursor.com>` on the infra/API/conflict/lint commits,
+  not on `f3c7a626fc`. Conflict is a leftover marker in the
+  message, not a merge-commit recording of who talked.
+
+#### Candidate — Claude “Add” on the same Assimilation.vue hour
+
+- **Example:** Ian Chen, Claude-coauthored `3490df802d` — Add
+  button on the spelling-verification popup so a learner can append
+  an alternative answer to the note title. Lands on
+  `Assimilation.vue` / `SpellingVerificationPopup.vue` the same
+  hour as Ezra’s promote buttons (`34e121906e`) and kuantsen.lu
+  `e769752bb4` (unused `SvgAdd` import). Jack Huang had just
+  introduced the popup (`dae26996c7`) and ignored then fixed
+  confirm-spelling tests (`aaf6622a63`, `3bfcfe72c2`). Later
+  Claude-coauthored `9a4630b103` completes a different E2E
+  (re-assimilation sidebar counter) — same author, not the same
+  increment.
+- **Source:** 2026-01-26 class, activity 2026-01-26–2026-01-31,
+  bookmark `8c26f6f321e8..16ab060b448b`
+- **Git-signal limit:** Claude is proven by `Co-Authored-By: Claude
+  Sonnet 4.5`. Integration is same-file / same-hour collision, not
+  a recorded conflict. Stop-and-fix on *this* increment is thin
+  (nearby unused-import and Jack’s ignore-then-fix are other
+  authors).
+
+#### Candidate — Cursor test refactor inside Obsidian export
+
+- **Example:** choucw045 `f22072f0c2` (“let cursor refactor test
+  following test practice”) restructures
+  `backend/src/test/java/com/odde/doughnut/entities/NotebookTest.java`
+  (`@Nested`, should-style names, AssertJ) after Neo
+  `80c9bc26db` and fusoon.lee `418ca00899` had already edited that
+  file for Obsidian zip export. Same author’s `67fe3ce1dc` (“fix
+  merge conflict” on `NotebookButtons.vue`) sits next to Neo’s
+  `6e60b5d4e1` merge the day before. User value is the week’s
+  Obsidian notebook export/import, not the Cursor commit itself.
+- **Source:** 2025-01-06 class, activity 2025-01-07–2025-01-12,
+  bookmark `84193ef8f8fa..6f7cd48544aa`
+- **Git-signal limit:** Only AI-looking signal in this week (no
+  Co-authored-by trailer; the word “cursor” is in the subject).
+  Merge-conflict fix is a different file and the previous day.
+
+#### Candidate (counter) — green pipeline by disabling tests
+
+- **Example:** choucw045, day before the Cursor refactor:
+  `a2060f1d70` “disabled 2 backend tests to pass the pipeline”
+  (`NotebookTest.java`, `RestNotebookControllerTest.java`), then
+  `ee9ca9aa68` / `29712022b1` re-enable. Nearby fusoon.lee
+  `6df4f71aa8` “Disable test for importing Obsidian note” and
+  `036416505a` “fix ci failed”. Looks like a green service without
+  a customer-centric stop-and-fix.
+- **Source:** 2025-01-06 class, activity 2025-01-07–2025-01-12,
+  bookmark `84193ef8f8fa..6f7cd48544aa`
+- **Slide:** possibly the *freed vs constrained* diagnostic, or
+  Claim 21’s green-service-that-wasn’t-CI (1b decides)
+- **Git-signal limit:** **Not** AI-assisted (no Cursor/Claude
+  author or message). Useful only as an adjacent counter in the
+  same week as the Cursor test refactor.
+
+#### Candidate (counter) — Cursor volume that shipped, not a small stop
+
+- **Example:** Brian Zheng `ba8874c992` (Cursor-coauthored) adds
+  custom AI instruction for recall questions in one commit (~366
+  lines, 15 files, backend + UI + E2E) with “All CI checks passed.”
+  User-facing, but not a small stoppable change. Contrast with the
+  extract-to-child sequence above.
+- **Source:** 2026-01-26 class, activity 2026-01-26–2026-01-31,
+  bookmark `8c26f6f321e8..16ab060b448b`
+- **Git-signal limit:** Cursor trailer is present. No conflict or
+  red-check in this commit.
 
 ### 2. Whole Product Focus + CI (Claims 3, 8, 21)
 
@@ -335,7 +437,9 @@ stays a backlog and an index, not a second lecture.
 ## Sources consulted
 
 Doughnut git log (author name, email, author date) in the sibling
-`doughnut` repo, retrieved 2026-08-25.
+`doughnut` repo. Phase 1 inventory retrieved 2026-08-25. Item 1
+candidate scan of 2025-01-06 and 2026-01-26 retrieved 2026-08-26.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
-for the Tokyo talk. Example search not started.**
+for the Tokyo talk. Item 1 candidates recorded from two of four
+AI-era weeks; 1b ranks.**
