@@ -4,8 +4,8 @@
 classes; queue ordered for the Tokyo talk; item 1 ranked from four
 tagged AI-era weeks; item 2 ranked from four tagged I-era weeks;
 item 3: observation-in-class beats git (parked specs, not
-layer-first infra); item 4a: two latest-code smart→dumb candidates;
-item 4b: two gone/poka-yoke + one control (rank waits for 4c)**
+layer-first infra); item 4 ranked from latest-code descent +
+Claim 24 counter**
 
 ## Role
 
@@ -634,20 +634,20 @@ in-progress on one user-facing surface.
 Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
 week. Hunt started from CI (`Backend-unit-tests` runs
 `backend/gradlew -p backend test`) then tests whose comments or
-introducing commits name a live failure. **4a and 4b here.** Rank
-1–3 waits for 4c. 4c (parked warnings / detectors everyone
-continues past) is still empty.
+introducing commits name a live failure; then write-DTO
+`@Pattern` / Quiz UI / `check_focus_tags.sh` for gone and
+control; then leftover Biome `"warn"` and CI flags for the Claim
+24 counter. Ranked by how completely the example matches the
+look-fors (smart→dumb, gone, control, Claim 24 counter), then
+stage discussability. All entries below are current
+project-owned code (Terry Yin), not student class-week work —
+clearance is no. SET NULL `34560f0412` does **not** qualify
+as gone: it *allows* `conversation.recall_prompt_id` NULL on
+delete instead of making an illegal FK unrepresentable.
 
-#### 4a. Smart → dumb (candidates)
+#### Priority 1 — recall-stats N+1 query bound
 
-Closed, owned stops whose firing *is* the evidence and that halt
-`gradlew test` (CI red). Not generic feature tests. Git history of
-each file shows it was added to encode a live bug. Both are
-project-owned harness (Terry Yin), not student class-week work.
-
-##### 4a candidate — recall-stats N+1 query bound
-
-- **Priority:** 4a candidate (rank 1–3 with 4c)
+- **Priority:** 1
 - **Example:** `backend/src/test/java/com/odde/donut/services/RecallStatsPerformanceTest.java`
   — added in `0bd1dd2995` (“perf(recall-stats): fix endpoint N+1
   timeout with projection query”). Production timed out at ~200
@@ -657,7 +657,9 @@ project-owned harness (Terry Yin), not student class-week work.
   `prepareStatementCount < 10` while `compute()` still returns
   200 reviews. A later red is the N+1 coming back — not a
   judgment of “is this slow enough.” Still on HEAD after the
-  package rename (`a3aafb83eb`).
+  package rename (`a3aafb83eb`). Most complete smart→dumb: live
+  investigation encoded as a closed stop whose firing *is* the
+  evidence and that still halts `gradlew test`.
 - **Source:** latest code (HEAD `e683b74615`; introducing
   `0bd1dd2995`)
 - **Slide:** *Smart → dumb → gone*
@@ -666,51 +668,9 @@ project-owned harness (Terry Yin), not student class-week work.
 - **Clearance:** no — current harness owned by the project (not a
   class-week student bug)
 
-##### 4a candidate — FK closure fails CI on hard-delete
+#### Priority 2 — OS-invalid display names cannot be authored
 
-- **Priority:** 4a candidate (rank 1–3 with 4c)
-- **Example:** Same afternoon as a live delete failure. `34560f0412`
-  (“fix(db): allow memory tracker delete when conversation
-  references prompt”) SET NULLs `conversation_ibfk_4` and adds
-  `MemoryTrackerDeleteControllerTest.shouldHardDeleteMemoryTrackerWhenItsRecallPromptHasAConversation`.
-  Six minutes later `eb6a1db962` (“test(db): fail CI when FK
-  blocks hard-deletable entity delete”) adds
-  `backend/src/test/java/com/odde/donut/configs/DeletableEntityFkClosureTest.java`:
-  walk CASCADE from `memory_tracker` and fail if any reachable FK
-  is NO ACTION / RESTRICT (unless allowlisted with a reason). The
-  failure message *is* the restricting path. The controller test
-  is the specific bug; the schema walk is the closed stop that
-  still halts CI if a later migration reintroduces the shape.
-- **Source:** latest code (HEAD `e683b74615`; introducing
-  `34560f0412` / `eb6a1db962`)
-- **Slide:** *Smart → dumb → gone*
-- **Use:** spoken backup beat — same descent on a schema
-  invariant; leave the SET NULL migration itself for 4b/gone if
-  that hunt wants it
-- **Clearance:** no — current harness owned by the project (not a
-  class-week student bug)
-
-##### 4a also considered (leave for 4b / 4c / item 5)
-
-- `scripts/check_focus_tags.sh` in CI (`Lint-N-Backend-Generated-Types-For-Frontend`)
-  — won't-ship control, not a live-bug encoding; 4b.
-- Assimilation queue “regression” tests (`e3642081a0`) and
-  `QuestionGenerationBatchOutputFixtureTest` — pin a spec or a
-  fixture contract, not a production investigation.
-- LoadingModal / CLI cursor “regression” tests — layout/TTY
-  reachability, weaker closed oracle than query-count or FK path.
-
-#### 4b. Smart → gone / control (Claim 20)
-
-Prevention poka-yoke (illegal state unrepresentable) plus one
-control (won't compile / won't ship). Not feature tests. Rank
-1–3 waits for 4c. SET NULL `34560f0412` does **not** qualify:
-it *allows* `conversation.recall_prompt_id` NULL on delete
-instead of making an illegal FK unrepresentable.
-
-##### 4b candidate — OS-invalid display names cannot be authored
-
-- **Priority:** 4b candidate (rank 1–3 with 4c)
+- **Priority:** 2
 - **Example:** A known wiki-link / filename mistake: titles
   containing `\ / : * ? " < > |` or ASCII controls. Write DTOs
   (`NoteUpdateTitleDTO`, `FolderCreationRequest`,
@@ -724,7 +684,9 @@ instead of making an illegal FK unrepresentable.
   names”) closed the remaining authoring hole after
   `55e5e55edc` sanitization; `445656f73a` converted historical
   rows on migrate. Validation tests name the illegal charset,
-  not “can the user rename a note.”
+  not “can the user rename a note.” Most complete gone: the
+  illegal state is unrepresentable on the authoring path, not
+  merely tested after the fact.
 - **Source:** latest code (HEAD `e683b74615`; introducing
   `55e5e55edc` / `dfbde33184` / `445656f73a`; type trim
   `6e54f544cb`)
@@ -734,67 +696,95 @@ instead of making an illegal FK unrepresentable.
 - **Clearance:** no — current harness/schema owned by the
   project
 
-##### 4b candidate — spelling tracker has no MCQ choice UI
+#### Priority 3 — Biome leftover `"warn"` does not stop CI
 
-- **Priority:** 4b candidate (rank 1–3 with 4c)
-- **Example:** `frontend/src/components/recall/Quiz.vue` mounts
-  `SpellingQuestionDisplay` when `currentMemoryTracker.spelling`
-  is set; otherwise `ContestableQuestion` (MCQ choices via
-  `RecallPromptComponent` only if `recallPrompt.mcq`). A spelling
-  tracker never gets choice buttons, so “answer spelling by
-  picking an MCQ index” is not a UI path. Same family:
-  `AssimilationButtons.vue` omits “Remember spelling” unless
-  `showSpellingOption` (`AssimilationSettings.vue` hides it when
-  a SPELLING tracker already exists). That matches UNIQUE
-  `user_note_spelling_active` on `memory_tracker` (one live row
-  per user/note/type/property_key). The unique index is ordinary
-  schema uniqueness; the missing button is the poka-yoke UI.
-- **Source:** latest code (HEAD `e683b74615`)
-- **Slide:** *Smart → dumb → gone*
-- **Use:** spoken backup — missing UI path, not a test of
-  whether recall scoring works
-- **Clearance:** no — current UI owned by the project
+- **Priority:** 3
+- **Example:** Leftover `"warn"` rules, not errors. Root
+  `biome.json` parks `noExplicitAny` and (in e2e overrides)
+  unused variables/imports. `frontend/biome.json` parks
+  `noDebugger`, `noUnusedVariables` (TS; Vue sets it `off`),
+  and on `*.ts` `noUnreachable` / `noDuplicateClassMembers` /
+  `noImportCycles`. `frontend:lint` is `biome check . && vue-tsc
+  --noEmit`; `cy:lint` / `cli:lint` / `test-fixtures:lint` are
+  `biome check` the same way. CI job
+  `Lint-N-Backend-Generated-Types-For-Frontend` runs
+  `pnpm lint:all` — none pass `--error-on-warnings`. Gradle
+  `JavaCompile` (`backend/build.gradle`) sets encoding only;
+  no `allWarningsAsErrors` / `-Werror`. A new `debugger` or
+  unused TS binding can print and the job stays green. Parked
+  warning pile: the detector ran, everyone continues past it.
+  Contrast with `@focus` (also-considered): that check exits 1.
+- **Source:** latest code (HEAD `e683b74615`; CI
+  `.github/workflows/ci.yml`; `biome.json` /
+  `frontend/biome.json`)
+- **Slide:** *Stop & Fix*
+- **Use:** spoken dashboard-not-a-stop contrast — leftover
+  `"warn"` versus a quiet channel; pair with `@focus` as the
+  control that actually will not ship
+- **Clearance:** no — current CI/lint owned by the project
 
-##### 4b candidate — `@focus` in features will not ship
+#### Also considered (control, second dumb, weaker gone)
 
-- **Priority:** 4b control (rank 1–3 with 4c)
-- **Example:** `scripts/check_focus_tags.sh` — any `@focus` in
-  `e2e_test/features/**/*.feature` exits 1. CI job
-  `Lint-N-Backend-Generated-Types-For-Frontend` runs it before
-  types-gen and `pnpm lint:all`. Known inadvertent error:
-  `@focus` would skip the other scenarios. This is Shingo
-  **control** (will not proceed / will not ship), not prevention
-  (you can still type `@focus` locally) and not a product-feature
-  test. Same job: `frontend:lint` is `biome check . && vue-tsc
-  --noEmit` (type errors won't compile). Gradle `JavaCompile`
-  sets encoding only — **no** `allWarningsAsErrors` /
-  `-Werror`. Biome still has leftover `"warn"` rules and CI does
-  not pass `--error-on-warnings` (leave for 4c).
-- **Source:** latest code (HEAD `e683b74615`; introducing
-  `57ca35a9c4`; CI `.github/workflows/ci.yml`)
-- **Slide:** *Smart → dumb → gone*
-- **Use:** spoken control beat — won't ship; contrast with 4c if
-  a skippable warning pile is found
-- **Clearance:** no — current CI owned by the project
-
-##### 4b also considered
-
+- **`@focus` in features will not ship (control):**
+  `scripts/check_focus_tags.sh` — any `@focus` in
+  `e2e_test/features/**/*.feature` exits 1. Same CI job as
+  Priority 3, before types-gen and `pnpm lint:all`. Known
+  inadvertent error: `@focus` would skip the other scenarios.
+  Shingo **control** (will not proceed / will not ship), not
+  prevention (you can still type `@focus` locally) and not a
+  product-feature test. Same job: `vue-tsc --noEmit` (type
+  errors won't compile). Introducing `57ca35a9c4`. Completeness
+  matches the control look-for; ranked below Priority 3 because
+  the Claim 24 beat on *Stop & Fix* is the skippable pile, and
+  `@focus` is the contrast that makes that dashboard visible.
+  `check_wip_tags.sh` (max 5 `@wip`) is a related won't-ship
+  cap, weaker than `@focus` skipping the suite.
+- **FK closure fails CI on hard-delete (second smart→dumb):**
+  Same afternoon as a live delete failure. `34560f0412`
+  (“fix(db): allow memory tracker delete when conversation
+  references prompt”) SET NULLs `conversation_ibfk_4` and adds
+  `MemoryTrackerDeleteControllerTest.shouldHardDeleteMemoryTrackerWhenItsRecallPromptHasAConversation`.
+  Six minutes later `eb6a1db962` (“test(db): fail CI when FK
+  blocks hard-deletable entity delete”) adds
+  `backend/src/test/java/com/odde/donut/configs/DeletableEntityFkClosureTest.java`:
+  walk CASCADE from `memory_tracker` and fail if any reachable
+  FK is NO ACTION / RESTRICT (unless allowlisted with a
+  reason). The failure message *is* the restricting path. The
+  controller test is the specific bug; the schema walk still
+  halts CI if a later migration reintroduces the shape. Same
+  descent family as Priority 1, less a single production
+  timeout encoded as one oracle.
+- **Spelling tracker has no MCQ choice UI (weaker gone):**
+  `frontend/src/components/recall/Quiz.vue` mounts
+  `SpellingQuestionDisplay` when
+  `currentMemoryTracker.spelling` is set; otherwise
+  `ContestableQuestion` (MCQ choices via
+  `RecallPromptComponent` only if `recallPrompt.mcq`). A
+  spelling tracker never gets choice buttons, so “answer
+  spelling by picking an MCQ index” is not a UI path. Same
+  family: `AssimilationButtons.vue` omits “Remember spelling”
+  unless `showSpellingOption` (`AssimilationSettings.vue` hides
+  it when a SPELLING tracker already exists). That matches
+  UNIQUE `user_note_spelling_active` on `memory_tracker`. The
+  unique index is ordinary schema uniqueness; the missing
+  button is the poka-yoke UI — real, but closer to quiz
+  design than Priority 2's unrepresentable charset.
 - SET NULL `34560f0412` (`fk_conversation_recall_prompt` ON
-  DELETE SET NULL): makes a NULL FK representable so hard-delete
-  can proceed. Opposite of unrepresentable. 4a already owns the
-  FK-closure *test*.
+  DELETE SET NULL): makes a NULL FK representable so
+  hard-delete can proceed. Opposite of unrepresentable. The
+  FK-closure *test* is the second-dumb bullet above.
 - `chk_notebook_name_nonempty` CHECK and
   `uk_notebook_ownership_name`: empty or duplicate notebook
-  names cannot persist. Real schema poka-yoke, but closer to
+  names cannot persist. Real schema poka-yoke, closer to
   generic uniqueness / NOT EMPTY than the OS-invalid charset.
 - `Grade.fromValue` (FSRS G must be 1–4): constructor-like
   enum, generic “use an enum.”
-- `check_wip_tags.sh` (same CI job, max 5 `@wip`): related
-  won't-ship cap, weaker than `@focus` skipping the suite.
-
-#### 4c. Counter (Claim 24) + ranking
-
-Not yet pulled.
+- Assimilation queue “regression” tests (`e3642081a0`) and
+  `QuestionGenerationBatchOutputFixtureTest` — pin a spec or a
+  fixture contract, not a production investigation.
+- LoadingModal / CLI cursor “regression” tests — layout/TTY
+  reachability, weaker closed oracle than query-count or FK
+  path.
 
 ### 5. Preferred tests (Claim 6)
 
@@ -851,16 +841,18 @@ item 2 ranked with 2023-11-20 and 2024-08-19 2026-08-26
 (author-date windows; merge/CI-fix/`@ignore`/`@skip`/cross-author
 files). Item 3 reused those hashes 2026-08-26 (one-author file
 order on named commits; no new week scan): parked specs, not
-layer-first infra; observation-in-class beats git. Item 4a from
-latest doughnut HEAD `e683b74615` 2026-08-26 (CI `Backend-unit-tests`
-+ `git log --follow` on regression/fail-CI tests): N+1 query bound
-and FK-closure walk. Item 4b from the same HEAD 2026-08-26 (DTO
-`@Pattern` / Quiz spelling-vs-MCQ UI / `check_focus_tags.sh` in
-CI; SET NULL `34560f0412` does not qualify; Gradle has no
-warnings-as-errors): rank waits for 4c.
+layer-first infra; observation-in-class beats git. Item 4 from
+latest doughnut HEAD `e683b74615` 2026-08-26 (CI
+`Backend-unit-tests` + `git log --follow` on regression/fail-CI
+tests; DTO `@Pattern` / Quiz spelling-vs-MCQ UI /
+`check_focus_tags.sh`; leftover Biome `"warn"` with no
+`--error-on-warnings`; Gradle has no warnings-as-errors; SET
+NULL `34560f0412` does not qualify). Ranked: (1) N+1 query
+bound; (2) OS-invalid titles; (3) Biome leftover `"warn"` as
+Claim 24 counter (*Stop & Fix*).
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
 for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.
 Item 2 ranked from four tagged I-era weeks. Item 3: observation-in-class
-beats git. Item 4a: two latest-code smart→dumb candidates. Item 4b:
-two gone/poka-yoke + one control.**
+beats git. Item 4 ranked from latest-code descent + Claim 24
+counter.**

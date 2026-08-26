@@ -1,8 +1,7 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Items 1–3 done; 4a–4b
-candidates recorded. Next is 4c (counter + rank).
+[Claim 13](13-doughnut-project-examples.md). Items 1–4 done; next is 5.
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor
@@ -99,14 +98,12 @@ Latest-code smart→dumb candidates: RecallStatsPerformanceTest N+1
 bound (`0bd1dd2995`); DeletableEntityFkClosureTest (`eb6a1db962`).
 History shows investigation origin. `@focus` check left for 4b.
 
-### 4b — Behavior — planned
+### 4b — Behavior — done
 
-Latest doughnut code: **smart → gone** — 1–2 poka-yoke examples (type,
-constructor, schema, or UI path making a known illegal state
-unrepresentable — not feature tests, not general good design) and one
-**control** (won't compile / won't ship; warnings as errors in CI
-config). Target slide: *Smart → dumb → gone* (the "gone" fixture,
-Claim 20).
+Gone: OS-invalid titles blocked on write DTOs; spelling tracker has
+no MCQ choice UI. Control: `@focus` tags fail CI. SET NULL is not
+poka-yoke. Biome leftover `"warn"` left for 4c. Gradle has no
+warnings-as-errors.
 
 ### 4c — Behavior — planned
 
