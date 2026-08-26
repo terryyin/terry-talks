@@ -434,6 +434,10 @@ read. Worked doughnut examples queued on Claim 13.
 -->
 
 ---
+layout: image-right
+image: /andon-pull.png
+backgroundSize: contain
+---
 
 # Stop & Fix
 
@@ -442,6 +446,10 @@ A detector everyone continues past is only a **dashboard**.
 - Stop means stop: fix before flowing on
 - Quiet warnings drift into noise — no news is good news only when
   abnormal means stop
+
+<div class="absolute bottom-3 left-[102%] z-10 w-[96%] rounded bg-white/85 px-2 py-1 text-right text-[10px] leading-tight text-gray-700">
+  AI-generated illustration
+</div>
 
 <!--
 Claims 19 (Stop & Fix) and 24 (warnings as stop).

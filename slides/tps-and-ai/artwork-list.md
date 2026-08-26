@@ -85,11 +85,19 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### 4. Andon cord / andon board photograph
 
+- **Status:** implemented via generated fallback — `public/andon-pull.png`
 - **Slide:** "Stop & Fix"
 - **Placement:** right half, behind or beside the bullet list
-- **Source:** Toyota Global newsroom press photos (preferred for
-  authenticity). If no licensable photo is found, fall back to the
-  generated illustration in item G8 below.
+- **Source/license check:** Toyota USA Newsroom's authentic
+  [2018 TMMTX VC 05 andon exhibit
+  photo](https://pressroom.toyota.com/album/2018-toyota-motor-manufacturing-texas-tmmtx/)
+  is restricted to editorial use by its [Terms &
+  Agreements](https://pressroom.toyota.com/terms-agreements/). Toyota
+  UK's andon explanation and factory images are likewise
+  [copyright-free for editorial purposes
+  only](https://media.toyota.co.uk/toyota-auris-hybrid-production-quality-first-and-foremost/).
+  No clearly reusable official photo was found, so G8 was generated and
+  identified as AI-generated on-slide.
 
 ### 5. Own assets
 
@@ -188,6 +196,8 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G8. Andon pull (fallback only)
 
+- **Status:** done — `public/andon-pull.png`; generated after the
+  authoritative photo search found only editorial-use Toyota media
 - **Slide:** "Stop & Fix", only if no authoritative photo (item 4)
   clears licensing
 - **Prompt:** A worker's hand pulling an overhead cord above a stopped

@@ -133,11 +133,12 @@ different layers**, with an on-slide source and Creative Commons
 presentation attribution. Targeted typecheck, deck build, and rendered
 slide inspection passed.
 
-### S12 — Behavior — planned
+### S12 — Behavior — done
 
-Find an andon cord / andon board photograph for **Stop & Fix** (Toyota
-newsroom preferred). If license fails, generate G8 (andon pull, 4:3)
-and insert that instead. Attribute whichever lands.
+Toyota newsroom and media-library andon images were restricted to
+editorial use, so generated G8 as `public/andon-pull.png` and placed it
+beside **Stop & Fix** with an AI-generated attribution. Targeted
+typecheck, deck build, and rendered slide inspection passed.
 
 ### S13 — Behavior — planned
 
