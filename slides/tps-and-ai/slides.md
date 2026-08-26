@@ -457,9 +457,18 @@ Claims 19 (Stop & Fix) and 24 (warnings as stop).
 
 ---
 layout: section
+class: p-0
 ---
 
-# Same gates for "I" and AI
+<img
+  src="/torii-same-gate.png"
+  alt=""
+  class="absolute inset-0 h-full w-full object-cover"
+/>
+
+<div class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+  Same gates for "I" and AI
+</div>
 
 ---
 

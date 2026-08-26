@@ -31,8 +31,8 @@ Deck-local work — no new ADR ([ADR-0000](../../docs/adrs/0000-use-adrs-accepte
 | ID | Question | Recommendation |
 |----|----------|----------------|
 | **D1 — decided** | G5/G6 vs the Type G photo | Two **follow-on slides** after the photo, so the loom keeps its own moment |
-| **D2** | Where G9 (torii) goes | **"Same gates for I and AI" section divider** as full-bleed; the gates content slide stays text-only |
-| **D3** | How much of Claim 22 appears | A **two-loop** mermaid (inventory-feeding vs slice-shrinking / Figure 2), not the full engine |
+| **D2 — decided** | Where G9 (torii) goes | **"Same gates for I and AI" section divider** as full-bleed; the gates content slide stays text-only |
+| **D3 — decided** | How much of Claim 22 appears | A **two-loop** mermaid (inventory-feeding vs slice-shrinking / Figure 2), not the full engine |
 
 ## Order
 
@@ -140,10 +140,12 @@ editorial use, so generated G8 as `public/andon-pull.png` and placed it
 beside **Stop & Fix** with an AI-generated attribution. Targeted
 typecheck, deck build, and rendered slide inspection passed.
 
-### S13 — Behavior — planned
+### S13 — Behavior — done
 
-After D2: generate G9 (torii, same gate, 16:9) and insert on the chosen
-slide. If it is the section divider, reuse S0's bleed class.
+Generated G9 as `public/torii-same-gate.png` and placed it full-bleed on
+the **Same gates for "I" and AI** section divider with a readable
+typeset title. The following gates content slide stays text-only.
+Targeted typecheck, deck build, and rendered sequence inspection passed.
 
 ### S14 — Behavior — planned
 

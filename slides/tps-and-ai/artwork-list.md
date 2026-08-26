@@ -206,10 +206,9 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G9. Same gate for everyone — torii
 
-- **Slide:** the "Same gates for 'I' and AI" section divider, or
-  "The gates do not care who authored the change"
-- **Placement:** section divider background, or right half of the
-  gates slide
+- **Status:** done — `public/torii-same-gate.png`
+- **Slide:** the "Same gates for 'I' and AI" section divider
+- **Placement:** full-bleed section divider background
 - **Prompt:** A single torii gate on a straight path; a human developer
   and a small friendly robot approach side by side, both stopped at
   the same white line before the gate, identical distance and posture;
