@@ -102,10 +102,13 @@ it as the first separate follow-on after **The loom's closed stop**.
 Targeted typecheck and deck build passed; rendered sequence inspection
 confirmed the Type G photograph keeps its own moment.
 
-### S8 — Behavior — planned
+### S8 — Behavior — done
 
-Generate G6 (called by the stop, 16:9) with G5 as reference; insert as
-the second half of the pair.
+Generated G6 as `public/called-by-the-stop.png` from G5 and added it as
+the second separate follow-on. A requested masked correction makes only
+the monitor displays in G5 and G6 recognizable as Claude Code; all
+pixels outside each screen mask remain unchanged. Targeted typecheck,
+deck build, and rendered sequence inspection passed.
 
 ### S9 — Behavior — planned
 

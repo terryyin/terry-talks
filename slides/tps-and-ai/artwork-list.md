@@ -143,11 +143,12 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
   seated and forced to keep watching a power loom that runs by itself;
   the scene reflects below as a dark mirrored shadow in which the same
   slumped figure becomes a modern developer sadly watching a computer
-  work by itself, the screen showing only abstract glowing lines, no
-  readable text; identical posture in both halves; 16:9.
+  work by itself, the monitor showing a recognizable Claude Code
+  terminal; identical posture in both halves; 16:9.
 
 ### G6. Called by the stop (mirrored pair, 2 of 2)
 
+- **Status:** done — `public/called-by-the-stop.png`
 - **Slide:** second follow-on after "The loom's closed stop"
 - **Placement:** second of two separate follow-on slides, after G5
 - **Why this mirror:** the closed stop summons human judgment exactly
@@ -158,10 +159,10 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
   stopped itself, a small red flag raised where the thread broke, a
   glowing lightbulb above the worker's head; the scene reflects below
   as a dark mirrored shadow in which the same striding figure becomes
-  a developer walking eagerly toward a computer whose AI agent has
-  halted itself and raised the same small red flag on the screen, the
-  same lightbulb above the developer's head; vermilion accent on the
-  flags and lightbulbs; 16:9.
+  a developer walking eagerly toward a computer whose recognizable
+  Claude Code terminal has halted at an abnormality and is awaiting
+  human judgment, the same lightbulb above the developer's head;
+  vermilion accent on the flags and lightbulbs; 16:9.
 
 ### G7. Smart → dumb → gone
 
@@ -244,10 +245,14 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 - **"One lineage of inspiration":** simple flow diagram
   TPS → XP / Agile → LeSS → AI-augmented development. Mermaid or SVG;
   needs crisp text.
-- **"AI speeds whichever loop you feed":** the two-loop
-  causal map from Claim 22 (inventory-feeding loop vs
-  slice-shrinking loop). Labels matter, so SVG/mermaid, possibly with
-  Slidev click-reveals.
+- **"The engine of freedom and entrustment"** (after "The triad"):
+  Figure 1 of the Claim 22 companion CLD — loops R1+R2, six
+  variables. Done — embedded as mermaid; labels stay typeset text.
+  Optional polish: click-reveal walk of the loop.
+- **"AI speeds whichever loop you feed"** (follows the engine slide):
+  Figure 2 of the companion CLD — loop R5 with the AI injection,
+  four variables. Done — embedded as mermaid; reprises the early
+  statement slide's punchline once the engine has been walked.
 - **"The triad":** triangle of Jidoka / JIT / Respect for
   People with the frees / entrusts / grows verbs on the edges. SVG.
 - **"Five judgments stay human":** five icons (value,
@@ -257,9 +262,12 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ## Slides intentionally without artwork
 
-The diagnostic question ("How do you know…"), the "The apparent
-tradeoff" and "JIT flow in LeSS" section dividers, the main-message
-quote, "Jidoka preserves knowledge", "Preferred tests: E2E or unit —
+The diagnostic question ("How do you know…"), the early statement
+slide ("AI can produce plausible software faster than a product group
+can absorb it" — its planned loop map moved to the dedicated "AI
+speeds whichever loop you feed" slide later in the deck), the "The
+apparent tradeoff" and "JIT flow in LeSS" section dividers, the
+main-message quote, "Jidoka preserves knowledge", "Preferred tests: E2E or unit —
 nothing in between", "Let the shared product pull collaboration",
 "Respect for People: grow people who can think", "Tensions and honest
 limits", and "Takeaways". The "Same gates" divider and "The gates do

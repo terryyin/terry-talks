@@ -301,6 +301,25 @@ Claim 6 — the same judgment-loaded trap in factory and software work.
 -->
 
 ---
+class: p-0
+---
+
+<img
+  src="/called-by-the-stop.png"
+  alt=""
+  class="absolute inset-0 h-full w-full object-cover"
+/>
+
+<div class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+  Called by the stop
+</div>
+
+<!--
+The closed stop calls human judgment only when an abnormality needs it.
+Claim 6 — the stop preserves freedom while creating an opportunity to learn.
+-->
+
+---
 
 # Smart → dumb → gone
 
