@@ -282,6 +282,25 @@ Claim 6 — the founding jidoka story.
 -->
 
 ---
+class: p-0
+---
+
+<img
+  src="/watching-the-loom-watching-the-ai.png"
+  alt=""
+  class="absolute inset-0 h-full w-full object-cover"
+/>
+
+<div class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+  Watching the loom / watching the AI
+</div>
+
+<!--
+Jidoka frees people from watching and re-judging the known.
+Claim 6 — the same judgment-loaded trap in factory and software work.
+-->
+
+---
 
 # Smart → dumb → gone
 

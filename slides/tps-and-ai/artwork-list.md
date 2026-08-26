@@ -135,6 +135,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G5. Watching the loom / watching the AI (mirrored pair, 1 of 2)
 
+- **Status:** done — `public/watching-the-loom-watching-the-ai.png`
 - **Slide:** "The loom's closed stop"
 - **Placement:** pairs with G6 as a before/after beat around the Type G
   photograph (item 3) — either click-reveals on that slide or a
@@ -267,3 +268,84 @@ not care who authored the change" share G9 — whichever does not take
 it stays text-only. The stark, text-only look serves the "small
 collection of memorable points" goal; the quote slides in particular
 should not compete with their own words.
+
+---
+
+## Addendum — how the loom's jidoka mechanism works
+
+A second visual beat for "Smart → dumb → gone", alongside G7's
+conceptual steps: show the actual Type G stop mechanism, because the
+mechanism *is* the argument — the idea was smart (per-thread
+abnormality detection in 1924), the mechanism is dumb (gravity and a
+falling piece of metal).
+
+### The mechanism, researched
+
+Each of the Type G's 2,570 warp threads carries a thin sheet-metal
+plate — a **dropper** — threaded onto it; the thread's tension alone
+holds the plate up. Beneath the droppers a feeler bar sweeps back and
+forth with the loom's motion. When a thread breaks, tension vanishes
+and the dropper falls a few centimeters into the bar's path. The
+jammed bar trips the knock-off linkage, the drive disengages, and the
+loom stops before a single defective pick is woven. The sensor is
+gravity; the logic is a metal plate in the way of a moving bar — no
+power, no electronics, no diagnosis. (The weft side uses a
+three-pronged **weft fork** that feels for the thread on each pick
+and trips the same knock-off when it swings through unresisted —
+same principle, less visual, so the dropper is the subject here.)
+
+Sources: [Toyota 75-year history, "The Birth of
+Jidoka"](https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html);
+Toyota Commemorative Museum virtual tour — ["Warp break auto-stop
+mechanism"](https://www.tcmit.org/vgt/textile/english/scene-10-iframe/target-04/)
+and ["Warps and
+droppers"](https://www.tcmit.org/vgt/textile/english/scene-13-iframe/target-03/);
+[JSME Mechanical Engineering Heritage
+No. 16](https://www.jsme.or.jp/kikaiisan/heritage_016_en.html);
+[AllAboutLean, "The Toyoda Model G Loom (with
+Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
+
+### 6. Dropper mechanism photo (find — checked, viable but limited)
+
+- **Slide:** "Smart → dumb → gone"
+- **Placement:** small inset beside the "Dumb" line, as the real
+  artifact anchoring G15's illustration
+- **Source:** AllAboutLean's Model G post (link above) photographs the
+  museum's demonstration model — droppers hanging on warps. Roser's
+  own images are CC-BY-SA 4.0 per his [permission
+  page](https://www.allaboutlean.com/permission-for-images/); verify
+  the license on the specific image's attachment page and attribute
+  on-slide: "By Christoph Roser at AllAboutLean.com under the free
+  CC-BY-SA 4.0 license", with links to the post and license.
+- **Checked and ruled out:** Wikimedia Commons has only whole-machine
+  Type G photos (no mechanism close-up); the museum's own animations
+  and virtual-tour media are copyrighted; Sakichi's public-domain
+  patent drawings show full looms, unreadable at slide size.
+- **Limit:** a photo shows the parts but not the falling action, and
+  the action carries the argument — hence G15.
+
+### G15. Loom jidoka mechanism — smart idea, dumb mechanism
+
+- **Status:** not yet generated — instruction ready, worker to pick up
+- **Slide:** "Smart → dumb → gone"
+- **Placement:** click-reveal after G7's strip on the same slide, same
+  wide-strip footprint so it swaps in place; slide text supplies all
+  labels (dropper, feeler bar, knock-off — never in the image)
+- **Why generated:** no free-licensed explanatory diagram exists, and
+  only an illustration can show the before/after action
+- **Prompt:** Two-panel before-and-after of a loom's warp stop, side
+  by side. Left panel, running: a row of taut vertical threads, each
+  holding up a small thin rectangular metal plate at the same height;
+  beneath the plates a horizontal bar mid-sweep, its motion implied
+  by loose strokes; cloth forming below. Right panel, stopped: one
+  thread hangs slack and broken, its plate fallen a short distance
+  and jammed against the now-halted bar; every other plate still
+  raised; all motion gone. Vermilion accent only on the fallen plate;
+  16:9 wide strip.
+- **Accuracy notes for the worker (must survive generation):** the
+  plates hang *on* the threads and tension holds them up; exactly one
+  plate falls, and it falls only a few centimeters; the bar is
+  *blocked by* the fallen plate, not struck by it; nothing electrical
+  anywhere in the scene. If the generator cannot keep the two panels
+  mechanically consistent, generate the two panels separately and
+  compose in the slide.
