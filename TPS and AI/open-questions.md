@@ -83,7 +83,7 @@ future discussion, not a set of conclusions.
   pulling useful collaboration ([Claims
   3](claims/03-jidoka-enables-jit-trusts-respect-grows.md) and
   [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md)),
-  including a green pipeline that is not CI
+  including a green CI service that is not CI
   ([Claim 21](claims/21-ci-practice-is-not-a-ci-system.md)); the full
   sequence from AI-assisted change to integration signal, conversation,
   stop-and-fix, and delivered user value

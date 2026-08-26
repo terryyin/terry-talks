@@ -195,7 +195,7 @@ dependencies. Those can become encoded stops and can pull self-managed
 collaboration. Customer-centric teams and one ordered backlog aim that
 capability at user value.
 
-A green pipeline that does not halt, or a CI system without the
+A green CI service that does not halt, or a service without the
 developer practice, is a break in this loop: [Claims
 19](19-stop-and-fix.md) and
 [21](21-ci-practice-is-not-a-ci-system.md).
@@ -269,7 +269,7 @@ them named:
   5](05-smed-software-changeover-and-ai-friendly-context.md); the
   trajectory toward perfection is [Claim
   18](18-continuous-improvement-towards-perfection.md).
-- **Poka-yoke, tests, fail-fast, CI system as andon** — inside encoded
+- **Poka-yoke, tests, fail-fast, CI service** — inside encoded
   jidoka.
 - **Nemawashi** — a social path that can grow warranted trust and pull
   aligned action; [Claim

@@ -9,7 +9,7 @@ red; not a finalized talk beat**
 > **Jidoka already includes stopping when an abnormality is detected.
 > Stop & Fix is LeSS's name for actually doing that: contain, fix, and
 > prevent recurrence, rather than working around the signal.** A test,
-> a fail-fast, or a CI system that everyone continues past is a
+> a fail-fast, or a CI service that everyone continues past is a
 > dashboard, not jidoka.
 
 This corrects the original hypothesis on five points. Toyota names
@@ -17,13 +17,14 @@ This corrects the original hypothesis on five points. Toyota names
 are detected” is inside that pillar. **Stop & Fix** is LeSS English
 (lean-thinking foundation; CI: “DO ‘stop and fix’ when the build
 breaks”). Liker names a Toyota Way *culture* of stopping to fix—2004
-Principle 5, 2021 Principle 6. Tests, fail-fast, and a **CI system**
+Principle 5, 2021 Principle 6. Tests, fail-fast, and a **CI service**
 are detectors; they count as jidoka only if work actually stops.
 Ranking tests as “main” is Terry's, not a source fact. Shore contrasts
 fail-fast with **failing slowly** (workaround, default, catch-all),
-not with “defensive programming.” LeSS's andon is the **CI
-system**, not “CI/CD”—[Claim
-21](21-ci-practice-is-not-a-ci-system.md) owns that name.
+not with “defensive programming.” LeSS compared the safety net to
+andon and called it a **CI system**. The talk says **CI
+service**—[Claim 21](21-ci-practice-is-not-a-ci-system.md) owns that
+name.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
 right to stop. [Claim 6](06-jidoka-embeds-routine-judgment.md) owns
@@ -58,7 +59,7 @@ exception. The abnormality must not become normal inventory.
 |---|---|---|
 | **Automated tests** | A known scenario no longer holds | The failing test is the current work, not a parked queue. |
 | **Fail-fast** | An illegal or unexpected condition now | Do not swallow it. Shore: fail immediately and visibly. In production, make the abnormality visible to people who can respond—not silently continue, and not an unexplained crash. |
-| **CI system** | The integrated product is not in the agreed working state | Do not keep merging or starting the next slice on a red mainline. The pipeline is andon, not CI ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). |
+| **CI service** | The integrated product is not in the agreed working state | Do not keep merging or starting the next slice on a red mainline. A CI service is not CI ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). |
 
 Tests are often the cheapest re-runnable closed question ([Claim
 6](06-jidoka-embeds-routine-judgment.md)); they are not sufficient.
@@ -69,7 +70,7 @@ red check is the **current work**, not a second item in parallel.
 ## Implication for the talk
 
 > **Jidoka without Stop & Fix is a dashboard. Tests, fail-fast, and a
-> CI system only count when the team actually stops, contains, and
+> CI service only count when the team actually stops, contains, and
 > learns. AI makes continuing past the signal cheaper; the discipline
 > therefore matters more.**
 

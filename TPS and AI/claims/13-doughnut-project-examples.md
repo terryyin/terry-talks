@@ -104,7 +104,7 @@ Original hypothesis, split from
 8](08-technical-excellence-enables-jit-coordination-in-less.md) states
 the technical-excellence bridge. [Claim
 21](21-ci-practice-is-not-a-ci-system.md) separates that practice from
-a CI system. This item is the empirical case.
+a CI service. This item is the empirical case.
 
 > **In the doughnut LeSS in Action setting, continuous integration of
 > interdependent user-centric work pulls useful cross-team collaboration
@@ -119,8 +119,8 @@ Look for:
 - How much of the effect depends on training design (one week, coaching,
   Whole Product Focus) versus practices that transfer to ordinary
   product groups.
-- A green pipeline or always-passing build that was not CI (delayed
-  mainline integration), or genuine CI whose andon was still primitive.
+- A green CI service or always-passing build that was not CI (delayed
+  mainline integration), or genuine CI whose stop was still primitive.
 
 ### AI-assisted change through to user value — Claim 8
 
