@@ -469,6 +469,8 @@ Move learned judgment downhill:
 
 Do not load the system with output that still needs a person to re-judge.
 
+<div class="doughnut-example">
+
 **Dumb:** a recall-stats timeout is encoded as a query-count stop.
 
 **Gone:** OS-invalid titles are unrepresentable (`@Pattern`).
@@ -476,6 +478,8 @@ Do not load the system with output that still needs a person to re-judge.
 ```java
 assertThat(prepareStatementCount, lessThan(10L));
 ```
+
+</div>
 
 </div>
 
@@ -531,6 +535,8 @@ Where "dumb" lives in software — tests that hold the encoded judgment:
 - An **E2E test** asserts a user-valued **state change**, not presentation
 - **No commit on red**; unfinished E2E stays `@wip`
 
+<div class="doughnut-example">
+
 ```java
 Note note = makeMe.aNote().notebookOwnedBy(user).please();
 var tracker = makeMe.aMemoryTrackerFor(note).please();
@@ -539,6 +545,8 @@ var prompt = makeMe.aRecallPrompt().withMcqForNote(note).please();
 controller.answer(prompt, correctChoice);
 assertThat(getRecallLogs(tracker).get(0).getGrade(), is(Grade.GOOD));
 ```
+
+</div>
 
 A good AI episode leaves **reusable capability** — not a one-off patch.
 
@@ -607,10 +615,14 @@ class: p-0
 # The gates do not care who authored the change
 
 The product standard and stop conditions do not weaken according to
-**who or what** wrote it.
+**who or what** wrote it. Quiet is good news only when the same
+owned checks **ran**.
 
 After a dumb stop, AI may help fix dumb problems —
-it must **not dissolve the stop**.
+it must **not dissolve the stop**. A leftover warning is unpaid
+judgment for the next person or agent.
+
+<div class="doughnut-example">
 
 A Jidoka stop binds the agent on a recall-to-note detour. The person
 decides — leave recall, return via Resume — and Cursor implements
@@ -621,8 +633,14 @@ A detour into a note is recorded separately.
 Do not guess the UX.
 ```
 
+</div>
+
 <!--
-Claim 6.
+Claims 6 and 24.
+
+Quiet / leftover warning: Claim 24 — unpaid judgment; silence is
+trusted only when the check ran. Heuristic, not a TPS slogan; do
+not present -Werror as TPS.
 
 Episode leftover: execute-plan Jidoka on doughnut
 `.planning/quick/001-morning-cognitive-index/PLAN.md` slice 6
@@ -681,12 +699,16 @@ class: "[&>h1]:!mb-2 [&_p]:!my-2 [&_.slidev-code-wrapper]:!my-2 [&_pre]:!text-[1
 Genchi genbutsu when the work happens inside an agent loop:
 go to where the work is actually done.
 
+<div class="doughnut-example">
+
 `git commit` reports success. The pre-commit hook records the **main** tree.
 
 ```bash
 REPO_ROOT="$HOOK_DIR/../.."
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 ```
+
+</div>
 
 <!--
 Claim 16.
@@ -746,10 +768,14 @@ Claim 21.
 - The shared product pulls the right people together, just in time
 - Slowing down means **not overproducing** — do not create debt faster
 
+<div class="doughnut-example">
+
 Cursor, January 2026: extract a child note from a checklist point.
 The shared recall screen (`Assimilation.vue`) records a conflict leftover;
 lint stops an unused import; the user sees a loading modal while the child
 is created.
+
+</div>
 
 <!--
 Claim 8. Nemawashi (Claim 9) and the Ebata teaching (Claim 14) support
@@ -774,7 +800,7 @@ properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
 
 ---
 
-# Respect for People: grow people who can think
+# Respect for People: making things means making people
 
 Spend freed attention on **comprehension**, **whole-product collaboration**,
 **kaizen**, and **teaching** — grow response capability, not output.

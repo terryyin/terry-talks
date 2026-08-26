@@ -315,7 +315,7 @@ speeds whichever loop you feed" slide later in the deck), the "The
 apparent tradeoff" and "JIT flow in LeSS" section dividers, the
 main-message quote, "Jidoka preserves knowledge", "Preferred tests: E2E or unit —
 nothing in between", "Let the shared product pull collaboration",
-"Respect for People: grow people who can think", and "Takeaways". The "Same gates" divider and "The gates do
+"Respect for People: making things means making people", and "Takeaways". The "Same gates" divider and "The gates do
 not care who authored the change" share G9 — whichever does not take
 it stays text-only. The stark, text-only look serves the "small
 collection of memorable points" goal; the quote slides in particular

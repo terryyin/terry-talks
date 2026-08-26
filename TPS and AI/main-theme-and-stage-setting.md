@@ -169,9 +169,9 @@ to a claim.
    [17](claims/17-jit-vertical-slicing-one-piece-flow.md),
    [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md),
    and [21](claims/21-ci-practice-is-not-a-ci-system.md)).
-6. **Respect for People** — grow people who can think; spend freed
-   attention on comprehension, kaizen, and teaching; the deskilling
-   risk ([Claims 12](claims/12-respect-for-people-who-can-think.md)
+6. **Respect for People** — making things means making people; spend
+   freed attention on comprehension, kaizen, and teaching; the
+   deskilling risk ([Claims 12](claims/12-respect-for-people-who-can-think.md)
    and [3](claims/03-jidoka-enables-jit-trusts-respect-grows.md)).
 7. **Continuous improvement towards perfection** — SMED and cheap
    changeover as the TPS example; Definition of Done as the LeSS
