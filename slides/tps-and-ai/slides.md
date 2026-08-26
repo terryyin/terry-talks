@@ -673,6 +673,7 @@ Claim 6.
 layout: image-right
 image: /entering-ai-harness.png
 backgroundSize: contain
+class: "[&>h1]:!mb-2 [&_p]:!my-2 [&_.slidev-code-wrapper]:!my-2 [&_pre]:!text-[13px] [&_pre]:!leading-snug [&_pre]:!py-1"
 ---
 
 # Go-See may mean entering the AI harness
@@ -680,8 +681,22 @@ backgroundSize: contain
 Genchi genbutsu when the work happens inside an agent loop:
 go to where the work is actually done.
 
+`git commit` reports success. The pre-commit hook records the **main** tree.
+
+```bash
+REPO_ROOT="$HOOK_DIR/../.."
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+```
+
 <!--
 Claim 16.
+
+Leftover: doughnut `scripts/git-hooks/pre-commit`. `$HOOK_DIR/../..`
+resolves to the **main** checkout — the hook lives in shared
+`.git/hooks`. Hash: `1c696d455d` (`git rev-parse --show-toplevel`).
+
+Spoken callback: the P1 N+1 leftover on *Smart → dumb → gone* is
+what later landed once the tree was true — `0bd1dd2995`.
 -->
 
 ---

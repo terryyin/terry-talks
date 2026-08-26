@@ -4,7 +4,7 @@ Multi-session slice plan for embedding **narrative lines and code
 snippets** from [Claim 13](../../TPS%20and%20AI/claims/13-doughnut-project-examples.md)
 into [slides.md](slides.md), oriented by
 [main-theme-and-stage-setting.md](../../TPS%20and%20AI/main-theme-and-stage-setting.md).
-In progress (S1–S5 landed). Revised after a critical selection
+In progress (S1–S6 landed). Revised after a critical selection
 review (2026-08-26). Slides are referenced by title only.
 
 Deck-local work — no new ADR
@@ -148,16 +148,12 @@ decides leave-recall / Resume → Cursor implements without
 dissolving the stop) plus two leftover plan lines. Slogan kept.
 Five judgments untouched. Rendered on slide 23.
 
-### S6 — Behavior — planned
+### S6 — Behavior — done
 
-**P4** on *Go-See may mean entering the AI harness*: narrative that
-`git commit` reported success while the pre-commit hook recorded the
-**main** tree; leftover snippet is the hook fix
-(`git rev-parse --show-toplevel`). Spoken callback: the N+1 leftover
-in P1 is what later landed once the tree was true.
-
-**Check:** genchi genbutsu is “inspect the harness,” not “read the
-agent summary.”
+**P4** on *Go-See…*: narrative that `git commit` reports success
+while the hook records the **main** tree; 2-line leftover
+`$HOOK_DIR/../..` vs `git rev-parse --show-toplevel`. Artwork kept.
+P1 N+1 callback in notes. Rendered on slide 25.
 
 ### S7 — Behavior — planned
 
@@ -177,6 +173,9 @@ signal → stop-and-fix → user value.
 
 ## Discoveries (planning)
 
+- S6 (2026-08-26): 2-line hook leftover fits on the image-right
+  Go-See slide with a frontmatter squeeze. P1 callback lives in
+  notes only — S7’s `/sync` callback can follow that pattern.
 - S5 (2026-08-26): leftover plan text (“Do not guess the UX”)
   fits under the episode on the gates slide. Five-judgments
   remains the list-only slide.
