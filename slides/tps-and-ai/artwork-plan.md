@@ -147,10 +147,12 @@ the **Same gates for "I" and AI** section divider with a readable
 typeset title. The following gates content slide stays text-only.
 Targeted typecheck, deck build, and rendered sequence inspection passed.
 
-### S14 — Behavior — planned
+### S14 — Behavior — done
 
-Generate G10 (person with lantern entering the machine, 4:3); insert on
-**Go-See may mean entering the AI harness**, right half.
+Generated G10 as `public/entering-ai-harness.png`, cropped it to 4:3,
+and placed it on the right half of **Go-See may mean entering the AI
+harness**. Targeted typecheck, deck build, and rendered slide inspection
+passed.
 
 ### S15 — Behavior — planned
 

@@ -216,6 +216,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G10. Entering the AI harness
 
+- **Status:** implemented — `public/entering-ai-harness.png`
 - **Slide:** "Go-See may mean entering the AI harness"
 - **Placement:** spot illustration, right half
 - **Prompt:** A person holding a paper lantern steps through the

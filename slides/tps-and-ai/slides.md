@@ -499,6 +499,10 @@ Claim 6.
 -->
 
 ---
+layout: image-right
+image: /entering-ai-harness.png
+backgroundSize: contain
+---
 
 # Go-See may mean entering the AI harness
 
