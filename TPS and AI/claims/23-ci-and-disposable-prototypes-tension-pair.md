@@ -1,24 +1,26 @@
-# Claim 23: CI and disposable prototypes form a tension only at the product boundary
+# Claim 23: Honest CI and disposable prototypes are a tension pair
 
-**Status: Provisional — universal tension rejected; narrower
-product-experiment tension retained; doughnut example still open**
+**Status: Provisional — tension pair retained; research narrows its
+mechanism and corrects the LeSS attribution; doughnut example still open**
 
 ## Claim
 
-> **Honest continuous integration and disposable prototypes are not
-> inherently a tension pair.** A true throwaway spike can stay outside the
-> product: keep the learning and discard the code. CI does not require every
-> exploratory artifact to enter the mainline. The tension begins when useful
-> learning requires experimental code in the shared or running product. Then
-> integrate production-quality code behind a short-lived boundary, and make
-> removing the rejected path and that boundary part of the experiment. If
-> later work crosses the boundary and depends on the experiment, removal may
-> require forward refactoring rather than a clean revert. That cost is
-> conditional, not an unavoidable consequence of CI or LeSS.
+> **Honest continuous integration and disposable prototypes form a tension
+> pair.** CI seeks complete feedback from the integration cycle: a change
+> meets the shared working product, its tests, other concurrent changes, and
+> the people building on it. A throwaway prototype seeks cheap learning by
+> staying free of those production obligations. Keep it outside the product
+> and disposal stays cheap, but its code cannot provide that shared-system
+> feedback. Integrate it and the feedback becomes more complete, but the code
+> must be production quality and may acquire dependencies that make disposal
+> harder. Both are good ideas; each constrains the other.
 
-This correction separates three things the original claim conflated.
+Here **complete feedback** means complete *integration-cycle* feedback. CI
+does not by itself establish customer value. [Claim
+17](17-jit-vertical-slicing-one-piece-flow.md) owns feedback from a running,
+customer-centric increment.
 
-## A throwaway spike is not a product increment
+## The pair is feedback completeness versus disposability
 
 On the C2 XP page, Ward Cunningham describes the spike as the smallest code
 that can explore the essential function **independent of existing
@@ -31,36 +33,38 @@ thin vertical spike through components. It does **not** say that this spike
 must be committed to the product mainline. On the same page LeSS separately
 describes a walking skeleton or tracer code as production-quality
 development and explicitly says that it is *not prototyping*. Therefore the
-old inference—“vertical spike, therefore learned through the integrated
-product”—was unsupported.
+old inference—“vertical spike, therefore LeSS says it was integrated into
+the product”—was unsupported. That locates the boundary; it does not remove
+the pair.
 
-[Claim 17](17-jit-vertical-slicing-one-piece-flow.md) owns thin,
-customer-centric **production** slices. A throwaway spike is a different
-learning artifact.
-
-## CI requires quality at the mainline, not every experiment on it
+## CI does not require every experiment—and that is one side of the tension
 
 LeSS defines CI as growing one working system by small changes on the
 mainline. Fowler likewise says code sent to the mainline is production
 quality, even when unfinished behavior is hidden. He recommends small,
 reversible steps; for a faulty recent integration, reverting the commit is
-usually the first response. CI therefore does not itself imply entanglement
-or roll-forward deletion.
+usually the first response. CI therefore does not guarantee entanglement or
+roll-forward deletion.
 
-Nor is the choice “long-lived experiment branch or merged prototype.” A
-throwaway spike need never be destined for merge. For product work that
-must integrate before it is user-visible, CI techniques include a keystone
-interface, a feature flag, branch by abstraction, and parallel change.
-[Claim 21](21-ci-practice-is-not-a-ci-system.md) owns the CI practice; this
-claim only owns what happens at the experiment boundary.
+But a spike outside the mainline has not been continuously integrated. Its
+learning is narrower: cheap disposal is bought with less complete
+integration feedback.
 
-## The narrower tension: experiments inside the product
+The choice is not merely “long-lived experiment branch or merged
+prototype.” A throwaway spike need never be destined for merge. Product
+work can integrate behind a keystone interface or feature flag, using
+branch by abstraction or parallel change. These techniques manage the
+tension; they do not erase it. [Claim
+21](21-ci-practice-is-not-a-ci-system.md) owns the CI practice; this claim
+owns its boundary with disposable learning.
+
+## The tension becomes strongest inside the product
 
 Some hypotheses can only be tested in the running product. An A/B test, for
 example, integrates alternative code paths and routes user cohorts between
-them with an **experiment toggle**. That is not a throwaway prototype in the
-XP sense; it is production-quality experimental code with an intended
-expiry.
+them with an **experiment toggle**. That is production-quality experimental
+code whose losing path is intended to be disposable: honest integration
+with as much reversibility as the learning method permits.
 
 Pete Hodgson's feature-toggle guidance makes both sides visible. An
 experiment toggle may need to live for hours or weeks to produce a useful
@@ -88,19 +92,22 @@ The old draft also moved too quickly from faster code generation to faster
 integration. DORA's 2025 survey reports that AI adoption was associated
 with higher delivery throughput and with lower delivery stability, while
 emphasizing tests, version control, and fast feedback as control systems.
-That supports a modest statement: **AI may increase pressure on the
-experiment boundary when it increases the volume of integrated change.**
-It does not establish that AI always accelerates delivery, makes clean
-deletion impossible, or creates this tension.
+That supports a modest statement: **AI may make the tension harder to hold
+when it increases the volume of integrated change.** It does not establish
+that AI always accelerates delivery or makes clean deletion impossible.
 
 ## Implication for the talk
 
-> **CI does not require every experiment to be merged. Keep throwaway spike
-> code throwaway. When learning requires experimental code in the product,
-> integrate it honestly—and design its removal boundary at the same time.**
+> **Honest CI and disposable prototypes are a tension pair.** A throwaway
+> spike buys cheap learning by giving up complete shared-system feedback. An
+> integrated experiment buys that feedback by accepting production
+> constraints and removal work. Keep both values explicit—and design the
+> removal boundary when the experiment enters the product.
 
-One doughnut episode is still needed: a product experiment that stayed easy
-to remove, or one whose boundary leaked and required forward refactoring.
+The doughnut episode is queued on
+[Claim 13](13-doughnut-project-examples.md): post-class cleanup that
+surgically removed an undone or abandoned feature because it was already
+entangled with features that stayed.
 
 ## Sources consulted
 

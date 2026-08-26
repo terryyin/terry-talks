@@ -24,7 +24,8 @@ stacking judgment-dependent output. [Claim 19](19-stop-and-fix.md)
 owns the halt. [Claim
 20](20-poka-yoke-supports-jidoka.md) owns poka-yoke.
 [Claim 24](24-warnings-as-stop-no-news-is-good-news.md) owns leftover
-warnings as unpaid judgment. This claim is **where that judgment
+warnings as unpaid judgment; on stage it is a **sub-beat of this
+cluster**, not a sibling TPS topic. This claim is **where that judgment
 lives**.
 
 Toyota's jidoka is “automation with a human touch”: people learn the
@@ -211,6 +212,12 @@ oracle, a local stop, better evidence, or a documented reason the
 judgment must remain human—not by whether the same difficult problem
 was solved again with more tokens. Say **model first** out loud as
 Terry's bet, not as a measured result.
+
+On stage, say jidoka **embeds previously learned judgment** in a closed
+detector so adaptive attention is free. Do not say it is the main way
+the organization **preserves acquired knowledge**: kaizen, ADRs, and
+conversation also store knowledge; jidoka encodes the part that can
+become a stop.
 
 ## Questions still open
 

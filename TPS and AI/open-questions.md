@@ -5,21 +5,34 @@ future discussion, not a set of conclusions.
 
 ## Talk framing
 
-- What is the exact title and promised audience takeaway for the Tokyo LeSS
-  Conference talk? Working answer: the **theme** is **Freedom and
-  Entrustment** ([Claim
-  10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)). An
-  early-talk slogan: *How do you know if the organization is using AI
-  right? If the teams are more freed than constrained by what they built.*
-  The cover title is still the longer TPS/AI conference wording.
+- What is the exact title for the Tokyo LeSS Conference talk? Working
+  answer: **Freedom and Entrustment**, subtitle **What AI-Augmented
+  Development and LeSS Can Learn from the TPS**. The theme matches
+  [Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md).
+  The early-talk slogan (*How do you know if the organization is using
+  AI right? If the teams are more freed than constrained by what they
+  built.*) is one leading page, not the title.
+- What is the promised audience takeaway?
 - Is the talk primarily about applying TPS philosophy to AI-augmented software,
   or about using the contrast with TPS to expose what is newly difficult?
+  Working answer: as in the subtitle. Not applying TPS to software, but
+  **inspired by** TPS, for AI-augmented software development in the
+  context of LeSS.
 - Which audience assumptions about TPS, lean, LeSS, and AI can safely be made?
+  Working answer: Tokyo LeSS Conference — expect TPS, lean, and LeSS
+  experts, including people from Toyota. Still assume most of the
+  audience does not know TPS in detail, even though most are Japanese.
+  Mixed international and Japanese audience; some contrast in the
+  language may be interesting in the talk.
 - What would make the talk useful to practitioners the following day?
+  Working answer: keep it simple and interesting. A small collection of
+  main points that are easy to remember.
 - Is a causal loop diagram of the TPS→LeSS+AI reasoning a slide, a
   speaker map, or only a writing tool? Working draft:
   [Claim 22](claims/22-cld-shows-tps-reasoning-for-less-ai.md) and
-  [the companion CLD](claims/22-tps-less-ai-cld.md).
+  [the companion CLD](claims/22-tps-less-ai-cld.md). Leave the form
+  open as the diagram develops; if it is good, use it directly in the
+  slides.
 
 ## Central tension
 
@@ -60,13 +73,16 @@ future discussion, not a set of conclusions.
   has the stacking warning. A leftover compiler or linter warning is
   that remainder in miniature:
   [Claim 24](claims/24-warnings-as-stop-no-news-is-good-news.md).
+  Talk placement is on that claim: a jidoka sub-beat after poka-yoke,
+  not an independent TPS topic.
 - Honest trunk-based CI and disposable prototypes look like opposites:
   real integration entangles experiments so there is no clean delete,
   yet spent experiments still need to leave the product. A working
   answer is
   [Claim 23](claims/23-ci-and-disposable-prototypes-tension-pair.md): it
-  is a tension pair, native to LeSS, made louder by AI. Remaining:
-  doughnut episode.
+  is a tension pair, native to LeSS, made louder by AI. Remaining: the
+  doughnut episode of post-class surgical removal, queued on
+  [Claim 13](claims/13-doughnut-project-examples.md).
 
 ## Evidence to collect
 
@@ -109,7 +125,9 @@ future discussion, not a set of conclusions.
   poka-yoke fixture that is not “just a test” or “just good design,”
   plus leftover warnings or noisy logs versus a quiet channel
   ([Claims 20](claims/20-poka-yoke-supports-jidoka.md) and
-  [24](claims/24-warnings-as-stop-no-news-is-good-news.md)).
+  [24](claims/24-warnings-as-stop-no-news-is-good-news.md)); post-class
+  surgical removal of an abandoned feature entangled with wanted work
+  ([Claim 23](claims/23-ci-and-disposable-prototypes-tension-pair.md)).
 
 ## Candidate future claims
 

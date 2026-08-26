@@ -80,7 +80,10 @@ form of disconnecting the device.
 On stage, one doughnut fixture, queued on
 [Claim 13](13-doughnut-project-examples.md). Until pulled, Robinson
 is the sourced proof that detection poka-yoke is not a test of
-whether the feature worked.
+whether the feature worked. Then [Claim
+24](24-warnings-as-stop-no-news-is-good-news.md): one warning pile
+versus a quiet gate—the software punchline of control versus warning,
+not a second TPS topic.
 
 ## Questions still open
 

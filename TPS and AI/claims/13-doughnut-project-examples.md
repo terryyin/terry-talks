@@ -236,6 +236,32 @@ class weeks, not teams. Follow **one user's** commit sequence (files
 touched, order of infra versus user-facing work) rather than a team
 label. Observation in class, if remembered, may be stronger than git.
 
+### Post-class surgical removal of an abandoned feature — Claim 23
+
+[Claim 23](23-ci-and-disposable-prototypes-tension-pair.md) needs one
+doughnut episode of **post-class cleanup**: an undone or abandoned
+feature that could not be reverted cleanly because it was already
+entangled with features that stayed.
+
+> **When unfinished or experimental code is in the shared product,
+> later wanted work can depend on it. Removing the rejected path is
+> then a surgical change to today's system, not a clean revert.**
+
+Look for:
+
+- Cleanup **after** a training week, not during the class burst.
+  Instructors (Terry Yin, Tan Yeong Sheng) often do this work.
+- An unfinished, undone, or abandoned feature that left the product.
+- Removal that is manual and surgical: edits inside files that also
+  keep wanted behavior, not a whole-commit revert of the feature's
+  introduction.
+- Evidence of entanglement: wanted features that used types, routes,
+  data, or helpers from the abandoned path, so deletion required
+  forward refactoring.
+
+A clean revert of an isolated experiment is a useful contrast if it
+appears, but the request is the leaked-boundary case.
+
 ## Talk implication
 
 Once examples are pulled, they belong in the owning claims. This file

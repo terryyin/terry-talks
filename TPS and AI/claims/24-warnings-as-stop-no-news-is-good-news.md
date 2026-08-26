@@ -1,7 +1,7 @@
 # Claim 24: A warning left visible after triage is unpaid judgment; keep the interrupt channel quiet
 
-**Status: Provisional — reconciled after research; warning policy narrowed to
-selected diagnostics in owned code; doughnut episode queued**
+**Status: Provisional — nested under jidoka for the talk; warning policy
+narrowed to selected diagnostics in owned code; doughnut episode queued**
 
 ## Claim
 
@@ -31,10 +31,14 @@ unintentionally hid future warnings.
 ## What “no news is good news” means
 
 This is Terry's software heuristic, **not a sourced TPS slogan** or a ban on
-factory warnings. Toyota's plant tour shows a red-lamp poka-yoke under
+factory warnings. It is a **sub-beat of jidoka**, not an independent TPS
+topic. Toyota's plant tour shows a red-lamp poka-yoke under
 jidoka/autonomation. [Claim
-20](20-poka-yoke-supports-jidoka.md) owns control versus warning; [Claim
-19](19-stop-and-fix.md) owns whether people actually respond.
+6](06-jidoka-embeds-routine-judgment.md) owns where learned judgment lives;
+[Claim 20](20-poka-yoke-supports-jidoka.md) owns control versus warning;
+[Claim 19](19-stop-and-fix.md) owns whether people actually respond. This
+claim is the software policy that keeps the interrupt channel a closed,
+trusted question.
 
 It applies to an **interrupting channel** such as a CI result,
 compiler/linter summary, or tool output placed into an agent's context. Its
@@ -58,9 +62,14 @@ compact agent-facing output, not discarded operational evidence.
 
 ## Implication for the talk
 
-On stage, use one warning pile versus a zero-warning gate over selected checks.
+> **Under jidoka, keep the interrupt channel a closed, trusted question.**
+> After poka-yoke's control versus warning, one software beat: a warning
+> pile versus a zero-warning gate over selected owned checks. “No news
+> is good news” is Terry's heuristic, said as such.
+
 Do not present `-Werror` as TPS or equate quiet alerts with absent
-observability.
+observability. Parent slogan: [Claim
+6](06-jidoka-embeds-routine-judgment.md).
 
 ## Questions still open
 

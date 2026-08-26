@@ -77,12 +77,3 @@ management philosophy, and underlying reasoning. Then ask which ideas survive,
 change, or become more important when AI makes candidate software solutions
 cheap and fast to generate while judging correctness, usefulness, value, and
 appropriateness remains comparatively expensive.
-
-## Provenance
-
-Imported on 2026-08-21 from the ChatGPT conversation
-[Discuss TPS Talk](chatgpt-conversation://6a7a9556-3ce8-83ec-ab54-89f4efc11d10).
-The prior conversation contained inline research citations, but their resolved
-URLs were not available in the conversation export. Source links should be
-recovered or independently verified before claims are finalized or used in
-slides.
