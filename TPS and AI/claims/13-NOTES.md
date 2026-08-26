@@ -1,7 +1,8 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Items 1–2 ranked; next is 3.
+[Claim 13](13-doughnut-project-examples.md). Items 1–2 ranked; item 3
+asks Terry (git missed stockpile). Next is 4a.
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor
@@ -85,16 +86,12 @@ Item 2 ranked: (1) Fisher/Leo FineTuningData merge 2023-10-30;
 assessment merge 2024-06-03. 2023-11-20 / 2024-08-19 hashes in
 also-considered (item 3 stockpile pointer: andreas `20ea977a2c`).
 
-### 3 — Behavior — planned
+### 3 — Behavior — done
 
-Reusing the scan notes from 1a–2b (no new week scans), follow **one
-user's** commit sequence showing infra stockpiling before anything
-user-visible, contrast with a nearby end-to-end slice, plus healthy
-parallel flow in the same week. 1–2 examples. Target slide: *Pull,
-don't stockpile* (takeaway 2). Record the git limit: week ranges
-identify classes, not teams. Done when item-3 subsection complete —
-or when it records that observation-in-class beats git here and names
-what to ask Terry.
+Observation-in-class beats git. Parked specs / same-story layering /
+volume ≠ one person stockpiling infra first. Ask Terry who (if anyone)
+built backend/API/component before a user-visible increment. Parallel
+contrast: FineTuningData week already on item 2.
 
 ### 4a — Behavior — planned
 

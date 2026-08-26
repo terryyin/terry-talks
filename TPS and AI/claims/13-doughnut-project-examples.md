@@ -2,7 +2,9 @@
 
 **Status: Backlog — training weeks located; search scoped to 4+4 tagged
 classes; queue ordered for the Tokyo talk; item 1 ranked from four
-tagged AI-era weeks; item 2 ranked from four tagged I-era weeks**
+tagged AI-era weeks; item 2 ranked from four tagged I-era weeks;
+item 3: observation-in-class beats git (parked specs, not
+layer-first infra)**
 
 ## Role
 
@@ -540,7 +542,91 @@ that needs extra clearance).
 
 ### 3. Bottom-up batch vs slice (Claim 17)
 
-Not yet pulled.
+Reused item 1–2 hashes only (no new week scan). Followed **one
+user's** file order on the Item 3 pointers and on the
+FineTuningData / extract-to-child sequences already in this
+index. Git has no team membership: week ranges identify class
+weeks, not teams.
+
+**Observation-in-class beats git here.** The look-for is one
+person who stockpiled infra or component work before a
+user-visible increment, despite the one-piece-flow instruction —
+plus a nearby end-to-end slice and healthy parallel flow in the
+same week so the example does not teach “only one thing at a time
+in the whole class.” What git shows is parked specs and
+same-story layering, not that pattern. Do not force a talk story
+from these hashes.
+
+#### Why the pointers are not the look-for
+
+- **Parked specs, not layer-first infra.** andreas `20ea977a2c`
+  (2023-11-24) deletes
+  `note_topic_inline_autocompletion.feature` “for a future story”
+  — throwing away a queued spec, not landing unused backend. Alex
+  Schwartz `ab26ff36ba` first scenario `@ignored` on
+  `note_details_inline_autocompletion.feature`, then
+  `d1ae53129b` revert of a rename. Kevin Hou `fe73c87971`
+  “ignore to prepare for frontend implementation” parks two
+  scenarios on `upload_fine_tuning_data.feature` *after* he had
+  already been editing `FineTuningData.vue` (`3445b28d60`,
+  `58f766a17f`).
+- **Vertical-ish, not bottom-up.** Brian Zheng `f3c7a626fc`
+  (2026-01-27) is user-facing `Assimilation.vue` + E2E first; the
+  next day's Cursor `c2d800a378` → `6f54cc1bd1` → `9eb162a918` is
+  AI tool / API / Vue for the same extract-to-child bite, not
+  unused inventory. `4d6841b2ef` LoadingModal then `0a60a9cbfb`
+  is extract-a-component inside that bite.
+- **Volume is not stockpile.** Brian `ba8874c992` and Joy-kgo
+  `7b61a5705c` dump many layers in one commit; that is generated
+  volume, not infra queued then later made user-visible.
+- **One author stayed on the API.** Fisher Chuang's
+  FineTuningData-week commits (`6a319f1825` … `e02d74ca62`) are
+  `RestAiController` / `AiAdvisorService` / tests (plus one
+  generated TS types file). He never follows with his own Vue
+  increment, so git cannot show “this person stockpiled, then
+  later shipped UI.” Item 2 already uses Fisher `b100b89a1b` +
+  Leo `c4eb78c961` + merge `26db675c54` as integration on one
+  surface, not as a batch queue.
+- **Hidden-then-unveil is still not infra.** Alex `6c50a4a466`
+  “launching … by removing the easter egg” on
+  `RichHtmlEditor.vue` (2023-11-23) gates a user-facing editor,
+  not a backend stockpile.
+
+#### Contrast already on the index (not a second hunt)
+
+Same week as Kevin's `@ignore`: Leo `c4eb78c961` lands upload on
+`FineTuningData.vue` the afternoon of 2023-10-31; Fisher
+`26db675c54` merges both increments. Isaac Lu, Kevin Hou, Leo,
+and LOG keep landing customer-centric admin work on that Vue and
+`FineTuningService.java` (item 2 Priority 1). That is the healthy
+parallel-flow contrast — several people, several in-progress
+slices.
+
+#### Priority — none ranked
+
+- **Priority:** none ranked — git does not show the look-for
+- **Example:** observation-in-class; hashes above are parked
+  specs, same-story layering, or volume, not one person
+  stockpiling infra before a user-visible increment
+- **Source:** reused 2023-10-30 (`aaff641177a2..3d44c24c3b0c`),
+  2023-11-20 (`79d2cf5a2c8b..ff302653b8ad`), and 2026-01-26
+  (`8c26f6f321e8..16ab060b448b`) hashes from items 1–2
+- **Slide:** *Pull, don't stockpile*
+- **Use:** not for stage until Terry names a class episode; if
+  the limit must be spoken, git shows parked `@ignore` specs,
+  not queued layers
+- **Clearance:** class-week student work unless noted
+
+#### Ask Terry
+
+In a tagged class, who (if anyone) built backend, API, or a
+shared component *before* any user-visible increment of that
+story, despite the one-piece-flow instruction? Name the person
+and the story (even if the week is already in this index). Git
+will not show team membership or the coaching conversation; a
+remembered episode beats these hashes. Nearby contrast to keep:
+FineTuningData week (2023-10-30) already has several authors
+in-progress on one user-facing surface.
 
 ### 4. Judgment descent (Claims 6, 20, 24)
 
@@ -581,6 +667,14 @@ stays a backlog and an index, not a second lecture.
 - Which of the tagged weeks are discussable in a public talk?
 - Is the week of 2025-02-17 a class (5 other emails; smallest AI-era
   hit) or a smaller session to drop? It is not in the search set.
+- Item 3 (Claim 17 / *Pull, don't stockpile*): git from the tagged
+  weeks shows parked `@ignore` specs and same-story layering, not
+  one person stockpiling infra before a user-visible increment. In
+  a tagged class, who (if anyone) built backend, API, or a shared
+  component before any user-visible increment of that story,
+  despite the one-piece-flow instruction? Name the person and the
+  story. FineTuningData week (2023-10-30) already supplies the
+  parallel-flow contrast.
 
 ## Sources consulted
 
@@ -591,8 +685,11 @@ candidate scan of 2025-01-06 and 2026-01-26 retrieved 2026-08-26;
 unranked scan of 2023-10-30 and 2024-06-03 retrieved 2026-08-26;
 item 2 ranked with 2023-11-20 and 2024-08-19 2026-08-26
 (author-date windows; merge/CI-fix/`@ignore`/`@skip`/cross-author
-files).
+files). Item 3 reused those hashes 2026-08-26 (one-author file
+order on named commits; no new week scan): parked specs, not
+layer-first infra; observation-in-class beats git.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
 for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.
-Item 2 ranked from four tagged I-era weeks.**
+Item 2 ranked from four tagged I-era weeks. Item 3: observation-in-class
+beats git.**
