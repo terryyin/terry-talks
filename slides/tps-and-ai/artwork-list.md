@@ -222,6 +222,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G14. Closing — the crane aloft
 
+- **Status:** done — `public/closing-crane-aloft.png`
 - **Slide:** the closing quote ("Encode the known…")
 - **Placement:** full-bleed background; companion piece to G1 so the
   deck visually returns to its theme

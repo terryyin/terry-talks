@@ -455,9 +455,19 @@ Claims 10, 12, 4, 17, 6, 19, 20, 16, 8.
 layout: quote
 ---
 
+<img
+  src="/closing-crane-aloft.png"
+  alt=""
+  class="absolute inset-0 h-full w-full object-cover"
+/>
+
+<div class="absolute inset-y-0 left-[6%] z-10 flex w-[56%] items-center">
+
 > **Encode the known. Stop the abnormal. Free people to learn.
 > Entrust a capable response to real need.
 > Let visible capability earn mutual trust.**
+
+</div>
 
 <!--
 Closing — return to the theme.

@@ -59,11 +59,12 @@ Generated G1 with built-in ChatGPT Images and saved it as
 readable in the empty left space; rendered inspection confirmed the
 right-weighted crane, no generated text, and intact Odd-e watermark.
 
-### S2 — Behavior — planned
+### S2 — Behavior — done
 
-Generate G14 (crane aloft, 16:9) with G1 as style reference; insert as
-full-bleed on the closing quote ("Encode the known…"). Done when the
-quotation is readable in the empty space.
+Generated G14 with G1 as the built-in ChatGPT Images style and same-crane
+reference, saved as `public/closing-crane-aloft.png`. Static-browser
+inspection confirmed a readable quotation in the left negative space,
+the matching crane aloft, no generated text, and intact watermark.
 
 ### S3 — Behavior — planned
 
