@@ -1,7 +1,7 @@
 # Plan note — Claim 13 example search (delete when all slices land)
 
 Multi-session slice plan for pulling doughnut examples per the queue in
-[Claim 13](13-doughnut-project-examples.md). Items 1–5 done; next is 6.
+[Claim 13](13-doughnut-project-examples.md). Items 1–6 done; next is 7.
 
 **Learnings:** Spell out Whole Product Focus (not WPF) in the index.
 Treat AI-assisted only when a commit message or trailer names Cursor
@@ -111,15 +111,11 @@ Counter: Biome leftover `"warn"` (CI `biome check` without
 `--error-on-warnings`). Item 4 ranked: (1) recall-stats N+1 stop;
 (2) OS-invalid titles gone; (3) Biome warn pile on *Stop & Fix*.
 
-### 5 — Behavior — planned
+### 5 — Behavior — done
 
-Current test harness: one unit test driving a stable boundary with
-`makeMe`/crafted data (no mock forest), one E2E asserting a user-valued
-state change (not presentation), optionally one counter (test that
-duplicates code structure, protects no behavior). Target slide:
-*Preferred tests: E2E or unit — nothing in between* — its notes already
-point at Claim 13. Use: shown harness text, evidence that a good AI
-episode leaves reusable capability.
+Preferred tests from latest harness: (1) RecallPromptAnswerControllerTest
+`makeMe` + persist GOOD recall log; (2) note_edit persist-after-reload
+E2E; (3) counter AiNoteAutomationServiceExtractRequestTest mock forest.
 
 ### 6 — Behavior — planned
 

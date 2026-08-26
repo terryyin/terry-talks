@@ -6,7 +6,8 @@ tagged AI-era weeks; item 2 ranked from four tagged I-era weeks;
 item 3: observation-in-class beats git (parked specs, not
 layer-first infra); item 4 ranked from latest-code descent +
 Claim 24 counter; item 5 ranked from latest-code harness (unit +
-E2E + mock-forest counter)**
+E2E + mock-forest counter); item 6 ranked from latest-code
+Jidoka-stop episode + same-gates harness**
 
 ## Role
 
@@ -903,7 +904,90 @@ project-owned harness (Terry Yin) — clearance is no.
 
 ### 6. Same gates for “I” and AI (Claim 6)
 
-Not yet pulled.
+Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
+week. Hunt from current harness (git hook, execute-plan Jidoka,
+planning.mdc no-commit-on-red) then the Jidoka-stop trail in
+the 2026-08-26 recall-timing commits. Ranked by how completely the
+example matches the look-fors (same stop for a person and an
+agent; AI then helps without dissolving the stop; optional
+skip/delete counter), then stage discussability. Priorities 1–2
+are current project-owned harness (Terry Yin) — clearance is no.
+The disable-tests counter is a tagged AI-era class week and is
+not AI-assisted.
+
+There is no husky test gate. `scripts/git-hooks/pre-commit`
+formats; no-commit-on-red lives in the same rules and skill
+both “I” and AI read.
+
+#### Priority 1 — Jidoka stop bound the agent until the person decided
+
+- **Priority:** 1
+- **Example:** Same afternoon on
+  `.planning/quick/001-morning-cognitive-index/PLAN.md`.
+  `0b56ebc81a` records execute-plan Jidoka on slice 6
+  (*A detour into a note is recorded separately*): no
+  mid-question note affordance exists; PLAN.md says **Do not
+  guess the UX** and waits. Author is Terry Yin (no Cursor
+  trailer on the stop itself). `a24d4141b2` is the developer's
+  clarification (full navigation away from RecallPage; return
+  via Resume). Cursor-coauthored `f078923b63` then implements
+  detour time — adds `recall_timing.feature`, a controller
+  test, and Vitest specs; does not delete or `@wip`-away the
+  stop. Same gate: value/UX ambiguity stops the agent; the
+  person decides; the agent may then build. Most complete
+  person+agent same-stop arc.
+- **Source:** latest code (HEAD `e683b74615`; `0b56ebc81a` /
+  `a24d4141b2` / `f078923b63`)
+- **Slide:** *The gates do not care who authored the change*
+- **Use:** spoken beat — takeaway 4: the stop did not weaken
+  for the agent; after the person decided, Cursor helped
+  without dissolving the check
+- **Clearance:** no — current plan/harness owned by the project
+
+#### Priority 2 — same-gates text the person and the agent both read
+
+- **Priority:** 2
+- **Example:** Current harness paths. `scripts/git-hooks/pre-commit`
+  (installed by `scripts/setup-git-hooks.sh`) runs
+  `pnpm format:changed` — format, not tests. No-commit-on-red
+  is `.cursor/rules/planning.mdc` (never commit at the TDD red
+  step; no non-`@wip` CI-breaking tests at a slice boundary)
+  plus `.agents/skills/execute-plan/SKILL.md` (delegation:
+  **no commit on red**; wrap-up refuses non-`@wip` red; Jidoka
+  stop on value, design, credentials, undiagnosed failure, or
+  ambiguity — do not stop merely to avoid fixing a test the
+  change caused). `.claude/skills/execute-plan` is a symlink
+  to `.agents`. Same test style:
+  `.cursor/rules/unit-testing.mdc` (E2E or unit, nothing in
+  between). Completeness matches “current config”; ranked
+  below Priority 1 because [Claim
+  6](06-jidoka-embeds-routine-judgment.md) already cites
+  these bullets — the slide still needs the episode.
+- **Source:** latest code (HEAD `e683b74615`)
+- **Slide:** *The gates do not care who authored the change*
+- **Use:** shown artifact — the paths both “I” and AI read;
+  contrast with Priority 1 as the episode those gates produced
+- **Clearance:** no — current harness owned by the project
+
+#### Also considered (second Jidoka stop, skip/delete counters)
+
+- **Cursor-trailed Jidoka stop, still waiting:**
+  `b6966f2be9` (2026-08-10) “record phase 5 Jidoka stop for
+  display-name migration” — Co-authored-by Cursor. Phases 1–4
+  shipped; legacy row normalization awaits a fail-loud vs
+  disambiguation decision. Agent recorded the stop; no
+  following implementation in that trail, so the arc is
+  incomplete compared with Priority 1.
+- **Disable tests to green (class-week counter, not
+  AI-assisted):** choucw045 `a2060f1d70` “disabled 2 backend
+  tests to pass the pipeline” (2025-01-08); re-enable
+  `ee9ca9aa68` / `29712022b1`; nearby `6df4f71aa8`. AI-era
+  class week 2025-01-06. Tempted to disable the stop to proceed —
+  the opposite of Priority 1. Same hashes as item 1 / item 2
+  also-considered.
+- **I-era `@ignore`/`@skip`:** item 2 Priority 2 Leo
+  `3ad9e439ad` and also-considered Pasi/Ståhlström `@skip`
+  hashes. Primitive stop; not a second ranked counter here.
 
 ### 7. Go-See harness failure (Claim 16)
 
@@ -965,11 +1049,20 @@ HEAD `e683b74615` 2026-08-26 (`MakeMe` controller tests +
 `e2e_test` persist-after-reload; skipped item-4 performance/FK
 tests). Ranked: (1) recall-answer GOOD log with `makeMe`; (2)
 note-property edits persist after reload; (3) extract-request
-JSON from an internal mock forest.
+JSON from an internal mock forest. Item 6 from latest doughnut
+HEAD `e683b74615` 2026-08-26 (harness: `scripts/git-hooks/pre-commit`
+is format-only; no-commit-on-red and Jidoka in
+`.cursor/rules/planning.mdc` and
+`.agents/skills/execute-plan/SKILL.md`; `.claude/skills/execute-plan`
+symlinks there; episode `0b56ebc81a` → `a24d4141b2` → Cursor
+`f078923b63`; counter `a2060f1d70` reused from items 1–2).
+Ranked: (1) Jidoka-stop then Cursor implements detour; (2)
+same-gates harness paths.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
 for the Tokyo talk. Item 1 ranked from four tagged AI-era weeks.
 Item 2 ranked from four tagged I-era weeks. Item 3: observation-in-class
 beats git. Item 4 ranked from latest-code descent + Claim 24
 counter. Item 5 ranked from latest-code harness (unit + E2E +
-mock-forest counter).**
+mock-forest counter). Item 6 ranked from latest-code Jidoka-stop
+episode + same-gates harness.**
