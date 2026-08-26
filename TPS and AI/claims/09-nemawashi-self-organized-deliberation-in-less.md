@@ -1,7 +1,8 @@
 # Claim 9: Nemawashi supports self-organized deliberation in LeSS
 
-**Status: Provisional — origin, LeSS mapping, and doughnut/Whale
-propose-to-accept path researched; not a finalized talk beat**
+**Status: Provisional — origin of the word, LeSS mapping,
+doughnut/Whale path, and talk wording researched; stage example name
+still a clearance choice; not a finalized talk beat**
 
 ## Original claim / hypothesis
 
@@ -40,12 +41,22 @@ poka-yoke.
 
 ### Placement: Japanese practice, Toyota Way habit, not a TPS pillar
 
-根回し (*nemawashi*) is older than Toyota. Japanese dictionaries keep the
+**Nemawashi** is older than Toyota. Japanese dictionaries keep the
 gardening sense—cut and prepare a tree's roots before transplanting—and
 the transferred sense: take steps in advance so a negotiation or meeting
 goes smoothly. *デジタル大辞泉* also glosses the transferred sense as
-**下工作** (laying groundwork). That is ordinary Japanese organizational
+**下工作** (*shitakousaku*). That is ordinary Japanese organizational
 practice, including government and firms that never ran TPS.
+
+下工作 is the warning-word, not a second practice. 下 is below the
+official surface; 工作 in political Japanese often means working on
+people. *精選版 日本国語大辞典*: work on people in advance so a matter
+goes smoothly; synonym of nemawashi (attested 1941). *世界大百科事典*
+calls both a political technique of persuasion and compromise, usually
+one-on-one, before a formal meeting. It is not automatically **裏工作**
+(secret intrigue). It *is* the reading in which preparatory consultation
+manufactures consent or becomes an invisible veto. A Tokyo audience
+already hears that ambivalence in nemawashi. Keep 下工作 in this claim.
 
 Toyota did not invent it. Toyota UK's glossary says the word came to mean
 an informal process of laying a foundation and building consensus **within
@@ -59,13 +70,25 @@ architecture.
 |---|---|
 | **Toyota's official TPS overview** | Not named. The two pillars remain **jidoka** and **Just-in-Time**. |
 | **Toyota Way 2001** | Not one of the five concepts (Challenge, Kaizen, Genchi Genbutsu, Respect, Teamwork). Official English for genchi genbutsu already includes going to the source “to make correct decisions, **build consensus** and achieve goals.” Consensus sits inside Go-See, not as a sixth value. |
+| **TMMK TPS Terms** (public, 2006) | Named among plant TPS terms: preliminary work with affected sections before a change. Teaching language for an English-speaking factory, not a third pillar. |
 | **Toyota UK glossary** | Informal groundwork and consensus-building; first step in decision-making; TPS *and* Japanese culture. |
 | **Liker, Principle 13** | English lean literature's named home: make decisions slowly by consensus, thoroughly considering options; implement rapidly. Nemawashi is the process of discussing problems and potential solutions with those affected. |
 
-So the original hypothesis's “TPS—or perhaps more broadly the Toyota Way”
+The original hypothesis's “TPS—or perhaps more broadly the Toyota Way”
 is the right *uncertainty*, and the broader answer is the accurate one.
 Nemawashi is a Japanese decision habit Toyota uses. It is not a peer of
 jidoka and JIT.
+
+The *habit* and the *word on a list* are different questions. Toyota
+people used the practice. Toyota's own 2001 booklet, as Toyota describes
+it publicly, does not make nemawashi a sixth value. The English
+literature path—including this claim's original hypothesis—meets the
+name in Liker's *Toyota Way*, not in Toyota Way 2001. Overseas plants
+taught the word as TPS vocabulary to English-speaking team members
+(TMMK's glossary by 2006). John Shook, writing later about Toyota HQ in
+the 1980s, describes the habit (A3 conversations) with the Japanese
+word; that is testimony about practice, not a dated internal pamphlet
+from Ohno's era.
 
 ### What it does in a decision
 
@@ -130,8 +153,8 @@ practice can be:
 - **coercive:** 下工作 that manufactures consent, hides disagreement, or
   becomes an invisible veto chain.
 
-The talk should keep that split visible. Nemawashi is not automatically
-cooperative just because consultation happened.
+Keep that split visible. Nemawashi is not automatically cooperative just
+because consultation happened.
 
 ### LeSS does not name nemawashi
 
@@ -242,10 +265,11 @@ Terry noted this is close to nemawashi. Bas Vodde pointed out the
 difference: nemawashi usually still has a **formal decision point**
 (even if it is a formality, because agreement already exists). Doughnut
 keeps that point: status stays Proposed while advice is sought; moving
-it to Accepted *is* the named decision. That is why the analogue is the
-**path to accepted**, not the record format. Smalley's cut still holds:
-the ADR file is the artifact; going around the people who care is the
-process that produces it.
+it to Accepted *is* the named decision. They **rhyme**—go around the
+people who care, then a named decision—and they are not identical.
+That is why the analogue is the **path to accepted**, not the record
+format. Smalley's cut still holds: the ADR file is the artifact; going
+around the people who care is the process that produces it.
 
 #### Only the start and the end are mandatory
 
@@ -346,12 +370,29 @@ the template:
 > revise with the advice → you accept it yourself → announce the
 > decision so the rest can learn it.**
 
+On stage, say **nemawashi**. The slides will be translated; do not put
+根回し on the English deck, and do not rename it preparatory
+consultation or collapse it into Just Talk. Keep the everyday warning
+light: one enabling/coercive split is enough. Leave 下工作 in this
+claim.
+
+Keep Toyota's junior-to-management circulation and LeSS peer
+circulation as a light contrast, not a second Toyota beat. The LeSS
+reading is peer circulation toward a named owner (the team, the Product
+Owner, or the person who will accept)—not a coordinating manager
+convening the conversations.
+
 The analogy stays bounded. An ADR is a written governance record.
 Nemawashi in its strong form is still mostly face-to-face, revisable
 conversation. LeSS should not be presented as requiring ADRs or naming
 nemawashi. A CoP coordinator or component mentor who becomes a stamp
 along the path is the architecture-community-as-decision-forum failure
 the minutes already recorded, which LeSS already rejects.
+
+On stage, show the rhyme with the advice process (go around, then
+decide) and the difference: nemawashi still has a later formal point;
+doughnut's Accepted *is* that point. Do not flatten them, and do not
+make the difference the whole beat.
 
 On stage, **Whale / Wärtsilä** vs **doughnut only** is a clearance
 choice, not a content choice. The process is the same either way.
@@ -366,25 +407,15 @@ unjudged artifacts and call the pile alignment.
 
 ## Questions still open
 
-- On stage, say **nemawashi**, **根回し**, **preparatory consultation**,
-  or only **Just Talk**—and how hard to push the everyday 下工作 warning
-  for a Tokyo audience that already knows the word?
-- How much hierarchical Toyota circulation (junior proposal, management
-  approval) belongs next to the LeSS peer-to-peer reading, so the talk
-  does not smuggle a coordinating manager back in?
-- At what scope should a LeSS example live: multi-team Definition of
-  Done, an architecture convention, Product Owner prioritization input,
-  or an organizational-design change?
 - On stage, name **Wärtsilä**, keep the minutes' **Whale**, or show only
   doughnut? The process is already in this claim; the remaining issue is
   clearance, not a missing example. Training-week git searches stay on
   [Claim 13](13-doughnut-project-examples.md).
-- How hard to push Bas Vodde's distinction: the advice process is not
-  identical to nemawashi, because nemawashi still has a formal decision
-  point? Doughnut keeps that point (Proposed → Accepted).
-- How early can Toyota itself be shown using the *word* nemawashi in
-  internal TPS or Toyota Way material, as opposed to Liker and the UK
-  glossary?
+
+Skipped: which LeSS scope should be the on-stage example (multi-team
+Definition of Done, architecture convention, Product Owner
+prioritization input, or organizational-design change). The mapping
+table above is research background, not a talk beat.
 
 ## Sources consulted
 
@@ -405,22 +436,32 @@ unjudged artifacts and call the pile alignment.
    announcement](https://global.toyota/en/detail/220327). Official
    English for genchi genbutsu: go to the source to find the facts, make
    correct decisions, **build consensus**, and achieve goals.
-4. Toyota UK, [What is
+4. Toyota Motor Manufacturing Kentucky, [Toyota Production System
+   Terms](https://web.archive.org/web/20060821234526/http://www.toyotageorgetown.com:80/terms.asp)
+   (Wayback Machine, 21 August 2006). Plant TPS glossary: nemawashi as
+   preliminary work to involve other sections before a change that would
+   affect them. Two pillars remain JIT and jidoka.
+5. Toyota UK, [What is
    nemawashi?](https://mag.toyota.co.uk/nemawashi-toyota-production-system/).
    Informal groundwork and consensus-building as the first step in
    decision-making; TPS and Japanese culture; consent of the parties.
-5. Jeffrey K. Liker, *The Toyota Way* (McGraw-Hill, 2004), Principle 13
+6. Jeffrey K. Liker, *The Toyota Way* (McGraw-Hill, 2004), Principle 13
    and Chapter 19. Named English home of nemawashi: slow consensus,
    thorough alternatives, rapid implementation; discuss problems and
    solutions with those affected. K4 study drawings; fair hearing; group
    consensus with management approval.
-6. Jeffrey K. Liker and David Meier, *The Toyota Way Fieldbook*
+7. Jeffrey K. Liker and David Meier, *The Toyota Way Fieldbook*
    (McGraw-Hill, 2006). The real key is not consensus but exploring
    problems and solutions; “who have you spoken to?”
-7. 小学館『デジタル大辞泉』, [根回し](https://kotobank.jp/word/%E6%A0%B9%E5%9B%9E%E3%81%97-178519)
+8. 小学館『デジタル大辞泉』, [根回し](https://kotobank.jp/word/%E6%A0%B9%E5%9B%9E%E3%81%97-178519)
    via Kotobank. Gardening origin; transferred sense as advance
    groundwork / 下工作.
-8. The LeSS Company, [Coordination &
+9. 小学館『精選版 日本国語大辞典』 and 平凡社『世界大百科事典』,
+   [下工作](https://kotobank.jp/word/%E4%B8%8B%E5%B7%A5%E4%BD%9C-1331111)
+   via Kotobank. Advance working-on-people; synonym of nemawashi;
+   encyclopedia gloss as a political technique of persuasion and
+   compromise before a formal meeting.
+10. The LeSS Company, [Coordination &
    Integration](https://less.works/less/framework/coordination-and-integration)
    (Just Talk; component mentors are not gates), [LeSS
    Rules](https://less.works/less/rules) (teams decide cross-team
@@ -429,16 +470,18 @@ unjudged artifacts and call the pile alignment.
    and [Product
    Owner](https://less.works/less/framework/product-owner). No
    nemawashi.
-9. Art Smalley, [Nemawashi](https://artoflean.com/reference/nemawashi/)
+11. Art Smalley, [Nemawashi](https://artoflean.com/reference/nemawashi/)
    in the Art of Lean TPS Encyclopedia. Secondary: Japanese practice
    Toyota uses; A3 as artifact versus nemawashi as process; alignment
-   rather than unanimous enthusiasm. Not a Toyota primary source.
-10. Doughnut (sibling repo), `docs/adrs/0000-use-adrs-accepted.md` and
+   rather than unanimous enthusiasm. Not a Toyota primary source. Shook
+   at Toyota HQ in the 1980s is cited there for the A3 habit, not as a
+   dated internal pamphlet.
+12. Doughnut (sibling repo), `docs/adrs/0000-use-adrs-accepted.md` and
     `docs/adrs/README.md`. Living compact form of the advice process:
     anyone may decide after seeking advice; no standing architect;
     community is not a decision forum; agents consume Accepted ADRs and
     do not approve.
-11. Odd-e, *Architectural decisions in Wärtsilä* (meeting notes; local
+13. Odd-e, *Architectural decisions in Wärtsilä* (meeting notes; local
     PDF `odde-Architectural decisions in Wärtsilä-200826-075906.pdf`).
     Fuller origin story: architect-role failure, community-as-forum
     failure, advice process, two mandatory announcements, Slack
@@ -448,5 +491,5 @@ unjudged artifacts and call the pile alignment.
     the company name depends on clearance. Participants named in the
     notes include Bas, Terry, and Viktor.
 
-**Still open for talk wording (nemawashi vs Just Talk vs 根回し) and
-whether the stage example is Wärtsilä, Whale, or doughnut only.**
+**Still open: whether the stage example is Wärtsilä, Whale, or doughnut
+only (clearance).**
