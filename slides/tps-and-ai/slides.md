@@ -150,6 +150,17 @@ Sets the AI stage early: this talk is also about AI-augmented development.
 Connects back to the diagnostic (freed vs constrained) and forward to the
 loops. Loop map: Claim 22; generation cheap / judgment expensive belongs
 to the jidoka cluster (Claim 6).
+
+Doughnut — the notebook product we use in LeSS in Action. A
+Cursor-coauthored `/sync` pull lands remote note changes in one commit:
+12 files, 558 insertions, on CLI files six authors are sharing that week
+(2026-07-27). User-facing, and it ships — but it never becomes a small
+stoppable change. Same-day follow-up on that surface is the absorb cost:
+Cursor pins `/export` tree and body; Claude then fixes a `/sync`
+usage-error spinner. After this episode the group is more constrained by
+what they built: generated volume outpaces absorption.
+Hashes: `7b61a5705c` (`/sync` pull), `fce957dd3d` (`/export` pin),
+`c657c674ad` (`/sync` spinner).
 -->
 
 ---

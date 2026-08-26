@@ -4,7 +4,7 @@ Multi-session slice plan for embedding **narrative lines and code
 snippets** from [Claim 13](../../TPS%20and%20AI/claims/13-doughnut-project-examples.md)
 into [slides.md](slides.md), oriented by
 [main-theme-and-stage-setting.md](../../TPS%20and%20AI/main-theme-and-stage-setting.md).
-In progress (S1 landed). Revised after a critical selection
+In progress (S1–S2 landed). Revised after a critical selection
 review (2026-08-26). Slides are referenced by title only.
 
 Deck-local work — no new ADR
@@ -118,25 +118,12 @@ Locked **D1** in the Decisions table. Read-through vs P1–P5 and
 takeaways 1–5: leftover capability, one doughnut product; not
 I-era vs AI-era, not one class week only. No `slides.md` change.
 
-### S2 — Behavior — planned
+### S2 — Behavior — done
 
-Committed spoken beat — speaker notes only, no visible change — on
-*AI can produce plausible software faster than a product group can
-absorb it*: the doughnut intro line, then item 1 P3 — a
-Cursor-coauthored `/sync` pull landing 12 files / 558 insertions in
-one commit on CLI files six authors were sharing that week
-(2026-07-27). User-facing, and it shipped — but it never became a
-small stoppable change, and a same-day follow-up fix on that surface
-trails it as the absorb cost. Told forward; P5 calls back to it.
-Hashes stay in the notes.
-
-**Check:** slide body untouched; the beat reads forward (no reference
-to the not-yet-told flagship); the intro line is present.
-
-**Jidoka:** if any spoken doughnut this early crowds the stage
-setting, stop and pick the relocation with the developer (the *AI
-speeds whichever loop you feed* CLD notes, or P5's notes as pure
-contrast) — do not drop the constrained pole.
+Speaker notes on *AI can produce plausible software faster…*: doughnut
+intro (first mention) then item 1 P3 `/sync` told forward as the
+constrained pole. Hashes in notes. Slide body untouched. P5 still
+calls back.
 
 ### S3 — Behavior — planned
 
@@ -204,6 +191,10 @@ signal → stop-and-fix → user value.
 
 ## Discoveries (planning)
 
+- S2 (2026-08-26): doughnut intro + `/sync` beat sit in the
+  inventory statement notes without crowding the diagnostic. Told
+  forward; no P5 mention. Remaining embeds may assume doughnut is
+  already named.
 - S1 (2026-08-26): D1 lock confirmed against takeaways 1–5 and
   P1–P5. T3/T4 need current-harness leftovers; T5 needs the
   class-week chain; S2 carries the constrained pole. Not I-era vs
