@@ -1,7 +1,7 @@
 # Claim 10: Freedom and trust can reinforce one another through jidoka
 
-**Status: Provisional — theme defensible; freedom versus trust is not
-the tension pair**
+**Status: Provisional — theme defensible; polarity is freedom and
+entrustment; talk title still Freedom and Trust**
 
 ## Original claim / hypothesis
 
@@ -38,6 +38,11 @@ The proposed reinforcing loop is:
 > switching cost fall → people gain room and authority to learn and respond →
 > demonstrated capability makes trust warranted → less detailed control is
 > needed in advance → real need can pull responsible action just in time.**
+
+That loop is **R2** in the draft causal loop diagram of how TPS
+reasoning can inspire LeSS+AI: [Claim
+22](22-cld-shows-tps-reasoning-for-less-ai.md), diagram in
+[22-tps-less-ai-cld.md](22-tps-less-ai-cld.md).
 
 ## Reconciled claim
 

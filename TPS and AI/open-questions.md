@@ -11,6 +11,10 @@ future discussion, not a set of conclusions.
   or about using the contrast with TPS to expose what is newly difficult?
 - Which audience assumptions about TPS, lean, LeSS, and AI can safely be made?
 - What would make the talk useful to practitioners the following day?
+- Is a causal loop diagram of the TPS→LeSS+AI reasoning a slide, a
+  speaker map, or only a writing tool? Working draft:
+  [Claim 22](claims/22-cld-shows-tps-reasoning-for-less-ai.md) and
+  [the companion CLD](claims/22-tps-less-ai-cld.md).
 
 ## Central tension
 

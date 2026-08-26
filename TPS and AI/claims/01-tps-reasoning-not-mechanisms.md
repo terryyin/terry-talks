@@ -36,7 +36,10 @@ production, discovery, and change.
 > customer needs?
 
 Examine pull, jidoka, small batches, technical excellence, human agency,
-and continuous improvement for the **relationships** they create.
+and continuous improvement for the **relationships** they create. A
+draft of those relationships as loops is [Claim
+22](22-cld-shows-tps-reasoning-for-less-ai.md); the diagram is the
+companion [CLD](22-tps-less-ai-cld.md).
 
 [Claim 2](02-tps-and-lean-houses.md) separates Toyota's TPS operating
 system from the Toyota Way / lean-thinking house.
