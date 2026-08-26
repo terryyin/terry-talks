@@ -134,7 +134,7 @@ shared mainline frequently; automated builds and tests detect a
 meaningful break; the signal is visible; fixing has priority. LeSS
 compares the **CI system**—not CI—to an andon
 ([Claim 21](21-ci-practice-is-not-a-ci-system.md)). Stop & Fix, and
-why a red pipeline must actually halt work, is
+who actually stops when a CI service is red, is
 [Claim 19](19-stop-and-fix.md).
 
 **JIT-like:** remove unintegrated work in process. Instead of
