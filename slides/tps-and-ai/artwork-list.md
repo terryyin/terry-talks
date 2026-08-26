@@ -302,7 +302,9 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 - **"Five judgments stay human":** five icons (value,
   design, credentials, undiagnosed failure, ambiguity) from the
   Iconify sets already available in Slidev — consistent with each
-  other, unlike generated icons.
+  other, unlike generated icons. Done — embedded as Phosphor
+  `scales`, `pencil-ruler`, `key`, `warning-circle`, and `question`;
+  labels stay typeset text.
 
 ## Slides intentionally without artwork
 

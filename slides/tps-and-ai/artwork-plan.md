@@ -208,12 +208,12 @@ Jidoka / JIT / Respect for People through frees / entrusts / grows.
 Targeted typecheck, deck build, and rendered inspection confirmed the
 labels are readable and unclipped.
 
-### S22 — Behavior — planned
+### S22 — Behavior — done
 
-Five Iconify icons on **Five judgments stay human** (value, design,
-credentials, undiagnosed failure, ambiguity). Use one family from the
-sets already in the lockfile (`carbon` / `ph`). Keep each label typeset
-and verify the five judgments remain scannable.
+Added five consistent Phosphor icons to **Five judgments stay human**
+for value, design, credentials, undiagnosed failure, and ambiguity,
+while keeping every label typeset. Targeted typecheck, deck build, and
+rendered inspection confirmed the five judgments remain scannable.
 
 ### S23 — Behavior — planned
 

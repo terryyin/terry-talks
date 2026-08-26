@@ -620,11 +620,28 @@ Claim 6.
 
 # Five judgments stay human
 
-1. **Value**
-2. **Design**
-3. **Credentials**
-4. **Undiagnosed failure**
-5. **Ambiguity**
+<div class="mt-14 grid grid-cols-5 divide-x divide-stone-300 text-center text-stone-800 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:gap-4 [&>div]:px-3 [&_svg]:text-[56px] [&_svg]:text-[#b33a2b] [&_strong]:text-lg [&_strong]:leading-tight">
+  <div>
+    <ph-scales aria-hidden="true" />
+    <strong>Value</strong>
+  </div>
+  <div>
+    <ph-pencil-ruler aria-hidden="true" />
+    <strong>Design</strong>
+  </div>
+  <div>
+    <ph-key aria-hidden="true" />
+    <strong>Credentials</strong>
+  </div>
+  <div>
+    <ph-warning-circle aria-hidden="true" />
+    <strong>Undiagnosed failure</strong>
+  </div>
+  <div>
+    <ph-question aria-hidden="true" />
+    <strong>Ambiguity</strong>
+  </div>
+</div>
 
 <!--
 Claim 6.
