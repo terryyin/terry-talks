@@ -4,7 +4,7 @@ Multi-session slice plan for embedding **narrative lines and code
 snippets** from [Claim 13](../../TPS%20and%20AI/claims/13-doughnut-project-examples.md)
 into [slides.md](slides.md), oriented by
 [main-theme-and-stage-setting.md](../../TPS%20and%20AI/main-theme-and-stage-setting.md).
-In progress (S1–S2 landed). Revised after a critical selection
+In progress (S1–S3 landed). Revised after a critical selection
 review (2026-08-26). Slides are referenced by title only.
 
 Deck-local work — no new ADR
@@ -125,19 +125,12 @@ intro (first mention) then item 1 P3 `/sync` told forward as the
 constrained pole. Hashes in notes. Slide body untouched. P5 still
 calls back.
 
-### S3 — Behavior — planned
+### S3 — Behavior — done
 
-**P2** on *Preferred tests: E2E or unit — nothing in between*: embed
-the `makeMe` GOOD-recall-log unit leftover as a short snippet;
-keep persist-after-reload and the mock-forest counter in speaker
-notes (and at most one spoken clause on the slide). Remove the
-“queued on Claim 13” note.
-
-**Check:** the slide still states the three rules; the snippet is a
-stable-boundary unit with `makeMe`, not a patch.
-
-**Jidoka:** if unit + existing bullets cannot fit, shrink the snippet;
-add a follow-on slide only if shrinking would drop a rule.
+**P2** on *Preferred tests…*: six-line `makeMe` leftover (note /
+tracker / MCQ prompt → `controller.answer` → `Grade.GOOD` log).
+Three rules kept. Persist-after-reload and mock-forest in notes.
+No follow-on slide. Rendered on slide 20 without overflow.
 
 ### S4 — Behavior — planned
 
@@ -191,6 +184,12 @@ signal → stop-and-fix → user value.
 
 ## Discoveries (planning)
 
+- S3 (2026-08-26): six-line `makeMe` leftover fits with the three
+  rules on slide 20. Later snippets can copy that trim (helpers
+  collapsed; leftover is the assert). S4’s *Smart → dumb → gone*
+  is tighter: artwork band plus a dropper inset already occupy
+  the frame — shrink the 1–3 line assert first; Jidoka before a
+  new slide.
 - S2 (2026-08-26): doughnut intro + `/sync` beat sit in the
   inventory statement notes without crowding the diagnostic. Told
   forward; no P5 mention. Remaining embeds may assume doughnut is

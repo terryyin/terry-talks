@@ -447,12 +447,38 @@ Where "dumb" lives in software — tests that hold the encoded judgment:
 - An **E2E test** asserts a user-valued **state change**, not presentation
 - **No commit on red**; unfinished E2E stays `@wip`
 
-A good AI episode leaves **reusable capability** like these —
-not a one-off patch.
+```java
+Note note = makeMe.aNote().notebookOwnedBy(user).please();
+var tracker = makeMe.aMemoryTrackerFor(note).please();
+var prompt = makeMe.aRecallPrompt().withMcqForNote(note).please();
+
+controller.answer(prompt, correctChoice);
+assertThat(getRecallLogs(tracker).get(0).getGrade(), is(Grade.GOOD));
+```
+
+A good AI episode leaves **reusable capability** — not a one-off patch.
 
 <!--
 Claim 6 — preferred unit/E2E style: the harness text "I" and AI both
-read. Worked doughnut examples queued on Claim 13.
+read.
+
+Shown leftover: `correctAnswerLeavesAGoodRecallLogLinkedToTheAnswer`
+(`RecallPromptAnswerControllerTest`) — `makeMe` crafts the note,
+tracker, and MCQ prompt; `controller.answer`; one `Grade.GOOD` recall
+log. Hash: `e683b74615`.
+
+Spoken: *Rich note property edits persist after reload*
+(`note_edit.feature`) — Then is persisted properties after reload
+(status draft, domain wiki, diligence still high, topic gone), not a
+visible button.
+
+Spoken counter: `AiNoteAutomationServiceExtractRequestTest` —
+`buildExtractNoteRequestBodyReflectsSelectedLayoutItems` builds
+extract-request JSON from a mock forest (GlobalSettingsService,
+FocusContextRetrievalService, FocusContextMarkdownRenderer,
+OpenAiApiHandler) plus a hand-built Note, no `makeMe`. Asserts request
+JSON keys and instruction fragments. Over-mocking plus a snapshot of
+internals; contrast with the unit leftover.
 -->
 
 ---
