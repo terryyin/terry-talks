@@ -52,12 +52,12 @@ same top-right scale, leaving `.slidev-layout`'s background available for
 full-bleed art. Targeted typecheck and deck build passed; static output
 confirmed the grey base and watermark are independent. Unlocks S1.
 
-### S1 — Behavior — planned
+### S1 — Behavior — done
 
-Generate G1 (crane released from an open hand, 16:9) and insert as the
-cover background; title sits in the empty left space. Sets the visual
-voice. Done when the cover shows the crane weighted right, readable
-title, no generated text.
+Generated G1 with built-in ChatGPT Images and saved it as
+`public/cover-crane-released.png`. The full-bleed cover keeps its title
+readable in the empty left space; rendered inspection confirmed the
+right-weighted crane, no generated text, and intact Odd-e watermark.
 
 ### S2 — Behavior — planned
 

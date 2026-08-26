@@ -12,6 +12,14 @@ mdc: true
 colorSchema: light
 ---
 
+<img
+  src="/cover-crane-released.png"
+  alt=""
+  class="absolute inset-0 h-full w-full object-cover"
+/>
+
+<div class="relative z-10 w-[47%] text-left">
+
 # Freedom and Entrustment
 
 What AI-Augmented Development and LeSS Can Learn from the TPS
@@ -19,6 +27,8 @@ What AI-Augmented Development and LeSS Can Learn from the TPS
 Terry Yin · Odd-e
 
 Tokyo LeSS Conference
+
+</div>
 
 <!--
 The subtitle carries the boundary: this is not a factory recipe applied to

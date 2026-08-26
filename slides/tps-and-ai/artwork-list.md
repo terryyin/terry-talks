@@ -90,6 +90,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G1. Cover — crane released from an open hand
 
+- **Status:** done — `public/cover-crane-released.png`
 - **Slide:** cover, "Freedom and Entrustment"
 - **Placement:** full-bleed background, art weighted right, title text
   sits in the empty left space
