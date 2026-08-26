@@ -154,10 +154,11 @@ and placed it on the right half of **Go-See may mean entering the AI
 harness**. Targeted typecheck, deck build, and rendered slide inspection
 passed.
 
-### S15 — Behavior — planned
+### S15 — Behavior — done
 
-Generate G11 (thin vertical cake slice, square); insert on **Pull,
-don't stockpile**, beside the pull sequence.
+Generated G11 as the square `public/thin-vertical-slice.png` and placed
+it beside the pull sequence on **Pull, don't stockpile**. Targeted
+typecheck, deck build, and rendered slide inspection passed.
 
 ### S16 — Behavior — planned
 

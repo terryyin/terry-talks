@@ -226,6 +226,7 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 ### G11. Thin vertical slice
 
+- **Status:** implemented — `public/thin-vertical-slice.png`
 - **Slide:** "Pull, don't stockpile"
 - **Placement:** spot illustration beside the pull sequence
 - **Prompt:** A many-layered cake with one thin full-height slice

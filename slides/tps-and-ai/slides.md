@@ -520,6 +520,10 @@ layout: section
 # JIT flow in LeSS
 
 ---
+layout: image-right
+image: /thin-vertical-slice.png
+backgroundSize: contain
+---
 
 # Pull, don't stockpile
 
