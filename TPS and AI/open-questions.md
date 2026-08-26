@@ -15,7 +15,7 @@ future discussion, not a set of conclusions.
   means leftover ownership, unfinished and judgment-dependent work, and
   inability to take the next highest-value item.
 - What is the promised audience takeaway? Working answer: drafted as
-  the five-point takeaway list in
+  the four-point takeaway list in
   [Main theme and stage setting](main-theme-and-stage-setting.md),
   closed by the Freedom and Entrustment triad.
 - Is the talk primarily about applying TPS philosophy to AI-augmented software,

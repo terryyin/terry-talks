@@ -131,24 +131,64 @@ The talk closes by returning to the theme:
 > a capable response to real need. Let visible capability earn mutual
 > trust.**
 
-## Relationship to the claims
+## Topics to cover — priority, high to low
 
-The theme is owned by
-[Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md);
-the boundary comes from Claims
-[1](claims/01-tps-reasoning-not-mechanisms.md) and
-[11](claims/11-physical-production-and-software-differences.md); the
-operating spine from Claims
-[3](claims/03-jidoka-enables-jit-trusts-respect-grows.md),
-[4](claims/04-jit-assurance-resourcefulness-not-abundance.md),
-[6](claims/06-jidoka-embeds-routine-judgment.md),
-[8](claims/08-technical-excellence-enables-jit-coordination-in-less.md),
-[12](claims/12-respect-for-people-who-can-think.md),
-[17](claims/17-jit-vertical-slicing-one-piece-flow.md),
-[19](claims/19-stop-and-fix.md), and
-[22](claims/22-cld-shows-tps-reasoning-for-less-ai.md). The remaining
-claims supply examples, guardrails, and honest limits — SMED,
-poka-yoke, CI terminology, Go-See, warnings, nemawashi, extreme
-conditions, and disposable prototypes are supporting beats, not peer
-takeaways. Which appear, and in what order, is decided when the deck
-is built — not by claim number.
+Priority and separation show importance only. They do not dictate the
+order or the grouping of slides, and a topic does not map one-to-one
+to a claim.
+
+1. **Freedom and Entrustment** — the diagnostic slogan, the polarity,
+   and the reinforcing loop: encoded learning makes freedom
+   responsible; visible capability earns entrustment and mutual trust
+   ([Claims 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
+   and [3](claims/03-jidoka-enables-jit-trusts-respect-grows.md); loop
+   map in [22](claims/22-cld-shows-tps-reasoning-for-less-ai.md)).
+2. **TPS reasoning, not factory mechanisms** — the two operating
+   pillars; what changes because software mixes discovery and
+   production in one evolving product
+   ([Claims 1](claims/01-tps-reasoning-not-mechanisms.md),
+   [2](claims/02-tps-and-lean-houses.md), and
+   [11](claims/11-physical-production-and-software-differences.md)).
+3. **Jidoka preserves knowledge** — generation is cheap, judgment is
+   expensive; the loom's closed stop; smart → dumb → gone; do not
+   stack judgment-dependent inventory
+   ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md), with
+   Stop & Fix [19](claims/19-stop-and-fix.md), poka-yoke
+   [20](claims/20-poka-yoke-supports-jidoka.md), and quiet warnings
+   [24](claims/24-warnings-as-stop-no-news-is-good-news.md) as
+   sub-beats).
+4. **Same gates and human judgments** — identical gates for "I" and
+   AI; the five judgments that stay human; Go-See may mean entering
+   the AI harness
+   ([Claims 6](claims/06-jidoka-embeds-routine-judgment.md) and
+   [16](claims/16-go-see-ai-harness.md)).
+5. **JIT flow in LeSS** — pull thin vertical slices; integrate
+   continuously (a practice, not a service); let the shared product
+   pull just-in-time collaboration
+   ([Claims 4](claims/04-jit-assurance-resourcefulness-not-abundance.md),
+   [17](claims/17-jit-vertical-slicing-one-piece-flow.md),
+   [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md),
+   and [21](claims/21-ci-practice-is-not-a-ci-system.md)).
+6. **Respect for People** — grow people who can think; spend freed
+   attention on comprehension, kaizen, and teaching; the deskilling
+   risk ([Claims 12](claims/12-respect-for-people-who-can-think.md)
+   and [3](claims/03-jidoka-enables-jit-trusts-respect-grows.md)).
+7. **Continuous improvement towards perfection** — SMED and cheap
+   changeover as the TPS example; Definition of Done as the LeSS
+   measure
+   ([Claims 18](claims/18-continuous-improvement-towards-perfection.md)
+   and [5](claims/05-smed-software-changeover-and-ai-friendly-context.md)).
+8. **Tensions and honest limits** — honest CI versus disposable
+   prototypes; extreme conditions interrupt JIT; The Algorithm's
+   family resemblance
+   ([Claims 23](claims/23-ci-and-disposable-prototypes-tension-pair.md),
+   [15](claims/15-extreme-conditions-interrupt-jit.md), and
+   [7](claims/07-the-algorithm-and-tps-family-resemblance.md)).
+
+Nemawashi
+([Claim 9](claims/09-nemawashi-self-organized-deliberation-in-less.md))
+and the Ebata teaching
+([Claim 14](claims/14-ebata-jit-teaching-in-print.md)) support the JIT
+beats; doughnut examples
+([Claim 13](claims/13-doughnut-project-examples.md)) supply evidence
+across topics.
