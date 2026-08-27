@@ -1,0 +1,13 @@
+name: Render video
+on:
+  push
+jobs:
+  render:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - run: sudo apt update
+      - run: npm i
+      - run: npm run test
