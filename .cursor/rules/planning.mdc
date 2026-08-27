@@ -1,5 +1,5 @@
 ---
-description: Behavior/Structure slice grammar and execute-plan wrap-up for local work
+description: Behavior/Structure slice grammar, .planning/quick layout, and execute-plan wrap-up
 alwaysApply: true
 ---
 
@@ -11,8 +11,8 @@ alwaysApply: true
   by the **immediate next** Behavior it unlocks).
 - Decompose with **slice-planning** (`.agents/skills/slice-planning/`). Order
   by outcome, not by layer; size each slice to finish in ~5 minutes including
-  checks. Execute with **execute-plan**
-  (`.agents/skills/execute-plan/`). Do not create `.planning/` or adopt GSD.
+  checks. Write the plan at `.planning/quick/NNN-slug/PLAN.md`. Execute with
+  **execute-plan** (`.agents/skills/execute-plan/`).
 - **Time-box:** a fix/edit attempt over 5 minutes — scrutinize the breakdown;
   over 10 minutes — stop, stash WIP, re-decompose smaller (see the skill for
   detail).
@@ -30,8 +30,27 @@ alwaysApply: true
   content, split code files over 250 lines. It Jidoka-stops before
   cross-subsystem edits without explicit authorization — it never commits.
 - Don't deliberately leave `pnpm typecheck` or `pnpm build` broken across a
-  commit; use a plan note (deleted once landed) only for work spanning
-  multiple sessions.
+  commit.
 
 See also: `architecture-decisions.mdc` — durable structural decisions go
 through an ADR instead of an ad hoc refactor.
+
+## Planning layout
+
+Ad-hoc slice plans (doughnut `quick/` naming; this repo has no GSD):
+
+| Path | Role |
+|------|------|
+| `.planning/quick/NNN-slug/PLAN.md` | Plan from **slice-planning**. `NNN` is the next free 3-digit number at write time; `slug` is kebab-case |
+
+- Do **not** write a flat `.planning/<name>.md` or a plan beside the deck/claim
+  (`NOTES.md`).
+- Do **not** add GSD files (`PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`,
+  `STATE.md`, `config.json`, `.planning/phases/`) or run `/gsd-new-project`
+  unless the owner asks. `execute-plan` must not write `STATE.md`.
+- Product files stay capability-named — plan and slice numbers belong only
+  under `.planning/`.
+- **While a plan is in progress:** keep resume-useful status and brief
+  learnings in that `PLAN.md`.
+- **When every slice has landed:** delete the spent `NNN-slug/` directory
+  (no plan diary). Include that deletion in the last slice's commit.

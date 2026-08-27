@@ -2,10 +2,11 @@
 name: slice-planning
 description: >-
   Decompose work into stop-safe Behavior/Structure slices — one observable
-  outcome per slice — before touching multiple files. Use when planning a new
-  slide/deck, a claims edit, or a tooling change, or when a fix/edit attempt
-  has overrun its time-box. Triggers on: plan, decompose, slice, break down,
-  task too large, stuck.
+  outcome per slice — before touching multiple files. Writes
+  .planning/quick/NNN-slug/PLAN.md. Use when planning a new slide/deck, a
+  claims edit, or a tooling change, or when a fix/edit attempt has overrun
+  its time-box. Triggers on: plan, decompose, slice, break down, task too
+  large, stuck.
 ---
 
 <objective>
@@ -13,10 +14,10 @@ Decompose work into stop-safe **slices**: each is **Behavior** or **Structure**,
 with one observable outcome (or one Structure change for the immediate next
 Behavior only).
 
-This repo has no roadmap tool (no GSD, no `.planning/`) — a slice is simply
-the unit of work you commit. Execution is **execute-plan**, not this skill.
+A slice is the unit of work you commit. Execution is **execute-plan**, not
+this skill.
 
-Output: a written plan (file or session list) + `## SLICE PLAN WRITTEN`.
+Output: `.planning/quick/NNN-slug/PLAN.md` + `## SLICE PLAN WRITTEN`.
 </objective>
 
 <context>
@@ -28,11 +29,18 @@ Output: a written plan (file or session list) + `## SLICE PLAN WRITTEN`.
 | `TPS and AI/claims/` | Claims-based writing — Behavior is a claim a reader can evaluate |
 | `docs/adrs/` | Governed by `adr-awareness`, not this skill |
 | `legacy/` | Retired, not maintained — do not plan new slices here |
+| `.planning/quick/NNN-slug/` | Ad-hoc plans — this skill writes `PLAN.md` here |
 
-Track slices with the session's task list. Only write a standalone plan note
-for work that will span multiple sessions (e.g. a `NOTES.md` beside the deck
-or claim being built) — **execute-plan** deletes it once every slice has
-landed. Do not create `.planning/`.
+**Where to put the plan:** `.planning/quick/NNN-slug/PLAN.md`. `NNN` is the
+next free 3-digit number under `quick/` at write time; `slug` is kebab-case
+from the outcome. Do not write `NOTES.md` beside the work, a flat
+`.planning/<name>.md`, or GSD files (`phases/`, `PROJECT.md`, `STATE.md`,
+…). A session task list is enough only for work too small to invoke this
+skill.
+
+**History:** keep resume-useful status in the PLAN while in progress;
+**execute-plan** deletes the spent `NNN-slug/` directory once every slice
+has landed.
 </context>
 
 <process>
@@ -46,9 +54,9 @@ When a fix / edit / "make it work" attempt overruns the time-box:
 | > 10 min | **Hard trigger** unless there's a good reason (long build, external wait): stop, revert/stash WIP, cut a smaller Behavior/Structure slice |
 
 For the hard trigger: stop, summarize what you learned, `git stash` (or
-revert) uncommitted WIP, decompose the remaining work into smaller slices,
-then report and wait (or hand the first smaller slice to **execute-plan**
-if already authorized).
+revert) uncommitted WIP, decompose remaining work into smaller slices,
+write or update `.planning/quick/NNN-slug/PLAN.md`, then report and wait
+(or hand the first smaller slice to **execute-plan** if already authorized).
 </step>
 
 <step name="decompose">
@@ -79,12 +87,16 @@ does not. Don't deliberately leave `pnpm build` or `pnpm typecheck` broken.
 </step>
 
 <step name="write_plan">
-For multi-session work only, state per slice:
+Create `.planning/quick/NNN-slug/` (next free `NNN`) and write `PLAN.md`.
+State per slice:
 
 - **Type:** Behavior | Structure
 - **Status:** planned / in-progress / done
 - Behavior: what changes, for whom, and how you'll know it's done
 - Structure: internal change + which **immediate next** Behavior it unlocks
+
+In `PLAN.md`, number slices (`### 1. Capability heading`) with a capability
+name — those numbers stay in the plan file, not in product paths.
 
 Do not implement the slices here. Hand execution to **execute-plan** when
 the developer asks (or already asked in the same turn).
@@ -94,17 +106,19 @@ the developer asks (or already asked in the same turn).
 
 <guardrails>
 - NEVER plan Structure that only serves slices beyond the immediate next Behavior
-- NEVER leave a stray planning note behind after the work has landed
+- NEVER leave a spent `quick/NNN-slug/` directory after the work has landed
 - NEVER plan a slice that deliberately ends with a broken build/typecheck —
   land only after a clean check
 - NEVER implement feature/content work during planning (except a tiny
   fix discovered while reading)
-- NEVER create `.planning/` or GSD artifacts
+- NEVER write GSD artifacts (`PROJECT.md`, `STATE.md`, `phases/`, …) or a
+  flat `.planning/<name>.md`
+- NEVER encode plan or slice numbers in product file names
 </guardrails>
 
 <success_criteria>
 - Every slice is Behavior or Structure, stop-safe, one observable outcome
-- Plan written to a NOTES/PLAN file or the session list (not `.planning/`)
+- Plan written to `.planning/quick/NNN-slug/PLAN.md`
 - Final output includes `## SLICE PLAN WRITTEN`
 </success_criteria>
 
@@ -125,7 +139,7 @@ Then wait unless they already asked to execute — in that case invoke
 
 <out_of_scope>
 - Do not implement slices during planning.
-- Do not add plans under `.planning/` or introduce GSD.
+- Do not add GSD project files or `.planning/phases/`.
 - Do not plan a slice that deliberately ends with a broken
   typecheck/build.
 </out_of_scope>

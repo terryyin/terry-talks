@@ -1,19 +1,18 @@
 ---
 name: execute-plan
 description: >-
-  Autonomously execute a Behavior/Structure plan (NOTES.md / PLAN.md beside
-  the work, or the session slice list). Applies local wrap-up on every
-  slice: Jidoka, post-change-refactor, plan update, and commit. Parallel
-  waves OK when safe. Triggers on: execute plan, run plan, execute slices,
-  start plan, run the notes, execute NOTES.
+  Autonomously execute a Behavior/Structure plan under
+  .planning/quick/NNN-slug/PLAN.md. Applies local wrap-up on every slice:
+  Jidoka, post-change-refactor, plan update, and commit. Parallel waves OK
+  when safe. Triggers on: execute plan, run plan, execute slices, start
+  plan, do .planning, execute .planning, run the notes.
 ---
 
 <objective>
 Autonomously execute a slice plan with **local wrap-up on every slice**:
 Jidoka gates, post-change-refactor, plan update, and commit.
 
-Purpose: Execution overlay for plans written by **slice-planning**. This
-repo has no GSD and no `.planning/` — do not create them.
+Purpose: Execution overlay for plans written by **slice-planning**.
 
 Output: Slices completed with commits, or a Jidoka stop report ending with
 `## PLAN EXECUTION COMPLETE` (all slices done) or a stop summary when
@@ -23,11 +22,10 @@ waiting on the developer.
 <context>
 **Plan locations** (first that fits):
 
-1. A file the developer named (`NOTES.md`, `PLAN.md`, or similar beside
-   the deck or claim).
-2. The only in-progress plan note next to the work just planned.
-3. The session task list, when the work is single-session and no file
-   exists. Do not invent a `.planning/` tree.
+1. `.planning/quick/NNN-slug/PLAN.md` (or `*-PLAN.md` in that folder)
+2. A path the developer named (legacy `NOTES.md` beside the work, if still
+   present)
+3. The session task list, when the work was too small for slice-planning
 
 If there is no plan, stop and run **slice-planning** first.
 
@@ -47,8 +45,8 @@ refactor agent (or a distinct refactor pass) and must see
 `## REFACTOR COMPLETE` (or handle `## REFACTOR JIDOKA STOP`) before
 committing.
 
-**Resume:** The PLAN/NOTES file (or session task list) being executed is
-the source of truth for remaining slices. Do not introduce GSD `STATE.md`.
+**Resume:** The PLAN file being executed is the source of truth for
+remaining slices. Do **not** write `.planning/STATE.md`.
 
 **Parallelism:** Run independent slices in parallel when touch sets do not
 overlap and they do not contend on the same plan file. Otherwise sequential.
@@ -102,7 +100,7 @@ When stopping: explain **what** you learned, **why** you stopped, and
 
 <step name="coordinator_loop">
 ```
-1. Read the plan (NOTES.md / PLAN.md / session slice list)
+1. Read the plan (`.planning/quick/NNN-slug/PLAN.md` / named path / session list)
 2. Find the next slice whose status is NOT "done"
 3. Pre-slice Jidoka + Behavior/Structure check
    → If stop condition → report & STOP
@@ -118,8 +116,8 @@ When stopping: explain **what** you learned, **why** you stopped, and
       when safe and the developer has not forbidden it; otherwise wait.
 6. COORDINATOR WRAP-UP (required — do not skip): follow wrap_up.
 7. Go to step 1 (next slice)
-8. All slices done → delete the spent plan note if it was a disposable
-   NOTES/PLAN file → report & STOP
+8. All slices done → delete the spent `.planning/quick/NNN-slug/`
+   directory (or leftover disposable NOTES.md) → report & STOP
 ```
 
 Recognize slices by headings/status. Typical section:
@@ -179,8 +177,9 @@ green, uncommitted):
    - Brief learnings that change remaining work.
    - Mark slice **done**; prune obsolete detail from that slice.
    - Adjust future slices when warranted.
-   - Last slice: delete a disposable NOTES/PLAN file whose work has
-     all landed (include that deletion in this commit).
+   - Last slice: delete the spent `.planning/quick/NNN-slug/` directory
+     (or leftover disposable NOTES.md) whose work has all landed
+     (include that deletion in this commit).
 4. **Post-slice Jidoka** — if learnings need developer judgment: commit
    work so far, then return a Jidoka stop (do not silently continue).
 5. **Commit** — only when the tree would not intentionally break
@@ -210,7 +209,7 @@ When this happens:
    untracked notes must survive.
 2. Invoke **slice-planning** to split into Behavior/Structure slices
    sized for the ~5 minute fuzzy goal (including checks).
-3. Update the plan file (or session list).
+3. Update the PLAN in `.planning/quick/NNN-slug/` (or session list).
 4. Commit the updated plan (still no push unless asked).
 5. Return "reverted and split" to the coordinator (include elapsed time
    and whether the 10-minute hard trigger applied).
@@ -226,7 +225,7 @@ When this happens:
   `## REFACTOR COMPLETE` → plan update → commit (push only if asked)
 - Pre- and post-slice Jidoka checks applied
 - Parallel waves only when touch sets and plan writes do not conflict
-- Spent plan note deleted when the entire plan is done
+- Spent `quick/NNN-slug/` directory deleted when the entire plan is done
 - Final output includes `## PLAN EXECUTION COMPLETE` when all slices
   finish
 </success_criteria>
@@ -259,6 +258,6 @@ resolves and work resumes.)
 - Do not continue past a Jidoka stop without developer input.
 - Do not commit with a deliberately broken typecheck/build.
 - Do not push unless the developer asked.
-- Do not create `.planning/` or GSD artifacts.
+- Do not write GSD artifacts (`STATE.md`, `PROJECT.md`, `phases/`, …).
 - Do not `git clean -fd` the whole tree on revert.
 </out_of_scope>

@@ -20,6 +20,7 @@ legacy/                    # Retired Jupyter/nbconvert toolchain, not maintained
                             #   (submodule), legacy/Makefile
 TPS and AI/                 # Claims-based writing project (claims/, open-questions.md)
 docs/adrs/                  # Durable decisions (tooling + content structure)
+.planning/quick/NNN-slug/   # Ad-hoc slice plans (PLAN.md); delete the folder when landed
 ```
 
 Run `pnpm present` to pick and launch a talk. (Named `present`, not `show`,
@@ -31,6 +32,7 @@ because `show` is a reserved pnpm alias for its own registry-info command —
 Accepted ADRs via `adr-awareness` (do not approve).
 
 **Workflow:** Break work into stop-safe Behavior/Structure slices via
-`slice-planning`; execute with `execute-plan` (Jidoka → post-change-refactor
-→ update plan → commit per slice). Do not push unless asked. No GSD and no
-`.planning/`.
+`slice-planning` (writes `.planning/quick/NNN-slug/PLAN.md`); execute with
+`execute-plan` (Jidoka → post-change-refactor → update plan → commit per
+slice). Do not push unless asked. No GSD (`phases/`, `PROJECT.md`,
+`STATE.md`, `/gsd-*`) unless the owner asks.
