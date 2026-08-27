@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S4 landed; next is S6 (S5 skipped)
+**Status:** in progress — S1–S4 and S7 landed; next is S6 (S5 skipped)
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -137,10 +137,8 @@ should treat D2–D8 as decided unless you change them.
 ### S7 — Drop inert nested GitHub workflow
 
 - **Type:** Structure
-- **Status:** planned
-- **Unlocks:** nothing further; keeps the tree honest after S2.
-- **Do:** Delete `terry-moves/.github/` (D8). Do not add repo-root CI.
-- **Done when:** no `terry-moves/.github` tree.
+- **Status:** done
+- Deleted `terry-moves/.github/` (inert nested workflow). No repo-root CI.
 
 ### S8 — Remotion 4.0.130 → latest 4.0.x
 
