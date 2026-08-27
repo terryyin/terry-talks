@@ -866,9 +866,13 @@ Claims 18 and 5 (SMED, software changeover, AI-friendly context).
 - Software stack: common repo → trunk-based development → one-touch env
   setup → fast deterministic e2e
 
-<!--
-G17 (planned) sits as a wide strip under the bullets.
+<img
+  src="/switching-cost-stack.png"
+  alt=""
+  class="absolute bottom-[2%] left-[8%] h-[48%] w-[84%] object-contain"
+/>
 
+<!--
 Claims 5 and 18.
 -->
 

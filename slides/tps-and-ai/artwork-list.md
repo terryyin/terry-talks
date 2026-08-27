@@ -314,8 +314,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G17. Switching-cost stack
 
-- **Status:** planned — no file yet. Intended path
-  `public/switching-cost-stack.png`
+- **Status:** done — `public/switching-cost-stack.png`
 - **Slide:** "Lower the switching cost"
 - **Placement:** wide strip under the three bullets (same footprint as
   G13 / G16: 16:9 wide)
