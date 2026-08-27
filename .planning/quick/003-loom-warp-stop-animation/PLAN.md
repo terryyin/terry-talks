@@ -119,11 +119,13 @@ Last slice only updates that status and the public artefact path.
 
 ## Learnings
 
-- Root `.gitignore` has Python leftover `parts/`, so new files under
-  `terry-moves/src/parts/` are ignored. Wrap-up must
-  `git add -f terry-moves/src/parts/WarpStopLoom.tsx`.
-- Actors already named in the still: `stop-bar`, `dropper`, `warp`.
-  Story size is 1280×720.
+- Root `.gitignore` has Python leftover `parts/`; `WarpStopLoom.tsx` is
+  now tracked (force-added in slice 1), so later edits show in
+  `git status`. New files under `terry-moves/src/parts/` still need
+  `git add -f`.
+- Actors: `stop-bar`, `dropper`, `warp`. Story size 1280×720.
+- Intact beat oscillates `stop-bar` with `delta: [40, 0]` until
+  subtitle id `break` (currently a 2s still placeholder).
 
 ## Slices
 
@@ -133,19 +135,15 @@ Last slice only updates that status and the public artefact path.
 - **Status:** done
 - Still `StoryLoomWarpStop` (1280×720) in Studio: sumi-e side view,
   6 intact warps, droppers up, bar with clearance. No vermilion, no
-  text, no motion. Part: `WarpStopLoom.tsx`.
+  text. Part: `WarpStopLoom.tsx`.
 
 ### 2. Reciprocating bar while warps are intact
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Wrap the bar as actor `stop-bar`. On the intact beat,
-  `oscillate` in X with `persistUntilSubtitleId` pointing at the
-  **break** subtitle (add that subtitle now as a still placeholder if
-  needed so persist-until has a target). Droppers stay up. Motion as
-  loose ink strokes, not motion-blur CAD. Still no labels.
-- **Done when:** playing the story in Studio, the bar moves under
-  intact droppers with clearance; `pnpm moves test` still passes.
+- **Status:** done
+- Intact beat: `stop-bar` oscillates in X (`delta: [40, 0]`) with
+  `persistUntilSubtitleId: 'break'`. Droppers stay up. `break` is a
+  2s still placeholder until slice 3.
 
 ### 3. Broken warp drops a dropper and the bar stops
 
