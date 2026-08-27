@@ -384,6 +384,93 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   one key piece withdrawn a little as the vermilion accent so remaining
   judgment is visible; no text; 4:3
 
+### G19. Shared product pulls collaboration (ukiyo-e panorama)
+
+- **Status:** done — generated at `public/integration-coordination.png`
+- **Slide:** "Let the shared product pull collaboration"
+- **Placement:** 3:1 wide strip under the three bullets (same
+  bottom-strip footprint as G13 / G16 / G17). Doughnut example stays
+  typeset, not in the picture.
+- **Exception (medium):** the common prefix is sumi-e ink-wash. The
+  owner asked for **浮世絵** (ukiyo-e woodblock). This item **replaces**
+  the medium: bold black outlines, flat color fields, a limited
+  palette, on off-white paper. Keep the deck's vermilion accent. Do
+  **not** prepend the sumi-e prefix. Do **not** pass G1 as a style
+  reference — it would pull the scene back into wash.
+- **Exception (text):** the common prefix says “No text, no letters, no
+  captions.” The owner asked for **A B C** on the trunk and two
+  English labels on the hinge arrows **in the picture**. This item
+  overrides that rule. If a generate garbles the two long phrases,
+  keep A B C in the image and typeset the phrases on-slide along the
+  arrows.
+- **Why generated:** Claim 8's overlap — continuous integration pulls
+  the right people; their coordination results in integration — is a
+  spatial story the bullets cannot show. Two small feature teams pull
+  from one customer, collide on one trunk, then coordinate by
+  themselves into one cohesive product. No manager in the picture.
+- **Prompt:** A single panoramic 浮世絵 (ukiyo-e woodblock print),
+  three times as wide as it is tall (3:1), on off-white paper. One
+  continuous Edo-style workshop scene reading left to right — not
+  four boxed comic panels, not a flowchart, not a git graph with many
+  branches.
+
+  Four zones in one print:
+
+  (1) **Far left — the customer.** A patron with visible needs (two
+  distinct wished-for things, or two request slips), facing the
+  workshop. This is the source of pull, not a manager directing work.
+
+  (2) **Middle left — two teams on one trunk.** One workshop split by
+  a single horizontal wooden trunk-beam (one shared mainline).
+  **Above the beam:** a two-person pair at one desk, pair-programming
+  with a small mechanical companion (the AI) and a whiteboard of
+  abstract marks beside them — exactly two people plus the companion,
+  no readable letters on the board. **Below the beam:** three people
+  in a mob around one shared desk — exactly three people, one screen.
+  Each team has a short arrow pushing their work onto the trunk. The
+  pair's push lands a little to the left (earlier) and is marked
+  **A** and **B**. The mob's push is marked **A** and **C**. The two
+  **A**s occupy the same place on the trunk and are the only
+  vermilion-red in the picture (conflict). **B** and **C** are
+  ordinary ink-black. Latin capitals, large, readable.
+
+  (3) **Middle right — self-coordination.** The same five people (the
+  pair and the mob, no extra coordinator) gathered by themselves
+  around one shared plan, working out a common solution that can
+  carry both customer values and stay one simple product. Informal,
+  face to face, no dais, no supervisor.
+
+  (4) **Far right — the product.** The simple, classic thing they are
+  building: one well-proportioned object with cohesive design (a
+  single lacquered writing box or a simple lantern), one form, not
+  two styles bolted together. Empty paper around it so it reads as
+  the result.
+
+  Two labeled arrows arc **over and under** the middle zones, from
+  the trunk-conflict (middle left) to the gathering (middle right):
+  an **upper** arrow arching above the two teams, labeled
+  **integration pulls collaboration**; a **lower** arrow arching
+  below, labeled **coordination results in immediate integration**.
+  With the customer as the left tip and the product as the right tip,
+  the arcs make the whole print read as one **rounded diamond**
+  (lens): narrow at both ends, widest in the middle. English,
+  sentence case as given. No other slogans, no kanji, no logos, no
+  CI-server boxes.
+- **Accuracy notes for the worker (must survive generation):** when
+  regenerating, do **not** prepend the sumi-e prefix. Keep Prompt's
+  labels, large, Latin, readable, spelled exactly: **A**, **B**,
+  **C**, **integration pulls collaboration**, **coordination results
+  in immediate integration**. Counts: one customer; pair zone = two
+  humans + one AI companion; mob = three humans; gathering = those
+  same five, nobody added. The trunk is one horizontal beam between
+  the two teams. Pair's A and B sit left of (earlier than) the mob's
+  C; both A's coincide and are the only vermilion. No manager. The
+  right-hand product is one object. The labeled arrows arc above and
+  below the middle zones — never squeezed into the horizontal gap —
+  so the print keeps its rounded-diamond silhouette. If the tool
+  cannot emit 3:1, generate 16:9 with the diamond as a wide strip and
+  empty paper above and below, then crop to 3:1.
+
 ---
 
 ## Build in-slide (diagrams and icons, not AI art)
@@ -422,7 +509,7 @@ can absorb it" — its planned loop map moved to the dedicated "AI
 speeds whichever loop you feed" slide later in the deck), the "The
 apparent tradeoff" and "JIT flow in LeSS" section dividers, the
 main-message quote, "Jidoka preserves knowledge", "Preferred tests: E2E or unit —
-nothing in between", "Let the shared product pull collaboration",
+nothing in between",
 "Respect for People: making things means making people", and "Takeaways". The "Same gates" divider and "The gates do
 not care who authored the change" share G9 — whichever does not take
 it stays text-only. The stark, text-only look serves the "small

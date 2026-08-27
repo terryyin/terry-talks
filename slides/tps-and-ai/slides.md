@@ -848,6 +848,8 @@ Claim 21.
 -->
 
 ---
+class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5"
+---
 
 # Let the shared product pull collaboration
 
@@ -864,9 +866,16 @@ is created.
 
 </div>
 
+<img
+  src="/integration-coordination.png"
+  alt=""
+  class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
+/>
+
 <!--
 Claim 8. Nemawashi (Claim 9) and the Ebata teaching (Claim 14) support
-these JIT beats.
+these JIT beats. G19 (ukiyo-e panorama) is the integration–coordination
+overlap.
 
 Chain: `c2d800a378` (AI-tool infra) → `6f54cc1bd1` (extract-to-child
 API) → `9eb162a918` (E2E/type; body records `# Conflicts:
