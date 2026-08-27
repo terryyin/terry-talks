@@ -7,6 +7,7 @@
     "dev": "slidev --open",
     "build": "slidev build",
     "export": "slidev export",
+    "export:pdf": "node scripts/export-pdf.mjs",
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
