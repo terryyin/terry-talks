@@ -21,7 +21,7 @@ export default class EffectCalculator {
   endDuration: number;
 
 
-  // eslint-disable-next-line max-params
+   
   constructor(duration: number, startTime: number, startDuration: number, endDuration: number, frame: number, fps: number) {
     this.startDuration = startDuration;
     this.endDuration = endDuration;

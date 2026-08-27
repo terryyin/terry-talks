@@ -86,7 +86,7 @@ const singleEdit =(edit: TextEdit, original: string): CurrentEdit => {
   return { text: lines.join('\n'), cursorLine, cursorColumn, cursor, insertCursor};
 }
 export class TextEdits {
-  // eslint-disable-next-line no-useless-constructor
+   
   constructor(private textEdits: TextEdit[]) {}
 
    edit(currentText: string): CurrentEdit {

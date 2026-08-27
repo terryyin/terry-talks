@@ -16,7 +16,7 @@ export const Markdown: React.FC<{actor: string, md: string | Record<string, stri
           display: 'block',
       }}
         
-        // eslint-disable-next-line react/jsx-sort-props, react/no-danger
+         
         dangerouslySetInnerHTML={{__html: new MarkdownIt().render(currentMarkdown)}}
       />
 	

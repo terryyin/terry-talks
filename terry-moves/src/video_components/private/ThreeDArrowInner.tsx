@@ -5,7 +5,7 @@ import React  from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 
-// eslint-disable-next-line max-params
+ 
 function createPartialTubeGeometry(curve: THREE.CatmullRomCurve3, percentage: number, radialSegments = 8, tubularSegments = 50, radius = 0.1) {
   const segmentPercentage = Math.max(Math.min(percentage, 1), 0);
   const segmentCount = Math.round(tubularSegments * segmentPercentage);

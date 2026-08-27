@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 function createGradientTexture(color1: THREE.Color, color2: THREE.Color, alpha: number): THREE.CanvasTexture {
   const canvas = document.createElement('canvas');
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+   
   const ctx = canvas.getContext('2d')!;
   const gradient = ctx.createRadialGradient(50, 50, 0, 50, 50, 70);
 

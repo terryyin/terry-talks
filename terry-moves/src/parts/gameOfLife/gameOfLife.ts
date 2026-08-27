@@ -15,7 +15,7 @@ class GameOfLifeWorld {
     if (!this.allCells.has(key)) {
       this.allCells.set(key, {x, y});
     }
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+     
     return this.allCells.get(key)!;
   }
 

@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S9 landed (S5 skipped); next is S10
+**Status:** in progress — S1–S10 landed (S5 skipped); next is S11
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -161,11 +161,9 @@ should treat D2–D8 as decided unless you change them.
 ### S10 — ESLint to current Remotion config
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Move to whatever `@remotion/eslint-config` currently recommends
-  (flat config if that is the latest). Fix resulting lint in `src/` only
-  as needed for a clean `eslint` run. Tests still include lint and pass.
-- **Done when:** terry-moves test’s eslint step exits 0.
+- **Status:** done
+- ESLint 9.19 + `@remotion/eslint-config-flat@4.0.518` + `eslint.config.mjs`.
+  Dropped `.eslintrc` and unused eslint-disable directives. `eslint src` clean.
 
 ### S11 — Jest + Testing Library current
 

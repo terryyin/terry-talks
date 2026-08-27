@@ -6,7 +6,7 @@ import { ThreeDArrow } from '../video_components/ThreeDArrow';
 import { GroupInitialState } from '../video_components/GroupInitialState';
 
 
-// eslint-disable-next-line max-params
+ 
 function generateSpiralCirclePoints(
   circleRadius: number,
   zIncrement: number,
