@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S14 landed (S5 skipped); next is S15
+**Status:** in progress — S1–S15 landed (S5 skipped); next is S16
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -198,14 +198,11 @@ should treat D2–D8 as decided unless you change them.
 ### S15 — Remaining dependency upgrades
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Upgrade leftover terry-moves deps (markdown-it, prism-react-renderer,
-  prettier, @types/markdown-it, etc.) to current versions and fix call
-  sites. Drop unused deps if install/tsc proves they are unused
-  (`@react-three/test-renderer`, `@types/web`, …). Tests + compositions
-  still green.
-- **Done when:** `pnpm outdated` inside `terry-moves` is clean of
-  intentional leftovers; test + compositions pass.
+- **Status:** done
+- markdown-it 15, prettier 3, jest-dom 7, drei 10.7.8. Dropped `@types/web`
+  (tsconfig `lib` includes `DOM`) and `@types/markdown-it`. Intentional
+  leftovers: fiber 9.1.2, three 0.171, eslint 9.19, TypeScript 5.x,
+  postprocessing 3.0.0. Tests + compositions pass.
 
 ### S16 — Docs match the new layout and commands
 
