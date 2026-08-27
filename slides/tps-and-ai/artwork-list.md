@@ -5,7 +5,7 @@ Art needed for `slides.md`, oriented by
 title only — never by page number — so the list survives inserting or
 reordering slides.
 
-Three source categories:
+Four source categories:
 
 - **Find (authoritative)** — real artifacts where authenticity matters,
   especially with Toyota and LeSS experts in the room. Check license and
@@ -14,6 +14,10 @@ Three source categories:
 - **Build in-slide** — diagrams and icons that need crisp, editable text;
   AI image generators garble text (and kanji especially), so these are
   SVG/mermaid/Iconify work, not AI art.
+- **Animate (terry-moves)** — a short Remotion clip when the argument is
+  the *action* a still cannot show. Same visual voice as generated art
+  (sumi-e prefix below); still no text in the picture. List the clip
+  here like any other artefact.
 
 ## Common style for all generated artwork
 
@@ -39,6 +43,24 @@ rule.
 
 Rules: never ask the generator for text or kanji — typeset those in the
 slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
+
+## How to regenerate
+
+These images were made with ChatGPT Images. To replace one:
+
+1. Prepend the sumi-e prefix above to that item's **Prompt**. Do not add
+   composition, mood, or extra style unless the prompt already names it
+   for layout.
+2. Save over the named file in `slides/tps-and-ai/public/`.
+3. After G1 exists, pass `public/cover-crane-released.png` as a style
+   reference on later generates. G14 must: same crane, same voice.
+4. Check the named slide, rendered. Full-bleed art is the layout
+   background; the Odd-e mark is a theme overlay, not part of the
+   image — leave logos out of the generation.
+
+Do not invent Toyota graphics or present an unsourced house as Toyota's.
+Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
+**About Me** is skipped by owner decision.
 
 ---
 
@@ -99,16 +121,16 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
   No clearly reusable official photo was found, so G8 was generated and
   identified as AI-generated on-slide.
 
-### 5. Own assets
+### 5. Own assets — do not add
 
-- **Slide:** "About me": Lizard logo or GitHub repo card (own
-  project, own asset)
-- **Slides:** cover and "Thank you" — Odd-e logo (company asset; the
-  theme may already provide it — check `themes/odd-e` before adding)
+- **About me:** Lizard logo skipped by owner decision.
+- Cover and "Thank you": the theme already watermarks every slide
+  (`themes/odd-e/images/odd-e-logo.png`). Do not generate or paste a
+  second logo.
 
 ---
 
-## Generate (AI) — prompts ready, not yet generated
+## Generate (AI)
 
 ### G1. Cover — crane released from an open hand
 
@@ -118,6 +140,8 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
   sits in the empty left space
 - **Why generated:** the title pair (freedom + entrustment) has no
   single authoritative artifact; a released crane carries both
+- **Style reference:** this file *is* the style reference for later
+  generates (G14 must use it)
 - **Prompt:** An open human palm releasing a red-crowned crane taking
   flight upward, wings spread, motion implied by a few loose
   brushstrokes; composition weighted to the right with large empty
@@ -157,6 +181,8 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 - **Slide:** first follow-on after "The loom's closed stop"
 - **Placement:** first of two separate follow-on slides; G6 follows as
   the second, so the Type G photograph (item 3) keeps its own moment
+- **Generate from:** G1 as style reference. If the Claude Code terminal
+  leaks outside the monitor, mask-correct only the display pixels.
 - **Prompt:** A weary factory worker with a sad face, chin in hand,
   seated and forced to keep watching a power loom that runs by itself;
   the scene reflects below as a dark mirrored shadow in which the same
@@ -169,6 +195,9 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 - **Status:** done — `public/called-by-the-stop.png`
 - **Slide:** second follow-on after "The loom's closed stop"
 - **Placement:** second of two separate follow-on slides, after G5
+- **Generate from:** G5, so the pair stays consistent; G1 as style
+  reference. If the Claude Code terminal leaks outside the monitor,
+  mask-correct only the display pixels.
 - **Why this mirror:** the closed stop summons human judgment exactly
   when it is needed — the developer arrives to an agent that halted
   itself and flagged the abnormality, and the lightbulb is the learning
@@ -218,7 +247,8 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 
 - **Status:** implemented — `public/entering-ai-harness.png`
 - **Slide:** "Go-See may mean entering the AI harness"
-- **Placement:** spot illustration, right half
+- **Placement:** spot illustration, right half; crop the generation to
+  4:3
 - **Prompt:** A person holding a paper lantern steps through the
   doorway of a large humming machine whose interior is a swirling loop
   of gears and threads; the lantern light reaches only a few steps in;
@@ -258,6 +288,8 @@ slide. Full-bleed backgrounds are 16:9; spot illustrations square or 4:3.
 - **Slide:** the closing quote ("Encode the known…")
 - **Placement:** full-bleed background; companion piece to G1 so the
   deck visually returns to its theme
+- **Style reference:** G1 (`public/cover-crane-released.png`) — required,
+  not optional
 - **Prompt:** The same red-crowned crane from the cover now high in the
   sky, wings fully extended, the open palm far below and small; large
   empty space for a quotation; 16:9.
@@ -376,11 +408,14 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   and virtual-tour media are copyrighted; Sakichi's public-domain
   patent drawings show full looms, unreadable at slide size.
 - **Limit:** a photo shows the parts but not the falling action, and
-  the action carries the argument — hence G15.
+  the action carries the argument — hence G15, and A1 as a candidate
+  to replace G15.
 
 ### G15. Loom jidoka mechanism — smart idea, dumb mechanism
 
-- **Status:** done — `public/loom-jidoka-mechanism.png`
+- **Status:** done — `public/loom-jidoka-mechanism.png`. **A1 is
+  intended to replace this still**; keep both until we decide which
+  click-reveal to keep.
 - **Slide:** "Smart → dumb → gone"
 - **Placement:** click-reveal after G7's strip on the same slide, same
   wide-strip footprint so it swaps in place; slide text supplies all
@@ -402,4 +437,31 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   *blocked by* the fallen plate, not struck by it; nothing electrical
   anywhere in the scene. If the generator cannot keep the two panels
   mechanically consistent, generate the two panels separately and
-  compose in the slide.
+  compose in the slide. The same notes bind A1.
+
+### A1. Loom warp-stop animation (candidate to replace G15)
+
+- **Status:** planned — terry-moves composition `StoryLoomWarpStop`;
+  artefact to land in `public/` when rendered. **Intended to replace
+  G15**; keep G15 on the slide and in this list until we decide which
+  to keep.
+- **Slide:** "Smart → dumb → gone"
+- **Placement:** same 16:9 wide-strip footprint as G7 / G15. While
+  both exist, a further click-reveal after G15 so G7 → G15 → A1 can
+  be compared. Slide text supplies all labels — never in the clip.
+- **Why animated:** G15's two panels imply the falling action; the
+  argument is the *motion* — a bar already moving, then blocked.
+  Animation can show that sequence in one scene. Photo item 6 still
+  cannot.
+- **Style:** same sumi-e voice as generated art (prefix above). G1
+  (`public/cover-crane-released.png`) is the style reference; G15 is
+  the subject reference. Off-white paper; ink strokes and wash, not
+  CAD; vermilion accent **only** on the fallen plate, and only once
+  it has fallen. No text, letters, or captions in the picture.
+- **Beats (silent, looping):** intact warps, droppers held up, feeler
+  bar sweeping with motion as loose strokes; one warp breaks; that
+  one plate falls a few centimetres into the bar's path; the bar is
+  blocked and all motion stops. Hold the stopped frame, then loop.
+- **Accuracy notes:** same as G15. One scene over time, not two
+  panels. Do not draw weft fork, shuttle change, andon, or
+  electrics.
