@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1 landed; next is S2
+**Status:** in progress — S1–S2 landed; next is S3
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -34,6 +34,9 @@ should treat D2–D8 as decided unless you change them.
 - `git log -- terry-moves` after subtree add only shows the merge commit
   (`f10f03b`). Prefixed history is on `HEAD^2` (`8aba145`, 576 commits).
   Path-limited log is not how to inspect pre-merge terry-moves commits.
+- Concurrent unrelated WIP exists in root `package.json` (`export:pdf`) and
+  `scripts/` (`show.mjs`, untracked `decks.mjs` / `export-pdf.mjs`). Do not
+  fold it into this plan's slices.
 
 ## Discoveries (read before executing)
 
@@ -84,14 +87,11 @@ should treat D2–D8 as decided unless you change them.
 ### S2 — pnpm workspace, drop yarn/npm lockfiles
 
 - **Type:** Structure
-- **Status:** planned
+- **Status:** done
 - **Unlocks:** S3 (tests on pnpm)
-- **Do:** Add `terry-moves` to `pnpm-workspace.yaml`. Rename package to
-  `terry-moves`. Delete `terry-moves/yarn.lock` and any
-  `terry-moves/package-lock.json`. `pnpm install` from repo root. Keep
-  terry-moves dependency versions **unchanged** in this slice. Root
-  `pnpm typecheck` still green.
-- **Done when:** root lockfile records the workspace package; `pnpm --filter terry-moves exec tsc --version` works; no yarn/npm lockfile under `terry-moves/`.
+- Workspace member `terry-moves`; package renamed `terry-moves` + `private`.
+  `yarn.lock` removed. Root `pnpm-lock.yaml` records the importer.
+  `pnpm --filter terry-moves exec tsc --version` → 4.9.5; root `pnpm typecheck` green.
 
 ### S3 — Current-version tests pass under pnpm
 

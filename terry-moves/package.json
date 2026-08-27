@@ -1,5 +1,6 @@
 {
-	"name": "remotion-template-three",
+	"name": "terry-moves",
+	"private": true,
 	"version": "1.0.0",
 	"description": "A React Three Fiber Project",
 	"scripts": {
