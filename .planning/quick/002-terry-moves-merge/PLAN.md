@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S3 landed; next is S4
+**Status:** in progress — S1–S4 landed; next is S6 (S5 skipped)
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -37,7 +37,11 @@ should treat D2–D8 as decided unless you change them.
 - S2 left Remotion as `^4.0.0`; pnpm resolved **4.0.518**. Yarn had **4.0.130**.
   Latest Remotion `.d.ts` needs TS 5. S3 pinned `remotion` / `@remotion/*` to
   exact **4.0.130** so the existing stack still tests; S8 still upgrades.
-  pnpm also needed direct `three-stdlib` and `@types/testing-library__jest-dom`.
+- S4: pnpm also floated drei → 9.122 (`BatchedMesh` missing on three 0.145).
+  Pinned the yarn-resolved 3D stack (drei 9.102.6, fiber 8.15.19, three 0.145.0,
+  three-stdlib 2.29.6, three-mesh-bvh 0.7.3). S13 still does the React 19 /
+  R3F 9 / three 0.171 upgrade. Compositions script:
+  `remotion compositions src/index.ts`.
 
 ## Discoveries (read before executing)
 
@@ -105,14 +109,10 @@ should treat D2–D8 as decided unless you change them.
 ### S4 — Remotion compositions listing (build smoke)
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** From `terry-moves`, list compositions (bundle + validate entry).
-  Wire a package script e.g. `"compositions": "remotion compositions"` (or
-  current CLI equivalent). Do not full-render videos. If this fails only
-  because Chrome/ffmpeg is missing, **stop** (D6) rather than silently
-  expanding the flake.
-- **Done when:** the compositions command exits 0 and prints the Story ids
-  from `src/Root.tsx`.
+- **Status:** done
+- Script `compositions`: `remotion compositions src/index.ts`. Lists all
+  Story ids from `src/Root.tsx`. 3D stack pinned to yarn-resolved versions
+  so webpack can bundle against three 0.145.
 
 ### S5 — (Optional) Bring circus / arrow-ring WIP
 

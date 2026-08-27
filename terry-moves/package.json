@@ -7,6 +7,7 @@
 		"start": "remotion preview",
 		"build": "remotion render --timeout=60000 --scale 1",
 		"buildgif": "remotion render --codec=gif --timeout=60000 --scale 1",
+		"compositions": "remotion compositions src/index.ts",
 		"upgrade": "remotion upgrade",
 		"test": "jest && eslint src --ext ts,tsx,js,jsx && tsc",
 		"srt": "ts-node ./src/srt.ts"
@@ -14,10 +15,10 @@
 	"repository": {},
 	"license": "UNLICENSED",
 	"dependencies": {
-		"@react-three/drei": "^9.65.4",
-		"@react-three/fiber": "^8.8.10",
-		"@react-three/postprocessing": "^2.11.0",
-		"@react-three/test-renderer": "^8.1.2",
+		"@react-three/drei": "9.102.6",
+		"@react-three/fiber": "8.15.19",
+		"@react-three/postprocessing": "2.16.2",
+		"@react-three/test-renderer": "8.2.1",
 		"@remotion/cli": "4.0.130",
 		"@remotion/media-utils": "4.0.130",
 		"@remotion/three": "4.0.130",
@@ -29,8 +30,9 @@
 		"react-dom": "^18.0.0",
 		"remotion": "4.0.130",
 		"styled-components": "^5.3.10",
-		"three": "^0.145.0",
-		"three-stdlib": "2.36.1"
+		"three": "0.145.0",
+		"three-mesh-bvh": "0.7.3",
+		"three-stdlib": "2.29.6"
 	},
 	"devDependencies": {
 		"@remotion/eslint-config": "4.0.130",
@@ -39,7 +41,7 @@
 		"@types/jest": "^29.5.0",
 		"@types/react": "^18.0.26",
 		"@types/testing-library__jest-dom": "^5.14.5",
-		"@types/three": "^0.144.0",
+		"@types/three": "0.144.0",
 		"@types/web": "^0.0.75",
 		"eslint": "^8.30.0",
 		"jest": "^29.5.0",
