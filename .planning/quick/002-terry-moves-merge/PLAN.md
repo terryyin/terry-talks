@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S2 landed; next is S3
+**Status:** in progress — S1–S3 landed; next is S4
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -34,9 +34,10 @@ should treat D2–D8 as decided unless you change them.
 - `git log -- terry-moves` after subtree add only shows the merge commit
   (`f10f03b`). Prefixed history is on `HEAD^2` (`8aba145`, 576 commits).
   Path-limited log is not how to inspect pre-merge terry-moves commits.
-- Concurrent unrelated WIP exists in root `package.json` (`export:pdf`) and
-  `scripts/` (`show.mjs`, untracked `decks.mjs` / `export-pdf.mjs`). Do not
-  fold it into this plan's slices.
+- S2 left Remotion as `^4.0.0`; pnpm resolved **4.0.518**. Yarn had **4.0.130**.
+  Latest Remotion `.d.ts` needs TS 5. S3 pinned `remotion` / `@remotion/*` to
+  exact **4.0.130** so the existing stack still tests; S8 still upgrades.
+  pnpm also needed direct `three-stdlib` and `@types/testing-library__jest-dom`.
 
 ## Discoveries (read before executing)
 
@@ -96,12 +97,10 @@ should treat D2–D8 as decided unless you change them.
 ### S3 — Current-version tests pass under pnpm
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Make `pnpm --filter terry-moves test` pass on the **existing**
-  Jest + ESLint + `tsc` stack. Only pnpm/CJS/path/workspace fixes — no
-  dependency upgrades. If ESLint or Jest needs a one-line config tweak to
-  run under the workspace, that belongs here.
-- **Done when:** `pnpm --filter terry-moves test` exits 0.
+- **Status:** done
+- Remotion/@remotion/* pinned to exact 4.0.130; `npx jest` → `jest`;
+  direct `three-stdlib` + `@types/testing-library__jest-dom`.
+  `pnpm --filter terry-moves test` exits 0 (156 tests + eslint + tsc).
 
 ### S4 — Remotion compositions listing (build smoke)
 
