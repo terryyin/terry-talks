@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** planned — **confirm decisions below before execute-plan**
+**Status:** in progress — S1 landed; next is S2
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -12,14 +12,14 @@ actions.
 Source of truth for remaining slices: this PLAN. Delete this
 `002-terry-moves-merge/` directory once every slice has landed.
 
-## Decisions (confirm or override)
+## Decisions
 
-Assumed defaults are in **bold**. execute-plan should treat these as decided
-unless you change them.
+Assumed defaults are in **bold**. D1 and D9 are confirmed. execute-plan
+should treat D2–D8 as decided unless you change them.
 
-| # | Question | Assumed default |
-|---|----------|-----------------|
-| D1 | Uncommitted WIP in `../terry-moves` (circus + arrow-ring stories, `Root.tsx`, dirty `yarn.lock`, untracked `package-lock.json`)? | **Leave it out of the history merge.** Subtree from committed `main` only. Optionally copy the circus/arrow-ring files in as a later Behavior slice (S5) if you want them in this repo without rewriting terry-moves history. |
+| # | Question | Resolution |
+|---|----------|------------|
+| D1 | Uncommitted WIP in `../terry-moves`? | **Confirmed.** Working tree is clean (`main` matches origin). Circus / arrow-ring files were discarded, not committed. Subtree from committed `main` only. Skip S5. |
 | D2 | Package shape (“not an external module”)? | **In-tree pnpm workspace package** at `terry-moves/` with its own `package.json`. Not a git submodule, not published to npm, not flattened into the root package (Vue/Slidev vs React/Remotion cannot share one TS/JSX config). |
 | D3 | Root one-touch command? | **`pnpm moves`** — dispatcher like `pnpm present`: `studio` (default), `test`, `render`, `srt`. Subcommands skip the menu (`pnpm moves test`). Does **not** replace root `build` (Slidev) or add a root `test` script. |
 | D4 | Git import method? | **`git subtree add --prefix=terry-moves <path-or-remote> main`** with **no `--squash`** so all ~576 commits remain. |
@@ -27,7 +27,13 @@ unless you change them.
 | D6 | Nix flake extras (chromium, ffmpeg)? | **Do not add them unless a later slice actually fails without them.** Remotion downloads its own Chrome; Jest is jsdom. Same env = Node 22 + pnpm from the existing flake. |
 | D7 | How far to take the 3D stack? | **Follow Remotion’s React 19 guide:** React 19 + R3F 9.1.2 + three 0.171 + styled-components 6. Unit tests + compositions listing must pass. Visual QA of every story in Studio is **out of slice scope** unless a test/bundle fails. |
 | D8 | terry-moves GitHub Actions workflow? | **Do not promote to repo-root `.github/`.** After subtree it will sit at `terry-moves/.github/` (inert). Delete it when wiring the workspace so it is not mistaken for live CI. This repo has no GitHub Actions today. |
-| D9 | ADR for “this repo also holds Remotion videos”? | **No ADR slice in this plan.** ADR-0000 makes this a durable layout choice you own; say if you want a Proposed draft. |
+| D9 | ADR for “this repo also holds Remotion videos”? | **Confirmed: no ADR in this plan.** |
+
+## Learnings
+
+- `git log -- terry-moves` after subtree add only shows the merge commit
+  (`f10f03b`). Prefixed history is on `HEAD^2` (`8aba145`, 576 commits).
+  Path-limited log is not how to inspect pre-merge terry-moves commits.
 
 ## Discoveries (read before executing)
 
@@ -35,8 +41,8 @@ unless you change them.
   “upgrade to remotion 5” but that commit actually moved Remotion **3 → 4**.
   Installed today: Remotion **4.0.130**, React 18.2, three **0.145**. Latest
   Remotion is still **4.0.x** (~4.0.518). There is no Remotion 5 to jump to.
-- Dual lockfiles (`yarn.lock` + untracked `package-lock.json`). After merge,
-  only the root `pnpm-lock.yaml` should remain.
+- `../terry-moves` still has `yarn.lock` (committed). After merge, only the
+  root `pnpm-lock.yaml` should remain.
 - Tests live under `tests/video_conomponents/` (typo). Do not rename in the
   merge slices (unrelated churn); only if a later refactor slice needs it.
 - `public/assets/quillustration_flower_and_water-can/scene.bin` is gitignored
@@ -69,13 +75,11 @@ unless you change them.
 ### S1 — Import terry-moves with history
 
 - **Type:** Structure
-- **Status:** planned
+- **Status:** done
 - **Unlocks:** S2 (workspace install)
-- **Do:** From this repo, `git subtree add --prefix=terry-moves` pointing at
-  `../terry-moves` `main` (committed HEAD only). No squash. Do not copy
-  `node_modules`. Do not include uncommitted WIP (D1).
-- **Done when:** `terry-moves/` exists with `src/`, `tests/`, `public/`,
-  and `git log -- terry-moves` shows pre-merge terry-moves commits.
+- Merge `f10f03b` (`git subtree add --prefix=terry-moves` from
+  `/Users/terryyin/git/terry-moves` `main`, no squash). `terry-moves/{src,tests,public}`
+  present; no `node_modules`. History on `HEAD^2` (576 commits).
 
 ### S2 — pnpm workspace, drop yarn/npm lockfiles
 
@@ -114,13 +118,9 @@ unless you change them.
 ### S5 — (Optional) Bring circus / arrow-ring WIP
 
 - **Type:** Behavior
-- **Status:** planned
-- **Skip unless D1 is overridden to “include WIP”.** Copy the untracked
-  `src/parts/*` + `src/stories/StoryCircusAnimal.tsx` +
-  `StoryArrowRing.tsx` and the `Root.tsx` registration from
-  `../terry-moves`. Tests/compositions still green (new stories need not
-  have new unit tests).
-- **Done when:** those compositions appear in the compositions listing.
+- **Status:** skipped
+- **Skipped (D1 confirmed).** WIP was discarded in `../terry-moves`; those
+  files are not on `main`.
 
 ### S6 — Root one-touch `pnpm moves`
 
@@ -244,7 +244,7 @@ unless you change them.
 
 ## Out of scope
 
-- Committing/pushing `../terry-moves` itself (unless you do D1 there first).
+- Committing/pushing `../terry-moves` itself.
 - Full video encodes of every story; visual pixel QA of 3D scenes.
 - Adding GitHub Actions to terry-talks.
 - Publishing terry-moves to npm.
