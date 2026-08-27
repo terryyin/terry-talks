@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S13 landed (S5 skipped); next is S14
+**Status:** in progress — S1–S14 landed (S5 skipped); next is S15
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -191,10 +191,9 @@ should treat D2–D8 as decided unless you change them.
 ### S14 — Tests + compositions after the 3D upgrade
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Fix test/runtime breakages from S13 until
-  `pnpm --filter terry-moves test` and compositions listing both pass.
-- **Done when:** both commands exit 0.
+- **Status:** done
+- No extra runtime fixes: `pnpm --filter terry-moves test` and compositions
+  listing both pass on the S13 stack (pre-existing missing `scene.bin` 404).
 
 ### S15 — Remaining dependency upgrades
 
