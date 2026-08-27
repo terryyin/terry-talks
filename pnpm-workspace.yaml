@@ -2,3 +2,8 @@ packages:
   - terry-moves
 allowBuilds:
   esbuild: true
+  unrs-resolver: true
+# Solo repo: the committed lockfile is the trusted base. pnpm 11 otherwise
+# re-checks every lockfile entry against minimumReleaseAge (default 1 day),
+# so `pnpm present` fails when a pin (e.g. Remotion) is under 24h old.
+trustLockfile: true
