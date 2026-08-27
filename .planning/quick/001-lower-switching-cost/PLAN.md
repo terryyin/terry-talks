@@ -28,9 +28,9 @@ perfection, backed by researched claim text. Do not generate the artwork.
 
 ## Status
 
-Slice 1 done. Slice 2–4 planned.
+Slice 1–2 done. Slice 3–4 planned.
 
-**Learnings:** Why LeSS two-bullet wording is in Claim 18; supporting 2016/MTS lists stay supporting. Slice 2 should cite Claim 18 for the goals, not recopy the full Why LeSS block.
+**Learnings:** Why LeSS two-bullet wording is in Claim 18; supporting 2016/MTS lists stay supporting. Claim 5 cites Claim 18 for the goals. Slide copy can take the Implication beat: switching cost = leftover of first goal; SMED then OTED; four-layer stack. Do not recopy Why LeSS.
 
 ---
 
@@ -50,7 +50,7 @@ cost”).
 
 ### 2. Claim 5 links switching cost to those goals
 Type: Behavior
-Status: planned
+Status: done
 
 What: A reader of Claim 5 can evaluate (a) the wording decision,
 (b) that lowering switching cost is how the first optimization goal

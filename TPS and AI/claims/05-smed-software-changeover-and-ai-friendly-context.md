@@ -1,8 +1,11 @@
 # Claim 5: SMED for software means cheap changeovers so customer-centric focus is not interrupted
 
-**Status: Provisional — name, method, switching-vs-changeover,
+**Status: Provisional — name, method, switching-vs-changeover
+(switching cost = leftover of changing direction; changeover = TPS
+analog), SMED-then-OTED ladder, four-layer software stack,
 component/customer-focus trade-off, and talk choices recorded; OTED
-naming and oversized-component limit still open**
+is the on-stage name for one-command remaining setup;
+oversized-component limit still open**
 
 ## Claim
 
@@ -23,6 +26,12 @@ convert internal work to external wherever possible, then streamline what
 remains. Fewer touches may result; they are a consequence, not the
 definition.
 
+The method ladder is **SMED then OTED**. SMED's target is that
+single-digit-minute changeover. **OTED** (One-Touch Exchange of Die) is
+the next rung: remaining setup reduced to one touch. On stage, call
+one-command remaining setup OTED. The factory die-exchange is analog,
+not identity.
+
 SMED lives **inside JIT**. [Claim
 4](04-jit-assurance-resourcefulness-not-abundance.md) has the factory
 reason: even a known mix is made alternately; that is only cheap if
@@ -37,6 +46,23 @@ near-zero changeover is
 > **High changeover cost makes batching by type—or by layer—look
 > efficient even when the mix is known. Cheap changeover makes thin
 > vertical slices the economical way to follow actual need.**
+
+**Switching cost** is the LeSS/audience name for that leftover cost of
+changing direction—the first Why LeSS optimization goal of
+adaptiveness. **Changeover** is the TPS analog that SMED and OTED
+attack. Keep both words; do not collapse them. The two goals
+themselves, and that the goal of adaptiveness guides continuous
+improvement forever, are
+[Claim 18](18-continuous-improvement-towards-perfection.md). A 2025
+unFIX blog uses “low switching costs” as a community gloss; it is not
+canonical Why LeSS wording.
+
+Lowering switching cost is how that first goal becomes *payable*.
+Feature teams are already “optimized for delivering the maximum
+customer value”—the second goal. High switching cost is the same
+sentence in audience words: batching by type or layer looks
+efficient; cheap switching cost makes following actual customer need
+economical. The method stays SMED, then OTED.
 
 Launching more agents does not substitute for that kaizen. It can flood
 review and integration with still-smart work; those queues filling is
@@ -262,6 +288,24 @@ development. Split a small end-to-end outcome; start from a reproducible
 example when that helps; leave the workspace legible if the work is
 suspended.
 
+### A software stack that cheapens switching cost
+
+Converting internal setup to external, then streamlining remaining
+setup, has a software shape. These four layers are examples, not a
+new LeSS rule:
+
+1. **Common repo** (base)
+2. **Trunk-based development**
+3. **One-touch remaining setup (OTED)**
+4. **Fast, deterministic e2e test**
+
+A shared repo and trunk convert “find the code and the line of
+history” into reusable readiness. One-touch remaining setup
+streamlines reconstructing the environment. A fast, deterministic
+end-to-end test streamlines the leftover check so verification is not
+internal setup again. Together they cheapen switching cost so the
+next customer item can start without a type-or-layer batch.
+
 ### SMED and jidoka solve different problems
 
 SMED reduces the overhead of a necessary changeover. Jidoka detects
@@ -350,6 +394,15 @@ machines.
 > team health, this talk owns why one cross-component item is
 > affordable.
 
+The follow-on slide after Continuous Improvement Towards Perfection:
+
+> **Lower the switching cost.** Switching cost is the leftover of the
+> first Why LeSS optimization goal—the two goals themselves are Claim
+> 18. SMED, then OTED, is the method ladder: single-digit minutes,
+> then remaining setup reduced to one touch. A software stack that
+> cheapens it: common repo, trunk-based development, one-touch
+> remaining setup, fast deterministic e2e.
+
 SMED's practical question:
 
 > **When we move to the next valuable item, which setup truly requires
@@ -372,8 +425,10 @@ not a reason to launch more unfinished work.
 
 - When is a component still too large or coupled for this trade-off,
   even with TDD, tests, and one-command setup?
-- Does calling one-command remaining setup **OTED** help, or does it
-  over-claim the Toyota factory extreme?
+
+Closed for the talk: one-command remaining setup is **OTED** on
+stage (ASQ one-touch extreme of SMED; remaining setup reduced to one
+touch). The factory die-exchange is analog, not identity.
 
 Skipped: changeover-time boundary (when a clock on the weekly-report
 sequence would stop); Sprint-boundary termination of current work.
@@ -496,6 +551,16 @@ sequence would stop); Sprint-boundary termination of current work.
 24. John Sweller, cognitive load theory. Extraneous load from poor
     representation, as distinct from the intrinsic difficulty of the
     problem.
+25. The LeSS Company, [Why
+    LeSS?](https://less.works/less/framework/why-less). Two
+    optimization goals of adaptiveness. Cited here via
+    [Claim 18](18-continuous-improvement-towards-perfection.md); not
+    recopied.
+26. Robert Briese (2025), [unFIXing Your Organization With
+    LeSS](https://less.works/blog/2025/08/14/unfixing-your-organization-with-less).
+    Uses “low switching costs” as a community gloss of delivering high
+    customer value with cheap leftover change of direction. Not
+    canonical Why LeSS wording.
 
 Mix-leveling sources for why SMED exists under JIT are in
 [Claim 4](04-jit-assurance-resourcefulness-not-abundance.md).
