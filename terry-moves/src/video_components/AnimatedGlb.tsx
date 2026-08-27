@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Clone, useAnimations } from '@react-three/drei';
-import { Group } from 'three/src/Three';
+import { Group } from 'three';
 import { useAnimationContext } from '../hooks/useAnimationContext';
 import { useGLTF } from '@react-three/drei';
 

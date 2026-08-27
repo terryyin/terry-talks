@@ -1,4 +1,5 @@
 import React, {useMemo} from 'react';
+import type {JSX} from 'react';
 import {roundedRect} from './helpers/rounded-rectangle';
 
 type Props = {

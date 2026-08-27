@@ -25,7 +25,7 @@ export const GLTFNode: React.FC<{
             foundNode.position.set(0, 0, 0);
             foundNode.updateMatrixWorld();
           }
-          setNode(foundNode as THREE.Group);
+          setNode(foundNode as Group);
 
           if (debugBox) {
             const box = new Box3().setFromObject(foundNode);

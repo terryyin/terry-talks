@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S12 landed (S5 skipped); next is S13
+**Status:** in progress — S1–S13 landed (S5 skipped); next is S14
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -183,16 +183,10 @@ should treat D2–D8 as decided unless you change them.
 ### S13 — React 19 + R3F 9 + three 0.171 (packages compile)
 
 - **Type:** Structure
-- **Status:** planned
-- **Unlocks:** S14 (tests after 3D upgrade)
-- **Do:** Coupled upgrade per Remotion React 19 docs: `react`/`react-dom`
-  19, `@react-three/fiber` 9.1.2 (or current compatible), `three` 0.171,
-  matching `@types/*`, `@react-three/drei` / postprocessing as required.
-  Fix compile errors only (import paths such as
-  `three/examples/jsm/loaders/GLTFLoader` and `three/src/Three`, R3F/drei
-  API). Do not redesign scenes. If this exceeds the time-box, split by
-  error family and update this plan — do not leave `tsc` red.
-- **Done when:** terry-moves `tsc --noEmit` exits 0.
+- **Status:** done
+- React 19, fiber 9.1.2, drei 10.0.0, postprocessing 3.0.0, three 0.171.
+  `three/src/Three` → `three`; JSX import for React 19; `three-stdlib` kept
+  as a direct dep. `tsc --noEmit` exits 0.
 
 ### S14 — Tests + compositions after the 3D upgrade
 
