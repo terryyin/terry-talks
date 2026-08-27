@@ -441,8 +441,7 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
 
 ### A1. Loom warp-stop animation (candidate to replace G15)
 
-- **Status:** planned — terry-moves composition `StoryLoomWarpStop`;
-  artefact to land in `public/` when rendered. **Intended to replace
+- **Status:** done — `public/loom-warp-stop.mp4`. **Intended to replace
   G15**; keep G15 on the slide and in this list until we decide which
   to keep.
 - **Slide:** "Smart → dumb → gone"

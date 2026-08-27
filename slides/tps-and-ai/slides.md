@@ -507,6 +507,16 @@ assertThat(prepareStatementCount, lessThan(10L));
   class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
 />
 
+<video
+  v-click
+  muted
+  loop
+  playsinline
+  autoplay
+  src="/loom-warp-stop.mp4"
+  class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
+/>
+
 <!--
 Claims 6 and 20 (poka-yoke supports jidoka).
 Gone: the best part is no part — the failure can no longer occur.
