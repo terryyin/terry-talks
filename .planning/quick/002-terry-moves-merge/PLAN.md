@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S4 and S7 landed; next is S6 (S5 skipped)
+**Status:** in progress — S1–S7 landed (S5 skipped); next is S8
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -42,6 +42,8 @@ should treat D2–D8 as decided unless you change them.
   three-stdlib 2.29.6, three-mesh-bvh 0.7.3). S13 still does the React 19 /
   R3F 9 / three 0.171 upgrade. Compositions script:
   `remotion compositions src/index.ts`.
+- `pnpm moves srt` invokes `ts-node ./src/srt.ts`; that script already fails
+  typecheck (`padStart`, `process`). S9 (`tsx` + TS 5) should fix it.
 
 ## Discoveries (read before executing)
 
@@ -124,15 +126,10 @@ should treat D2–D8 as decided unless you change them.
 ### S6 — Root one-touch `pnpm moves`
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Add `scripts/moves.mjs` + root script `"moves"`. Default with no
-  args: Remotion Studio for `terry-moves` (cwd must be that package so
-  `public/` and `remotion.config.ts` resolve). Subcommands: `studio`,
-  `test`, `render` (interactive/composition-picker remotion render), `srt`.
-  Analogous to `scripts/show.mjs`. Do not name it `show` (pnpm reserved).
-- **Done when:** `pnpm moves test` runs the terry-moves test script
-  successfully; `pnpm moves` with no args would start Studio (do not leave
-  a Studio server running).
+- **Status:** done
+- `scripts/moves.mjs` + root `"moves"`. Default/`studio` → `pnpm start` in
+  `terry-moves/` (`remotion preview`). `test` / `render` / `srt` dispatch to
+  package scripts. `pnpm moves test` exits 0.
 
 ### S7 — Drop inert nested GitHub workflow
 

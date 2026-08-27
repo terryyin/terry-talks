@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "present": "node scripts/show.mjs",
+    "moves": "node scripts/moves.mjs",
     "dev": "slidev --open",
     "build": "slidev build",
     "export": "slidev export",
