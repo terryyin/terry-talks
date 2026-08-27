@@ -1,5 +1,5 @@
 {
-  description = "Terry's talks and presentations (Slidev)";
+  description = "Terry's talks (Slidev) and Remotion videos";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

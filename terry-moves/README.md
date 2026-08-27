@@ -2,13 +2,19 @@ Congratuations! Now you've discovered how Terry moves.
 
 # How to add a new project
 
-## Step 0: Clone the repo and install dependencies
+## Step 0: Install from the terry-talks workspace
+
+`terry-moves` is an in-tree pnpm workspace package. From the repo root:
 
 ```bash
-git clone	git@github.com:terryyin/terry-moves.git
-cd terry-moves
-yarn install
+pnpm install
+pnpm moves          # Remotion Studio (default)
+pnpm moves test     # jest + eslint + tsc
+pnpm moves render   # remotion render
+pnpm moves srt      # product-developer subtitles as SRT
 ```
+
+Or from this folder: `pnpm start` (Studio), `pnpm test`, `pnpm run build`, `pnpm srt`.
 
 ## Step 1: Add a new story
 
@@ -29,9 +35,9 @@ export const StoryTransparent: React.FC = () => {
 };
 ```
 
-Don't forget to add the new story to the `src/Root.ts` file.
+Don't forget to add the new story to the `src/Root.tsx` file.
 
-Then use command `yarn start` to start the development server. You can see the new story in the browser.
+Then run `pnpm moves` from the repo root (or `pnpm start` here) to open Remotion Studio. You can see the new story in the browser.
 
 ## Step 2: Add subtitles
 
@@ -54,7 +60,7 @@ Please find examples in the `src/stories/` folder.
 
 ## Step 4: Build the video
 
-Use command `yarn build`, then choose the store you want to build to build the video. The video will be generated in the `out` folder.
+Use `pnpm moves render` from the repo root (or `pnpm run build` here), then choose the story you want to build. The video will be generated in the `out` folder.
 
 # Translations
 
