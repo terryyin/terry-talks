@@ -454,6 +454,21 @@ Claim 6 — the stop preserves freedom while creating an opportunity to learn.
 -->
 
 ---
+layout: center
+class: text-center
+---
+
+## So that's the Jidoka that frees people
+
+# But how to build one?
+
+Is AI a good excuse to accumulate loads of judgment-dependent solutions and call it done?
+
+<!--
+Claim 6; G18 (burr / 組木) is planned for the right once generated.
+-->
+
+---
 class: "[&>h1]:!mb-2"
 ---
 

@@ -348,6 +348,21 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   letters, no captions.” Keep Prompt's four labels in the picture,
   large, Latin, readable, spelled exactly.
 
+### G18. Burr puzzle (組木)
+
+- **Status:** planned — no file yet. Intended path
+  `public/burr-puzzle.png`
+- **Slide:** "But how to build one?"
+- **Placement:** right half / 4:3 once generated; until then the slide
+  stays text-only
+- **Why:** a Burr puzzle (組木 / kumiki) looks like a finished object
+  but still needs the sequence in someone's head — judgment-dependent
+  work that can be mistaken for done
+- **Prompt:** a classic six-piece wooden burr puzzle (Japanese 組木 /
+  kumiki): interlocking sticks assembled far enough to look complete,
+  one key piece withdrawn a little as the vermilion accent so remaining
+  judgment is visible; no text; 4:3
+
 ---
 
 ## Build in-slide (diagrams and icons, not AI art)
