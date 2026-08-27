@@ -228,15 +228,61 @@ layout: two-cols-header
 
 ::left::
 
-**Toyota's official TPS overview**
+**The TPS house**
 
-Pillars: **Jidoka** · **Just-in-Time**
+<svg class="mx-auto mt-1 h-[215px] w-full" viewBox="0 0 400 310" role="img" aria-labelledby="tps-house-title tps-house-desc">
+  <title id="tps-house-title">The commonly taught TPS house</title>
+  <desc id="tps-house-desc">
+    Roof: best quality, lowest cost, shortest lead time. Pillars: Jidoka
+    and Just-in-Time, with people and kaizen between them. Foundation:
+    standardized work, heijunka, and stability.
+  </desc>
+  <path
+    d="M 12 96 L 200 10 L 388 96 Z"
+    fill="#292524"
+    stroke="#292524"
+    stroke-width="2"
+    stroke-linejoin="round"
+  />
+  <g fill="#fffaf3" text-anchor="middle">
+    <text x="200" y="50" font-weight="700" style="font-size: 15px">Best quality</text>
+    <text x="200" y="70" style="font-size: 11px">Lowest cost · Shortest lead time</text>
+  </g>
+  <rect x="40" y="96" width="320" height="148" fill="#fffaf3" stroke="#78716c" stroke-width="2.5" />
+  <line x1="148" y1="96" x2="148" y2="244" stroke="#78716c" stroke-width="2" />
+  <line x1="252" y1="96" x2="252" y2="244" stroke="#78716c" stroke-width="2" />
+  <g text-anchor="middle">
+    <text x="94" y="152" fill="#b33a2b" font-weight="700" style="font-size: 18px">Jidoka</text>
+    <text x="94" y="176" fill="#57534e" style="font-size: 11px">
+      <tspan x="94">stop at</tspan>
+      <tspan x="94" dy="14">abnormality</tspan>
+    </text>
+    <text x="200" y="152" fill="#292524" font-weight="700" style="font-size: 15px">People</text>
+    <text x="200" y="176" fill="#292524" font-weight="700" style="font-size: 15px">Kaizen</text>
+    <text x="306" y="152" fill="#b33a2b" font-weight="700" style="font-size: 13px">Just-in-Time</text>
+    <text x="306" y="176" fill="#57534e" style="font-size: 11px">
+      <tspan x="306">only what</tspan>
+      <tspan x="306" dy="14">is needed</tspan>
+    </text>
+  </g>
+  <rect x="28" y="244" width="344" height="52" fill="#ece6dc" stroke="#78716c" stroke-width="2.5" />
+  <g fill="#292524" text-anchor="middle">
+    <text x="200" y="266" font-weight="700" style="font-size: 12px">Standardized work · Heijunka</text>
+    <text x="200" y="286" fill="#57534e" style="font-size: 12px">Stability</text>
+  </g>
+</svg>
 
-Toyota's explanation of its operating system
-(not labelled a house)
+<p class="mt-2 text-[13px] leading-snug">
+  Toyota's <strong>operating system</strong> for making things:
+  <strong>Jidoka</strong> builds quality in by stopping;
+  <strong>Just-in-Time</strong> makes only what is needed.
+</p>
 
-<div class="mt-6 text-[11px] leading-tight opacity-70">
-  Source: <a href="https://global.toyota/en/company/vision-and-philosophy/production-system/index.html">Toyota Motor Corporation, “Toyota Production System”</a>
+<div class="mt-1 text-[9px] leading-tight opacity-70">
+  Commonly taught Cho house; structure after Toyota's 1998 TPS booklet.
+  Original drawing — not a Toyota asset.
+  Pillar meanings:
+  <a href="https://global.toyota/en/company/vision-and-philosophy/production-system/index.html">Toyota, “Toyota Production System”</a>
 </div>
 
 ::right::
@@ -246,18 +292,25 @@ Toyota's explanation of its operating system
 <img
   src="/lean-thinking-house.png"
   alt="Lean Thinking house with Respect for People and Continuous Improvement pillars"
-  class="mx-auto mt-2 h-[310px] w-full object-contain"
+  class="mx-auto mt-1 h-[215px] w-full object-contain"
 />
 
-<div class="mt-1 text-center text-[9px] leading-tight opacity-70">
+<p class="mt-2 text-[13px] leading-snug">
+  A <strong>Toyota Way / lean-thinking</strong> synthesis:
+  <strong>Respect for People</strong> and
+  <strong>Continuous Improvement</strong>, on managers-as-teachers,
+  toward <strong>perfection</strong>.
+</p>
+
+<div class="mt-1 text-[9px] leading-tight opacity-70">
   Larman & Vodde, <em>Scaling Lean and Agile Development</em>, Fig. 3.1 (2009)<br>
   <a href="https://less.works/resources/graphics/book-images">Creative Commons for presentations via less.works</a>
 </div>
 
 <!--
-Show Toyota's official overview first, then the Larman/Vodde synthesis —
-related but different layers, not a taxonomy. Do not present an unsourced
-house-shaped TPS diagram as Toyota's. Claim 2.
+Show the commonly taught TPS house first (Cho / 1998 booklet structure,
+original drawing), then the Larman/Vodde synthesis — related but different
+layers. Do not present the left house as Toyota's official graphic. Claim 2.
 -->
 
 ---

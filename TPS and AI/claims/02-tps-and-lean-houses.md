@@ -16,12 +16,15 @@ diagrams used in this talk show **related but different layers**.
 
 The abstraction-layer comparison is an interpretive device for the talk.
 
-### Toyota's official TPS overview
+### Toyota's TPS overview — and the commonly taught house
 
-For the talk, use Toyota Motor Corporation's current
-[official TPS overview][toyota-visual] and mark Toyota as the source.
-Toyota does not label this visual a “house,” define a roof, or define a
-foundation. **Official TPS overview** is the accurate name.
+Toyota's current [official TPS page][toyota-tps] and
+[Virtual Plant Tour][toyota-visual] explain two pillars and do not
+publish a reusable house. Toyota does not presently label a roof or a
+foundation. For the talk, draw the **commonly taught Cho house** as an
+original English SVG (structure after Toyota's 1998 TPS booklet), and
+say so on-slide: it is a reconstruction, not a Toyota asset. Pillar
+meanings still follow Toyota's current official description.
 
 Toyota presents TPS as being “for the benefit of others”: making
 ever-better products, delivering quality at the best price, putting
@@ -73,7 +76,7 @@ management appear later in the same book; they are not the Toyota Way
 
 | Representation | What it foregrounds | Source and scope |
 |---|---|---|
-| **Toyota TPS overview** | Jidoka + Just-in-Time | Toyota's current explanation of its production/operating system. Not labelled a house. |
+| **TPS house (Cho / 1998)** | Jidoka + Just-in-Time | Commonly taught operating-system house. Reconstruction of Toyota's 1998 booklet structure; current Toyota pages still name the same two pillars, not a house. |
 | **Larman/Vodde Lean Thinking House** | Respect for People + Continuous Improvement, on a foundation of managers-as-teachers, toward a perfection goal | Larman and Vodde's synthesis for lean product development. It is not an official Toyota TPS diagram. |
 
 Toyota itself used **Continuous Improvement** and **Respect for People**
@@ -91,9 +94,11 @@ as the jidoka response is [Claim 19](19-stop-and-fix.md).
 
 ## Implication for the talk
 
-Show the official Toyota TPS overview first. Then show the Larman/Vodde
-house, attributed as their Toyota Way / lean thinking synthesis. Do not
-present an unsourced house-shaped TPS diagram as Toyota's.
+Show the commonly taught TPS house first, attributed as a Cho / 1998
+reconstruction. Then show the Larman/Vodde house, attributed as their
+Toyota Way / lean thinking synthesis. Typeset the layer contrast
+**below** both houses. Do not present the left drawing as Toyota's
+official graphic.
 
 The comparison is not a taxonomy of practices under principles under
 philosophy. [Claims 3](03-jidoka-enables-jit-trusts-respect-grows.md)–[6](06-jidoka-embeds-routine-judgment.md)
@@ -120,21 +125,29 @@ this becomes agency and development or merely pressure.
 
 ## Sources consulted
 
-1. Toyota Motor Corporation, [Toyota Virtual Plant Tour: Toyota Production
-   System][toyota-visual]. Current official visual used as the talk's primary
-   TPS overview.
-2. Toyota Motor Corporation, [Toyota Production System][toyota-tps]. Current
+1. Toyota Motor Corporation, [Toyota Production System][toyota-tps]. Current
    official explanation of TPS's purpose, two pillars, flow, pull, and
-   human-centered kaizen.
-3. Craig Larman and Bas Vodde (2009), [Summary of the Toyota Way (Lean
+   human-centered kaizen. No downloadable house.
+2. Toyota Motor Corporation, [Toyota Virtual Plant Tour: Toyota Production
+   System][toyota-visual]. Current official plant-tour visual; same two
+   pillars, still not a house.
+3. Toyota Motor Corporation (1998), *The Toyota Production System —
+   Leaner manufacturing for a greener planet* (Public Affairs Division,
+   Tokyo). Closest official published house structure (roof / two
+   pillars / foundation). Wilmjakob's CC0 German reconstruction
+   documents that structure; the talk redraws it in English.
+4. Fujio Cho's internal teaching house (1970s–80s), as summarized by
+   Art Smalley, [TPS House](https://artoflean.com/reference/tps-house/).
+   The metaphor the 1998 booklet and later teaching diagrams share.
+5. Craig Larman and Bas Vodde (2009), [Summary of the Toyota Way (Lean
    Thinking) House][lv-pdf], with Larman's [source description][lv-page].
    Diagram contents only.
-4. Craig Larman and Bas Vodde (2016), *Large-Scale Scrum: More with LeSS*,
+6. Craig Larman and Bas Vodde (2016), *Large-Scale Scrum: More with LeSS*,
    “Lean thinking” principle (printed p. 11). Restates foundation
    (managers-as-teachers, Go See, stop-and-fix), two pillars (respect for
    people; continuous improvement), and a perfection goal. Does not reprint
    the house or explain its center.
-5. Toyota Motor Corporation (2019), [Annual Report 2019][toyota-way-2019].
+7. Toyota Motor Corporation (2019), [Annual Report 2019][toyota-way-2019].
    Official account of Continuous Improvement and Respect for People as the
    two pillars of Toyota Way 2001.
 

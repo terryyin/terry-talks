@@ -66,19 +66,43 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ## Find from authoritative sources
 
-### 1. Toyota's official TPS overview graphic
+### 1. The TPS house (Cho / Toyota 1998 teaching)
 
-- **Status:** fallback — no reusable official graphic found. Toyota's
-  [TPS overview](https://global.toyota/en/company/vision-and-philosophy/production-system/index.html)
-  and [Virtual Plant Tour](https://global.toyota/en/company/plant-tours/production-system/index.html)
-  explain the two pillars but do not offer a TPS overview as a
-  downloadable asset. Toyota's [Terms of
-  Use](https://global.toyota/en/terms-of-use/index.html) reserve reuse of
-  site graphics except content specifically provided for download; the
-  [Downloadable Assets](https://global.toyota/en/downloadable-assets/index.html)
-  catalog does not include a TPS overview. The slide therefore uses
-  sourced text and no Toyota graphic.
+- **Status:** implemented in-slide — original English SVG on
+  "Two houses, different layers". Not a Toyota file.
 - **Slide:** "Two houses, different layers", left column
+- **Placement:** left-column visual; the layer explanation is typeset
+  **below** both houses, never in the picture
+- **Closest official published structure:** Toyota Motor Corporation,
+  *The Toyota Production System — Leaner manufacturing for a greener
+  planet* (Public Affairs Division, Tokyo, 1998). Roof of high
+  productivity with highest quality and on-time delivery; pillars
+  **Jidoka** and **Just-in-Time**; foundation of waste elimination,
+  people, suppliers, and kaizen. The house metaphor itself is the
+  commonly taught Cho teaching diagram (Art Smalley: internal Toyota
+  education, 1970s–80s), not a current Toyota download.
+- **Reusable reconstruction found and not used on-slide:** Wilmjakob
+  Herlyn's [TPS-Haus.tif](https://commons.wikimedia.org/wiki/File:TPS-Haus.tif)
+  is a [CC0](https://creativecommons.org/publicdomain/zero/1.0/) German
+  illustration of that 1998 booklet. Faithful, but German and too dense
+  for this two-column slide.
+- **Ruled out:** Toyota's current
+  [TPS page](https://global.toyota/en/company/vision-and-philosophy/production-system/index.html)
+  and [Virtual Plant Tour](https://global.toyota/en/company/plant-tours/production-system/index.html)
+  explain the two pillars and do not offer a house as a downloadable
+  asset; [Terms of Use](https://global.toyota/en/terms-of-use/index.html)
+  reserve reuse of site graphics, and
+  [Downloadable Assets](https://global.toyota/en/downloadable-assets/index.html)
+  has no TPS overview. Toyota Motor Europe's 2007 house (Nigel Thurlow
+  recreation of an internal Visio) is the most "inside Toyota" drawing
+  in circulation — copyrighted, not for reuse. Liker, *The Toyota Way*
+  (2004) p.33 is the English house most people recognize — also
+  copyrighted.
+- **What we drew:** original English SVG of that Cho / 1998 structure
+  (QCD roof; Jidoka left, Just-in-Time right; people and kaizen in the
+  centre; standardized work, heijunka, and stability as foundation).
+  Attributed as a reconstruction, not as Toyota's official graphic.
+  Pillar meanings still cite Toyota's current TPS page.
 
 ### 2. Larman & Vodde's Lean Thinking house
 
@@ -364,6 +388,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ## Build in-slide (diagrams and icons, not AI art)
 
+- **"Two houses, different layers"** (left column): original English
+  SVG of the commonly taught TPS house. Item 1 above is the source
+  trail; labels stay typeset text. The Larman & Vodde house on the
+  right stays the sourced figure.
 - **"One lineage of inspiration":** simple flow diagram
   TPS → XP / Agile → LeSS → AI-augmented development. Mermaid or SVG;
   needs crisp text. Done — embedded as Mermaid; labels stay typeset
