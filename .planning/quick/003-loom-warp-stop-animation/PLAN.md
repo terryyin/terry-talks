@@ -117,25 +117,23 @@ Last slice only updates that status and the public artefact path.
 | List | A1 already in artwork-list (planned). Last slice: status → done + file path |
 | Checks | `pnpm moves test` on story slices; compositions list includes the id. Do not full-render every slice. Render once in the embed slice |
 
+## Learnings
+
+- Root `.gitignore` has Python leftover `parts/`, so new files under
+  `terry-moves/src/parts/` are ignored. Wrap-up must
+  `git add -f terry-moves/src/parts/WarpStopLoom.tsx`.
+- Actors already named in the still: `stop-bar`, `dropper`, `warp`.
+  Story size is 1280×720.
+
 ## Slices
 
 ### 1. Static warp-stop schematic in Studio
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Add `terry-moves/src/parts/WarpStopLoom.tsx` (SVG/HTML side
-  view: intact warps, droppers held up, bar below with visible
-  clearance, light fabric hint). Sumi-e: off-white paper, ink strokes
-  and wash, no CAD look, no vermilion yet, **no text**. Story size
-  16:9 (wide strip, not 720×720). Add
-  `terry-moves/src/stories/StoryLoomWarpStop.tsx` wrapping it in
-  `<Story id="StoryLoomWarpStop">`, one short still beat. Register in
-  `terry-moves/src/Root.tsx`. Keep the part under 250 lines. Do not
-  animate yet.
-- **Done when:** `pnpm moves test` passes; Remotion compositions list
-  includes `StoryLoomWarpStop`; Studio shows a still that could sit
-  next to G15 without a style break.
-- **Unlocks:** slice 2 can attach motion to named actors.
+- **Status:** done
+- Still `StoryLoomWarpStop` (1280×720) in Studio: sumi-e side view,
+  6 intact warps, droppers up, bar with clearance. No vermilion, no
+  text, no motion. Part: `WarpStopLoom.tsx`.
 
 ### 2. Reciprocating bar while warps are intact
 
