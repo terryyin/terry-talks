@@ -398,11 +398,11 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   **not** prepend the sumi-e prefix. Do **not** pass G1 as a style
   reference — it would pull the scene back into wash.
 - **Exception (text):** the common prefix says “No text, no letters, no
-  captions.” The owner asked for **A B C** on the trunk and two
-  English labels on the hinge arrows **in the picture**. This item
-  overrides that rule. If a generate garbles the two long phrases,
-  keep A B C in the image and typeset the phrases on-slide along the
-  arrows.
+  captions.” The owner asked for **A B C** on the trunk, two
+  customer-need callouts, and two English labels on the hinge arrows
+  **in the picture**. This item overrides that rule. If a generation
+  garbles the long phrases, keep A B C in the image and typeset those
+  phrases on-slide.
 - **Why generated:** Claim 8's overlap — continuous integration pulls
   the right people; their coordination results in integration — is a
   spatial story the bullets cannot show. Two small feature teams pull
@@ -416,9 +416,13 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
   Four zones in one print:
 
-  (1) **Far left — the customer.** A patron with visible needs (two
-  distinct wished-for things, or two request slips), facing the
-  workshop. This is the source of pull, not a manager directing work.
+  (1) **Far left — the customer.** A patron facing the workshop
+  expresses two desired outcomes for **one eventual product**, not
+  two solution parts for separate teams: one lantern that is
+  **bright** and **wind resistant**. Show one lantern in a single
+  thought/request area with the two callouts **needs a lantern that
+  is bright** and **needs the same lantern to be wind resistant**.
+  This is the source of pull, not a manager directing work.
 
   (2) **Middle left — two teams on one trunk.** One workshop split by
   a single horizontal wooden trunk-beam (one shared mainline).
@@ -427,24 +431,34 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   abstract marks beside them — exactly two people plus the companion,
   no readable letters on the board. **Below the beam:** three people
   in a mob around one shared desk — exactly three people, one screen.
-  Each team has a short arrow pushing their work onto the trunk. The
-  pair's push lands a little to the left (earlier) and is marked
-  **A** and **B**. The mob's push is marked **A** and **C**. The two
-  **A**s occupy the same place on the trunk and are the only
-  vermilion-red in the picture (conflict). **B** and **C** are
-  ordinary ink-black. Latin capitals, large, readable.
+  Across the five humans, include one or two women and visibly varied
+  ages, including at least one older person.
+
+  Show two separate integrations in clear temporal order along the
+  trunk. First, a short arrow from the upper pair lands at an earlier,
+  left-hand integration point marked **A B**; this first **A** and
+  **B** are both ordinary ink-black. Later and farther right, a short
+  arrow from the lower mob lands at a second integration point marked
+  **A C**. This second **A** is vermilion-red because it conflicts
+  with the already-integrated black A; **C** remains ink-black. Put a
+  small vermilion-red **×** on the lower team's push arrow to make the
+  conflict visible. No lower-team arrow points to the first A. Latin
+  capitals, large, readable. Vermilion is reserved for the later,
+  conflicting A and the × that marks that same conflict.
 
   (3) **Middle right — self-coordination.** The same five people (the
   pair and the mob, no extra coordinator) gathered by themselves
-  around one shared plan, working out a common solution that can
-  carry both customer values and stay one simple product. Informal,
-  face to face, no dais, no supervisor.
+  around one shared plan, working out one lantern design that is both
+  bright and wind resistant while staying simple and cohesive. Keep
+  the same one or two women and varied ages visible; do not replace
+  or add people. The AI companion may remain with them but is not a
+  sixth human. Informal, face to face, no dais, no supervisor.
 
   (4) **Far right — the product.** The simple, classic thing they are
-  building: one well-proportioned object with cohesive design (a
-  single lacquered writing box or a simple lantern), one form, not
-  two styles bolted together. Empty paper around it so it reads as
-  the result.
+  building: one well-proportioned classic lantern that is visibly
+  bright and wind resistant, with one cohesive design — not two
+  solution parts or styles bolted together. Empty paper around it so
+  it reads as the result.
 
   Two labeled arrows arc **over and under** the middle zones, from
   the trunk-conflict (middle left) to the gathering (middle right):
@@ -458,18 +472,27 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   CI-server boxes.
 - **Accuracy notes for the worker (must survive generation):** when
   regenerating, do **not** prepend the sumi-e prefix. Keep Prompt's
-  labels, large, Latin, readable, spelled exactly: **A**, **B**,
-  **C**, **integration pulls collaboration**, **coordination results
-  in immediate integration**. Counts: one customer; pair zone = two
-  humans + one AI companion; mob = three humans; gathering = those
-  same five, nobody added. The trunk is one horizontal beam between
-  the two teams. Pair's A and B sit left of (earlier than) the mob's
-  C; both A's coincide and are the only vermilion. No manager. The
-  right-hand product is one object. The labeled arrows arc above and
-  below the middle zones — never squeezed into the horizontal gap —
-  so the print keeps its rounded-diamond silhouette. If the tool
-  cannot emit 3:1, generate 16:9 with the diamond as a wide strip and
-  empty paper above and below, then crop to 3:1.
+  labels large, Latin, readable, and spelled exactly. The customer's
+  two needs belong to the same lantern, never separate components or
+  team assignments. Counts: one customer; pair zone = two humans +
+  one AI companion; mob = three humans; gathering = those same five
+  humans, nobody added. Across those five, show one or two women and
+  at least one older person, and preserve their identities in the
+  gathering.
+
+  The trunk is one horizontal beam between the two teams. Sequence
+  left to right: **upper team → black A B integrated first → lower
+  team later pushes A C → conflict at the second, red A → collaboration
+  is pulled**. The first A and B are black. The lower arrow points
+  only to the later A C; the later A and a small × on that arrow are
+  vermilion, while C is black. The two A's are separate in time and
+  position; they do not coincide. No manager. The right-hand product
+  is one cohesive lantern satisfying both outcomes. The labeled
+  arrows arc above and below the middle zones — never squeezed into
+  the horizontal gap — so the print keeps its rounded-diamond
+  silhouette. If the tool cannot emit 3:1, generate 16:9 with the
+  diamond as a wide strip and empty paper above and below, then crop
+  to 3:1.
 
 ---
 
