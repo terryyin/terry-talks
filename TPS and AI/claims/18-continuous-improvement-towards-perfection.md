@@ -1,8 +1,9 @@
-# Claim 18: Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is the TPS example, Definition of Done the LeSS measure
+# Claim 18: Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking, guided by Why LeSS's two optimization goals of adaptiveness; SMED is the TPS example, Definition of Done the LeSS measure
 
 **Status: Provisional — origin and layers supported; stage labels are
 the LeSS principle plus kaizen; SMED is the TPS perfection-goal
-example, Definition of Done the LeSS measure**
+example, Definition of Done the LeSS measure; Why LeSS's two
+optimization goals of adaptiveness guide the principle**
 
 ## Claim
 
@@ -14,10 +15,13 @@ example, Definition of Done the LeSS measure**
 > reducing effort, time, space, cost, and mistakes. LeSS joins those two
 > phrases so kaizen cannot become a change project with an end date.
 > Toyota's TPS overview names jidoka and JIT; daily kaizen is how TPS is
-> lived. On stage, keep both names: the LeSS principle and kaizen. SMED
-> is the TPS example of that shape: name a perfection goal, then keep
-> doing kaizen toward it. Definition of Done is LeSS's measure of the
-> same trajectory for teams.**
+> lived. On stage, keep both names: the LeSS principle and kaizen. Why
+> LeSS names two optimization goals of adaptiveness—ability to change
+> direction with relatively low cost, for maximizing customer value—
+> and says that goal of adaptiveness guides continuous improvement
+> forever. SMED is the TPS example of that shape: name a perfection
+> goal, then keep doing kaizen toward it. Definition of Done is LeSS's
+> measure of the same trajectory for teams.**
 
 The origin needs the same layer distinction as
 [Claim 2](02-tps-and-lean-houses.md). SMED is the TPS worked case.
@@ -80,7 +84,46 @@ the LeSS vision it sometimes uses:
 > Create the organizational ability to respond to changes by being able
 > to deliver or change direction at any time without additional cost.
 
-That is the software-shaped twin of cheap changeover.
+That vision is the first optimization goal stated as a perfection
+challenge.
+
+### The goal of adaptiveness guides this principle forever
+
+Why LeSS says what adaptiveness means—two **optimization goals**, not
+a toolkit:
+
+> LeSS is an organizational system for product development aimed at
+> maximizing an organization's adaptiveness. With adaptiveness (or
+> agility, the original intent of agile development) we mean optimizing
+> towards:
+>
+> - Ability to change direction with relatively low cost, primarily
+>   based on discovery through frequent delivery, for…
+> - Maximizing value delivered to customers and end-users.
+
+The first bullet is for the second: low-cost change of direction so
+more value can be delivered to customers and end-users. Why LeSS also
+says:
+
+> The goal of adaptiveness guides continuous improvement forever.
+
+Those two bullets are what Continuous Improvement Towards Perfection
+is guided by. They are not a third pair beside Toyota Way pillars or
+Womack and Jones's five principles. Zero leftover cost of changing
+direction is the challenge, not a finish line. Definition of Done
+remains how teams measure the same trajectory (below). SMED method,
+switching-versus-changeover wording, and the software stack stay on
+[Claim 5](05-smed-software-changeover-and-ai-friendly-context.md).
+
+Supporting sources use the same two goals with different labels. A
+2016 community blog names two system optimization goals:
+organizational design to deliver the highest business value, and
+agility as “turn on a dime for a dime” / change direction with low
+cost and friction, and points at this principle. The MTS case lists
+three “LeSS optimising goals”: Deliver highest customer value first;
+Cheap & easy adaptiveness (“turn on a dime for a dime”); Learning.
+Prefer Why LeSS's two bullets as canonical. Learning on the MTS list
+is a case-study addition, not a third official pair.
 
 ### SMED is the TPS example: a perfection goal, then kaizen toward it
 
@@ -161,6 +204,10 @@ Then two concretes, not a second house lecture:
 > gap between today's Done and shippable to the customer. Expanding
 > that definition is the principle made visible.**
 
+The next beat is the leftover cost of changing direction—the first
+Why LeSS optimization goal. This slide names the principle; the next
+one owns the cost itself. Claim 5 already has the method.
+
 The AI-era turn is the same kaizen, aimed at the leftover cost Claim 5
 already names, and at what still sits outside Done. Generation of a
 candidate change is getting cheaper. Reconstructing intent, preparing a
@@ -229,3 +276,20 @@ None remaining on this claim.
     LeSS*, “Lean thinking” principle. House restated toward a perfection
     goal; already sourced in
     [Claim 2](02-tps-and-lean-houses.md).
+12. The LeSS Company, [Why
+    LeSS?](https://less.works/less/framework/why-less). Canonical two
+    optimization goals of adaptiveness (low-cost change of direction,
+    for maximizing customer value); “The goal of adaptiveness guides
+    continuous improvement forever.”
+13. Venkatesh Krishnamurthy (2016), [Achieving System Optimisation
+    Goals in
+    LeSS](https://less.works/blog/2016/09/19/achieving-system-optimization-goals-in-less.html).
+    Supporting: two system optimization goals (highest business value;
+    agility as “turn on a dime for a dime” / low-cost change of
+    direction), pointing at Continuous Improvement Towards Perfection.
+    Not a competing official pair.
+14. The LeSS Company, [Learning How to Learn in MTS
+    Kassa](https://less.works/case-studies/mts-kassa). Supporting
+    case-study list of three “LeSS optimising goals” (highest customer
+    value first; cheap & easy adaptiveness; Learning). Prefer Why LeSS
+    wording; do not treat Learning as a third official pair.
