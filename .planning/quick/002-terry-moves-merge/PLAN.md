@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S11 landed (S5 skipped); next is S12
+**Status:** in progress — S1–S12 landed (S5 skipped); next is S13
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -176,10 +176,9 @@ should treat D2–D8 as decided unless you change them.
 ### S12 — styled-components v6
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Upgrade `styled-components` to v6 and update the few call sites
-  (`CodeHighlight`, `CalloutCloud`, `HealthBar`) to the v6 API. Tests pass.
-- **Done when:** those files compile; tests pass.
+- **Status:** done
+- `styled-components` v6; dropped `@types/styled-components`. Call sites
+  needed no API changes. Tests pass.
 
 ### S13 — React 19 + R3F 9 + three 0.171 (packages compile)
 
