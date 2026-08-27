@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S8 landed (S5 skipped); next is S9
+**Status:** in progress — S1–S9 landed (S5 skipped); next is S10
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -154,11 +154,9 @@ should treat D2–D8 as decided unless you change them.
 ### S9 — TypeScript aligned with the repo
 
 - **Type:** Behavior
-- **Status:** planned
-- TS 5.6 already landed in S8 (`tsc` green). Remaining: replace `ts-node`
-  with `tsx` for `srt`; widen `tsconfig` `lib` only if needed so
-  `pnpm moves srt` runs. Do not force ESM. Tests still green.
-- **Done when:** `pnpm moves srt` exits 0 (prints SRT); tests still pass.
+- **Status:** done
+- TS `^5.6` (from S8). `srt` uses `tsx`; `tsconfig` `lib` matches `target` (ES2018).
+  `pnpm moves srt` prints SRT; tests pass.
 
 ### S10 — ESLint to current Remotion config
 
