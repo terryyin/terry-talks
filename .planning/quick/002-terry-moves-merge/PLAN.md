@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S7 landed (S5 skipped); next is S8
+**Status:** in progress — S1–S8 landed (S5 skipped); next is S9
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -44,6 +44,11 @@ should treat D2–D8 as decided unless you change them.
   `remotion compositions src/index.ts`.
 - `pnpm moves srt` invokes `ts-node ./src/srt.ts`; that script already fails
   typecheck (`padStart`, `process`). S9 (`tsx` + TS 5) should fix it.
+- S8: Remotion **4.0.518** needs TS 5 (done as S8-minimum) and pnpm-visible
+  `@remotion/eslint-plugin` + `@typescript-eslint/{parser,eslint-plugin}`
+  because `@remotion/eslint-config@4.0.518` has empty `dependencies`.
+  S9 remaining work is mostly `ts-node` → `tsx` / srt. S10 still owns flat
+  config if that is what current Remotion recommends.
 
 ## Discoveries (read before executing)
 
@@ -140,24 +145,20 @@ should treat D2–D8 as decided unless you change them.
 ### S8 — Remotion 4.0.130 → latest 4.0.x
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** In `terry-moves`, `pnpm exec remotion upgrade` (or pin every
-  `remotion` / `@remotion/*` package to the same latest 4.0.x). Adopt the
-  current recommended CLI: `remotion studio` (keep `preview` as alias if
-  still supported). Update `remotion.config.ts` only if the upgrade
-  requires it. Tests (S3 command) + compositions (S4 command) still green.
-- **Done when:** `pnpm --filter terry-moves exec remotion versions` shows
-  one version; test + compositions pass.
+- **Status:** done
+- Remotion / `@remotion/*` at exact **4.0.518**. `"start": "remotion studio"`,
+  `"preview"` alias kept. TypeScript `^5.6` (needed for zod 4 `.d.ts`).
+  Direct `@remotion/eslint-plugin` + typescript-eslint 6.21.0 so pnpm can
+  lint. `remotion versions` one version; test + compositions pass.
 
 ### S9 — TypeScript aligned with the repo
 
 - **Type:** Behavior
 - **Status:** planned
-- **Do:** Bump terry-moves `typescript` to the repo’s range (`^5.6`).
-  Change `tsconfig` only as required to compile (do not force ESM in this
-  slice). Replace `ts-node` with `tsx` for `srt` if `ts-node` breaks on
-  TS 5. Tests still green; `pnpm moves srt` still runs.
-- **Done when:** terry-moves `tsc --noEmit` on TS 5.x exits 0; tests pass.
+- TS 5.6 already landed in S8 (`tsc` green). Remaining: replace `ts-node`
+  with `tsx` for `srt`; widen `tsconfig` `lib` only if needed so
+  `pnpm moves srt` runs. Do not force ESM. Tests still green.
+- **Done when:** `pnpm moves srt` exits 0 (prints SRT); tests still pass.
 
 ### S10 — ESLint to current Remotion config
 
