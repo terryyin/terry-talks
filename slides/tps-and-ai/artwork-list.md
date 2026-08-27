@@ -349,11 +349,9 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G18. Burr puzzle (組木)
 
-- **Status:** planned — no file yet. Intended path
-  `public/burr-puzzle.png`
+- **Status:** done — generated at `public/burr-puzzle.png`
 - **Slide:** "But how to build one?"
-- **Placement:** right half / 4:3 once generated; until then the slide
-  stays text-only
+- **Placement:** right half / 4:3
 - **Why:** a Burr puzzle (組木 / kumiki) looks like a finished object
   but still needs the sequence in someone's head — judgment-dependent
   work that can be mistaken for done

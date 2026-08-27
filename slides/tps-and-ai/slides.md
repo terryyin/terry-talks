@@ -454,9 +454,10 @@ Claim 6 — the stop preserves freedom while creating an opportunity to learn.
 -->
 
 ---
-layout: center
-class: text-center
+class: relative
 ---
+
+<div class="absolute left-[6%] top-1/2 w-[43%] -translate-y-1/2">
 
 ## So that's the Jidoka that frees people
 
@@ -464,8 +465,16 @@ class: text-center
 
 Is AI a good excuse to accumulate loads of judgment-dependent solutions and call it done?
 
+</div>
+
+<img
+  src="/burr-puzzle.png"
+  alt="A six-piece wooden burr puzzle with its vermilion key piece slightly withdrawn"
+  class="absolute right-[4%] top-1/2 h-[64%] w-[44%] -translate-y-1/2 object-contain"
+/>
+
 <!--
-Claim 6; G18 (burr / 組木) is planned for the right once generated.
+Claim 6; G18 (burr / 組木) makes the remaining assembly judgment visible.
 -->
 
 ---
