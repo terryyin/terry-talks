@@ -16,7 +16,36 @@ export const loomWarpStopSubtitles: Subtitle[] = [
 			},
 		],
 	},
-	{id: 'break', leadingBlank: 0, duration: 2, text: ''},
+	{
+		id: 'break',
+		leadingBlank: 0,
+		duration: 4,
+		text: '',
+		actions: [
+			{actor: 'warp', actionType: 'disappear', startDuration: 0.12},
+			{actor: 'snapped-warp', actionType: 'appear', startDuration: 0.12},
+			{actor: 'bar-sweeps', actionType: 'disappear', startDuration: 0.2},
+			{
+				actor: 'dropper',
+				actionType: 'move',
+				duration: 0.9,
+				absolutePosition: [0, 72],
+				offset: 0.15,
+			},
+			{
+				actor: 'dropper-accent',
+				actionType: 'appear',
+				startDuration: 0.25,
+				offset: 0.95,
+			},
+			{
+				actor: 'dropper-accent',
+				actionType: 'glow',
+				duration: 1,
+				offset: 1.1,
+			},
+		],
+	},
 ];
 
 export const StoryLoomWarpStop: React.FC = () => {

@@ -125,7 +125,9 @@ Last slice only updates that status and the public artefact path.
   `git add -f`.
 - Actors: `stop-bar`, `dropper`, `warp`. Story size 1280×720.
 - Intact beat oscillates `stop-bar` with `delta: [40, 0]` until
-  subtitle id `break` (currently a 2s still placeholder).
+  subtitle id `break`. Break beat (4s): `warp` disappear,
+  `snapped-warp` appear, `dropper` move `[0, 72]`, then
+  `dropper-accent` appear + glow; `bar-sweeps` disappear.
 
 ## Slices
 
@@ -142,21 +144,15 @@ Last slice only updates that status and the public artefact path.
 - **Type:** Behavior
 - **Status:** done
 - Intact beat: `stop-bar` oscillates in X (`delta: [40, 0]`) with
-  `persistUntilSubtitleId: 'break'`. Droppers stay up. `break` is a
-  2s still placeholder until slice 3.
+  `persistUntilSubtitleId: 'break'`. Droppers stay up.
 
 ### 3. Broken warp drops a dropper and the bar stops
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** On the break beat: one warp shows as snapped; its dropper
-  `move`s down a few centimetres into the bar’s path; vermilion
-  (and optional `glow`) **only** on that fallen plate. Oscillate
-  ends at this beat so the bar is visibly blocked/still. Hold the
-  stopped frame, then the story may loop. No labels. Do not add
-  weft, shuttle, or andon.
-- **Done when:** the causal chain is readable in one play-through
-  (intact motion → break → fall → stop). `pnpm moves test` passes.
+- **Status:** done
+- Break beat (4s): warp snaps (`warp` / `snapped-warp`), dropper
+  falls 72px into the bar, vermilion `dropper-accent` after the
+  fall, bar sweeps fade. Causal chain is one play-through.
 
 ### 4. Render A1, put it on the slide, keep G15
 

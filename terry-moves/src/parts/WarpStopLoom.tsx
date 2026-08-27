@@ -4,6 +4,7 @@ import AnimationEffect from '../video_components/AnimationEffect';
 
 const PAPER = '#f2ebe0';
 const INK = '#1c1b18';
+const VERMILION = '#c41e3a';
 const VIEW = '0 0 1600 900';
 const PLATE_TOP = 232;
 const PLATE_H = 96;
@@ -47,7 +48,7 @@ const LoomSvg: React.FC<{children: React.ReactNode}> = ({children}) => (
 	</svg>
 );
 
-const Dropper: React.FC<{cx: number}> = ({cx}) => {
+const Dropper: React.FC<{cx: number; accent?: boolean}> = ({cx, accent = false}) => {
 	const k = ((cx * 13) % 11) - 5;
 	const l = cx - 20 + k * 0.15;
 	const r = cx + 20 + k * 0.1;
@@ -59,7 +60,7 @@ const Dropper: React.FC<{cx: number}> = ({cx}) => {
 		C ${l - 5} ${PLATE_TOP + 70}, ${l - 4} ${PLATE_TOP + 40}, ${l + 2} ${PLATE_TOP + 7} Z`;
 	return (
 		<g>
-			<path d={body} fill={INK} opacity={0.78} />
+			<path d={body} fill={accent ? VERMILION : INK} opacity={accent ? 0.92 : 0.78} />
 			<InkStroke
 				d={`M ${cx - 6} ${PLATE_TOP + 18} Q ${cx + 4} ${PLATE_TOP + 50} ${cx - 3} ${b - 16}`}
 				stroke="#efe8dc"
@@ -83,6 +84,17 @@ const WarpYarn: React.FC<{x: number; bulge: number}> = ({x, bulge}) => (
 	<g>
 		<InkStroke d={vStroke(x, 48, 662, bulge)} strokeWidth={1.7} opacity={0.88} />
 		<InkStroke d={vStroke(x + 1.2, 52, 658, bulge * 0.4)} strokeWidth={0.6} opacity={0.28} />
+	</g>
+);
+
+const SnappedWarp: React.FC<{x: number; bulge: number}> = ({x, bulge}) => (
+	<g>
+		<InkStroke d={`M ${x} 48 Q ${x + bulge * 2} 128 ${x + 1} 208`} strokeWidth={1.7} opacity={0.88} />
+		<InkStroke d={`M ${x + 1.2} 52 Q ${x + bulge} 126 ${x + 2} 200`} strokeWidth={0.6} opacity={0.28} />
+		<InkStroke d={`M ${x - 5} 210 Q ${x + 2} 218 ${x + 6} 206`} strokeWidth={1.4} opacity={0.7} />
+		<InkStroke d={`M ${x} 214 Q ${x + 18} 268 ${x + 8} 318`} strokeWidth={1.3} opacity={0.45} />
+		<InkStroke d={`M ${x - 2} 508 Q ${x + bulge * 3} 580 ${x} 662`} strokeWidth={1.7} opacity={0.55} />
+		<InkStroke d={`M ${x} 512 Q ${x + bulge} 584 ${x + 1} 658`} strokeWidth={0.6} opacity={0.22} />
 	</g>
 );
 
@@ -128,10 +140,14 @@ export const WarpStopLoom: React.FC = () => {
 				<InkStroke d="M 80 888 Q 800 872 1520 886" strokeWidth={2.2} opacity={0.22} />
 			</LoomSvg>
 			<AnimationEffect actor="stop-bar">
+				<AnimationEffect actor="bar-sweeps">
+					<LoomSvg>
+						{BAR_SWEEPS.map((s) => (
+							<InkStroke key={s.d} d={s.d} strokeWidth={s.strokeWidth} opacity={s.opacity} />
+						))}
+					</LoomSvg>
+				</AnimationEffect>
 				<LoomSvg>
-					{BAR_SWEEPS.map((s) => (
-						<InkStroke key={s.d} d={s.d} strokeWidth={s.strokeWidth} opacity={s.opacity} />
-					))}
 					<path
 						d="M 188 412 Q 800 396 1416 410 Q 1442 428 1414 448 Q 800 464 186 446 Q 162 428 188 412 Z"
 						fill={INK}
@@ -145,10 +161,20 @@ export const WarpStopLoom: React.FC = () => {
 				<LoomSvg>
 					<Dropper cx={actorWarp.x} />
 				</LoomSvg>
+				<AnimationEffect actor="dropper-accent">
+					<LoomSvg>
+						<Dropper cx={actorWarp.x} accent />
+					</LoomSvg>
+				</AnimationEffect>
 			</AnimationEffect>
 			<AnimationEffect actor="warp">
 				<LoomSvg>
 					<WarpYarn x={actorWarp.x} bulge={actorWarp.bulge} />
+				</LoomSvg>
+			</AnimationEffect>
+			<AnimationEffect actor="snapped-warp">
+				<LoomSvg>
+					<SnappedWarp x={actorWarp.x} bulge={actorWarp.bulge} />
 				</LoomSvg>
 			</AnimationEffect>
 		</AbsoluteFill>
