@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { AnimationContextProvider } from '@/hooks/useAnimationContext';
 import { makeMe } from '../helpers/makeMe';
 import AnimationContextWrapper from '@/models/AnimationContextWrapper';
@@ -39,6 +38,14 @@ describe('CodeHighlight', () => {
 
   const styleOfLine = (div: HTMLDivElement, line: number) => window.getComputedStyle(divOfLine(div, line));
 
+  const expectBackground = (actual: string, expected: string) => {
+    if (expected === '') {
+      expect(['', 'transparent', 'rgba(0, 0, 0, 0)']).toContain(actual);
+      return;
+    }
+    expect(actual).toBe(expected);
+  };
+
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const tokenElement = (div: HTMLDivElement, line: number, token: number): HTMLSpanElement => div.querySelector(`.prism-code>:nth-child(${line})>:nth-child(${token})`)!
 
@@ -57,10 +64,10 @@ describe('CodeHighlight', () => {
                 .seconds(sec)
                 .please();
         const div = renderAndGetDiv(animationContext);
-        expect(styleOfLine(div, 1).backgroundColor).toBe(expectedColor);
-        expect(styleOfLine(div, 2).backgroundColor).toBe('');
-        expect(styleOfLine(div, 3).backgroundColor).toBe(expectedColor);
-        expect(styleOfLine(div, 4).backgroundColor).toBe(expectedColor);
+        expectBackground(styleOfLine(div, 1).backgroundColor, expectedColor);
+        expectBackground(styleOfLine(div, 2).backgroundColor, '');
+        expectBackground(styleOfLine(div, 3).backgroundColor, expectedColor);
+        expectBackground(styleOfLine(div, 4).backgroundColor, expectedColor);
       });
     });
   });

@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/extend-expect';
 import {makeMe} from '../helpers/makeMe';
 
 describe('AnimationContext', () => {

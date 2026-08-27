@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { Subtitle } from '@/models/Subtitles';
 import { Subtitles } from '@/video_components/Subtitles';
 import { AnimationContextProvider } from '@/hooks/useAnimationContext';

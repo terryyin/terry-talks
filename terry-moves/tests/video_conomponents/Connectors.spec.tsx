@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { AnimationContextProvider } from '@/hooks/useAnimationContext';
 import { makeMe } from '../helpers/makeMe';
 import AnimationContextWrapper from '@/models/AnimationContextWrapper';

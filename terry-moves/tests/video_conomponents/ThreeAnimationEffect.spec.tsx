@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { Subtitle } from '@/models/Subtitles';
 import { ThreeAnimationEffect } from '@/video_components/ThreeAnimationEffect';
 import { AnimationContextProvider } from '@/hooks/useAnimationContext';

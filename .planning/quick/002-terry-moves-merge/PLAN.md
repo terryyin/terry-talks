@@ -1,6 +1,6 @@
 # terry-moves merge + renovate
 
-**Status:** in progress — S1–S10 landed (S5 skipped); next is S11
+**Status:** in progress — S1–S11 landed (S5 skipped); next is S12
 **Type:** ad-hoc plan (`.planning/quick/`)
 
 Merge `../terry-moves` into this repo as an in-tree folder (not a submodule /
@@ -168,14 +168,10 @@ should treat D2–D8 as decided unless you change them.
 ### S11 — Jest + Testing Library current
 
 - **Type:** Behavior
-- **Status:** planned
-- **Do:** Upgrade jest, ts-jest, jest-environment-jsdom, @testing-library/*
-  to current majors that work with the TS/React versions in place **before
-  S12**. Replace `@testing-library/jest-dom/extend-expect` with the
-  current setup-file import. Tests pass. Do **not** migrate to Vitest
-  unless Jest cannot be made to work (Remotion does not require Vitest
-  for this project’s model tests).
-- **Done when:** `pnpm --filter terry-moves test` exits 0.
+- **Status:** done
+- Jest 30 + jsdom 30, Testing Library React 16 / jest-dom 6, shared
+  `tests/jest.setup.ts`. jsdom 30 reports empty backgrounds as
+  `rgba(0, 0, 0, 0)` — CodeHighlight spec accepts that. Tests pass.
 
 ### S12 — styled-components v6
 

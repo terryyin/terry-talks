@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom/extend-expect';
 import { Subtitle } from '@/models/Subtitles';
 import { makeMe } from '../helpers/makeMe';
 
