@@ -175,7 +175,7 @@ to a claim.
    and [3](claims/03-jidoka-enables-jit-trusts-respect-grows.md)).
 7. **Continuous improvement towards perfection** — SMED and cheap
    changeover as the TPS example; Definition of Done as the LeSS
-   measure
+   measure; then the follow-on slide **Lower the switching cost**
    ([Claims 18](claims/18-continuous-improvement-towards-perfection.md)
    and [5](claims/05-smed-software-changeover-and-ai-friendly-context.md)).
 8. **Tensions and honest limits** — honest CI versus disposable

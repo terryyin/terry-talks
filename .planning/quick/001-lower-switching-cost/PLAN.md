@@ -28,9 +28,9 @@ perfection, backed by researched claim text. Do not generate the artwork.
 
 ## Status
 
-Slice 1–2 done. Slice 3–4 planned.
+Slice 1–3 done. Slice 4 planned.
 
-**Learnings:** Why LeSS two-bullet wording is in Claim 18; supporting 2016/MTS lists stay supporting. Claim 5 cites Claim 18 for the goals. Slide copy can take the Implication beat: switching cost = leftover of first goal; SMED then OTED; four-layer stack. Do not recopy Why LeSS.
+**Learnings:** Why LeSS two-bullet wording is in Claim 18; supporting 2016/MTS lists stay supporting. Claim 5 cites Claim 18 for the goals. Slide speaks the goal then names switching cost; OTED not STED. G17 instruction must include the four labels in the picture (human exception to no-text prefix).
 
 ---
 
@@ -65,7 +65,7 @@ Claim 18 cited for the goals themselves.
 
 ### 3. Slide “Lower the switching cost”
 Type: Behavior
-Status: planned
+Status: done
 
 What: After “Continuous improvement towards perfection” in
 `slides/tps-and-ai/slides.md`, a new slide titled **Lower the switching

@@ -842,6 +842,23 @@ Claims 18 and 5 (SMED, software changeover, AI-friendly context).
 
 ---
 
+# Lower the switching cost
+
+- Change direction at relatively low cost — leftover of that **is**
+  switching cost; TPS: **changeover**
+- Method: **SMED**, then **OTED** — single-digit minutes, then one remaining
+  touch
+- Software stack: common repo → trunk-based development → one-touch env
+  setup → fast deterministic e2e
+
+<!--
+G17 (planned) sits as a wide strip under the bullets.
+
+Claims 5 and 18.
+-->
+
+---
+
 # Tensions and honest limits
 
 - Honest CI **versus** disposable prototypes — a real tension pair
