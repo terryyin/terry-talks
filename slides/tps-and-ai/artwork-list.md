@@ -312,6 +312,42 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   characters; vermilion accent at the central crossing point; 16:9
   wide strip.
 
+### G17. Switching-cost stack
+
+- **Status:** planned — no file yet. Intended path
+  `public/switching-cost-stack.png`
+- **Slide:** "Lower the switching cost"
+- **Placement:** wide strip under the three bullets (same footprint as
+  G13 / G16: 16:9 wide)
+- **Exception:** the common style prefix says “No text, no letters, no
+  captions.” The owner asked for labels **in the picture**. This item
+  overrides that rule.
+- **Why generated:** the argument is a stack of readiness that cheapens
+  switching cost; a still building with named storeys is the claim, not
+  a pit-stop analogy (that's G13 on the previous slide).
+- **Prompt:** A four-storey Japanese storehouse / kura or simple
+  pagoda-like building, on off-white paper, single vermilion accent. It
+  must read as **one building**: a wide load-bearing **base**, then
+  three receding **layers** stacked on it — not four separate boxes,
+  not a flowchart, not a city skyline. Bottom to top (ground = base):
+  (1) Base (widest, stone or packed-earth foundation): label **common
+  repo**; (2) next storey: label **trunk-based development** — a single
+  thick wooden post or trunk-like pillar through this storey (one
+  history, not many branches); (3) next storey: label **one-touch env
+  setup** — one hand or one latch as the vermilion accent (OTED:
+  remaining setup is one motion); (4) top storey / roof: label **fast,
+  deterministic e2e** — a small even lantern or taut plumb that is
+  either clearly on or off, never flickering. Labels sit **on** their
+  storey (painted on the beam or lintel), not in a legend beside the
+  building. English, sentence case as given. No extra slogans, no
+  SMED/OTED letters in the picture (slide text owns the method names).
+  16:9 wide strip with empty paper left and right if needed so the
+  building stays readable under bullets.
+- **Accuracy notes for the worker (must survive generation):** when
+  regenerating, prepend the sumi-e prefix but **drop** “No text, no
+  letters, no captions.” Keep Prompt's four labels in the picture,
+  large, Latin, readable, spelled exactly.
+
 ---
 
 ## Build in-slide (diagrams and icons, not AI art)
