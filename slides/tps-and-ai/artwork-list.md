@@ -132,8 +132,8 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### 4. Andon cord / andon board photograph
 
 - **Status:** implemented via generated fallback — `public/andon-pull.png`
-- **Slide:** "Stop & Fix"
-- **Placement:** right half, behind or beside the bullet list
+- **Slide:** "Judgment-dependent Jidoka: the andon cord"
+- **Placement:** right half, beside the text
 - **Source/license check:** Toyota USA Newsroom's authentic
   [2018 TMMTX VC 05 andon exhibit
   photo](https://pressroom.toyota.com/album/2018-toyota-motor-manufacturing-texas-tmmtx/)
@@ -251,8 +251,8 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 - **Status:** done — `public/andon-pull.png`; generated after the
   authoritative photo search found only editorial-use Toyota media
-- **Slide:** "Stop & Fix", only if no authoritative photo (item 4)
-  clears licensing
+- **Slide:** "Judgment-dependent Jidoka: the andon cord", only if no
+  authoritative photo (item 4) clears licensing
 - **Prompt:** A worker's hand pulling an overhead cord above a stopped
   assembly line, nearby workers converging toward the spot; a single
   red lantern glow marks the stop; 4:3.

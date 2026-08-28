@@ -43,7 +43,9 @@ system.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
 right to stop. [Claim 6](06-jidoka-embeds-routine-judgment.md) owns
-where that judgment lives. [Claim
+where that judgment lives. This claim names **judgment-dependent
+jidoka**: the andon cord still needs a person; that is not Claim 6's
+stacking failure. [Claim
 20](20-poka-yoke-supports-jidoka.md) owns poka-yoke. [Claim
 24](24-warnings-as-stop-no-news-is-good-news.md) owns leftover
 warnings as unpaid judgment. This claim owns the
@@ -101,6 +103,8 @@ that whether anyone treats it as current work is culture.
 > and learn. AI makes continuing past the signal cheaper and the
 > consequence of doing so worse; the culture therefore matters more.**
 
+The preceding beat is the andon cord as **judgment-dependent
+jidoka**: live judgment spent as a stop, not stacked as inventory.
 Fail-fast sits with tests and types. One red check treated as the
 work—not a second agent tasked while the suite stays red.
 

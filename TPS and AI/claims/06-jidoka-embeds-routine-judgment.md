@@ -22,7 +22,8 @@ improve. [Claim
 4](04-jit-assurance-resourcefulness-not-abundance.md) owns the JIT
 pairing: stop conditions protect previous intentions rather than
 stacking judgment-dependent output. [Claim 19](19-stop-and-fix.md)
-owns the halt. [Claim
+owns the halt, and the andon cord as judgment-dependent jidoka — not
+stacking judgment-dependent output. [Claim
 20](20-poka-yoke-supports-jidoka.md) owns poka-yoke.
 [Claim 24](24-warnings-as-stop-no-news-is-good-news.md) owns leftover
 warnings as unpaid judgment; on stage it is a **sub-beat of this

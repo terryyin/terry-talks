@@ -666,6 +666,28 @@ image: /andon-pull.png
 backgroundSize: contain
 ---
 
+# Judgment-dependent Jidoka: the andon cord
+
+Live judgment here is spent as a **stop** — it does **not** leak
+unfinished, judgment-dependent work into the system as inventory.
+
+Pulling the cord **triggers Stop & Fix**. It does not add another
+unfinished item to the line.
+
+<div class="absolute bottom-3 left-[102%] z-10 w-[96%] rounded bg-white/85 px-2 py-1 text-right text-[10px] leading-tight text-gray-700">
+  AI-generated illustration
+</div>
+
+<!--
+Claim 19 — judgment-dependent jidoka: the andon cord still needs a
+person; that is not Claim 6's stacking failure.
+
+Autonomation and the cord are both jidoka. The loom already showed
+the closed stop; this slide is the cord.
+-->
+
+---
+
 # Stop & Fix
 
 A detector everyone continues past is only a **dashboard**.
@@ -673,10 +695,6 @@ A detector everyone continues past is only a **dashboard**.
 - Stop means stop: fix before flowing on
 - Quiet warnings drift into noise — no news is good news only when
   abnormal means stop
-
-<div class="absolute bottom-3 left-[102%] z-10 w-[96%] rounded bg-white/85 px-2 py-1 text-right text-[10px] leading-tight text-gray-700">
-  AI-generated illustration
-</div>
 
 <!--
 Claims 19 (Stop & Fix) and 24 (warnings as stop).
