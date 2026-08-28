@@ -661,26 +661,42 @@ internals; contrast with the unit leftover.
 -->
 
 ---
-layout: image-right
-image: /andon-pull.png
-backgroundSize: contain
+class: "[&>h1]:!mb-2"
 ---
 
 # Judgment-dependent Jidoka: the andon cord
 
 Live judgment here is spent as a **stop** — it does **not** leak
-unfinished, judgment-dependent work into the system as inventory.
+unfinished work into the system as inventory. Pulling the cord
+**triggers Stop & Fix**.
 
-Pulling the cord **triggers Stop & Fix**. It does not add another
-unfinished item to the line.
+<div class="mt-3 w-[74%] text-[14px] leading-snug [&_table]:w-full [&_th]:pb-1.5 [&_th]:pr-3 [&_th]:text-left [&_th]:font-semibold [&_td]:py-1.5 [&_td]:pr-3 [&_td]:align-top [&_tr]:border-b [&_tr]:border-stone-300 [&_tbody_tr:last-child]:border-b-0 [&_tbody_tr:last-child]:bg-[#b33a2b]/10">
 
-<div class="absolute bottom-3 left-[102%] z-10 w-[96%] rounded bg-white/85 px-2 py-1 text-right text-[10px] leading-tight text-gray-700">
-  AI-generated illustration
+| Method | Detects | Stop & Fix requires |
+|---|---|---|
+| **Automated tests** | A known scenario no longer holds | The failing test is the current work, not a parked queue |
+| **Fail-fast** | An illegal or unexpected condition in the product now | Fail immediately and visibly — do not swallow it |
+| **CI service** | The integrated product is not in the agreed working state | Who broke it stop and fix; others stop pushing to trunk |
+| **Noticed anomaly / known bug** | A person already sees out-of-standard work | Treat it as the cord: stop and fix first, not as inventory |
+
+</div>
+
+<div class="absolute right-[3%] top-[18%] z-10 w-[22%] overflow-hidden rounded border border-stone-300 bg-white shadow-sm">
+  <img
+    src="/andon-pull.png"
+    alt="A worker pulling an overhead andon cord; a red lantern marks the stop"
+    class="block w-full"
+  />
+  <div class="px-1.5 py-1 text-[8px] leading-tight text-gray-600">
+    AI-generated illustration
+  </div>
 </div>
 
 <!--
-Claim 19 — judgment-dependent jidoka: the andon cord still needs a
-person; that is not Claim 6's stacking failure.
+Claim 19 — software methods table. First three are closed detectors;
+the last row is judgment-dependent jidoka: the noticed anomaly or
+known bug *is* the cord. Live judgment spent as a stop is not Claim
+6's stacking failure.
 
 Autonomation and the cord are both jidoka. The loom already showed
 the closed stop; this slide is the cord.

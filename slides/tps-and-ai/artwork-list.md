@@ -133,7 +133,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 - **Status:** implemented via generated fallback — `public/andon-pull.png`
 - **Slide:** "Judgment-dependent Jidoka: the andon cord"
-- **Placement:** right half, beside the text
+- **Placement:** inset right of the software-methods table
 - **Source/license check:** Toyota USA Newsroom's authentic
   [2018 TMMTX VC 05 andon exhibit
   photo](https://pressroom.toyota.com/album/2018-toyota-motor-manufacturing-texas-tmmtx/)
