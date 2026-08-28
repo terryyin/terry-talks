@@ -65,8 +65,8 @@ efficient; cheap switching cost makes following actual customer need
 economical. The method stays SMED, then OTED.
 
 Launching more agents does not substitute for that kaizen. It can flood
-review and integration with still-smart work; those queues filling is
-not the bottleneck moving. [Claim
+review and integration with work that still needs live judgment; those
+queues filling is not the bottleneck moving. [Claim
 6](06-jidoka-embeds-routine-judgment.md) owns where it actually sits.
 
 ### One customer item at a time: Vodde's spill-over

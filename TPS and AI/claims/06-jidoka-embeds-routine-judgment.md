@@ -13,7 +13,7 @@ still queued; model-first is a bet**
 > move downhill: **judgment-loaded → judgment-preserved →
 > judgment-removed** (**smart → dumb → gone**). Later use should need
 > *less* live judgment, not more. Encoded stops still age: when the
-> product or the environment changes, some of them need smart attention
+> product or the environment changes, some of them require live judgment
 > again.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
@@ -55,16 +55,15 @@ compile, CI, and program execution. Say *in the design* versus *in use*.
 
 | Caption | Rung | In use | Loom | Software |
 |---|---|---|---|---|
-| **smart** | **Judgment-loaded** | Live intelligence every time: interpret, rank, re-decide. | A watcher per loom; a report that a thread “might be unhealthy.” | Generated analysis, unowned tests, “smart” evaluators, patches that look finished until a person re-judges them. |
+| **smart** | **Judgment-loaded** | Live intelligence every time: interpret, rank, re-decide. | A watcher per loom; a report that a thread “might be unhealthy.” | Generated analysis, unowned tests, open-ended evaluators, patches that look finished until a person re-judges them. |
 | **dumb** | **Judgment-preserved** | Closed mechanism carrying earlier judgment. **Self-proven:** its firing *is* the evidence. **Self-protected:** it enforces its own consequence. | Drop-wire; weft fork. | A type that will not compile; a red mainline that will not ship; an assertion with a closed oracle. |
-| **gone** | **Judgment-removed** | No smartness required: the question is simplified away or removed. | Warp-tension controller; better yarn. | Cohesive modules, unrepresentable invalid states, deleted code. |
+| **gone** | **Judgment-removed** | No live judgment required: the question is simplified away or removed. | Warp-tension controller; better yarn. | Cohesive modules, unrepresentable invalid states, deleted code. |
 
-The process loop is the same descent. Judgment-intensive work creates
-the simpler next rung:
+The process loop is the same descent. Judgment-intensive work creates a
+mechanism whose later use occupies the simpler next rung:
 
-> **Investigate the novel problem (smart) → encode what is now known
-> in a closed detector (dumb) → redesign so the recurring failure
-> needs neither detection nor rescue (gone).**
+> **Judgment-intensive investigation → judgment-preserving closed detector →
+> judgment-removing redesign.**
 
 A novel failure starts as investigation. Once understood, part of that
 judgment may become a test, a monitor, a type, or the removal of the
@@ -112,24 +111,25 @@ between signal and fact. The software analog is the check whose
 passing *is* the proof—a compile, an enforced invariant—not an
 advisor whose output must itself be judged.
 
-## Tests, AI after the stop, and stacking judgment-loaded inventory
+## Tests, AI after the stop, and judgment-stacked inventory
 
 Generated versus hand-written does not decide whether a test is
-**dumb**. What matters is whether it captures knowledge that no longer
-requires smart judgment **in use**, and whether the stop was decided
-when the test was written—not re-decided when it later fails. A check
-whose oracle is closed, owned, and actually halts work is dumb whether
-a person or a model typed it. A check that still needs someone to
-interpret the failure is judgment-loaded inventory wearing a jidoka
-costume. A green suite does not prove the product valuable or safe in
-every unanticipated situation.
+**judgment-preserving** (the **dumb** rung). What matters is whether it
+captures knowledge that no longer requires live judgment **in use**, and
+whether the stop was decided when the test was written—not re-decided
+when it later fails. A check whose oracle is closed, owned, and actually
+halts work is judgment-preserving whether a person or a model typed it.
+A check that still needs someone to interpret the failure is
+judgment-loaded, not a closed jidoka mechanism. Park or accumulate such
+checks and they become judgment-stacked inventory. A green suite does
+not prove the product valuable or safe in every unanticipated situation.
 
-AI may participate in **judgment-intensive problem solving after a dumb
+AI may participate in **judgment-intensive problem solving after a closed
 stop has already happened**. That is already routine: agents with a
 harness can learn from test failures and correctly fix a large share of
-them. Keep the dumb stop; use the AI's live judgment as a **further
-filter** on failures the dumb test cannot distinguish, so more of the
-remaining judgment that reaches a person is actually value-adding. The
+them. Keep the judgment-preserving stop; use the AI's live judgment as a
+**further filter** on failures the closed test cannot distinguish, so more of
+the remaining judgment that reaches a person is actually value-adding. The
 anti-pattern is asking the agent to get rid of the annoying failing
 tests and proceed toward the goal unstopped.
 
@@ -196,8 +196,8 @@ agent:
 Those five stay **human**—the talk list, not a doughnut quirk:
 **value**, **design**, **credentials**, **undiagnosed failure**, and
 **ambiguity**. Stop and wait. A plausible agent recommendation is not
-enough to proceed. AI may still clear **dumb** problems after a dumb
-stop (a type error, a red scenario caused by the current change). It
+enough to proceed. AI may still resolve a failure exposed by a closed stop
+(a type error, a red scenario caused by the current change). It
 may not dissolve that stop, and it may not take the five.
 
 ## Generation is cheap; the bottleneck is the journey
@@ -214,10 +214,10 @@ judgment-loaded output. The scarce capacity is people's **cognitive
 ability to fully experience the problem-solving journey and to
 comprehend both the problem and the solution**.
 
-That is why stacking judgment-loaded artifacts is the distinctive
-failure already named above: the person who must judge did not live the
-path that produced the artifact, and the next problem has even less
-room for a real journey. [Claim
+That is why accumulating judgment-loaded artifacts as judgment-stacked
+inventory is the distinctive failure already named above: the person who must
+judge did not live the path that produced the artifact, and the next problem
+has even less room for a real journey. [Claim
 12](12-respect-for-people-who-can-think.md) owns what must not be
 outsourced; [Claim
 10](10-freedom-and-trust-reinforce-through-jidoka.md) owns deskilling.
@@ -228,15 +228,15 @@ walk the next problem.
 
 > **Smart → dumb → gone.** Prevent what design can prevent. Stop
 > automatically on a closed question. Reserve investigation for what
-> is genuinely new. The detector should be dumber than the
+> is genuinely new. The detector should require less live judgment than the
 > investigation.
 
 > **Do not treat judgment-loaded output as finished knowledge.**
 > Generated analysis and patches that still need “I” to do the real
 > work, plus extra inventory to interpret, rank, and re-decide, climb
 > the descent backwards. A leftover warning is that remainder in miniature
-> ([Claim 24](24-warnings-as-stop-no-news-is-good-news.md)). After a
-> dumb stop, AI may filter and fix dumb problems.
+> ([Claim 24](24-warnings-as-stop-no-news-is-good-news.md)). After closed
+> stops, AI may filter and fix the failures they expose.
 > It must not delete the stop to proceed, and it must not take the
 > judgments that stay human: value, design, credentials, undiagnosed
 > failure, and ambiguity.

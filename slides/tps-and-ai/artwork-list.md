@@ -132,7 +132,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### 4. Andon cord / andon board photograph
 
 - **Status:** implemented via generated fallback — `public/andon-pull.png`
-- **Slide:** "Judgment-dependent Jidoka: the andon cord"
+- **Slide:** "Stop & Fix is emergent judgment-intensive work"
 - **Placement:** inset right of the software-methods table
 - **Source/license check:** Toyota USA Newsroom's authentic
   [2018 TMMTX VC 05 andon exhibit
@@ -251,7 +251,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 - **Status:** done — `public/andon-pull.png`; generated after the
   authoritative photo search found only editorial-use Toyota media
-- **Slide:** "Judgment-dependent Jidoka: the andon cord", only if no
+- **Slide:** "Stop & Fix is emergent judgment-intensive work", only if no
   authoritative photo (item 4) clears licensing
 - **Prompt:** A worker's hand pulling an overhead cord above a stopped
   assembly line, nearby workers converging toward the spot; a single
@@ -377,8 +377,8 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 - **Slide:** "But how to build one?"
 - **Placement:** right half / 4:3
 - **Why:** a Burr puzzle (組木 / kumiki) looks like a finished object
-  but still needs the sequence in someone's head — judgment-dependent
-  work that can be mistaken for done
+  but still needs the sequence in someone's head — judgment-loaded
+  output that can be mistaken for done
 - **Prompt:** a classic six-piece wooden burr puzzle (Japanese 組木 /
   kumiki): interlocking sticks assembled far enough to look complete,
   one key piece withdrawn a little as the vermilion accent so remaining
@@ -557,9 +557,9 @@ should not compete with their own words.
 
 A second visual beat for "Smart → dumb → gone", alongside G7's
 conceptual steps: show the actual Type G stop mechanism, because the
-mechanism *is* the argument — the idea was smart (per-thread
-abnormality detection in 1924), the mechanism is dumb (gravity and a
-falling piece of metal).
+mechanism *is* the argument — live judgment identified the per-thread
+abnormality in 1924, then a closed physical mechanism preserved that
+judgment through gravity and a falling piece of metal.
 
 ### The mechanism, researched
 
@@ -609,7 +609,7 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   the action carries the argument — hence G15, and A1 as a candidate
   to replace G15.
 
-### G15. Loom jidoka mechanism — smart idea, dumb mechanism
+### G15. Loom jidoka mechanism — live judgment, closed mechanism
 
 - **Status:** done — `public/loom-jidoka-mechanism.png`. **A1 is
   intended to replace this still**; keep both until we decide which

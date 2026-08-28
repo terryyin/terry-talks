@@ -68,10 +68,16 @@ Use the terms according to what they describe:
   judgment now;
 - **judgment-loaded** describes an artifact or system whose use still demands
   live judgment;
-- **judgment-preserved** describes earlier judgment carried by a closed,
-  owned mechanism; and
-- **judgment-removed** describes a design in which the recurring question no
-  longer arises.
+- **judgment-preserved** names the rung or result in which a closed, owned
+  mechanism carries earlier judgment; and
+- **judgment-removed** names the rung or result in which the recurring
+  question no longer arises.
+
+Use the `-ing` forms for a mechanism's **function**, not for a rung in the
+paired triad: a closed test is **judgment-preserving**, and a prevention design
+is **judgment-removing**. The triad itself always uses the result names
+**judgment-loaded → judgment-preserved → judgment-removed**. Do not mix the
+`-ing` and `-ed` variants within that sequence.
 
 Do not call code, documents, analyses, or candidate solutions
 _judgment-intensive_. Name them judgment-loaded when the demand is in their
@@ -89,8 +95,8 @@ Pair the memorable captions with their precise names:
 | **gone** | **judgment-removed** | The recurring question or failure-producing path no longer exists. |
 
 The captions describe the demand left **in use**, not the intelligence that
-created the result. A dumb detector or a design that makes the question gone
-may require substantial judgment-intensive work to create. [Claim
+created the result. A judgment-preserving detector or a judgment-removing
+design may require substantial judgment-intensive work to create. [Claim
 6](06-jidoka-embeds-routine-judgment.md) owns this descent and the jidoka
 mechanism that embeds previously learned judgment in a closed question.
 

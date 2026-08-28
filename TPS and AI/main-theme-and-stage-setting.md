@@ -117,8 +117,8 @@ and known failures easier to prevent or stop
    [20](claims/20-poka-yoke-supports-jidoka.md)).
 4. **Same gates for "I" and AI.** The product standard and stop
    conditions do not weaken according to who or what authored the
-   change. After a dumb stop, AI may help fix dumb problems; it must
-   not dissolve the stop, and five judgments stay human: **value**,
+   change. After a closed stop exposes a failure, AI may help resolve it;
+   AI must not dissolve the stop, and five judgments stay human: **value**,
    **design**, **credentials**, **undiagnosed failure**, and
    **ambiguity**
    ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)). Go-See may

@@ -69,9 +69,9 @@ become surveillance.
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has
 **frees by empowering**. [Claim 6](06-jidoka-embeds-routine-judgment.md)
 owns where that judgment lives: previously learned judgment becomes a
-closed stop (**dumb**) or is designed out (**gone**), so adaptive
-attention is free for what is still **smart**. This claim adds the human
-meaning of that constraint:
+judgment-preserving closed stop or a judgment-removing design, so adaptive
+attention is free for work that still needs live judgment. This claim adds
+the human meaning of that constraint:
 
 > **Constrain what is already known to be abnormal so that people have
 > more freedom and attention for what is not yet known.**
@@ -226,7 +226,8 @@ entrustment once and for all:
   checkout is full of WIP, and nobody can acquire the payments knowledge
   in time. A first thin slice (“pay by card for one SKU”) hits a novel
   failure: an AI-suggested retry double-charges. The team stops, writes
-  an idempotency test (known-abnormal becomes dumb), extracts the
+  an idempotency test (the known abnormality becomes a closed stop),
+  extracts the
   stop into the shared product, and any team can change it
   (collective ownership). A second team can take installments. The PO
   can *entrust* the next highest-value item without an architecture

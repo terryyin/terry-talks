@@ -34,7 +34,7 @@ definition here.
 
 | Variable | What rises or falls | Claim owners |
 |---|---|---|
-| **Encoded jidoka** | Learned judgment in a closed, stoppable form: detect a specified abnormality, halt, contain, prevent recurrence. Tests that actually stop, types, poka-yoke, an andon. Judgment-loaded → judgment-preserved → judgment-removed (smart → dumb → gone). | [6](06-jidoka-embeds-routine-judgment.md), [19](19-stop-and-fix.md), [20](20-poka-yoke-supports-jidoka.md), [21](21-ci-practice-is-not-a-ci-system.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
+| **Encoded jidoka** | Learned judgment in a closed, stoppable form: detect a specified abnormality, halt, contain, prevent recurrence. Tests that actually stop, types, poka-yoke, an andon. These occupy the judgment-preserved or judgment-removed rungs reached from judgment-loaded use (smart → dumb → gone). | [6](06-jidoka-embeds-routine-judgment.md), [19](19-stop-and-fix.md), [20](20-poka-yoke-supports-jidoka.md), [21](21-ci-practice-is-not-a-ci-system.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
 | **Adaptive attention** | Room, information, skill, and authority to investigate what is not yet known, rather than watch the routine or re-judge the known. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [6](06-jidoka-embeds-routine-judgment.md), [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
 | **Capability to respond** | Resourceful, close-to-the-work response to actual need: detect, coordinate, change cheaply, recover, leave the system more capable. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [4](04-jit-assurance-resourcefulness-not-abundance.md) |
 | **People who can think** | People grown by the work: problem solving, facilitation, analysis, coaching, independent kaizen. | [12](12-respect-for-people-who-can-think.md) |
@@ -55,7 +55,7 @@ This table is the source of truth. The figures are views of it.
 | Encoded jidoka | **+** | Adaptive attention | Known abnormality is encoded as a closed stop; attention is free for novelty. |
 | Adaptive attention | **+** | Capability to respond | People can investigate, stop, and improve instead of firefighting the known. |
 | Adaptive attention | **+** | People who can think | The work itself is the school; that needs room to think. |
-| Adaptive attention | **+** `//` | Encoded jidoka | Investigate the novel (smart), then put what is now known into a closed detector (dumb) or remove the question (gone). |
+| Adaptive attention | **+** `//` | Encoded jidoka | Judgment-intensive investigation can produce a judgment-preserving closed detector or a judgment-removing design. |
 | People who can think | **+** | Capability to respond | JIT and jidoka only work through people who can think. |
 | Capability to respond | **+** `//` | Warranted trust | Visible, responsible use of freedom warrants *entrusting* the next highest-value item. |
 | Capability to respond | **+** `//` | Encoded jidoka | Kaizen after a real response preserves the learning. |
@@ -67,10 +67,10 @@ This table is the source of truth. The figures are views of it.
 | Technical excellence | **+** | Visible product evidence | Continuous integration of small changes makes the current product and its collisions visible. |
 | Encoded jidoka | **+** | Technical excellence | Closed stops, fail-fast, and an andon that actually halts keep the product safely changeable. |
 | Visible product evidence | **+** | Pull from actual need | Integration of customer-centric work pulls collaboration when a dependency is concrete. |
-| Visible product evidence | **+** | Encoded jidoka | Stop & Fix: a visible abnormality can become a closed detector or a gone design. |
+| Visible product evidence | **+** | Encoded jidoka | Stop & Fix: a visible abnormality can become a judgment-preserving closed detector or a judgment-removing design. |
 | Visible product evidence | **+** `//` | Warranted trust | Transparency of working software is evidence, not a dashboard for remote control. |
 | AI generation volume | **+** | Judgment-stacked inventory | Faster judgment-loaded candidates accumulate unless understood, verified, encoded, or discarded. |
-| Encoded jidoka | **−** | Judgment-stacked inventory | Closed detectors and prevention keep generated output from remaining judgment-loaded inventory. |
+| Encoded jidoka | **−** | Judgment-stacked inventory | Closed detectors and prevention keep judgment-loaded output from accumulating as inventory. |
 | People who can think | **−** | Judgment-stacked inventory | Ownership, verification, and encoding prevent stacking. |
 | Judgment-stacked inventory | **−** | Adaptive attention | Re-judging the known consumes the attention jidoka was meant to free. |
 | Judgment-stacked inventory | **−** | Visible product evidence | Unintegrated, unowned output hides the real product and delays abnormality. |
@@ -140,7 +140,7 @@ simpler detector or removes the question. [Claim
 6](06-jidoka-embeds-routine-judgment.md)'s descent **smart → dumb →
 gone** is this loop, not a one-time cleanup.
 
-Runs backward when detectors stay smart: every check still needs a
+Runs backward when detectors stay judgment-loaded: every check still needs a
 thinker, so encoded jidoka never rises and attention never returns.
 
 ### R2 — Freedom and entrustment

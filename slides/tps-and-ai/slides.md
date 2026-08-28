@@ -164,8 +164,8 @@ Contain and solve an abnormality.
 
 <div class="mt-4 rounded bg-[#b33a2b]/10 px-4 py-2 text-[18px] leading-snug">
 
-The problem is not spending judgment. It is leaving that work in the output,
-so someone downstream must **interpret, rank, and re-decide**.
+The problem is not spending judgment. It is leaving a demand for live judgment
+in the output, so someone downstream must **interpret, rank, and re-decide**.
 
 </div>
 
@@ -713,11 +713,15 @@ internals; contrast with the unit leftover.
 class: "[&>h1]:!mb-2"
 ---
 
-# Judgment-dependent Jidoka: the andon cord
+# Stop & Fix is emergent judgment-intensive work
 
-Live judgment here is spent as a **stop** — it does **not** leak
-unfinished work into the system as inventory. Pulling the cord
-**triggers Stop & Fix**.
+<div class="w-[74%]">
+
+Pulling the andon cord makes the abnormality current work. People spend live
+judgment first to **stop and contain**, then to diagnose, fix, and learn —
+before more output inherits it.
+
+</div>
 
 <div class="mt-3 w-[74%] text-[14px] leading-snug [&_table]:w-full [&_th]:pb-1.5 [&_th]:pr-3 [&_th]:text-left [&_th]:font-semibold [&_td]:py-1.5 [&_td]:pr-3 [&_td]:align-top [&_tr]:border-b [&_tr]:border-stone-300 [&_tbody_tr:last-child]:border-b-0 [&_tbody_tr:last-child]:bg-[#b33a2b]/10">
 
@@ -743,9 +747,9 @@ unfinished work into the system as inventory. Pulling the cord
 
 <!--
 Claim 19 — software methods table. First three are closed detectors;
-the last row is judgment-dependent jidoka: the noticed anomaly or
-known bug *is* the cord. Live judgment spent as a stop is not Claim
-6's stacking failure.
+the last row is human-triggered jidoka: the noticed anomaly or known bug
+*is* the cord. It calls the same live, context-sensitive intelligence as
+pulled product work, in an emergent containment role.
 
 Autonomation and the cord are both jidoka. The loom already showed
 the closed stop; this slide is the cord.
@@ -810,8 +814,8 @@ The product standard and stop conditions do not weaken according to
 **who or what** wrote it. Quiet is good news only when the same
 owned checks **ran**.
 
-After a dumb stop, AI may help fix dumb problems —
-it must **not dissolve the stop**. A leftover warning is unpaid
+After a closed stop exposes a failure, AI may help resolve it —
+but must **not dissolve the stop**. A leftover warning is unpaid
 judgment for the next person or agent.
 
 <div class="doughnut-example">
@@ -960,6 +964,8 @@ class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5"
 
 - Technical excellence exists so one product group can integrate continuously
 - The shared product pulls the right people together, just in time
+- A justified **stop is productive** — make the abnormality current work before
+  more output inherits it
 - Slowing down means **not overproducing** — do not create debt faster
 
 <div class="doughnut-example">
@@ -1076,8 +1082,8 @@ Claims 23, 15, 7.
 
 1. **Judge AI use by freedom** — teams more freed than constrained
 2. **Pull, don't stockpile** — thin slices, integrate, confirm, next bite
-3. **Smart → dumb → gone** — prefer prevention; otherwise a closed stop,
-   and actually Stop & Fix
+3. **Smart → dumb → gone** — judgment-loaded → judgment-preserved →
+   judgment-removed; a justified stop halts propagation
 4. **Same gates for "I" and AI** — five judgments stay human
 5. **Integrate continuously; collaborate just in time** — do not create
    debt faster

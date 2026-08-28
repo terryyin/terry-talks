@@ -200,28 +200,30 @@ label. Observation in class, if remembered, may be stronger than git.
 
 [Claim 6](06-jidoka-embeds-routine-judgment.md) needs software examples
 of **smart → dumb → gone** (takeaway 3). [Claim
-20](20-poka-yoke-supports-jidoka.md) is the *gone* fixture on that
-slide — clearly poka-yoke, not “just a test” or “just good design.”
+20](20-poka-yoke-supports-jidoka.md) is the judgment-removing (*gone*)
+fixture on that slide — clearly poka-yoke, not “just a test” or “just good
+design.”
 [Claim 24](24-warnings-as-stop-no-news-is-good-news.md) is the Stop &
 Fix contrast: a skippable warning versus a quiet channel. One hunt;
 split into owning claims when pulled.
 
 Look for **good** examples of:
 
-- **smart → dumb:** live investigation encoded as a closed, owned stop
-  (a test, type, or check whose firing *is* the evidence and that
+- **Judgment-preserving closed stop (dumb rung):** live investigation
+  encoded as a closed, owned stop (a test, type, or check whose firing
+  *is* the evidence and that
   actually halts work).
-- **smart → gone / prevention poka-yoke:** a type, constructor, schema,
-  or UI path that makes a known illegal state unrepresentable — not a
-  test of whether the feature works, and not general “good design.”
+- **Judgment-removing prevention (gone rung):** a type, constructor,
+  schema, or UI path that makes a known illegal state unrepresentable —
+  not a test of whether the feature works, and not general “good design.”
 - **Control:** a check that will not compile or will not ship
   (including warnings treated as errors).
 - **Counter (Claim 24):** a parked linter or compiler warning pile;
   logs of expected events that fill a person's or agent's context; a
   detector everyone continues past.
 
-Generated checks nobody trusts, and “smart” inventory that still needs
-re-judging, can be noted if they appear; the request is for good
+Generated checks nobody trusts, and other judgment-loaded artifacts that
+still need re-judging, can be noted if they appear; the request is for good
 descents.
 
 ### 5. Preferred tests that leave reusable capability — Claim 6
@@ -253,7 +255,7 @@ the gate did not weaken according to who authored the change.
 Look for:
 
 - A stop that bound a person and an agent the same way.
-- After a dumb stop: AI helping fix a dumb problem *without* deleting
+- After a closed stop exposes a failure: AI helping fix it *without* deleting
   or skipping the stop.
 - Counter: an agent or a person tempted to delete or skip a failing
   test to proceed.
@@ -615,15 +617,16 @@ Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
 week. Hunt started from CI (`Backend-unit-tests` runs
 `backend/gradlew -p backend test`) then tests whose comments or
 introducing commits name a live failure; then write-DTO
-`@Pattern` / Quiz UI / `check_focus_tags.sh` for gone and
-control; then leftover Biome `"warn"` and CI flags for the Claim
-24 counter. Ranked by how completely the example matches the
-look-fors (smart→dumb, gone, control, Claim 24 counter), then
-stage discussability. All entries below are current
+`@Pattern` / Quiz UI / `check_focus_tags.sh` for judgment-removing
+prevention and control; then leftover Biome `"warn"` and CI flags for
+the Claim 24 counter. Ranked by how completely the example matches the
+look-fors (judgment-preserving stop, judgment-removing prevention,
+control, Claim 24 counter), then stage discussability. All entries below are current
 project-owned code (Terry Yin), not student class-week work —
-clearance is no. SET NULL `34560f0412` does **not** qualify
-as gone: it *allows* `conversation.recall_prompt_id` NULL on
-delete instead of making an illegal FK unrepresentable.
+clearance is no. SET NULL `34560f0412` does **not** qualify as
+judgment-removing prevention: it *allows*
+`conversation.recall_prompt_id` NULL on delete instead of making an
+illegal FK unrepresentable.
 
 #### Priority 1 — recall-stats N+1 query bound
 
@@ -637,8 +640,8 @@ delete instead of making an illegal FK unrepresentable.
   `prepareStatementCount < 10` while `compute()` still returns
   200 reviews. A later red is the N+1 coming back — not a
   judgment of “is this slow enough.” Still on HEAD after the
-  package rename (`a3aafb83eb`). Most complete smart→dumb: live
-  investigation encoded as a closed stop whose firing *is* the
+  package rename (`a3aafb83eb`). Most complete judgment-preserving
+  descent: live investigation encoded as a closed stop whose firing *is* the
   evidence and that still halts `gradlew test`.
 - **Source:** latest code (HEAD `e683b74615`; introducing
   `0bd1dd2995`)
@@ -664,8 +667,8 @@ delete instead of making an illegal FK unrepresentable.
   names”) closed the remaining authoring hole after
   `55e5e55edc` sanitization; `445656f73a` converted historical
   rows on migrate. Validation tests name the illegal charset,
-  not “can the user rename a note.” Most complete gone: the
-  illegal state is unrepresentable on the authoring path, not
+  not “can the user rename a note.” Most complete judgment-removing
+  prevention: the illegal state is unrepresentable on the authoring path, not
   merely tested after the fact.
 - **Source:** latest code (HEAD `e683b74615`; introducing
   `55e5e55edc` / `dfbde33184` / `445656f73a`; type trim
@@ -703,7 +706,7 @@ delete instead of making an illegal FK unrepresentable.
   control that actually will not ship
 - **Clearance:** no — current CI/lint owned by the project
 
-#### Also considered (control, second dumb, weaker gone)
+#### Also considered (control, second closed stop, weaker prevention)
 
 - **`@focus` in features will not ship (control):**
   `scripts/check_focus_tags.sh` — any `@focus` in
@@ -719,7 +722,7 @@ delete instead of making an illegal FK unrepresentable.
   `@focus` is the contrast that makes that dashboard visible.
   `check_wip_tags.sh` (max 5 `@wip`) is a related won't-ship
   cap, weaker than `@focus` skipping the suite.
-- **FK closure fails CI on hard-delete (second smart→dumb):**
+- **FK closure fails CI on hard-delete (second judgment-preserving descent):**
   Same afternoon as a live delete failure. `34560f0412`
   (“fix(db): allow memory tracker delete when conversation
   references prompt”) SET NULLs `conversation_ibfk_4` and adds
@@ -734,7 +737,7 @@ delete instead of making an illegal FK unrepresentable.
   halts CI if a later migration reintroduces the shape. Same
   descent family as Priority 1, less a single production
   timeout encoded as one oracle.
-- **Spelling tracker has no MCQ choice UI (weaker gone):**
+- **Spelling tracker has no MCQ choice UI (weaker prevention):**
   `frontend/src/components/recall/Quiz.vue` mounts
   `SpellingQuestionDisplay` when
   `currentMemoryTracker.spelling` is set; otherwise
@@ -752,7 +755,7 @@ delete instead of making an illegal FK unrepresentable.
 - SET NULL `34560f0412` (`fk_conversation_recall_prompt` ON
   DELETE SET NULL): makes a NULL FK representable so
   hard-delete can proceed. Opposite of unrepresentable. The
-  FK-closure *test* is the second-dumb bullet above.
+  FK-closure *test* is the second closed-stop bullet above.
 - `chk_notebook_name_nonempty` CHECK and
   `uk_notebook_ownership_name`: empty or duplicate notebook
   names cannot persist. Real schema poka-yoke, closer to
