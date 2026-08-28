@@ -98,7 +98,7 @@ their accumulation is judgment-stacked inventory.
 ### 4. Slides introduce live judgment and the paired triads
 
 - **Type:** Behavior
-- **Status:** planned
+- **Status:** done
 - **Do:** In `slides/tps-and-ai/slides.md`, add an early terminology slide
   after the opening diagnostic. Use “Judgment-intensive work” and “work that
   still requires live judgment,” distinguish pulled product work from
@@ -110,6 +110,14 @@ their accumulation is judgment-stacked inventory.
   distinction explicit, later artifact wording no longer calls outputs or
   solutions judgment-intensive, and the deck builds without overflow in the
   changed slides.
+
+Learning: placing the definition immediately after the opening diagnostic
+lets the rest of the deck use the vocabulary without repeatedly explaining
+it. A flat two-column contrast keeps planned product work and emergent Stop &
+Fix visibly equal as cognitive work while separating their roles in the flow.
+The opening, constrained-output, generated-output, question, and paired-triad
+slides all passed visual inspection at 1280×720 after a successful Slidev
+production build.
 
 ### 5. Slides show why a justified stop is productive
 

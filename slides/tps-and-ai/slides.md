@@ -128,6 +128,53 @@ Claim 10.
 -->
 
 ---
+class: "[&>h1]:!mb-1 [&>h2]:!mt-0 [&>h2]:!mb-3"
+---
+
+# Judgment-intensive work
+
+## Work that still requires **live judgment**
+
+<div class="text-[19px] leading-snug">
+
+**Live, context-sensitive intelligence** is material to reaching the next
+valid action or acceptable result:
+
+**understand the situation → frame what matters → create or adapt → weigh → decide**
+
+</div>
+
+<div class="mt-4 grid grid-cols-2 gap-5 text-[17px] leading-snug">
+
+<div class="border-l-4 border-[#b33a2b] pl-4 py-1">
+
+**Pulled product work**<br>
+Create for a real need.
+
+</div>
+
+<div class="border-l-4 border-[#b33a2b] pl-4 py-1">
+
+**Emergent Stop & Fix**<br>
+Contain and solve an abnormality.
+
+</div>
+
+</div>
+
+<div class="mt-4 rounded bg-[#b33a2b]/10 px-4 py-2 text-[18px] leading-snug">
+
+The problem is not spending judgment. It is leaving that work in the output,
+so someone downstream must **interpret, rank, and re-decide**.
+
+</div>
+
+<!--
+Claim 00. Pulled product work is often anticipated or planned; Stop & Fix is
+triggered by an abnormality. Same cognitive kind, different role in the flow.
+-->
+
+---
 layout: image-right
 image: /constrained-by-what-they-built.png
 backgroundSize: contain
@@ -136,7 +183,7 @@ backgroundSize: contain
 # Constrained by what they built
 
 - Leftover ownership
-- Unfinished, judgment-dependent work
+- Judgment-loaded output presented as finished
 - Unable to take the next highest-value item
 
 Being **constrained** ≠ taking **responsibility**
@@ -148,9 +195,9 @@ layout: statement
 # AI can produce plausible software faster than a product group can absorb it
 
 A generated branch, test, analysis, or design is not yet capability.
-Until it is understood, owned, integrated, and judged, it is **inventory**
-someone must supervise or re-judge — teams **constrained** by what they
-built.
+Until it is understood, owned, integrated, and judged, it is
+**judgment-loaded output** in inventory. Someone downstream must
+**interpret, rank, and re-decide** — teams **constrained** by what they built.
 
 Or AI helps make the next slice smaller and known failures easier to
 prevent or stop — teams **freed** by what they built.
@@ -518,7 +565,7 @@ class: relative
 
 # But how to build one?
 
-Is AI a good excuse to accumulate loads of judgment-dependent solutions and call it done?
+Is AI a good excuse to accumulate loads of **judgment-loaded output** and call it done?
 
 </div>
 
@@ -542,11 +589,11 @@ class: "[&>h1]:!mb-2"
 
 Move learned judgment downhill:
 
-1. **Smart:** a person judges
-2. **Dumb:** a closed stop or check encodes the judgment
-3. **Gone:** prevention — the failure can no longer occur (poka-yoke)
+1. **Smart — judgment-loaded:** use requires live judgment
+2. **Dumb — judgment-preserved:** a closed stop or check carries earlier judgment
+3. **Gone — judgment-removed:** prevention — the recurring failure cannot occur
 
-Do not load the system with output that still needs a person to re-judge.
+Do not make every user or maintainer **interpret, rank, and re-decide**.
 
 <div class="doughnut-example">
 
@@ -597,7 +644,7 @@ assertThat(prepareStatementCount, lessThan(10L));
 />
 
 <!--
-Claims 6 and 20 (poka-yoke supports jidoka).
+Claims 00, 6, and 20 (poka-yoke supports jidoka).
 Gone: the best part is no part — the failure can no longer occur.
 
 Dumb leftover: `RecallStatsPerformanceTest` — production timed out at
