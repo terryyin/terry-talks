@@ -60,8 +60,8 @@ CLD](22-tps-less-ai-cld.md).
 | **R2 Freedom and entrustment** | Capability warrants *entrusting* the next highest-value item; coercive control falls so actual need can pull. Vicious: failure invites more advance control, which starves that capability. Mutual trust sits under Respect for People. | [10](10-freedom-and-trust-reinforce-through-jidoka.md), [3](03-jidoka-enables-jit-trusts-respect-grows.md) |
 | **R3 Excellence for integration** | Technical excellence makes one product continuously integrable; that evidence encodes stops and pulls collaboration. | [8](08-technical-excellence-enables-jit-coordination-in-less.md) |
 | **R4 Work makes people** | Pull and real problems grow people who can think; that capability is what JIT and jidoka run on. | [12](12-respect-for-people-who-can-think.md) |
-| **R5 Inventory, attention, and AI** | Stacked still-smart work consumes attention, which prevents encoding, which stacks more work. AI generation injects into that inventory. | [4](04-jit-assurance-resourcefulness-not-abundance.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md) |
-| **B1 Stop and contain** | A visible abnormality, actually halted, reduces recurrence of *that* defect. Containment is balancing; the learning still feeds R1 and R3. | [19](19-stop-and-fix.md) |
+| **R5 Inventory, attention, and AI** | Judgment-loaded output stacked as finished consumes attention, which prevents encoding, which stacks more output. AI generation injects into that inventory. | [4](04-jit-assurance-resourcefulness-not-abundance.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md) |
+| **B1 Stop and contain** | A visible abnormality, actually halted, becomes emergent judgment-intensive work while propagation is contained. The resulting encoding reduces recurrence of *that* defect; the learning still feeds R1 and R3. | [19](19-stop-and-fix.md) |
 
 > **TPS can inspire LeSS+AI as a system of loops, not as a list of
 > practices.** Encoded jidoka frees attention. That capability, made
@@ -79,7 +79,11 @@ steer R5. [Claim
 1](01-tps-reasoning-not-mechanisms.md)'s two problems are the same
 map at two scales: TPS asked how to respond without stockpiling while
 exposing abnormality; LeSS+AI asks how to use cheap generation without
-stockpiling still-smart work.
+stockpiling judgment-loaded output. [Claim
+00](00-judgment-intensive-work.md) owns this distinction: pulled product
+work and emergent Stop & Fix work can both use valuable live judgment;
+R5 is the failure of passing that demand downstream in output treated as
+finished.
 
 The diagram is a map of *this talk's* claims. Toyota does not publish
 this CLD. LeSS does not. Polarities are interpretive. A link that

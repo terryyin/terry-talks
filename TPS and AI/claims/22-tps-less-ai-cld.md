@@ -34,7 +34,7 @@ definition here.
 
 | Variable | What rises or falls | Claim owners |
 |---|---|---|
-| **Encoded jidoka** | Learned judgment in a closed, stoppable form: detect a specified abnormality, halt, contain, prevent recurrence. Tests that actually stop, types, poka-yoke, an andon. Smart → dumb → gone. | [6](06-jidoka-embeds-routine-judgment.md), [19](19-stop-and-fix.md), [20](20-poka-yoke-supports-jidoka.md), [21](21-ci-practice-is-not-a-ci-system.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
+| **Encoded jidoka** | Learned judgment in a closed, stoppable form: detect a specified abnormality, halt, contain, prevent recurrence. Tests that actually stop, types, poka-yoke, an andon. Judgment-loaded → judgment-preserved → judgment-removed (smart → dumb → gone). | [6](06-jidoka-embeds-routine-judgment.md), [19](19-stop-and-fix.md), [20](20-poka-yoke-supports-jidoka.md), [21](21-ci-practice-is-not-a-ci-system.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
 | **Adaptive attention** | Room, information, skill, and authority to investigate what is not yet known, rather than watch the routine or re-judge the known. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [6](06-jidoka-embeds-routine-judgment.md), [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
 | **Capability to respond** | Resourceful, close-to-the-work response to actual need: detect, coordinate, change cheaply, recover, leave the system more capable. | [3](03-jidoka-enables-jit-trusts-respect-grows.md), [4](04-jit-assurance-resourcefulness-not-abundance.md) |
 | **People who can think** | People grown by the work: problem solving, facilitation, analysis, coaching, independent kaizen. | [12](12-respect-for-people-who-can-think.md) |
@@ -44,7 +44,7 @@ definition here.
 | **Technical excellence** | Cheap, safe change of one shared product so several feature teams can integrate continuously. The catalog exists *for* that integration. | [8](08-technical-excellence-enables-jit-coordination-in-less.md) |
 | **Visible product evidence** | Current integrated working software, plus visible abnormalities and dependencies. Transparency for the people doing the work, not a remote-control dashboard. | [8](08-technical-excellence-enables-jit-coordination-in-less.md), [16](16-go-see-ai-harness.md), [21](21-ci-practice-is-not-a-ci-system.md) |
 | **AI generation volume** | Candidate solutions, tests, analysis, and patches produced quickly. Not yet owned, verified, or encoded. | [1](01-tps-reasoning-not-mechanisms.md), [10](10-freedom-and-trust-reinforce-through-jidoka.md) |
-| **Judgment-stacked inventory** | Unverified, unowned, still-smart work in process: generated analysis, patches that look finished until a person re-judges them, tests nobody can trust, leftover warnings. Software's analogue of stockpiling. | [4](04-jit-assurance-resourcefulness-not-abundance.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
+| **Judgment-stacked inventory** | Unverified, unowned, judgment-loaded output: generated analysis, patches that look finished until a person must interpret, rank, and re-decide, tests nobody can trust, leftover warnings. Software's analogue of stockpiling. | [00](00-judgment-intensive-work.md), [4](04-jit-assurance-resourcefulness-not-abundance.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md), [24](24-warnings-as-stop-no-news-is-good-news.md) |
 
 ## Canonical links
 
@@ -69,8 +69,8 @@ This table is the source of truth. The figures are views of it.
 | Visible product evidence | **+** | Pull from actual need | Integration of customer-centric work pulls collaboration when a dependency is concrete. |
 | Visible product evidence | **+** | Encoded jidoka | Stop & Fix: a visible abnormality can become a closed detector or a gone design. |
 | Visible product evidence | **+** `//` | Warranted trust | Transparency of working software is evidence, not a dashboard for remote control. |
-| AI generation volume | **+** | Judgment-stacked inventory | Faster candidates, still needing live judgment, accumulate unless encoded or discarded. |
-| Encoded jidoka | **−** | Judgment-stacked inventory | Closed detectors and prevention keep generated work from remaining smart inventory. |
+| AI generation volume | **+** | Judgment-stacked inventory | Faster judgment-loaded candidates accumulate unless understood, verified, encoded, or discarded. |
+| Encoded jidoka | **−** | Judgment-stacked inventory | Closed detectors and prevention keep generated output from remaining judgment-loaded inventory. |
 | People who can think | **−** | Judgment-stacked inventory | Ownership, verification, and encoding prevent stacking. |
 | Judgment-stacked inventory | **−** | Adaptive attention | Re-judging the known consumes the attention jidoka was meant to free. |
 | Judgment-stacked inventory | **−** | Visible product evidence | Unintegrated, unowned output hides the real product and delays abnormality. |
@@ -198,22 +198,27 @@ developer practice, is a break in this loop: [Claims
 
 [Claim 12](12-respect-for-people-who-can-think.md): the operating
 system requires people who can think, and the work is the school that
-makes them. Pull supplies real problems. Adaptive attention (R1) is
-the condition under which those problems grow people rather than grind
-them. [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already
-records the failure: without challenge, support, and stoppable
-abnormalities, the same tightness is pressure rather than growth.
+makes them. Pull supplies real problems and judgment-intensive product
+work. Adaptive attention (R1) is the condition under which those
+problems grow people rather than grind them. [Claim
+3](03-jidoka-enables-jit-trusts-respect-grows.md) already records the
+failure: without challenge, support, and stoppable abnormalities, the
+same tightness is pressure rather than growth.
 
 ### B1 — Stop and contain
 
 **Visible product evidence → Encoded jidoka → (−) recurring
 abnormalities → (−) Visible product evidence** (of those defects)
 
-Odd number of **−** links once “recurring abnormalities” is named: stop
-& fix pushes a known defect down. The *learning* from that stop still
-feeds R1 and R3. Containment is balancing; capability growth is
-reinforcing. Mixing the two on one arrow is how a talk can sound as if
-“more tests automatically mean more trust.”
+Odd number of **−** links once “recurring abnormalities” is named: a
+justified human-triggered stop contains current propagation before more
+output inherits the abnormality and makes the response emergent
+judgment-intensive work. Fixing and encoding push recurrence of the
+known defect down; stopping does not imply that no output follows. The
+*learning* from that stop still feeds R1 and R3. Containment is
+balancing; capability growth is reinforcing. Mixing the two on one
+arrow is how a talk can sound as if “more tests automatically mean more
+trust.”
 
 ### R5 — Inventory, attention, and AI
 

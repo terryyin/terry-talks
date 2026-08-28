@@ -43,9 +43,11 @@ system.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) owns the
 right to stop. [Claim 6](06-jidoka-embeds-routine-judgment.md) owns
-where that judgment lives. This claim names **judgment-dependent
-jidoka**: the andon cord still needs a person; that is not Claim 6's
-stacking failure. [Claim
+where that judgment lives. [Claim
+00](00-judgment-intensive-work.md) owns the terminology. This claim
+names **human-triggered jidoka**: the andon cord still needs a person,
+and pulling it makes the abnormality emergent judgment-intensive work.
+That is not Claim 6's judgment-stacking failure. [Claim
 20](20-poka-yoke-supports-jidoka.md) owns poka-yoke. [Claim
 24](24-warnings-as-stop-no-news-is-good-news.md) owns leftover
 warnings as unpaid judgment. This claim owns the
@@ -69,6 +71,13 @@ is not a plant-wide freeze. LeSS's analogue is a **multi-stage CI
 system**. Parking a red test, suppressing a type error, or merging on
 a red mainline is **not** that exception. The abnormality must not
 become normal inventory.
+
+A justified stop does not mean that no work or output follows. It
+halts multiplication or propagation of the abnormality, makes the
+abnormality current work, and spends live judgment on containment,
+repair, and prevention before later output inherits the problem. Not
+every interruption is justified; the signal and the designed response
+boundary matter.
 
 On stage, one sequence: signal → response window → halt or new
 intention → prevent recurrence. The cord belongs as the human
@@ -103,10 +112,11 @@ that whether anyone treats it as current work is culture.
 > and learn. AI makes continuing past the signal cheaper and the
 > consequence of doing so worse; the culture therefore matters more.**
 
-The preceding beat is the andon cord as **judgment-dependent
-jidoka**: live judgment spent as a stop, not stacked as inventory.
-Fail-fast sits with tests and types. One red check treated as the
-work—not a second agent tasked while the suite stays red.
+The preceding beat is the andon cord as **human-triggered jidoka**:
+emergent judgment-intensive work that spends live judgment to contain
+the abnormality before more output inherits it. Fail-fast sits with
+tests and types. One red check treated as the work—not a second agent
+tasked while the suite stays red.
 
 ## Questions still open
 

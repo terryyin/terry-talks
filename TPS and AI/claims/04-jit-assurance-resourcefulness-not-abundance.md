@@ -207,13 +207,18 @@ For AI-augmented software development:
   a verified response. Cutting that need as a thin vertical slice of user
   value, confirmed by 一個ずつ確認, is
   [Claim 17](17-jit-vertical-slicing-one-piece-flow.md).
+- That pulled product work may be **judgment-intensive**: understanding the
+  situation, framing what matters, and creating or adapting a response are the
+  valuable current work, not waste. [Claim
+  00](00-judgment-intensive-work.md) owns that vocabulary.
 - AI can take some **repetitive** work and filter **value-adding** work for
   people. That is the useful use of capacity.
-- AI can also be **misused** to stack **judgment-dependent** work into the
-  product, very quickly. Throughput then rises while quality and the ability
-  to finish fall. Vendor telemetry keeps repeating that pattern; Faros's
-  2026 *Acceleration Whiplash* is a recent snapshot among many. The scarce
-  capacity is not model calls. [Claim
+- AI can also be **misused** to stack **judgment-loaded output** into the
+  product very quickly. Later people must interpret, rank, and re-decide before
+  they can safely use or change it. Throughput then rises while quality and
+  the ability to finish fall. Vendor telemetry keeps repeating that pattern;
+  Faros's 2026 *Acceleration Whiplash* is a recent snapshot among many. The
+  scarce capacity is not model calls. [Claim
   6](06-jidoka-embeds-routine-judgment.md) owns the bottleneck, and how
   encoding previously learned judgment leaves later use needing less live
   attention.

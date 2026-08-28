@@ -58,7 +58,7 @@ the unpadded display convention of later claims.
 ### 2. Core claims distinguish valuable work from deferred judgment
 
 - **Type:** Behavior
-- **Status:** planned
+- **Status:** done
 - **Do:** Align Claims 4, 6, 19, and 22 plus the companion CLD with Claim 00.
   Neutralize Claim 6's “Smart is a burden,” add positive planned and emergent
   smart examples, replace `judgment-dependent` artifact/mechanism phrasing,
@@ -68,6 +68,12 @@ the unpadded display convention of later claims.
 - **Done when:** Core claims use `judgment-intensive` for work,
   `judgment-loaded` for artifacts/systems, and the same live judgment is shown
   in different flow roles without treating all judgment as waste.
+
+Learning: the CLD topology already carried the right distinction between
+adaptive attention and judgment-stacked inventory. Only the variable
+definitions and prose needed correction. Claim 19 now names human-triggered
+jidoka and treats the stop as containment; the following diagnosis, repair,
+and learning remain judgment-intensive work.
 
 ### 3. Talk framing uses the vocabulary consistently
 
