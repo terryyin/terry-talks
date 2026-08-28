@@ -692,12 +692,34 @@ the closed stop; this slide is the cord.
 
 A detector everyone continues past is only a **dashboard**.
 
-- Stop means stop: fix before flowing on
-- Quiet warnings drift into noise — no news is good news only when
-  abnormal means stop
+- Jidoka **shows** the problem; **culture** decides whether people
+  actually halt
+- Courage to stop, contain, fix, and prevent recurrence — not work
+  around the signal
+- Stopping first is the most efficient way
+- AI makes continuing past the signal cheaper, and the cost of doing
+  so larger
 
 <!--
-Claims 19 (Stop & Fix) and 24 (warnings as stop).
+Claim 19 — Stop & Fix is the culture of actually responding: halt,
+contain, fix, prevent recurrence. Jidoka only shows the problem.
+
+Liker: Toyota Way *culture* of stopping to fix (2004 Principle 5;
+2021 Principle 6) — rapid support to contain, then solve.
+
+LeSS CI: “DO stop and fix” when the build breaks; fixing the broken
+build is first priority.
+
+Who stops: the people who broke it stop and fix; everyone else stops
+pushing to trunk until it is green — not a plant-wide freeze.
+
+Spoken dashboard contrast (Claims 13 / 24): doughnut leftover Biome
+`"warn"` pile — `biome.json` / `frontend/biome.json` park rules as
+`"warn"`; CI `pnpm lint:all` does not pass `--error-on-warnings`;
+Gradle has no warnings-as-errors. A new `debugger` or unused TS
+binding can print and the job stays green. The detector ran;
+everyone continues past it. Contrast `@focus` in features
+(`check_focus_tags.sh` exits 1). HEAD `e683b74615`.
 -->
 
 ---
