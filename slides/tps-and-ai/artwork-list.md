@@ -498,6 +498,17 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ## Build in-slide (diagrams and icons, not AI art)
 
+In-slide diagrams keep the generated-art anchors, translated for
+crisp type: paper `#ece6dc`, ink nodes `#292524` / `#fffaf3`, stone
+strokes `#78716c`, vermilion `#b33a2b` for the verbs (triad edge
+words, CLD polarity labels, one destination/injection node). Mermaid
+cannot take theme CSS (it renders in a shadow root); this deck's
+`setup/mermaid.ts` is the seam. Do not use Mermaid's default
+lavender/purple, and do not ask Mermaid for brushwork (`look:
+handDrawn` is a different medium). If the argument is *spatial*
+(a triangle, a true causal-loop shape), draw SVG like the triad —
+Mermaid only auto-places.
+
 - **"Two houses, different layers"** (left column): original English
   SVG of the commonly taught TPS house. Item 1 above is the source
   trail; labels stay typeset text. The Larman & Vodde house on the
@@ -505,7 +516,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 - **"One lineage of inspiration":** simple flow diagram
   TPS → XP / Agile → LeSS → AI-augmented development. Mermaid or SVG;
   needs crisp text. Done — embedded as Mermaid; labels stay typeset
-  text.
+  text. Vermilion accent on the last node (where we are now).
 - **"The engine of freedom and entrustment"** (after "The triad"):
   Figure 1 of the Claim 22 companion CLD — loops R1+R2, six
   variables. Done — embedded as mermaid; labels stay typeset text.
@@ -514,6 +525,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   Figure 2 of the companion CLD — loop R5 with the AI injection,
   four variables. Done — embedded as mermaid; reprises the early
   statement slide's punchline once the engine has been walked.
+  Vermilion accent on the AI-volume injection.
 - **"The triad":** triangle of Jidoka / JIT / Respect for
   People with the frees / entrusts / grows verbs on the edges. Done —
   embedded as inline SVG; labels stay typeset text.

@@ -98,12 +98,13 @@ class: text-center
 ```mermaid {scale: 0.9}
 %%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 20}}}%%
 flowchart LR
-  TPS[TPS]
-  XP[XP /<br>Agile]
-  LESS[LeSS]
-  AI[AI-augmented<br>development]
+  TPS(TPS)
+  XP(XP /<br>Agile)
+  LESS(LeSS)
+  AI(AI-augmented<br>development)
 
   TPS --> XP --> LESS --> AI
+  class AI accent
 ```
 
 **TPS** inspired **XP** and the Agile movement,
@@ -376,12 +377,12 @@ Claims 3, 12, 8.
 ```mermaid {scale: 0.75}
 %%{init: {'flowchart': {'rankSpacing': 30, 'nodeSpacing': 25}}}%%
 flowchart LR
-  EJ[Encoded<br>jidoka]
-  AA[Adaptive<br>attention]
-  CAP[Capability<br>to respond]
-  WT[Warranted<br>trust]
-  CC[Coercive<br>control]
-  PULL[Pull from<br>actual need]
+  EJ(Encoded<br>jidoka)
+  AA(Adaptive<br>attention)
+  CAP(Capability<br>to respond)
+  WT(Warranted<br>trust)
+  CC(Coercive<br>control)
+  PULL(Pull from<br>actual need)
 
   EJ -->|"+"| AA
   AA -->|"delay +"| EJ
@@ -409,15 +410,16 @@ Claims 22 and 10.
 
 ```mermaid {scale: 1.0}
 flowchart LR
-  AI[AI generation<br>volume]
-  INV[Judgment-stacked<br>inventory]
-  AA[Adaptive<br>attention]
-  EJ[Encoded<br>jidoka]
+  AI(AI generation<br>volume)
+  INV(Judgment-stacked<br>inventory)
+  AA(Adaptive<br>attention)
+  EJ(Encoded<br>jidoka)
 
   AI -->|"+"| INV
   INV -->|"-"| AA
   AA -->|"delay +"| EJ
   EJ -->|"-"| INV
+  class AI accent
 ```
 
 AI **raises the gain** on the loop you are already running.
