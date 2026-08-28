@@ -43,15 +43,17 @@ One of the first slides asks the diagnostic question:
 > If the teams are more **freed** than **constrained** by what they
 > built.
 
-Constrained means leftover ownership, unfinished and judgment-dependent
-work, and inability to take the next highest-value item. It does not
-mean absence of product direction, quality standards, or
-accountability.
+Constrained means leftover ownership, judgment-loaded output presented
+as finished, and inability to take the next highest-value item. It does
+not mean doing difficult judgment-intensive product work, or the absence
+of product direction, quality standards, or accountability. [Claim
+00](claims/00-judgment-intensive-work.md) owns that distinction.
 
 AI can produce plausible software faster than a product group can
 absorb it. A generated branch, test, analysis, or design is not yet
 capability: until it is understood, owned, integrated, and judged, it
-is inventory someone must supervise or re-judge.
+is judgment-loaded output in inventory. Someone downstream must
+interpret, rank, and re-decide before safely using or changing it.
 
 ## The main message
 
@@ -78,13 +80,14 @@ excellence makes the shared product and its abnormalities visible soon
 enough for teams to collaborate just in time
 ([Claim 8](claims/08-technical-excellence-enables-jit-coordination-in-less.md)).
 
-AI enters as an amplifier. Generation is cheap;
-judgment is expensive — a supporting argument owned by the jidoka
-cluster ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md)), not
-the thesis. The bottleneck is people's cognitive ability to fully
-experience the problem-solving journey and to comprehend the problem
-and the solution. AI can inject judgment-dependent inventory faster
-than people can encode it, or it can help make the next slice smaller
+AI enters as an amplifier. Generation is cheap; **live judgment is
+expensive** — a supporting argument, not the thesis. [Claim
+00](claims/00-judgment-intensive-work.md) owns the vocabulary; [Claim
+6](claims/06-jidoka-embeds-routine-judgment.md) owns the jidoka descent.
+The bottleneck is the group's cognitive capacity to fully experience the
+problem-solving journey and comprehend both problem and solution. AI can
+inject judgment-stacked inventory faster than the group can understand,
+own, verify, and encode it, or it can help make the next slice smaller
 and known failures easier to prevent or stop
 ([Claim 22](claims/22-cld-shows-tps-reasoning-for-less-ai.md)):
 
@@ -103,11 +106,13 @@ and known failures easier to prevent or stop
    usefulness, then take the next bite
    ([Claims 4](claims/04-jit-assurance-resourcefulness-not-abundance.md)
    and [17](claims/17-jit-vertical-slicing-one-piece-flow.md)).
-3. **Smart → dumb → gone.** Move learned judgment downhill: prefer
+3. **Smart → dumb → gone.** Move learned judgment downhill:
+   **judgment-loaded → judgment-preserved → judgment-removed**. Prefer
    prevention; otherwise a closed stop — and actually Stop & Fix. A
-   detector everyone continues past is only a dashboard. Do not load
-   the system with output that still needs a person to re-judge
-   ([Claims 6](claims/06-jidoka-embeds-routine-judgment.md),
+   detector everyone continues past is only a dashboard. Do not present
+   judgment-loaded output as finished
+   ([Claim 00](claims/00-judgment-intensive-work.md),
+   [6](claims/06-jidoka-embeds-routine-judgment.md),
    [19](claims/19-stop-and-fix.md), and
    [20](claims/20-poka-yoke-supports-jidoka.md)).
 4. **Same gates for "I" and AI.** The product standard and stop
@@ -149,10 +154,12 @@ to a claim.
    ([Claims 1](claims/01-tps-reasoning-not-mechanisms.md),
    [2](claims/02-tps-and-lean-houses.md), and
    [11](claims/11-physical-production-and-software-differences.md)).
-3. **Jidoka preserves knowledge** — generation is cheap, judgment is
-   expensive; the loom's closed stop; smart → dumb → gone; do not
-   stack judgment-dependent inventory
-   ([Claim 6](claims/06-jidoka-embeds-routine-judgment.md), with
+3. **Jidoka preserves knowledge** — generation is cheap, live judgment
+   is expensive; the loom's closed stop; smart → dumb → gone paired
+   with judgment-loaded → judgment-preserved → judgment-removed; do not
+   stack judgment-loaded output as finished inventory
+   ([Claim 00](claims/00-judgment-intensive-work.md) for the vocabulary;
+   [Claim 6](claims/06-jidoka-embeds-routine-judgment.md), with
    Stop & Fix [19](claims/19-stop-and-fix.md), poka-yoke
    [20](claims/20-poka-yoke-supports-jidoka.md), and quiet warnings
    [24](claims/24-warnings-as-stop-no-news-is-good-news.md) as

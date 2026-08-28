@@ -78,7 +78,7 @@ and learning remain judgment-intensive work.
 ### 3. Talk framing uses the vocabulary consistently
 
 - **Type:** Behavior
-- **Status:** planned
+- **Status:** done
 - **Do:** Update `TPS and AI/main-theme-and-stage-setting.md` and
   `TPS and AI/open-questions.md`. Replace the old constrained-work framing
   with unowned judgment-loaded output/inventory, cite Claim 00 as terminology
@@ -88,6 +88,12 @@ and learning remain judgment-intensive work.
 - **Done when:** A planning reader sees the same neutral account of live
   judgment and the same negative account of deferred/repeated judgment as in
   the core claims.
+
+Learning: the settled stacking question no longer belongs in the open-question
+queue. The remaining uncertainty is audience comprehension of `judgment` as
+the deliberately broad local shorthand for contextual, creative, and
+evaluative intelligence. Individual artifacts are judgment-loaded output;
+their accumulation is judgment-stacked inventory.
 
 ### 4. Slides introduce live judgment and the paired triads
 

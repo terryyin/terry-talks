@@ -12,8 +12,10 @@ future discussion, not a set of conclusions.
   The early-talk slogan (*How do you know if the organization is using
   AI right? If the teams are more freed than constrained by what they
   built.*) is one leading page, not the title. **Constrained**
-  means leftover ownership, unfinished and judgment-dependent work, and
-  inability to take the next highest-value item.
+  means leftover ownership, judgment-loaded output presented as finished,
+  and inability to take the next highest-value item. Difficult
+  judgment-intensive product work is not itself the constraint. [Claim
+  00](claims/00-judgment-intensive-work.md) owns that distinction.
 - What is the promised audience takeaway? Working answer: drafted as
   the four-point takeaway list in
   [Main theme and stage setting](main-theme-and-stage-setting.md),
@@ -81,18 +83,15 @@ future discussion, not a set of conclusions.
   factory versus lab. Remaining talk choices (one sequence example, AI
   set-based exploration versus overproduction, operations as a third mode)
   stay on that claim.
-- Is stacking **judgment-dependent** knowledge (generated analysis, unowned
-  tests, patches that still need a person to re-judge) the distinctive
-  failure of AI-assisted development, as opposed to merely generating too
-  much code? [Claim
-  6](claims/06-jidoka-embeds-routine-judgment.md) now names that split;
-  [Claim
-  4](claims/04-jit-assurance-resourcefulness-not-abundance.md) already
-  has the stacking warning. A leftover compiler or linter warning is
-  that remainder in miniature:
-  [Claim 24](claims/24-warnings-as-stop-no-news-is-good-news.md).
-  Talk placement is on that claim: a jidoka sub-beat after poka-yoke,
-  not an independent TPS topic.
+- Does **judgment-intensive work** naturally communicate the intended
+  breadth of high-level intelligence: understanding context, framing what
+  matters, creating or adapting a response, weighing consequences, and
+  deciding what counts as acceptable? Working answer: keep the term and its
+  short gloss, **work that still requires live judgment**, but define the
+  breadth explicitly. Audience testing may show that _judgment_ is heard too
+  narrowly as evaluation or final decision. [Claim
+  00](claims/00-judgment-intensive-work.md) owns the terminology and this
+  remaining question.
 - Honest CI and disposable prototypes look like opposites:
   real integration entangles experiments so there is no clean delete,
   yet spent experiments still need to leave the product. A working
