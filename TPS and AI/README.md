@@ -21,6 +21,7 @@ The claims below are **Provisional**. Most now present one current
 opinion. Claims 15 and 22 still show the forming path. Claim 13 is an
 evidence backlog.
 
+0. [Claim 00: Judgment-intensive work consumes live judgment; judgment-loaded output still demands it](claims/00-judgment-intensive-work.md)
 1. [The useful transfer from TPS is system reasoning, not manufacturing mechanisms](claims/01-tps-reasoning-not-mechanisms.md)
 2. [Toyota's TPS overview and the Lean Thinking house show different layers](claims/02-tps-and-lean-houses.md)
 3. [Jidoka frees, JIT entrusts, Respect for People supports growth](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
