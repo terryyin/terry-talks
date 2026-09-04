@@ -1,56 +1,99 @@
 ---
-description: Behavior/Structure slice grammar, .planning/quick layout, and execute-plan wrap-up
+description: Decisions for planning artifacts, proof, updates, and cleanup
 alwaysApply: true
 ---
 
-# Planning slices
+# Planning
 
-- Every piece of work is split into **slices**: one **Behavior** (observable
-  outcome — a slide, a claim, a script's behavior when run) or one
-  **Structure** change (internal reorg, no observable change, justified only
-  by the **immediate next** Behavior it unlocks).
-- Decompose with **slice-planning** (`.agents/skills/slice-planning/`). Order
-  by outcome, not by layer; size each slice to finish in ~5 minutes including
-  checks. Write the plan at `.planning/quick/NNN-slug/PLAN.md`. Execute with
-  **execute-plan** (`.agents/skills/execute-plan/`).
-- **Time-box:** a fix/edit attempt over 5 minutes — scrutinize the breakdown;
-  over 10 minutes — stop, stash WIP, re-decompose smaller (see the skill for
-  detail).
-- **Jidoka** — Before starting a slice and after finishing it: stop for
-  developer judgment on value/design forks, credentials, undiagnosed
-  unrelated failure, or ambiguity (see **execute-plan**). Do not stop merely
-  to avoid fixing a check failure caused by the current change.
-- **Wrap-up (required on execute-plan):** Jidoka → post-change-refactor →
-  update plan → commit. Invoking execute-plan authorizes one commit per
-  closed slice. Do **not** push unless asked. This repo has no CD deploy
-  gate.
-- Before committing a slice, run **post-change-refactor**
-  (`.agents/skills/post-change-refactor/`) on the uncommitted change: collapse
-  duplication, fix naming, consolidate shotgun surgery, delete dead/redundant
-  content, split code files over 250 lines. It Jidoka-stops before
-  cross-subsystem edits without explicit authorization — it never commits.
-- Don't deliberately leave `pnpm typecheck` or `pnpm build` broken across a
-  commit.
+Apply `problem-decomposition.mdc` before writing or revising a plan.
 
 See also: `architecture-decisions.mdc` — durable structural decisions go
 through an ADR instead of an ad hoc refactor.
 
-## Planning layout
+## Route the work
 
-Ad-hoc slice plans (doughnut `quick/` naming; this repo has no GSD):
+| Condition | Action |
+|-----------|--------|
+| Problem, value, expected outcome, or story boundaries are unresolved | Use **story-decomposition**; do not write an executable plan |
+| One story-sized outcome is selected | Use **slice-planning** |
+| Input is only a story-decomposition seed | Select one contained story before planning execution |
 
-| Path | Role |
-|------|------|
-| `.planning/quick/NNN-slug/PLAN.md` | Plan from **slice-planning**. `NNN` is the next free 3-digit number at write time; `slug` is kebab-case |
+Do **not** add GSD files (`PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`,
+`STATE.md`, `config.json`, `.planning/phases/`) or run `/gsd-*` unless the
+owner asks. `execute-plan` must not write `STATE.md`.
+
+## Required PLAN contents
+
+Keep only information needed for execution, proof, review, or resume:
+
+1. **Source** — seed/story link when applicable.
+2. **Outcome and boundaries** — one selected story.
+3. **Outside-in proof** — example, demonstration, `pnpm typecheck` /
+   `pnpm build`, or a prose read-through (see Proof decisions).
+4. **Ordered slices** — capability-named heading, type, status, and proof.
+5. **Current decisions** — only choices that constrain remaining work.
+6. **Learnings** — only discoveries that change assumptions or remaining slices.
+
+For each slice, record:
+
+```markdown
+### N. Capability outcome
+Type: Behavior | Structure
+Status: planned | in-progress | done
+Proof: <observable signal and focused verification>
+
+Behavior: <pre-condition → trigger → post-condition>
+```
+
+For Structure, replace `Behavior` with the internal change and the immediate
+next Behavior it enables.
+
+## Artifact locations
+
+| Path | Use |
+|------|-----|
+| `.planning/seeds/SEED-NNN-slug.md` | Non-executable parent problem and candidate stories |
+| `.planning/quick/NNN-slug/PLAN.md` | Ad-hoc executable plan for a selected story |
+
+`NNN` is the next free 3-digit number at write time; `slug` is kebab-case.
 
 - Do **not** write a flat `.planning/<name>.md` or a plan beside the deck/claim
   (`NOTES.md`).
-- Do **not** add GSD files (`PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`,
-  `STATE.md`, `config.json`, `.planning/phases/`) or run `/gsd-new-project`
-  unless the owner asks. `execute-plan` must not write `STATE.md`.
 - Product files stay capability-named — plan and slice numbers belong only
   under `.planning/`.
-- **While a plan is in progress:** keep resume-useful status and brief
-  learnings in that `PLAN.md`.
-- **When every slice has landed:** delete the spent `NNN-slug/` directory
-  (no plan diary). Include that deletion in the last slice's commit.
+
+## Proof decisions
+
+| Situation | Plan |
+|-----------|------|
+| Main user behavior | Slide, claim, or script behavior when run; `pnpm typecheck` / `pnpm build` for code or rendered decks; read-through for prose (claims, open questions, ADRs) |
+| Existing untested behavior | Regression proof before changing it |
+| Structure slice | Existing external behavior remains green |
+| Interim behavior | Name the later slice that removes or replaces it |
+
+Don't deliberately leave `pnpm typecheck` or `pnpm build` broken across a
+commit.
+
+## Update and cleanup decisions
+
+- While a plan is in progress, keep resume-useful slice status, brief
+  learnings, and remaining work in the PLAN. `execute-plan` must not use
+  `.planning/STATE.md` as slice resume state.
+- After a slice, update later leaves when evidence affects only the selected
+  story.
+- If evidence meets the parent-decomposition escalation conditions in
+  `problem-decomposition.mdc`, record the affected seed/story and stop for
+  human review instead of continuing.
+- **Jidoka** — Before starting a slice and after finishing it: stop for
+  developer judgment on value/design forks, credentials, undiagnosed
+  unrelated failure, or ambiguity (see **execute-plan**). Do not stop merely
+  to avoid fixing a check failure caused by the current change.
+- Before committing a slice, run **post-change-refactor**
+  (`.agents/skills/post-change-refactor/`) on the uncommitted change.
+- Mark a slice done only after relevant checks, cleanup, post-change-refactor,
+  plan update, and the Jidoka / commit gate required by `execute-plan`.
+  Invoking execute-plan authorizes one commit per closed slice. Do **not**
+  push unless asked. This repo has no CD deploy gate.
+- When every slice has landed: delete the spent `.planning/quick/NNN-slug/`
+  directory (no plan diary). Include that deletion in the last slice's
+  commit. Keep enduring design in product docs and ADRs.
