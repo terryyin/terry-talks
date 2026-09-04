@@ -41,6 +41,22 @@ map of those relationships as loops is [Claim
 22](22-cld-shows-tps-reasoning-for-less-ai.md); the diagram is the
 companion [CLD](22-tps-less-ai-cld.md).
 
+Do not treat a local speed gain as automatic productivity. The talk
+ladder (owned as a formulation in
+[main theme](../main-theme-and-stage-setting.md)):
+
+```
+individual productivity
+        ≠
+team productivity
+        ≠
+software-system productivity
+        ≠
+organizational productivity
+        ≠
+economy-wide productivity
+```
+
 [Claim 2](02-tps-and-lean-houses.md) separates Toyota's TPS operating
 system from the Toyota Way / lean-thinking house.
 [Claim 11](11-physical-production-and-software-differences.md) develops

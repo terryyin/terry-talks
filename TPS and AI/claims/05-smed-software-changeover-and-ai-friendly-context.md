@@ -394,6 +394,13 @@ machines.
 > team health, this talk owns why one cross-component item is
 > affordable.
 
+The same contest, louder with AI (LeSS-audience name of [Claim
+22](22-cld-shows-tps-reasoning-for-less-ai.md)’s gain):
+
+> **LeSS already fought over what occupies a developer’s focus: the
+> solution, or customer value. AI-augmented development is the same war
+> at higher gain: generation is cheap; confirmed customer value is not.**
+
 The follow-on slide after Continuous Improvement Towards Perfection:
 
 > **Lower the switching cost.** Switching cost is the leftover of the

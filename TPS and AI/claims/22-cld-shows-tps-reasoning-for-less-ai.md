@@ -115,6 +115,14 @@ Memorable:
 > **Jidoka encodes the known so people can learn. Trust lets real need
 > pull. AI speeds whichever loop you feed.**
 
+The LeSS-audience name of that gain (which focus [Claim
+5](05-smed-software-changeover-and-ai-friendly-context.md) already
+protects):
+
+> **LeSS already fought over what occupies a developer’s focus: the
+> solution, or customer value. AI-augmented development is the same war
+> at higher gain: generation is cheap; confirmed customer value is not.**
+
 The strongest version is the same as [Claim
 1](01-tps-reasoning-not-mechanisms.md), now with a picture of the
 relationships:

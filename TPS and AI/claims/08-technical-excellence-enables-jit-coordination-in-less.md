@@ -212,6 +212,25 @@ makers still increased in early 1974.
 > meets shared reality early enough for people to self-manage the
 > consequences. Do not create debt faster.**
 
+A level error this claim already implies, now named for the talk:
+
+```
+individual productivity
+        ≠
+team productivity
+        ≠
+software-system productivity
+        ≠
+organizational productivity
+        ≠
+economy-wide productivity
+```
+
+A strong component organization, or a faster individual with AI, can
+still raise only the top line. *Software-system* is the integrated
+product. The ladder and the LeSS focus contest live in
+[main theme](../main-theme-and-stage-setting.md).
+
 ## Questions still open
 
 None remaining on this claim. The full doughnut sequence from

@@ -51,6 +51,45 @@ future discussion, not a set of conclusions.
   6](claims/06-jidoka-embeds-routine-judgment.md) owns the beat. The
   thesis remains Freedom and Entrustment
   ([Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)).
+- Does AI replace the LeSS contest for a developer’s focus (the
+  solution, or customer value)? Working answer: **no — same war, higher
+  gain.** Settled formulation (also in
+  [main theme](main-theme-and-stage-setting.md)): **LeSS already fought
+  over what occupies a developer’s focus: the solution, or customer
+  value. AI-augmented development is the same war at higher gain:
+  generation is cheap; confirmed customer value is not.** [Claim
+  5](claims/05-smed-software-changeover-and-ai-friendly-context.md) owns
+  which focus LeSS protects; [Claim
+  22](claims/22-cld-shows-tps-reasoning-for-less-ai.md) owns the gain.
+  Distinct from “generation is cheap; judgment is expensive”: here the
+  scarce thing is *confirmed customer value*.
+- Does a gain at one productivity level imply a gain at the next?
+  Working answer: **no.** Settled formulation (also in
+  [main theme](main-theme-and-stage-setting.md)):
+
+  ```
+  individual productivity
+          ≠
+  team productivity
+          ≠
+  software-system productivity
+          ≠
+  organizational productivity
+          ≠
+  economy-wide productivity
+  ```
+
+  Each `≠` is a level error: local speed (especially generated
+  output) does not transfer. *Software-system* here is the integrated
+  product (Whole Product Focus), not IT operations. [Claim
+  8](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
+  owns component/internal output versus user value; [Claim
+  1](claims/01-tps-reasoning-not-mechanisms.md) already refuses automatic
+  productivity gain from AI tools; [Claim
+  10](claims/10-freedom-and-trust-reinforce-through-jidoka.md) owns local
+  optimization and “not more output.” Sibling of the focus contest
+  above: solution-side generation can raise the *individual* line
+  while starving confirmed customer value at every line below it.
 - In AI-augmented development, where does the bottleneck actually move: problem
   selection, specification, verification, integration, deployment, learning,
   or governance?

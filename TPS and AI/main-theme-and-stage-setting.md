@@ -93,6 +93,39 @@ and known failures easier to prevent or stop
 
 > **AI speeds whichever loop you feed.**
 
+The LeSS-shaped name of that amplifier, for this audience:
+
+> **LeSS already fought over what occupies a developer’s focus: the
+> solution, or customer value. AI-augmented development is the same war
+> at higher gain: generation is cheap; confirmed customer value is not.**
+
+[Claim 5](claims/05-smed-software-changeover-and-ai-friendly-context.md)
+owns which focus LeSS protects; [Claim
+22](claims/22-cld-shows-tps-reasoning-for-less-ai.md) owns the gain.
+Distinct from the supporting argument that live judgment is expensive:
+here the scarce thing is *confirmed customer value*.
+
+A level error to refuse on the same beat — local speed does not
+transfer:
+
+```
+individual productivity
+        ≠
+team productivity
+        ≠
+software-system productivity
+        ≠
+organizational productivity
+        ≠
+economy-wide productivity
+```
+
+*Software-system* means the integrated product, not IT operations.
+[Claim 8](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
+owns internal output versus user value; [Claim
+1](claims/01-tps-reasoning-not-mechanisms.md) already refuses automatic
+productivity gain from the tools.
+
 ## Main takeaway list — draft
 
 1. **Judge AI use by freedom.** Teams more freed than constrained by
@@ -187,10 +220,13 @@ to a claim.
    and [5](claims/05-smed-software-changeover-and-ai-friendly-context.md)).
 8. **Tensions and honest limits** — honest CI versus disposable
    prototypes; extreme conditions interrupt JIT; The Algorithm's
-   family resemblance
+   family resemblance; individual speed ≠ team ≠ software-system ≠
+   organization ≠ economy-wide productivity
    ([Claims 23](claims/23-ci-and-disposable-prototypes-tension-pair.md),
-   [15](claims/15-extreme-conditions-interrupt-jit.md), and
-   [7](claims/07-the-algorithm-and-tps-family-resemblance.md)).
+   [15](claims/15-extreme-conditions-interrupt-jit.md),
+   [7](claims/07-the-algorithm-and-tps-family-resemblance.md),
+   [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md),
+   and [1](claims/01-tps-reasoning-not-mechanisms.md)).
 
 Nemawashi
 ([Claim 9](claims/09-nemawashi-self-organized-deliberation-in-less.md))
