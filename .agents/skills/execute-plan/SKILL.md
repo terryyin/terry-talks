@@ -31,8 +31,10 @@ waiting on the developer.
 
 If there is no plan, stop and run **slice-planning** first.
 
-Before executing, read [delegation.md](references/delegation.md) and
-[wrap-up.md](references/wrap-up.md) in full.
+Before executing, read [delegation.md](references/delegation.md),
+[disposable-research.md](references/disposable-research.md),
+[destructive-later-outcome-check.md](references/destructive-later-outcome-check.md),
+and [wrap-up.md](references/wrap-up.md) in full.
 
 Every executable unit must be **Behavior | Structure**, stop-safe, one
 observable behavior or its immediately enabling Structure
@@ -51,9 +53,12 @@ context does not accumulate.
 
 **Wrap-up ownership (hard):** The **coordinator** owns post-change-refactor,
 selective formatting, plan update, and commit. Implementers must **not**
-commit and must **not** run post-change-refactor themselves. The
-coordinator spawns fresh refactor and formatting agents and must see their
-completion markers (or handle their Jidoka stops) before committing.
+commit or run post-change-refactor, `format:changed`, or standalone
+`lint:changed` themselves. The coordinator spawns one fresh refactor agent and
+must see its completion marker (or handle its Jidoka stop), then runs
+`./scripts/run.sh pnpm format:changed` directly once after refactor. The
+repository command owns component selection, including a no-op for
+planning-only changes; routine wrap-up does not spawn a formatting agent.
 
 **Resume:** The PLAN file being executed is the source of truth for
 remaining slices. Do **not** write `.planning/STATE.md`.
@@ -61,7 +66,7 @@ remaining slices. Do **not** write `.planning/STATE.md`.
 **Parallelism:** Run independent slices in parallel when touch sets do not
 overlap and they do not contend on the same plan file. Otherwise sequential.
 Each parallel unit still gets its own coordinator-owned refactor →
-format → commit before the next dependent unit starts.
+commit before the next dependent unit starts.
 
 **Commit authorization:** Invoking this skill authorizes **one commit per
 closed slice**. Do **not** push unless the developer explicitly asked.
@@ -107,26 +112,31 @@ When stopping: explain **what** you learned, **why** you stopped, and
 - **Before** (coordinator, on the slice *description*) — safe to start
   autonomously? Value/design forks, ambiguity, missing credentials,
   Behavior/Structure grammar.
-- **After** (implementer return + refactor return + format return) — did
-  work reveal something the plan did not anticipate? Stop even if the
-  slice succeeded.
+- **After** (implementer return + refactor return) — did work reveal
+  something the plan did not anticipate? Stop even if the slice succeeded.
 </preflight_gate>
 
 <step name="coordinator_loop">
 ```
 1. Read the plan (`.planning/quick/NNN-slug/PLAN.md` / named path / session list)
 2. Find the next slice whose status is NOT "done"
-3. Pre-slice Jidoka + Behavior/Structure + refinement-trigger check
+3. Pre-slice Jidoka + Behavior/Structure + refinement-trigger check; before
+   delegating destructive work, run the [named later-outcome check](references/destructive-later-outcome-check.md)
    → If Jidoka stop condition → report & STOP
    → If the selected outcome is valid but a refinement trigger applies, invoke
      slice-plan-refinement on this PLAN, then reread it before continuing
 4. DELEGATE implementation only to a fresh sub-agent (see delegation)
 5. When implementer finishes:
    a. If Jidoka stop / REVERT & REFINE → handle as below; do not wrap up
-   b. Verify relevant checks were reported green (no intentional
-      typecheck/build break) and `git status` shows uncommitted work
-      (or a deliberate empty slice with a stated reason). Do not require
-      a full build of unrelated decks.
+   b. Accept complete implementer proof by default: one or more compact
+      `proof:` blocks with the exact focused command, the behavior or paths it
+      covers, and `result: pass`. Do not recreate or randomly sample that proof.
+      Rerun relevant proof only when the handoff is missing or ambiguous, later
+      wrap-up work changed the covered boundary, or the slice closes a broader
+      integration proof the handoff did not run. Verify there is no intentional
+      typecheck/build break and `git status` shows uncommitted work (or a
+      deliberate empty slice with a stated reason). Do not require a full build
+      of unrelated decks.
    c. If the implementer already committed → process failure: stop and
       report. Prefer fixing by soft-resetting an unpushed commit only
       when safe and the developer has not forbidden it; otherwise wait.
@@ -190,9 +200,10 @@ When this happens:
 - Each slice implemented by a fresh sub-agent (coordinator does not
   accumulate implementation context), except the single-interactive /
   no-Task fallback
-- Coordinator owns wrap-up: fresh post-change-refactor →
-  `## REFACTOR COMPLETE` → fresh format-changed Task →
-  `## FORMAT CHANGED COMPLETE` → plan update → commit (push only if asked)
+- Coordinator owns wrap-up: fresh post-change-refactor sub-agent →
+  `## REFACTOR COMPLETE` → one direct
+  `./scripts/run.sh pnpm format:changed` → plan update without a second routine
+  formatting pass → commit (check-only lint hook; push only if asked)
 - Pre- and post-slice Jidoka checks applied
 - Slice-plan-refinement invoked for coarse/low-confidence leaves and
   overruns, but not required for straightforward commit-sized plans
@@ -224,14 +235,19 @@ resolves and work resumes.)
 - Do not implement slices in the coordinator agent (except single
   interactive slice, or when Task cannot be spawned — then still run
   wrap-up as a distinct pass).
-- Do not skip coordinator-owned post-change-refactor, format-changed, or
-  commit per slice.
+- Do not skip coordinator-owned post-change-refactor, selective formatting
+  command, or commit per slice.
 - Do not accept an implementer self-refactor or a missing
-  `## REFACTOR COMPLETE` or `## FORMAT CHANGED COMPLETE` as wrap-up.
+  `## REFACTOR COMPLETE` as wrap-up.
 - Do not pass full plan history to sub-agents.
 - Do not continue past a Jidoka stop without developer input.
 - Do not commit with a deliberately broken typecheck/build.
-- Do not stage or commit before the fresh format-changed agent completes.
+- Do not stage or commit before the coordinator's selective formatting command
+  succeeds.
+- Do not spawn `format-changed` during routine slice wrap-up; that skill remains
+  available for explicit on-demand use.
+- Do not run standalone `lint:changed` during routine wrap-up; the commit hook is
+  the independent staged-component lint check.
 - Do not treat the lint-only pre-commit hook as a formatter or let it
   mutate Git state.
 - Do not push unless the developer asked.

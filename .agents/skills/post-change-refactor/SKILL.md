@@ -65,6 +65,8 @@ an ADR (`adr-awareness`) instead of an ad hoc refactor.
 Optional caller context (when spawned from execute-plan):
 - Plan path and current slice text (for the immediate-next-slice
   justification boundary)
+- Implementer's compact `proof:` block(s), including each exact focused
+  command and the behavior or paths it covers
 
 **Invokers:** `execute-plan` (fresh sub-agent before commit), or an
 on-demand request ("refactor this", "clean up before commit").
@@ -78,8 +80,8 @@ report empty scope and emit `## REFACTOR COMPLETE` with no edits.
 </preflight_gate>
 
 <preflight_gate name="map_concept_impact">
-Before editing, perform a fast read-only pass over every check below. For
-each candidate, record:
+Before editing, read [the refactor checks](references/refactor-checks.md) and
+perform a fast read-only pass over every check. For each candidate, record:
 
 1. The triggering issue and its connection to the current change.
 2. The minimum concept-bounded edit set needed for coherent completion.
@@ -104,74 +106,22 @@ agent's edits for that candidate, never pre-existing user changes.
 After the gates, **decide first**: if `map_concept_impact` recorded no edit
 candidates (and the cross-subsystem gate did not stop), skip the edit steps
 and `confirm_related_checks`; report "none — already clean" and emit
-`## REFACTOR COMPLETE`.
+`## REFACTOR COMPLETE`. Do not run related checks as a pre-triage gate.
 
-If there are edit candidates, execute them **in check order**, then
+If there are edit candidates, execute them **in refactor-check order**, then
 `confirm_related_checks`. Do not repeat broad discovery. After checks pass,
 return to the caller — **do not commit** from inside this skill.
-
-<step name="duplication">
-- **"New" duplication** means at least one copy is newly introduced or
-  closely related to newly introduced content — not that every copy is new.
-  Collapse it even when the other side already existed.
-- Look for copy-pasted blocks, parallel slide structures, or repeated claims
-  that the change introduced or made visible.
-- The same concept in two representations counts as duplication, not just
-  literal copies (e.g. the same value hardcoded in theme CSS and a component).
-- **Action:** collapse onto a single representation. Prefer reusing an
-  existing helper/component/claim in the right place over inventing a new one.
-</step>
-
-<step name="domain_naming">
-- Read every new or renamed identifier — files, deck slugs, component names,
-  script flags, claim titles.
-- Ask: does the name match what a reader or the next contributor expects?
-  Names describe **capability/content**, not development history — no
-  scratch/temp naming left behind.
-- **Action:** rename when intent is unclear, misleading, or stale.
-</step>
-
-<step name="shotgun_surgery">
-- Shotgun surgery: **one logical concept** (e.g. a version string, a theme
-  color, a talk title) forces edits in many places for one purpose.
-- Give the concept **one** representation (one theme variable, one constant,
-  one config value). The next change of that shape should touch that place
-  only.
-- **Action:** consolidate now behind one seam. Leave only low-likelihood
-  one-offs unabstracted.
-</step>
-
-<step name="dead_redundant_code">
-Remove aggressively whatever the change introduced or exposed that fails the
-decision boundary:
-
-- Script/theme code with no caller; unreachable branches; cancelling edit
-  pairs (added then immediately worked around).
-- Images or other assets no slide references anymore.
-- Draft/placeholder slides left in a deck that the change made obsolete.
-
-When in doubt, **delete**. The next slice reintroduces only what it needs.
-</step>
-
-<step name="file_size">
-Applies to **code files** only (`.ts`, `.vue`, `.mjs`, `.css`) — not
-`slides.md` decks or prose (`.md` claims, ADRs), which are naturally long and
-already segmented by slide/section markers.
-
-```bash
-wc -l <path>
-```
-
-- Code files **over 250 lines** must be split along a cohesive seam (one
-  concept per module), keeping the public API stable for callers outside the
-  change.
-</step>
 
 <step name="confirm_related_checks">
 Skip this step when triage recorded no refactor edits.
 
-Otherwise run the check relevant to what this refactor touched — not
-everything, and not before deciding to edit:
+When the caller provided compact proof, rerun only the handed-off command(s)
+whose covered behavior or paths the refactor edits invalidated — not the
+whole suite, and not before deciding to edit. If an edit moved the covered
+boundary so a handed-off command is no longer the right focused proof, state
+why and run a focused replacement. Do not rerun unaffected handed-off proof.
+Without a proof handoff, run the check relevant to what this refactor
+touched:
 
 - Script/theme code (`.ts`, `.vue`, `.mjs`): `pnpm typecheck`
 - Deck/theme rendering: `pnpm build` (or `pnpm dev` preview for a visual
@@ -190,7 +140,9 @@ the refactor (not the original change), fix it now.
 - No cross-subsystem refactoring without concept-specific human authorization
 - No speculative content beyond the current change / immediate next slice
 - Duplication, naming, shotgun, dead-code, and 250-line checks applied
-- Relevant checks green when this skill edited; skipped when triage made no edits
+- Invalidated handed-off proof (or related focused checks without a handoff)
+  green when this skill edited; skipped when triage made no edits
+- Successful and Jidoka handoffs report approximate active elapsed time
 - No commit created by this skill
 - Final successful output includes `## REFACTOR COMPLETE`
 </success_criteria>
@@ -201,8 +153,9 @@ On successful completion, report a short summary to the caller:
 1. Which checks led to changes — duplication / naming / shotgun / dead code /
    file size (or "none — already clean").
 2. Files renamed, extracted, split, or deleted.
-3. Which checks were run and confirmed passing — or "skipped — no refactor
-   edits".
+3. Which checks were run and confirmed passing — or
+   `skipped — no refactor edits`.
+4. Approximate active elapsed time spent on the refactor pass.
 
 ```
 ## REFACTOR COMPLETE
@@ -218,6 +171,7 @@ On a cross-subsystem gate, report only decision-relevant facts:
 4. Why a single-subsystem edit would be partial or misleading.
 5. Expected risk and focused validation.
 6. Choices: authorize it, defer it, or approve a described narrow exception.
+7. Approximate active elapsed time spent before the stop.
 
 End with:
 
@@ -237,4 +191,3 @@ must not consider refactoring complete or commit until the human decides.
 - Do not run checks when triage recorded no refactor edits.
 - Do not commit, push, or amend from inside this skill.
 </out_of_scope>
-</output>

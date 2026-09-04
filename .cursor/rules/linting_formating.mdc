@@ -30,13 +30,18 @@ validates staged components and never formats or stages files.
 
 - **Use `./scripts/run.sh pnpm format:changed`** before staging — it selects
   affected components from staged, unstaged, and nonignored untracked paths,
-  then applies their formatter commands. Agent slice wrap-up delegates this to
-  a fresh agent using the **format-changed** skill.
+  then applies their formatter commands. During slice wrap-up, the coordinator
+  runs it once after refactor and before the PLAN update; it does not
+  pre-filter paths or spawn a formatting agent. Repeat only after an
+  intervening repair invalidates that preparation. The **format-changed** skill
+  remains available for explicit on-demand use.
 - Use `pnpm format:all` only when intentionally formatting the entire
   repository.
 - The pre-commit hook runs `pnpm lint:changed` against affected staged
   components. It is check-only: it does not format files or mutate the Git
-  index. Install it with `./scripts/setup-git-hooks.sh`.
+  index. Install it with `./scripts/setup-git-hooks.sh`. Implementers and
+  refactorers do not run `format:changed` or standalone `lint:changed`; the
+  coordinator owns formatting and the hook owns the independent lint check.
 - **Use `pnpm lint:all`** for full-repo validation only — it checks without
   fixing.
 

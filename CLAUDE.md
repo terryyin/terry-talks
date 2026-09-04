@@ -42,8 +42,11 @@ executable). One selected story → **slice-planning** (writes
 **slice-plan-refinement** in place when that PLAN is complex, sizing
 confidence is low, or execution overruns; skip the extra pass when
 slice-planning already produced clear commit-sized leaves. Execute with
-**execute-plan** (Jidoka → post-change-refactor → fresh format-changed
-agent → update plan → commit per slice). After a completed plan,
+**execute-plan** (Jidoka → fresh post-change-refactor agent → coordinator
+runs `./scripts/run.sh pnpm format:changed` once → update plan without a
+second routine formatting pass → commit per slice; independent check-only
+lint hook). `format-changed` remains on-demand; implementers/refactorers
+run neither it nor standalone `lint:changed`. After a completed plan,
 **execution-retrospective** reconstructs the plan and its commits, audits
 the aggregate result and process, and stops after generating any follow-up
 PLAN without executing it. Prefer committing all changes
