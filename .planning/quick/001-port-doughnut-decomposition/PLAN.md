@@ -33,10 +33,8 @@ Proof: input gate, cites problem-decomposition + planning.mdc, writes only `.pla
 ## 4. Update execute-plan for seeds and stale stories
 
 Type: Behavior
-Status: planned
-Proof: execute-plan rejects seeds, cites problem-decomposition for leaf/time-box, adds stale-story Jidoka and learning escalation, safer revert (no broad `git clean`).
-
-Behavior: With a PLAN (not a seed) → execute-plan → implements leaves with wrap-up; stops for stale story decomposition after a safe wrap-up.
+Status: done
+Proof: rejects seeds; problem-decomposition for leaf/time-box; stale-story Jidoka; safer revert.
 
 ## 5. Align AGENTS.md and CLAUDE.md
 

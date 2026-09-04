@@ -30,8 +30,12 @@ waiting on the developer.
 If there is no plan, stop and run **slice-planning** first.
 
 Every executable unit must be **Behavior | Structure**, stop-safe, one
-observable outcome (`.cursor/rules/planning.mdc`). If it is not, stop and
+observable behavior or its immediately enabling Structure
+(`.cursor/rules/problem-decomposition.mdc`). If it is not, stop and
 re-plan with **slice-planning** before implementing.
+
+Reject a story-decomposition seed as execution input. Require a PLAN for
+one selected story.
 
 **Coordinator role:** You are a thin coordinator. You do **not** implement
 slices yourself (except a single interactive slice, or when the environment
@@ -77,6 +81,9 @@ developer's brain.
   reasons unrelated to the current change, or an external tool breaks.
 - **Ambiguity** — the slice description is unclear and guessing wrong
   would waste a commit.
+- **Stale story decomposition** — evidence changes the selected story's
+  beneficiary, outcome, evaluation, or boundary; or changes whether/when
+  a sibling story should be delivered.
 
 When stopping: explain **what** you learned, **why** you stopped, and
 **what decision** the developer needs. Then wait.
@@ -143,11 +150,13 @@ The implementer prompt **must** include:
    full Jidoka list.
 2. **Jidoka:** stop and return on value/design forks, missing credentials,
    undiagnosed unrelated failure, or ambiguity. Do not guess those.
-3. **Implementation rules**: `planning.mdc` (Behavior/Structure, slice
-   discipline, **time budget** ~5 min fuzzy / >10 min hard finer-decompose,
-   **do not leave typecheck/build broken**). Checks: `pnpm typecheck` /
-   `pnpm build` for code or rendered decks; a read-through for prose.
-   Run checks relevant to the change, not every deck.
+3. **Implementation rules**: `problem-decomposition.mdc`
+   (Behavior/Structure, stop-safety, **time budget** ~5 min fuzzy /
+   >10 min hard finer-decompose) and `planning.mdc` (proof, slice
+   discipline, **do not leave typecheck/build broken**). Checks:
+   `pnpm typecheck` / `pnpm build` for code or rendered decks; a
+   read-through for prose. Run checks relevant to the change, not
+   every deck.
 4. **Hard stop before wrap-up:** Do **not** commit, push, mark the plan
    `done`, or run post-change-refactor. Leave the tree uncommitted with
    relevant checks green.
@@ -177,11 +186,18 @@ green, uncommitted):
    - Brief learnings that change remaining work.
    - Mark slice **done**; prune obsolete detail from that slice.
    - Adjust future slices when warranted.
+   - If the PLAN links a story-decomposition seed, apply the learning
+     escalation in `problem-decomposition.mdc`. Update leaf-only
+     changes in the PLAN. For a stale story decomposition, add an
+     `awaiting story decomposition review` note naming the seed/story
+     and affected field; do not alter sibling stories.
    - Last slice: delete the spent `.planning/quick/NNN-slug/` directory
      (or leftover disposable NOTES.md) whose work has all landed
      (include that deletion in this commit).
 4. **Post-slice Jidoka** — if learnings need developer judgment: commit
    work so far, then return a Jidoka stop (do not silently continue).
+   For stale story decomposition, report the seed/story, evidence,
+   affected field, and required human decision.
 5. **Commit** — only when the tree would not intentionally break
    `pnpm typecheck` / `pnpm build`. Stage this slice's files, not
    unrelated dirty paths. Message follows the repo's recent convention
@@ -197,21 +213,24 @@ A slice is **too big** when:
 - Changes span many unrelated files with no clear single outcome emerging.
 - Checks are not converging after reasonable effort.
 - Wall-clock for the slice (implementation + checks) exceeds the
-  **time budget** in `planning.mdc`: scrutinize after **~5 min**; after
-  **>10 min**, finer decompose and retry is **required** unless a good
-  reason is stated (and reported to the coordinator / developer).
+  **time budget** in `problem-decomposition.mdc`: scrutinize after
+  **~5 min**; after **>10 min**, finer decompose and retry is
+  **required** unless a good reason is stated (and reported to the
+  coordinator / developer).
 
 When this happens:
 
-1. Restore only paths this slice created or modified. Prefer
-   `git stash -u -m "WIP: revert-and-split <slice>"` (or restore those
-   paths). Do **not** `git clean -fd` the whole tree — unrelated
-   untracked notes must survive.
-2. Invoke **slice-planning** to split into Behavior/Structure slices
+1. Identify the exact tracked and untracked paths created or changed
+   by this attempt. Preserve every pre-existing developer change.
+2. Safely park or revert only attempt-owned WIP. Never use broad
+   `git checkout .`, `git clean -fd`, or another command that can
+   discard unrelated dirty state. If ownership cannot be isolated,
+   stop for developer judgment.
+3. Invoke **slice-planning** to split into Behavior/Structure slices
    sized for the ~5 minute fuzzy goal (including checks).
-3. Update the PLAN in `.planning/quick/NNN-slug/` (or session list).
-4. Commit the updated plan (still no push unless asked).
-5. Return "reverted and split" to the coordinator (include elapsed time
+4. Update the PLAN in `.planning/quick/NNN-slug/` (or session list).
+5. Commit the updated plan (still no push unless asked).
+6. Return "reverted and split" to the coordinator (include elapsed time
    and whether the 10-minute hard trigger applied).
 </step>
 
@@ -224,6 +243,7 @@ When this happens:
 - Coordinator owns wrap-up: fresh post-change-refactor →
   `## REFACTOR COMPLETE` → plan update → commit (push only if asked)
 - Pre- and post-slice Jidoka checks applied
+- Stale story decomposition stops execution after the current safe wrap-up
 - Parallel waves only when touch sets and plan writes do not conflict
 - Spent `quick/NNN-slug/` directory deleted when the entire plan is done
 - Final output includes `## PLAN EXECUTION COMPLETE` when all slices
@@ -259,5 +279,4 @@ resolves and work resumes.)
 - Do not commit with a deliberately broken typecheck/build.
 - Do not push unless the developer asked.
 - Do not write GSD artifacts (`STATE.md`, `PROJECT.md`, `phases/`, …).
-- Do not `git clean -fd` the whole tree on revert.
 </out_of_scope>
