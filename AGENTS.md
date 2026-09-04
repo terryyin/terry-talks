@@ -43,7 +43,10 @@ executable). One selected story → **slice-planning** (writes
 confidence is low, or execution overruns; skip the extra pass when
 slice-planning already produced clear commit-sized leaves. Execute with
 **execute-plan** (Jidoka → post-change-refactor → fresh format-changed
-agent → update plan → commit per slice). Prefer committing all changes
+agent → update plan → commit per slice). After a completed plan,
+**execution-retrospective** reconstructs the plan and its commits, audits
+the aggregate result and process, and stops after generating any follow-up
+PLAN without executing it. Prefer committing all changes
 and leaving none local; partial commits are deliberate. The pre-commit
 hook lints staged components without formatting or mutating Git state.
 Hard decomposition grammar lives in
