@@ -36,8 +36,10 @@ Before executing, read [delegation.md](references/delegation.md) and
 
 Every executable unit must be **Behavior | Structure**, stop-safe, one
 observable behavior or its immediately enabling Structure
-(`.cursor/rules/problem-decomposition.mdc`). If it is not, stop and
-re-plan with **slice-planning** before implementing.
+(`.cursor/rules/problem-decomposition.mdc`). If an existing PLAN has a
+valid selected outcome but coarse or low-confidence leaves, use
+**slice-plan-refinement** before implementing. Straightforward
+commit-sized plans do not require a separate refinement pass.
 
 Reject a story-decomposition seed as execution input. Require a PLAN for
 one selected story.
@@ -114,11 +116,13 @@ When stopping: explain **what** you learned, **why** you stopped, and
 ```
 1. Read the plan (`.planning/quick/NNN-slug/PLAN.md` / named path / session list)
 2. Find the next slice whose status is NOT "done"
-3. Pre-slice Jidoka + Behavior/Structure check
-   → If stop condition → report & STOP
+3. Pre-slice Jidoka + Behavior/Structure + refinement-trigger check
+   → If Jidoka stop condition → report & STOP
+   → If the selected outcome is valid but a refinement trigger applies, invoke
+     slice-plan-refinement on this PLAN, then reread it before continuing
 4. DELEGATE implementation only to a fresh sub-agent (see delegation)
 5. When implementer finishes:
-   a. If Jidoka stop / REVERT & SPLIT → handle as below; do not wrap up
+   a. If Jidoka stop / REVERT & REFINE → handle as below; do not wrap up
    b. Verify relevant checks were reported green (no intentional
       typecheck/build break) and `git status` shows uncommitted work
       (or a deliberate empty slice with a stated reason). Do not require
@@ -153,7 +157,7 @@ Delegate exactly as specified in [delegation.md](references/delegation.md).
 Run the coordinator-owned sequence in [wrap-up.md](references/wrap-up.md).
 </step>
 
-<step name="revert_and_split">
+<step name="revert_and_refine">
 A slice is **too big** when:
 
 - Changes span many unrelated files with no clear single outcome emerging.
@@ -172,12 +176,12 @@ When this happens:
    `git checkout .`, `git clean -fd`, or another command that can
    discard unrelated dirty state. If ownership cannot be isolated,
    stop for developer judgment.
-3. Invoke **slice-planning** to split into Behavior/Structure slices
-   sized for the ~5 minute fuzzy goal (including checks).
+3. Invoke **slice-plan-refinement** on the same PLAN to replace the
+   failed slice with smaller Behavior/Structure leaves.
 4. Update the PLAN in `.planning/quick/NNN-slug/` (or session list).
 5. Commit the updated plan (still no push unless asked).
-6. Return "reverted and split" to the coordinator (include elapsed time
-   and whether the 10-minute hard trigger applied).
+6. Return "reverted and refined" to the coordinator (include elapsed
+   time and whether the 10-minute hard trigger applied).
 </step>
 
 </process>
@@ -190,6 +194,8 @@ When this happens:
   `## REFACTOR COMPLETE` → fresh format-changed Task →
   `## FORMAT CHANGED COMPLETE` → plan update → commit (push only if asked)
 - Pre- and post-slice Jidoka checks applied
+- Slice-plan-refinement invoked for coarse/low-confidence leaves and
+  overruns, but not required for straightforward commit-sized plans
 - Stale story decomposition stops execution after the current safe wrap-up
 - Parallel waves only when touch sets and plan writes do not conflict
 - Spent `quick/NNN-slug/` directory deleted when the entire plan is done

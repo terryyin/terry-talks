@@ -16,6 +16,8 @@ through an ADR instead of an ad hoc refactor.
 |-----------|--------|
 | Problem, value, expected outcome, or story boundaries are unresolved | Use **story-decomposition**; do not write an executable plan |
 | One story-sized outcome is selected | Use **slice-planning** |
+| Existing PLAN has complex, low-confidence, or overrun leaves | Use **slice-plan-refinement** on the same PLAN; create no new artifact |
+| Existing PLAN already has clear, cohesive, plausibly commit-sized leaves | Execute directly; a separate refinement pass is optional |
 | Input is only a story-decomposition seed | Select one contained story before planning execution |
 
 Do **not** add GSD files (`PROJECT.md`, `REQUIREMENTS.md`, `ROADMAP.md`,
@@ -59,6 +61,8 @@ next Behavior it enables.
 
 - Do **not** write a flat `.planning/<name>.md` or a plan beside the deck/claim
   (`NOTES.md`).
+- Do **not** create a second PLAN for refinement instead of editing the
+  existing PLAN.
 - Product files stay capability-named — plan and slice numbers belong only
   under `.planning/`.
 
