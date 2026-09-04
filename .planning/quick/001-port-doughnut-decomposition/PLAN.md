@@ -27,10 +27,8 @@ Proof: `.agents/skills/story-decomposition/SKILL.md` + `.claude/skills` symlink.
 ## 3. Thin slice-planning to a selected-story PLAN writer
 
 Type: Behavior
-Status: planned
-Proof: slice-planning input gate, cites problem-decomposition + planning.mdc, writes only `.planning/quick/`.
-
-Behavior: With one bounded story (or a re-slice after overrun) → slice-planning → executable `PLAN.md` whose leaves pass the execution-leaf gate; seeds are not execution input.
+Status: done
+Proof: input gate, cites problem-decomposition + planning.mdc, writes only `.planning/quick/`.
 
 ## 4. Update execute-plan for seeds and stale stories
 
