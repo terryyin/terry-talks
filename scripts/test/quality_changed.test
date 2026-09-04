@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+TALKS_TEST_REAL_PATH="$PATH"
+TALKS_TEST_REAL_BASH="$(command -v bash)"
+TALKS_TEST_REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+
+source "$(dirname "$0")/vendor/bach.sh"
+
+run-in-temporary-repository() {
+  local mode="$1"
+  local scenario="$2"
+
+  @real env -i \
+    "PATH=${TALKS_TEST_REAL_PATH}" \
+    "TALKS_TEST_REPO_ROOT=${TALKS_TEST_REPO_ROOT}" \
+    "TALKS_TEST_MODE=${mode}" \
+    "TALKS_TEST_SCENARIO=${scenario}" \
+    "${TALKS_TEST_REAL_BASH}" <<'EOF'
+set -euo pipefail
+
+work="$(mktemp -d)"
+trap 'rm -rf "$work"' EXIT
+
+git -C "$work" init -q
+git -C "$work" config user.email test@example.com
+git -C "$work" config user.name "Test User"
+mkdir -p "$work/fake-bin"
+cat >"$work/fake-bin/pnpm" <<'PNPM'
+#!/usr/bin/env bash
+printf 'pnpm %s\n' "$*"
+PNPM
+chmod +x "$work/fake-bin/pnpm"
+
+case "$TALKS_TEST_SCENARIO" in
+  working-tree)
+    mkdir -p "$work/terry-moves/src" "$work/scripts"
+    printf 'export const original = true\n' >"$work/terry-moves/src/example.ts"
+    printf 'console.log("original")\n' >"$work/scripts/show.mjs"
+    printf 'const ignored = true\n' >"$work/terry-moves/src/ignored.ts"
+    printf 'terry-moves/src/ignored.ts\n' >"$work/.gitignore"
+    git -C "$work" add .
+    git -C "$work" commit -qm initial
+
+    printf 'export const changed = true\n' >"$work/terry-moves/src/example.ts"
+    git -C "$work" add terry-moves/src/example.ts
+    printf 'console.log("changed")\n' >"$work/scripts/show.mjs"
+    printf 'export const untracked = true\n' >"$work/terry-moves/src/new-file.ts"
+    printf 'const ignoredChanged = true\n' >"$work/terry-moves/src/ignored.ts"
+    ;;
+  staged)
+    mkdir -p "$work/terry-moves/src" "$work/scripts"
+    printf 'export const original = true\n' >"$work/terry-moves/src/example.ts"
+    printf 'console.log("original")\n' >"$work/scripts/show.mjs"
+    git -C "$work" add .
+    git -C "$work" commit -qm initial
+
+    printf 'export const unstaged = true\n' >"$work/terry-moves/src/example.ts"
+    printf 'console.log("staged")\n' >"$work/scripts/show.mjs"
+    git -C "$work" add scripts/show.mjs
+    ;;
+  *)
+    printf 'Unknown scenario: %s\n' "$TALKS_TEST_SCENARIO" >&2
+    exit 1
+    ;;
+esac
+
+cd "$work"
+PATH="$work/fake-bin:$PATH" \
+  "$TALKS_TEST_REPO_ROOT/scripts/${TALKS_TEST_MODE}_changed.sh"
+EOF
+}
+
+test-format-selects-staged-unstaged-and-untracked-components() {
+  local output
+  output="$(run-in-temporary-repository format working-tree)"
+
+  @assert-equals \
+    $'pnpm terry-moves:format\npnpm root:format' \
+    "$output"
+}
+
+test-lint-selects-only-staged-components() {
+  local output
+  output="$(run-in-temporary-repository lint staged)"
+
+  @assert-equals \
+    'pnpm root:lint' \
+    "$output"
+}

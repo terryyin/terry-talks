@@ -9,7 +9,15 @@
     "build": "slidev build",
     "export": "slidev export",
     "export:pdf": "node scripts/export-pdf.mjs",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "terry-moves:format": "pnpm -C terry-moves format",
+    "terry-moves:lint": "pnpm -C terry-moves lint",
+    "root:format": "./scripts/check_root_js.sh",
+    "root:lint": "./scripts/check_root_js.sh",
+    "format:all": "pnpm terry-moves:format && pnpm root:format",
+    "lint:all": "pnpm terry-moves:lint && pnpm root:lint",
+    "format:changed": "scripts/format_changed.sh",
+    "lint:changed": "scripts/lint_changed.sh"
   },
   "dependencies": {
     "@slidev/cli": "^51.0.0",

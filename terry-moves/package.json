@@ -10,7 +10,9 @@
 		"buildgif": "remotion render --codec=gif --timeout=60000 --scale 1",
 		"compositions": "remotion compositions src/index.ts",
 		"upgrade": "remotion upgrade",
-		"test": "jest && eslint src && tsc",
+		"format": "eslint src --fix",
+		"lint": "eslint src",
+		"test": "jest && pnpm lint && tsc",
 		"srt": "tsx ./src/srt.ts"
 	},
 	"repository": {},
