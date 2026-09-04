@@ -21,10 +21,8 @@ Proof: `problem-decomposition.mdc` (always-apply grammar) + `planning.mdc` (rout
 ## 2. Add story-decomposition skill
 
 Type: Behavior
-Status: planned
-Proof: `.agents/skills/story-decomposition/SKILL.md` plus `.claude/skills` symlink; skill writes one seed, not a PLAN.
-
-Behavior: With an unclear or multi-outcome request → agent runs story-decomposition → one human-reviewed `.planning/seeds/SEED-NNN-*.md` and `## STORY DECOMPOSITION WRITTEN`.
+Status: done
+Proof: `.agents/skills/story-decomposition/SKILL.md` + `.claude/skills` symlink.
 
 ## 3. Thin slice-planning to a selected-story PLAN writer
 
