@@ -22,7 +22,8 @@ legacy/                    # Retired Jupyter/nbconvert toolchain, not maintained
                             #   (submodule), legacy/Makefile
 TPS and AI/                 # Claims-based writing project (claims/, open-questions.md)
 docs/adrs/                  # Durable decisions (tooling + content structure)
-.planning/quick/NNN-slug/   # Ad-hoc slice plans (PLAN.md); delete the folder when landed
+.planning/seeds/            # Non-executable story decompositions
+.planning/quick/NNN-slug/   # Ad-hoc executable plans (PLAN.md); delete the folder when landed
 ```
 
 Run `pnpm present` to pick and launch a talk. (Named `present`, not `show`,
@@ -34,8 +35,12 @@ because `show` is a reserved pnpm alias for its own registry-info command —
 **ADRs:** Solo propose → deliberate → approve in `docs/adrs/`; agents follow
 Accepted ADRs via `adr-awareness` (do not approve).
 
-**Workflow:** Break work into stop-safe Behavior/Structure slices via
-`slice-planning` (writes `.planning/quick/NNN-slug/PLAN.md`); execute with
-`execute-plan` (Jidoka → post-change-refactor → update plan → commit per
-slice). Do not push unless asked. No GSD (`phases/`, `PROJECT.md`,
-`STATE.md`, `/gsd-*`) unless the owner asks.
+**Workflow:** Unclear value, outcome, or story boundaries →
+**story-decomposition** (one seed under `.planning/seeds/`; not
+executable). One selected story → **slice-planning** (writes
+`.planning/quick/NNN-slug/PLAN.md`). Execute with **execute-plan**
+(Jidoka → post-change-refactor → update plan → commit per slice). Hard
+decomposition grammar lives in `.cursor/rules/problem-decomposition.mdc`;
+planning artifacts/lifecycle in `.cursor/rules/planning.mdc`. Do not
+push unless asked. No GSD (`phases/`, `PROJECT.md`, `STATE.md`,
+`/gsd-*`) unless the owner asks.
