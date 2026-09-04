@@ -1,0 +1,44 @@
+---
+description: Linting, formatting, code quality, ESLint, format:changed, lint:changed, pre-commit
+alwaysApply: false
+---
+# Linting and Formatting
+
+## When to Use This Rule
+
+**Use this rule when:**
+- Fixing linting or formatting errors
+- Running code quality checks
+- Formatting code before committing
+- Troubleshooting linting failures
+
+## Overview
+
+This project uses:
+- **ESLint** (`terry-moves`): `pnpm terry-moves:format` (`eslint src --fix`) and
+  `pnpm terry-moves:lint` (`eslint src`)
+- **Root scripts**: `pnpm root:format` / `pnpm root:lint` syntax-check
+  `scripts/*.mjs` with `node --check` (no root formatter)
+
+## Linting Philosophy
+
+**IMPORTANT**: Linting is primarily for validation. During development,
+format changed components explicitly before staging; the pre-commit hook only
+validates staged components and never formats or stages files.
+
+## Format vs Lint
+
+- **Use `./scripts/run.sh pnpm format:changed`** before staging — it selects
+  affected components from staged, unstaged, and nonignored untracked paths,
+  then applies their formatter commands. Agent slice wrap-up delegates this to
+  a fresh agent using the **format-changed** skill.
+- Use `pnpm format:all` only when intentionally formatting the entire
+  repository.
+- The pre-commit hook runs `pnpm lint:changed` against affected staged
+  components. It is check-only: it does not format files or mutate the Git
+  index. Install it with `./scripts/setup-git-hooks.sh`.
+- **Use `pnpm lint:all`** for full-repo validation only — it checks without
+  fixing.
+
+Do not adopt Prettier as a commit gate. It is an unused `terry-moves`
+dependency and would rewrite a large dirty tree.

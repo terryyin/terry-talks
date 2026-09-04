@@ -39,8 +39,11 @@ Accepted ADRs via `adr-awareness` (do not approve).
 **story-decomposition** (one seed under `.planning/seeds/`; not
 executable). One selected story → **slice-planning** (writes
 `.planning/quick/NNN-slug/PLAN.md`). Execute with **execute-plan**
-(Jidoka → post-change-refactor → update plan → commit per slice). Hard
-decomposition grammar lives in `.cursor/rules/problem-decomposition.mdc`;
-planning artifacts/lifecycle in `.cursor/rules/planning.mdc`. Do not
-push unless asked. No GSD (`phases/`, `PROJECT.md`, `STATE.md`,
-`/gsd-*`) unless the owner asks.
+(Jidoka → post-change-refactor → fresh format-changed agent → update
+plan → commit per slice). Prefer committing all changes and leaving none
+local; partial commits are deliberate. The pre-commit hook lints staged
+components without formatting or mutating Git state. Hard decomposition
+grammar lives in `.cursor/rules/problem-decomposition.mdc`; planning
+artifacts/lifecycle in `.cursor/rules/planning.mdc`. Do not push unless
+asked. No GSD (`phases/`, `PROJECT.md`, `STATE.md`, `/gsd-*`) unless the
+owner asks.

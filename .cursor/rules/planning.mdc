@@ -89,11 +89,16 @@ commit.
   unrelated failure, or ambiguity (see **execute-plan**). Do not stop merely
   to avoid fixing a check failure caused by the current change.
 - Before committing a slice, run **post-change-refactor**
-  (`.agents/skills/post-change-refactor/`) on the uncommitted change.
+  (`.agents/skills/post-change-refactor/`) on the uncommitted change, then a
+  fresh **format-changed** agent (`.agents/skills/format-changed/`). Do not
+  stage before `## FORMAT CHANGED COMPLETE`.
 - Mark a slice done only after relevant checks, cleanup, post-change-refactor,
-  plan update, and the Jidoka / commit gate required by `execute-plan`.
-  Invoking execute-plan authorizes one commit per closed slice. Do **not**
-  push unless asked. This repo has no CD deploy gate.
+  selective formatting, plan update, and the Jidoka / commit gate required by
+  `execute-plan`. Invoking execute-plan authorizes one commit per closed slice.
+  Prefer staging all changes so none remain local; a partial commit is a
+  deliberate exception. The pre-commit hook is check-only `pnpm lint:changed`
+  and must not format or mutate Git state. Do **not** push unless asked. This
+  repo has no CD deploy gate.
 - When every slice has landed: delete the spent `.planning/quick/NNN-slug/`
   directory (no plan diary). Include that deletion in the last slice's
   commit. Keep enduring design in product docs and ADRs.

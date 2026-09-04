@@ -3,14 +3,16 @@ name: execute-plan
 description: >-
   Autonomously execute a Behavior/Structure plan under
   .planning/quick/NNN-slug/PLAN.md. Applies local wrap-up on every slice:
-  Jidoka, post-change-refactor, plan update, and commit. Parallel waves OK
-  when safe. Triggers on: execute plan, run plan, execute slices, start
-  plan, do .planning, execute .planning, run the notes.
+  Jidoka, post-change-refactor, selective formatting, plan update, and
+  commit. Parallel waves OK when safe. Triggers on: execute plan, run
+  plan, execute slices, start plan, do .planning, execute .planning, run
+  the notes.
 ---
 
 <objective>
 Autonomously execute a slice plan with **local wrap-up on every slice**:
-Jidoka gates, post-change-refactor, plan update, and commit.
+Jidoka gates, post-change-refactor, selective formatting, plan update, and
+commit.
 
 Purpose: Execution overlay for plans written by **slice-planning**.
 
@@ -29,6 +31,9 @@ waiting on the developer.
 
 If there is no plan, stop and run **slice-planning** first.
 
+Before executing, read [delegation.md](references/delegation.md) and
+[wrap-up.md](references/wrap-up.md) in full.
+
 Every executable unit must be **Behavior | Structure**, stop-safe, one
 observable behavior or its immediately enabling Structure
 (`.cursor/rules/problem-decomposition.mdc`). If it is not, stop and
@@ -43,19 +48,18 @@ cannot spawn a Task). Delegate each slice to a **fresh** sub-agent so
 context does not accumulate.
 
 **Wrap-up ownership (hard):** The **coordinator** owns post-change-refactor,
-plan update, and commit. Implementers must **not** commit and must **not**
-run post-change-refactor themselves. The coordinator spawns a **fresh**
-refactor agent (or a distinct refactor pass) and must see
-`## REFACTOR COMPLETE` (or handle `## REFACTOR JIDOKA STOP`) before
-committing.
+selective formatting, plan update, and commit. Implementers must **not**
+commit and must **not** run post-change-refactor themselves. The
+coordinator spawns fresh refactor and formatting agents and must see their
+completion markers (or handle their Jidoka stops) before committing.
 
 **Resume:** The PLAN file being executed is the source of truth for
 remaining slices. Do **not** write `.planning/STATE.md`.
 
 **Parallelism:** Run independent slices in parallel when touch sets do not
 overlap and they do not contend on the same plan file. Otherwise sequential.
-Each parallel unit still gets its own coordinator-owned refactor → commit
-before the next dependent unit starts.
+Each parallel unit still gets its own coordinator-owned refactor →
+format → commit before the next dependent unit starts.
 
 **Commit authorization:** Invoking this skill authorizes **one commit per
 closed slice**. Do **not** push unless the developer explicitly asked.
@@ -101,8 +105,9 @@ When stopping: explain **what** you learned, **why** you stopped, and
 - **Before** (coordinator, on the slice *description*) — safe to start
   autonomously? Value/design forks, ambiguity, missing credentials,
   Behavior/Structure grammar.
-- **After** (implementer return + refactor return) — did work reveal
-  something the plan did not anticipate? Stop even if the slice succeeded.
+- **After** (implementer return + refactor return + format return) — did
+  work reveal something the plan did not anticipate? Stop even if the
+  slice succeeded.
 </preflight_gate>
 
 <step name="coordinator_loop">
@@ -141,70 +146,11 @@ Structure change + immediate next Behavior it unlocks
 </step>
 
 <step name="delegation">
-Use the **Task** tool (`subagent_type: "generalPurpose"`).
-
-The implementer prompt **must** include:
-
-1. **Plan file path** (or "session task list") and **which slice** to
-   implement (paste the slice text). Do **not** paste this skill or the
-   full Jidoka list.
-2. **Jidoka:** stop and return on value/design forks, missing credentials,
-   undiagnosed unrelated failure, or ambiguity. Do not guess those.
-3. **Implementation rules**: `problem-decomposition.mdc`
-   (Behavior/Structure, stop-safety, **time budget** ~5 min fuzzy /
-   >10 min hard finer-decompose) and `planning.mdc` (proof, slice
-   discipline, **do not leave typecheck/build broken**). Checks:
-   `pnpm typecheck` / `pnpm build` for code or rendered decks; a
-   read-through for prose. Run checks relevant to the change, not
-   every deck.
-4. **Hard stop before wrap-up:** Do **not** commit, push, mark the plan
-   `done`, or run post-change-refactor. Leave the tree uncommitted with
-   relevant checks green.
-5. **Revert & split** if the slice is too big (`revert_and_split`).
-6. **Return**: short summary — ready for wrap-up (checks run), Jidoka
-   stop, or reverted and split. Do not claim the slice "done" in git terms.
-
-**Do NOT pass entire plan history** — only the current slice. Resume
-context lives in the plan file on disk (or the session task list).
+Delegate exactly as specified in [delegation.md](references/delegation.md).
 </step>
 
 <step name="wrap_up">
-**Coordinator-owned** (after implementer returns with relevant checks
-green, uncommitted):
-
-1. **Spawn post-change-refactor** — Fresh Task (`generalPurpose`) that
-   reads `.agents/skills/post-change-refactor/SKILL.md` and runs it
-   end-to-end on the current uncommitted change. Pass:
-   - Slice text being closed
-   - Plan file path (for immediate-next-slice justification)
-   - Do **not** commit
-   - Return must end with `## REFACTOR COMPLETE` or
-     `## REFACTOR JIDOKA STOP`
-2. **Gate** — Proceed only on `## REFACTOR COMPLETE`. On Jidoka stop or
-   missing marker, do not commit.
-3. **Reflect & re-plan** — update the plan being executed:
-   - Brief learnings that change remaining work.
-   - Mark slice **done**; prune obsolete detail from that slice.
-   - Adjust future slices when warranted.
-   - If the PLAN links a story-decomposition seed, apply the learning
-     escalation in `problem-decomposition.mdc`. Update leaf-only
-     changes in the PLAN. For a stale story decomposition, add an
-     `awaiting story decomposition review` note naming the seed/story
-     and affected field; do not alter sibling stories.
-   - Last slice: delete the spent `.planning/quick/NNN-slug/` directory
-     (or leftover disposable NOTES.md) whose work has all landed
-     (include that deletion in this commit).
-4. **Post-slice Jidoka** — if learnings need developer judgment: commit
-   work so far, then return a Jidoka stop (do not silently continue).
-   For stale story decomposition, report the seed/story, evidence,
-   affected field, and required human decision.
-5. **Commit** — only when the tree would not intentionally break
-   `pnpm typecheck` / `pnpm build`. Stage this slice's files, not
-   unrelated dirty paths. Message follows the repo's recent convention
-   (why, not a dump of files). Do **not** push unless asked.
-   If the commit fails on a hook: fix from the hook output, then retry
-   with a **new** commit (do not amend unless the developer asked and
-   the amend rules are met).
+Run the coordinator-owned sequence in [wrap-up.md](references/wrap-up.md).
 </step>
 
 <step name="revert_and_split">
@@ -241,7 +187,8 @@ When this happens:
   accumulate implementation context), except the single-interactive /
   no-Task fallback
 - Coordinator owns wrap-up: fresh post-change-refactor →
-  `## REFACTOR COMPLETE` → plan update → commit (push only if asked)
+  `## REFACTOR COMPLETE` → fresh format-changed Task →
+  `## FORMAT CHANGED COMPLETE` → plan update → commit (push only if asked)
 - Pre- and post-slice Jidoka checks applied
 - Stale story decomposition stops execution after the current safe wrap-up
 - Parallel waves only when touch sets and plan writes do not conflict
@@ -271,12 +218,16 @@ resolves and work resumes.)
 - Do not implement slices in the coordinator agent (except single
   interactive slice, or when Task cannot be spawned — then still run
   wrap-up as a distinct pass).
-- Do not skip coordinator-owned post-change-refactor or commit per slice.
+- Do not skip coordinator-owned post-change-refactor, format-changed, or
+  commit per slice.
 - Do not accept an implementer self-refactor or a missing
-  `## REFACTOR COMPLETE` as wrap-up.
+  `## REFACTOR COMPLETE` or `## FORMAT CHANGED COMPLETE` as wrap-up.
 - Do not pass full plan history to sub-agents.
 - Do not continue past a Jidoka stop without developer input.
 - Do not commit with a deliberately broken typecheck/build.
+- Do not stage or commit before the fresh format-changed agent completes.
+- Do not treat the lint-only pre-commit hook as a formatter or let it
+  mutate Git state.
 - Do not push unless the developer asked.
 - Do not write GSD artifacts (`STATE.md`, `PROJECT.md`, `phases/`, …).
 </out_of_scope>
