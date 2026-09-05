@@ -1,14 +1,16 @@
 # Slice Wrap-up
 
-The coordinator owns this sequence after the implementer returns with complete
-focused proof, no intentional typecheck/build break, and uncommitted changes.
-Reuse the handed-off proof without rerunning it unless the handoff is missing or
-ambiguous, later wrap-up work changed the covered boundary, or the slice closes
-a broader integration proof the handoff did not run. Rerun for one of those
-invalidation reasons; do not randomly sample proof. Treat a placeholder,
-abbreviation, or paraphrase as missing or ambiguous. First try to recover the
-literal original command from the available implementer handoff without
-rerunning it; recovered complete proof remains reusable.
+The coordinator first checks coverage under `planning.mdc`'s Proof decisions,
+including applicable replacement/lifecycle obligations. Return behavioral gaps
+to implementation before refactor or acceptance, including gaps refactor finds.
+Require typecheck/build-safe uncommitted work: no deliberate `pnpm typecheck` /
+`pnpm build` break. Do not run a full build of unrelated decks.
+
+Accept the `proof:` handoff from `delegation.md` by default. Rerun only for a
+missing/ambiguous handoff, a boundary changed by wrap-up, or a broader integration
+proof the slice closes but the handoff omitted. Placeholders, abbreviations, and
+paraphrases are ambiguous: first recover the literal command from the original
+handoff if available. Reuse adequate/recovered proof; never randomly sample it.
 
 1. Spawn a fresh general-purpose sub-agent to read and run
    `.agents/skills/post-change-refactor/SKILL.md` end-to-end. Pass only the slice
@@ -22,12 +24,11 @@ rerunning it; recovered complete proof remains reusable.
    remain with the coordinator.
 2. Proceed only on `## REFACTOR COMPLETE`; stop without committing on a Jidoka
    stop or missing marker.
-3. Run `./scripts/run.sh pnpm format:changed` directly. Run it once on the
-   routine path after refactor and let the repository command select affected
-   components; a planning-only tree is a valid no-op. Do not pre-filter paths or
-   spawn a `format-changed` agent. Apply an unambiguous mechanical repair
-   directly and repeat only when that intervening repair invalidated
-   preparation. Stop for semantic or design judgment.
+3. Run `./scripts/run.sh pnpm format:changed` directly once after refactor;
+   require success before staging/committing. Let the command select
+   components (planning-only is a valid no-op); no pre-filtering or formatting
+   agent. Repair mechanical failures and repeat only if that repair invalidates
+   preparation. Stop for semantic/design judgment.
 4. Update the plan, never `.planning/STATE.md`: record brief relevant learnings,
    mark the slice done, prune obsolete detail, and adjust future leaves. If a
    linked story decomposition became stale, add an
@@ -40,8 +41,9 @@ rerunning it; recovered complete proof remains reusable.
    asked.
 6. Commit only work that would not intentionally break `pnpm typecheck` /
    `pnpm build`. Review the diff, prefer staging all changes so none remain
-   local, and make a partial commit only deliberately. The hook runs check-only
-   `pnpm lint:changed` on staged components. Resolve mechanical findings
-   directly; stop for semantic/design judgment. Do not run standalone
+   local, and make a partial commit only deliberately. The hook runs
+   check-only `pnpm lint:changed` on staged components; it must not format or
+   mutate the Git index. Resolve mechanical findings; stop for semantic/design
+   judgment. Do not run standalone
    `lint:changed`. If a hook repair invalidates preparation, rerun the direct
    formatting command before restaging and retrying. Do not push unless asked.
