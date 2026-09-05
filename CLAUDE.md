@@ -22,6 +22,7 @@ legacy/                    # Retired Jupyter/nbconvert toolchain, not maintained
                             #   (submodule), legacy/Makefile
 TPS and AI/                 # Claims-based writing project (claims/, open-questions.md)
 docs/adrs/                  # Durable decisions (tooling + content structure)
+.planning/PRODUCT-BACKLOG.md # Ordered unfinished stories (titles + home seeds)
 .planning/seeds/            # Non-executable story decompositions
 .planning/quick/NNN-slug/   # Ad-hoc executable plans (PLAN.md); delete the folder when landed
 ```
@@ -37,7 +38,9 @@ Accepted ADRs via `adr-awareness` (do not approve).
 
 **Workflow:** Unclear value, outcome, or story boundaries →
 **story-decomposition** (one seed under `.planning/seeds/`; not
-executable). One selected story → **slice-planning** (writes
+executable). Queue or reprioritize unfinished stories with
+**product-backlog** (`.planning/PRODUCT-BACKLOG.md`; details stay in
+home seeds). One selected story → **slice-planning** (writes
 `.planning/quick/NNN-slug/PLAN.md`), then optional
 **slice-plan-refinement** in place when that PLAN is complex, sizing
 confidence is low, or execution overruns; skip the extra pass when
