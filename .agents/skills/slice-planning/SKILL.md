@@ -5,7 +5,8 @@ description: >-
   Behavior/Structure leaves. Use when the story’s value, outcome, and boundaries
   are clear. The result should be directly executable for straightforward work;
   use slice-plan-refinement for a complex plan or an execution overrun. Use
-  story-decomposition for unresolved requirements or multiple candidate stories.
+  story-refinement for selected-story detail; use story-decomposition when the
+  parent problem or candidate selection is unclear.
 ---
 
 <objective>
@@ -22,10 +23,11 @@ Proceed only when the input names:
 
 - one user or stakeholder outcome;
 - why it matters;
-- how the result can be evaluated;
+- key examples showing how the result can be evaluated;
 - boundaries separating it from later stories.
 
-If any is unresolved, or several outcomes remain, use **story-decomposition**.
+If selected-story detail is unresolved, use **story-refinement**; use
+**story-decomposition** when the parent problem or candidate selection is unclear.
 Never pass a story-decomposition seed directly to execution.
 </input_gate>
 
@@ -36,12 +38,11 @@ Never pass a story-decomposition seed directly to execution.
 
 <process>
 
-<step name="record_the_story_contract">
-Record the source seed/story when present, beneficiary, value, boundaries, and
-one representative pre-condition → trigger → post-condition.
-
-If this reveals a value, outcome, or boundary choice, stop and return to
-**story-decomposition**.
+<step name="record_the_story_understanding">
+Read the refined story in its home seed when present. Record its source, goal,
+scope, and key examples without enlarging them. Apply scope discipline in
+`planning.mdc`: exclude uncertain additions and report them; clarify decisions
+needed for the stated outcome. Use **story-refinement** for remaining questions.
 </step>
 
 <step name="inspect_execution_context">
@@ -62,7 +63,8 @@ Apply the execution-leaf gate and an initial sizing pass from
 
 For every leaf:
 
-1. Choose Behavior or Structure.
+1. Choose Behavior or Structure; tie each Behavior to included scope or a key
+   example, and each Structure to the immediate Behavior it enables.
 2. Record the required fields from the gate.
 3. Name focused verification and connect the selected contract's promises to
    owning leaves and observations under `planning.mdc`'s Proof decisions.
@@ -110,7 +112,7 @@ before execution. Do not implement feature or content work while planning.
 </success_criteria>
 
 <output>
-Report the plan path, ordered leaves, key execution decisions, and one of:
+Report the plan path, ordered leaves, considered-but-excluded additions, and one of:
 `ready for direct execution` or `refinement recommended: <slices>`. This skill
 only writes the PLAN; **execute-plan** runs the slices.
 

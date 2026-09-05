@@ -30,11 +30,11 @@ handoff if available. Reuse adequate/recovered proof; never randomly sample it.
    agent. Repair mechanical failures and repeat only if that repair invalidates
    preparation. Stop for semantic/design judgment.
 4. Update the plan, never `.planning/STATE.md`: record brief relevant learnings,
-   mark the slice done, prune obsolete detail, and adjust future leaves. If a
-   linked story decomposition became stale, add an
-   `awaiting story-decomposition review` note naming the seed/story and affected
-   field without altering sibling stories. This later PLAN-only edit does not
-   trigger a second formatting pass. Last slice: delete the spent
+   mark the slice done, prune obsolete detail, and adjust future leaves. If
+   linked story understanding became stale, add an `awaiting story review` note
+   naming the seed/story and affected field; route via
+   `problem-decomposition.mdc` without altering sibling stories. This PLAN
+   edit does not trigger a second formatting pass. Last slice: delete the spent
    `.planning/quick/NNN-slug/` directory (include that deletion in this commit).
 5. If post-slice learning needs developer judgment, commit safe work so far,
    then return a Jidoka stop with the required decision. Do not push unless

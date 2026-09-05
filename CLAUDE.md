@@ -36,11 +36,15 @@ because `show` is a reserved pnpm alias for its own registry-info command —
 **ADRs:** Solo propose → deliberate → approve in `docs/adrs/`; agents follow
 Accepted ADRs via `adr-awareness` (do not approve).
 
-**Workflow:** Unclear value, outcome, or story boundaries →
+**Workflow:** Unclear parent problem or candidate selection →
 **story-decomposition** (one seed under `.planning/seeds/`; not
 executable). Queue or reprioritize unfinished stories with
 **product-backlog** (`.planning/PRODUCT-BACKLOG.md`; details stay in
-home seeds). One selected story → **slice-planning** (writes
+home seeds). Clarify selected stories' goal, scope, and key examples
+with **story-refinement** (`.agents/skills/story-refinement/SKILL.md`)
+in their home seeds before slice planning; apply conservative scope
+and post-implementation cleanup from `planning.mdc`. One understood
+story → **slice-planning** (writes
 `.planning/quick/NNN-slug/PLAN.md`), then optional
 **slice-plan-refinement** in place when that PLAN is complex, sizing
 confidence is low, or execution overruns; skip the extra pass when
