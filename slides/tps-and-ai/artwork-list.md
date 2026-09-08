@@ -557,24 +557,27 @@ should not compete with their own words.
 
 A second visual beat for "Smart → dumb → gone", alongside G7's
 conceptual steps: show the actual Type G stop mechanism, because the
-mechanism *is* the argument — live judgment identified the per-thread
-abnormality in 1924, then a closed physical mechanism preserved that
-judgment through gravity and a falling piece of metal.
+mechanism *is* the argument — people learned which abnormality must
+stop production, then a closed physical mechanism preserved that
+judgment through gravity and a falling piece of metal. The Type G is
+the example here; Toyota documents warp halting on its 1905 power
+loom already, so do not date the origin of this judgment to 1924.
 
 ### The mechanism, researched
 
-Each of the Type G's 2,570 warp threads carries a thin sheet-metal
-plate — a **dropper** — threaded onto it; the thread's tension alone
-holds the plate up. Beneath the droppers a feeler bar sweeps back and
-forth with the loom's motion. When a thread breaks, tension vanishes
-and the dropper falls a few centimeters into the bar's path. The
-jammed bar trips the knock-off linkage, the drive disengages, and the
-loom stops before a single defective pick is woven. The sensor is
-gravity; the logic is a metal plate in the way of a moving bar — no
-power, no electronics, no diagnosis. (The weft side uses a
-three-pronged **weft fork** that feels for the thread on each pick
-and trips the same knock-off when it swings through unresisted —
-same principle, less visual, so the dropper is the subject here.)
+A warp thread supports a thin metal **dropper**. A break releases it
+to fall into an oscillating detection bar's path below. Obstructing
+the bar activates the stopping mechanism. This is the sequence
+confirmed by the museum; A1 should expose it in a simplified cutaway.
+The stop prevents continued defective weaving. Do not promise zero
+defective picks or an exact stopping time from these sources.
+
+The detection is mechanical, using gravity and the loom's motion;
+the loom itself is powered. Do not describe the whole machine as
+requiring no power. The detailed stop linkage is schematic unless
+separately verified. Warp stopping, weft stopping, and non-stop
+shuttle changing are separate functions; this animation explains only
+the warp stop. Detection does not diagnose or repair the break.
 
 Sources: [Toyota 75-year history, "The Birth of
 Jidoka"](https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html);
@@ -635,30 +638,87 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   *blocked by* the fallen plate, not struck by it; nothing electrical
   anywhere in the scene. If the generator cannot keep the two panels
   mechanically consistent, generate the two panels separately and
-  compose in the slide. The same notes bind A1.
+  compose in the slide. A1's revised brief below is authoritative for
+  the animation; this describes the existing still.
 
 ### A1. Loom warp-stop animation (candidate to replace G15)
 
-- **Status:** done — `public/loom-warp-stop.mp4`. **Intended to replace
-  G15**; keep G15 on the slide and in this list until we decide which
-  to keep.
+- **Status:** existing clip — `public/loom-warp-stop.mp4`; **revised
+  brief below, regeneration pending**. Intended to replace G15; keep
+  both for comparison until the replacement is reviewed.
 - **Slide:** "Smart → dumb → gone"
 - **Placement:** same 16:9 wide-strip footprint as G7 / G15. While
   both exist, a further click-reveal after G15 so G7 → G15 → A1 can
-  be compared. Slide text supplies all labels — never in the clip.
-- **Why animated:** G15's two panels imply the falling action; the
-  argument is the *motion* — a bar already moving, then blocked.
-  Animation can show that sequence in one scene. Photo item 6 still
-  cannot.
-- **Style:** same sumi-e voice as generated art (prefix above). G1
-  (`public/cover-crane-released.png`) is the style reference; G15 is
-  the subject reference. Off-white paper; ink strokes and wash, not
-  CAD; vermilion accent **only** on the fallen plate, and only once
-  it has fallen. No text, letters, or captions in the picture.
-- **Beats (silent, looping):** intact warps, droppers held up, feeler
-  bar sweeping with motion as loose strokes; one warp breaks; that
-  one plate falls a few centimetres into the bar's path; the bar is
-  blocked and all motion stops. Hold the stopped frame, then loop.
-- **Accuracy notes:** same as G15. One scene over time, not two
-  panels. Do not draw weft fork, shuttle change, andon, or
-  electrics.
+  be compared. Explanation belongs in slide text or narration, never
+  inside the clip.
+- **Context and purpose:** the audience has heard "Jidoka preserves
+  knowledge," seen "The loom's closed stop," compared watching a
+  loom with watching AI, and seen "Called by the stop." The next
+  question is "But how to build one?" A1 answers by making the
+  physical cause of the stop legible. The takeaway is **earlier human
+  judgment becomes an enforced stop, freeing attention for the next
+  problem**. This supports the talk's freedom-and-entrustment theme.
+- **Story boundary:** this demonstrates **dumb / judgment-preserved**.
+  The break still happens; the mechanism stops work without asking
+  someone to interpret a warning. Diagnosis, repair, and improvement
+  remain work for people. **Gone / judgment-removed** would require
+  preventing the failure; do not portray the dropper as doing that.
+  In software, the corresponding move is a closed assertion or
+  invariant whose failure actually blocks progress. The clip stays
+  with the loom; the presenter makes that connection.
+- **Context anchors:** [main theme](../../TPS%20and%20AI/main-theme-and-stage-setting.md),
+  [Claim 6 — learned judgment](../../TPS%20and%20AI/claims/06-jidoka-embeds-routine-judgment.md),
+  and [Claim 10 — freedom and entrustment](../../TPS%20and%20AI/claims/10-freedom-and-trust-reinforce-through-jidoka.md).
+- **References:** use G1 (`public/cover-crane-released.png`) for
+  style and item 6 (`public/type-g-dropper-mechanism.jpg`) for physical
+  orientation. G15 is a continuity reference, not authority for the
+  geometry. The museum's [warp-stop explanation](https://www.tcmit.org/vgt/textile/english/scene-10-iframe/target-04/)
+  establishes the causal sequence; Toyota's [history](https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html)
+  establishes freedom from constant watching; [JSME's Type G account](https://www.jsme.or.jp/kikaiisan/heritage_016_en.html)
+  distinguishes stopping from shuttle replenishment. Sources checked
+  2026-09-08. Create an original illustration, not a copy of museum
+  animation frames.
+- **Generation prompt (complete; includes the common prefix):**
+
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper,
+  > with a single vermilion-red accent. No text, no letters, no
+  > captions. Create a silent 16:9 instructional animation of the
+  > Toyoda loom's mechanical warp stop. Use one stable cutaway view,
+  > with a small representative group of warp threads and hanging
+  > metal droppers, the detection bar below, and a simplified visible
+  > connection to the loom's stopping mechanism. Keep the important
+  > contacts large enough to follow in a slide's lower strip. Show
+  > ink strokes and wash, not a CAD rendering.
+  >
+  > Establish normal operation: taut warps support the droppers clear
+  > of the oscillating bar. One warp visibly snaps; its dropper loses
+  > support and falls into the bar's path. The bar's next movement is
+  > obstructed, activating the connected stop; the loom's weaving
+  > motion ceases. Make those events readable in that order. The
+  > dropper is a detector, not a brake absorbing the loom's momentum.
+  > Add vermilion only to the fallen dropper, after it falls. Hold on
+  > the broken thread and stopped mechanism. Nobody pulls a lever or
+  > decides whether to stop. Nothing repairs itself. After the hold,
+  > fade through blank paper before replaying the intact starting
+  > scene, clearly separating replay from a restart of the machine.
+- **Timing and production:** build in `terry-moves` with separately
+  controllable parts. Aim for roughly 10–12 seconds: establish motion
+  for 3 seconds, show the break-to-stop sequence in instructional
+  slow motion over 2–3 seconds, hold for 4 seconds, then reset through
+  paper. These are presentation timings, not measured machine timing.
+  Preserve the drawing and camera across the sequence; do not morph
+  between unrelated generated frames. Deliver a silent looping MP4
+  at `public/loom-warp-stop.mp4`.
+- **Review before replacement:** at the actual slide size, a viewer
+  must be able to follow break → fall → obstruction → stop. Exactly
+  one dropper falls a short distance; retain the broken yarn ends and
+  the other supported droppers. Do not stop the bar before contact,
+  pass it through the plate, or show continued weaving after the stop.
+  Do not import G15's vertical-thread layout if it misrepresents the
+  real warp orientation. Omit invented precision in linkage geometry,
+  electrics, warning lamps, AI imagery, weft forks, and shuttle changes.
+- **Presenter's bridge (not rendered):** "We already learned that a
+  broken warp must stop the loom. Here that judgment lives in the
+  mechanism. It does not know why the thread broke. It stops, so a
+  person can attend to the exception instead of watching every thread.
+  Our software checks should preserve learned judgment the same way."
