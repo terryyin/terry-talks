@@ -1,182 +1,129 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
-import AnimationEffect from '../video_components/AnimationEffect';
+import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 
 const PAPER = '#f2ebe0';
-const INK = '#1c1b18';
-const VERMILION = '#c41e3a';
-const VIEW = '0 0 1600 900';
-const PLATE_TOP = 232;
-const PLATE_H = 96;
-const FABRIC = 'M 170 658 Q 800 638 1430 660 L 1550 892 L 52 892 Z';
-
-const actorWarp = {x: 820, bulge: -2.2};
-const WARPS: {x: number; bulge: number}[] = [
-	{x: 270, bulge: 2.4},
-	{x: 460, bulge: -1.8},
-	{x: 640, bulge: 2.7},
-	actorWarp,
-	{x: 1010, bulge: 1.6},
-	{x: 1200, bulge: -2.5},
+const INK = '#292720';
+const VERMILION = '#b83c2b';
+const DROPPER_OUTLINE = 'M -15 5 Q 0 -9 16 4 L 18 149 Q 1 160 -18 150 Z';
+const PLATES = [
+	{x: 480, y: 276},
+	{x: 635, y: 304},
+	{x: 790, y: 332},
+	{x: 945, y: 360},
 ];
-const stillWarps = WARPS.filter((w) => w !== actorWarp);
+const BREAK = 3;
+const FALL_START = 3.45;
+const FALL_END = 4.15;
+const CONTACT = 4.9;
+const STOP = 5.5;
 
-const BAR_SWEEPS: {d: string; strokeWidth: number; opacity: number}[] = [
-	{d: 'M 118 404 Q 168 418 208 416', strokeWidth: 1.7, opacity: 0.28},
-	{d: 'M 128 438 Q 176 428 214 434', strokeWidth: 1.15, opacity: 0.2},
-	{d: 'M 1398 406 Q 1458 418 1504 408', strokeWidth: 1.8, opacity: 0.26},
-	{d: 'M 1392 440 Q 1466 430 1512 436', strokeWidth: 1.2, opacity: 0.18},
-	{d: 'M 240 398 Q 800 386 1360 400', strokeWidth: 0.9, opacity: 0.14},
-];
+const between = (time: number, start: number, end: number) =>
+	interpolate(time, [start, end], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+const sweepEnd = (time: number) => 845 + 45 * Math.sin(time * Math.PI * 2 / 1.2);
 
-function vStroke(x: number, y1: number, y2: number, bulge: number): string {
-	return `M ${x} ${y1} Q ${x + bulge} ${(y1 + y2) / 2} ${x} ${y2}`;
-}
-
-const InkStroke: React.FC<{
-	d: string;
-	strokeWidth: number;
-	opacity: number;
-	stroke?: string;
-}> = ({d, strokeWidth, opacity, stroke = INK}) => (
-	<path d={d} stroke={stroke} strokeWidth={strokeWidth} fill="none" opacity={opacity} strokeLinecap="round" />
-);
-
-const LoomSvg: React.FC<{children: React.ReactNode}> = ({children}) => (
-	<svg width="100%" height="100%" viewBox={VIEW} preserveAspectRatio="xMidYMid slice">
-		{children}
-	</svg>
-);
-
-const Dropper: React.FC<{cx: number; accent?: boolean}> = ({cx, accent = false}) => {
-	const k = ((cx * 13) % 11) - 5;
-	const l = cx - 20 + k * 0.15;
-	const r = cx + 20 + k * 0.1;
-	const b = PLATE_TOP + PLATE_H;
-	const body = `M ${l + 2} ${PLATE_TOP + 7}
-		C ${l - 4} ${PLATE_TOP - 2}, ${r + 2} ${PLATE_TOP - 3}, ${r - 1} ${PLATE_TOP + 6}
-		C ${r + 5} ${PLATE_TOP + 42}, ${r + 4} ${PLATE_TOP + 72}, ${r - 2} ${b - 4}
-		C ${cx + k * 0.2} ${b + 6}, ${l - 2} ${b + 3}, ${l + 3} ${b - 5}
-		C ${l - 5} ${PLATE_TOP + 70}, ${l - 4} ${PLATE_TOP + 40}, ${l + 2} ${PLATE_TOP + 7} Z`;
-	return (
-		<g>
-			<path d={body} fill={accent ? VERMILION : INK} opacity={accent ? 0.92 : 0.78} />
-			<InkStroke
-				d={`M ${cx - 6} ${PLATE_TOP + 18} Q ${cx + 4} ${PLATE_TOP + 50} ${cx - 3} ${b - 16}`}
-				stroke="#efe8dc"
-				strokeWidth={5}
-				opacity={0.18}
-			/>
-			<ellipse
-				cx={cx}
-				cy={PLATE_TOP + 11}
-				rx={7}
-				ry={5.2}
-				fill={PAPER}
-				stroke={INK}
-				strokeWidth={1.7}
-			/>
-		</g>
+const Ink: React.FC<{d: string; width?: number; opacity?: number; color?: string}> =
+	({d, width = 3, opacity = 0.85, color = INK}) => (
+		<path d={d} fill="none" stroke={color} strokeWidth={width} opacity={opacity} strokeLinecap="round" strokeLinejoin="round" />
 	);
-};
 
-const WarpYarn: React.FC<{x: number; bulge: number}> = ({x, bulge}) => (
-	<g>
-		<InkStroke d={vStroke(x, 48, 662, bulge)} strokeWidth={1.7} opacity={0.88} />
-		<InkStroke d={vStroke(x + 1.2, 52, 658, bulge * 0.4)} strokeWidth={0.6} opacity={0.28} />
+const Dropper: React.FC<{x: number; y: number; accent: number}> = ({x, y, accent}) => (
+	<g transform={`translate(${x} ${y})`}>
+		<path d={DROPPER_OUTLINE} fill={INK} opacity="0.8" />
+		<path d={DROPPER_OUTLINE} fill={VERMILION} opacity={accent} />
+		<Ink d="M -9 38 Q -5 91 -10 139" color={PAPER} opacity={0.25} width={4} />
+		<ellipse cx="0" cy="16" rx="8" ry="5" fill={PAPER} />
 	</g>
 );
 
-const SnappedWarp: React.FC<{x: number; bulge: number}> = ({x, bulge}) => (
-	<g>
-		<InkStroke d={`M ${x} 48 Q ${x + bulge * 2} 128 ${x + 1} 208`} strokeWidth={1.7} opacity={0.88} />
-		<InkStroke d={`M ${x + 1.2} 52 Q ${x + bulge} 126 ${x + 2} 200`} strokeWidth={0.6} opacity={0.28} />
-		<InkStroke d={`M ${x - 5} 210 Q ${x + 2} 218 ${x + 6} 206`} strokeWidth={1.4} opacity={0.7} />
-		<InkStroke d={`M ${x} 214 Q ${x + 18} 268 ${x + 8} 318`} strokeWidth={1.3} opacity={0.45} />
-		<InkStroke d={`M ${x - 2} 508 Q ${x + bulge * 3} 580 ${x} 662`} strokeWidth={1.7} opacity={0.55} />
-		<InkStroke d={`M ${x} 512 Q ${x + bulge} 584 ${x + 1} 658`} strokeWidth={0.6} opacity={0.22} />
-	</g>
-);
-
+/** A schematic teaching cutaway: linkage geometry is not a Type G reconstruction. */
 export const WarpStopLoom: React.FC = () => {
+	const frame = useCurrentFrame();
+	const {fps} = useVideoConfig();
+	const time = frame / fps;
+	const broken = between(time, BREAK, BREAK + 0.35);
+	const fall = Math.pow(between(time, FALL_START, FALL_END), 2) * 82;
+	const accent = between(time, FALL_END, FALL_END + 0.25);
+	// The bar continues its ordinary sweep throughout the break and fall.
+	// Only its next approach is obstructed; its leading edge meets x = 927.
+	const barEnd = time < FALL_END ? sweepEnd(time)
+		: interpolate(between(time, FALL_END, CONTACT), [0, 1], [sweepEnd(FALL_END), 927]);
+	const trip = between(time, CONTACT, STOP);
+	// Integrate a linear slowdown during stop actuation, then hold every drive part.
+	const driveTime = time < CONTACT ? time
+		: CONTACT + (STOP - CONTACT) * (trip - trip * trip / 2);
+	const driveAngle = driveTime * 200;
+	const beat = Math.sin(driveTime * Math.PI * 2 / 0.9) * 14;
+	const visibility = between(time, 0, 0.3) * (1 - between(time, 9.5, 10.1));
+	const barLeft = barEnd - 650;
+	const rodY = 676 + trip * 30;
+
 	return (
 		<AbsoluteFill style={{backgroundColor: PAPER}}>
-			<LoomSvg>
+			<svg width="100%" height="100%" viewBox="0 0 1600 900">
 				<defs>
-					<filter id="warpStopPaper" x="0" y="0" width="100%" height="100%">
-						<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" result="n" />
-						<feColorMatrix
-							type="matrix"
-							values="0 0 0 0 0.93  0 0 0 0 0.90  0 0 0 0 0.84  0 0 0 0.14 0"
-						/>
+					<filter id="loom-paper" x="0" y="0" width="100%" height="100%">
+						<feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+						<feColorMatrix values="0 0 0 0 .5  0 0 0 0 .46  0 0 0 0 .37  0 0 0 .08 0" />
 					</filter>
-					<pattern id="warpStopHatch" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(26)">
-						<path d="M 0 0 L 0 16" stroke={INK} strokeWidth={0.65} opacity={0.16} />
+					<pattern id="woven-cloth" width="13" height="13" patternUnits="userSpaceOnUse">
+						<path d="M 0 0 H 13 M 0 0 V 13" stroke={INK} strokeWidth="0.8" opacity="0.3" />
 					</pattern>
 				</defs>
 				<rect width="1600" height="900" fill={PAPER} />
-				<rect width="1600" height="900" filter="url(#warpStopPaper)" />
-				<path d="M 70 40 Q 120 430 90 880 L 148 882 Q 168 430 132 42 Z" fill={INK} opacity={0.52} />
-				<path d="M 1470 38 Q 1495 420 1462 878 L 1528 880 Q 1555 430 1524 40 Z" fill={INK} opacity={0.5} />
-				<InkStroke d="M 88 68 Q 800 50 1512 72" strokeWidth={7} opacity={0.4} />
-				<InkStroke d="M 108 78 Q 800 62 1494 80" strokeWidth={2.4} opacity={0.18} />
-				{WARPS.map((w) => (
-					<InkStroke
-						key={`guide-${w.x}`}
-						d={vStroke(w.x + 20, 168, 520, w.bulge * 0.3)}
-						strokeWidth={1.05}
-						opacity={0.2}
-					/>
-				))}
-				{stillWarps.map((w) => (
-					<Dropper key={`plate-${w.x}`} cx={w.x} />
-				))}
-				{stillWarps.map((w) => (
-					<WarpYarn key={`yarn-${w.x}`} x={w.x} bulge={w.bulge} />
-				))}
-				<path d={FABRIC} fill={PAPER} stroke="none" />
-				<path d={FABRIC} fill="url(#warpStopHatch)" opacity={0.85} />
-				<InkStroke d="M 170 658 Q 800 638 1430 660" strokeWidth={1.8} opacity={0.35} />
-				<InkStroke d="M 80 888 Q 800 872 1520 886" strokeWidth={2.2} opacity={0.22} />
-			</LoomSvg>
-			<AnimationEffect actor="stop-bar">
-				<AnimationEffect actor="bar-sweeps">
-					<LoomSvg>
-						{BAR_SWEEPS.map((s) => (
-							<InkStroke key={s.d} d={s.d} strokeWidth={s.strokeWidth} opacity={s.opacity} />
-						))}
-					</LoomSvg>
-				</AnimationEffect>
-				<LoomSvg>
-					<path
-						d="M 188 412 Q 800 396 1416 410 Q 1442 428 1414 448 Q 800 464 186 446 Q 162 428 188 412 Z"
-						fill={INK}
-						opacity={0.72}
-					/>
-					<InkStroke d="M 220 418 Q 800 406 1384 416" stroke="#efe8dc" strokeWidth={7} opacity={0.22} />
-					<InkStroke d="M 210 414 Q 800 400 1398 412" strokeWidth={2.1} opacity={0.55} />
-				</LoomSvg>
-			</AnimationEffect>
-			<AnimationEffect actor="dropper">
-				<LoomSvg>
-					<Dropper cx={actorWarp.x} />
-				</LoomSvg>
-				<AnimationEffect actor="dropper-accent">
-					<LoomSvg>
-						<Dropper cx={actorWarp.x} accent />
-					</LoomSvg>
-				</AnimationEffect>
-			</AnimationEffect>
-			<AnimationEffect actor="warp">
-				<LoomSvg>
-					<WarpYarn x={actorWarp.x} bulge={actorWarp.bulge} />
-				</LoomSvg>
-			</AnimationEffect>
-			<AnimationEffect actor="snapped-warp">
-				<LoomSvg>
-					<SnappedWarp x={actorWarp.x} bulge={actorWarp.bulge} />
-				</LoomSvg>
-			</AnimationEffect>
+				<rect width="1600" height="900" filter="url(#loom-paper)" />
+				<g opacity={visibility}>
+					{/* Quiet timber and wash ground the enlarged mechanism in a loom. */}
+					<path d="M 147 253 Q 135 455 151 755 L 190 760 Q 170 454 181 255 Z" fill={INK} opacity="0.36" />
+					<path d="M 1377 229 Q 1389 477 1372 747 L 1423 752 Q 1429 459 1417 231 Z" fill={INK} opacity="0.4" />
+					<Ink d="M 127 752 Q 779 774 1453 752" width={12} opacity={0.14} />
+					<Ink d="M 160 229 Q 773 200 1408 221" width={13} opacity={0.16} />
+					<path d="M 1132 290 L 1373 270 L 1375 475 L 1134 484 Z" fill="url(#woven-cloth)" opacity="0.55" />
+					{/* Each lengthwise yarn passes through its own hanging plate eye. */}
+					{PLATES.map(({x, y}, index) => {
+						const actor = index === PLATES.length - 1;
+						const yarnY = y + 16;
+						const leftY = yarnY + (x - 168) * 0.038;
+						const rightY = yarnY - (1250 - x) * 0.038;
+						const looseLeftEnd = `${x - 66 - broken * 30} ${yarnY + broken * 47}`;
+						const looseRightEnd = `${x - 51 + broken * 32} ${yarnY + broken * 29 + fall * 0.7}`;
+						return (
+							<g key={x}>
+								<Dropper x={x} y={y + (actor ? fall : 0)} accent={actor ? accent : 0} />
+								{actor && time >= BREAK ? (
+									<g>
+										<Ink d={`M 168 ${leftY} Q 632 ${yarnY + 25} ${looseLeftEnd}`} width={3.5} />
+										<Ink d={`M ${looseRightEnd} Q 1050 ${yarnY + broken * 60} 1250 ${rightY}`} width={3.5} />
+										<Ink d={`M ${looseLeftEnd} l -5 -6 m 5 6 l 5 -4`} width={1.7} />
+										<Ink d={`M ${looseRightEnd} l 5 -7 m -5 7 l -4 -5`} width={1.7} />
+									</g>
+								) : <Ink d={`M 168 ${leftY} L 1250 ${rightY}`} width={actor ? 3.5 : 2.5} opacity={actor ? 0.95 : 0.65} />}
+							</g>
+						);
+					})}
+					{/* Oscillating feeler ends against the fallen plate, never through it. */}
+					<path d={`M ${barLeft} 550 L ${barEnd} 550 L ${barEnd} 574 Q ${(barLeft + barEnd) / 2} 579 ${barLeft} 574 Z`} fill={INK} opacity="0.8" />
+					<Ink d={`M ${barLeft + 15} 556 L ${barEnd - 7} 556`} color={PAPER} width={3} opacity={0.3} />
+					<Ink d="M 220 592 L 898 592" width={3} opacity={0.17} />
+					{/* Simple connected stop rod: obstruction trips the drive coupling. */}
+					<Ink d={`M ${barLeft + 26} 574 L 246 ${rodY} L 1098 ${rodY} L ${1152 - trip * 50} ${638 + trip * 37}`} width={9} opacity={0.68} />
+					{[[barLeft + 26, 574], [246, rodY], [1098, rodY]].map(([x, y], index) => (
+						<circle key={index} cx={x} cy={y} r="7" fill={PAPER} stroke={INK} strokeWidth="4" />
+					))}
+					{/* A restrained drive wheel and beater make cessation of weaving visible. */}
+					<circle cx="1230" cy="639" r="76" fill={PAPER} stroke={INK} strokeWidth="10" opacity="0.75" />
+					<circle cx="1230" cy="639" r="63" fill="none" stroke={INK} strokeWidth="2" opacity="0.4" />
+					<g transform={`rotate(${driveAngle} 1230 639)`}>
+						<Ink d="M 1159 639 L 1301 639 M 1230 568 L 1230 710" width={7} opacity={0.6} />
+						<circle cx="1230" cy="639" r="11" fill={INK} opacity="0.85" />
+					</g>
+					<Ink d={`M 1230 639 L ${1280 + beat} 496 L ${1280 + beat} 284`} width={7} opacity={0.45} />
+					<g transform={`translate(${beat} 0)`}>
+						<path d="M 1257 280 L 1285 278 L 1288 488 L 1257 491 Z" fill={INK} opacity="0.4" />
+						{Array.from({length: 14}, (_, i) => <Ink key={i} d={`M 1260 ${291 + i * 14} L 1280 ${291 + i * 14}`} width={2} opacity={0.45} />)}
+					</g>
+					<Ink d={`M ${1135 - trip * 50} ${638 + trip * 37} L ${1171 - trip * 50} ${638 + trip * 37}`} width={14} />
+				</g>
+			</svg>
 		</AbsoluteFill>
 	);
 };

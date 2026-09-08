@@ -643,9 +643,10 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
 
 ### A1. Loom warp-stop animation (candidate to replace G15)
 
-- **Status:** existing clip — `public/loom-warp-stop.mp4`; **revised
-  brief below, regeneration pending**. Intended to replace G15; keep
-  both for comparison until the replacement is reviewed.
+- **Status:** regenerated 2026-09-08 — `public/loom-warp-stop.mp4`.
+  Silent 11-second loop, 1280×720 at 30 fps; revised sequence checked
+  frame by frame and in the slide's lower strip. Intended to replace
+  G15; both remain for comparison.
 - **Slide:** "Smart → dumb → gone"
 - **Placement:** same 16:9 wide-strip footprint as G7 / G15. While
   both exist, a further click-reveal after G15 so G7 → G15 → A1 can
@@ -709,6 +710,12 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   Preserve the drawing and camera across the sequence; do not morph
   between unrelated generated frames. Deliver a silent looping MP4
   at `public/loom-warp-stop.mp4`.
+- **Rebuild command (from the repository root):**
+
+  ```sh
+  pnpm -C terry-moves exec remotion render src/index.ts StoryLoomWarpStop ../slides/tps-and-ai/public/loom-warp-stop.mp4 --codec=h264 --concurrency=2 --muted
+  ```
+
 - **Review before replacement:** at the actual slide size, a viewer
   must be able to follow break → fall → obstruction → stop. Exactly
   one dropper falls a short distance; retain the broken yarn ends and
