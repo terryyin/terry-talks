@@ -185,7 +185,7 @@ Memorable:
 > integrate continuously.**
 
 Direct mainline integration is the practice. Use AI to **reduce volume**
-(the doughnut project's post-change-refactor skill is one example) and
+(the doughnut project's post-change refactoring guidance is one example) and
 to **reduce uncertainty**.
 
 **Slow down means avoid overproduction**—do not fill idle capacity with

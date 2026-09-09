@@ -249,7 +249,7 @@ Look for:
 Takeaway 4. The five human judgments are already the talk list, not a
 doughnut hunt. [Claim 6](06-jidoka-embeds-routine-judgment.md) already
 cites doughnut's current harness (E2E or unit, no commit on red,
-execute-plan Jidoka). What the slide still needs is one episode where
+execution Jidoka). What the slide still needs is one episode where
 the gate did not weaken according to who authored the change.
 
 Look for:
@@ -691,7 +691,7 @@ illegal FK unrepresentable.
   --noEmit`; `cy:lint` / `cli:lint` / `test-fixtures:lint` are
   `biome check` the same way. CI job
   `Lint-N-Backend-Generated-Types-For-Frontend` runs
-  `pnpm lint:all` — none pass `--error-on-warnings`. Gradle
+  the CI lint command — none pass `--error-on-warnings`. Gradle
   `JavaCompile` (`backend/build.gradle`) sets encoding only;
   no `allWarningsAsErrors` / `-Werror`. A new `debugger` or
   unused TS binding can print and the job stays green. Parked
@@ -711,7 +711,7 @@ illegal FK unrepresentable.
 - **`@focus` in features will not ship (control):**
   `scripts/check_focus_tags.sh` — any `@focus` in
   `e2e_test/features/**/*.feature` exits 1. Same CI job as
-  Priority 3, before types-gen and `pnpm lint:all`. Known
+  Priority 3, before types-gen and the CI lint command. Known
   inadvertent error: `@focus` would skip the other scenarios.
   Shingo **control** (will not proceed / will not ship), not
   prevention (you can still type `@focus` locally) and not a
@@ -886,8 +886,7 @@ project-owned harness (Terry Yin) — clearance is no.
 ### 6. Same gates for “I” and AI (Claim 6)
 
 Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
-week. Hunt from current harness (git hook, execute-plan Jidoka,
-planning.mdc no-commit-on-red) then the Jidoka-stop trail in
+week. Hunt from the current execution guidance, then the Jidoka-stop trail in
 the 2026-08-26 recall-timing commits. Ranked by how completely the
 example matches the look-fors (same stop for a person and an
 agent; AI then helps without dissolving the stop; optional
@@ -896,16 +895,12 @@ are current project-owned harness (Terry Yin) — clearance is no.
 The disable-tests counter is a tagged AI-era class week and is
 not AI-assisted.
 
-There is no husky test gate. `scripts/git-hooks/pre-commit`
-formats; no-commit-on-red lives in the same rules and skill
-both “I” and AI read.
-
 #### Priority 1 — Jidoka stop bound the agent until the person decided
 
 - **Priority:** 1
 - **Example:** Same afternoon on
   `.planning/quick/001-morning-cognitive-index/PLAN.md`.
-  `0b56ebc81a` records execute-plan Jidoka on slice 6
+  `0b56ebc81a` records execution Jidoka on slice 6
   (*A detour into a note is recorded separately*): no
   mid-question note affordance exists; PLAN.md says **Do not
   guess the UX** and waits. Author is Terry Yin (no Cursor
@@ -924,31 +919,6 @@ both “I” and AI read.
   for the agent; after the person decided, Cursor helped
   without dissolving the check
 - **Clearance:** no — current plan/harness owned by the project
-
-#### Priority 2 — same-gates text the person and the agent both read
-
-- **Priority:** 2
-- **Example:** Current harness paths. `scripts/git-hooks/pre-commit`
-  (installed by `scripts/setup-git-hooks.sh`) runs
-  `pnpm format:changed` — format, not tests. No-commit-on-red
-  is `.cursor/rules/planning.mdc` (never commit at the TDD red
-  step; no non-`@wip` CI-breaking tests at a slice boundary)
-  plus `.agents/skills/execute-plan/SKILL.md` (delegation:
-  **no commit on red**; wrap-up refuses non-`@wip` red; Jidoka
-  stop on value, design, credentials, undiagnosed failure, or
-  ambiguity — do not stop merely to avoid fixing a test the
-  change caused). `.claude/skills/execute-plan` is a symlink
-  to `.agents`. Same test style:
-  `.cursor/rules/unit-testing.mdc` (E2E or unit, nothing in
-  between). Completeness matches “current config”; ranked
-  below Priority 1 because [Claim
-  6](06-jidoka-embeds-routine-judgment.md) already cites
-  these bullets — the slide still needs the episode.
-- **Source:** latest code (HEAD `e683b74615`)
-- **Slide:** *The gates do not care who authored the change*
-- **Use:** shown artifact — the paths both “I” and AI read;
-  contrast with Priority 1 as the episode those gates produced
-- **Clearance:** no — current harness owned by the project
 
 #### Also considered (second Jidoka stop, skip/delete counters)
 
@@ -969,69 +939,6 @@ both “I” and AI read.
 - **I-era `@ignore`/`@skip`:** item 2 Priority 2 `3ad9e439ad`
   and also-considered `@skip` hashes. Primitive stop; not a
   second ranked counter here.
-
-### 7. Go-See harness failure (Claim 16)
-
-Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
-week. Hunt from current harness (`scripts/git-hooks/pre-commit`,
-execute-plan Jidoka, `.cursorignore` / agent-map indexing, cloud-agent
-docs) then plan notes and Cursor transcripts for a *failure*: wrong
-context, a misleading tool call, a rule that did not fire, or a
-permission failure. Ranked by how completely the episode matches
-those look-fors (inspect the harness, not the agent's summary), then
-stage discussability. Priority 1 is current project-owned harness
-(Terry Yin) — clearance is no.
-
-`0b56ebc81a` (item 6) is a *correct* Jidoka stop: the rule fired.
-That is not this look-for.
-
-#### Priority 1 — worktree `git commit` wrote the wrong tree
-
-- **Priority:** 1
-- **Example:** 2026-07-24, Cursor-coauthored worktree
-  `doughnut-recall-stats-perf` (`perf/recall-stats`). The agent
-  ran `git commit`; the tool returned success. Installed
-  `scripts/git-hooks/pre-commit` resolved `REPO_ROOT` as
-  `$HOOK_DIR/../..` — the hook file lives in the shared
-  `.git/hooks` directory, whose parent is the **main** checkout,
-  not the worktree — then `cd` and `git add -u`. Commits were
-  empty, or later picked up the main tree's
-  `.planning/ROADMAP.md` / `STATE.md` instead of the staged
-  recall-stats files. The agent's “committed the N+1 fix” was
-  false until someone read the hook and `git show`. Fix
-  `1c696d455d` (“make pre-commit hook worktree-aware”) switches
-  to `git rev-parse --show-toplevel`. The product change later
-  landed from the main checkout as `0bd1dd2995` (item 4). Most
-  complete Go-See failure: wrong context *and* a misleading
-  tool call; the facts were in the harness, not the summary.
-- **Source:** latest code (HEAD `e683b74615`; introducing
-  `1c696d455d`; product landing `0bd1dd2995`)
-- **Slide:** *Go-See may mean entering the AI harness*
-- **Use:** spoken beat — the single story making genchi
-  genbutsu concrete: do not manage by the agent's “commit
-  succeeded”; inspect the hook and the tree that actually
-  recorded
-- **Clearance:** no — current harness owned by the project
-
-#### Also considered (correct stop, generic docs, skill pattern)
-
-- **Correct Jidoka, not a harness failure:** `0b56ebc81a` →
-  `a24d4141b2` → Cursor `f078923b63` (item 6). Ambiguity stop
-  that *did* fire. Same family: `b6966f2be9` display-name
-  migration stop, still waiting.
-- **Cloud-agent “permission denied”:**
-  `docs/cloud_agent_backend_testing.md` tells the reader to
-  check `whoami` if setup fails. Troubleshooting text, not a
-  dated episode of a permission the agent hit.
-- **Nested-agent wrap-up skip (skill text, not a trace):**
-  `b2e2fad2f0` adds execute-plan “If the implementer already
-  committed → process failure” because “nested agents routinely
-  skip spawning a second Task.” Pattern encoded in the skill;
-  no single commit/trace of a missed wrap-up to put on stage.
-- **Indexing exclusion is design, not an incident:**
-  `.cursor/agent-map.md` excludes `docs/` from default indexing
-  so agents must read ADRs explicitly. Intentional context
-  shaping; no recorded wrong-context miss from it.
 
 ## Dropped — not talk-blocking
 
@@ -1088,28 +995,13 @@ HEAD `e683b74615` 2026-08-26 (`MakeMe` controller tests +
 tests). Ranked: (1) recall-answer GOOD log with `makeMe`; (2)
 note-property edits persist after reload; (3) extract-request
 JSON from an internal mock forest. Item 6 from latest doughnut
-HEAD `e683b74615` 2026-08-26 (harness: `scripts/git-hooks/pre-commit`
-is format-only; no-commit-on-red and Jidoka in
-`.cursor/rules/planning.mdc` and
-`.agents/skills/execute-plan/SKILL.md`; `.claude/skills/execute-plan`
-symlinks there; episode `0b56ebc81a` → `a24d4141b2` → Cursor
-`f078923b63`; counter `a2060f1d70` reused from items 1–2).
-Ranked: (1) Jidoka-stop then Cursor implements detour; (2)
-same-gates harness paths. Item 7 from latest doughnut HEAD
-`e683b74615` 2026-08-26 (harness: `scripts/git-hooks/pre-commit`
-now `git rev-parse --show-toplevel`; introducing `1c696d455d`
-after a 2026-07-24 worktree session where `git commit` succeeded
-with an empty/wrong tree because `$HOOK_DIR/../..` was the main
-checkout; product landing `0bd1dd2995` reused from item 4;
-`0b56ebc81a` excluded as a correct Jidoka stop; cloud-agent
-permission text and execute-plan nested-skip skill not ranked).
-Ranked: (1) worktree pre-commit wrote the wrong tree.
+HEAD `e683b74615` 2026-08-26 (episode `0b56ebc81a` →
+`a24d4141b2` → Cursor `f078923b63`; counter `a2060f1d70` reused
+from items 1–2). Ranked: Jidoka-stop then Cursor implements detour.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
 for the Tokyo talk. Items 1–2 ranked from tagged class weeks (stage:
 tools and weeks, no student names). Item 3 skipped for this talk.
 Item 4 ranked from latest-code descent + Claim 24 counter. Item 5
 ranked from latest-code harness (unit + E2E + mock-forest counter).
-Item 6 ranked from latest-code Jidoka-stop episode + same-gates
-harness. Item 7 ranked from latest-code worktree pre-commit hook
-(wrong tree / misleading commit).**
+Item 6 ranked from the latest-code Jidoka-stop episode.**

@@ -30,7 +30,7 @@ and are not the right place for long-lived, cross-cutting constraints.
    **Accepted** ADRs, cite them when relevant, and surface conflicts. They
    may help draft Proposed text and maintain index/status hygiene when you
    direct a change. They must not treat Propose / Deliberate / Approve as
-   their mandate. Skill: `adr-awareness`.
+   their mandate. Skill: `dough-adr-awareness`.
 4. **Recommendations** — Accepted ADRs guide daily work. Deviations need an
    explicit human-owned exception or a superseding ADR. Agents challenge
    silent drift.
@@ -51,6 +51,6 @@ and are not the right place for long-lived, cross-cutting constraints.
 ## Related
 
 - Playbook: [README.md](./README.md)
-- Agent skill: `.agents/skills/adr-awareness/SKILL.md`
+- Agent skill: `.agents/skills/dough-adr-awareness/SKILL.md`
 - Adapted from the same process used in the `pygardon` project; background:
   ADR templates inspired by [Michael Nygard / joelparkerhenderson ADR](https://github.com/joelparkerhenderson/architecture-decision-record)

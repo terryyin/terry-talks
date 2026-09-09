@@ -187,7 +187,7 @@ agent:
   presentation of a state after setup.
 - **No commit on red.** Unfinished E2E stays `@wip`. Agents must not
   run the whole suite as a substitute for a closed, owned check.
-- **execute-plan Jidoka:** stop and wait for a developer's brain on
+- **Execution Jidoka:** stop and wait for a developer's brain on
   value forks, design forks, credentials, undiagnosed unrelated
   failure, or ambiguity. Do **not** stop merely to avoid fixing a
   test failure caused by the current change—fix it. Do **not**
@@ -319,7 +319,7 @@ knowledge; jidoka encodes the part that can become a stop.
    proceeding unstopped.
 10. Doughnut project harness (Terry's LeSS in Action codebase):
     `.cursor/rules/unit-testing.mdc`, `.cursor/rules/e2e-authoring.mdc`,
-    `.agents/skills/execute-plan/SKILL.md`. Same test gates for human
-    and AI; Jidoka stop for value/design/credentials/undiagnosed
+    the project's execution guidance. Same test gates for human and
+    AI; Jidoka stop for value/design/credentials/undiagnosed
     failure/ambiguity; fix own test failures rather than skipping the
     stop.

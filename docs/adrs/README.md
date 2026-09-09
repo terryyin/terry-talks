@@ -4,7 +4,7 @@ Solo playbook for **proposing, deliberating, and approving** durable
 decisions about this repo — both technical (Slidev/tooling setup) and
 structural (how talks, claims, and blog content are organized). Agents
 **use, cite, and help maintain** Accepted ADRs — they do not own approval.
-See `.agents/skills/adr-awareness/SKILL.md`.
+See `.agents/skills/dough-adr-awareness/SKILL.md`.
 
 terry-talks is a single-person project: there is no advice round, team
 announce, or consensus step. The gradual path from Proposed to Accepted is

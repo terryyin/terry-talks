@@ -784,7 +784,7 @@ pushing to trunk until it is green — not a plant-wide freeze.
 
 Spoken dashboard contrast (Claims 13 / 24): doughnut leftover Biome
 `"warn"` pile — `biome.json` / `frontend/biome.json` park rules as
-`"warn"`; CI `pnpm lint:all` does not pass `--error-on-warnings`;
+`"warn"`; the CI lint command does not pass `--error-on-warnings`;
 Gradle has no warnings-as-errors. A new `debugger` or unused TS
 binding can print and the job stays green. The detector ran;
 everyone continues past it. Contrast `@focus` in features
@@ -838,7 +838,7 @@ Quiet / leftover warning: Claim 24 — unpaid judgment; silence is
 trusted only when the check ran. Heuristic, not a TPS slogan; do
 not present -Werror as TPS.
 
-Episode leftover: execute-plan Jidoka on doughnut
+Episode leftover: execution Jidoka on doughnut
 `.planning/quick/001-morning-cognitive-index/PLAN.md` slice 6
 (*A detour into a note is recorded separately*). Stop:
 `0b56ebc81a` — no mid-question note affordance; PLAN.md says
@@ -881,40 +881,6 @@ the stop to green; the opposite of this episode.
 
 <!--
 Claim 6.
--->
-
----
-layout: image-right
-image: /entering-ai-harness.png
-backgroundSize: contain
-class: "[&>h1]:!mb-2 [&_p]:!my-2 [&_.slidev-code-wrapper]:!my-2 [&_pre]:!text-[13px] [&_pre]:!leading-snug [&_pre]:!py-1"
----
-
-# Go-See may mean entering the AI harness
-
-Genchi genbutsu when the work happens inside an agent loop:
-go to where the work is actually done.
-
-<div class="doughnut-example">
-
-`git commit` reports success. The pre-commit hook records the **main** tree.
-
-```bash
-REPO_ROOT="$HOOK_DIR/../.."
-REPO_ROOT="$(git rev-parse --show-toplevel)"
-```
-
-</div>
-
-<!--
-Claim 16.
-
-Leftover: doughnut `scripts/git-hooks/pre-commit`. `$HOOK_DIR/../..`
-resolves to the **main** checkout — the hook lives in shared
-`.git/hooks`. Hash: `1c696d455d` (`git rev-parse --show-toplevel`).
-
-Spoken callback: the P1 N+1 leftover on *Smart → dumb → gone* is
-what later landed once the tree was true — `0bd1dd2995`.
 -->
 
 ---
