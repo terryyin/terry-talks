@@ -1,3 +1,4 @@
+import {StoryMissileImpactComposition} from './stories/StoryMissileImpact';
 import {StoryDrivenDevelopmentComposition} from './stories/StoryDrivenDevelopment';
 import {StoryAssimilationComposition} from './stories/StoryAssimilation';
 import { StoryProductDeveloper } from './stories/StoryProductDeveloper';
@@ -20,6 +21,7 @@ export const RemotionRoot: React.FC = () => {
 		<>
 			<StoryDrivenDevelopmentComposition />
 			<StoryAssimilationComposition />
+			<StoryMissileImpactComposition />
 			<StorySimpleExample />
 			<StoryLoomWarpStop />
 			<StoryFailureVsFailure />
