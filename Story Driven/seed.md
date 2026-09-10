@@ -85,14 +85,77 @@ Terry has endorsed the proposal as reasonable and supplied the scope clarificati
 <a id="complete-cut"></a>
 ### 2. Viewers can follow the whole argument in a complete three-minute square cut
 
-- **For / why:** Viewers need the entire causal journey, and Terry needs to assess pacing across the whole film.
-- **Visible outcome:** A complete rendered cut in `terry-moves`, driven by the subtitle script, using the proven visual language throughout. Generate additional source artwork where needed and integrate it consistently with the proven scene. Simpler treatments are acceptable where they communicate the idea clearly.
-- **Evaluation:** After watching, viewers can explain story versus product state and identify how behavior and structure change over time. Terry can assess the opening, transitions, reading pace, and ending without imagined missing sections.
-- **Value / learning:** Delivers the full explanation and reveals whether the style and pacing work across three minutes.
-- **Boundary:** Whole-film coherence and comprehension. Do not require every shot to have maximal visual complexity.
-- **Effort uncertainty:** Breadth of production and editorial rework; band pending agreed definitions. Reduce decorative breadth before fragmenting this into disconnected scene stories.
-- **Inputs:** The [visual proof](visual-proof.md) and [timed subtitle script](subtitle-script.md). Before full-film production, Terry must judge the rendered treatment and representative-viewer comprehension must be evaluated; neither is established by agent inspection. Record feedback on what changed, what remains of the story, and where attention dropped. The [authoring improvement](#authoring-improvement) is required only if an observed problem prevents practical production.
-- **Safe stopping point:** A complete, watchable film with any presentation limitations clearly identified.
+#### Goal
+
+Viewers can watch the complete argument in one three-minute square cut, and Terry
+can judge pacing and coherence without imagining missing sections. Extend the
+[visual proof](visual-proof.md) into the whole explanation in the
+[maintained subtitle script](subtitle-script.md).
+
+#### Scope
+
+- Render all 28 English subtitle cues, retaining their wording, order, cue
+  boundaries, and four explicit pauses: 180 seconds at 1080 × 1080, 30 fps.
+  Keep the final three-second hold beyond the last subtitle. Remain silent-first;
+  the working cut has no audio dependency.
+- Establish story versus present product, then introduce behavior, structure,
+  and time progressively. Show backlog items as possible transitions and human
+  desire as the reason to change the product.
+- Show one story crossing several behaviors and components, and a feature
+  affected by earlier stories. Carry the product continuously through impact,
+  disturbance, reconciliation, judgment, decisions, and a coherent changed state.
+- Make judgment visible through tentative arrangements becoming resolved
+  relationships. After assimilation, let the spent story recede into available
+  history while the current product remains understandable. End with the
+  possibility of another story and the changed product still coherent.
+- Reuse the proof's warm paper, ink typography, coral story, blue structure,
+  green behavior, visible depth, stable comparison viewpoint, and reserved
+  caption area. Motion and shape also distinguish roles. Keep each conceptual
+  step legible rather than filling every second with decoration.
+- Preserve the independently playable 33-second proof. Keep cue content and
+  product geometry coherent across the proof and full cut while allowing their
+  different timings. Retain editable source, a reproducible render command,
+  and the exported MP4.
+- Generate artwork when it serves the explanation; do not add it merely to
+  increase visual density. Necessary scene-local authoring work is included;
+  no generic platform investment is promised.
+- **Rejection constraints:** The upper triangle remains excluded by Terry's
+  instruction. Do not equate one story with one feature/component, imply that
+  every part must change, restore the original product at the end, destroy
+  history, or leave the incoming story as a permanent attachment.
+- **Deferred promises:** Final release polish, narration/music, translations,
+  alternative formats, branding, external publishing, and claims of successful
+  audience comprehension. Those are separate production or evaluation decisions.
+
+#### Key examples
+
+1. From the opening, a silent viewer sees the distinction between an imagined
+   story and the current product, followed by behavior, structure, and time
+   appearing as the subtitle text introduces them.
+2. From desire and backlog, the viewer follows one possible change across
+   multiple parts into disturbance without losing the identity of the product.
+   Earlier transitions affecting one feature remain distinguishable from the
+   incoming story and the current state.
+3. From the unsettled product, the viewer sees behavior reconciled and structure
+   reshaped, with judgment and explicit decisions leading into the settled
+   result. The after-state retains both changed and unaffected regions.
+4. At the ending, the spent story recedes into history, the current product
+   remains changed and coherent, and a possible next story appears without
+   undoing the completed change.
+5. Playing the full MP4 without audio at phone size shows all captions and
+   pauses without clipping or missing sections. Duration is exactly 03:00;
+   the 33-second proof remains playable through its existing composition.
+
+#### Decisions and evaluation
+
+Terry's “Okay, proceed with the next story” authorizes expansion of the displayed
+proof's treatment into this cut. It does not assert representative-viewer testing;
+that comprehension evidence remains open and will inform review of the cut.
+There is no remaining production question before execution. A whole watchable
+cut is the safe stopping point, with any observed presentation limitations
+reported for the release story.
+
+Execution plan: [complete cut](../.planning/quick/005-story-driven-cut/PLAN.md).
 
 <a id="release"></a>
 ### 3. Terry has a finished square animation ready to share
@@ -108,7 +171,7 @@ Terry has endorsed the proposal as reasonable and supplied the scope clarificati
 
 ## Ordering and scope reduction
 
-The [timed subtitle script](subtitle-script.md) supplies the complete explanation and the [visual proof](visual-proof.md) supplies the rendered treatment for judgment. Evaluate that treatment with Terry and a representative viewer before expanding it into the complete cut, then finish the film. The conditional authoring candidate stays unqueued unless production exposes an independent improvement worth making.
+The [timed subtitle script](subtitle-script.md) supplies the complete explanation and the [visual proof](visual-proof.md) supplies the rendered treatment for judgment. Terry has authorized expansion of that treatment into the complete cut. Evaluate the whole cut with viewers and use that feedback to finish the film. The conditional authoring candidate stays unqueued unless production exposes an independent improvement worth making.
 
 First reduce decorative complexity, extra visual metaphors, and optional music. Omit speculative authoring enhancements. Preserve the square format, three-minute intent, script-driven workflow, and clear transformation in both behavior and structure. Do not silently cut an agreed narration requirement.
 
@@ -116,7 +179,7 @@ First reduce decorative complexity, extra visual metaphors, and optional music. 
 
 - **Audience and emphasis:** Confirmed developer/product audience; assimilation is the central message, with judgment becoming decisions as its explanation.
 - **Language and sound:** Confirmed English and silent-first; the complete explanation must work without audio. Optional voiceover, speaker, and music remain later decisions. Any added narration would need to fit the script timing or prompt an explicit revision.
-- **Art direction:** Abstract editorial animation is the working direction following Terry's positive feedback; the [rendered proof](visual-proof.md) is available for judgment; human feedback on its detailed treatment remains open. Generated artwork may enrich it without changing the script-led animation workflow.
+- **Art direction:** Abstract editorial animation is the working direction following Terry's positive feedback; the [rendered proof](visual-proof.md) is available for judgment; Terry has authorized using that treatment for the complete cut; representative-viewer evaluation remains open. Generated artwork may enrich it without changing the script-led animation workflow.
 - **Concrete example:** A single human desire could anchor the metaphor; its domain remains open. Prefer one understandable example over several abstract claims if viewers need grounding.
 - **Essay coverage:** Prioritize story versus state, crossing boundaries, assimilation, and a coherent present. Historical negations and the detailed automated-testing analogy are proposed omissions from the three-minute film, not rejected ideas.
 - **Meaning of three-dimensional:** Preserve the three conceptual dimensions and visible depth. This does not yet commit to photorealism, custom 3D assets, or a particular rendering technology.

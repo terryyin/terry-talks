@@ -1,0 +1,81 @@
+# Complete story-driven cut
+
+Source: [selected story](../../../Story%20Driven/seed.md#complete-cut).
+Status: planned.
+
+## Goal and scope
+
+A complete 180-second, 1080-square, silent cut of the 28-cue subtitle script,
+using the proof's visual language. Preserve all four 3-second pauses, the final
+hold, the existing 33-second composition, and the coherent current product.
+No upper triangle, reset, destroyed history, feature/component equivalence,
+audio production, release polish, or generic authoring platform work.
+
+## Context and delivery
+
+- Established `.planning/quick/NNN-slug/PLAN.md`; 005 follows historical 004.
+  Statuses planned / in-progress / done. User authorized the whole workflow.
+- React/Remotion in terry-moves. Existing Script owns subtitle timing; shared
+  product geometry and cue wording should remain coherent across both cuts.
+  ADR-0000 retains human ownership of cross-cutting decisions; this is local
+  film authoring within the current stack.
+- Direct pnpm commands. Focused Jest at scene/timeline boundaries; tsc --noEmit;
+  real Remotion renders with --muted; ffprobe dimensions/duration/frame count;
+  moving playback and representative frames at 360px square.
+- Coordinator runs ESLint --fix on owned TS/TSX paths, then checks the staged
+  diff in a separate tool call before commit. No configured hook/format wrapper.
+  Existing parts/ ignore rule requires force-adding named new scene files.
+- No numeric slice limit supplied. Each slice has one viewable outcome and
+  render-review loop; stop and refine if its scope or integration cannot converge.
+- Commit locally; no push request for this story. No GitHub Actions workflow,
+  therefore no observer; report CI unavailable rather than green.
+
+## Ordered slices and proof
+
+### 1. Follow the imagined change into product impact
+Type: Behavior
+Status: planned
+
+Behavior: Opening StoryDrivenDevelopment plays the first 96 seconds (cues 1–15
+and their pauses): story/present distinction, progressive dimensions, backlog,
+human desire, cross-boundary transition, feature history, and local disturbance.
+The new composition is an explicitly interim opening cut; slice 2 extends it
+in place to the complete argument. Preserve the existing proof composition.
+
+Proof: Real 2880-frame opening render; inspect introduction, desire/transition,
+and contact/disturbance. Focused caption and visual scene checks prove the
+progressive dimensions and retiming; existing proof tests stay green. This
+slice owns opening story examples 1 and 2 and interim output only.
+
+### 2. Follow assimilation through decisions into the coherent present
+Type: Behavior
+Status: planned
+
+Behavior: The same composition now plays all 28 cues over 180 seconds, completing
+reconciliation, judgment, decisions, assimilation, history and next possibility.
+Remove the interim duration/description. Keep the product recognizable and
+changed at the ending. Preserve the 33-second proof.
+
+Proof: Render all 5400 frames with --muted, ffprobe 180s/1080x1080/30fps/video-only,
+inspect the whole moving cut and chapter/caption/pause frames at phone size.
+Focused scene tests verify final changed/preserved geometry, resolved alternatives,
+history and next story, exact script cue windows, all pauses and cue-duration
+changes shifting dependent beats. Existing proof remains green. This slice owns
+examples 3–5 and final delivery across examples 1–2.
+
+## Cumulative design and constraints
+
+Use a single product-space model and caption wording shared where the two cuts
+overlap; varying cue timing is legitimate, competing copies of geometry are not.
+Do not over-generalize the engine. Keep scene-specific orchestration local.
+The full Markdown script remains authoritative; demonstrate that production cue
+wording/timings match it, with an explicit update path. Generated assets are
+conditional on explanatory value, not a quota.
+
+The renderer proves delivery, not human comprehension. Terry has authorized the
+proof treatment's expansion. Preserve actual viewer feedback separately if it
+arrives; do not invent endorsement. Retrospective precedes wrap-up.
+
+## Learnings and evidence
+
+None yet.
