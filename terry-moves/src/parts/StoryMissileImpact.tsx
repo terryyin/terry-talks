@@ -11,6 +11,8 @@ const paper = '#FFFCF4';
 const clamp = (value: number) => Math.max(0, Math.min(1, value));
 const smooth = (value: number) => {const t = clamp(value); return t * t * (3 - 2 * t);};
 type Point = {x: number; y: number};
+// Steepen Behavior by 15 degrees while keeping Structure vertical.
+const behaviorShear = Math.tan(Math.atan(96 / 408) + Math.PI / 12) - 96 / 408;
 const outline = 'M 175 345 L 560 255 L 560 620 L 175 710 Z';
 const original: Point[] = [
   {x: 235, y: 391}, {x: 365, y: 361}, {x: 495, y: 331},
@@ -45,17 +47,16 @@ export const StoryMissileImpactScene: React.FC<{frame: number; timeline?: Assimi
     <defs>
       <marker id="impact-axis-tip" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M 1 1 L 7 4 L 1 7" fill="none" stroke={ink} strokeWidth="1.5" /></marker>
     </defs>
+    <g transform="translate(0 -60)">
+    <g transform={`matrix(1 ${-behaviorShear} 0 1 0 ${560 * behaviorShear})`}>
     <path d={outline} fill={paper} stroke="#CBD0C5" strokeWidth="2" />
     <text x="182" y="311" fontFamily="Georgia, serif" fontSize="30" fill={ink} transform="rotate(-13 182 311)">Product</text>
     <g fill="none" stroke={ink} strokeWidth="2.5" markerEnd="url(#impact-axis-tip)">
       <path data-testid="structure-axis" d="M 560 620 L 560 233" />
       <path data-testid="behavior-axis" d="M 560 620 L 152 716" />
-      <path data-testid="time-axis" d="M 1000 620 L 560 620" />
     </g>
     <circle cx="560" cy="620" r="5" fill={ink} />
-    <text x="580" y="267" fontSize="26" fill={blue}>Structure</text>
     <text x="267" y="735" fontSize="26" fill={green} transform="rotate(-13 267 735)">Behavior</text>
-    <text x="810" y="659" fontSize="26" fill={ink}>Time</text>
     <g data-testid="unaffected-region">
       <path d="M 205 365 L 524 291 L 524 374 L 205 448 Z" fill={green} opacity=".045" />
       <text x="219" y="420" fontSize="15" fill={green} transform="rotate(-13 219 420)">UNCHANGED</text>
@@ -79,6 +80,11 @@ export const StoryMissileImpactScene: React.FC<{frame: number; timeline?: Assimi
       <circle cx="386" cy="530" r="9" />
       <circle cx="412" cy="425" r="9" />
     </g>
+    </g>
+    <text x="580" y="267" fontSize="26" fill={blue}>Structure</text>
+    <path data-testid="time-axis" d="M 1000 620 L 560 620" fill="none" stroke={ink} strokeWidth="2.5" markerEnd="url(#impact-axis-tip)" />
+    <text x="810" y="659" fontSize="26" fill={ink}>Time</text>
+    <g transform={`translate(0 ${160 * behaviorShear})`}>
     <text x="799" y="420" textAnchor="middle" fill={ink} fontSize="24">Product backlog</text>
     <path d="M 637 549 L 637 563 L 998 563 L 998 549" fill="none" stroke={ink} strokeWidth="1.5" opacity=".4" />
     <Missile x={827} /><Missile x={951} />
@@ -93,9 +99,11 @@ export const StoryMissileImpactScene: React.FC<{frame: number; timeline?: Assimi
       <path d="M 395 483 L 405 506 L 389 506 L 403 529" stroke={paper} strokeWidth="5" fill="none" />
       {Array.from({length: 10}, (_,i) => {const a = i * Math.PI / 5; const r = 116 + (1 - blast) * 28; return <path key={i} d={`M ${400 + Math.cos(a) * r} ${505 + Math.sin(a) * r} l ${Math.cos(a) * 17} ${Math.sin(a) * 17}`} stroke={coral} strokeWidth="3" />;})}
     </g>}
+    </g>
     <g data-testid="product-history" transform="translate(714 689)" opacity=".48">
       {[0,1].map((i) => <g key={i} transform={`translate(${i * 34} ${-i * 9})`}><path d="M 0 10 L 65 -5 L 65 48 L 0 63 Z M 20 5 V 57 M 43 0 V 53 M 0 28 L 65 13 M 0 45 L 65 30" fill="none" stroke={blue} strokeWidth="1.5" /></g>)}
       <text x="121" y="31" fontSize="19" fill={ink}>History</text>
+    </g>
     </g>
   </StoryProductFrame>;
 };

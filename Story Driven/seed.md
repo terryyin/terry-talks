@@ -8,70 +8,163 @@ created: 2026-09-10
 
 ## Parent problem and desired effect
 
-For viewers trying to understand story-driven product development, turn the supplied essay and sketch into a memorable explanation of how a story changes a product and is assimilated into coherent behavior and structure. Deliver a three-minute, square animation using the existing `terry-moves` project, with the subtitle script driving the animation.
+For developers and product people learning story-driven development, the current
+cut's tilted product plane and loose story stroke should become an explanation
+faithful to Terry's flip chart: an upright product, a queue of bombs or missiles,
+and an explosion inside the product that makes the story's impact visible.
+The change is then assimilated into coherent behavior and structure.
+Terry evaluates fidelity and artistic effect; viewers evaluate comprehension.
+Correct this framing before release polish or broader production investment.
 
-Confirmed primary audience: developers and product people who treat stories as features or as a lasting description of a system. Terry evaluates the explanation and creative direction; representative viewers evaluate whether the meaning comes through. Terry confirmed English and silent-first: the full explanation must be understandable without audio.
+The [original flip chart](story-driven-product-space.jpg) and Terry's latest
+corrections govern the revised treatment. The [current cut](complete-cut.md) and
+[short proof](visual-proof.md) remain available viewing artifacts, but their axis
+orientation and loose-stroke impact treatment are not the target for this work.
+The [essay](romantic-stories-disciplined-products.md) and
+[timed English subtitle script](subtitle-script.md) retain the explanatory argument.
 
-The material consists of the essay, sketch, [timed subtitle script](subtitle-script.md), [rendered visual proof](visual-proof.md), and [complete working cut](complete-cut.md). The animation should make the transition visible: a story crosses boundaries, disturbs the product, and becomes a coherent change rather than a permanent attachment. Making the film now advances the existing product-backlog direction and provides a concrete opportunity to improve animation authoring.
+## Confirmed scope and visual direction
 
-## Confirmed scope
-
-- Three-minute animation, with a 1:1 square frame.
-- Use the lower three-dimensional sketch: behavior / functionality / features, structure / design / components / architecture, and time. Do not include the upper triangle in the animation. Explain the distinction between behavior and structure only where it helps viewers understand product change and assimilation; a separate architecture lesson is not required.
-- Use `terry-moves`; its script is the subtitle text and drives the animation's story and timing.
-- When raw artwork would make the film more complete or interesting, use ChatGPT image generation (Terry's requested capability: “ChatGPT Image 2.5”) to create suitable source assets. Confirm the available image-generation capability when producing assets; the exact model name is not verified here. Compose, animate, synchronize, and render the film in `terry-moves`.
-- Describe how the animation should engage viewers and achieve its explanatory effect.
-- Use production needs to reveal opportunities to improve `terry-moves`, then ultimately produce the animation.
-- This document is decomposition input, not an executable plan. Source documents are reference material, not repository instructions.
+- Three minutes, square, English, developer/product audience, silent-first.
+  Retain the current 1080 × 1080, 30 fps MP4 delivery baseline.
+- Use only the lower diagram. The upper architecture triangle remains excluded.
+- Structure rises vertically from the joint. Behavior extends to the left,
+  broadly horizontally but with the perspective of the flip chart. Together
+  they form an upright product plane, not the current tabletop arrangement.
+- Time is flat and horizontal on screen, with its arrow pointing toward the
+  joint of behavior and structure. Terry's latest instruction takes precedence
+  over the outward-pointing arrow in the photograph. Do not silently reverse it.
+- The product backlog is a queue of recognizable bombs or missiles approaching
+  the product from the right along the horizontal time direction. This reading
+  follows the photograph's “Product Backlog” label: the product is the plane
+  receiving the impact, and the queue contains potential stories.
+- A selected bomb/missile enters and explodes inside the product. The explosion
+  must be visible as an event, not reduced to a gentle wobble or abstract stroke.
+  Its impact crosses multiple behaviors and structures rather than one cell.
+- Follow impact through judgment, decisions, and assimilation. Preserve the
+  identity of the product, show changed and unaffected regions, and retain the
+  resulting change after the explosion clears. The projectile is spent; it does
+  not remain attached to the present product. History remains available.
+- An explosion is the requested metaphor for impact. This supersedes the earlier
+  gentle-stroke treatment; it does not replace the explanatory ending with
+  permanent destruction or an unchanged reset.
+- Keep the subtitle script as the argument and timing authority, including its
+  pauses. Visual corrections do not by themselves authorize a script rewrite.
+  Keep subtitles legible and clear of the explosion at phone size.
+- Retain the warm paper/ink treatment and color distinctions where compatible
+  with the corrected diagram. Shape, position, and motion must also carry meaning.
+  Use generated artwork when it improves the film; it is not a quota or a new
+  authoring-platform promise. Use the available image-generation capability
+  when needed, without assuming an unverified model name.
+- Narration/music, branding, and external publication remain later decisions.
+  No external publication is implied by a finished export.
 
 ## Alternatives and proposed direction
 
-| Approach | What it offers | Limitation / recommendation |
+| Approach | Value | Decision and reason |
 | --- | --- | --- |
-| Defer; keep the essay and sketch | No production effort; the full argument remains available | Does not deliver the requested animation or learn from making it |
-| Slowly reveal the diagram with captions | Strongest smaller alternative: a simple way to explain the axes | Useful fallback, but weak at making disturbance and assimilation felt; provisionally reject as the final treatment |
-| Tactile paper construction | Warm, approachable folds and layers can reveal dimensions | Can make assimilation look like attaching more pieces unless transformations are carefully designed |
-| Cinematic glass or metal sculpture | Strong depth and physical presence | Surface spectacle may compete with the explanation and increase production uncertainty |
-| Expressive abstract animation with precise editorial geometry | The visual language itself can move from romantic possibility to disciplined product | Recommended; prove comprehension and appeal in a short scene before expanding |
+| Leave the current cut and polish it | Least production work | Reject: preserves the visual mismatch Terry explicitly interrupted to correct |
+| Relabel or rotate the current axes only | Smaller correction | Reject as sufficient: still omits the requested recognizable queue and explosion inside the product |
+| Show the flip chart as a static image with captions | Cheapest faithful reference using existing material | Useful comparison reference, but cannot show impact becoming an assimilated change |
+| Correct a short queue-to-impact-to-assimilation scene, then revise the full cut | Early visible evidence of the corrected causal metaphor | Recommended: resolves the highest uncertainty before repeating the treatment throughout three minutes |
 
-Terry considers the proposal reasonable. Continue with abstract editorial animation as the working direction and judge its treatment through the rendered visual proof. The triangle is explicitly excluded; generated source artwork is available where it serves the film.
-
-A reference for expressive shape transformation is Evelyn Lambart and Norman McLaren's *Begone Dull Care*: the NFB describes painted shapes, color, and fluid lines interpreting jazz. Borrow the principle of expressive motion, while letting our subtitle script lead the film rather than music. This is inspiration, not a request to reproduce the film or use its assets.
-
-Reference: [National Film Board — Begone Dull Care](https://www.nfb.ca/film/begone_dull_care/).
-
-## Proposed creative concept: the change remains; the story is spent
-
-A loose coral stroke carries a human desire toward an ordered product plane. The plane has distinct behavior and structure directions, with time extending away from it. The stroke refuses to fit a single cell: it crosses multiple behaviors and components, briefly pulling the arrangement out of coherence.
-
-Through assimilation, the arrangement changes and settles. Coral remains in the resulting behaviors and structure, but the incoming stroke no longer exists as a separate object. The product is recognizably changed, not restored to its original state. A subsequent story can approach a coherent present.
-
-Show history receding along time while the current product remains clear. Do not imply history has been destroyed, that each feature maps to exactly one component, that every story changes every part, or that development literally requires catastrophic damage.
-
-Possible opening line, for discussion: “A story imagines a world that does not exist. A product has to work in the world that does.”
-
-Possible closing image: the camera holds on the newly coherent product, then a small new stroke appears at the edge of the time axis. It suggests continuing evolution without implying an endless wound.
-
-## Proposed appeal and communication requirements
-
-- Let motion explain causality: desire approaches, impact disturbs, judgment resolves, the changed product settles. Decorative movement should not obscure this sequence.
-- Give stories and products distinct movement qualities: expressive, irregular arrival versus legible, deliberate organization. Neither should be portrayed as morally better.
-- Establish the three dimensions before rotating the view. Use a stable viewpoint for crucial relationships and screen-facing subtitles that remain readable.
-- Introduce one conceptual change at a time. Leave breathing room after impact and after assimilation so viewers can notice the difference.
-- Keep one recognizable product through the transformation. Replacing it with unrelated graphics would hide what changed.
-- Generate source artwork when it adds expressive value: for example, a distinctive story stroke, tactile paper or ink textures, or an illustration grounding the human desire. Keep assets consistent with the chosen palette and visual language, and suitable for animation within the square composition. Essential meaning and labels must remain legible when the assets move.
-- Use shape, motion, and labels as well as color. A proposed palette is warm paper, dark ink, blue structure, green behavior, and coral story impact.
-- Design for the square frame from the beginning. Judge caption legibility and competing visual detail at phone viewing size; final resolution remains open.
-- Keep the script as the primary text. Short scene labels orient the viewer; avoid a second paragraph competing with subtitles.
-- Evaluate appeal through a rendered scene: can a viewer identify what moved, what changed, and why the ending feels coherent? Ask which moment they remember and where attention dropped.
-- Confirmed silent-first viewing in English: the meaning survives without audio. Optional sound could emphasize tension and release; narration and music remain later decisions.
+The highest learning priority is whether Terry recognizes the intended spatial
+model and explosive impact in motion while the viewer can still follow the
+changed product. Bomb versus missile silhouette and exact blast styling are
+creative variations within the requested direction, not separate stories.
 
 ## Candidate story decomposition
 
-Terry has endorsed the proposal as reasonable and supplied the scope clarifications above. The candidates below incorporate them; remaining open decisions are listed separately. Exact S/M/L estimates are deferred: no project effort-band definitions were found in the guidance consulted. Risk descriptions below are not time estimates.
+These are non-executable candidates. The visual correction is human-directed;
+the story boundaries and ordering below are the proposed response. Effort bands
+remain unassigned because this project has no established S/M/L definitions.
+Comparative effort and uncertainty below are hypotheses, not time commitments.
+
+<a id="impact-treatment"></a>
+### 1. Terry can judge a faithful missile impact and assimilation scene
+
+- **Goal:** Give Terry one watchable correction of the spatial model and impact
+  metaphor to judge before investing in the full-film revision.
+- **Scope:** One silent 33-second, 1080 × 1080, 30 fps queue-to-impact-to-
+  assimilation scene. Reuse the existing excerpt's cue wording, order, six-second
+  caption windows, 1.5-second impact gap, and ending hold (cues 11, 15, 17, 18,
+  23). Show the upright product, Structure rising, Behavior extending left with
+  perspective, and horizontal Time pointing into their joint. A recognizable
+  missile from a right-hand backlog enters and visibly explodes inside the
+  product, affecting multiple behaviors and components. Judgment and decisions
+  appear as a deliberate pause and settling of changed relationships; unaffected
+  regions and history remain recognizable. The selected missile is spent, the
+  blast clears, and the coherent changed state remains. Keep captions outside
+  the scene and retain earlier viewing artifacts.
+- **Key examples:**
+  - Before entry → play the opening → identify the upright product and three
+    labeled directions, plus distinct missiles queued to its right.
+  - Select the leading missile → follow entry and detonation → the blast center
+    is inside the product and its disturbance crosses multiple paths/components.
+  - After disturbance → observe reconciliation and reshaping → changed paths and
+    supporting relationships settle while an unaffected region stays fixed.
+  - At the ending hold → compare with the opening → product identity remains,
+    changes persist, history is available, and no projectile remains attached.
+- **Rejection constraints:** The confirmed visual correction rules out a tabletop
+  product, outward Time arrow, a blast outside the plane, and an unchanged reset.
+- **Deferred promises:** Full-film integration, script rewriting, new artwork
+  pipelines, audio, release polish, branding, and publication. Viewer comprehension
+  and Terry's artistic approval are evaluation outcomes, not automated-test claims.
+- **Boundary assumptions:** Use a left-facing missile and a contained ink/coral
+  burst as reversible creative choices. Exact perspective and blast style remain
+  open to Terry's judgment of the rendered scene; they do not block making it.
+- **Safe stopping point:** A separate playable corrected scene with editable source
+  and a reproducible render command, even if the full revision is deferred.
+
+<a id="revised-complete-cut"></a>
+### 2. Viewers can follow the complete argument through the corrected product and explosive impact
+
+- **For / why:** Developer/product viewers need one continuous explanation using
+  the intended metaphor rather than imagining how the corrected excerpt fits.
+- **Visible outcome:** The full three-minute cut uses the upright product and
+  corrected time direction consistently, from dimensions and backlog through
+  desire, entry, explosion, judgment, assimilation, history, and the next story.
+- **Evaluation:** Play the exported cut silently at phone size. All 28 captions
+  and four pauses remain synchronized; axis directions and product identity
+  remain consistent across scenes. The blast changes several parts, unaffected
+  regions remain recognizable, and the final present is coherent and changed.
+- **Value / learning:** A complete revised explanation ready for pacing and
+  comprehension review, with no conflicting visual languages between sections.
+- **Boundary:** Apply the evaluated treatment throughout the film, resolving
+  incompatible loose-stroke imagery and old axis orientation. Preserve editable
+  source and reproducible exports; no unrelated authoring platform work.
+  Final presentation polish and optional audio belong to release.
+- **Effort hypothesis:** Greatest production breadth in this set; confidence
+  improves after the short scene resolves the spatial and explosion treatment.
+- **Depends on:** [The corrected impact scene](#impact-treatment), with Terry's
+  treatment feedback resolved before expanding it throughout the film.
+- **Safe stopping point:** A complete, watchable revised working cut, even if
+  final polish or optional sound is deferred.
+
+<a id="release"></a>
+### 3. Terry has a finished square animation ready to share
+
+- **For / why:** Terry needs a dependable viewing artifact that communicates the
+  idea without presentation distractions.
+- **Visible outcome:** The final three-minute square animation with resolved
+  readability, pacing, visual continuity, and agreed audio treatment.
+- **Evaluation:** Watch the exported file end to end at intended viewing size;
+  confirm synchronized captions, complete scenes, the corrected axes and
+  recognizable queue, visible explosive impact, and a coherent changed ending.
+  Terry judges explanatory and artistic effect; retain actual viewer feedback
+  without treating automated checks as comprehension evidence.
+- **Value / learning:** A finished communication artifact ready for use.
+- **Boundary:** Address observed issues in the revised full cut and finish the
+  agreed presentation treatment. New genres, formats, and unrelated features
+  are new scope; creation does not authorize external publication.
+- **Effort hypothesis:** Feedback-dependent; optional audio can materially change
+  effort and must be decided during refinement.
+- **Depends on:** [The revised complete cut](#revised-complete-cut).
+- **Safe stopping point:** Retain final export, editable source, and any artwork
+  used so the film can be rendered again. No external posting is required.
 
 <a id="authoring-improvement"></a>
-### 1. The author can revise the proven scene through its script without repairing unrelated timing — conditional
+### 4. The author can revise the proven scene through its script without repairing unrelated timing — conditional
 
 - **For / why:** Terry or the animation author needs to iterate on wording and pacing without disproportionate manual repair.
 - **Visible outcome:** If the short scene exposes a concrete authoring problem, the author changes one real subtitle cue or duration and previews a coherent revised scene through the ordinary authoring workflow.
@@ -82,49 +175,50 @@ Terry has endorsed the proposal as reasonable and supplied the scope clarificati
 - **Selection condition:** Unqueued. The [visual proof](visual-proof.md) uses a cue-driven timeline that moves captions and animation together; no independent authoring limitation is demonstrated. Select this candidate only when further production exposes a concrete gap.
 - **Safe stopping point:** Leave a working, demonstrably improved authoring interaction even if the longer film is deferred.
 
-<a id="release"></a>
-### 2. Terry has a finished square animation ready to share
-
-- **For / why:** Terry needs a dependable viewing artifact that communicates the idea without presentation distractions.
-- **Visible outcome:** The final three-minute, 1:1 animation with resolved readability, pacing, visual continuity, and agreed audio treatment, rendered from the maintained `terry-moves` source.
-- **Evaluation:** Watch the exported file end to end at intended viewing size; confirm its duration, square framing, readable synchronized subtitles, and absence of accidental clipping or incomplete scenes. Check that generated artwork is visually consistent and holds up in motion, and that no triangle has entered the treatment. Terry judges the final explanatory and artistic effect.
-- **Value / learning:** A finished communication artifact ready for use; creation does not imply permission to publish it externally.
-- **Boundary:** Address observed issues from the complete cut and finish the agreed presentation treatment. New genres, additional formats, and unrelated tool features are new scope.
-- **Effort uncertainty:** Depends on actual cut feedback and whether narration or music is included; band pending definitions.
-- **Depends on:** The [complete cut](complete-cut.md).
-- **Safe stopping point:** Retain the final export, editable source, and generated artwork used by the film so it can be rendered again. No external posting is required for completion.
-
 ## Ordering and scope reduction
 
-The [timed subtitle script](subtitle-script.md) supplies the complete explanation and the [visual proof](visual-proof.md) supplies the rendered treatment for judgment. The [complete working cut](complete-cut.md) presents the whole argument. Evaluate it with viewers and use that feedback to finish the film. The conditional authoring candidate stays unqueued unless production exposes an independent improvement worth making.
+Correct and evaluate the short impact scene first: spatial fidelity and the
+explosion are the source of the current rejection. Expand that treatment into
+the complete explanation second, then finish release presentation. The release
+story is interrupted by these genuine prerequisites. The authoring candidate
+stays unqueued unless an independent limitation is demonstrated.
 
-First reduce decorative complexity, extra visual metaphors, and optional music. Omit speculative authoring enhancements. Preserve the square format, three-minute intent, script-driven workflow, and clear transformation in both behavior and structure. Do not silently cut an agreed narration requirement.
+Reduce decorative blast detail, extra metaphors, and optional sound before
+reducing the requested axes, queue, explosion, or assimilation. If later work
+is deferred, retain the corrected short scene as useful viewing evidence.
+Do not turn this decomposition into an executable slice plan.
 
-## Assumptions and open scope
+## Assumptions and open decisions
 
-- **Audience and emphasis:** Confirmed developer/product audience; assimilation is the central message, with judgment becoming decisions as its explanation.
-- **Language and sound:** Confirmed English and silent-first; the complete explanation must work without audio. Optional voiceover, speaker, and music remain later decisions. Any added narration would need to fit the script timing or prompt an explicit revision.
-- **Art direction:** Abstract editorial animation is the working direction following Terry's positive feedback; the [rendered proof](visual-proof.md) is available for judgment; Terry has authorized using that treatment for the complete cut; representative-viewer evaluation remains open. Generated artwork may enrich it without changing the script-led animation workflow.
-- **Concrete example:** A single human desire could anchor the metaphor; its domain remains open. Prefer one understandable example over several abstract claims if viewers need grounding.
-- **Essay coverage:** Prioritize story versus state, crossing boundaries, assimilation, and a coherent present. Historical negations and the detailed automated-testing analogy are proposed omissions from the three-minute film, not rejected ideas.
-- **Meaning of three-dimensional:** Preserve the three conceptual dimensions and visible depth. This does not yet commit to photorealism, custom 3D assets, or a particular rendering technology.
-- **Tooling ambition:** Film-led, evidenced improvements are proposed. Broader reusable authoring investment would change story selection and priorities.
-- **Delivery:** Three minutes and 1:1 are confirmed; the working export is 1080 × 1080, 30 fps, exactly 180 seconds, and MP4. Branding and distribution destination remain open for release refinement.
-- **Sizing:** Project S/M/L definitions are missing. Do not treat the risk descriptions as agreed estimates.
+- No unanswered framing question prevents this decomposition: audience, visual
+  correction, impact metaphor, and desired outcome are supplied by Terry.
+- The photograph supports interpreting the bomb/missile queue as the product
+  backlog. Preserve the distinction between potential stories and present product.
+- Exact behavior-axis perspective, projectile silhouette, and explosion styling
+  are to be judged in the first scene. Do not infer approval of a new rendering.
+- Representative-viewer comprehension remains untested. Seek feedback on what
+  changed and what remains after the explosion when reviewing the revised cut.
+- Optional narration/music, branding, and distribution remain release decisions.
+- S/M/L definitions remain unavailable; no numeric estimates or bands are assigned.
 
 ## Existing project evidence and architecture boundary
 
-The [terry-moves README](../terry-moves/README.md) documents square story dimensions, subtitle text with duration and actions, camera movement, optional audio, and rendering. This is documentation-level evidence only: implementation capabilities and gaps have not been audited as part of decomposition.
-
-[ADR-0000 — Use Architectural Decision Records](../docs/adrs/0000-use-adrs-accepted.md) reserves durable, cross-cutting decisions for the human-owned ADR process. This seed makes no platform architecture decision. Any future improvement with that scope should be checked against the current accepted decisions when selected.
+The [terry-moves README](../terry-moves/README.md) documents animation authoring
+and rendering. This decomposition does not audit implementation or prescribe
+technical design. [ADR-0000](../docs/adrs/0000-use-adrs-accepted.md) retains
+human ownership of durable architectural decisions; no new platform decision
+is made here.
 
 ## When to surface
 
-Now, under the existing product-backlog direction to create the story-driven development animation. Candidate selection and refinement follow Terry's framing feedback; no implementation is authorized by this seed alone.
+Now: Terry has interrupted release work to correct the visual framing and
+restore the bomb/missile impact metaphor. Refinement and execution planning
+follow selection of a story; this seed does not authorize implementation.
 
 ## References
 
 - [Romantic Stories, Disciplined Products](romantic-stories-disciplined-products.md)
-- [Original sketch: product space and backlog over time](story-driven-product-space.jpg)
+- [Original flip chart](story-driven-product-space.jpg)
+- [Timed subtitle script](subtitle-script.md)
+- [Current working cut](complete-cut.md)
 - [Product backlog](../.planning/PRODUCT-BACKLOG.md)
-- [Animation project](../terry-moves/)
