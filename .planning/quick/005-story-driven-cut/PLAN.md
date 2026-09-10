@@ -1,7 +1,7 @@
 # Complete story-driven cut
 
 Source: [selected story](../../../Story%20Driven/seed.md#complete-cut).
-Status: planned.
+Status: in-progress.
 
 ## Goal and scope
 
@@ -34,7 +34,7 @@ audio production, release polish, or generic authoring platform work.
 
 ### 1. Follow the imagined change into product impact
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: Opening StoryDrivenDevelopment plays the first 96 seconds (cues 1–15
 and their pauses): story/present distinction, progressive dimensions, backlog,
@@ -78,4 +78,24 @@ arrives; do not invent endorsement. Retrospective precedes wrap-up.
 
 ## Learnings and evidence
 
-None yet.
+- Opening delivered as 96s / 2880 frames / 1080-square video-only MP4.
+  Render: `pnpm -C terry-moves exec remotion render src/index.ts
+  StoryDrivenDevelopment out/story-driven-opening.mp4 --concurrency=2 --muted`.
+  ffprobe confirms dimensions, frames and duration.
+- Focused Jest `pnpm -C terry-moves exec jest --runInBand
+  tests/video_conomponents/StoryAssimilation.spec.tsx
+  tests/video_conomponents/StoryDriven.spec.tsx`: 7 tests pass, including all
+  source caption windows, retiming, two opening visual holds and proof regression.
+  `pnpm -C terry-moves exec tsc --noEmit` and selected-file ESLint pass.
+- Reviewed moving 360px playback and five representative frames. Dimensions,
+  desire, history and disturbance are legible; captions remain in their own area.
+- Shared ProductSpace preserves proof behavior. Extraction initially added two
+  arrowheads; fixed before delivery. Frame360 comparison to lossy baseline MP4
+  SSIM .98818 with no material visible difference. Existing proof tests pass.
+- Independent refactor extracted neutral CueTimeline and StoryProductFrame,
+  preserving emitted markup. Focused tests and tsc passed after refactoring;
+  renderer evidence remains applicable. No framework expansion.
+- Static footer avoids movement during planned pauses. Opening duration derives
+  from the script boundary before assimilation, not a second absolute timestamp.
+- Slice 2 must remove the interim composition duration and opening-only docs,
+  retain this shared model, and finish judgment/history at full script timing.

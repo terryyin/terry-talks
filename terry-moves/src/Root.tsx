@@ -1,3 +1,4 @@
+import {StoryDrivenDevelopmentComposition} from './stories/StoryDrivenDevelopment';
 import {StoryAssimilationComposition} from './stories/StoryAssimilation';
 import { StoryProductDeveloper } from './stories/StoryProductDeveloper';
 import { StoryFailureVsFailure } from './stories/StoryFailureVsFailure';
@@ -17,6 +18,7 @@ import { StoryLeSSInAction } from './stories/StoryLeSSInAction';
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
+			<StoryDrivenDevelopmentComposition />
 			<StoryAssimilationComposition />
 			<StorySimpleExample />
 			<StoryLoomWarpStop />
