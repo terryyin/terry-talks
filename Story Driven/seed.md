@@ -12,7 +12,7 @@ For viewers trying to understand story-driven product development, turn the supp
 
 Confirmed primary audience: developers and product people who treat stories as features or as a lasting description of a system. Terry evaluates the explanation and creative direction; representative viewers evaluate whether the meaning comes through. Terry confirmed English and silent-first: the full explanation must be understandable without audio.
 
-The material consists of the essay, sketch, and [timed subtitle script](subtitle-script.md). The animation should make the transition visible: a story crosses boundaries, disturbs the product, and becomes a coherent change rather than a permanent attachment. Making the film now advances the existing product-backlog direction and provides a concrete opportunity to improve animation authoring.
+The material consists of the essay, sketch, [timed subtitle script](subtitle-script.md), and [rendered visual proof](visual-proof.md). The animation should make the transition visible: a story crosses boundaries, disturbs the product, and becomes a coherent change rather than a permanent attachment. Making the film now advances the existing product-backlog direction and provides a concrete opportunity to improve animation authoring.
 
 ## Confirmed scope
 
@@ -70,102 +70,8 @@ Possible closing image: the camera holds on the newly coherent product, then a s
 
 Terry has endorsed the proposal as reasonable and supplied the scope clarifications above. The candidates below incorporate them; remaining open decisions are listed separately. Exact S/M/L estimates are deferred: no project effort-band definitions were found in the guidance consulted. Risk descriptions below are not time estimates.
 
-<a id="visual-proof"></a>
-### 1. Terry can judge the art direction through one complete animated transformation
-
-#### Goal
-
-Terry can judge the abstract editorial art direction from one complete, playable
-transformation rendered in `terry-moves`. A developer or product viewer can
-compare the product before and after the story and explain what remains of the
-change. This supplies evidence for the full animation's riskiest assumption:
-that the spatial metaphor makes assimilation understandable and interesting.
-
-#### Scope
-
-- Render one silent, square scene showing the same recognizable product before,
-  during, and after a story's arrival. Preserve visible depth and the behavior,
-  structure, and time directions from the lower sketch.
-- Let the story cross several behaviors and structural connections, disturb
-  that region, and become integrated into a changed, coherent arrangement.
-  Keep an unaffected region recognizable so the example does not suggest that
-  every story changes everything.
-- Drive captions and transformation beats from the selected subtitle script.
-  Working excerpt: cues 11, 15, 17, 18, and 23 of the
-  [timed script](subtitle-script.md), retaining their wording and order.
-  At six seconds each, with a 1.5-second pause after disturbance and a
-  1.5-second final hold, this gives a 33-second proof. The earlier 20–30-second
-  estimate was provisional; the complete causal sequence and readable pacing
-  govern the cut. This excerpt does not change the full script's timing.
-- Use expressive motion for the incoming story and deliberate motion for the
-  product's reorganization. Coral can remain in changed behavior and structure
-  after the incoming stroke ceases to be a separate attachment. Use shape and
-  motion as well as color to communicate the relationship.
-- Keep captions screen-facing, separated from the principal transformation,
-  and readable at phone viewing size. Short axis labels provide orientation;
-  visual notes must not become a competing paragraph of explanation.
-- Produce a playable video and retain editable source and any incorporated
-  artwork. Working export choice: 1080 × 1080 MP4, with no audio dependency.
-  This is a proof-delivery choice, not a new final-film export constraint.
-- Use generated source artwork when it improves expression or completeness.
-  Assess that need against the rendered scene; precise geometry may carry
-  the product model without generated imagery. If assets are generated, retain
-  their source and integrate them into the same visual treatment.
-- **Rejection constraints:** Terry explicitly excluded the upper triangle.
-  Following the existing creative constraints, do not portray assimilation as
-  restoration of the original state, destruction of history, catastrophic
-  damage, or a permanent story-shaped attachment. Do not imply one feature
-  necessarily maps to one component.
-- **Deferred promises:** The complete three-minute film, narration, music,
-  translations, publishing, alternative aspect ratios, and reusable authoring
-  improvements are outside this delivery. Record observed authoring friction
-  for the conditional sibling instead of inventing a platform project.
-
-#### Key examples
-
-1. **Follow the impact:** Given the organized product and an approaching story,
-   when the excerpt plays, the story crosses more than one behavior and
-   structural connection. The viewer can follow its arrival and the local
-   disturbance without losing the identity of the product.
-2. **Recognize assimilation:** Given that disturbance, when the scene resolves,
-   both behavior and structure form a coherent arrangement that differs from
-   the starting state. The effect of the story remains within the product;
-   the incoming stroke no longer stands apart as an attached object.
-3. **See continuity:** Given affected and unaffected regions, when comparing
-   the first stable state with the final hold, the viewer can identify both
-   what changed and what remained. History can recede along time without
-   being erased or competing with the present.
-4. **Watch without audio:** Given the exported square video at phone viewing
-   size, when it plays without sound, captions remain legible and synchronized
-   with the transformation. The final hold lasts beyond the last caption.
-5. **Evaluate the treatment:** Given the playable excerpt, Terry can judge the
-   actual motion, depth, rhythm, and visual texture. Ask a representative viewer
-   what changed, what remains of the story, and which moment they remember.
-   Record actual feedback separately from the agent's visual inspection;
-   a render or test pass must not be reported as human comprehension evidence.
-
-#### UI and review approach
-
-Begin from a stable view of the product with short behavior, structure, and time
-labels. Show enough of the incoming stroke to establish its trajectory before
-contact. Hold the view through disturbance and reorganization so a viewer can
-compare the two states. Reserve caption space within the square composition.
-Judge the whole moving scene, including the pauses, rather than only stills.
-
-#### Open decisions and safe stopping point
-
-No new audience, language, sound, or art-direction decision blocks production.
-The excerpt, duration, and export settings above are working choices within the
-existing scope. Actual viewer comprehension and Terry's judgment of the
-rendered treatment remain to be observed; do not infer approval from silence.
-If the rendered metaphor is misunderstood, retain the proof and seek a treatment
-decision before expanding to the full film. A usable short explanation remains
-valuable if later production is deferred.
-
-Execution plan: [animated transformation](../.planning/quick/004-story-assimilation/PLAN.md).
-
 <a id="authoring-improvement"></a>
-### 2. The author can revise the proven scene through its script without repairing unrelated timing — conditional
+### 1. The author can revise the proven scene through its script without repairing unrelated timing — conditional
 
 - **For / why:** Terry or the animation author needs to iterate on wording and pacing without disproportionate manual repair.
 - **Visible outcome:** If the short scene exposes a concrete authoring problem, the author changes one real subtitle cue or duration and previews a coherent revised scene through the ordinary authoring workflow.
@@ -173,11 +79,11 @@ Execution plan: [animated transformation](../.planning/quick/004-story-assimilat
 - **Value / learning:** A demonstrated reduction in revision friction that remains useful beyond the final render.
 - **Boundary:** Select only after observing an actual gap. This is a candidate example of a useful improvement, not a claim that the current system lacks this capability. If another gap is more consequential, including friction using generated artwork, revise this candidate with Terry instead of silently expanding it. Scene-specific artwork and visual work belong in the film stories; using external image generation does not itself require building image generation into `terry-moves`.
 - **Effort uncertainty:** Unsizeable until a concrete problem is observed; no generic platform overhaul is implied.
-- **Depends on:** The [visual proof](#visual-proof) provides evidence. Omit if the workflow already handles the revision well.
+- **Selection condition:** Unqueued. The [visual proof](visual-proof.md) uses a cue-driven timeline that moves captions and animation together; no independent authoring limitation is demonstrated. Select this candidate only when further production exposes a concrete gap.
 - **Safe stopping point:** Leave a working, demonstrably improved authoring interaction even if the longer film is deferred.
 
 <a id="complete-cut"></a>
-### 3. Viewers can follow the whole argument in a complete three-minute square cut
+### 2. Viewers can follow the whole argument in a complete three-minute square cut
 
 - **For / why:** Viewers need the entire causal journey, and Terry needs to assess pacing across the whole film.
 - **Visible outcome:** A complete rendered cut in `terry-moves`, driven by the subtitle script, using the proven visual language throughout. Generate additional source artwork where needed and integrate it consistently with the proven scene. Simpler treatments are acceptable where they communicate the idea clearly.
@@ -185,11 +91,11 @@ Execution plan: [animated transformation](../.planning/quick/004-story-assimilat
 - **Value / learning:** Delivers the full explanation and reveals whether the style and pacing work across three minutes.
 - **Boundary:** Whole-film coherence and comprehension. Do not require every shot to have maximal visual complexity.
 - **Effort uncertainty:** Breadth of production and editorial rework; band pending agreed definitions. Reduce decorative breadth before fragmenting this into disconnected scene stories.
-- **Depends on:** The [visual proof](#visual-proof), using the [timed subtitle script](subtitle-script.md). The [authoring improvement](#authoring-improvement) is required only if the observed problem prevents practical production.
+- **Inputs:** The [visual proof](visual-proof.md) and [timed subtitle script](subtitle-script.md). Before full-film production, Terry must judge the rendered treatment and representative-viewer comprehension must be evaluated; neither is established by agent inspection. Record feedback on what changed, what remains of the story, and where attention dropped. The [authoring improvement](#authoring-improvement) is required only if an observed problem prevents practical production.
 - **Safe stopping point:** A complete, watchable film with any presentation limitations clearly identified.
 
 <a id="release"></a>
-### 4. Terry has a finished square animation ready to share
+### 3. Terry has a finished square animation ready to share
 
 - **For / why:** Terry needs a dependable viewing artifact that communicates the idea without presentation distractions.
 - **Visible outcome:** The final three-minute, 1:1 animation with resolved readability, pacing, visual continuity, and agreed audio treatment, rendered from the maintained `terry-moves` source.
@@ -202,7 +108,7 @@ Execution plan: [animated transformation](../.planning/quick/004-story-assimilat
 
 ## Ordering and scope reduction
 
-The [timed subtitle script](subtitle-script.md) supplies the complete explanation. Prove the visual treatment through one transformation before producing the complete cut and finishing it. The conditional authoring story is selected only when the short scene demonstrates an independent improvement worth making.
+The [timed subtitle script](subtitle-script.md) supplies the complete explanation and the [visual proof](visual-proof.md) supplies the rendered treatment for judgment. Evaluate that treatment with Terry and a representative viewer before expanding it into the complete cut, then finish the film. The conditional authoring candidate stays unqueued unless production exposes an independent improvement worth making.
 
 First reduce decorative complexity, extra visual metaphors, and optional music. Omit speculative authoring enhancements. Preserve the square format, three-minute intent, script-driven workflow, and clear transformation in both behavior and structure. Do not silently cut an agreed narration requirement.
 
@@ -210,7 +116,7 @@ First reduce decorative complexity, extra visual metaphors, and optional music. 
 
 - **Audience and emphasis:** Confirmed developer/product audience; assimilation is the central message, with judgment becoming decisions as its explanation.
 - **Language and sound:** Confirmed English and silent-first; the complete explanation must work without audio. Optional voiceover, speaker, and music remain later decisions. Any added narration would need to fit the script timing or prompt an explicit revision.
-- **Art direction:** Abstract editorial animation is the working direction following Terry's positive feedback; the rendered proof will settle the detailed treatment. Generated artwork may enrich it without changing the script-led animation workflow.
+- **Art direction:** Abstract editorial animation is the working direction following Terry's positive feedback; the [rendered proof](visual-proof.md) is available for judgment; human feedback on its detailed treatment remains open. Generated artwork may enrich it without changing the script-led animation workflow.
 - **Concrete example:** A single human desire could anchor the metaphor; its domain remains open. Prefer one understandable example over several abstract claims if viewers need grounding.
 - **Essay coverage:** Prioritize story versus state, crossing boundaries, assimilation, and a coherent present. Historical negations and the detailed automated-testing analogy are proposed omissions from the three-minute film, not rejected ideas.
 - **Meaning of three-dimensional:** Preserve the three conceptual dimensions and visible depth. This does not yet commit to photorealism, custom 3D assets, or a particular rendering technology.

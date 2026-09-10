@@ -48,14 +48,8 @@ bind the causal phases. The focused regression demonstrates that extending cue
 The full-film Markdown remains authoritative for wording; a regression compares
 the selected text against that source to expose drift.
 
-## Evaluation limits
+## Viewing questions
 
-The render and automated checks establish a deliverable, editable visual proof;
-they do not establish audience comprehension or Terry's approval of the art
-direction. No human viewer feedback has been recorded yet. Before expanding the
-film, ask what changed, what remains of the story, and which moment the viewer
-remembers. Keep that feedback distinct from agent inspection.
-
-No independent authoring limitation was demonstrated: this scene's caption and
-beat timings already move together. A reusable authoring project therefore has
-no new evidence from this proof alone.
+Watch the exported scene without audio at the intended viewing size. Identify
+what changed, what remains of the incoming story, and which moment is most
+memorable. Use that feedback to judge the treatment before expanding the film.
