@@ -7,40 +7,44 @@ const green = '#337A62';
 const coral = '#D9654E';
 const smooth = (value: number) => value * value * (3 - 2 * value);
 const original: Point[] = [
-  {x: 308, y: 370}, {x: 508, y: 370}, {x: 708, y: 370},
-  {x: 350, y: 480}, {x: 550, y: 480}, {x: 750, y: 480},
-  {x: 392, y: 590}, {x: 592, y: 590}, {x: 792, y: 590},
+  {x: 280, y: 480}, {x: 420, y: 406}, {x: 560, y: 332},
+  {x: 280, y: 562}, {x: 420, y: 488}, {x: 560, y: 414},
+  {x: 280, y: 644}, {x: 420, y: 570}, {x: 560, y: 496},
 ];
-const productOutline = 'M 265 330 L 760 330 L 865 635 L 370 635 Z';
-const storyStroke = 'M 77 290 C 117 238 174 280 149 310 C 110 361 187 411 264 393 S 370 289 433 361 S 477 563 552 533 S 634 383 704 434 S 739 570 839 550';
+const productOutline = 'M 205 465 L 630 240 L 630 510 L 205 735 Z';
+const storyStroke = 'M 970 440 H 640 C 594 438 552 378 523 420 S 465 551 420 520 S 350 499 307 589';
 
-export const ProductSpace: React.FC<{arrival: number; disturbance: number; reconcile: number; reshape: number; behavior?: number; structure?: number; history?: number; storyLabel?: number; choice?: number; decisions?: number; spentHistory?: number}> = ({arrival, disturbance, reconcile, reshape, behavior = 1, structure = 1, history = 1, storyLabel = 1, choice = 0, decisions = 0, spentHistory = 0}) => {
-  const strokeOpacity = arrival === 0 ? 0 : 1 - reconcile;
+export const UprightProduct: React.FC<{arrival: number; disturbance: number; reconcile: number; reshape: number; behavior?: number; structure?: number; history?: number; choice?: number; decisions?: number; spentHistory?: number}> = ({arrival, disturbance, reconcile, reshape, behavior = 1, structure = 1, history = 1, choice = 0, decisions = 0, spentHistory = 0}) => {
+  const strokeOpacity = disturbance === 0 ? 0 : 1 - reconcile;
   const {nodes, behaviorNodes, behaviorRoutes, alternativeAnchors} = assimilateProduct(original, disturbance, reconcile, reshape);
   return <g>
       <defs>
-        <filter id="plane-shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="13" /></filter>
-        <marker id="axis-tip" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M 0 0 L 6 3.5 L 0 7" fill="none" stroke={ink} strokeWidth="1" /></marker>
+        <filter id="upright-plane-shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="13" /></filter>
+        <marker id="upright-axis-tip" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M 0 0 L 6 3.5 L 0 7" fill="none" stroke={ink} strokeWidth="1" /></marker>
       </defs>
-      <path d="M 290 415 L 835 415 L 925 670 L 380 670 Z" fill={ink} opacity=".07" filter="url(#plane-shadow)" />
-      <g opacity={history}>{[2,1].map((depth) => <g key={depth} data-testid="product-history" transform={`translate(${depth * 40} ${depth * -48})`} opacity={depth === 2 ? .09 : .15}>
+      <path d="M 222 480 L 647 255 L 647 525 L 222 750 Z" fill={ink} opacity=".07" filter="url(#upright-plane-shadow)" />
+      <g opacity={history}>{[2,1].map((depth) => <g key={depth} data-testid="product-history" transform={`translate(${-depth * 18} ${-depth * 8})`} opacity={depth === 2 ? .09 : .15}>
         <path d={productOutline} fill="none" stroke={blue} strokeWidth="2" />
         {edges.map(([a,b]) => <line key={`${a}-${b}`} x1={original[a].x} y1={original[a].y} x2={original[b].x} y2={original[b].y} stroke={blue} strokeWidth="2" />)}
       </g>)}
       <g data-testid="spent-story-history" opacity={spentHistory * .35} transform={`translate(${40 + spentHistory * 40} ${-48 - spentHistory * 48})`}>
         <path d={storyStroke} stroke={coral} strokeWidth="5" strokeDasharray="5 7" fill="none" />
       </g>
-      <text x="845" y="243" fill={ink} opacity=".48" fontSize="20" letterSpacing="2">HISTORY</text>
+      <text x="90" y="414" fill={ink} opacity=".48" fontSize="20" letterSpacing="2">HISTORY</text>
       </g>
-      <path d={productOutline} fill="#FFFCF4" stroke="#C7CDC2" strokeWidth="2" />
-      {[["M 332 691 L 894 691", structure], ["M 332 691 L 220 358", behavior], ["M 966 507 L 865 635", history]].map(([d, opacity]) => <path key={d} d={String(d)} fill="none" stroke={ink} strokeWidth="1.6" opacity={Number(opacity) * .68} markerEnd={d === "M 966 507 L 865 635" ? "url(#axis-tip)" : undefined} />)}
-      <text opacity={structure} x="581" y="735" fontSize="25" fill={blue}>Structure</text>
-      <text opacity={behavior} x="196" y="555" fontSize="25" fill={green} transform="rotate(-71 196 555)">Behavior</text>
-      <text opacity={history} x="922" y="588" fontSize="25" fill={ink} transform="rotate(-52 922 588)">Time</text>
+      <path data-testid="present-product" d={productOutline} fill="#FFFCF4" stroke="#C7CDC2" strokeWidth="2" />
+      <g fill="none" stroke={ink} strokeWidth="2" opacity=".8">
+        <path data-testid="structure-axis" d="M 652 534 L 652 215" opacity={structure} markerEnd="url(#upright-axis-tip)" />
+        <path data-testid="behavior-axis" d="M 652 534 L 200 774" opacity={behavior} markerEnd="url(#upright-axis-tip)" />
+        <path data-testid="time-axis" d="M 1000 534 L 652 534" opacity={history} markerEnd="url(#upright-axis-tip)" />
+      </g>
+      <text opacity={structure} x="688" y="360" fontSize="25" fill={blue} transform="rotate(-90 688 360)">Structure</text>
+      <text opacity={behavior} x="350" y="727" fontSize="25" fill={green} transform="rotate(-28 350 727)">Behavior</text>
+      <text opacity={history} x="815" y="578" fontSize="25" fill={ink}>Time</text>
       <g data-testid="structure" opacity={structure}>
-        {edges.map(([a,b]) => <line key={`${a}-${b}`} data-testid={a === 0 && b === 3 ? 'preserved-connection' : undefined} x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y} stroke={blue} strokeWidth="3" opacity=".62" />)}
+        {edges.map(([a,b]) => <line key={`${a}-${b}`} data-testid={a === 0 && b === 3 ? 'preserved-connection' : undefined} x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y} stroke={blue} strokeWidth="2.5" opacity=".45" />)}
         {nodes.map((point, index) => <g key={index} data-testid={`component-${index}`} transform={`translate(${point.x} ${point.y})`}>
-          <rect x="-17" y="-17" width="34" height="34" rx="5" fill={paper} stroke={blue} strokeWidth="3" />
+          <rect x="-17" y="-17" width="34" height="34" rx="8" fill={paper} stroke={blue} strokeWidth="3" />
           <path d="M -8 0 H 8 M 0 -8 V 8" stroke={blue} strokeWidth="1.5" opacity=".55" />
         </g>)}
         <line data-testid="integrated-structure" x1={nodes[4].x} y1={nodes[4].y} x2={nodes[8].x} y2={nodes[8].y} stroke={coral} strokeWidth="4" opacity={reshape} />
@@ -57,6 +61,5 @@ export const ProductSpace: React.FC<{arrival: number; disturbance: number; recon
         <path data-testid="integrated-behavior" d={pathThrough([1,5,8].map((index) => ({x: behaviorNodes[index].x, y: behaviorNodes[index].y - 33})))} stroke={coral} strokeWidth="8" opacity={reconcile} />
         </g><path data-testid="incoming-story" d={storyStroke} stroke={coral} strokeWidth="10" pathLength="1" strokeDasharray="1" strokeDashoffset={1 - smooth(Math.min(1, arrival * 1.4))} opacity={strokeOpacity} />
       </g>
-      <g opacity={storyLabel * (1 - Math.min(1, disturbance * 3))}><text x="84" y="222" fontSize="23" fill={coral} letterSpacing="2">STORY</text><path d="M 116 233 L 116 262" stroke={coral} /></g>
   </g>;
 };

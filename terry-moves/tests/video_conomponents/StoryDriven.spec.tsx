@@ -48,6 +48,54 @@ describe('Story-driven complete cut', () => {
     [1,4,5].forEach((index,i) => expect(getByTestId(`component-${index}`).getAttribute('transform')).not.toBe(initial[i + 1]));
   });
 
+  test('places an upright product left of recognizable missiles and points horizontal Time into the axes joint', () => {
+    const {getByTestId} = render(<StoryDrivenScene frame={1170} />);
+    const endpoints = (id: string) => getByTestId(id).getAttribute('d')!.match(/-?\d+(?:\.\d+)?/g)!.map(Number);
+    const [sx, sy, tx, ty] = endpoints('structure-axis');
+    const [bx, by, lx, ly] = endpoints('behavior-axis');
+    const [fx, fy, jx, jy] = endpoints('time-axis');
+    expect(sx).toBe(tx);
+    expect(ty).toBeLessThan(sy);
+    expect(lx).toBeLessThan(bx);
+    expect(ly).toBeGreaterThan(by);
+    expect([sx, sy]).toEqual([bx, by]);
+    expect([jx, jy]).toEqual([sx, sy]);
+    expect(fy).toBe(jy);
+    expect(fx).toBeGreaterThan(jx);
+    expect(getByTestId('time-axis').getAttribute('marker-end')).toContain('upright-axis-tip');
+    const outline = endpoints('present-product');
+    const rightEdge = Math.max(...outline.filter((_, index) => index % 2 === 0));
+    expect(Math.max(...outline.filter((_, index) => index % 2 === 1))).toBeLessThan(795);
+    [0, 1, 2].forEach((index) => {
+      const missile = getByTestId(`queued-missile-${index}`);
+      const x = Number(missile.getAttribute('transform')!.match(/[\d.]+/)![0]);
+      expect(x - 42).toBeGreaterThan(rightEdge);
+      // Rendered nose/body and tail fins survive at the scene boundary.
+      expect(missile.querySelector('path[d^="M -42 0"]')).not.toBeNull();
+      expect(missile.querySelector('path[d^="M 20 -11"]')).not.toBeNull();
+    });
+  });
+
+  test('shows desire and proposed cross-boundary benefit before physical disturbance, then many stories for one behavior', () => {
+    const {getByTestId, rerender} = render(<StoryDrivenScene frame={1630} />);
+    const originalProduct = getByTestId('structure').outerHTML;
+    expect(getByTestId('human-desire')).toHaveAttribute('opacity', '1');
+    expect(getByTestId('human-desire')).toHaveTextContent('A better experience');
+    expect(getByTestId('incoming-story')).toHaveAttribute('opacity', '0');
+    rerender(<StoryDrivenScene frame={2030} />);
+    expect(getByTestId('proposed-change')).toHaveAttribute('opacity', '1');
+    expect(getByTestId('proposed-change-label')).toHaveAttribute('opacity', '1');
+    expect(getByTestId('proposed-change').querySelectorAll('circle').length).toBeGreaterThan(1);
+    expect(getByTestId('structure').outerHTML).toBe(originalProduct);
+    expect(getByTestId('incoming-story')).toHaveAttribute('opacity', '0');
+    rerender(<StoryDrivenScene frame={2190} />);
+    expect(getByTestId('earlier-transitions')).toHaveTextContent('Many stories');
+    expect(getByTestId('earlier-transitions')).toHaveTextContent('One behavior');
+    expect(getByTestId('proposed-change-label')).toHaveAttribute('opacity', '0');
+    expect(getByTestId('proposed-change')).toHaveAttribute('opacity', '1');
+    expect(getByTestId('structure').outerHTML).toBe(originalProduct);
+  });
+
   test('holds the entire opening and disturbance pause images still', () => {
     const {container, rerender} = render(<StoryDrivenScene frame={360} />);
     const opening = container.innerHTML;

@@ -84,30 +84,84 @@ Comparative effort and uncertainty below are hypotheses, not time commitments.
 <a id="revised-complete-cut"></a>
 ### 1. Viewers can follow the complete argument through the corrected product and explosive impact
 
-- **For / why:** Developer/product viewers need one continuous explanation using
-  the intended metaphor rather than imagining how the corrected excerpt fits.
-- **Visible outcome:** The full three-minute cut uses the upright product and
-  corrected time direction consistently, from dimensions and backlog through
+#### Goal
+
+Developer/product viewers can follow the complete story-driven development
+argument in one continuous, silent three-minute working cut: a possible change
+impacts the product, judgment turns it into decisions, and a coherent changed
+product remains after the story is spent. This advances the backlog direction
+of creating the story-driven development animation and gives Terry a complete
+cut for explanatory and artistic review.
+
+#### Scope
+
+- **Required outcome:** Revise the full cut from dimensions and backlog through
   desire, entry, explosion, judgment, assimilation, history, and the next story.
-- **Evaluation:** Play the exported cut silently at phone size. All 28 captions
-  and four pauses remain synchronized; axis directions and product identity
-  remain consistent across scenes. The blast changes several parts, unaffected
-  regions remain recognizable, and the final present is coherent and changed.
-- **Value / learning:** A complete revised explanation ready for pacing and
-  comprehension review, with no conflicting visual languages between sections.
-- **Boundary:** Apply the evaluated treatment throughout the film, resolving
-  incompatible loose-stroke imagery and old axis orientation. Preserve editable
-  source and reproducible exports; no unrelated authoring platform work.
-  Final presentation polish and optional audio belong to release.
-- **Effort hypothesis:** Greatest production breadth in this set; confidence
-  improves after the short scene resolves the spatial and explosion treatment.
-- **Treatment constraint:** The [missile scene](missile-impact.md) is an interim
-  visual reference, not an approved final treatment. Terry is not yet happy with
-  its appearance. Preserve the downward Behavior direction and improve the
-  treatment before applying it throughout the film; do not treat technical
-  verification or closure of an interim study as artistic acceptance.
-- **Safe stopping point:** A complete, watchable revised working cut, even if
-  final polish or optional sound is deferred.
+  Apply the confirmed visual direction above consistently throughout. The
+  current missile scene is an editable reference whose appearance still needs
+  improvement, not an approved treatment to copy unchanged.
+- **Spatial continuity:** Keep one recognizable upright product. Structure rises
+  vertically; Behavior extends left and downward; horizontal Time points toward
+  their joint. Recognizable bombs or missiles queue to the right, outside the
+  present product. Preserve these relationships through framing changes.
+- **Causal continuity:** Distinguish the desired difference in someone's world
+  from the later physical impact on the product. A selected projectile enters
+  and visibly explodes inside it, disturbing several behaviors and structures.
+  Keep an unaffected region recognizable. Show reconciliation, structural
+  reorganization, judgment, and explicit decisions leading to a coherent
+  after-state with retained change. The spent projectile leaves the present;
+  history remains available without obscuring it, and another possible story
+  can approach the changed product.
+- **Editorial and viewing contract:** Preserve all 28 English captions verbatim,
+  their six-second windows, and all four three-second caption-free visual holds
+  from the [subtitle script](subtitle-script.md). Preserve the silent-first,
+  180-second, 1080 × 1080, 30 fps MP4 baseline. Captions must remain readable and
+  clear of the blast when the square film is displayed at 360 pixels wide.
+  Retain editable source, used artwork, and a reproducible export.
+- **Authority and rejection constraints:** The confirmed corrections above
+  supersede incompatible visual intentions in the script, including loose
+  strokes, the depth Time axis, and gentle contact. Its caption wording and
+  timing remain authoritative. The upper architecture triangle is excluded by
+  Terry's supplied direction. Permanent destruction, an unchanged reset, or an
+  attached spent projectile fail the requested assimilation outcome.
+- **Deferred promises:** Final release polish, optional narration/music,
+  branding, additional formats, external publication, and independent authoring
+  platform improvements. Basic visual clarity and improvement of the unsatisfying
+  missile treatment are part of this working cut, not deferred polish.
+- **Boundary assumptions:** Bomb versus missile silhouette, precise blast
+  styling, and compatible paper/ink artwork are creative choices within the
+  supplied direction. The approximately 28° Behavior angle is the current study's
+  reference, not a new exact-angle requirement. Additional decorative effects
+  are unnecessary to establish the outcome.
+
+#### Key examples
+
+| Pre-condition | Trigger | Observable result |
+| --- | --- | --- |
+| A viewer starts the exported film silently at phone size. | Dimensions and backlog are introduced in cues 03–06. | Behavior points left/down, Structure up, and Time horizontally toward their joint; the queue is visibly outside the upright present product on its right. |
+| A potential story is distinct from the current product. | Cues 07–13 explain desire, intended impact, and story versus feature. | The viewer sees a proposed change reaching across existing divisions while the present remains identifiable; intended benefit is distinguished from the physical explosion that follows. Earlier changes can be shown as history without adding another complete impact cycle. |
+| One selected projectile approaches a recognizable product. | Cues 14–15 bring physical impact, followed by the 01:33–01:36 pause. | It enters and visibly explodes inside the product; several behaviors and structures are disturbed, an unaffected region remains recognizable, and the caption-free hold lets the viewer observe the unsettled result. |
+| The product has been disturbed. | Cues 16–23 explain assimilation, judgment, decisions, and the result. | Behavior and structure are reconciled; tentative choices resolve into stable relationships. The after-state is coherent and visibly changed, with recognizable continuity to the before-state. It remains visible during the 02:24–02:27 hold. |
+| The impact has become part of the coherent product. | Cues 24–28 and the final 02:57–03:00 hold play. | The spent projectile is absent from the present, history is available in the background, and the next possible story appears while the assimilated change remains. The ending holds without subtitles for three seconds. |
+| The complete MP4 is displayed as a 360-pixel square without audio. | The viewer watches from 00:00 through 03:00, including the blast. | Every caption stays legible and synchronized with its intended beat; the four specified gaps clear captions and hold the visuals. The full argument is available without narration. |
+
+#### Evaluation and remaining decisions
+
+- Review the exported moving cut end to end at phone size for the examples
+  above. Timing and export checks establish technical properties; Terry judges
+  the visual treatment and explanatory effect. Automated checks do not establish
+  artistic acceptance or viewer comprehension.
+- **Open artistic decision:** The missile study's appearance is not accepted.
+  Improve its treatment within the confirmed metaphor and review the result
+  with Terry; no particular silhouette or blast design is recorded as approved.
+- **Open evidence:** Representative-viewer comprehension remains untested.
+  During review, ask viewers what changed and what remains after the explosion;
+  retain actual feedback without inventing a participant quota or pass score.
+- **Effort hypothesis:** Broadest production work in this set; visual-treatment
+  uncertainty remains. No time commitment or undefined S/M/L band is assigned.
+- **Safe stopping point:** A complete, watchable revised working cut with
+  retained editable source and reproducible export, useful even if release
+  polish and optional sound are deferred.
 
 <a id="release"></a>
 ### 2. Terry has a finished square animation ready to share
