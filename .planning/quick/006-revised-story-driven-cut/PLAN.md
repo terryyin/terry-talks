@@ -1,7 +1,7 @@
 # Corrected story-driven complete cut
 
 Source: [refined story](../../../Story%20Driven/seed.md#revised-complete-cut).
-Status: in-progress
+Status: done
 
 ## Goal and scope
 
@@ -67,7 +67,7 @@ still holds and all captions at the scene boundary, including retiming.
 
 ### 3. Watch the complete corrected film silently at phone size
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Open the reproduced MP4 at 360-pixel square size → watch all three
 minutes silently → captions and corrected argument remain visible through
 all scenes and holds, with a coherent changed ending.
@@ -111,3 +111,22 @@ must not be described as Terry's artistic acceptance or viewer comprehension.
   suites / 17 tests and typecheck passed after refactoring. Viewed blast2540 and
   ending5399 (history subsequently lowered20px for space below Time).
   Selective ESLint formatting/check and whitespace check passed.
+
+- Slice 2 commit: `c4ddaef` (local; no push).
+
+- Slice 3 delivered: full render completed 5400/5400; ffprobe reports
+  1080x1080, 30/1fps, 5400frames, 180.000000seconds, video only. All 28 caption
+  midpoints and 4 blank holds inspected at 360px in four contact sheets; eight
+  impact samples show continuous entry, expanding blast and clearance. Root
+  independently viewed all sheets and ran exported MP4 from 0 to 180 seconds in
+  local browser at 360px, observing advancing playback and the final held state.
+  No presentation defect found in these checks; this is agent review, not
+  human artistic acceptance or representative-viewer comprehension.
+  Evidence: terry-moves/out/revised-phone-1.png through revised-phone-4.png,
+  revised-impact-sequence.png, revised-sample-frames.json, and exported MP4.
+  Documentation updated; independent refactor found no candidates. No source
+  edits in slice 3, so prior 17 tests/typecheck proof reused. Selective formatting
+  was a documentation-only no-op; whitespace check passed.
+- All 3 slices complete. Plan and review evidence retained for retrospective.
+  No push or CI observation authorized/performed; no CI observer to shut down.
+  Temporary local playback server stopped after review.
