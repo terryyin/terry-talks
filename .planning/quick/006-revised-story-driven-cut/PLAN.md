@@ -56,7 +56,7 @@ Retain currently working later argument; slice 2 replaces its old impact treatme
 
 ### 2. Explosive impact becomes a coherent changed present
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Pursue the selected missile → entry and visible internal explosion →
 judgment and assimilation leave changed behavior and structure, unaffected
 identity, available history and a next possibility after the projectile is spent.
@@ -100,3 +100,14 @@ must not be described as Terry's artistic acceptance or viewer comprehension.
   affected StoryDriven suite / 9 tests passed. Independent refactor completed,
   selective ESLint formatting and check passed; whitespace clean.
   Rendered proof: out/revised-desire.png (1455), out/revised-proposal.png (2190).
+
+- Slice 1 commit: `1fcb5eb` (local; no push).
+
+- Slice 2 delivered: implementation ~5 minutes; independent refactor ~3 minutes.
+  Missile entry precedes consumption; blast evolves inside the actual product
+  boundary and clears before disturbance hold. History uses product/decision
+  cards, with retained changed present and a separate next missile. Refactor
+  consolidated detonation position shared by flight and blast. All three focused
+  suites / 17 tests and typecheck passed after refactoring. Viewed blast2540 and
+  ending5399 (history subsequently lowered20px for space below Time).
+  Selective ESLint formatting/check and whitespace check passed.

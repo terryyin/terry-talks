@@ -8,6 +8,9 @@ const paper = '#F5F1E7';
 const ink = '#253B3C';
 const coral = '#D9654E';
 const green = '#337A62';
+const detonationPoint = {x: 495, y: 440};
+const queuedMissileX = 745;
+const approachDistance = 62;
 // A left-facing projectile stays distinguishable from the product's rounded components.
 export const StoryMissile: React.FC<{selected?: boolean}> = ({selected = false}) => <g>
   <path d="M 20 -11 L 40 -24 L 36 -9 M 20 11 L 40 24 L 36 9" fill={selected ? coral : '#C5B8A6'} stroke={ink} strokeWidth="2" strokeLinejoin="round" />
@@ -56,7 +59,10 @@ export const StoryDrivenScene: React.FC<{frame: number; timeline?: StoryDrivenTi
   const backlog = reveal('06') * (1 - reveal('14'));
   const proposed = reveal('10') * (1 - reveal('14'));
   const arrival = .35 * p('10') + .65 * p('11');
-  const disturbance = .22 * p('14') + .78 * p('15');
+  const entry = smooth(Math.min(1, p('14') / .4));
+  const detonation = Math.max(0, (p('14') - .4) / .6);
+  const disturbance = .22 * detonation + .78 * p('15');
+  const consumed = smooth(Math.min(1, detonation * 8));
   const earlier = reveal('12') * (1 - reveal('13'));
   const reconcile = .3 * smooth(p('16')) + .7 * smooth(p('17'));
   const reshape = .8 * smooth(p('18')) + .2 * smooth(p('20'));
@@ -66,7 +72,7 @@ export const StoryDrivenScene: React.FC<{frame: number; timeline?: StoryDrivenTi
   const next = reveal('28');
   const phase = chapters.find(([cue]) => p(cue) > 0)?.[1] ?? 'A world that could be';
   return <StoryProductFrame title={phase} description="A story crosses the product, becomes coherent behavior and structure, and recedes into available history" edition="WORKING CUT" caption={timeline.caption(frame)}>
-      <UprightProduct arrival={arrival} disturbance={disturbance} reconcile={reconcile} reshape={reshape} choice={choice} decisions={decisions} spentHistory={spent} behavior={behavior} structure={structure} history={history} />
+      <UprightProduct blastCenter={detonationPoint} blast={.5 * detonation + .5 * p('15')} disturbance={disturbance} reconcile={reconcile} reshape={reshape} choice={choice} decisions={decisions} spentHistory={spent} behavior={behavior} structure={structure} history={history} />
       <g data-testid="next-possibility" opacity={next} transform={`translate(${945 - 35 * next} 440)`}>
         <StoryMissile selected />
       </g>
@@ -79,9 +85,12 @@ export const StoryDrivenScene: React.FC<{frame: number; timeline?: StoryDrivenTi
       </g>
       <g data-testid="possible-futures" opacity={backlog}>
         <text x="745" y="385" fontSize="24" fill={ink}>Product backlog</text>
-        {[0, 1, 2].map((index) => <g data-testid={`queued-missile-${index}`} key={index} transform={`translate(${745 + index * 105 - (index === 0 ? arrival * 62 : 0)} 440)`} opacity={index === 0 ? 1 : .55}>
-          <StoryMissile selected={index === 0} />
+        {[1, 2].map((index) => <g data-testid={`queued-missile-${index}`} key={index} transform={`translate(${745 + index * 105} 440)`} opacity=".55">
+          <StoryMissile />
         </g>)}
+      </g>
+      <g data-testid="queued-missile-0" opacity={reveal('06') * (1 - consumed)} transform={`translate(${queuedMissileX - arrival * approachDistance + entry * (detonationPoint.x - queuedMissileX + approachDistance)} ${detonationPoint.y})`}>
+        <StoryMissile selected />
       </g>
       <g data-testid="proposed-change" opacity={proposed} fill="none" stroke={coral}>
         <path d="M 633 440 C 580 426 555 402 528 424 S 462 534 420 520 S 342 533 307 589" strokeWidth="8" strokeDasharray="3 12" strokeLinecap="round" />

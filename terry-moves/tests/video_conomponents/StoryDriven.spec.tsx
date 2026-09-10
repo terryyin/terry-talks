@@ -81,19 +81,61 @@ describe('Story-driven complete cut', () => {
     const originalProduct = getByTestId('structure').outerHTML;
     expect(getByTestId('human-desire')).toHaveAttribute('opacity', '1');
     expect(getByTestId('human-desire')).toHaveTextContent('A better experience');
-    expect(getByTestId('incoming-story')).toHaveAttribute('opacity', '0');
+    expect(document.querySelector('[data-testid="incoming-story"]')).toBeNull();
     rerender(<StoryDrivenScene frame={2030} />);
     expect(getByTestId('proposed-change')).toHaveAttribute('opacity', '1');
     expect(getByTestId('proposed-change-label')).toHaveAttribute('opacity', '1');
     expect(getByTestId('proposed-change').querySelectorAll('circle').length).toBeGreaterThan(1);
     expect(getByTestId('structure').outerHTML).toBe(originalProduct);
-    expect(getByTestId('incoming-story')).toHaveAttribute('opacity', '0');
+    expect(document.querySelector('[data-testid="incoming-story"]')).toBeNull();
     rerender(<StoryDrivenScene frame={2190} />);
     expect(getByTestId('earlier-transitions')).toHaveTextContent('Many stories');
     expect(getByTestId('earlier-transitions')).toHaveTextContent('One behavior');
     expect(getByTestId('proposed-change-label')).toHaveAttribute('opacity', '0');
     expect(getByTestId('proposed-change')).toHaveAttribute('opacity', '1');
     expect(getByTestId('structure').outerHTML).toBe(originalProduct);
+  });
+
+  test('flies the selected queue missile continuously inside before exploding and spending it', () => {
+    const {getByTestId, rerender} = render(<StoryDrivenScene frame={2429} />);
+    const x = () => Number(getByTestId('queued-missile-0').getAttribute('transform')!.match(/[\d.]+/)![0]);
+    const before = getByTestId('structure').outerHTML;
+    expect(x()).toBe(683);
+    rerender(<StoryDrivenScene frame={2430} />);
+    expect(x()).toBe(683);
+    let previous = x();
+    [2445, 2470, 2490, 2502].forEach((frame) => {
+      rerender(<StoryDrivenScene frame={frame} />);
+      expect(x()).toBeLessThan(previous);
+      expect(getByTestId('queued-missile-0')).toHaveAttribute('opacity', '1');
+      expect(getByTestId('internal-explosion')).toHaveAttribute('opacity', '0');
+      expect(getByTestId('structure').outerHTML).toBe(before);
+      previous = x();
+    });
+    // The whole missile, including the exhaust at +64, entered the plane.
+    expect(x() + 64).toBeLessThan(630);
+    expect(x() - 42).toBeGreaterThan(205);
+    rerender(<StoryDrivenScene frame={2540} />);
+    expect(getByTestId('queued-missile-0')).toHaveAttribute('opacity', '0');
+    expect(getByTestId('internal-explosion')).toHaveAttribute('opacity', '1');
+    const blast = getByTestId('internal-explosion').outerHTML;
+    const boundary = document.querySelector('#upright-product-interior path');
+    expect(boundary?.getAttribute('d')).toBe(getByTestId('present-product').getAttribute('d'));
+    expect(getByTestId('internal-explosion')).toHaveAttribute('clip-path', 'url(#upright-product-interior)');
+    const points = getByTestId('blast-core').getAttribute('points')!.split(' ').map((point) => point.split(',').map(Number));
+    points.forEach(([px, py]) => {
+      expect(px).toBeGreaterThan(205);
+      expect(px).toBeLessThan(630);
+      expect(py).toBeGreaterThan(465 - (px - 205) * 225 / 425);
+      expect(py).toBeLessThan(735 - (px - 205) * 225 / 425);
+    });
+    rerender(<StoryDrivenScene frame={2640} />);
+    expect(getByTestId('internal-explosion').outerHTML).not.toBe(blast);
+    expect(Number(getByTestId('internal-explosion').getAttribute('opacity'))).toBeGreaterThan(0);
+    rerender(<StoryDrivenScene frame={2790} />);
+    expect(getByTestId('internal-explosion')).toHaveAttribute('opacity', '0');
+    expect(getByTestId('queued-missile-0')).toHaveAttribute('opacity', '0');
+    expect(getByTestId('structure').outerHTML).not.toBe(before);
   });
 
   test('holds the entire opening and disturbance pause images still', () => {
@@ -135,17 +177,20 @@ describe('Story-driven complete cut', () => {
     expect(getByTestId('preserved-connection').outerHTML).toBe(preserved);
     expect(getByTestId('integrated-behavior')).toHaveAttribute('opacity', '1');
     expect(getByTestId('integrated-structure')).toHaveAttribute('opacity', '1');
-    expect(getByTestId('incoming-story')).toHaveAttribute('opacity', '0');
+    expect(document.querySelector('[data-testid="incoming-story"]')).toBeNull();
     const present = getByTestId('structure').outerHTML;
     rerender(<StoryDrivenScene frame={4650} />);
-    expect(getByTestId('spent-story-history')).toHaveAttribute('opacity', '0.35');
-    expect(getByTestId('spent-story-history')).toHaveAttribute('transform', 'translate(80 -96)');
+    expect(getByTestId('spent-story-history')).toHaveAttribute('opacity', '0.55');
+    expect(getByTestId('spent-story-history')).toHaveAttribute('transform', 'translate(745 640)');
     expect(getByTestId('next-possibility')).toHaveAttribute('opacity', '0');
+    expect(getByTestId('historical-product-state').querySelector('rect')).not.toBeNull();
+    expect(getByTestId('historical-decision').querySelector('circle')).not.toBeNull();
+    expect(getByTestId('spent-story-history').querySelector('path[d^="M -42"]')).toBeNull();
     rerender(<StoryDrivenScene frame={5399} />);
     expect(getByTestId('next-possibility')).toHaveAttribute('opacity', '1');
-    expect(getByTestId('incoming-story')).toHaveAttribute('opacity', '0');
+    expect(document.querySelector('[data-testid="incoming-story"]')).toBeNull();
     expect(getByTestId('structure').outerHTML).toBe(present);
-    expect(getByTestId('spent-story-history')).toHaveAttribute('opacity', '0.35');
+    expect(getByTestId('spent-story-history')).toHaveAttribute('opacity', '0.55');
   });
 
   test('holds both late pauses completely still, including history and next possibility', () => {

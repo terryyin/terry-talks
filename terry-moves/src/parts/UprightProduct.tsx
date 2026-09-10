@@ -1,24 +1,23 @@
 import React from 'react';
+import {ProductExplosion} from './ProductExplosion';
 import {assimilateProduct, edges, pathThrough, Point} from './ProductAssimilation';
 const ink = '#253B3C';
 const paper = '#F5F1E7';
 const blue = '#477DA4';
 const green = '#337A62';
 const coral = '#D9654E';
-const smooth = (value: number) => value * value * (3 - 2 * value);
 const original: Point[] = [
   {x: 280, y: 480}, {x: 420, y: 406}, {x: 560, y: 332},
   {x: 280, y: 562}, {x: 420, y: 488}, {x: 560, y: 414},
   {x: 280, y: 644}, {x: 420, y: 570}, {x: 560, y: 496},
 ];
 const productOutline = 'M 205 465 L 630 240 L 630 510 L 205 735 Z';
-const storyStroke = 'M 970 440 H 640 C 594 438 552 378 523 420 S 465 551 420 520 S 350 499 307 589';
 
-export const UprightProduct: React.FC<{arrival: number; disturbance: number; reconcile: number; reshape: number; behavior?: number; structure?: number; history?: number; choice?: number; decisions?: number; spentHistory?: number}> = ({arrival, disturbance, reconcile, reshape, behavior = 1, structure = 1, history = 1, choice = 0, decisions = 0, spentHistory = 0}) => {
-  const strokeOpacity = disturbance === 0 ? 0 : 1 - reconcile;
+export const UprightProduct: React.FC<{blastCenter: Point; blast: number; disturbance: number; reconcile: number; reshape: number; behavior?: number; structure?: number; history?: number; choice?: number; decisions?: number; spentHistory?: number}> = ({blastCenter, blast, disturbance, reconcile, reshape, behavior = 1, structure = 1, history = 1, choice = 0, decisions = 0, spentHistory = 0}) => {
   const {nodes, behaviorNodes, behaviorRoutes, alternativeAnchors} = assimilateProduct(original, disturbance, reconcile, reshape);
   return <g>
       <defs>
+        <clipPath id="upright-product-interior"><path d={productOutline} /></clipPath>
         <filter id="upright-plane-shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="13" /></filter>
         <marker id="upright-axis-tip" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M 0 0 L 6 3.5 L 0 7" fill="none" stroke={ink} strokeWidth="1" /></marker>
       </defs>
@@ -27,8 +26,18 @@ export const UprightProduct: React.FC<{arrival: number; disturbance: number; rec
         <path d={productOutline} fill="none" stroke={blue} strokeWidth="2" />
         {edges.map(([a,b]) => <line key={`${a}-${b}`} x1={original[a].x} y1={original[a].y} x2={original[b].x} y2={original[b].y} stroke={blue} strokeWidth="2" />)}
       </g>)}
-      <g data-testid="spent-story-history" opacity={spentHistory * .35} transform={`translate(${40 + spentHistory * 40} ${-48 - spentHistory * 48})`}>
-        <path d={storyStroke} stroke={coral} strokeWidth="5" strokeDasharray="5 7" fill="none" />
+      <g data-testid="spent-story-history" opacity={spentHistory * .55} transform="translate(745 640)">
+        <text x="0" y="-24" fill={ink} fontSize="20">DECISION HISTORY</text>
+        <g data-testid="historical-product-state" fill={paper} stroke={blue} strokeWidth="2">
+          <rect width="100" height="77" rx="8" />
+          <path d="M 18 20 H 78 M 18 39 H 78 M 18 58 H 78 M 30 20 V 58 M 66 20 V 58" fill="none" />
+        </g>
+        <path d="M 111 38 H 136 M 129 31 L 136 38 L 129 45" fill="none" stroke={ink} strokeWidth="2" />
+        <g data-testid="historical-decision" transform="translate(150 0)" fill={paper} stroke={coral} strokeWidth="2">
+          <rect width="100" height="77" rx="8" />
+          <path d="M 18 20 L 56 30 L 78 58 M 18 39 L 56 30 M 18 58 H 78" fill="none" />
+          <circle cx="56" cy="30" r="5" />
+        </g>
       </g>
       <text x="90" y="414" fill={ink} opacity=".48" fontSize="20" letterSpacing="2">HISTORY</text>
       </g>
@@ -59,7 +68,8 @@ export const UprightProduct: React.FC<{arrival: number; disturbance: number; rec
       <g fill="none" strokeLinecap="round" strokeLinejoin="round">
         <g opacity={behavior}>{behaviorRoutes.map((route, index) => <path key={index} data-testid={`behavior-${index}`} d={pathThrough(route.map((node) => ({x: behaviorNodes[node].x, y: behaviorNodes[node].y - 33})))} stroke={green} strokeWidth="8" opacity=".87" />)}
         <path data-testid="integrated-behavior" d={pathThrough([1,5,8].map((index) => ({x: behaviorNodes[index].x, y: behaviorNodes[index].y - 33})))} stroke={coral} strokeWidth="8" opacity={reconcile} />
-        </g><path data-testid="incoming-story" d={storyStroke} stroke={coral} strokeWidth="10" pathLength="1" strokeDasharray="1" strokeDashoffset={1 - smooth(Math.min(1, arrival * 1.4))} opacity={strokeOpacity} />
+        </g>
       </g>
+      <ProductExplosion center={blastCenter} progress={blast} />
   </g>;
 };
