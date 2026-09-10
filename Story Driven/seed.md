@@ -29,8 +29,9 @@ The [essay](romantic-stories-disciplined-products.md) and
   Retain the current 1080 × 1080, 30 fps MP4 delivery baseline.
 - Use only the lower diagram. The upper architecture triangle remains excluded.
 - Structure rises vertically from the joint. Behavior extends to the left,
-  broadly horizontally but with the perspective of the flip chart. Together
-  they form an upright product plane, not the current tabletop arrangement.
+  downward with the perspective of the flip chart. The current
+  [missile study](missile-impact.md) uses approximately 28° below horizontal.
+  Together the axes form an upright product plane.
 - Time is flat and horizontal on screen, with its arrow pointing toward the
   joint of behavior and structure. Terry's latest instruction takes precedence
   over the outward-pointing arrow in the photograph. Do not silently reverse it.
@@ -80,44 +81,8 @@ the story boundaries and ordering below are the proposed response. Effort bands
 remain unassigned because this project has no established S/M/L definitions.
 Comparative effort and uncertainty below are hypotheses, not time commitments.
 
-<a id="impact-treatment"></a>
-### 1. Terry can judge a faithful missile impact and assimilation scene
-
-- **Goal:** Give Terry one watchable correction of the spatial model and impact
-  metaphor to judge before investing in the full-film revision.
-- **Scope:** One silent 33-second, 1080 × 1080, 30 fps queue-to-impact-to-
-  assimilation scene. Reuse the existing excerpt's cue wording, order, six-second
-  caption windows, 1.5-second impact gap, and ending hold (cues 11, 15, 17, 18,
-  23). Show the upright product, Structure rising, Behavior extending left with
-  perspective, and horizontal Time pointing into their joint. A recognizable
-  missile from a right-hand backlog enters and visibly explodes inside the
-  product, affecting multiple behaviors and components. Judgment and decisions
-  appear as a deliberate pause and settling of changed relationships; unaffected
-  regions and history remain recognizable. The selected missile is spent, the
-  blast clears, and the coherent changed state remains. Keep captions outside
-  the scene and retain earlier viewing artifacts.
-- **Key examples:**
-  - Before entry → play the opening → identify the upright product and three
-    labeled directions, plus distinct missiles queued to its right.
-  - Select the leading missile → follow entry and detonation → the blast center
-    is inside the product and its disturbance crosses multiple paths/components.
-  - After disturbance → observe reconciliation and reshaping → changed paths and
-    supporting relationships settle while an unaffected region stays fixed.
-  - At the ending hold → compare with the opening → product identity remains,
-    changes persist, history is available, and no projectile remains attached.
-- **Rejection constraints:** The confirmed visual correction rules out a tabletop
-  product, outward Time arrow, a blast outside the plane, and an unchanged reset.
-- **Deferred promises:** Full-film integration, script rewriting, new artwork
-  pipelines, audio, release polish, branding, and publication. Viewer comprehension
-  and Terry's artistic approval are evaluation outcomes, not automated-test claims.
-- **Boundary assumptions:** Use a left-facing missile and a contained ink/coral
-  burst as reversible creative choices. Exact perspective and blast style remain
-  open to Terry's judgment of the rendered scene; they do not block making it.
-- **Safe stopping point:** A separate playable corrected scene with editable source
-  and a reproducible render command, even if the full revision is deferred.
-
 <a id="revised-complete-cut"></a>
-### 2. Viewers can follow the complete argument through the corrected product and explosive impact
+### 1. Viewers can follow the complete argument through the corrected product and explosive impact
 
 - **For / why:** Developer/product viewers need one continuous explanation using
   the intended metaphor rather than imagining how the corrected excerpt fits.
@@ -136,13 +101,16 @@ Comparative effort and uncertainty below are hypotheses, not time commitments.
   Final presentation polish and optional audio belong to release.
 - **Effort hypothesis:** Greatest production breadth in this set; confidence
   improves after the short scene resolves the spatial and explosion treatment.
-- **Depends on:** [The corrected impact scene](#impact-treatment), with Terry's
-  treatment feedback resolved before expanding it throughout the film.
+- **Treatment constraint:** The [missile scene](missile-impact.md) is an interim
+  visual reference, not an approved final treatment. Terry is not yet happy with
+  its appearance. Preserve the downward Behavior direction and improve the
+  treatment before applying it throughout the film; do not treat technical
+  verification or closure of an interim study as artistic acceptance.
 - **Safe stopping point:** A complete, watchable revised working cut, even if
   final polish or optional sound is deferred.
 
 <a id="release"></a>
-### 3. Terry has a finished square animation ready to share
+### 2. Terry has a finished square animation ready to share
 
 - **For / why:** Terry needs a dependable viewing artifact that communicates the
   idea without presentation distractions.
@@ -164,7 +132,7 @@ Comparative effort and uncertainty below are hypotheses, not time commitments.
   used so the film can be rendered again. No external posting is required.
 
 <a id="authoring-improvement"></a>
-### 4. The author can revise the proven scene through its script without repairing unrelated timing — conditional
+### 3. The author can revise the proven scene through its script without repairing unrelated timing — conditional
 
 - **For / why:** Terry or the animation author needs to iterate on wording and pacing without disproportionate manual repair.
 - **Visible outcome:** If the short scene exposes a concrete authoring problem, the author changes one real subtitle cue or duration and previews a coherent revised scene through the ordinary authoring workflow.
@@ -177,11 +145,10 @@ Comparative effort and uncertainty below are hypotheses, not time commitments.
 
 ## Ordering and scope reduction
 
-Correct and evaluate the short impact scene first: spatial fidelity and the
-explosion are the source of the current rejection. Expand that treatment into
-the complete explanation second, then finish release presentation. The release
-story is interrupted by these genuine prerequisites. The authoring candidate
-stays unqueued unless an independent limitation is demonstrated.
+Resolve the remaining visual-treatment quality within the revised complete cut,
+then finish release presentation. Use the separate missile scene as an editable
+reference. The authoring candidate stays unqueued unless an independent limitation
+is demonstrated.
 
 Reduce decorative blast detail, extra metaphors, and optional sound before
 reducing the requested axes, queue, explosion, or assimilation. If later work
@@ -194,8 +161,8 @@ Do not turn this decomposition into an executable slice plan.
   correction, impact metaphor, and desired outcome are supplied by Terry.
 - The photograph supports interpreting the bomb/missile queue as the product
   backlog. Preserve the distinction between potential stories and present product.
-- Exact behavior-axis perspective, projectile silhouette, and explosion styling
-  are to be judged in the first scene. Do not infer approval of a new rendering.
+- Visual-treatment quality remains open for the revised complete cut. The
+  downward Behavior direction is requested; final artistic approval is not given.
 - Representative-viewer comprehension remains untested. Seek feedback on what
   changed and what remains after the explosion when reviewing the revised cut.
 - Optional narration/music, branding, and distribution remain release decisions.
