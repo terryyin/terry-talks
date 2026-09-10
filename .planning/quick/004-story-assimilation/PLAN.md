@@ -1,7 +1,7 @@
 # Story assimilation visual proof
 
 Source: [selected story](../../../Story%20Driven/seed.md#visual-proof).
-Status: planned.
+Status: done.
 
 ## Goal and scope
 
@@ -36,7 +36,7 @@ change, generated raster asset requirement, audio, triangle, or full-film work.
 
 ### 1. Watch a story become part of a changed product
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: Given the existing script, opening the registered StoryAssimilation
 composition or playing its exported MP4 shows a complete arrival → crossing →
@@ -68,4 +68,37 @@ viewer feedback without inventing it; full-film treatment remains subject to it.
 
 ## Learnings
 
-None yet.
+- Delivered `StoryAssimilation` with a scene-local cue timeline built on existing
+  `Script`. Extending cue 15 shifts the next caption and complete scene together;
+  no independent authoring limitation was demonstrated.
+- Local geometry carries the morph without raster assets. The Time arrow was
+  reversed during visual review so it leads from history toward the present.
+- Explicit `--muted` avoids the default export's empty audio stream extending
+  the container beyond 33 seconds. Final output is video-only and exactly 33s.
+- Existing `parts/` ignore rule hides new scene files; force-add only the two
+  owned files. Existing flower `scene.bin` preload warning originates in
+  StoryProductDeveloper.tsx:112–113; this scene loads no artwork and renders fully.
+- Independent refactor consolidated identical current/history plane outlines;
+  emitted SVG is unchanged. No other refactor candidate was identified.
+
+## Execution evidence
+
+- Implementation: `pnpm -C terry-moves exec jest --runInBand --runTestsByPath
+  tests/video_conomponents/StoryAssimilation.spec.tsx` — 3 tests passed. Retiming,
+  caption/pause boundaries, changed and preserved scene geometry are covered.
+- `pnpm -C terry-moves exec tsc --noEmit` — passed. Both checks passed again
+  after the outline refactor; selected-file ESLint --fix passed.
+- `pnpm -C terry-moves exec remotion render src/index.ts StoryAssimilation
+  out/story-assimilation.mp4 --concurrency=2 --muted` — rendered 990 frames.
+- `ffprobe -v error -show_entries
+  stream=codec_type,width,height,r_frame_rate,nb_frames,duration
+  -show_entries format=duration -of json terry-moves/out/story-assimilation.mp4`
+  — 1080 square, 30fps, 990 frames, video-only, 33.000000 seconds.
+- Played through at 360px square in local browser and inspected nine exported
+  frames spanning arrival, disturbance, reconciliation, restructure and ending.
+  Captions fit outside the diagram, the local disturbance remains recognizable,
+  coral integrates, history remains and the leftmost region is preserved.
+  Agent inspection is not human comprehension evidence. MP4 shown to Terry.
+- No CI workflow; no observer created or requiring shutdown. No push authorized
+  for this execution. Local commit completes delivery under repository guidance.
+
