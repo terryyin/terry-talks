@@ -10,6 +10,34 @@ const coral = '#D9654E';
 const green = '#337A62';
 const smooth = (v: number) => v * v * (3 - 2 * v);
 
+const chapters: [string, string][] = [
+  ['28', 'Ready to evolve again'],
+  ['27', 'The change remains'],
+  ['26', 'A clear present'],
+  ['25', 'History remains available'],
+  ['24', 'The story is spent'],
+  ['23', 'The impact is part of the product'],
+  ['22', 'A coherent, changed product'],
+  ['21', 'Decisions become explicit'],
+  ['20', 'Resolve the questions'],
+  ['19', 'Judgment before decisions'],
+  ['18', 'Reshape the structure'],
+  ['17', 'Reconcile the behavior'],
+  ['16', 'Assimilate the impact'],
+  ['15', 'The product feels the change'],
+  ['14', 'Impact on the product'],
+  ['13', 'A state. A transition.'],
+  ['12', 'Many stories. One behavior.'],
+  ['10', 'A change crosses boundaries'],
+  ['09', 'A difference for someone'],
+  ['07', 'Something worth changing'],
+  ['06', 'Possible futures'],
+  ['05', 'A product through time'],
+  ['04', 'How it fits together'],
+  ['03', 'What the product does'],
+  ['02', 'The world that does'],
+];
+
 export const StoryDrivenScene: React.FC<{frame: number; timeline?: StoryDrivenTimeline}> = ({frame, timeline = storyDrivenTimeline}) => {
   const p = (id: string) => timeline.progress(id, frame);
   const reveal = (id: string) => smooth(Math.min(1, p(id) * 2));
@@ -21,9 +49,19 @@ export const StoryDrivenScene: React.FC<{frame: number; timeline?: StoryDrivenTi
   const arrival = .35 * p('10') + .65 * p('11');
   const disturbance = .22 * p('14') + .78 * p('15');
   const earlier = reveal('12') * (1 - reveal('13'));
-  const phase = p('15') > 0 ? 'The product feels the change' : p('14') > 0 ? 'Impact on the product' : p('13') > 0 ? 'A state. A transition.' : p('12') > 0 ? 'Many stories. One behavior.' : p('10') > 0 ? 'A change crosses boundaries' : p('09') > 0 ? 'A difference for someone' : p('07') > 0 ? 'Something worth changing' : p('06') > 0 ? 'Possible futures' : p('05') > 0 ? 'A product through time' : p('04') > 0 ? 'How it fits together' : p('03') > 0 ? 'What the product does' : p('02') > 0 ? 'The world that does' : 'A world that could be';
-  return <StoryProductFrame title={phase} description="An imagined change crosses behavior and structure into the present product" edition="WORKING CUT" caption={timeline.caption(frame)}>
-      <ProductSpace arrival={arrival} disturbance={disturbance} reconcile={0} reshape={0} behavior={behavior} structure={structure} history={history} storyLabel={0} />
+  const reconcile = .3 * smooth(p('16')) + .7 * smooth(p('17'));
+  const reshape = .8 * smooth(p('18')) + .2 * smooth(p('20'));
+  const choice = reveal('19') * (1 - smooth(p('20')));
+  const decisions = smooth(p('21'));
+  const spent = smooth(p('24'));
+  const next = reveal('28');
+  const phase = chapters.find(([cue]) => p(cue) > 0)?.[1] ?? 'A world that could be';
+  return <StoryProductFrame title={phase} description="A story crosses the product, becomes coherent behavior and structure, and recedes into available history" edition="WORKING CUT" caption={timeline.caption(frame)}>
+      <ProductSpace arrival={arrival} disturbance={disturbance} reconcile={reconcile} reshape={reshape} choice={choice} decisions={decisions} spentHistory={spent} behavior={behavior} structure={structure} history={history} storyLabel={0} />
+      <g data-testid="next-possibility" opacity={next} transform={`translate(${108 - 15 * next} ${682 - 12 * next})`}>
+        <path d="M 0 0 C 10 -24 45 -30 37 -6 S 49 25 76 8" fill="none" stroke={coral} strokeWidth="6" strokeLinecap="round" />
+        <path d="M 91 7 L 158 -35" stroke={coral} strokeWidth="2" strokeDasharray="4 8" opacity=".45" />
+      </g>
       <g opacity={(1 - reveal('10')) * (1 - .75 * desire)} data-testid="imagined-story">
         <path d="M 76 286 C 117 237 175 279 149 310 C 111 363 179 409 231 381" fill="none" stroke={coral} strokeWidth="10" strokeLinecap="round" pathLength="1" strokeDasharray="1" strokeDashoffset={1 - Math.min(1, .12 + p('01') * 1.3)} transform={`translate(0 ${Math.sin(p('01') * Math.PI * 2) * 7 * (1 - p('02'))})`} />
         <text x="77" y="222" fontSize="23" fill={coral} letterSpacing="2">POSSIBILITY</text>

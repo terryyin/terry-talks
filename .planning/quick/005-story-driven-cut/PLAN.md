@@ -1,7 +1,7 @@
 # Complete story-driven cut
 
 Source: [selected story](../../../Story%20Driven/seed.md#complete-cut).
-Status: in-progress.
+Status: done.
 
 ## Goal and scope
 
@@ -49,7 +49,7 @@ slice owns opening story examples 1 and 2 and interim output only.
 
 ### 2. Follow assimilation through decisions into the coherent present
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: The same composition now plays all 28 cues over 180 seconds, completing
 reconciliation, judgment, decisions, assimilation, history and next possibility.
@@ -99,3 +99,20 @@ arrives; do not invent endorsement. Retrospective precedes wrap-up.
   from the script boundary before assimilation, not a second absolute timestamp.
 - Slice 2 must remove the interim composition duration and opening-only docs,
   retain this shared model, and finish judgment/history at full script timing.
+
+- Complete cut delivered as 180s / 5400 frames / 1080-square / 30fps,
+  video-only MP4 using the documented muted render command. All 28 subtitle
+  windows and four pauses match the script. Focused Jest: 10 tests pass;
+  TypeScript and selected-file ESLint pass.
+- Reviewed phone-size playback and caption midpoint contact sheets. Captions
+  fit; tentative judgment resolves, changed and unaffected regions remain,
+  and a new possibility appears independently of the spent story history.
+  A historical trace initially hidden behind the current plane was exposed
+  in depth space and the complete render regenerated before acceptance.
+- Independent refactor unified stroke geometry and judgment anchor positions,
+  and moved chapter labels into an ordered table. All 10 tests and TypeScript
+  pass afterward; title equivalence checked across 10,860 normal/retimed frames.
+  Emitted visuals and timing unchanged, so final render evidence remains valid.
+- No remaining implementation findings or production questions at delivery.
+  Audience comprehension and final presentation remain release evaluation.
+  No CI workflow exists and no push was performed.

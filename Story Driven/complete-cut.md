@@ -1,9 +1,9 @@
 # The change remains — complete cut production
 
 The production composition is `StoryDrivenDevelopment` in `terry-moves`.
-The current interim opening runs **96 seconds** at 1080 × 1080 and 30 fps,
-covering cues 01–15 and both opening pauses. The complete subtitle timeline is
-already present; the remaining scenes follow in the same composition.
+The complete working cut runs **180 seconds** at 1080 × 1080 and 30 fps,
+covering all 28 cues, four three-second visual holds, and a silent ending.
+The registered composition takes its duration directly from the subtitle timeline.
 
 The [subtitle script](subtitle-script.md) remains the editorial authority.
 `src/parts/StoryDrivenCues.ts` is its explicit production copy: cue IDs, wording,
@@ -21,6 +21,12 @@ The opening reveals behavior, structure, and historical depth progressively,
 then follows future possibilities, a person's desire, crossing boundaries,
 earlier changes to a behavior, contact, and local disturbance. One region stays
 stable so the viewer can compare the change with a recognizable product.
+Reconciliation restores connected behavior; structure shifts into a supporting
+arrangement. Dashed alternatives at judgment resolve into selected relationships,
+then explicit connection points. Coral remains in the product's behavior and
+structure. The incoming stroke disappears as an independent object; its faint
+historical trace recedes behind the foreground product. A distinct small future
+stroke appears at the end without changing or covering the coherent present.
 
 No new artwork was needed: the approved geometric language carries the concepts.
 Subtitles carry the full argument without audio; scene labels only orient.
@@ -33,9 +39,9 @@ From the repository root:
 ```sh
 pnpm -C terry-moves exec jest --runInBand tests/video_conomponents/StoryAssimilation.spec.tsx tests/video_conomponents/StoryDriven.spec.tsx
 pnpm -C terry-moves exec tsc --noEmit
-pnpm -C terry-moves exec remotion render src/index.ts StoryDrivenDevelopment out/story-driven-opening.mp4 --concurrency=2 --muted
+pnpm -C terry-moves exec remotion render src/index.ts StoryDrivenDevelopment out/story-driven-development.mp4 --concurrency=2 --muted
 ```
 
-Output: [opening MP4](../terry-moves/out/story-driven-opening.mp4).
+Output: [complete MP4](../terry-moves/out/story-driven-development.mp4).
 The output directory is ignored; render commands reproduce exports from retained
 source. Review the moving cut and captions at a 360-pixel square display size.

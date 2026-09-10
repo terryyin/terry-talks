@@ -3,9 +3,9 @@ import {readFileSync} from 'fs';
 import {resolve} from 'path';
 import {StoryDrivenScene} from '../../src/parts/StoryDrivenScene';
 import {storyDrivenCues} from '../../src/parts/StoryDrivenCues';
-import {makeStoryDrivenTimeline, storyDrivenTimeline, storyDrivenOpeningDuration} from '../../src/parts/StoryDrivenTimeline';
+import {makeStoryDrivenTimeline, storyDrivenTimeline} from '../../src/parts/StoryDrivenTimeline';
 
-describe('Story-driven opening', () => {
+describe('Story-driven complete cut', () => {
   test('uses every maintained subtitle window, including deliberate blank pauses', () => {
     const markdown = readFileSync(resolve(__dirname, '../../../Story Driven/subtitle-script.md'), 'utf8');
     const rows = [...markdown.matchAll(/\| (\d\d) \| (\d\d):(\d\d)–(\d\d):(\d\d) \| (.*?) \|/g)];
@@ -25,7 +25,6 @@ describe('Story-driven opening', () => {
       rerender(<StoryDrivenScene frame={frame} />);
       expect(getByTestId('caption')).toBeEmptyDOMElement();
     });
-    expect(storyDrivenOpeningDuration).toBe(2880);
     expect(storyDrivenTimeline.durationInFrames).toBe(5400);
   });
 
@@ -70,4 +69,57 @@ describe('Story-driven opening', () => {
     expect(getByTestId('caption').textContent).toBe(caption);
     expect(revised.durationInFrames).toBe(5460);
   });
+
+  test('resolves visible choices into changed behavior and structure while preserving the left region', () => {
+    const {getByTestId, rerender} = render(<StoryDrivenScene frame={2400} />);
+    const preserved = getByTestId('preserved-connection').outerHTML;
+    const original = getByTestId('component-4').getAttribute('transform');
+    const originalBehavior = getByTestId('behavior-1').getAttribute('d');
+    rerender(<StoryDrivenScene frame={3540} />);
+    expect(getByTestId('judgment-alternatives')).toHaveAttribute('opacity', '1');
+    const tentativeStructure = getByTestId('component-4').getAttribute('transform');
+    rerender(<StoryDrivenScene frame={4110} />);
+    expect(getByTestId('judgment-alternatives')).toHaveAttribute('opacity', '0');
+    expect(getByTestId('explicit-decisions')).toHaveAttribute('opacity', '1');
+    expect(getByTestId('component-4').getAttribute('transform')).not.toBe(tentativeStructure);
+    expect(getByTestId('component-4').getAttribute('transform')).not.toBe(original);
+    expect(getByTestId('behavior-1').getAttribute('d')).not.toBe(originalBehavior);
+    expect(getByTestId('preserved-connection').outerHTML).toBe(preserved);
+    expect(getByTestId('integrated-behavior')).toHaveAttribute('opacity', '1');
+    expect(getByTestId('integrated-structure')).toHaveAttribute('opacity', '1');
+    expect(getByTestId('incoming-story')).toHaveAttribute('opacity', '0');
+    const present = getByTestId('structure').outerHTML;
+    rerender(<StoryDrivenScene frame={4650} />);
+    expect(getByTestId('spent-story-history')).toHaveAttribute('opacity', '0.35');
+    expect(getByTestId('spent-story-history')).toHaveAttribute('transform', 'translate(80 -96)');
+    expect(getByTestId('next-possibility')).toHaveAttribute('opacity', '0');
+    rerender(<StoryDrivenScene frame={5399} />);
+    expect(getByTestId('next-possibility')).toHaveAttribute('opacity', '1');
+    expect(getByTestId('incoming-story')).toHaveAttribute('opacity', '0');
+    expect(getByTestId('structure').outerHTML).toBe(present);
+    expect(getByTestId('spent-story-history')).toHaveAttribute('opacity', '0.35');
+  });
+
+  test('holds both late pauses completely still, including history and next possibility', () => {
+    const {container, rerender} = render(<StoryDrivenScene frame={4320} />);
+    const settled = container.innerHTML;
+    rerender(<StoryDrivenScene frame={4409} />);
+    expect(container.innerHTML).toBe(settled);
+    rerender(<StoryDrivenScene frame={5310} />);
+    const ending = container.innerHTML;
+    rerender(<StoryDrivenScene frame={5399} />);
+    expect(container.innerHTML).toBe(ending);
+  });
+
+  test('retiming judgment shifts decisions, history and the ending with their subtitles', () => {
+    const revised = makeStoryDrivenTimeline(storyDrivenCues.map((cue) => cue.id === '19' ? {...cue, duration: 8} : cue));
+    const {container, rerender} = render(<StoryDrivenScene frame={0} />);
+    [3690, 3870, 4500, 5190, 5340].forEach((frame) => {
+      rerender(<StoryDrivenScene frame={frame} />);
+      const expected = container.innerHTML;
+      rerender(<StoryDrivenScene frame={frame + 60} timeline={revised} />);
+      expect(container.innerHTML).toBe(expected);
+    });
+  });
+
 });

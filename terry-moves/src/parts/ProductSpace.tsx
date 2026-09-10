@@ -17,10 +17,11 @@ const shifted: Point[] = original.map((point, index) => index % 3 === 0 ? point 
   y: point.y + (index === 4 ? -28 : index === 5 ? 16 : 0),
 });
 const productOutline = 'M 265 330 L 760 330 L 865 635 L 370 635 Z';
+const storyStroke = 'M 77 290 C 117 238 174 280 149 310 C 110 361 187 411 264 393 S 370 289 433 361 S 477 563 552 533 S 634 383 704 434 S 739 570 839 550';
 const edges = [[0,1],[1,2],[3,4],[4,5],[6,7],[7,8],[0,3],[3,6],[1,4],[4,7],[2,5],[5,8],[1,5]];
 const pathThrough = (points: Point[]) => points.map((point, index) => index === 0 ? `M ${point.x} ${point.y}` : `Q ${points[index - 1].x + 38} ${point.y - 28} ${point.x} ${point.y}`).join(' ');
 
-export const ProductSpace: React.FC<{arrival: number; disturbance: number; reconcile: number; reshape: number; behavior?: number; structure?: number; history?: number; storyLabel?: number}> = ({arrival, disturbance, reconcile, reshape, behavior = 1, structure = 1, history = 1, storyLabel = 1}) => {
+export const ProductSpace: React.FC<{arrival: number; disturbance: number; reconcile: number; reshape: number; behavior?: number; structure?: number; history?: number; storyLabel?: number; choice?: number; decisions?: number; spentHistory?: number}> = ({arrival, disturbance, reconcile, reshape, behavior = 1, structure = 1, history = 1, storyLabel = 1, choice = 0, decisions = 0, spentHistory = 0}) => {
   const strain = smooth(Math.min(1, disturbance * 2.3)) * (1 - reshape);
   const strokeOpacity = arrival === 0 ? 0 : 1 - reconcile;
   const nodes = original.map((point, index) => {
@@ -33,6 +34,10 @@ export const ProductSpace: React.FC<{arrival: number; disturbance: number; recon
   });
   const behaviorNodes = nodes.map((point, index) => ({x: point.x, y: mix(point.y, shifted[index].y, reconcile * (1 - reshape))}));
   const behaviorRoutes = [[0,1,5,8], [3,4,2], [6,7,5]];
+  const alternativeAnchors = [
+    {x: nodes[4].x + 52, y: nodes[4].y - 42},
+    {x: nodes[5].x - 35, y: nodes[5].y + 40},
+  ];
   return <g>
       <defs>
         <filter id="plane-shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="13" /></filter>
@@ -43,6 +48,9 @@ export const ProductSpace: React.FC<{arrival: number; disturbance: number; recon
         <path d={productOutline} fill="none" stroke={blue} strokeWidth="2" />
         {edges.map(([a,b]) => <line key={`${a}-${b}`} x1={original[a].x} y1={original[a].y} x2={original[b].x} y2={original[b].y} stroke={blue} strokeWidth="2" />)}
       </g>)}
+      <g data-testid="spent-story-history" opacity={spentHistory * .35} transform={`translate(${40 + spentHistory * 40} ${-48 - spentHistory * 48})`}>
+        <path d={storyStroke} stroke={coral} strokeWidth="5" strokeDasharray="5 7" fill="none" />
+      </g>
       <text x="845" y="243" fill={ink} opacity=".48" fontSize="20" letterSpacing="2">HISTORY</text>
       </g>
       <path d={productOutline} fill="#FFFCF4" stroke="#C7CDC2" strokeWidth="2" />
@@ -58,10 +66,17 @@ export const ProductSpace: React.FC<{arrival: number; disturbance: number; recon
         </g>)}
         <line data-testid="integrated-structure" x1={nodes[4].x} y1={nodes[4].y} x2={nodes[8].x} y2={nodes[8].y} stroke={coral} strokeWidth="4" opacity={reshape} />
       </g>
+      <g data-testid="judgment-alternatives" opacity={choice} fill="none" stroke={coral} strokeWidth="3" strokeDasharray="7 8">
+        {alternativeAnchors.map((anchor, index) => <path key={index} d={pathThrough([nodes[1], anchor, nodes[8]])} />)}
+        {alternativeAnchors.map((anchor, index) => <circle key={index} cx={anchor.x} cy={anchor.y} r="12" />)}
+      </g>
+      <g data-testid="explicit-decisions" opacity={decisions} fill={paper} stroke={coral} strokeWidth="3">
+        {[4, 8].map((index) => <circle key={index} cx={nodes[index].x} cy={nodes[index].y} r="7" />)}
+      </g>
       <g fill="none" strokeLinecap="round" strokeLinejoin="round">
         <g opacity={behavior}>{behaviorRoutes.map((route, index) => <path key={index} data-testid={`behavior-${index}`} d={pathThrough(route.map((node) => ({x: behaviorNodes[node].x, y: behaviorNodes[node].y - 33})))} stroke={green} strokeWidth="8" opacity=".87" />)}
         <path data-testid="integrated-behavior" d={pathThrough([1,5,8].map((index) => ({x: behaviorNodes[index].x, y: behaviorNodes[index].y - 33})))} stroke={coral} strokeWidth="8" opacity={reconcile} />
-        </g><path data-testid="incoming-story" d="M 77 290 C 117 238 174 280 149 310 C 110 361 187 411 264 393 S 370 289 433 361 S 477 563 552 533 S 634 383 704 434 S 739 570 839 550" stroke={coral} strokeWidth="10" pathLength="1" strokeDasharray="1" strokeDashoffset={1 - smooth(Math.min(1, arrival * 1.4))} opacity={strokeOpacity} />
+        </g><path data-testid="incoming-story" d={storyStroke} stroke={coral} strokeWidth="10" pathLength="1" strokeDasharray="1" strokeDashoffset={1 - smooth(Math.min(1, arrival * 1.4))} opacity={strokeOpacity} />
       </g>
       <g opacity={storyLabel * (1 - Math.min(1, disturbance * 3))}><text x="84" y="222" fontSize="23" fill={coral} letterSpacing="2">STORY</text><path d="M 116 233 L 116 262" stroke={coral} /></g>
   </g>;
