@@ -1,8 +1,8 @@
 # The change remains
 
-Draft 1 — English subtitles for developers and product people. Silent-first.
+English subtitles for developers and product people. Silent-first.
 
-Source: [refined story](seed.md#script) and [Romantic Stories, Disciplined Products](romantic-stories-disciplined-products.md).
+Source: [Romantic Stories, Disciplined Products](romantic-stories-disciplined-products.md).
 
 **Total: 03:00 — 28 six-second subtitle cues (168 seconds), plus four three-second pauses (12 seconds).** Timings run from the start of the film; end times are exclusive. During each pause the subtitle clears and the visual holds. Only the subtitle column is audience-facing text; visual intentions guide later animation.
 
@@ -43,12 +43,20 @@ The treatment uses one recognizable product in a square frame. Establish behavio
 | 28 | 02:51–02:57 | The story is spent. The change remains. The product is ready to evolve again. | A new small stroke appears ahead along time. Hold the changed product through the final pause. |
 | Pause | 02:57–03:00 | — | Rest on the coherent present and the possibility of another change. |
 
-## Editorial review
+## Timing and production notes
 
-The draft contains 325 subtitle words. Individual cues range from 8 to 15 words in six seconds; the densest cue is 15.0 characters per second. These are pacing checks, not evidence of viewer comprehension or rendered caption legibility. The timed [SRT companion](subtitle-script.srt) contains the same wording and cue boundaries; the four gaps are intentional.
+This document is the editable source for wording, timing, pauses, and visual
+intentions. The [SRT companion](subtitle-script.srt) is a derived caption export;
+refresh it from the cue table when wording or timing changes.
 
-The causal argument is carried by the subtitle text alone. Cues 3–6 establish the product space; 7–15 connect human desire to impact across product boundaries; 16–23 resolve the disturbance through judgment and assimilation; 24–28 distinguish available history from the understandable present.
+The script contains 325 subtitle words, with 8–15 words per six-second cue and
+at most 15.0 characters per second. These pacing measurements do not establish
+viewer comprehension or caption legibility at the intended viewing size.
 
-The draft keeps the abstract treatment instead of introducing a domain example. It compresses the essay’s testing and historical-negation discussions into the broader points about explicit decisions and available history. The deliberate pauses after impact and assimilation reserve time to see the transformation.
+The SRT’s last caption ends at 02:57. The film continues without subtitles for
+three seconds to 03:00; preserve that final hold when transferring the script
+into the animation timeline. The other three caption gaps are also intentional.
 
-Terry’s review remains open: does “assimilation” become clear through the surrounding explanation, and does the closing distinction between the spent story and the lasting change land? The rendered visual proof will assess actual motion, appeal, and phone-size subtitle layout.
+The visual treatment remains abstract. The subtitles carry the causal argument;
+visual intentions support it without adding a second explanatory paragraph.
+The pauses after impact and assimilation leave time to observe the transformation.
