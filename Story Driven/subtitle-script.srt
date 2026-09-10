@@ -1,0 +1,111 @@
+1
+00:00:00,000 --> 00:00:06,000
+A story imagines a world that does not exist yet.
+
+2
+00:00:06,000 --> 00:00:12,000
+A product has to work in the world that does.
+
+3
+00:00:15,000 --> 00:00:21,000
+Picture the product in two dimensions. Behavior is what it does.
+
+4
+00:00:21,000 --> 00:00:27,000
+Structure is how it is organized to make that behavior possible.
+
+5
+00:00:27,000 --> 00:00:33,000
+Time adds a third dimension: the product moves from one state to another.
+
+6
+00:00:33,000 --> 00:00:39,000
+The backlog holds possible changes along that journey.
+
+7
+00:00:39,000 --> 00:00:45,000
+Each story begins with something that matters to someone: a frustration, a hope, a desire.
+
+8
+00:00:45,000 --> 00:00:51,000
+It invites us to imagine a change worth making.
+
+9
+00:00:51,000 --> 00:00:57,000
+That is its intended impact: a difference in someone’s world.
+
+10
+00:00:57,000 --> 00:01:03,000
+The person wanting that change does not think in our features or components.
+
+11
+00:01:03,000 --> 00:01:09,000
+One story may change several features and reach across several components.
+
+12
+00:01:09,000 --> 00:01:15,000
+And one feature may change through many stories over time.
+
+13
+00:01:15,000 --> 00:01:21,000
+A feature is part of the product’s state. A story proposes a transition.
+
+14
+00:01:21,000 --> 00:01:27,000
+When we pursue that story, it has another kind of impact: on the product itself.
+
+15
+00:01:27,000 --> 00:01:33,000
+The change can disturb existing behavior and strain the structure that supports it.
+
+16
+00:01:36,000 --> 00:01:42,000
+Development must assimilate that impact into the whole product.
+
+17
+00:01:42,000 --> 00:01:48,000
+We reconcile the new behavior with what the product already does.
+
+18
+00:01:48,000 --> 00:01:54,000
+We reshape the structure so the changed product fits together.
+
+19
+00:01:54,000 --> 00:02:00,000
+This takes judgment. What matters? What should change? What must still hold?
+
+20
+00:02:00,000 --> 00:02:06,000
+We resolve those questions into decisions about behavior and design.
+
+21
+00:02:06,000 --> 00:02:12,000
+Those decisions become explicit in the code, tests, and product description.
+
+22
+00:02:12,000 --> 00:02:18,000
+The result is a coherent product with new capabilities and a structure that supports them.
+
+23
+00:02:18,000 --> 00:02:24,000
+It has changed. The story’s impact is now part of how the product works.
+
+24
+00:02:27,000 --> 00:02:33,000
+The story has done its job. It becomes a spent story.
+
+25
+00:02:33,000 --> 00:02:39,000
+Its history remains available when we need to revisit a decision.
+
+26
+00:02:39,000 --> 00:02:45,000
+Understanding today’s product should not require retracing every story that shaped it.
+
+27
+00:02:45,000 --> 00:02:51,000
+Stories help us imagine change. Products embody the decisions that make it real.
+
+28
+00:02:51,000 --> 00:02:57,000
+The story is spent. The change remains. The product is ready to evolve again.
