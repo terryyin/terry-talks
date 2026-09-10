@@ -22,6 +22,7 @@ legacy/                    # Retired Jupyter/nbconvert toolchain, not maintained
                             #   (submodule), legacy/Makefile
 TPS and AI/                 # Claims-based writing project (claims/, open-questions.md)
 docs/adrs/                  # Durable decisions (tooling + content structure)
+.planning/quick/NNN-slug/   # Executable slice plans (PLAN.md); lifecycle owned by dough-*
 ```
 
 Run `pnpm present` to pick and launch a talk. (Named `present`, not `show`,

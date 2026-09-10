@@ -73,14 +73,96 @@ Terry has endorsed the proposal as reasonable and supplied the scope clarificati
 <a id="visual-proof"></a>
 ### 1. Terry can judge the art direction through one complete animated transformation
 
-- **For / why:** Terry needs evidence that the proposed genre makes the idea clearer and more interesting.
-- **Visible outcome:** A short square scene rendered in `terry-moves`, driven by an excerpt of the script, showing a story arrive, cross boundaries, disturb, and become assimilated into a visibly changed product. Generate and incorporate raw artwork where it improves the scene's expression or completeness. Proposed length: roughly 20–30 seconds, subject to the chosen excerpt.
-- **Evaluation:** Terry and a representative viewer can distinguish the before and after states, explain what remains of the story, and read the subtitles comfortably. Terry can judge the actual movement, texture, depth, and rhythm.
-- **Value / learning:** Tests the riskiest visual assumption: that the abstract spatial metaphor explains assimilation rather than resembling arbitrary destruction or a reset.
-- **Boundary:** One complete explanatory scene, with only the necessary tooling improvements included. Artwork generation and integration belong to this outcome rather than a separate asset-production story. A static moodboard alone does not satisfy this outcome. The spatial model contains no triangle.
-- **Effort uncertainty:** Highest visual and capability uncertainty; band pending agreed definitions.
-- **Input:** The [timed subtitle script](subtitle-script.md) supplies the excerpt; its wording can still evolve after the rendered evidence.
-- **Safe stopping point:** Keep an independently viewable short explanation and the style decision. Revisit the metaphor before full production if viewers misunderstand it.
+#### Goal
+
+Terry can judge the abstract editorial art direction from one complete, playable
+transformation rendered in `terry-moves`. A developer or product viewer can
+compare the product before and after the story and explain what remains of the
+change. This supplies evidence for the full animation's riskiest assumption:
+that the spatial metaphor makes assimilation understandable and interesting.
+
+#### Scope
+
+- Render one silent, square scene showing the same recognizable product before,
+  during, and after a story's arrival. Preserve visible depth and the behavior,
+  structure, and time directions from the lower sketch.
+- Let the story cross several behaviors and structural connections, disturb
+  that region, and become integrated into a changed, coherent arrangement.
+  Keep an unaffected region recognizable so the example does not suggest that
+  every story changes everything.
+- Drive captions and transformation beats from the selected subtitle script.
+  Working excerpt: cues 11, 15, 17, 18, and 23 of the
+  [timed script](subtitle-script.md), retaining their wording and order.
+  At six seconds each, with a 1.5-second pause after disturbance and a
+  1.5-second final hold, this gives a 33-second proof. The earlier 20–30-second
+  estimate was provisional; the complete causal sequence and readable pacing
+  govern the cut. This excerpt does not change the full script's timing.
+- Use expressive motion for the incoming story and deliberate motion for the
+  product's reorganization. Coral can remain in changed behavior and structure
+  after the incoming stroke ceases to be a separate attachment. Use shape and
+  motion as well as color to communicate the relationship.
+- Keep captions screen-facing, separated from the principal transformation,
+  and readable at phone viewing size. Short axis labels provide orientation;
+  visual notes must not become a competing paragraph of explanation.
+- Produce a playable video and retain editable source and any incorporated
+  artwork. Working export choice: 1080 × 1080 MP4, with no audio dependency.
+  This is a proof-delivery choice, not a new final-film export constraint.
+- Use generated source artwork when it improves expression or completeness.
+  Assess that need against the rendered scene; precise geometry may carry
+  the product model without generated imagery. If assets are generated, retain
+  their source and integrate them into the same visual treatment.
+- **Rejection constraints:** Terry explicitly excluded the upper triangle.
+  Following the existing creative constraints, do not portray assimilation as
+  restoration of the original state, destruction of history, catastrophic
+  damage, or a permanent story-shaped attachment. Do not imply one feature
+  necessarily maps to one component.
+- **Deferred promises:** The complete three-minute film, narration, music,
+  translations, publishing, alternative aspect ratios, and reusable authoring
+  improvements are outside this delivery. Record observed authoring friction
+  for the conditional sibling instead of inventing a platform project.
+
+#### Key examples
+
+1. **Follow the impact:** Given the organized product and an approaching story,
+   when the excerpt plays, the story crosses more than one behavior and
+   structural connection. The viewer can follow its arrival and the local
+   disturbance without losing the identity of the product.
+2. **Recognize assimilation:** Given that disturbance, when the scene resolves,
+   both behavior and structure form a coherent arrangement that differs from
+   the starting state. The effect of the story remains within the product;
+   the incoming stroke no longer stands apart as an attached object.
+3. **See continuity:** Given affected and unaffected regions, when comparing
+   the first stable state with the final hold, the viewer can identify both
+   what changed and what remained. History can recede along time without
+   being erased or competing with the present.
+4. **Watch without audio:** Given the exported square video at phone viewing
+   size, when it plays without sound, captions remain legible and synchronized
+   with the transformation. The final hold lasts beyond the last caption.
+5. **Evaluate the treatment:** Given the playable excerpt, Terry can judge the
+   actual motion, depth, rhythm, and visual texture. Ask a representative viewer
+   what changed, what remains of the story, and which moment they remember.
+   Record actual feedback separately from the agent's visual inspection;
+   a render or test pass must not be reported as human comprehension evidence.
+
+#### UI and review approach
+
+Begin from a stable view of the product with short behavior, structure, and time
+labels. Show enough of the incoming stroke to establish its trajectory before
+contact. Hold the view through disturbance and reorganization so a viewer can
+compare the two states. Reserve caption space within the square composition.
+Judge the whole moving scene, including the pauses, rather than only stills.
+
+#### Open decisions and safe stopping point
+
+No new audience, language, sound, or art-direction decision blocks production.
+The excerpt, duration, and export settings above are working choices within the
+existing scope. Actual viewer comprehension and Terry's judgment of the
+rendered treatment remain to be observed; do not infer approval from silence.
+If the rendered metaphor is misunderstood, retain the proof and seek a treatment
+decision before expanding to the full film. A usable short explanation remains
+valuable if later production is deferred.
+
+Execution plan: [animated transformation](../.planning/quick/004-story-assimilation/PLAN.md).
 
 <a id="authoring-improvement"></a>
 ### 2. The author can revise the proven scene through its script without repairing unrelated timing — conditional
