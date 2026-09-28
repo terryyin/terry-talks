@@ -418,68 +418,6 @@ Claims 3, 12, 8.
 -->
 
 ---
-
-# The engine of freedom and entrustment
-
-```mermaid {scale: 0.75}
-%%{init: {'flowchart': {'rankSpacing': 30, 'nodeSpacing': 25}}}%%
-flowchart LR
-  EJ(Encoded<br>jidoka)
-  AA(Adaptive<br>attention)
-  CAP(Capability<br>to respond)
-  WT(Warranted<br>trust)
-  CC(Coercive<br>control)
-  PULL(Pull from<br>actual need)
-
-  EJ -->|"+"| AA
-  AA -->|"delay +"| EJ
-  AA -->|"+"| CAP
-  CAP -->|"delay +"| WT
-  WT -->|"-"| CC
-  CC -->|"-"| PULL
-  PULL -->|"+"| CAP
-```
-
-Two reinforcing loops: **jidoka frees** attention; **JIT entrusts** capability.
-
-<!--
-The triad drawn as loops — Figure 1 of Claim 22's companion CLD
-(R1 encode-and-free, R2 freedom-and-entrustment). Walk it until it
-closes: encoded learning frees attention; attention builds capability;
-capability earns warranted trust (delayed); trust lowers coercive
-control; low control lets actual need pull; pull grows capability.
-Claims 22 and 10.
--->
-
----
-
-# AI speeds whichever loop you feed
-
-```mermaid {scale: 1.0}
-flowchart LR
-  AI(AI generation<br>volume)
-  INV(Judgment-stacked<br>inventory)
-  AA(Adaptive<br>attention)
-  EJ(Encoded<br>jidoka)
-
-  AI -->|"+"| INV
-  INV -->|"-"| AA
-  AA -->|"delay +"| EJ
-  EJ -->|"-"| INV
-  class AI accent
-```
-
-AI **raises the gain** on the loop you are already running.
-
-<!--
-Figure 2 of Claim 22's companion CLD (R5), overlaying the engine's R1.
-Reinforcing, so it runs virtuous or vicious depending on the starting
-condition — the DORA 2025 amplifier finding as structure. Reprises the
-early statement slide's punchline now that the engine has been walked.
-Claim 22.
--->
-
----
 layout: center
 class: text-center
 ---
@@ -1005,6 +943,71 @@ not retell the July `/sync` episode.
 
 Spoken backup if January drops: item 1 P2 — Claude restores note
 properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
+-->
+
+---
+
+# The engine of freedom and entrustment
+
+```mermaid {scale: 0.75}
+%%{init: {'flowchart': {'rankSpacing': 30, 'nodeSpacing': 25}}}%%
+flowchart LR
+  EJ(Encoded<br>jidoka)
+  AA(Adaptive<br>attention)
+  CAP(Capability<br>to respond)
+  WT(Warranted<br>trust)
+  CC(Coercive<br>control)
+  PULL(Pull from<br>actual need)
+
+  EJ -->|"+"| AA
+  AA -->|"delay +"| EJ
+  AA -->|"+"| CAP
+  CAP -->|"delay +"| WT
+  WT -->|"-"| CC
+  CC -->|"-"| PULL
+  PULL -->|"+"| CAP
+```
+
+Two reinforcing loops: **jidoka frees** attention; **JIT entrusts** capability.
+
+<!--
+The triad drawn as loops, gathering the jidoka and JIT beats just
+walked — Figure 1 of Claim 22's companion CLD
+(R1 encode-and-free, R2 freedom-and-entrustment). Walk it until it
+closes: encoded learning frees attention; attention builds capability;
+capability earns warranted trust (delayed); trust lowers coercive
+control; low control lets actual need pull; pull grows capability.
+Claims 22 and 10.
+-->
+
+---
+
+# AI speeds whichever loop you feed
+
+```mermaid {scale: 1.0}
+flowchart LR
+  AI(AI generation<br>volume)
+  INV(Judgment-stacked<br>inventory)
+  AA(Adaptive<br>attention)
+  EJ(Encoded<br>jidoka)
+
+  AI -->|"+"| INV
+  INV -->|"-"| AA
+  AA -->|"delay +"| EJ
+  EJ -->|"-"| INV
+  class AI accent
+```
+
+AI **raises the gain** on the loop you are already running.
+
+<!--
+Figure 2 of Claim 22's companion CLD (R5), overlaying the engine's R1.
+Reinforcing, so it runs virtuous or vicious depending on the starting
+condition — the DORA 2025 amplifier finding as structure. Climax: pays
+off the early statement slide *AI can produce plausible software faster
+than a product group can absorb it*, which ended "AI speeds whichever
+loop you feed." — now that jidoka, JIT flow, and the engine have been
+walked. Claim 22.
 -->
 
 ---

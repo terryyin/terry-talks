@@ -174,7 +174,7 @@ exited 0.
 
 ### 3. The climax lands after jidoka and JIT
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry pages through the deck:
 - The jidoka material comes first: the loom's closed stop, smart → dumb →
   gone, Stop & Fix, the gates, Go-See, and the five judgments.
@@ -193,6 +193,15 @@ Proof:
   shows a note referring to the early statement.
 - The build exits 0.
 - Owns key example 2's ordering half.
+
+Accepted proof (2026-09-28): the engine and climax moved together from
+slides 14–15 to 31–32, after "Let the shared product pull collaboration".
+The helper shows `total 39 climax 32 ratio 0.82`. Jidoka runs 14–26 and JIT
+27–30. The planned `grep -A12` window ends inside the climax's diagram; the
+corrected observation is `grep -n -A22 '^# AI speeds whichever loop you feed'`,
+which shows the note "Climax: pays off the early statement slide *AI can
+produce plausible software faster…*". Slice 2's greps still pass, Go-See
+still follows the gates slide, and the build exited 0.
 
 ### 4. The deck fits about 33 slides with the climax at three-quarters
 Type: Behavior
