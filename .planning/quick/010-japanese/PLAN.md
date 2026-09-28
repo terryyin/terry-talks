@@ -226,6 +226,10 @@ his particular look.
 - `two-cols-header` needs `layoutClass: "!grid-rows-[auto_1fr]"` to stop
   the header row taking half the slide.
 - `slidev export --with-clicks` shows v-click states (slides 15, 16).
+- Terry's projector check (in progress): slides 3 (釈迦に説法) and 22
+  (collaboration) were too cramped. Resolved by shortening their Japanese
+  to one short line per element and restoring the original text sizes,
+  keeping the new layout — prefer cutting Japanese over shrinking type.
 - Japanese open for Aki's attention: 閉じた停止 (closed stop),
   賢い → 単純 → 消える, 三位一体 (the triad), 遅れて (delay).
 

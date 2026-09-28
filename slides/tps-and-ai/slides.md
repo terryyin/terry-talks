@@ -78,7 +78,7 @@ manufacturing tourist.
 layout: image-right
 image: /preaching-to-the-buddha.png
 backgroundSize: contain
-class: "!text-[1rem] [&_li]:!leading-snug"
+class: "[&_li]:!leading-snug"
 ---
 
 # 釈迦に説法
@@ -89,14 +89,14 @@ conference.
 
 But TPS has inspired and benefited me so much — before the AI era, and
 even more in it — that I cannot resist shamelessly sharing.
-[それでもTPSにはAI以前から、AI時代はなおさら刺激と恩恵を受けてきた。厚かましくも共有したい。]{.ja}
+[TPSには大いに学んだ。共有せずにいられない。]{.ja}
 
 - Software is **not a factory** — it mixes discovery and production in
   one evolving product
-  [ソフトウェアは**工場ではない**——ひとつの進化するプロダクトに発見と生産が混在する]{.ja}
+  [ソフトウェアは**工場ではない**：発見と生産が混在]{.ja}
 - So this talk takes TPS as **inspiration and reasoning**, never a recipe
   to apply directly
-  [だからTPSは**着想と考え方**として扱う。直接当てはめるレシピではない]{.ja}
+  [TPSは**着想と考え方**。レシピではない]{.ja}
 
 <!--
 Carries the talk boundary up front so it need not repeat later:
@@ -910,7 +910,7 @@ practice; a CI service is not CI.
 -->
 
 ---
-class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5 [&_li]:!leading-snug [&_ul]:text-[17px]"
+class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5 [&_li]:!leading-snug"
 ---
 
 # Let the shared product pull collaboration
@@ -918,22 +918,22 @@ class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5 [&_li]:!leading-snug [&_ul]:tex
 [共有プロダクトに、協働をプルさせる]{.ja-title}
 
 - Technical excellence exists so one product group can integrate continuously
-  [技術的卓越性は、ひとつのプロダクトグループが継続的に統合するためにある]{.ja}
+  [技術的卓越性は、継続的な統合のためにある]{.ja}
 - The shared product pulls the right people together, just in time
-  [共有プロダクトが、必要な人をジャスト・イン・タイムで引き寄せる]{.ja}
+  [共有プロダクトが、必要な人を必要なときに引き寄せる]{.ja}
 - A justified **stop is productive** — make the abnormality current work before
   more output inherits it
-  [正当な**停止は生産的**——後続のアウトプットが引き継ぐ前に、異常をいまの仕事にする]{.ja}
+  [正当な**停止は生産的**——異常をいまの仕事にする]{.ja}
 - Slowing down means **not overproducing** — do not create debt faster
-  [ペースを落とすとは**作りすぎない**こと——負債を速く作らない]{.ja}
+  [**作りすぎない**——負債を速く作らない]{.ja}
 
-<div class="doughnut-example w-[46%] text-[14px] leading-snug [&_p]:!leading-snug">
+<div class="doughnut-example w-[46%] [&_p]:!leading-snug">
 
 Cursor, January 2026: extract a child note from a checklist point.
 The shared recall screen (`Assimilation.vue`) records a conflict leftover;
 lint stops an unused import; the user sees a loading modal while the child
 is created.
-[Cursor、2026年1月：チェックリストの項目から子ノートを切り出す。共有のrecall画面（`Assimilation.vue`）がコンフリクトの残骸を記録し、lintが未使用のimportで止まり、子ノートの作成中はローディングモーダルが表示される。]{.ja}
+[Cursor、2026年1月：子ノートの切り出しで、残骸の記録・lintの停止・ローディング表示が起きる。]{.ja}
 
 </div>
 
