@@ -65,10 +65,18 @@ Identity: `tps-and-ai-talk#japanese`
   - **Per-slide table:** the slide title, then *Translated*, *Terry
     checked*, and *Aki reviewed*.
   Slides are named by title only, following the artwork list's convention.
-- **Slide-list helper:** Reuse the helper command from
-  [plan 009](../009-storyline-art-cleanup/PLAN.md#execution-context-and-decisions).
-  Run it from the repository root. It prints the titles, the total, and the
-  climax position.
+- **Slide-list helper:** Run it from the repository root. It prints the
+  titles, the total, and the climax position.
+
+  ```sh
+  node --input-type=module -e "
+  const fs=await import('fs');const p=fs.readdirSync('node_modules/.pnpm').find(d=>d.startsWith('@slidev+parser@'));
+  const {parse}=await import(process.cwd()+'/node_modules/.pnpm/'+p+'/node_modules/@slidev/parser/dist/index.mjs');
+  const d=await parse(fs.readFileSync('slides/tps-and-ai/slides.md','utf8'),'slides.md');
+  d.slides.forEach((s,i)=>console.log(i+1,s.title||'('+(s.frontmatter?.layout||'untitled')+')'));
+  const n=d.slides.length,c=d.slides.findIndex(s=>/^AI speeds whichever loop you feed\$/.test(s.title||''))+1;
+  console.log('total',n,'climax',c,'ratio',(c/n).toFixed(2));"
+  ```
 - **Visual proof:** Export PNGs from a checkout that has `node_modules`. A
   worktree can symlink the root `node_modules`.
 

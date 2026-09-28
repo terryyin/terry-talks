@@ -90,32 +90,6 @@ a response to Terry's direction; they are not his decisions. Effort bands are
 unassigned because this project has no S/M/L definitions. Relative effort is
 noted as a hypothesis.
 
-<a id="storyline-art-cleanup"></a>
-### Correction: the deck's art matches the accepted 30-slide storyline
-
-**Identity:** tps-and-ai-talk#storyline-art-cleanup
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/009-storyline-art-cleanup/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"d9b287f39e0cc45541735a7070bec619a5ed6db9276447f8ca142ab0a99ecdac","plan":"99583d758a5d93d30d56daf775992cc03199e5d9e97a5a696ec987e9d4320af0"}}
-```
-
-#### Goal
-
-The accepted 30-slide deck ships only the art it shows, and Terry can read
-the artwork list to see which art is on which current slide. This is a
-bounded correction from the storyline story's execution retrospective
-(provenance in its plan). It adds no feature promise.
-
-#### Scope
-
-- **Included:**
-  - Delete the four images in `slides/tps-and-ai/public/` that slide 4's cuts
-    left unreferenced.
-  - Bring `slides/tps-and-ai/artwork-list.md` entries whose slides were cut
-    or merged in line with the current deck titles.
-- **Excluded:** Any change to slide text, order, or count. New art and
-  Japanese text are also out of scope.
-- **Plan:** [009-storyline-art-cleanup](../.planning/quick/009-storyline-art-cleanup/PLAN.md)
-
 <a id="japanese"></a>
 ### 3. Japanese-speaking attendees can follow every slide in Japanese
 ```json dough-story-state
