@@ -167,7 +167,7 @@ pre-existing). Notes blocks byte-identical; English unchanged.
 
 ### 2. Attendees follow the rest of the talk in Japanese (slides 11–30)
 Type: Behavior
-Status: planned
+Status: in-progress (implementation delivered; awaiting Terry's projector check)
 
 Behavior: Terry pages through slides 11–30, and every one of them is
 bilingual:
@@ -207,6 +207,27 @@ Covers story examples 1, 2, 3, 4, 5 (closing quote), and 7. At the end of
 this slice, hand the rendered deck to Terry for his projector-size check
 (the story's evaluation). His confirmation fills *Terry checked*. That makes
 a safe stopping point: a fully bilingual deck that Terry has checked.
+
+**Delivered (accepted proof):** helper `total 30 climax 24 ratio 0.80`;
+`slidev build` exit 0; final PNG export inspected for 11–30 (1–10
+byte-identical to slice 1); `grep 自動化` empty; all 27 notes blocks and
+every non-mermaid code fence identical to before; English unchanged; all
+30 review rows *Translated*. Remaining for this slice: Terry's
+projector-size check, which fills *Terry checked*. Slides 16, 17 and 22
+were re-laid out (art moved bottom-right, smaller text) and are worth
+his particular look.
+
+**Learnings:**
+- Mermaid sizes nodes before the Japanese fallback font renders, so a
+  Japanese line wider than the longest English line clips; split it with
+  `<br>`.
+- SVG Japanese labels on light ground use `<text class="ja">` (theme rule
+  `svg text.ja`); on dark boxes they follow the box colour inline.
+- `two-cols-header` needs `layoutClass: "!grid-rows-[auto_1fr]"` to stop
+  the header row taking half the slide.
+- `slidev export --with-clicks` shows v-click states (slides 15, 16).
+- Japanese open for Aki's attention: 閉じた停止 (closed stop),
+  賢い → 単純 → 消える, 三位一体 (the triad), 遅れて (delay).
 
 ### 3. Aki's review corrections are applied
 Type: Behavior

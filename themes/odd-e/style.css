@@ -83,3 +83,12 @@
   font-size: 1.25em;
   margin-top: -0.6rem;
 }
+
+/*
+ * `<text class="ja">` in inline SVG: same secondary ink, as fill. Each
+ * label keeps its own inline font-size. Japanese on a dark box keeps the
+ * box's light ink at 0.8 opacity instead.
+ */
+.slidev-layout svg text.ja {
+  fill: var(--odde-secondary-ink);
+}

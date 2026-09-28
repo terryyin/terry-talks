@@ -315,15 +315,19 @@ The main message. Claim 10.
 
 ---
 layout: two-cols-header
+layoutClass: "!grid-rows-[auto_1fr] [&_.col-header_h1]:!mb-2 [&_p]:!leading-snug"
 ---
 
 # Two houses, different layers
 
+[二つのハウス、異なる層]{.ja-title}
+
 ::left::
 
 **The TPS house**
+[TPSハウス]{.ja}
 
-<svg class="mx-auto mt-1 h-[215px] w-full" viewBox="0 0 400 310" role="img" aria-labelledby="tps-house-title tps-house-desc">
+<svg class="mx-auto mt-1 h-[170px] w-full" viewBox="0 0 400 322" role="img" aria-labelledby="tps-house-title tps-house-desc">
   <title id="tps-house-title">The commonly taught TPS house</title>
   <desc id="tps-house-desc">
     Roof: best quality, lowest cost, shortest lead time. Pillars: Jidoka
@@ -338,30 +342,43 @@ layout: two-cols-header
     stroke-linejoin="round"
   />
   <g fill="#fffaf3" text-anchor="middle">
-    <text x="200" y="50" font-weight="700" style="font-size: 15px">Best quality</text>
-    <text x="200" y="70" style="font-size: 11px">Lowest cost · Shortest lead time</text>
+    <text x="200" y="42" font-weight="700" style="font-size: 15px">Best quality</text>
+    <text x="200" y="56" style="font-size: 10px" opacity="0.8">最高の品質</text>
+    <text x="200" y="73" style="font-size: 11px">Lowest cost · Shortest lead time</text>
+    <text x="200" y="87" style="font-size: 10px" opacity="0.8">最低のコスト・最短のリードタイム</text>
   </g>
   <rect x="40" y="96" width="320" height="148" fill="#fffaf3" stroke="#78716c" stroke-width="2.5" />
   <line x1="148" y1="96" x2="148" y2="244" stroke="#78716c" stroke-width="2" />
   <line x1="252" y1="96" x2="252" y2="244" stroke="#78716c" stroke-width="2" />
   <g text-anchor="middle">
-    <text x="94" y="152" fill="#b33a2b" font-weight="700" style="font-size: 18px">Jidoka</text>
-    <text x="94" y="176" fill="#57534e" style="font-size: 11px">
+    <text x="94" y="140" fill="#b33a2b" font-weight="700" style="font-size: 18px">Jidoka</text>
+    <text x="94" y="158" class="ja" style="font-size: 12px">自働化</text>
+    <text x="94" y="184" fill="#57534e" style="font-size: 11px">
       <tspan x="94">stop at</tspan>
       <tspan x="94" dy="14">abnormality</tspan>
     </text>
-    <text x="200" y="152" fill="#292524" font-weight="700" style="font-size: 15px">People</text>
-    <text x="200" y="176" fill="#292524" font-weight="700" style="font-size: 15px">Kaizen</text>
-    <text x="306" y="152" fill="#b33a2b" font-weight="700" style="font-size: 13px">Just-in-Time</text>
-    <text x="306" y="176" fill="#57534e" style="font-size: 11px">
+    <text x="94" y="217" class="ja" style="font-size: 10px">異常で止まる</text>
+    <text x="200" y="146" fill="#292524" font-weight="700" style="font-size: 15px">People</text>
+    <text x="200" y="162" class="ja" style="font-size: 12px">人</text>
+    <text x="200" y="190" fill="#292524" font-weight="700" style="font-size: 15px">Kaizen</text>
+    <text x="200" y="206" class="ja" style="font-size: 12px">改善</text>
+    <text x="306" y="138" fill="#b33a2b" font-weight="700" style="font-size: 13px">Just-in-Time</text>
+    <text x="306" y="154" class="ja" style="font-size: 10px">
+      <tspan x="306">ジャスト・</tspan>
+      <tspan x="306" dy="12">イン・タイム</tspan>
+    </text>
+    <text x="306" y="186" fill="#57534e" style="font-size: 11px">
       <tspan x="306">only what</tspan>
       <tspan x="306" dy="14">is needed</tspan>
     </text>
+    <text x="306" y="217" class="ja" style="font-size: 10px">必要なものだけ</text>
   </g>
-  <rect x="28" y="244" width="344" height="52" fill="#ece6dc" stroke="#78716c" stroke-width="2.5" />
+  <rect x="28" y="244" width="344" height="64" fill="#ece6dc" stroke="#78716c" stroke-width="2.5" />
   <g fill="#292524" text-anchor="middle">
-    <text x="200" y="266" font-weight="700" style="font-size: 12px">Standardized work · Heijunka</text>
-    <text x="200" y="286" fill="#57534e" style="font-size: 12px">Stability</text>
+    <text x="200" y="261" font-weight="700" style="font-size: 12px">Standardized work · Heijunka</text>
+    <text x="200" y="274" class="ja" style="font-size: 10px">標準作業・平準化</text>
+    <text x="200" y="290" fill="#57534e" style="font-size: 12px">Stability</text>
+    <text x="200" y="303" class="ja" style="font-size: 10px">安定性</text>
   </g>
 </svg>
 
@@ -369,6 +386,7 @@ layout: two-cols-header
   Toyota's <strong>operating system</strong> for making things:
   <strong>Jidoka</strong> builds quality in by stopping;
   <strong>Just-in-Time</strong> makes only what is needed.
+  <span class="ja">モノづくりのためのトヨタの<strong>オペレーティングシステム</strong>：<strong>自働化</strong>は止めることで品質を作り込み、<strong>ジャスト・イン・タイム</strong>は必要なものだけを作る。</span>
 </p>
 
 <div class="mt-1 text-[9px] leading-tight opacity-70">
@@ -381,11 +399,12 @@ layout: two-cols-header
 ::right::
 
 **Larman & Vodde's Lean Thinking house**
+[Larman & Vodde のリーン思考ハウス]{.ja}
 
 <img
   src="/lean-thinking-house.png"
   alt="Lean Thinking house with Respect for People and Continuous Improvement pillars"
-  class="mx-auto mt-1 h-[215px] w-full object-contain"
+  class="mx-auto mt-1 h-[170px] w-full object-contain"
 />
 
 <p class="mt-2 text-[13px] leading-snug">
@@ -393,6 +412,7 @@ layout: two-cols-header
   <strong>Respect for People</strong> and
   <strong>Continuous Improvement</strong>, on managers-as-teachers,
   toward <strong>perfection</strong>.
+  <span class="ja"><strong>トヨタウェイ／リーン思考</strong>の統合：教える人としてのマネージャーを土台に、<strong>人間性尊重</strong>と<strong>継続的改善</strong>で<strong>完璧</strong>を目指す。</span>
 </p>
 
 <div class="mt-1 text-[9px] leading-tight opacity-70">
@@ -410,7 +430,9 @@ layers. Do not present the left house as Toyota's official graphic. Claim 2.
 
 # The triad
 
-<svg class="mx-auto mt-1 h-[330px] w-[88%]" viewBox="0 0 900 360" role="img" aria-labelledby="triad-title triad-description">
+[三位一体]{.ja-title}
+
+<svg class="mx-auto mt-1 h-[285px] w-[88%]" viewBox="0 0 900 372" role="img" aria-labelledby="triad-title triad-description">
   <title id="triad-title">Jidoka, Just-in-Time, and Respect for People</title>
   <desc id="triad-description">
     A triangle showing that Jidoka frees attention, Just-in-Time entrusts
@@ -425,38 +447,48 @@ layers. Do not present the left house as Toyota's official graphic. Claim 2.
   />
   <g font-family="inherit" text-anchor="middle">
     <g transform="translate(300 165) rotate(-38)">
-      <rect x="-82" y="-24" width="164" height="48" rx="24" fill="#ece6dc" />
-      <text y="7" fill="#b33a2b" font-weight="700" style="font-size: 28px">frees</text>
+      <rect x="-82" y="-32" width="164" height="64" rx="24" fill="#ece6dc" />
+      <text y="2" fill="#b33a2b" font-weight="700" style="font-size: 28px">frees</text>
+      <text y="24" class="ja" style="font-size: 16px">解放する</text>
     </g>
-    <text x="305" y="207" fill="#57534e" style="font-size: 16px">attention for real need</text>
+    <text x="350" y="232" fill="#57534e" style="font-size: 16px">attention for real need</text>
+    <text x="350" y="251" class="ja" style="font-size: 14px">本当のニーズへの注意を</text>
     <g transform="translate(600 165) rotate(38)">
-      <rect x="-82" y="-24" width="164" height="48" rx="24" fill="#ece6dc" />
-      <text y="7" fill="#b33a2b" font-weight="700" style="font-size: 28px">grows</text>
+      <rect x="-82" y="-32" width="164" height="64" rx="24" fill="#ece6dc" />
+      <text y="2" fill="#b33a2b" font-weight="700" style="font-size: 28px">grows</text>
+      <text y="24" class="ja" style="font-size: 16px">育てる</text>
     </g>
-    <text x="595" y="207" fill="#57534e" style="font-size: 16px">capability to respond</text>
+    <text x="555" y="232" fill="#57534e" style="font-size: 16px">capability to respond</text>
+    <text x="555" y="251" class="ja" style="font-size: 14px">応える能力を</text>
     <g transform="translate(450 290)">
-      <rect x="-95" y="-25" width="190" height="50" rx="25" fill="#ece6dc" />
-      <text y="8" fill="#b33a2b" font-weight="700" style="font-size: 28px">entrusts</text>
+      <rect x="-95" y="-32" width="190" height="64" rx="25" fill="#ece6dc" />
+      <text y="2" fill="#b33a2b" font-weight="700" style="font-size: 28px">entrusts</text>
+      <text y="24" class="ja" style="font-size: 16px">任せる</text>
     </g>
-    <text x="450" y="328" fill="#57534e" style="font-size: 16px">response instead of stockpiles</text>
+    <text x="450" y="342" fill="#57534e" style="font-size: 16px">response instead of stockpiles</text>
+    <text x="450" y="362" class="ja" style="font-size: 14px">在庫ではなく、応答を</text>
     <g transform="translate(450 58)">
-      <rect x="-112" y="-34" width="224" height="68" rx="16" fill="#292524" />
-      <text y="10" fill="#fffaf3" font-weight="700" style="font-size: 31px">Jidoka</text>
+      <rect x="-112" y="-40" width="224" height="80" rx="16" fill="#292524" />
+      <text y="2" fill="#fffaf3" font-weight="700" style="font-size: 31px">Jidoka</text>
+      <text y="28" fill="#fffaf3" opacity="0.8" style="font-size: 19px">自働化</text>
     </g>
     <g transform="translate(155 290)">
-      <rect x="-112" y="-34" width="224" height="68" rx="16" fill="#292524" />
-      <text y="10" fill="#fffaf3" font-weight="700" style="font-size: 31px">JIT</text>
+      <rect x="-112" y="-40" width="224" height="80" rx="16" fill="#292524" />
+      <text y="2" fill="#fffaf3" font-weight="700" style="font-size: 31px">JIT</text>
+      <text y="28" fill="#fffaf3" opacity="0.8" style="font-size: 19px">ジャスト・イン・タイム</text>
     </g>
     <g transform="translate(745 290)">
-      <rect x="-135" y="-42" width="270" height="84" rx="16" fill="#292524" />
-      <text y="-4" fill="#fffaf3" font-weight="700" style="font-size: 25px">Respect for</text>
-      <text y="27" fill="#fffaf3" font-weight="700" style="font-size: 25px">People</text>
+      <rect x="-135" y="-52" width="270" height="104" rx="16" fill="#292524" />
+      <text y="-16" fill="#fffaf3" font-weight="700" style="font-size: 25px">Respect for</text>
+      <text y="13" fill="#fffaf3" font-weight="700" style="font-size: 25px">People</text>
+      <text y="39" fill="#fffaf3" opacity="0.8" style="font-size: 19px">人間性尊重</text>
     </g>
   </g>
 </svg>
 
 Technical excellence keeps the shared product and its abnormalities visible
 soon enough for teams to collaborate just in time.
+[技術的卓越性が、共有プロダクトとその異常を早く見えるようにし、チームがジャスト・イン・タイムで協働できるようにする。]{.ja}
 
 <!--
 Claims 3, 12, 8.
@@ -469,11 +501,15 @@ class: text-center
 
 # Jidoka preserves knowledge
 
+[自働化は知識を保つ]{.ja-title}
+
 Generation is cheap; **judgment is expensive**.
+[生成は安く、**判断は高くつく**。]{.ja}
 
 Encode what we already know.
 Leave people able to **experience** the next problem
 and **comprehend** the solution.
+[すでにわかっていることは仕組みに組み込む。<br>人が次の問題を**体験し**、その解決を**理解できる**ようにしておく。]{.ja}
 
 <!--
 Claim 6.
@@ -487,9 +523,13 @@ backgroundSize: contain
 
 # The loom's closed stop
 
+[織機の「閉じた停止」]{.ja-title}
+
 The loom stops itself on a broken thread — nobody watches it.
+[糸が切れると、織機は自ら止まる——誰も見張っていない。]{.ja}
 
 A **closed stop**: the abnormality halts the work, not a person's vigilance.
+[**閉じた停止**：仕事を止めるのは異常そのもの。人の注意力ではない。]{.ja}
 
 <div class="absolute bottom-3 left-[102%] z-10 w-[96%] rounded bg-white/85 px-2 py-1 text-right text-[10px] leading-tight text-gray-700">
   Photo: Daderot, via <a href="https://commons.wikimedia.org/wiki/File:Toyoda_Automatic_Loom_-_National_Museum_of_Nature_and_Science,_Tokyo_-_DSC07343.JPG">Wikimedia Commons</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a><br>
@@ -512,6 +552,7 @@ class: p-0
 
 <div v-click.hide="1" class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Watching the loom / watching the AI
+  <span class="ja">織機を見張る／AIを見張る</span>
 </div>
 
 <img
@@ -523,6 +564,7 @@ class: p-0
 
 <div v-click="1" class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Called by the stop
+  <span class="ja">停止に呼ばれる</span>
 </div>
 
 <!--
@@ -540,21 +582,30 @@ class: "[&>h1]:!mb-2"
 
 # Smart → dumb → gone
 
-<div class="w-[68%] space-y-0.5 text-[15px] leading-snug [&_p]:my-0 [&_ol]:my-0 [&_li]:my-0 [&_.slidev-code-wrapper]:!my-0 [&_pre]:!my-0 [&_pre]:!py-0.5 [&_pre]:!text-[13px] [&_pre]:!leading-tight">
+[賢い → 単純 → 消える]{.ja-title}
+
+<div class="w-[60%] space-y-0.5 text-[15px] leading-snug [&_p]:my-0 [&_ol]:my-0 [&_li]:my-0 [&_.slidev-code-wrapper]:!my-0 [&_pre]:!my-0 [&_pre]:!py-0.5 [&_pre]:!text-[13px] [&_pre]:!leading-tight">
 
 Move learned judgment downhill:
+[学んだ判断を、坂の下へと移していく：]{.ja}
 
 1. **Smart — judgment-loaded:** use requires live judgment
+   [**賢い——判断を抱える：** 使うたびにその場の判断が要る]{.ja}
 2. **Dumb — judgment-preserved:** a closed stop or check carries earlier judgment
+   [**単純——判断を保存：** 閉じた停止やチェックが、過去の判断を運ぶ]{.ja}
 3. **Gone — judgment-removed:** prevention — the recurring failure cannot occur
+   [**消える——判断が不要：** 予防——繰り返す失敗がそもそも起こらない]{.ja}
 
 Do not make every user or maintainer **interpret, rank, and re-decide**.
+[利用者や保守者のたびに**解釈・順位づけ・決め直し**をさせない。]{.ja}
 
 <div class="doughnut-example">
 
 **Dumb:** a recall-stats timeout is encoded as a query-count stop.
+[**単純：** recall統計のタイムアウトを、クエリ回数で止める仕組みに組み込む。]{.ja}
 
 **Gone:** OS-invalid titles are unrepresentable (`@Pattern`).
+[**消える：** OSで使えないタイトルは、そもそも表現できない（`@Pattern`）。]{.ja}
 
 ```java
 assertThat(prepareStatementCount, lessThan(10L));
@@ -578,14 +629,14 @@ assertThat(prepareStatementCount, lessThan(10L));
 <img
   src="/smart-dumb-gone.png"
   alt=""
-  class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
+  class="absolute bottom-[2%] right-[2%] h-[40%] w-[36%] object-contain"
 />
 
 <img
   v-click
   src="/loom-jidoka-mechanism.png"
   alt=""
-  class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
+  class="absolute bottom-[2%] right-[2%] h-[40%] w-[36%] object-contain"
 />
 
 <video
@@ -595,7 +646,7 @@ assertThat(prepareStatementCount, lessThan(10L));
   playsinline
   autoplay
   src="/loom-warp-stop.mp4"
-  class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
+  class="absolute bottom-[2%] right-[2%] h-[40%] w-[36%] object-contain"
 />
 
 <!--
@@ -627,38 +678,42 @@ Gone leftover: write DTOs (`NoteUpdateTitleDTO`, `FolderCreationRequest`,
 -->
 
 ---
-class: "[&>h1]:!mb-2"
+class: "[&>h1]:!mb-2 [&_p]:!my-1.5"
 ---
 
 # Stop & Fix is emergent judgment-intensive work
 
-<div class="w-[74%]">
+[Stop & Fix（止めて直す）は、突発的な判断集約型の仕事]{.ja-title}
+
+<div class="w-[76%] text-[16px] leading-snug">
 
 Pulling the andon cord makes the abnormality current work. People spend live
 judgment first to **stop and contain**, then to diagnose, fix, and learn —
 before more output inherits it.
+[アンドンの紐を引くと、異常が「いまの仕事」になる。その場の判断をまず**止めて封じ込める**ことに使い、次に診断し、直し、学ぶ——後続のアウトプットが引き継ぐ前に。]{.ja}
 
 </div>
 
-<div class="mt-3 w-[74%] text-[14px] leading-snug [&_table]:w-full [&_th]:pb-1.5 [&_th]:pr-3 [&_th]:text-left [&_th]:font-semibold [&_td]:py-1.5 [&_td]:pr-3 [&_td]:align-top [&_tr]:border-b [&_tr]:border-stone-300 [&_tbody_tr:last-child]:border-b-0 [&_tbody_tr:last-child]:bg-[#b33a2b]/10">
+<div class="mt-2 w-full text-[12px] leading-snug [&_table]:w-full [&_th:nth-child(1)]:w-[17%] [&_th:nth-child(2)]:w-[40%] [&_th]:pb-0.5 [&_th]:pr-3 [&_th]:text-left [&_th]:font-semibold [&_td]:py-0.5 [&_td]:pr-3 [&_td]:align-top [&_tr]:border-b [&_tr]:border-stone-300 [&_tbody_tr:last-child]:border-b-0 [&_tbody_tr:last-child]:bg-[#b33a2b]/10">
 
-| Method | Detects | Stop & Fix requires |
+| Method [手法]{.ja} | Detects [検知するもの]{.ja} | Stop & Fix requires [Stop & Fixが求めること]{.ja} |
 |---|---|---|
-| **Automated tests** | A known scenario no longer holds | The failing test is the current work, not a parked queue |
-| **Fail-fast** | An illegal or unexpected condition in the product now | Fail immediately and visibly — do not swallow it |
-| **CI service** | The integrated product is not in the agreed working state | Who broke it stop and fix; others stop pushing to trunk |
-| **Noticed anomaly / known bug** | A person already sees out-of-standard work | Treat it as the cord: stop and fix first, not as inventory |
+| **Automated tests** [**自動テスト**]{.ja} | A known scenario no longer holds [既知のシナリオが成り立たなくなった]{.ja} | The failing test is the current work, not a parked queue [失敗したテストがいまの仕事。後回しのキューではない]{.ja} |
+| **Fail-fast** [**フェイルファスト**]{.ja} | An illegal or unexpected condition in the product now [いまプロダクトで起きた不正・想定外の状態]{.ja} | Fail immediately and visibly — do not swallow it [すぐに、見える形で失敗させる——握りつぶさない]{.ja} |
+| **CI service** [**CIサービス**]{.ja} | The integrated product is not in the agreed working state [統合されたプロダクトが、合意した動作状態にない]{.ja} | Who broke it stop and fix; others stop pushing to trunk [壊した人が止めて直す。他の人はトランクへのプッシュを止める]{.ja} |
+| **Noticed anomaly / known bug** [**気づいた異常／既知のバグ**]{.ja} | A person already sees out-of-standard work [標準から外れた仕事が、すでに人の目に見えている]{.ja} | Treat it as the cord: stop and fix first, not as inventory [アンドンの紐として扱う：在庫にせず、まず止めて直す]{.ja} |
 
 </div>
 
-<div class="mt-3 w-[74%] rounded bg-[#b33a2b]/10 px-4 py-2 text-[16px] leading-snug">
+<div class="mt-2 w-full rounded bg-[#b33a2b]/10 px-4 py-1 text-[15px] leading-snug [&_p]:!my-0">
 
 A detector everyone continues past is only a **dashboard**. AI makes
 continuing past the signal cheaper — and the cost of doing so larger.
+[皆が素通りする検知器は、ただの**ダッシュボード**だ。AIはシグナルの素通りを安くし——その代償を大きくする。]{.ja}
 
 </div>
 
-<div class="absolute right-[3%] top-[18%] z-10 w-[22%] overflow-hidden rounded border border-stone-300 bg-white shadow-sm">
+<div class="absolute right-[3%] top-[16%] z-10 w-[18%] overflow-hidden rounded border border-stone-300 bg-white shadow-sm">
   <img
     src="/andon-pull.png"
     alt="A worker pulling an overhead andon cord; a red lantern marks the stop"
@@ -706,19 +761,24 @@ everyone continues past it. Contrast `@focus` in features
 
 # The gates do not care who authored the change
 
+[ゲートは、誰が変更を書いたかを気にしない]{.ja-title}
+
 The product standard and stop conditions do not weaken according to
 **who or what** wrote it. Quiet is good news only when the same
 owned checks **ran**.
+[プロダクトの基準と停止条件は、**誰が・何が**書いたかで緩まない。静かさが良い知らせなのは、同じ所有されたチェックが**実行された**ときだけ。]{.ja}
 
 After a closed stop exposes a failure, AI may help resolve it —
 but must **not dissolve the stop**. A leftover warning is unpaid
 judgment for the next person or agent.
+[閉じた停止が失敗をあらわにした後、AIが解決を手伝ってもよい——だが**停止を消し去ってはならない**。残った警告は、次の人やエージェントへの未払いの判断だ。]{.ja}
 
 <div class="doughnut-example">
 
 A Jidoka stop binds the agent on a recall-to-note detour. The person
 decides — leave recall, return via Resume — and Cursor implements
 the detour without dissolving the stop.
+[自働化の停止が、recallからノートへの寄り道でエージェントを止める。人が決め（recallを離れ、Resumeで戻る）、Cursorは停止を消さずに寄り道を実装する。]{.ja}
 
 ```
 A detour into a note is recorded separately.
@@ -757,12 +817,16 @@ class: "[&>h1]:!mb-2 [&_p]:!my-2 [&_.slidev-code-wrapper]:!my-2 [&_pre]:!text-[1
 
 # Go-See may mean entering the AI harness
 
+[現地現物 (Go-See) とは、AIハーネスの中に入ることかもしれない]{.ja-title}
+
 Genchi genbutsu when the work happens inside an agent loop:
 go to where the work is actually done.
+[仕事がエージェントループの中で起きるときの現地現物：実際に仕事が行われている場所へ行く。]{.ja}
 
 <div class="doughnut-example">
 
 `git commit` reports success. The pre-commit hook records the **main** tree.
+[`git commit` は成功と報告する。だがpre-commitフックが記録するのは**main**のツリーだ。]{.ja}
 
 ```bash
 REPO_ROOT="$HOOK_DIR/../.."
@@ -788,26 +852,28 @@ what later landed once the tree was true — `0bd1dd2995`.
 
 # Five judgments stay human
 
+[五つの判断は人間に残る]{.ja-title}
+
 <div class="mt-14 grid grid-cols-5 divide-x divide-stone-300 text-center text-stone-800 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:gap-4 [&>div]:px-3 [&_svg]:text-[56px] [&_svg]:text-[#b33a2b] [&_strong]:text-lg [&_strong]:leading-tight">
   <div>
     <ph-scales aria-hidden="true" />
-    <strong>Value</strong>
+    <div><strong>Value</strong><span class="ja">価値</span></div>
   </div>
   <div>
     <ph-pencil-ruler aria-hidden="true" />
-    <strong>Design</strong>
+    <div><strong>Design</strong><span class="ja">設計</span></div>
   </div>
   <div>
     <ph-key aria-hidden="true" />
-    <strong>Credentials</strong>
+    <div><strong>Credentials</strong><span class="ja">認証情報</span></div>
   </div>
   <div>
     <ph-warning-circle aria-hidden="true" />
-    <strong>Undiagnosed failure</strong>
+    <div><strong>Undiagnosed failure</strong><span class="ja">未診断の失敗</span></div>
   </div>
   <div>
     <ph-question aria-hidden="true" />
-    <strong>Ambiguity</strong>
+    <div><strong>Ambiguity</strong><span class="ja">曖昧さ</span></div>
   </div>
 </div>
 
@@ -823,13 +889,17 @@ backgroundSize: contain
 
 # Pull, don't stockpile
 
+[プルせよ、溜め込むな]{.ja-title}
+
 Start from **one current customer need** →
 cut a **thin vertical slice** →
 integrate it → confirm quality and usefulness →
 take the **next bite**.
+[**いまの顧客ニーズひとつ**から始め → **薄い垂直スライス**を切り → 統合し → 品質と有用性を確かめ → **次のひと口**へ。]{.ja}
 
 **Continuous integration is a practice, not a system:** a CI server that
 integrates unowned branches is a stockpile with a green light on it.
+[**継続的インテグレーションはシステムではなく、プラクティスだ：** 誰も所有しないブランチを統合するCIサーバーは、緑のランプがついた在庫にすぎない。]{.ja}
 
 <!--
 Opens JIT flow in LeSS.
@@ -840,30 +910,37 @@ practice; a CI service is not CI.
 -->
 
 ---
-class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5"
+class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5 [&_li]:!leading-snug [&_ul]:text-[17px]"
 ---
 
 # Let the shared product pull collaboration
 
+[共有プロダクトに、協働をプルさせる]{.ja-title}
+
 - Technical excellence exists so one product group can integrate continuously
+  [技術的卓越性は、ひとつのプロダクトグループが継続的に統合するためにある]{.ja}
 - The shared product pulls the right people together, just in time
+  [共有プロダクトが、必要な人をジャスト・イン・タイムで引き寄せる]{.ja}
 - A justified **stop is productive** — make the abnormality current work before
   more output inherits it
+  [正当な**停止は生産的**——後続のアウトプットが引き継ぐ前に、異常をいまの仕事にする]{.ja}
 - Slowing down means **not overproducing** — do not create debt faster
+  [ペースを落とすとは**作りすぎない**こと——負債を速く作らない]{.ja}
 
-<div class="doughnut-example">
+<div class="doughnut-example w-[46%] text-[14px] leading-snug [&_p]:!leading-snug">
 
 Cursor, January 2026: extract a child note from a checklist point.
 The shared recall screen (`Assimilation.vue`) records a conflict leftover;
 lint stops an unused import; the user sees a loading modal while the child
 is created.
+[Cursor、2026年1月：チェックリストの項目から子ノートを切り出す。共有のrecall画面（`Assimilation.vue`）がコンフリクトの残骸を記録し、lintが未使用のimportで止まり、子ノートの作成中はローディングモーダルが表示される。]{.ja}
 
 </div>
 
 <img
   src="/integration-coordination.png"
   alt=""
-  class="absolute bottom-[2%] left-[8%] h-[44%] w-[84%] object-contain"
+  class="absolute bottom-[2%] right-[3%] h-[38%] w-[50%] object-contain"
 />
 
 <!--
@@ -892,26 +969,29 @@ properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
 
 # The engine of freedom and entrustment
 
+[自由と、任せることのエンジン]{.ja-title}
+
 ```mermaid {scale: 0.75}
 %%{init: {'flowchart': {'rankSpacing': 30, 'nodeSpacing': 25}}}%%
 flowchart LR
-  EJ(Encoded<br>jidoka)
-  AA(Adaptive<br>attention)
-  CAP(Capability<br>to respond)
-  WT(Warranted<br>trust)
-  CC(Coercive<br>control)
-  PULL(Pull from<br>actual need)
+  EJ(Encoded<br>jidoka<br><small>組み込まれた<br>自働化</small>)
+  AA(Adaptive<br>attention<br><small>適応的な注意</small>)
+  CAP(Capability<br>to respond<br><small>応える能力</small>)
+  WT(Warranted<br>trust<br><small>裏づけのある<br>信頼</small>)
+  CC(Coercive<br>control<br><small>強制的な<br>管理</small>)
+  PULL(Pull from<br>actual need<br><small>実需からの<br>プル</small>)
 
   EJ -->|"+"| AA
-  AA -->|"delay +"| EJ
+  AA -->|"delay +<br><small>遅れて</small>"| EJ
   AA -->|"+"| CAP
-  CAP -->|"delay +"| WT
+  CAP -->|"delay +<br><small>遅れて</small>"| WT
   WT -->|"-"| CC
   CC -->|"-"| PULL
   PULL -->|"+"| CAP
 ```
 
 Two reinforcing loops: **jidoka frees** attention; **JIT entrusts** capability.
+[二つの自己強化ループ：**自働化は**注意を**解放し**、**ジャスト・イン・タイムは**能力に**任せる**。]{.ja}
 
 <!--
 The triad drawn as loops, gathering the jidoka and JIT beats just
@@ -927,21 +1007,24 @@ Claims 22 and 10.
 
 # AI speeds whichever loop you feed
 
+[AIは、あなたが回すほうのループを加速する]{.ja-title}
+
 ```mermaid {scale: 1.0}
 flowchart LR
-  AI(AI generation<br>volume)
-  INV(Judgment-stacked<br>inventory)
-  AA(Adaptive<br>attention)
-  EJ(Encoded<br>jidoka)
+  AI(AI generation<br>volume<br><small>AIの生成量</small>)
+  INV(Judgment-stacked<br>inventory<br><small>判断が積み上がった<br>在庫</small>)
+  AA(Adaptive<br>attention<br><small>適応的な注意</small>)
+  EJ(Encoded<br>jidoka<br><small>組み込まれた<br>自働化</small>)
 
   AI -->|"+"| INV
   INV -->|"-"| AA
-  AA -->|"delay +"| EJ
+  AA -->|"delay +<br><small>遅れて</small>"| EJ
   EJ -->|"-"| INV
   class AI accent
 ```
 
 AI **raises the gain** on the loop you are already running.
+[AIは、すでに回しているループの**ゲインを上げる**。]{.ja}
 
 <!--
 Figure 2 of Claim 22's companion CLD (R5), overlaying the engine's R1.
@@ -957,11 +1040,15 @@ walked. Claim 22.
 
 # Respect for People: making things means making people
 
+[人間性尊重：モノづくりは人づくり]{.ja-title}
+
 Spend freed attention on **comprehension**, **whole-product collaboration**,
 **kaizen**, and **teaching** — grow response capability, not output.
+[解放された注意を**理解**、**プロダクト全体での協働**、**改善**、**教えること**に使う——育てるのはアウトプットではなく、応える能力だ。]{.ja}
 
 The deskilling risk is real: encode the known without losing the ability
 to judge the unknown.
+[スキル低下のリスクは現実にある：既知を仕組みに組み込みつつ、未知を判断する力を失わないこと。]{.ja}
 
 <!--
 Claims 12 and 3.
@@ -971,9 +1058,13 @@ Claims 12 and 3.
 
 # Continuous improvement towards perfection
 
+[完璧に向けた継続的改善]{.ja-title}
+
 - TPS: **SMED** — changeover so cheap that small batches become rational
+  [TPS：**SMED**（シングル段取り）——段取り替えが安くなり、小ロットが合理的になる]{.ja}
 - LeSS: an expanding **Definition of Done** as the measure of the same
   improvement
+  [LeSS：拡大し続ける**完成の定義**（Definition of Done）が、同じ改善の尺度になる]{.ja}
 
 <img
   src="/pit-stop-changeover.png"
@@ -995,9 +1086,13 @@ env setup → fast deterministic e2e.
 
 # Tensions and honest limits
 
+[緊張関係と、正直な限界]{.ja-title}
+
 - Honest CI **versus** disposable prototypes — a real tension pair
+  [誠実なCI **対** 使い捨てのプロトタイプ——本当の緊張関係]{.ja}
 - The Algorithm resembles TPS — a family resemblance, not a proven
   extension
+  [The AlgorithmはTPSに似ている——家族的類似であって、実証された発展形ではない]{.ja}
 
 <img
   src="/tension-loop.png"
@@ -1018,13 +1113,20 @@ resembles TPS and lean; direct derivation from TPS is unproven.
 
 # Takeaways
 
+[持ち帰ってほしいこと]{.ja-title}
+
 1. **Judge AI use by freedom** — teams more freed than constrained
+   [**AI活用は自由で判断する**——チームが縛られるより解放されているか]{.ja}
 2. **Pull, don't stockpile** — thin slices, integrate, confirm, next bite
+   [**プルせよ、溜め込むな**——薄いスライス、統合、確認、次のひと口]{.ja}
 3. **Smart → dumb → gone** — judgment-loaded → judgment-preserved →
    judgment-removed; a justified stop halts propagation
+   [**賢い → 単純 → 消える**——判断を抱える → 保存 → 不要に。正当な停止が波及を止める]{.ja}
 4. **Same gates for "I" and AI** — five judgments stay human
+   [**「私」にもAIにも同じゲート**——五つの判断は人間に残る]{.ja}
 5. **Integrate continuously; collaborate just in time** — do not create
    debt faster
+   [**継続的に統合し、ジャスト・イン・タイムで協働する**——負債を速く作らない]{.ja}
 
 <!--
 The small collection of main points to be useful the following day.
@@ -1046,6 +1148,7 @@ layout: quote
 > **Encode the known. Stop the abnormal. Free people to learn.
 > Entrust a capable response to real need.
 > Let visible capability earn mutual trust.**
+> [**既知を仕組みに組み込む。異常で止める。人を学びへと解放する。本当のニーズには、力ある応答を任せる。目に見える能力で、相互の信頼を得る。**]{.ja}
 
 </div>
 
@@ -1055,9 +1158,11 @@ Closing — return to the theme.
 
 ---
 layout: end
-class: text-center
+class: "text-center [&_.ja-title]:!text-stone-400"
 ---
 
 # Thank you
+
+[ありがとうございました]{.ja-title}
 
 Terry Yin · Odd-e · terry@odd-e.com
