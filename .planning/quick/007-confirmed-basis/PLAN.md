@@ -206,6 +206,26 @@ Proof:
 - This is an owner-held observation: an unanswered review stops here, and
   slices 1–3 remain a usable proposal.
 
+## Execution complete
+
+Product advice:
+- The storyline story is now unblocked. Its primary beats can draw on the
+  17 Confirmed claims, with Supporting claims 2, 7, 9, 11, 14, and 16 as
+  qualified or secondary beats only.
+- Before the storyline story puts Claim 13 §7 (Go-See harness failure) on
+  stage, it should be re-verified against the current doughnut repo. That
+  text dates from before 2026-09-09 and was restored as it stood.
+- At wrap-up, fix one pre-existing stale phrase: `TPS and AI/open-questions.md`
+  line 165 still says Claim 13's "example search not started", but items
+  1–2 and 4–7 are now ranked there. The phrase predates this story and was
+  not in the seed's repair list.
+- The Open Dough `execution-start.mjs` startup does not URL-decode backlog
+  links (`splitHref` keeps `%20`). It therefore refuses every `TPS and AI`
+  and `Story Driven` entry in Story Branch or Trunk Mode. Report this
+  upstream, or keep choosing current-branch execution until it is fixed.
+- Process review was skipped: this project has no
+  `.planning/open-dough.json` that enables it.
+
 ## Promise → proof map
 
 | Promise | Slice |
