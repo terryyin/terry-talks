@@ -75,6 +75,7 @@ export type Pose = {
 	sparkles?: number; // film: pop-in scale of the sparkles once assimilation is done
 	history?: BallPose[]; // spent stories, oldest first
 	historyReveal?: number; // film: pop-in scale of the History box
+	historyRoom?: number; // film: how many spent balls the History box is laid out for, while it makes room
 	spent?: SpentPose; // film: the spent story on its way to History
 	// The film's opening; each left out looks as on the storyboard.
 	title?: TitlePose; // the film's title over the empty paper
@@ -116,6 +117,7 @@ export type StorySpec = {
 	reorganized: GridSpot;
 	seed: number; // shapes its splat and how it knocks the cells
 	wish?: string;
+	refill?: BallPose; // a new ball that drops into the back of the tray once this story has left it
 };
 
 // What is on stage before a story leaves the backlog: the product's cells as

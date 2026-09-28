@@ -76,11 +76,16 @@ export const historyBeatOf: StoryBeat = (spec, before) => (sec) => {
 		const squash = sec < FALL_UNTIL ? 1 - 0.12 * fall : jelly(sec, FALL_UNTIL, 0.28, 3, 8);
 		history = [...before.history, withoutUndefined({ ...spec.ball, hop: unless(DROP * (1 - fall), 0), squash: unless(squash, 1) })];
 	}
+	// Earlier spent stories shuffle aside, and the box grows if it must, to
+	// make room while the skin drifts over.
+	const earlier = before.history.length;
+	const room = earlier === 0 ? undefined : earlier + between(sec, DRIFT.from, DRIFT.to, Easing.inOut(Easing.cubic));
 	return withoutUndefined({
 		...target,
 		...fading,
 		history,
 		historyReveal: unless(reveal, 1),
+		historyRoom: room === undefined ? undefined : unless(room, history.length),
 		spent,
 	});
 };

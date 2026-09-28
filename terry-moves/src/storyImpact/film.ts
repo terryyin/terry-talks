@@ -32,6 +32,19 @@ export const beat = (name: string, seconds: number, caption: string | undefined,
 	};
 };
 
+// A beat that plays a longer beat's motion faster, so it still ends where
+// that beat ends.
+export const squeezed = (
+	name: string,
+	seconds: number,
+	caption: string | undefined,
+	bySeconds: (sec: number) => Pose,
+	fromSeconds: number,
+): Beat => {
+	const speed = (Math.round(fromSeconds * FPS) - 1) / (Math.round(seconds * FPS) - 1);
+	return beat(name, seconds, caption, (sec) => bySeconds(sec * speed));
+};
+
 export type Timeline = {
 	beats: Beat[];
 	durationInFrames: number;
@@ -85,15 +98,19 @@ export const timeline = (beats: Beat[]): Timeline => {
 };
 
 // The one-story film.
+export const SPLAT_SECONDS = 3;
+export const WOBBLE_SECONDS = 3.5;
+export const COHERENT_SECONDS = 4;
+
 export const beats: Beat[] = [
 	beat('backlog', 2, 'A story is romantic: a wish for a better world.', backlogBeat),
 	beat('wish', 3.5, undefined, wishBeat),
 	beat('fuzzy', 3, 'It\'s fuzzy. It doesn\'t care about our boundaries.', fuzzyBeat),
 	beat('flight', FLIGHT_SECONDS, 'It carries an impact we want in the world…', flightBeat),
-	beat('splat', 3, '…and it makes an impact on the product: SPLAT!', splatBeat),
-	beat('wobble', 3.5, 'Behavior gets messy. Structure wobbles.', wobbleBeat),
+	beat('splat', SPLAT_SECONDS, '…and it makes an impact on the product: SPLAT!', splatBeat),
+	beat('wobble', WOBBLE_SECONDS, 'Behavior gets messy. Structure wobbles.', wobbleBeat),
 	beat('assimilate', ASSIMILATE_SECONDS, 'Development assimilates the splash…', assimilateBeat),
-	beat('coherent', 4, '…into a coherent product, changed where it matters. No scars.', coherentBeat),
+	beat('coherent', COHERENT_SECONDS, '…into a coherent product, changed where it matters. No scars.', coherentBeat),
 	beat('history', HISTORY_SECONDS, 'The spent story goes to history. Available, but out of the way.', historyBeat),
 	beat('next', NEXT_SECONDS, 'Ready for the next story.', nextBeat),
 ];

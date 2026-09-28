@@ -8,6 +8,7 @@ import {
 	distanceToCell,
 	GridSpot,
 	knockedCells,
+	leftTrayOf,
 	pinkBefore,
 	pinkStory,
 	Pose,
@@ -76,11 +77,12 @@ export const readyForNextOf = (spec: StorySpec, before: StoryBefore): Pose => {
 };
 
 // What the next story finds: this story's product, History and the queue
-// behind it (the front ball of which is the next story).
+// behind it with this story's refill, if any (the front ball of which is the
+// next story).
 export const afterStory = (spec: StorySpec, before: StoryBefore): StoryBefore => ({
 	cells: assimilatedCells(spec, before),
 	history: [...before.history, spec.ball],
-	backlog: before.backlog.slice(1),
+	backlog: leftTrayOf(spec, before).backlog.slice(1),
 });
 
 export const assimilating = (): Pose => assimilatingOf(pinkStory, pinkBefore());

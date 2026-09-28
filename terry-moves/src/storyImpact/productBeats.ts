@@ -7,7 +7,7 @@
 import { Easing } from 'remotion';
 import { CellPose, distanceToCell, messyProductOf, pinkBefore, pinkStory, StoryBeat, storySplashesOf } from './scene';
 import { assimilatingOf, coherentProductOf } from './assimilation';
-import { between, bounce, FPS, POPPY, settle, toward, unless, WOBBLY, withoutUndefined } from './motion';
+import { between, bounce, lastFrameAt, POPPY, settle, toward, unless, WOBBLY, withoutUndefined } from './motion';
 
 // The product moves tidily: eased slides between two moments of the beat.
 const tidily = (sec: number, from: number, to: number, easing = Easing.inOut(Easing.cubic)) => between(sec, from, to, easing);
@@ -67,7 +67,7 @@ export const wobbleBeatOf: StoryBeat = (spec, before) => (sec) => {
 // the paint drains out of the splat into the cells where the change belongs,
 // and the reorganized cell splits in two.
 export const ASSIMILATE_SECONDS = 4;
-const ASSIMILATE_END = (ASSIMILATE_SECONDS * FPS - 1) / FPS;
+const ASSIMILATE_END = lastFrameAt(ASSIMILATE_SECONDS);
 export const assimilateBeatOf: StoryBeat = (spec, before) => (sec) => {
 	const messy = messyProductOf(spec, before);
 	const target = assimilatingOf(spec, before);

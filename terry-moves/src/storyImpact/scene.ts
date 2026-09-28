@@ -26,6 +26,8 @@ export const ballColors = {
 	sun: '#FFC93C',
 	grape: '#9B5DE5',
 	lime: '#6BCB3B',
+	teal: '#2EC4B6',
+	orange: '#FF8C42',
 } as const;
 export type {
 	BallPose,
@@ -105,7 +107,7 @@ export const pinkStory: StorySpec = {
 export const pinkBefore = (): StoryBefore => ({ cells: tidyCells(), history: [], backlog: laterStories });
 
 // A story out of the backlog grows to this size while it wishes and flies.
-const STORY_SIZE = 62;
+export const STORY_SIZE = 62;
 
 export const sameSpot = (a: GridSpot, b: GridSpot) => a.col === b.col && a.row === b.row;
 
@@ -138,6 +140,11 @@ export const storyOutOfBacklogOf = (
 	...(before.history.length > 0 ? { history: before.history } : {}),
 	...now,
 });
+
+// The stage once the story has left the tray: its refill ball, if any,
+// waits at the back of the queue.
+export const leftTrayOf = (spec: StorySpec, before: StoryBefore): StoryBefore =>
+	spec.refill ? { ...before, backlog: [...before.backlog, spec.refill] } : before;
 
 export const storyWishesOf = (spec: StorySpec, before: StoryBefore): Pose =>
 	storyOutOfBacklogOf(before, { story: storyPoseOf(spec, 'wishing', 0) });

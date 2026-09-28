@@ -73,7 +73,7 @@ const REBOUNDS = [
 
 // A ball falling from above the stage, then bouncing to rest: its height
 // above the tray floor and its squash. Undefined once at rest.
-const dropping = (s: number): { hop: number; squash: number } | undefined => {
+export const dropping = (s: number): { hop: number; squash: number } | undefined => {
 	if (s < FALL.seconds) {
 		const k = Math.max(0, s) / FALL.seconds;
 		return { hop: FALL.height * (1 - k * k), squash: 1 - 0.28 * k };

@@ -21,17 +21,35 @@ import {
 	storyWishesOf,
 } from './scene';
 import { flightPoint, HOVER, Point, traySpot } from './layout';
-import { between, bounce, bounceSpeed, BOUNCY, clamp01, FPS, hopping, jelly, lerp, lerpPoint, POPPY, settle, unless, WOBBLY, withoutUndefined } from './motion';
+import { between, bounce, bounceSpeed, BOUNCY, clamp01, FPS, hopping, jelly, lastFrameAt, lerp, lerpPoint, POPPY, settle, unless, WOBBLY, withoutUndefined } from './motion';
 
-const storyOf = (base: Pose, motion: Partial<StoryPose>): Pose => ({
+export const storyOf = (base: Pose, motion: Partial<StoryPose>): Pose => ({
 	...base,
 	story: withoutUndefined({ ...base.story!, ...motion }),
 });
 
-// The front ball's spot in the full tray.
-const frontSpot = (spec: StorySpec, before: StoryBefore) => traySpot(before.backlog.length + 1, 0, spec.ball.size);
 // Just high enough to clear the tray's front lip.
 const TAKE_OFF_HOP = 22;
+// Where the front ball springs out from: on its toes above its spot in the
+// full tray.
+export const takeOffSpot = (spec: StorySpec, before: StoryBefore): Point => {
+	const front = traySpot(before.backlog.length + 1, 0, spec.ball.size);
+	return { x: front.x, y: front.y - TAKE_OFF_HOP };
+};
+
+// The front ball crouches (0 → 1), then rises onto its toes (0 → 1), ready
+// to spring out.
+export const takeOffPose = (crouch: number, rise: number): { hop: number; squash: number } => ({
+	hop: TAKE_OFF_HOP * rise,
+	squash: 1 + 0.2 * crouch * (1 - rise) - 0.08 * rise,
+});
+
+// A queued ball rolling up one slot (`roll` 1 → 0) from its place in a tray
+// of `fromCount` balls to the one in front of it in a tray of `toCount`.
+export const rollingUp = (ball: BallPose, i: number, fromCount: number, toCount: number, roll: number): BallPose => {
+	const dx = (traySpot(fromCount, i + 1, ball.size).x - traySpot(toCount, i, ball.size).x) * roll;
+	return withoutUndefined({ ...ball, dx: unless(dx, 0) });
+};
 
 // 1. The tidy product with its backlog; the front ball gets eager and hops.
 export const backlogBeatOf: StoryBeat = (spec, before) => (sec) => {
@@ -47,8 +65,7 @@ export const backlogBeatOf: StoryBeat = (spec, before) => (sec) => {
 		// Crouch, then rise onto its toes, ready to spring out.
 		const crouch = interpolate(sec, [1.5, 1.7], [0, 1], { extrapolateRight: 'clamp' });
 		const rise = between(sec, 1.7, 2, Easing.out(Easing.quad));
-		squash = 1 + 0.2 * crouch * (1 - rise) - 0.08 * rise;
-		hop = TAKE_OFF_HOP * rise;
+		({ hop, squash } = takeOffPose(crouch, rise));
 	}
 	const [front, ...rest] = base.backlog;
 	const moving: BallPose = { ...front, hop: unless(hop, 0), squash: unless(squash, 1) };
@@ -61,9 +78,7 @@ export const wishBeatOf: StoryBeat = (spec, before) => (sec) => {
 	const LAUNCH = 0.05;
 	const rise = bounce(sec, LAUNCH, BOUNCY);
 	const speed = Math.abs(bounceSpeed(sec, LAUNCH, BOUNCY));
-	const front = frontSpot(spec, before);
-	const start = { x: front.x, y: front.y - TAKE_OFF_HOP };
-	const at = rise === 1 ? undefined : lerpPoint(start, HOVER, rise);
+	const at = rise === 1 ? undefined : lerpPoint(takeOffSpot(spec, before), HOVER, rise);
 	const size = lerp(spec.ball.size, base.story!.ball.size, Math.min(1, rise));
 	// Tall and thin while shooting up, then a jelly wobble once it hovers.
 	const squash = settle(jelly(sec, 0.6, 0.12, 2.5, 4) / (1 + speed * 2), 1);
@@ -74,10 +89,7 @@ export const wishBeatOf: StoryBeat = (spec, before) => (sec) => {
 		extrapolateRight: 'clamp',
 		easing: Easing.inOut(Easing.cubic),
 	});
-	const backlog = base.backlog.map((ball, i) => {
-		const dx = (traySpot(base.backlog.length + 1, i + 1, ball.size).x - traySpot(base.backlog.length, i, ball.size).x) * roll;
-		return withoutUndefined({ ...ball, dx: unless(dx, 0) });
-	});
+	const backlog = base.backlog.map((ball, i) => rollingUp(ball, i, base.backlog.length + 1, base.backlog.length, roll));
 	return {
 		...storyOf(base, {
 			ball: { ...base.story!.ball, size },
@@ -102,11 +114,11 @@ export const fuzzyBeatOf: StoryBeat = (spec, before) => (sec) => {
 };
 
 // 4. It crouches, launches, and flies along its arc, stretching with speed.
-const CROUCH = { from: 0.25, to: 0.75 };
-const CROUCH_POINT: Point = { x: HOVER.x - 4, y: HOVER.y + 42 };
+export const CROUCH = { from: 0.25, to: 0.75 };
+export const CROUCH_POINT: Point = { x: HOVER.x - 4, y: HOVER.y + 42 };
 export const FLIGHT_SECONDS = 2.5;
 // The ball reaches the product on the flight beat's last frame.
-const ARC_UNTIL = (FLIGHT_SECONDS * FPS - 1) / FPS;
+export const ARC_UNTIL = lastFrameAt(FLIGHT_SECONDS);
 
 // Flight progress over the beat: 0 until launch, then slightly accelerating.
 const flightAt = (sec: number): number => {

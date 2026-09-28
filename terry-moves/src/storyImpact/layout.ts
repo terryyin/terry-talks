@@ -146,9 +146,19 @@ export const spentShape = (size: number) => {
 	return { r, rx: r * 1.14, ry: r * 0.84 };
 };
 
-// Center of the index-th of `count` spent balls resting in the History box.
-export const historySpot = (count: number, index: number, size: number): Point => {
-	const slot = (HISTORY_BOX.right - HISTORY_BOX.left) / Math.max(count, 1);
+// The History box keeps its width while two spent balls fit side by side;
+// with more, it grows to the right so each keeps at least this much room.
+const HISTORY_SLOT_MIN = 82;
+
+// The History box's width when laid out for `room` spent balls; `room` may be
+// fractional while the box grows to make room for one more.
+export const historyWidth = (room: number): number =>
+	Math.max(HISTORY_BOX.right - HISTORY_BOX.left, room * HISTORY_SLOT_MIN);
+
+// Center of the index-th spent ball resting in the History box laid out for
+// `room` balls.
+export const historySpot = (room: number, index: number, size: number): Point => {
+	const slot = historyWidth(room) / Math.max(room, 1);
 	return { x: HISTORY_BOX.left + slot * (index + 0.5), y: HISTORY_FLOOR - spentShape(size).ry };
 };
 

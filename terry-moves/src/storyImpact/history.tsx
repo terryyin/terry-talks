@@ -1,7 +1,7 @@
 import React from 'react';
 import { BallPose, palette, SpentPose } from './scene';
 import { Face, Mood } from './face';
-import { BEHAVIOR_STEP, FONT_FAMILY, HISTORY_BOX, HISTORY_LIP_TOP, historySpot, OUTLINE, SHADOW, spentShape, squashAround } from './layout';
+import { BEHAVIOR_STEP, FONT_FAMILY, HISTORY_BOX, HISTORY_LIP_TOP, historySpot, historyWidth, OUTLINE, SHADOW, spentShape, squashAround } from './layout';
 
 // The History box behind the product, top-left: spent stories rest here,
 // pale and content. Pure function of the spent balls. On its way there, a
@@ -80,6 +80,9 @@ export const SpentSkin: React.FC<{ spent: SpentPose }> = ({ spent }) => (
 	</g>
 );
 
+// The z's reach this far right of where they start; they stay inside the box.
+const ZZZ_WIDTH = 40;
+
 const Zzz: React.FC<{ x: number; y: number }> = ({ x, y }) => (
 	<g fontFamily={FONT_FAMILY} fontWeight={700} fill={palette.ink} opacity={0.75}>
 		<text x={x} y={y} fontSize={22}>z</text>
@@ -87,21 +90,24 @@ const Zzz: React.FC<{ x: number; y: number }> = ({ x, y }) => (
 	</g>
 );
 
-export const HistoryBox: React.FC<{ balls: BallPose[] }> = ({ balls }) => {
-	const { left, right, top, bottom } = HISTORY_BOX;
+// Laid out for `room` spent balls (film: growing to make room for one more);
+// left out, for the balls in it.
+export const HistoryBox: React.FC<{ balls: BallPose[]; room?: number }> = ({ balls, room = balls.length }) => {
+	const { left, top, bottom } = HISTORY_BOX;
 	const lipTop = HISTORY_LIP_TOP;
-	const width = right - left;
+	const width = historyWidth(room);
+	const right = left + width;
 	return (
 		<g data-testid="history-box">
 			<rect x={left + SHADOW.x} y={top + SHADOW.y} width={width} height={bottom - top} rx={18} fill={palette.paperShadow} />
 			<rect x={left} y={top} width={width} height={bottom - top} rx={18} fill={crate.back} stroke={palette.ink} strokeWidth={OUTLINE} />
 			{balls.map((ball, i) => {
-				const { x, y } = historySpot(balls.length, i, ball.size);
+				const { x, y } = historySpot(room, i, ball.size);
 				const asleep = ball.hop === undefined && ball.squash === undefined;
 				return (
 					<g key={ball.id}>
 						<SpentBall ball={ball} x={x} y={y} />
-						{asleep ? <Zzz x={x + ball.size * 0.9} y={lipTop - ball.size * 1.2} /> : null}
+						{asleep ? <Zzz x={Math.min(x + ball.size * 0.9, right - ZZZ_WIDTH)} y={lipTop - ball.size * 1.2} /> : null}
 					</g>
 				);
 			})}

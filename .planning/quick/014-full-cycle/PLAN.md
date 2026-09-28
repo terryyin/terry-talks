@@ -107,7 +107,7 @@ cell) and the product's cells and history before it. Enables slice 3.
 
 ### 3. More stories come and go while the product stays coherent
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 2 and 4 in the spec; stills of the sun and grape stories viewed.
 
 Behavior: given the pink story in history → when the next beats play → the sun
@@ -144,6 +144,13 @@ waiting.
   cell into pink and sun. 61 tests pass; `pnpm moves test` passed (217).
   Storyboard PNGs and film stills at frames 700, 900, 1200 and 1350 are
   byte-identical.
+- **Slice 3:** `StoryImpactFilm.spec.tsx` (68 tests in total) checks that
+  after the pink, sun and grape coherent beats every cell is aligned with no
+  smear or splat and the story-colored count strictly grows; cell (3,1) ends
+  pink with a sun split; the tray keeps 3 balls after each refill; History
+  ends `['pink','sun','grape']` with none of them in the backlog; captions stay
+  ≥75 frames. `pnpm moves test` passed. Storyboard PNGs stay byte-identical.
+  Stills of both later stories were viewed and accepted.
 
 ## Learnings
 
@@ -155,3 +162,7 @@ waiting.
   `afterStory` returns the next story's before-state. Open for slice 3: no
   short launch beat, no backlog refill, and earlier History balls jump rather
   than reflow when a new one lands.
+- Later stories are 14.7 s each (launch 2.2, flight 1.8, splat 1.8, wobble
+  2.0, assimilate 2.5, coherent 1.8, history 2.6); the film is 75.6 s before
+  slice 4. Feature columns for slice 4: column 2 holds pink and grape, column
+  3 holds sun and pink+sun, column 1 holds pink and sun+grape.

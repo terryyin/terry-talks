@@ -6,6 +6,9 @@ import { Point } from './layout';
 
 export const FPS = 30;
 
+// The moment of a beat's last frame, for a beat lasting `seconds`.
+export const lastFrameAt = (seconds: number) => (seconds * FPS - 1) / FPS;
+
 export const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
 
 export const lerp = (a: number, b: number, k: number) => a + (b - a) * k;

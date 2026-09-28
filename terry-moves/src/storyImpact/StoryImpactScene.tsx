@@ -27,7 +27,7 @@ export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ po
 		<Paper />
 		{pose.history ? (
 			<g transform={pose.historyReveal === undefined ? undefined : scaleAround(HISTORY_POP_FROM, pose.historyReveal, pose.historyReveal)}>
-				<HistoryBox balls={pose.history} />
+				<HistoryBox balls={pose.history} room={pose.historyRoom} />
 			</g>
 		) : null}
 		{pose.showTime && pose.backlog.length > 0 && (pose.trayIn === undefined || pose.trayIn > 0) ? (
