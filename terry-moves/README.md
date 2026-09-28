@@ -124,7 +124,15 @@ cd terry-moves
 npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splash.mp4
 ```
 
-Render the full film (`StoryImpactFilm`, about 88 seconds): title, product
+Render the final, shareable animation and its poster (H.264, yuv420p,
+1080×1080, silent, about 88 seconds):
+
+```bash
+pnpm -C terry-moves render:story-impact
+# writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
+```
+
+Or render the full film (`StoryImpactFilm`, about 88 seconds) directly: title, product
 space, backlog, the pink story, the sun and grape stories, story versus
 feature, and the closing line.
 
@@ -145,4 +153,6 @@ state and never a scar.
 Visual language: warm paper background, thick rounded ink outlines, flat
 offset shadows, flat bright fills, and a rounded bold font. Stories are
 bouncy, splashy paint balls with faces; the product is tidy and deliberate.
-There are no bombs, missiles, or people judging.
+There are no bombs, missiles, or people judging. Text stays legible at
+360×360 px, labels never jump or get covered, and paint stays on the product
+wall; `tests/storyImpact/StoryImpactRelease.spec.tsx` guards these.

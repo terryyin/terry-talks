@@ -17,8 +17,6 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
-- [Terry has a finished animation ready to share](../Story%20Driven/seed.md#release) — story-impact-animation#release ([plan](quick/015-release/PLAN.md))
-
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
