@@ -167,7 +167,7 @@ pre-existing). Notes blocks byte-identical; English unchanged.
 
 ### 2. Attendees follow the rest of the talk in Japanese (slides 11–30)
 Type: Behavior
-Status: in-progress (implementation delivered; awaiting Terry's projector check)
+Status: done
 
 Behavior: Terry pages through slides 11–30, and every one of them is
 bilingual:
@@ -212,8 +212,8 @@ a safe stopping point: a fully bilingual deck that Terry has checked.
 `slidev build` exit 0; final PNG export inspected for 11–30 (1–10
 byte-identical to slice 1); `grep 自動化` empty; all 27 notes blocks and
 every non-mermaid code fence identical to before; English unchanged; all
-30 review rows *Translated*. Remaining for this slice: Terry's
-projector-size check, which fills *Terry checked*. Slides 16, 17 and 22
+30 review rows *Translated*. Terry's projector-size check passed on 2026-09-28 after
+the slide 3 and 22 fix below; all 30 rows are *Terry checked*. Slides 16, 17 and 22
 were re-laid out (art moved bottom-right, smaller text) and are worth
 his particular look.
 
@@ -235,7 +235,7 @@ his particular look.
 
 ### 3. Aki's review corrections are applied
 Type: Behavior
-Status: planned
+Status: deferred — Terry closed the story without it on 2026-09-28 (external-wait exception); Aki's feedback arrives later as separate work
 
 Behavior: Terry forwards Aki's corrections. Each one is applied to the
 slides, and the rows Aki covered are marked *Aki reviewed*. Any row not yet

@@ -83,37 +83,38 @@ slide).
 
 *Translated*: the Japanese is on the slide. *Terry checked*: Terry has
 paged through it at projector size. *Aki reviewed*: Aki's corrections, if
-any, are applied. A blank cell means not yet.
+any, are applied. A blank cell means not yet. Terry checked all 30 on 2026-09-28; Aki's
+review is still to come, so the *Aki reviewed* column is blank.
 
 | Slide | Translated | Terry checked | Aki reviewed |
 | --- | --- | --- | --- |
-| Freedom and Entrustment (cover) | ✓ | | |
-| About Me | ✓ | | |
-| 釈迦に説法 | ✓ | | |
-| One lineage of inspiration | ✓ | | |
-| How do you know if the organization is using AI right? | ✓ | | |
-| Judgment-intensive work | ✓ | | |
-| Constrained by what they built | ✓ | | |
-| AI can produce plausible software faster than a product group can absorb it | ✓ | | |
-| Freedom vs. entrustment? | ✓ | | |
-| The main-message quote ("TPS shows how a system…") | ✓ | | |
-| Two houses, different layers | ✓ | | |
-| The triad | ✓ | | |
-| Jidoka preserves knowledge | ✓ | | |
-| The loom's closed stop | ✓ | | |
-| The untitled image slide after "The loom's closed stop" | ✓ | | |
-| Smart → dumb → gone | ✓ | | |
-| Stop & Fix is emergent judgment-intensive work | ✓ | | |
-| The gates do not care who authored the change | ✓ | | |
-| Go-See may mean entering the AI harness | ✓ | | |
-| Five judgments stay human | ✓ | | |
-| Pull, don't stockpile | ✓ | | |
-| Let the shared product pull collaboration | ✓ | | |
-| The engine of freedom and entrustment | ✓ | | |
-| AI speeds whichever loop you feed | ✓ | | |
-| Respect for People: making things means making people | ✓ | | |
-| Continuous improvement towards perfection | ✓ | | |
-| Tensions and honest limits | ✓ | | |
-| Takeaways | ✓ | | |
-| The closing quote ("Encode the known…") | ✓ | | |
-| Thank you | ✓ | | |
+| Freedom and Entrustment (cover) | ✓ | ✓ | |
+| About Me | ✓ | ✓ | |
+| 釈迦に説法 | ✓ | ✓ | |
+| One lineage of inspiration | ✓ | ✓ | |
+| How do you know if the organization is using AI right? | ✓ | ✓ | |
+| Judgment-intensive work | ✓ | ✓ | |
+| Constrained by what they built | ✓ | ✓ | |
+| AI can produce plausible software faster than a product group can absorb it | ✓ | ✓ | |
+| Freedom vs. entrustment? | ✓ | ✓ | |
+| The main-message quote ("TPS shows how a system…") | ✓ | ✓ | |
+| Two houses, different layers | ✓ | ✓ | |
+| The triad | ✓ | ✓ | |
+| Jidoka preserves knowledge | ✓ | ✓ | |
+| The loom's closed stop | ✓ | ✓ | |
+| The untitled image slide after "The loom's closed stop" | ✓ | ✓ | |
+| Smart → dumb → gone | ✓ | ✓ | |
+| Stop & Fix is emergent judgment-intensive work | ✓ | ✓ | |
+| The gates do not care who authored the change | ✓ | ✓ | |
+| Go-See may mean entering the AI harness | ✓ | ✓ | |
+| Five judgments stay human | ✓ | ✓ | |
+| Pull, don't stockpile | ✓ | ✓ | |
+| Let the shared product pull collaboration | ✓ | ✓ | |
+| The engine of freedom and entrustment | ✓ | ✓ | |
+| AI speeds whichever loop you feed | ✓ | ✓ | |
+| Respect for People: making things means making people | ✓ | ✓ | |
+| Continuous improvement towards perfection | ✓ | ✓ | |
+| Tensions and honest limits | ✓ | ✓ | |
+| Takeaways | ✓ | ✓ | |
+| The closing quote ("Encode the known…") | ✓ | ✓ | |
+| Thank you | ✓ | ✓ | |
