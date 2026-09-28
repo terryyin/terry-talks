@@ -118,7 +118,7 @@ These are non-executable candidates. None of them authorizes execution.
 <a id="intention-storyboard"></a>
 ### 1. Terry recognizes his idea in a cartoon storyboard of one story's splash
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/012-intention-storyboard/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"fbd2bef61a0ab320b21b9df6327eb33a0c2961454a86e5e9b2a02643e79b3588","plan":"77a4682d2a3bd015a172ae096c57224dfac622ac8d7d6e8838fd7e81ea3b8fa4"}}
 ```
 
 - **For / why:** Terry needs to confirm the visual model and the cartoon tone
