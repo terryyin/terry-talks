@@ -91,7 +91,7 @@ with its caption.
 
 ### 2. A romantic story flies in and splashes the product into a mess
 Type: Behavior
-Status: planned
+Status: done
 Proof: example 2 in the spec; boards 3–7 render and are viewed.
 
 Behavior: given the tidy product and backlog → when boards 3–7 are rendered →
@@ -118,6 +118,12 @@ all eleven boards in order.
   time axis, tray and ≥3 balls). `pnpm moves test` passed. The render of
   boards 1–2 was viewed and accepted: flat cartoon wall on Behavior ×
   Structure, Time arrow, orange backlog tray with four smiling balls.
+- **Slice 2:** the same spec passes 13 tests (7 captions in order; wishing,
+  fuzzy and flying story states; `splatCells` gives 4 cells over rows 1–2 and
+  columns 1–2; board 7 has ≥3 displaced cells and smears). `pnpm moves test`
+  passed (169 tests). Boards 3–7 were viewed and accepted: wish bubble,
+  striped wobbly ball, flight trail, pink paint splat with "SPLAT!", tilted
+  smeared cells.
 
 ## Learnings
 
@@ -126,3 +132,4 @@ all eleven boards in order.
   cells, balls pink/sun/grape/lime with faces. Free space for History is the
   top-left; the ball's flight path is the band above the tray and the wall.
 - The split-cell field was removed as speculative in slice 1; slice 3 adds it.
+- The story hit point is one constant, `IMPACT`, and every story pose goes through `storyOutOfBacklog`; slice 3's history pose builds on it.

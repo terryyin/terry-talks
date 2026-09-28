@@ -4,7 +4,7 @@
 // Free room is kept top-left (History box, later) and above the Time axis
 // (ball flight from the tray to the product, later).
 
-import { GRID } from './scene';
+import { GRID, IMPACT } from './scene';
 
 export type Point = { x: number; y: number };
 
@@ -66,6 +66,19 @@ export const roundedPath = (points: Point[], radius: number): string => {
 	return `${parts.join(' ')} Z`;
 };
 
+// Closed smooth path through the given points (curves through midpoints).
+export const smoothBlob = (points: Point[]): string => {
+	const n = points.length;
+	const mid = (a: Point, b: Point) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+	const start = mid(points[n - 1], points[0]);
+	const parts = [`M${start.x.toFixed(1)},${start.y.toFixed(1)}`];
+	for (let i = 0; i < n; i++) {
+		const m = mid(points[i], points[(i + 1) % n]);
+		parts.push(`Q${points[i].x.toFixed(1)},${points[i].y.toFixed(1)} ${m.x.toFixed(1)},${m.y.toFixed(1)}`);
+	}
+	return `${parts.join(' ')} Z`;
+};
+
 // How far the product wall's outline reaches beyond the cells, in grid units.
 export const GRID_MARGIN = { col: 0.15, row: 0.12 } as const;
 
@@ -82,5 +95,22 @@ export const AXES = {
 };
 
 export const TRAY = { left: 560, right: 1010, top: ORIGIN.y - 88, bottom: ORIGIN.y - 18 } as const;
+
+// Where the example story hovers after popping out of the tray, and the arc
+// it flies along from the tray to where it hits the product.
+export const HOVER: Point = { x: 628, y: 318 };
+const FLIGHT = {
+	from: { x: 620, y: 470 } as Point,
+	peak: { x: 600, y: 20 } as Point,
+	to: wallPoint(IMPACT.col, IMPACT.row),
+};
+
+export const flightPoint = (t: number): Point => {
+	const u = 1 - t;
+	return {
+		x: u * u * FLIGHT.from.x + 2 * u * t * FLIGHT.peak.x + t * t * FLIGHT.to.x,
+		y: u * u * FLIGHT.from.y + 2 * u * t * FLIGHT.peak.y + t * t * FLIGHT.to.y,
+	};
+};
 
 export const CAPTION_BOX = { left: 40, right: 1040, top: 880, bottom: 1040 } as const;

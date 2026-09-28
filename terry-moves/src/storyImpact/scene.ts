@@ -35,6 +35,7 @@ export type CellPose = {
 	dx: number;
 	dy: number;
 	rot: number; // degrees, around the cell's own center
+	smear?: string; // paint smeared over part of the cell
 };
 
 export type BallPose = {
@@ -43,10 +44,38 @@ export type BallPose = {
 	size: number; // radius in px
 };
 
+// A spot on the product wall in grid units (cell (c, r) spans c..c+1, r..r+1).
+export type GridSpot = { col: number; row: number };
+
+// The example story once it has left the backlog: first it wishes (speech
+// bubble), then it shows how fuzzy it is, then it flies toward the product.
+export type StoryState = 'wishing' | 'fuzzy' | 'flying';
+
+export type StoryPose = {
+	ball: BallPose;
+	state: StoryState;
+	wish: string;
+	flight: number; // 0 = hovering above the tray, 1 = hitting the product
+};
+
+// Paint on the product wall. The blob is round in grid units around its
+// center; its lobes, droplets and drips come from the seed.
+export type SplatPose = {
+	center: GridSpot;
+	radius: number; // grid units
+	color: string;
+	seed: number;
+	drip: number; // how far the paint has run down, 1 = fresh splat
+	shout?: string; // comic sound word shown at the moment of impact
+	seeped: boolean; // the paint has run into the gaps under shifted cells
+};
+
 export type Pose = {
 	cells: CellPose[];
 	showTime: boolean;
 	backlog: BallPose[]; // front of the queue first (nearest the product)
+	story?: StoryPose;
+	splat?: SplatPose;
 };
 
 export const tidyCells = (): CellPose[] => {
@@ -84,3 +113,86 @@ export const productOverTime = (): Pose => ({
 	showTime: true,
 	backlog: waitingStories(),
 });
+
+// Deterministic pseudo-random value in [0, 1) for a seed, so boards render
+// the same every time.
+export const seeded = (n: number): number => {
+	const v = Math.sin(n * 12.9898 + 78.233) * 43758.5453;
+	return v - Math.floor(v);
+};
+
+// Where the example story hits the product wall.
+export const IMPACT: GridSpot = { col: 2, row: 2 };
+
+const EXAMPLE_WISH = 'I wish I could split the bill with friends in one tap!';
+
+const [exampleBall, ...laterStories] = waitingStories();
+
+const exampleStory = (state: StoryState, flight: number): StoryPose => ({
+	ball: { ...exampleBall, size: 62 },
+	state,
+	wish: EXAMPLE_WISH,
+	flight,
+});
+
+// The example story has left the backlog; the rest of the pose says what it
+// is doing now and what it did to the product.
+const storyOutOfBacklog = (now: Partial<Pick<Pose, 'cells' | 'story' | 'splat'>>): Pose => ({
+	...productOverTime(),
+	backlog: laterStories,
+	...now,
+});
+
+export const storyWishes = (): Pose => storyOutOfBacklog({ story: exampleStory('wishing', 0) });
+
+export const storyIsFuzzy = (): Pose => storyOutOfBacklog({ story: exampleStory('fuzzy', 0) });
+
+export const storyFlies = (): Pose => storyOutOfBacklog({ story: exampleStory('flying', 0.4) });
+
+const exampleSplat = (drip: number, seeped: boolean, shout?: string): SplatPose => ({
+	center: IMPACT,
+	radius: 1,
+	color: exampleBall.color,
+	seed: 7,
+	drip,
+	shout,
+	seeped,
+});
+
+const distanceToCell = (spot: GridSpot, col: number, row: number): number =>
+	Math.hypot(col + 0.5 - spot.col, row + 0.5 - spot.row);
+
+// The cells whose centers lie under the splat blob.
+export const splatCells = (pose: Pose): GridSpot[] => {
+	const { splat } = pose;
+	if (!splat) return [];
+	return pose.cells
+		.filter((cell) => distanceToCell(splat.center, cell.col, cell.row) <= splat.radius)
+		.map(({ col, row }) => ({ col, row }));
+};
+
+export const storySplashes = (): Pose => storyOutOfBacklog({ splat: exampleSplat(1, false, 'SPLAT!') });
+
+// Cells under and next to the splat get knocked out of line; the ones under
+// it also carry a smear of the story's paint.
+const knockedCells = (splat: SplatPose): CellPose[] =>
+	tidyCells().map((cell) => {
+		const d = distanceToCell(splat.center, cell.col, cell.row);
+		const reach = splat.radius + 0.9;
+		if (d > reach) return cell;
+		const push = 1 - d / (reach + 0.6);
+		const k = cell.col * 7 + cell.row * 13 + splat.seed;
+		const sign = seeded(k) < 0.5 ? -1 : 1;
+		return {
+			...cell,
+			dx: Math.round((seeded(k + 1) - 0.5) * 56 * push),
+			dy: Math.round((seeded(k + 2) - 0.35) * 44 * push),
+			rot: Math.round(sign * (8 + 14 * seeded(k + 3)) * push * 10) / 10,
+			smear: d <= splat.radius + 0.25 ? splat.color : undefined,
+		};
+	});
+
+export const messyProduct = (): Pose => {
+	const splat = exampleSplat(1.35, true);
+	return storyOutOfBacklog({ cells: knockedCells(splat), splat });
+};

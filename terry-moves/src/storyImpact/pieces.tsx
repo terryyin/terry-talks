@@ -1,5 +1,6 @@
 import React from 'react';
 import { BallPose, CellPose, GRID, palette } from './scene';
+import { Face } from './face';
 import {
 	AXES,
 	BEHAVIOR_LABEL_ANGLE,
@@ -123,17 +124,38 @@ export const ProductCell: React.FC<{ cell: CellPose }> = ({ cell }) => {
 				strokeWidth={5}
 				strokeLinejoin="round"
 			/>
+			{cell.smear ? <Smear corners={shrink(corners, 0.82)} color={cell.smear} flip={(cell.col + cell.row) % 2 === 0} /> : null}
 		</g>
 	);
 };
 
-export const ProductGrid: React.FC<{ cells: CellPose[] }> = ({ cells }) => {
+// A patch of paint wiped over one side of a cell.
+const Smear: React.FC<{ corners: Point[]; color: string; flip: boolean }> = ({ corners, color, flip }) => {
+	const [a, b, c, d] = flip ? corners : [corners[1], corners[2], corners[3], corners[0]];
+	const lerp = (p: Point, q: Point, t: number): Point => ({ x: p.x + (q.x - p.x) * t, y: p.y + (q.y - p.y) * t });
+	const patch = [a, lerp(a, b, 0.75), lerp(lerp(a, b, 0.5), lerp(d, c, 0.5), 0.55), lerp(a, d, 0.8)];
+	return (
+		<path
+			data-testid="cell-smear"
+			d={roundedPath(patch, 9)}
+			fill={color}
+			stroke={palette.ink}
+			strokeWidth={3}
+			strokeLinejoin="round"
+			opacity={0.95}
+		/>
+	);
+};
+
+// `underCells` is paint that sits on the wall behind the cells.
+export const ProductGrid: React.FC<{ cells: CellPose[]; underCells?: React.ReactNode }> = ({ cells, underCells }) => {
 	const outline = roundedPath(wallOutline(), 18);
 	const topMid = centerOf([wallPoint(0, GRID.rows + GRID_MARGIN.row), wallPoint(GRID.columns, GRID.rows + GRID_MARGIN.row)]);
 	return (
 		<g data-testid="product-grid">
 			<path d={outline} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} />
 			<path d={outline} fill={palette.panel} stroke={palette.ink} strokeWidth={OUTLINE} strokeLinejoin="round" />
+			{underCells}
 			{cells.map((cell) => (
 				<ProductCell key={`${cell.col}-${cell.row}`} cell={cell} />
 			))}
@@ -166,7 +188,6 @@ export const Axes: React.FC<{ showTime: boolean }> = ({ showTime }) => {
 
 export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x, y }) => {
 	const r = ball.size;
-	const eye = r * 0.13;
 	return (
 		<g data-testid="backlog-ball" data-id={ball.id}>
 			<ellipse cx={x + 4} cy={y + r * 0.95} rx={r * 0.9} ry={r * 0.22} fill={palette.ink} opacity={0.18} />
@@ -180,19 +201,7 @@ export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ 
 				fill={palette.white}
 				opacity={0.85}
 			/>
-			<circle cx={x - r * 0.3} cy={y - r * 0.02} r={eye} fill={palette.ink} />
-			<circle cx={x + r * 0.3} cy={y - r * 0.02} r={eye} fill={palette.ink} />
-			<circle cx={x - r * 0.27} cy={y - r * 0.07} r={eye * 0.4} fill={palette.white} />
-			<circle cx={x + r * 0.33} cy={y - r * 0.07} r={eye * 0.4} fill={palette.white} />
-			<ellipse cx={x - r * 0.52} cy={y + r * 0.22} rx={r * 0.14} ry={r * 0.09} fill={palette.cheek} opacity={0.9} />
-			<ellipse cx={x + r * 0.52} cy={y + r * 0.22} rx={r * 0.14} ry={r * 0.09} fill={palette.cheek} opacity={0.9} />
-			<path
-				d={`M${x - r * 0.18},${y + r * 0.2} Q${x},${y + r * 0.42} ${x + r * 0.18},${y + r * 0.2}`}
-				fill="none"
-				stroke={palette.ink}
-				strokeWidth={Math.max(3, r * 0.1)}
-				strokeLinecap="round"
-			/>
+			<Face x={x} y={y} r={r} />
 		</g>
 	);
 };
