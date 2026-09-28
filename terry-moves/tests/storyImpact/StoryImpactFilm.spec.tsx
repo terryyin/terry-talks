@@ -1,0 +1,117 @@
+import { render } from '@testing-library/react';
+import { beats as oneStoryBeats, beatRange as oneStoryRange, FPS, poseAt as oneStoryPoseAt } from '@/storyImpact/film';
+import { fullFilm } from '@/storyImpact/fullFilm';
+import { productOverTime, productSpace } from '@/storyImpact/scene';
+import { boards } from '@/storyImpact/boards';
+import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
+
+const { beatRange, captionAt, durationInFrames, poseAt } = fullFilm;
+
+const framesOf = (name: string) => {
+	const { from, durationInFrames: frames } = beatRange(name);
+	return Array.from({ length: frames }, (_, i) => from + i);
+};
+const lastFrame = (name: string) => {
+	const { from, durationInFrames: frames } = beatRange(name);
+	return from + frames - 1;
+};
+
+const renderFrame = (f: number) => render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
+
+describe('StoryImpactFilm', () => {
+	test('opens with the title, the product space and Time, then the one-story beats', () => {
+		expect(fullFilm.beats.map((b) => b.name)).toEqual(['title', 'space', 'time', ...oneStoryBeats.map((b) => b.name)]);
+	});
+
+	describe('the title', () => {
+		test('shows the title on the empty paper, with no caption', () => {
+			const mid = framesOf('title')[Math.round(2 * FPS)];
+			const pose = poseAt(mid);
+			expect(pose.cells).toEqual([]);
+			expect(captionAt(mid)).toBe('');
+			const { getByTestId, queryByTestId, queryAllByTestId } = renderFrame(mid);
+			expect(getByTestId('title')).toHaveTextContent('Romantic stories,');
+			expect(getByTestId('title')).toHaveTextContent('disciplined products');
+			expect(queryByTestId('caption')).toBeNull();
+			expect(queryByTestId('product-grid')).toBeNull();
+			expect(queryByTestId('behavior-axis')).toBeNull();
+			expect(queryAllByTestId('product-cell')).toHaveLength(0);
+		});
+
+		test('the title has shrunk away by the end of its beat', () => {
+			expect(poseAt(lastFrame('title')).title!.leave).toBe(1);
+			expect(renderFrame(lastFrame('title')).queryByTestId('title')).toBeNull();
+		});
+	});
+
+	describe('the product space is built', () => {
+		test('the axes grow from the origin over the space beat', () => {
+			const growth = framesOf('space').map((f) => poseAt(f).axes ?? 1);
+			expect(growth[0]).toBe(0);
+			growth.slice(1).forEach((g, i) => expect(g).toBeGreaterThanOrEqual(growth[i]));
+			expect(growth.some((g) => g > 0.2 && g < 0.8)).toBe(true);
+		});
+
+		test('the cells pop in one after another', () => {
+			const shown = framesOf('space').map((f) => poseAt(f).cells.filter((c) => (c.pop ?? 1) > 0).length);
+			expect(shown[0]).toBe(0);
+			expect(shown.some((n) => n > 0 && n < 20)).toBe(true);
+			expect(shown[shown.length - 1]).toBe(20);
+		});
+
+		test('ends on the first board', () => {
+			expect(poseAt(lastFrame('space'))).toEqual(productSpace());
+		});
+	});
+
+	describe('Time and the backlog arrive', () => {
+		test('the Time arrow grows and the balls drop into the tray', () => {
+			const frames = framesOf('time');
+			const first = poseAt(frames[0]);
+			expect(first.showTime).toBe(true);
+			expect(first.timeGrow).toBe(0);
+			expect(first.trayIn).toBe(0);
+			const heights = frames.map((f) => poseAt(f).backlog.map((b) => b.hop ?? 0));
+			first.backlog.forEach((_, i) => {
+				expect(Math.max(...heights.map((h) => h[i]))).toBeGreaterThan(300);
+			});
+		});
+
+		test('ends on the second board', () => {
+			expect(poseAt(lastFrame('time'))).toEqual(productOverTime());
+		});
+	});
+
+	test('the pink story plays exactly as in the one-story film', () => {
+		for (const b of oneStoryBeats) {
+			const full = beatRange(b.name);
+			const one = oneStoryRange(b.name);
+			expect(full.durationInFrames).toBe(one.durationInFrames);
+			const n = one.durationInFrames;
+			for (const i of [0, 1, Math.floor(n / 3), Math.floor(n / 2), Math.floor((2 * n) / 3), n - 2, n - 1]) {
+				expect(poseAt(full.from + i)).toEqual(oneStoryPoseAt(one.from + i));
+			}
+		}
+	});
+
+	test('captions so far show in beat order, each for at least 2.5 s', () => {
+		const runs: { caption: string; frames: number }[] = [];
+		for (let f = 0; f < durationInFrames; f++) {
+			const caption = captionAt(f);
+			const last = runs[runs.length - 1];
+			if (last && last.caption === caption) last.frames++;
+			else runs.push({ caption, frames: 1 });
+		}
+		expect(runs.map((r) => r.caption)).toEqual(['', ...boards.map((b) => b.caption)]);
+		runs.slice(1).forEach((r) => expect(r.frames).toBeGreaterThanOrEqual(2.5 * FPS));
+	});
+
+	test('every frame of the opening renders', () => {
+		for (let f = 0; f < beatRange('backlog').from; f += 4) {
+			const { unmount, queryByTestId } = renderFrame(f);
+			if (captionAt(f) === '') expect(queryByTestId('caption')).toBeNull();
+			else expect(queryByTestId('caption')).toHaveTextContent(captionAt(f));
+			unmount();
+		}
+	});
+});

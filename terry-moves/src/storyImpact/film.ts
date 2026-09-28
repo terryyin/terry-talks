@@ -1,4 +1,5 @@
-// The one-story film as a timeline of beats over the storyboard's pose model.
+// Films as timelines of beats over the storyboard's pose model; the
+// one-story film is one of them.
 // Each beat maps its progress (0–1) to a pose; where a beat matches a
 // storyboard board it ends on that board's pose. Pure, so any frame can be
 // sampled in tests.
@@ -20,7 +21,8 @@ export type Beat = {
 
 // --- timeline ------------------------------------------------------------
 
-const beat = (name: string, seconds: number, caption: string | undefined, bySeconds: (sec: number) => Pose): Beat => {
+// A beat whose pose is given by seconds into the beat.
+export const beat = (name: string, seconds: number, caption: string | undefined, bySeconds: (sec: number) => Pose): Beat => {
 	const frames = Math.round(seconds * FPS);
 	return {
 		name,
@@ -30,6 +32,59 @@ const beat = (name: string, seconds: number, caption: string | undefined, bySeco
 	};
 };
 
+export type Timeline = {
+	beats: Beat[];
+	durationInFrames: number;
+	// Where a beat sits on the film's timeline, in frames.
+	beatRange: (name: string) => { from: number; durationInFrames: number };
+	poseAt: (frame: number) => Pose;
+	captionAt: (frame: number) => string;
+};
+
+const framesOf = (b: Beat) => Math.round(b.seconds * FPS);
+
+// The arithmetic of a film made of the given beats, in order.
+export const timeline = (beats: Beat[]): Timeline => {
+	const durationInFrames = beats.reduce((sum, b) => sum + framesOf(b), 0);
+
+	const beatRange = (name: string): { from: number; durationInFrames: number } => {
+		let from = 0;
+		for (const b of beats) {
+			if (b.name === name) return { from, durationInFrames: framesOf(b) };
+			from += framesOf(b);
+		}
+		throw new Error(`No beat named ${name}`);
+	};
+
+	const beatAt = (frame: number): { index: number; t: number } => {
+		const f = Math.max(0, Math.min(durationInFrames - 1, Math.floor(frame)));
+		let from = 0;
+		for (let index = 0; index < beats.length; index++) {
+			const frames = framesOf(beats[index]);
+			if (f < from + frames) return { index, t: frames > 1 ? (f - from) / (frames - 1) : 1 };
+			from += frames;
+		}
+		return { index: beats.length - 1, t: 1 };
+	};
+
+	const poseAt = (frame: number): Pose => {
+		const { index, t } = beatAt(frame);
+		return beats[index].pose(t);
+	};
+
+	const captionAt = (frame: number): string => {
+		const { index } = beatAt(frame);
+		for (let i = index; i >= 0; i--) {
+			const { caption } = beats[i];
+			if (caption !== undefined) return caption;
+		}
+		return '';
+	};
+
+	return { beats, durationInFrames, beatRange, poseAt, captionAt };
+};
+
+// The one-story film.
 export const beats: Beat[] = [
 	beat('backlog', 2, 'A story is romantic: a wish for a better world.', backlogBeat),
 	beat('wish', 3.5, undefined, wishBeat),
@@ -43,41 +98,7 @@ export const beats: Beat[] = [
 	beat('next', NEXT_SECONDS, 'Ready for the next story.', nextBeat),
 ];
 
-const framesOf = (b: Beat) => Math.round(b.seconds * FPS);
+const oneStory = timeline(beats);
 
-export const filmDurationInFrames = beats.reduce((sum, b) => sum + framesOf(b), 0);
-
-// Where a beat sits on the film's timeline, in frames.
-export const beatRange = (name: string): { from: number; durationInFrames: number } => {
-	let from = 0;
-	for (const b of beats) {
-		if (b.name === name) return { from, durationInFrames: framesOf(b) };
-		from += framesOf(b);
-	}
-	throw new Error(`No beat named ${name}`);
-};
-
-const beatAt = (frame: number): { index: number; t: number } => {
-	const f = Math.max(0, Math.min(filmDurationInFrames - 1, Math.floor(frame)));
-	let from = 0;
-	for (let index = 0; index < beats.length; index++) {
-		const frames = framesOf(beats[index]);
-		if (f < from + frames) return { index, t: frames > 1 ? (f - from) / (frames - 1) : 1 };
-		from += frames;
-	}
-	return { index: beats.length - 1, t: 1 };
-};
-
-export const poseAt = (frame: number): Pose => {
-	const { index, t } = beatAt(frame);
-	return beats[index].pose(t);
-};
-
-export const captionAt = (frame: number): string => {
-	const { index } = beatAt(frame);
-	for (let i = index; i >= 0; i--) {
-		const { caption } = beats[i];
-		if (caption !== undefined) return caption;
-	}
-	return '';
-};
+export const filmDurationInFrames = oneStory.durationInFrames;
+export const { beatRange, poseAt, captionAt } = oneStory;

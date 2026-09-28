@@ -3,15 +3,14 @@ import { BallPose, CellPose, GRID, palette } from './scene';
 import { Face } from './face';
 import { ProductCell } from './cell';
 import {
-	AXES,
 	BEHAVIOR_LABEL_ANGLE,
 	centerOf,
 	FONT_FAMILY,
 	GRID_MARGIN,
 	ORIGIN,
 	OUTLINE,
-	Point,
 	roundedPath,
+	scaleAround,
 	SHADOW,
 	STAGE,
 	HOP,
@@ -26,7 +25,7 @@ import {
 // Every piece is a pure function of its props: no frame hooks here, so the
 // pieces render in jsdom and can later be driven by interpolated poses.
 
-const Label: React.FC<{
+export const Label: React.FC<{
 	x: number;
 	y: number;
 	text: string;
@@ -53,46 +52,6 @@ const Label: React.FC<{
 	</text>
 );
 
-const Arrow: React.FC<{ from: Point; to: Point; color: string; testId: string }> = ({
-	from,
-	to,
-	color,
-	testId,
-}) => {
-	const len = Math.hypot(to.x - from.x, to.y - from.y);
-	const ux = (to.x - from.x) / len;
-	const uy = (to.y - from.y) / len;
-	const head = 34;
-	const baseX = to.x - ux * head;
-	const baseY = to.y - uy * head;
-	const nx = -uy * 20;
-	const ny = ux * 20;
-	const tip = [
-		{ x: to.x, y: to.y },
-		{ x: baseX + nx, y: baseY + ny },
-		{ x: baseX - nx, y: baseY - ny },
-	];
-	const headPath = roundedPath(tip, 6);
-	const line = (stroke: string, width: number) => (
-		<line
-			x1={from.x}
-			y1={from.y}
-			x2={baseX + ux * 4}
-			y2={baseY + uy * 4}
-			stroke={stroke}
-			strokeWidth={width}
-			strokeLinecap="round"
-		/>
-	);
-	return (
-		<g data-testid={testId}>
-			{line(palette.ink, 18)}
-			<path d={headPath} fill={palette.ink} stroke={palette.ink} strokeWidth={14} strokeLinejoin="round" />
-			{line(color, 8)}
-			<path d={headPath} fill={color} stroke={color} strokeWidth={2} strokeLinejoin="round" />
-		</g>
-	);
-};
 
 export const Paper: React.FC = () => (
 	<g>
@@ -111,50 +70,40 @@ export const Paper: React.FC = () => (
 );
 
 // `underCells` is paint that sits on the wall behind the cells.
-export const ProductGrid: React.FC<{ cells: CellPose[]; underCells?: React.ReactNode }> = ({ cells, underCells }) => {
+// `wall` pops the wall in from the origin while the product is built.
+export const ProductGrid: React.FC<{ cells: CellPose[]; underCells?: React.ReactNode; wall?: number }> = ({ cells, underCells, wall }) => {
+	if (wall !== undefined && wall <= 0) return null;
+	const wallPop = wall === undefined ? undefined : scaleAround(ORIGIN, wall, wall);
 	const outline = roundedPath(wallOutline(), 18);
 	const topMid = centerOf([wallPoint(0, GRID.rows + GRID_MARGIN.row), wallPoint(GRID.columns, GRID.rows + GRID_MARGIN.row)]);
 	return (
 		<g data-testid="product-grid">
-			<path d={outline} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} />
-			<path d={outline} fill={palette.panel} stroke={palette.ink} strokeWidth={OUTLINE} strokeLinejoin="round" />
+			<g transform={wallPop}>
+				<path d={outline} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} />
+				<path d={outline} fill={palette.panel} stroke={palette.ink} strokeWidth={OUTLINE} strokeLinejoin="round" />
+			</g>
 			{underCells}
 			{cells.map((cell) => (
 				<ProductCell key={`${cell.col}-${cell.row}`} cell={cell} />
 			))}
-			<Label x={topMid.x - 8} y={topMid.y - 22} text="Product" color={palette.ink} size={40} angle={BEHAVIOR_LABEL_ANGLE} />
+			<g transform={wallPop}>
+				<Label x={topMid.x - 8} y={topMid.y - 22} text="Product" color={palette.ink} size={40} angle={BEHAVIOR_LABEL_ANGLE} />
+			</g>
 		</g>
 	);
 };
 
-export const Axes: React.FC<{ showTime: boolean }> = ({ showTime }) => {
-	const behaviorLabel = wallPoint(3.3, 0);
-	return (
-		<g>
-			{showTime ? (
-				<g data-testid="time-axis">
-					<Arrow from={ORIGIN} to={AXES.timeEnd} color={palette.time} testId="time-arrow" />
-					<Label x={AXES.timeEnd.x - 20} y={AXES.timeEnd.y + 62} text="Time" color={palette.ink} size={46} anchor="end" />
-				</g>
-			) : null}
-			<Arrow from={ORIGIN} to={AXES.behaviorEnd} color={palette.behavior} testId="behavior-axis" />
-			<Arrow from={ORIGIN} to={AXES.structureEnd} color={palette.structure} testId="structure-axis" />
-			<g transform={`rotate(${BEHAVIOR_LABEL_ANGLE} ${behaviorLabel.x} ${behaviorLabel.y})`}>
-				<Label x={behaviorLabel.x} y={behaviorLabel.y + 58} text="Behavior" color={palette.behavior} size={46} />
-				<Label x={behaviorLabel.x} y={behaviorLabel.y + 90} text="what it does" color={palette.ink} size={26} />
-			</g>
-			<Label x={AXES.structureEnd.x + 30} y={AXES.structureEnd.y + 36} text="Structure" color={palette.structure} size={46} anchor="start" />
-			<Label x={AXES.structureEnd.x + 32} y={AXES.structureEnd.y + 68} text="how it's built" color={palette.ink} size={26} anchor="start" />
-		</g>
-	);
-};
+
+const DROP_SHADOW_FROM = 80;
 
 // An eager ball hops up from the tray floor, its shadow left behind.
 export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x: slotX, y: rest }) => {
 	const r = ball.size;
 	const x = ball.dx === undefined ? slotX : slotX + ball.dx;
 	const y = ball.hop !== undefined ? rest - ball.hop : ball.eager ? rest - HOP : rest;
-	const shadow = ball.hop !== undefined ? 0.9 - (0.3 * Math.min(ball.hop, HOP)) / HOP : ball.eager ? 0.6 : 0.9;
+	// A ball dropping in from high above casts a shadow that grows as it nears.
+	const falling = ball.hop !== undefined && ball.hop > DROP_SHADOW_FROM ? Math.max(0, 1 - (ball.hop - DROP_SHADOW_FROM) / 400) : 1;
+	const shadow = (ball.hop !== undefined ? 0.9 - (0.3 * Math.min(ball.hop, HOP)) / HOP : ball.eager ? 0.6 : 0.9) * falling;
 	const squash = squashAround({ x, y: y + r }, ball.squash);
 	return (
 		<g data-testid="backlog-ball" data-id={ball.id} data-eager={ball.eager ? 'true' : undefined}>

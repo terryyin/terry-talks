@@ -87,7 +87,7 @@ each slice has one proof loop (focused spec plus stills).
 
 ### 1. The film opens on the product space and the backlog, then plays the first story
 Type: Behavior
-Status: planned
+Status: done
 Proof: spec — title, product-space and backlog beats; the pink story's beats in the full film equal the one-story film's poses; one-splash spec unchanged and green; stills viewed.
 
 Behavior: given nothing on screen → when `StoryImpactFilm` starts → a title
@@ -126,3 +126,21 @@ story's cells are outlined across columns and rows, then one feature column
 with several story colors is outlined, and the closing line "Stories should be
 romantic. Products should not." holds on the tidy product with the next ball
 waiting.
+
+## Accepted proof
+
+- **Slice 1:** `cd terry-moves && npx jest tests/storyImpact` passes 53 tests;
+  `tests/storyImpact/StoryImpactFilm.spec.tsx` checks the title (both lines,
+  no caption), axes growing, the space and time beats ending deep-equal to
+  `productSpace()` and `productOverTime()`, the one-story beats equal to the
+  one-story film at sampled frames, and captions in order ≥75 frames.
+  `pnpm moves test` passed (209). Storyboard PNGs stay byte-identical. Opening
+  stills (title splash, axes growing, cell wave, tray slide, balls bouncing
+  in) were viewed and accepted.
+
+## Learnings
+
+- Timeline arithmetic is `timeline(beats)` in `film.ts`; the full film's
+  beat list is `fullFilm.ts`. Opening beats live in `openingBeats.ts`, the
+  title piece in `title.tsx`, axes in `axes.tsx`. An empty caption hides the
+  caption bar. The full film is 46 s so far.

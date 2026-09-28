@@ -42,6 +42,7 @@ export type CellPose = {
 	smearAmount?: number; // 0–1: how much of the smear shows while it seeps in or fades
 	splitting?: number; // 0–1: how far the upper half has grown in while the cell splits
 	filling?: number; // 0–1: how high `color` has risen over the cell's plain color
+	pop?: number; // pop-in scale around its center while the product is built; 0 = not there yet
 };
 
 export type BallPose = {
@@ -101,6 +102,25 @@ export type Pose = {
 	history?: BallPose[]; // spent stories, oldest first
 	historyReveal?: number; // film: pop-in scale of the History box
 	spent?: SpentPose; // film: the spent story on its way to History
+	// The film's opening; each left out looks as on the storyboard.
+	title?: TitlePose; // the film's title over the empty paper
+	axes?: number; // 0–1: how far the Behavior and Structure axes have grown from the origin
+	wall?: number; // pop-in scale of the product wall behind the cells; 0 = not there yet
+	timeGrow?: number; // 0–1: how far the Time arrow has grown from the origin
+	trayIn?: number; // 0 = the backlog tray waits off stage right, 1 = in place
+};
+
+// The film's title: a romantic first line whose letters drop in like paint
+// balls onto a splash, and a disciplined second line that snaps into place
+// over a ruled underline.
+export type TitlePose = {
+	romantic: string;
+	disciplined: string;
+	splash: number; // pop-in scale of the paint splash behind the first line
+	drops: (number | null)[]; // per letter of the first line: px above its place, null = not dropped yet
+	snap: number; // scale of the second line; 0 = not there yet
+	underline: number; // 0–1: how far the underline has been ruled
+	leave: number; // 0 = standing, 1 = shrunk away
 };
 
 // The spent story's pale, emptied skin, peeling off the product and drifting
@@ -116,22 +136,12 @@ export type SpentPose = {
 export const plainCellColor = ({ col, row }: GridSpot): string =>
 	(col + row) % 2 === 0 ? palette.cellSky : palette.cellMint;
 
-export const tidyCells = (): CellPose[] => {
-	const cells: CellPose[] = [];
-	for (let row = 0; row < GRID.rows; row++) {
-		for (let col = 0; col < GRID.columns; col++) {
-			cells.push({
-				col,
-				row,
-				color: plainCellColor({ col, row }),
-				dx: 0,
-				dy: 0,
-				rot: 0,
-			});
-		}
-	}
-	return cells;
-};
+// Row by row from the ground, each row from the Structure axis outward.
+export const tidyCells = (): CellPose[] =>
+	Array.from({ length: GRID.rows * GRID.columns }, (_, i) => {
+		const spot = { col: i % GRID.columns, row: Math.floor(i / GRID.columns) };
+		return { ...spot, color: plainCellColor(spot), dx: 0, dy: 0, rot: 0 };
+	});
 
 export const waitingStories = (): BallPose[] => [
 	{ id: 'pink', color: ballColors.pink, size: 46 },

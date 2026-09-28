@@ -1,6 +1,6 @@
 import React from 'react';
 import { CellPose, palette, plainCellColor } from './scene';
-import { centerOf, Point, quad, roundedPath, shrink } from './layout';
+import { centerOf, Point, quad, roundedPath, scaleAround, shrink } from './layout';
 import { toward } from './motion';
 
 // One cell of the product wall. Pure function of its pose.
@@ -82,15 +82,17 @@ const FillingCell: React.FC<{ cell: CellPose; points: Point[]; level: number }> 
 };
 
 export const ProductCell: React.FC<{ cell: CellPose }> = ({ cell }) => {
+	if (cell.pop !== undefined && cell.pop <= 0) return null;
 	const corners = cellCorners(cell);
 	const c = centerOf(corners);
 	const inner = shrink(corners, CELL_SCALE);
+	const pop = cell.pop === undefined ? '' : ` ${scaleAround(c, cell.pop, cell.pop)}`;
 	return (
 		<g
 			data-testid="product-cell"
 			data-col={cell.col}
 			data-row={cell.row}
-			transform={`translate(${cell.dx} ${cell.dy}) rotate(${cell.rot} ${c.x} ${c.y})`}
+			transform={`translate(${cell.dx} ${cell.dy}) rotate(${cell.rot} ${c.x} ${c.y})${pop}`}
 		>
 			{cell.split && (cell.splitting ?? 1) > 0.02 ? (
 				<SplitHalves corners={inner} lower={cell.color} upper={cell.split} progress={cell.splitting} />
