@@ -119,3 +119,18 @@ Learnings:
 Cumulative design and sizing: This is one concept, the mapping from art to
 the current deck, with one proof loop. There is no Structure slice and no
 concerns.
+
+## Execution complete
+
+Product advice: Priorities stay the same. Wrap up this correction, and fold
+in a prose fix to `slides/tps-and-ai/artwork-list.md`, which the
+retrospective found still stale:
+- The "Slides intentionally without artwork" paragraph names cut slides
+  ("The apparent tradeoff" and "JIT flow in LeSS" dividers, "Preferred
+  tests…", the "Same gates" divider). It also says G9 is shared with "The
+  gates do not care who authored the change", but G9 is now retired.
+- A1's "Context and purpose" narrative cites the cut "But how to build one?"
+  slide.
+
+A separate correction would cost more than the few lines it fixes.
+Japanese stays the next story.
