@@ -34,7 +34,7 @@ fixes these facts:
 - **Slot:** a one-hour talk. That is about ten days after this decomposition.
 - **Listed title:** *What AI-Augmented Development Can Learn from the Toyota
   Production System*. The deck's title is *Freedom and Entrustment*, and its
-  subtitle adds "and LeSS".
+  subtitle is this listed title.
 - **Abstract promises:** TPS's influence on Agile thinking; lessons drawn from
   hands-on project experience; and "patterns, tensions, and practical lessons
   for using AI in ways that improve learning, flow, quality, and coordination
@@ -239,8 +239,8 @@ or rehearsal stories slip.
 
 The accepted 30-slide deck ships only the art it shows, and Terry can read
 the artwork list to see which art is on which current slide. This is a
-bounded correction from the [storyline](#storyline) execution's
-retrospective. It adds no feature promise.
+bounded correction from the storyline story's execution retrospective
+(provenance in its plan). It adds no feature promise.
 
 #### Scope
 
@@ -274,15 +274,16 @@ retrospective. It adds no feature promise.
   A fluent Japanese reader, whom Terry arranges, confirms the text is natural
   and the TPS terms match Toyota usage. Their corrections are applied.
 - **Value / learning:** Tests whether bilingual slides stay readable within
-  the slide budget (about 33, at most 35). If they do not, the storyline story may need to reduce
-  text density.
+  the slide budget (30 slides accepted, at most 35). If they do not, the deck
+  may need to reduce text density.
 - **Boundary:** Translating the claims, the speaker notes, or a separate
   Japanese-only deck is out of scope unless Terry decides otherwise. The
   presentation format (same slide or alternate, placement, font) is decided at
   refinement.
 - **Effort hypothesis:** Medium relative to the storyline story. The
   uncertainty is concentrated in the native review turnaround.
-- **Depends on:** [storyline](#storyline). Translating unstable text is waste.
+- **Depends on:** the accepted 30-slide English deck (the storyline story is
+  done). Translating unstable text is waste.
 - **Safe stopping point:** Full machine-assisted Japanese that Terry has
   checked is still usable if the native review arrives late. Record which parts
   are still unreviewed.
@@ -330,8 +331,8 @@ talk roles. The storyline carries the highest learning.
 | japanese | about 5 October, leaving time for the fluent reviewer |
 | conference-ready | rehearsals on 6–7 October |
 
-A 45-minute talk (15 minutes banked for Q&A) with about 33 slides allows
-roughly 1.3–1.4 minutes per slide.
+A 45-minute talk (15 minutes banked for Q&A) with the accepted 30 slides
+allows about 1.5 minutes per slide.
 
 If time runs short, cut or shorten slides in this order, least important
 first:
@@ -349,15 +350,14 @@ review silently: if it is late, say so.
 ## Open decisions
 
 - ~~**Title alignment.**~~ Decided 2026-09-28: keep *Freedom and
-  Entrustment*, with the listed session title as the subtitle
-  ([storyline](#storyline)).
+  Entrustment*, with the listed session title as the subtitle.
 - ~~**Q&A share of the hour.**~~ Decided 2026-09-28: a 45-minute talk with
   a 15-minute Q&A bank; slide limit about 33, never more than 35.
 - ~~**What "confirmed" means.**~~ Decided 2026-09-28: a talk role (Confirmed,
   Supporting, Off-stage) that Terry sets in the [README](README.md) claim
   list.
 - ~~**Climax slide.**~~ Decided 2026-09-28: the loop pair, "AI speeds
-  whichever loop you feed", at about slide 25 of 33 ([storyline](#storyline)).
+  whichever loop you feed", at slide 24 of 30 (accepted 2026-09-28).
 - **Japanese format and reviewer.** Same slide or alternate slides, and who
   reviews the translation.
 

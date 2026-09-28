@@ -55,8 +55,18 @@ Identity: `tps-and-ai-talk#storyline-art-cleanup`
   Git before <deleting commit>)`. Its **Slide** field names the cut slide as
   history. G5 and G6 name the current merged image slide after "The loom's
   closed stop" (click 1 and click 2).
-- **Proof helper:** Use the slide-list helper from plan 008's "Slide-list
-  helper (proof)".
+- **Slide-list helper (proof):** Run it from the repository root. It prints
+  the title of each slide, the total, and the position of the climax:
+
+  ```sh
+  node --input-type=module -e "
+  const fs=await import('fs');const p=fs.readdirSync('node_modules/.pnpm').find(d=>d.startsWith('@slidev+parser@'));
+  const {parse}=await import(process.cwd()+'/node_modules/.pnpm/'+p+'/node_modules/@slidev/parser/dist/index.mjs');
+  const d=await parse(fs.readFileSync('slides/tps-and-ai/slides.md','utf8'),'slides.md');
+  d.slides.forEach((s,i)=>console.log(i+1,s.title||'('+(s.frontmatter?.layout||'untitled')+')'));
+  const n=d.slides.length,c=d.slides.findIndex(s=>/^AI speeds whichever loop you feed\$/.test(s.title||''))+1;
+  console.log('total',n,'climax',c,'ratio',(c/n).toFixed(2));"
+  ```
 
 ## Decisive premises observed (2026-09-28, at `e3b5f1d`)
 

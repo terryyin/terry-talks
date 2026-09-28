@@ -22,9 +22,10 @@ easy to remember.
 
 > **Freedom and Entrustment**
 >
-> *What AI-Augmented Development and LeSS Can Learn from the TPS*
+> *What AI-Augmented Development Can Learn from the Toyota Production System*
 
-The subtitle carries the boundary. The talk does not apply a factory
+The subtitle is the session title listed on the conference page. It
+carries the boundary. The talk does not apply a factory
 recipe to software: software mixes discovery and production inside one
 evolving product
 ([Claim 11](claims/11-physical-production-and-software-differences.md)).
@@ -215,15 +216,14 @@ to a claim.
    and [3](claims/03-jidoka-enables-jit-trusts-respect-grows.md)).
 7. **Continuous improvement towards perfection** — SMED and cheap
    changeover as the TPS example; Definition of Done as the LeSS
-   measure; then the follow-on slide **Lower the switching cost**
+   measure; lowering the switching cost is a spoken follow-on
    ([Claims 18](claims/18-continuous-improvement-towards-perfection.md)
    and [5](claims/05-smed-software-changeover-and-ai-friendly-context.md)).
 8. **Tensions and honest limits** — honest CI versus disposable
-   prototypes; extreme conditions interrupt JIT; The Algorithm's
-   family resemblance; individual speed ≠ team ≠ software-system ≠
-   organization ≠ economy-wide productivity
+   prototypes carries the tension; The Algorithm's family resemblance
+   is a qualified aside, not a proven extension; individual speed ≠
+   team ≠ software-system ≠ organization ≠ economy-wide productivity
    ([Claims 23](claims/23-ci-and-disposable-prototypes-tension-pair.md),
-   [15](claims/15-extreme-conditions-interrupt-jit.md),
    [7](claims/07-the-algorithm-and-tps-family-resemblance.md),
    [8](claims/08-technical-excellence-enables-jit-coordination-in-less.md),
    and [1](claims/01-tps-reasoning-not-mechanisms.md)).
@@ -235,3 +235,28 @@ and the Ebata teaching
 beats; doughnut examples
 ([Claim 13](claims/13-doughnut-project-examples.md)) supply evidence
 across topics.
+
+## The storyline in the deck
+
+The [deck](../slides/tps-and-ai/slides.md) tells one arc in 30 slides for
+a 45-minute talk. It never exceeds 35.
+
+- **Opening:** Casual, with the diagnostic question by slide 5 and the
+  statement "AI speeds whichever loop you feed" set up early.
+- **Build:** Freedom versus entrustment, then the triad. Next comes the
+  jidoka descent: the loom's closed stop, smart → dumb → gone, and Stop &
+  Fix. The same gates follow, with Go-See as a secondary beat and the five
+  judgments. Then JIT flow: pull, CI as a practice, and the shared product
+  pulling collaboration.
+- **Climax:** "The engine of freedom and entrustment" leads into **"AI
+  speeds whichever loop you feed"** at about three-quarters of the deck
+  (slide index ÷ total between 0.70 and 0.80). Its note pays off the early
+  statement.
+- **Wind-down:** Respect for People, continuous improvement, one tension
+  (Claim 23), the takeaways, the closing crane, and the end slide.
+
+Claims are cited only in speaker notes, and only in their README talk
+role. Off-stage claims appear on no slide and in no note. When the deck
+needs shortening, cut in this order: follow-ons, separate example slides,
+section dividers, then extra tensions. Keep the diagnostic, the theme, the
+jidoka descent, the same gates, the JIT flow, one tension, and the closing.
