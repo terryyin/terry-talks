@@ -118,7 +118,7 @@ These are non-executable candidates. None of them authorizes execution.
 <a id="full-cycle"></a>
 ### 3. Viewers follow the whole idea as stories come and go while the product stays coherent
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/014-full-cycle/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"052502b7d7d723a034a5ef6a984b4b11d6970a1882469dd106097d32715c526c","plan":"1b68984aea815088b6878efb014265f227f32f2e2e6b18c50ed17456f4d34432"}}
 ```
 
 - **For / why:** Viewers need the complete argument: stories are temporary
