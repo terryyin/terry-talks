@@ -223,16 +223,6 @@ Hashes: `7b61a5705c` (`/sync` pull), `fce957dd3d` (`/export` pin),
 -->
 
 ---
-layout: section
----
-
-# The apparent tradeoff
-
-<!--
-Main message setup: freedom and entrustment mistakenly treated as a tradeoff.
--->
-
----
 
 # Freedom vs. entrustment?
 
@@ -251,6 +241,9 @@ matters.
 />
 
 <!--
+Main message setup — the apparent tradeoff: freedom and entrustment
+mistakenly treated as a tradeoff.
+
 Language contrast for the mixed international / Japanese audience.
 TPS shows they reinforce each other instead — next slide. Claim 10.
 -->
@@ -465,56 +458,28 @@ class: p-0
   class="absolute inset-0 h-full w-full object-cover"
 />
 
-<div class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+<div v-click.hide="1" class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Watching the loom / watching the AI
 </div>
 
-<!--
-Jidoka frees people from watching and re-judging the known.
-Claim 6 — the same judgment-loaded trap in factory and software work.
--->
-
----
-class: p-0
----
-
 <img
+  v-click="1"
   src="/called-by-the-stop.png"
   alt=""
   class="absolute inset-0 h-full w-full object-cover"
 />
 
-<div class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+<div v-click="1" class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Called by the stop
 </div>
 
 <!--
-The closed stop calls human judgment only when an abnormality needs it.
-Claim 6 — the stop preserves freedom while creating an opportunity to learn.
--->
+Jidoka frees people from watching and re-judging the known.
+Claim 6 — the same judgment-loaded trap in factory and software work.
 
----
-class: relative
----
-
-<div class="absolute left-[6%] top-1/2 w-[43%] -translate-y-1/2">
-
-## So that's the Jidoka that frees people
-
-# But how to build one?
-
-Is AI a good excuse to accumulate loads of **judgment-loaded output** and call it done?
-
-</div>
-
-<img
-  src="/burr-puzzle.png"
-  alt="A six-piece wooden burr puzzle with its vermilion key piece slightly withdrawn"
-  class="absolute right-[4%] top-1/2 h-[64%] w-[44%] -translate-y-1/2 object-contain"
-/>
-
-<!--
-Claim 6; G18 (burr / 組木) makes the remaining assembly judgment visible.
+[click] Called by the stop: the closed stop calls human judgment only when
+an abnormality needs it. Claim 6 — the stop preserves freedom while
+creating an opportunity to learn.
 -->
 
 ---
@@ -582,8 +547,19 @@ assertThat(prepareStatementCount, lessThan(10L));
 />
 
 <!--
+Spoken bridge: so that's the jidoka that frees people — but how to build
+one? Is AI a good excuse to accumulate loads of judgment-loaded output and
+call it done? (Claim 6.)
+
 Claims 00, 6, and 20 (poka-yoke supports jidoka).
 Gone: the best part is no part — the failure can no longer occur.
+
+In software, "dumb" mostly lives in tests that hold the encoded judgment:
+a unit test drives a stable boundary with crafted data (real lower layers,
+mock only externals); an E2E test asserts a user-valued state change, not
+presentation; no commit on red. A good AI episode leaves reusable
+capability — not a one-off patch. (Claim 6; e.g. doughnut
+`correctAnswerLeavesAGoodRecallLogLinkedToTheAnswer`, `e683b74615`.)
 
 Dumb leftover: `RecallStatsPerformanceTest` — production timed out at
 ~200 answered recalls (native `SELECT rp.*` hydrated each prompt's
@@ -596,55 +572,6 @@ Gone leftover: write DTOs (`NoteUpdateTitleDTO`, `FolderCreationRequest`,
 `@Pattern(regexp = DisplayNamePathSeparators.REGEXP)` so
 `\ / : * ? " < > |` cannot be authored. Hashes: `dfbde33184` /
 `55e5e55edc` / `445656f73a`.
--->
-
----
-
-# Preferred tests: E2E or unit — nothing in between
-
-Where "dumb" lives in software — tests that hold the encoded judgment:
-
-- A **unit test** drives a stable boundary with crafted data —
-  real lower layers, mock only externals
-- An **E2E test** asserts a user-valued **state change**, not presentation
-- **No commit on red**; unfinished E2E stays `@wip`
-
-<div class="doughnut-example">
-
-```java
-Note note = makeMe.aNote().notebookOwnedBy(user).please();
-var tracker = makeMe.aMemoryTrackerFor(note).please();
-var prompt = makeMe.aRecallPrompt().withMcqForNote(note).please();
-
-controller.answer(prompt, correctChoice);
-assertThat(getRecallLogs(tracker).get(0).getGrade(), is(Grade.GOOD));
-```
-
-</div>
-
-A good AI episode leaves **reusable capability** — not a one-off patch.
-
-<!--
-Claim 6 — preferred unit/E2E style: the harness text "I" and AI both
-read.
-
-Shown leftover: `correctAnswerLeavesAGoodRecallLogLinkedToTheAnswer`
-(`RecallPromptAnswerControllerTest`) — `makeMe` crafts the note,
-tracker, and MCQ prompt; `controller.answer`; one `Grade.GOOD` recall
-log. Hash: `e683b74615`.
-
-Spoken: *Rich note property edits persist after reload*
-(`note_edit.feature`) — Then is persisted properties after reload
-(status draft, domain wiki, diligence still high, topic gone), not a
-visible button.
-
-Spoken counter: `AiNoteAutomationServiceExtractRequestTest` —
-`buildExtractNoteRequestBodyReflectsSelectedLayoutItems` builds
-extract-request JSON from a mock forest (GlobalSettingsService,
-FocusContextRetrievalService, FocusContextMarkdownRenderer,
-OpenAiApiHandler) plus a hand-built Note, no `makeMe`. Asserts request
-JSON keys and instruction fragments. Over-mocking plus a snapshot of
-internals; contrast with the unit leftover.
 -->
 
 ---
@@ -672,6 +599,13 @@ before more output inherits it.
 
 </div>
 
+<div class="mt-3 w-[74%] rounded bg-[#b33a2b]/10 px-4 py-2 text-[16px] leading-snug">
+
+A detector everyone continues past is only a **dashboard**. AI makes
+continuing past the signal cheaper — and the cost of doing so larger.
+
+</div>
+
 <div class="absolute right-[3%] top-[18%] z-10 w-[22%] overflow-hidden rounded border border-stone-300 bg-white shadow-sm">
   <img
     src="/andon-pull.png"
@@ -691,25 +625,12 @@ pulled product work, in an emergent containment role.
 
 Autonomation and the cord are both jidoka. The loom already showed
 the closed stop; this slide is the cord.
--->
 
----
-
-# Stop & Fix
-
-A detector everyone continues past is only a **dashboard**.
-
-- Jidoka **shows** the problem; **culture** decides whether people
-  actually halt
-- Courage to stop, contain, fix, and prevent recurrence — not work
-  around the signal
-- Stopping first is the most efficient way
-- AI makes continuing past the signal cheaper, and the cost of doing
-  so larger
-
-<!--
-Claim 19 — Stop & Fix is the culture of actually responding: halt,
-contain, fix, prevent recurrence. Jidoka only shows the problem.
+Stop & Fix is the culture of actually responding: halt, contain, fix,
+prevent recurrence. Jidoka only **shows** the problem; **culture**
+decides whether people actually halt. Courage to stop, contain, fix,
+and prevent recurrence — not work around the signal. Stopping first is
+the most efficient way.
 
 Liker: Toyota Way *culture* of stopping to fix (2004 Principle 5;
 2021 Principle 6) — rapid support to contain, then solve.
@@ -728,21 +649,6 @@ binding can print and the job stays green. The detector ran;
 everyone continues past it. Contrast `@focus` in features
 (`check_focus_tags.sh` exits 1). HEAD `e683b74615`.
 -->
-
----
-layout: section
-class: p-0
----
-
-<img
-  src="/torii-same-gate.png"
-  alt=""
-  class="absolute inset-0 h-full w-full object-cover"
-/>
-
-<div class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
-  Same gates for "I" and AI
-</div>
 
 ---
 
@@ -770,7 +676,7 @@ Do not guess the UX.
 </div>
 
 <!--
-Claims 6 and 24.
+Same gates for "I" and AI. Claims 6 and 24.
 
 Quiet / leftover warning: Claim 24 — unpaid judgment; silence is
 trusted only when the check ran. Heuristic, not a TPS slogan; do
@@ -858,12 +764,6 @@ Claim 6.
 -->
 
 ---
-layout: section
----
-
-# JIT flow in LeSS
-
----
 layout: image-right
 image: /thin-vertical-slice.png
 backgroundSize: contain
@@ -876,24 +776,15 @@ cut a **thin vertical slice** →
 integrate it → confirm quality and usefulness →
 take the **next bite**.
 
+**Continuous integration is a practice, not a system:** a CI server that
+integrates unowned branches is a stockpile with a green light on it.
+
 <!--
+Opens JIT flow in LeSS.
+
 Claims 4 (assurance by resourcefulness, not abundance) and
-17 (vertical slicing, one-piece flow).
--->
-
----
-layout: image-right
-image: /green-light-stockpile.png
-backgroundSize: contain
----
-
-# Continuous integration is a practice, not a system
-
-A CI server that integrates unowned branches is a stockpile with a
-green light on it.
-
-<!--
-Claim 21.
+17 (vertical slicing, one-piece flow). Claim 21 — CI is a developer
+practice; a CI service is not CI.
 -->
 
 ---
@@ -1040,27 +931,12 @@ Claims 12 and 3.
 
 <!--
 Claims 18 and 5 (SMED, software changeover, AI-friendly context).
--->
 
----
-
-# Lower the switching cost
-
-- Change direction at relatively low cost — leftover of that **is**
-  switching cost; TPS: **changeover**
-- Method: **SMED**, then **OTED** — single-digit minutes, then one remaining
-  touch
-- Software stack: common repo → trunk-based development → one-touch env
-  setup → fast deterministic e2e
-
-<img
-  src="/switching-cost-stack.png"
-  alt=""
-  class="absolute bottom-[2%] left-[8%] h-[48%] w-[84%] object-contain"
-/>
-
-<!--
-Claims 5 and 18.
+Spoken follow-on — lower the switching cost: change direction at
+relatively low cost; leftover of that *is* switching cost (TPS:
+changeover). SMED, then OTED — single-digit minutes, then one remaining
+touch. Software stack: common repo → trunk-based development → one-touch
+env setup → fast deterministic e2e.
 -->
 
 ---

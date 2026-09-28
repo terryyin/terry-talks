@@ -205,7 +205,7 @@ still follows the gates slide, and the build exited 0.
 
 ### 4. The deck fits about 33 slides with the climax at three-quarters
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry counts the rendered deck → about 33 slides, never more than
 35. The climax ratio is 0.70–0.80. Each slide carries one beat Terry can
 speak in about 1.3–1.4 minutes. After the climax, only the wind-down
@@ -224,6 +224,38 @@ Proof:
 - Slice 2's grep proofs still pass.
 - The build exits 0.
 - Owns key examples 1 (count), 2 (position), 5, and 6.
+
+Accepted proof (2026-09-28): 39 → 30 slides, with no core beat dropped. The
+helper shows `total 30 climax 24 ratio 0.80`, diagnostic at 5, Go-See (19)
+after the gates (18), and the engine (23) before the climax. The
+hidden-slide grep returns `0`, slice 2's greps still pass, and the build
+exited 0. A PNG export (`node scripts/export-pdf.mjs tps-and-ai --format png
+--with-clicks`) showed that the merged slides fit: the loom caption swaps on
+click, and the Stop & Fix table with its callout and Pull with the CI line
+both fit.
+
+Cuts and merges, in shortening order:
+- Switching cost is merged into the notes of "Continuous improvement".
+- Preferred tests and the burr bridge are cut. Their points are in the notes
+  of "Smart → dumb → gone".
+- Three dividers are cut: "The apparent tradeoff", the "Same gates" torii,
+  and "JIT flow in LeSS". Their points are in the neighbouring notes.
+- The two loom image slides are now one slide with a click.
+- The two Stop & Fix slides are merged into the table slide.
+- "CI is a practice" is merged into "Pull, don't stockpile".
+
+`burr-puzzle.png`, `green-light-stockpile.png`, `switching-cost-stack.png`,
+and `torii-same-gate.png` are unreferenced but kept.
+
+**Decision for slice 5 (plan-internal conflict).** With only the six listed
+wind-down slides after the climax, a ratio of 0.80 or less caps the deck at
+30 slides (about 1.5 minutes per slide), below "about 33". Execution chose
+**B**: every literal slice 4 promise and key example 6 hold. The
+alternative is **A**: keep "Lower the switching cost" as a seventh
+post-climax slide and restore two pre-climax slides (for example the burr
+bridge and the separate CI slide). That gives 33 slides, climax 26, ratio
+0.79, matching the seed's "about slide 25 of 33". Terry chooses in the
+walkthrough.
 
 ### 5. Terry accepts the arc
 Type: Behavior
