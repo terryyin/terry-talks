@@ -118,19 +118,70 @@ These are non-executable candidates. None of them authorizes execution.
 <a id="release"></a>
 ### 4. Terry has a finished animation ready to share
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/015-release/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"6067ebca6624d56e9e3a6ebb77a126106e5a21d931869a1947a88c2a535813ac","plan":"d128ce64841adaf17940dc5bbf48ffda68fa1e8b3fe9d9e434de5a4a52f17a15"}}
 ```
 
 - **For / why:** Terry needs a dependable, shareable artifact that explains the
   idea on its own.
-- **Visible outcome:** The final square export with resolved readability,
-  pacing, and continuity, plus any agreed audio treatment.
+
+#### Goal
+
+Terry has one final square MP4 of the full film that reads cleanly at phone
+size, plays without visual glitches, and can be re-rendered from the source
+with one documented command.
+
+#### Scope
+
+- **Required:**
+  - Resolve the continuity glitches observed in the full film:
+    - the "Product Backlog" label jumps when the front ball turns eager or
+      leaves the tray;
+    - take-off and refill balls cross that label;
+    - the flying ball switches abruptly from smooth to fuzzy;
+    - splat droplets land past the product wall's edge;
+    - the "a feature" label appears late in its beat;
+    - the drifting spent ball crosses the "History" label.
+  - Readability at phone size: at 360×360 pixels, every caption and the
+    axis, backlog and History labels can still be read. Enlarge small text
+    such as "how it's built", "what it does" and "(in Git)", or drop it if
+    enlarging does not work.
+  - A final export, `terry-moves/out/story-impact-animation.mp4`: H.264,
+    1080×1080, 30 fps, playable in ordinary players (yuv420p). It is rendered
+    from `StoryImpactFilm` with one documented command, and a poster still
+    goes with it.
+- **Rejection constraints:** The seed's confirmed constraints still apply.
+  The storyboard boards and the film's story beats keep their meaning: this
+  is polish, not new scenes.
+- **Deferred promises:** Audio and sound effects, other formats (vertical,
+  landscape, GIF), subtitle files, translations, and publication.
+- **Boundary assumptions (made on Terry's behalf):**
+  - **Audio:** the film ships silent. It was designed silent-first, the
+    captions carry it, and the repo holds no sound assets whose license is
+    known. Sound effects can be added later.
+  - **Where the export lives:** it stays under the git-ignored
+    `terry-moves/out/`. Git keeps the source and the render command, not the
+    video.
+  - **Timing:** pacing stays as it is (about 88 s). The captions already meet
+    the 2.5-second minimum.
+
+#### Key examples
+
+1. **Phone size.** Given stills of every beat scaled down to 360×360, when
+   viewed, every caption and every label is legible, and no label is covered.
+2. **No jumps.** Given the frames around a ball leaving the tray or turning
+   eager, when consecutive frames are compared, the "Product Backlog" label
+   moves smoothly or not at all.
+3. **Paint stays on the product.** Given any splat frame, every droplet lies
+   within the product wall's outline.
+4. **Export.** Given the render command, when it runs, it writes
+   `out/story-impact-animation.mp4`. ffprobe shows h264, yuv420p, 1080×1080,
+   30 fps, and about 88 s, and a poster PNG sits beside it.
+
 - **Evaluation:** Watch it end to end at phone size, with and without sound.
   Terry judges the final effect.
-- **Boundary:** Fixes issues observed in the full film. New formats and new scenes
-  are new scope, and creating the export does not authorize publication.
-- **Effort hypothesis:** Unbanded. Depends on feedback and on whether audio is
-  added.
+- **Boundary:** Fixes issues observed in the full film. New formats and new
+  scenes are new scope, and creating the export does not authorize
+  publication.
 - **Depends on:** The full film (`StoryImpactFilm`).
 - **Safe stopping point:** The final export, its source, and its artwork are
   kept so the film can be re-rendered.
