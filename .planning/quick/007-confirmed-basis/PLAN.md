@@ -72,6 +72,13 @@ repaired.
 - **Delivery:** Commits go to the story branch. Push, landing, and releasing
   the Preparing assignment follow the keep decision and are not part of this
   plan.
+- **Execution location (2026-09-28):** Story Branch startup refused the
+  claim because `execution-start.mjs` does not URL-decode the backlog link
+  (`../TPS%20and%20AI/seed.md` → "selected canonical home is absent on fetched
+  trunk"). Terry selected current-branch execution instead. Execution and
+  integration checkout: `/Users/terryyin/git/terry-talks` on `master`,
+  starting at `04fe8bb`. The Take is local only. Commits are made on `master`
+  and not pushed, so no revision is published.
 
 ## Decisive premises observed (2026-09-28, at `96bcdfb`)
 

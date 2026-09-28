@@ -16,9 +16,10 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
+- [Terry can see which claims the talk stands on](../TPS%20and%20AI/seed.md#confirmed-basis) — tps-and-ai-talk#confirmed-basis ([plan](quick/007-confirmed-basis/PLAN.md))
+
 ## Backlog list
 
-- [Terry can see which claims the talk stands on](../TPS%20and%20AI/seed.md#confirmed-basis) — tps-and-ai-talk#confirmed-basis
 - [The audience follows one arc to a climax in at most 32 slides](../TPS%20and%20AI/seed.md#storyline) — tps-and-ai-talk#storyline
 - [Japanese-speaking attendees can follow every slide in Japanese](../TPS%20and%20AI/seed.md#japanese) — tps-and-ai-talk#japanese
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
