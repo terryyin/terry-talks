@@ -2,8 +2,8 @@
 id: story-impact-animation
 status: proposed-decomposition
 created: 2026-09-28
-created_during: Redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort; not the current near-future direction (TPS and AI talk)
-trigger_when: After the TPS and AI talk is conference-ready, or when Terry selects the animation again
+created_during: A digression from the current near-future direction (the TPS and AI talk); a redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort
+trigger_when: When Terry chooses to spend time on the animation; it is not for the TPS and AI talk
 scope: four queued candidate stories plus one conditional; S/M/L bands unassigned (no project definitions)
 ---
 
@@ -13,15 +13,17 @@ scope: four queued candidate stories plus one conditional; S/M/L bands unassigne
 
 For **developers and product people** who treat stories as features or as a
 lasting description of the system, Terry's idea exists only as an
-[essay](romantic-stories-disciplined-products.md), a
-[flip chart](story-driven-product-space.jpg), and its working implementation,
-Open Dough (`~/git/open-dough`). It should become a short
-animation that explains the idea. The idea is a product space of **Behavior ×
-Structure** that moves through **Time**, plus one more element: a **Product
-Backlog** of romantic, fuzzy stories. Each story impacts the product and is
-assimilated into coherent behavior and structure. Judgment is spent into
-decisions, and the spent story leaves the present for history. This is the
-"3D + 1".
+[essay](romantic-stories-disciplined-products.md) and a
+[flip chart](story-driven-product-space.jpg). It should become a short,
+playful, square animation that explains the idea. The idea has four parts,
+the "3D + 1":
+
+- A product is a space of **Behavior × Structure** that moves through
+  **Time**.
+- The **Product Backlog** holds romantic, fuzzy stories, queued along Time.
+- A story hits the product and splashes across its boundaries.
+- Development assimilates the splash into coherent behavior and structure,
+  and the spent story leaves the present for history.
 
 **Terry** evaluates whether the film expresses his intention. **Representative
 viewers** evaluate whether they can say, after watching, what a story is for,
@@ -30,187 +32,179 @@ what remains in the product, and where the story went.
 ### Why redo it
 
 The previous effort (script, visual proof, complete cut, and missile study,
-built from `e657ee8` to `7a5ac06`) is reverted. Terry was not satisfied with it,
-and it drifted toward a literal spectacle: a single projectile, one big
-explosion inside the product, and one long recovery. The intention is better
-expressed by Open Dough, which is where Terry actually practises the idea.
+built from `e657ee8` to `7a5ac06`) is reverted. Terry was not satisfied with it:
+it was too serious, and its bomb and missile imagery was too intimidating. The
+essay and the flip chart remain the authority for the idea. Open Dough defines
+the same concepts in its ADRs and puts them into practice. It is used here only
+to confirm the concepts. The film is not about Open Dough, and it does not
+name Open Dough.
 
 ## The intention, recovered
 
-These are the points the film must carry. The Open Dough source for each is in
-[Breadcrumbs](#breadcrumbs).
+The film must carry these points from the [essay](romantic-stories-disciplined-products.md):
 
-1. **Three related dimensions, not a hierarchy.** Story, Feature (behavior),
-   and Structure are separate. A story *changes* the product. Features and
-   structure *describe* the product after the story is complete. A story can
-   cut diagonally across many features and components, and one feature or
-   component carries decisions from many stories.
-2. **A story is romantic.** It is fictional, fuzzy, emotion-provoking, and it
-   crosses boundaries. It is shaped by a human desire and a desired
-   (business) impact. That makes it good for planning and bad for describing
-   the system.
-3. **Impact, twice.** The story carries an impact we want in the world, and it
-   makes a physical impact the product must survive.
-4. **The impact arrives as slices, not as one missile.** Decomposition is
-   fractal: problem → story → slices. Each slice moves the product along
-   exactly one axis:
-   - A **Structure** slice reshapes the organization without changing
-     behavior, and prepares the next Behavior slice.
-   - A **Behavior** slice changes what the product does, with outside-in proof.
-5. **Disturbance is local and brief.** Each slice disturbs the product only
-   inside its uncommitted change. Refactoring then restores coherence before
-   commit. At every slice boundary the product is green and coherent, which
-   makes it a safe stopping point. There is never a lasting battlefield.
-6. **Assimilation reshapes what already exists.** Before adding, look across
-   the whole product and reuse, change, or modularize what is there (Proudly
-   Found Elsewhere). Each concept keeps one representation. The ripple reaches
-   existing blocks, so the change is not a new block bolted on.
-7. **Judgment is spent into decisions.** Deliberation turns into closed
-   decisions, encoded in tests (green or red, no judgment needed to run),
-   feature docs, and ADRs. Humans own the decisions. The resulting product
-   leaves as little judgment as possible for the future.
-8. **The spent story goes to history.** It is committed, then deleted from the
-   current snapshot. Git keeps it: available, but not in the way. The product
-   describes what IS, not what WAS, and carries no scars or historical
-   negations.
-9. **The backlog is a living queue along Time.** A near-future direction orders
-   it. Items are reordered by value and learning, some are dropped and never
-   land, one is Taken at a time, and a correction can jump to the front.
-10. **Learning feeds back.** A retrospective compares the result with the
-    intention and returns learning to the backlog. The product ends coherent
-    and ready for the next story. It is not finished.
+1. **The product is a space.** At any moment it has a current state. Behavior
+   (functionality, features) is what it does. Structure (design, components,
+   architecture) is how it is organized. Time moves it from one coherent state
+   to the next.
+2. **The backlog belongs to Time.** Backlog items are possible transitions, not
+   the current state.
+3. **A story is romantic.** It is fictional, fuzzy, emotional, and does not
+   care about the product's boundaries. It carries a desire and a desired
+   impact in someone's world. That makes it good for imagining change and bad
+   for describing state.
+4. **Story ≠ feature.** A feature belongs to the product state, and a story
+   belongs to a transition. One story can touch several features and
+   components, and one feature is changed by many stories over time.
+5. **Impact, twice.** The story carries an impact we want in the world, and it
+   makes a physical impact on the product. It cuts across the product's
+   organization, so behavior gets messy and structure gets unstable.
+6. **Development is assimilation, not bolting on.** Behavior is reconciled into
+   a coherent answer to "what does the product do now?" Structure goes from
+   organized to disturbed to reorganized. The product ends coherent **now**,
+   not as a battlefield scarred by every past hit.
+7. **The spent story goes to history.** Once assimilated, the story has done its
+   job. The current product describes what IS, not what WAS. History stays
+   available (in Git) but out of the way, and the product is ready for the
+   next story.
 
 Stories and products are opposites that serve different purposes, and neither
 is better. The film should give them different movement qualities: stories are
-expressive and irregular, and the product is legible and deliberate. Neither
+bouncy, splashy, and irregular, and the product is tidy and deliberate. Neither
 should be shown as morally better.
 
-## Confirmed and carried-forward constraints
+**Kept out of the picture:** the upper "ABC of Architecture" triangle, and human
+judgment. The essay's judgment argument, including automated tests as spent
+judgment, is not depicted. The essay's historical-negation argument is also
+left out of the film.
 
-Carried forward from Terry's answers during the previous decomposition. Terry
-did not withdraw them when he rejected the animation itself:
+## Confirmed constraints and direction
 
-- The audience is developers and product people. The film is in English and
-  silent-first: it must be understood without audio.
-- Use only the lower diagram of the flip chart. The upper "ABC of
-  Architecture" triangle stays out.
-- Author, render, and keep the source in `terry-moves`. Generated artwork is
-  allowed where it helps. It is not a quota, and no image model name is
-  assumed.
+- The film is a digression from the current near-future direction (the TPS
+  and AI talk) and is not made for that talk.
+- The frame is **square**. The film is in English and silent-first, and the
+  audience is developers and product people.
+- **Genre: cartoonish and playful.** It should be lighter than the rejected,
+  too-serious version.
+- **Impact metaphor: a paint or water ball that splashes.** It is in the spirit
+  of a paint-shooting game such as Nintendo's Splatoon, used only as
+  inspiration: no copied characters, assets, or branding. A story is a
+  colorful ball that flies from the backlog and splats across several cells of
+  the product. Its color bleeds across behavior and structure boundaries.
+  Assimilation turns the mess into tidy, re-organized cells that keep the new
+  color where the change belongs. No bombs or missiles.
+- Use only the lower diagram of the flip chart. Author, render, and keep the
+  source in `terry-moves`. Generated artwork is allowed where it helps; it is
+  not a quota, and no image model name is assumed.
+- Open Dough is not named or depicted. Human judgment is not depicted.
 - A finished export does not authorize external publication.
-
-The square frame, the three-minute length, and the 1080 × 1080 / 30 fps
-delivery were properties of the rejected effort. They are proposals here,
-listed under [Open decisions](#open-decisions).
 
 ## Alternatives and decision
 
 | Approach | Value | Decision |
 | --- | --- | --- |
-| Do nothing; keep the essay and Open Dough as the explanation | No production cost | Reject for now: the idea stays hard to share outside Open Dough users |
-| Restore and polish the reverted cut | Reuses work | Reject: Terry rejected it, and its model (one missile, one explosion) contradicts the recovered intention |
-| Slowly reveal the flip chart with captions | The strongest simpler alternative, cheap and faithful to the sketch | Keep as the fallback. It cannot show slices landing, coherence returning, or a story leaving for history |
-| **Check the intention in cheap storyboard frames, then animate one story's journey, then the full cycle** | Tests Terry's recognition before motion work, which is where the last effort failed | **Recommended** |
+| Do nothing; keep the essay and flip chart | No production cost | Reject: Terry wants the animation |
+| Restore and polish the reverted cut | Reuses work | Reject: Terry rejected its tone and imagery |
+| Slowly reveal the flip chart with captions | The strongest simpler alternative, cheap and faithful | Keep as the fallback. It cannot show the splash being assimilated, or the story leaving for history |
+| **Check the cartoon model in storyboard frames, then animate one splash, then the full film** | Tests recognition and tone before motion work, which is where the last effort failed | **Recommended** |
 
-The highest learning priority: **does Terry recognize his intention in the
-model above before anyone animates it?** The last effort was polished before
-this was established.
+The highest learning priority: **does Terry recognize his idea, and enjoy the
+tone, in cartoon splash frames before anyone animates them?**
 
 ## Candidate story decomposition
 
 These are non-executable candidates. None of them authorizes execution.
 
 <a id="intention-storyboard"></a>
-### 1. Terry recognizes his intention in a key-frame storyboard of one story's full cycle
+### 1. Terry recognizes his idea in a cartoon storyboard of one story's splash
 ```json dough-story-state
 {"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
 ```
 
-- **For / why:** Terry needs to confirm the visual model before any motion work
-  is invested.
+- **For / why:** Terry needs to confirm the visual model and the cartoon tone
+  before any motion work is invested.
 - **Visible outcome:** A short sequence of square key frames (roughly 8–12)
   with one-line captions, covering:
-  - the product space (Behavior, Structure, Time) and the living backlog;
-  - a romantic story shaped by a desire;
-  - the story taken and split into Structure and Behavior slices;
-  - each slice briefly disturbing, then restored to coherence;
-  - existing blocks reshaped;
-  - judgment settling into tests and decisions;
-  - the spent story committed and dropped into history;
-  - learning feeding the backlog, and the next story approaching.
+  - the product grid (Behavior, Structure) and the Time axis;
+  - the backlog of paint balls queued along Time;
+  - one story shown as a romantic desire;
+  - its ball flying in and splatting across several cells;
+  - the messy product;
+  - the splash assimilated into tidy, re-organized cells that keep the new
+    color;
+  - the spent ball gone and history quietly behind;
+  - the next ball waiting.
 
   Frames may be rendered stills from `terry-moves` or generated artwork.
 - **Evaluation:** Terry reads the frames in order and either says "yes, that is
-  my idea" or marks which frames misstate it. Automated checks do not establish
-  acceptance.
-- **Value / learning:** Tests the most consequential assumption, the visual
-  model, at the lowest cost. The frames also become the brief for later
+  my idea, and the tone is right" or marks which frames misstate it.
+  Automated checks do not establish acceptance.
+- **Value / learning:** Tests the most consequential assumptions, the model and
+  the tone, at the lowest cost. The frames also become the brief for later
   stories.
 - **Boundary:** Stills and captions only: no motion, timing, or subtitle
-  script. The frames may reuse the carried-forward palette (warm paper, dark
-  ink, blue structure, green behavior, coral story), but that palette is not
-  yet approved.
+  script.
 - **Effort hypothesis:** Unbanded. Smallest in this set, with high uncertainty
   that is intentionally front-loaded.
 - **Depends on:** None.
-- **Safe stopping point:** An approved or annotated storyboard. On its own it is
-  a slide-ready explanation of the idea.
+- **Safe stopping point:** An approved or annotated storyboard, which is useful
+  on its own as an illustrated explanation.
 
 <a id="one-story-journey"></a>
-### 2. Viewers watch one story become part of a coherent product
+### 2. Viewers watch one story splash onto the product and become part of it
 ```json dough-story-state
 {"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
 ```
 
-- **For / why:** Viewers need to see, in motion, the causal chain from desire to
-  a changed coherent product. Terry needs to judge the rhythm of impact and
-  recovery.
-- **Visible outcome:** A short film of about 30–45 seconds, rendered in
-  `terry-moves`, that animates the approved storyboard for a single story.
-  Captions are written for this excerpt.
-  1. The story splits into slices.
-  2. A Structure slice lands first and reshapes existing blocks, and behavior
-     stays the same.
-  3. A Behavior slice lands, with a brief local disturbance.
-  4. Coherence returns after each slice.
-  5. Tests and decisions settle.
-  6. The spent story drops into history.
-- **Evaluation:** Terry judges the movement against the storyboard. A
+- **For / why:** Viewers need to see, in motion, the chain from desire to a
+  changed, coherent product. Terry needs to judge the fun and the rhythm of
+  splash and recovery.
+- **Visible outcome:** A short square film of about 30–45 seconds, rendered in
+  `terry-moves`, that animates the approved storyboard for a single story, with
+  captions for this excerpt:
+  1. The ball flies in.
+  2. It splats across behavior and structure boundaries.
+  3. The product wobbles, messy and unstable.
+  4. Behavior is reconciled and structure reorganized, into a coherent product
+     that is visibly changed.
+  5. The spent story drifts back into history.
+- **Evaluation:** Terry judges the movement and tone against the storyboard. A
   representative viewer is asked what changed, what remains, and where the
   story went, and their answers are recorded as given.
-- **Value / learning:** Tests whether motion conveys "disturbance is brief and
-  local, and coherence returns at every step." Terry specifically rejected the
-  previous treatment of this.
-- **Boundary:** One story, from Taken to history. Backlog reordering, dropped
-  stories, and the retrospective loop belong to story 3.
+- **Value / learning:** Tests whether cartoon motion makes assimilation read
+  clearly, not as a reset or as a permanent stain.
+- **Boundary:** One story, from backlog to history. Several stories over time
+  belong to story 3.
 - **Effort hypothesis:** Unbanded. Carries the main motion uncertainty.
 - **Depends on:** Story 1's storyboard, approved or revised.
 - **Safe stopping point:** An independently watchable short explanation with
   editable source and a reproducible render.
 
 <a id="full-cycle"></a>
-### 3. Viewers follow the whole idea: a living backlog feeding a product that stays coherent over time
+### 3. Viewers follow the whole idea as stories come and go while the product stays coherent
 ```json dough-story-state
 {"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
 ```
 
 - **For / why:** Viewers need the complete argument: stories are temporary
-  transitions while the product persists. Terry needs to assess pacing and the
+  transitions, while the product persists. Terry needs to assess pacing and the
   ending.
-- **Visible outcome:** The complete film. It opens with the three dimensions
-  and the romantic nature of stories. It shows the backlog as a living queue:
-  ordered by direction, reordered by value and learning, one story dropped, and
-  a correction jumping ahead. It includes story 2's journey. It shows several
-  stories over time leaving a product with no scars, while history accumulates
-  out of the way. It ends with the retrospective feeding learning back and the
-  next story approaching.
+- **Visible outcome:** The complete square film, in these beats:
+  1. The product space and the backlog along Time.
+  2. What makes a story romantic.
+  3. Story ≠ feature: one ball colors several cells, and a cell carries colors
+     from many past balls.
+  4. Story 2's splash and assimilation.
+  5. More stories over time. The product keeps changing yet stays coherent and
+     unscarred, while spent stories pile up out of the way in history.
+  6. A closing line: stories should be romantic; products should not.
 - **Evaluation:** After watching silently, viewers can explain what separates a
   story from a feature, why the product has no scars, and where the old stories
-  went. Terry judges fidelity and pacing end to end.
-- **Value / learning:** Delivers the full explanation. Tests whether the model
-  holds across many stories without becoming noisy.
+  went. Terry judges fidelity, tone, and pacing end to end.
+- **Value / learning:** Delivers the full explanation. Tests whether the splash
+  language holds across several stories without becoming noisy.
 - **Boundary:** Extends story 2's motion language rather than inventing a new
-  one. Release polish, audio, branding, and publication are out of scope.
+  one. Release polish, audio, and publication are out of scope.
 - **Effort hypothesis:** Unbanded. The broadest production work in the set.
 - **Depends on:** Story 2.
 - **Safe stopping point:** A complete, watchable working cut with editable
@@ -222,12 +216,12 @@ These are non-executable candidates. None of them authorizes execution.
 {"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
 ```
 
-- **For / why:** Terry needs a dependable artifact for talks, courses, and the
-  Open Dough introduction.
-- **Visible outcome:** The final export with resolved readability, pacing, and
-  continuity, plus any agreed audio treatment.
-- **Evaluation:** Watch it end to end at the intended viewing size, with and
-  without sound. Terry judges the final effect.
+- **For / why:** Terry needs a dependable, shareable artifact that explains the
+  idea on its own.
+- **Visible outcome:** The final square export with resolved readability,
+  pacing, and continuity, plus any agreed audio treatment.
+- **Evaluation:** Watch it end to end at phone size, with and without sound.
+  Terry judges the final effect.
 - **Boundary:** Fixes issues observed in story 3. New formats and new scenes
   are new scope, and creating the export does not authorize publication.
 - **Effort hypothesis:** Unbanded. Depends on feedback and on whether audio is
@@ -248,64 +242,38 @@ These are non-executable candidates. None of them authorizes execution.
 
 ## Ordering and scope reduction
 
-Order: 1 → 2 → 3 → 4. Story 1 comes first because the last effort failed on the
-intention, not on production quality. Story 2 comes before 3 because
-"coherence returns after each slice" is the hardest motion to get right, and it
-decides whether the full film is worth making.
+Order: 1 → 2 → 3 → 4. Story 1 comes first because the last effort failed on
+intention and tone, not on production quality. Story 2 comes before 3 because
+a splash that reads as assimilation, rather than as a reset or a stain, is the
+hardest motion to get right.
 
-- **Safe stopping points:** A storyboard alone is a useful slide sequence. The
-  short journey film is a standalone explainer.
-- **Reduce scope in this order:** first the optional audio, then decorative
-  artwork, then some queue events in story 3 (a dropped story, a correction
-  jumping ahead).
-- **Keep the core:** slices landing on both axes, coherence restored, judgment
-  becoming decisions, and the spent story going to history.
+- **Safe stopping points:** A storyboard alone is an illustrated explanation,
+  and the one-splash film is a standalone explainer.
+- **Reduce scope in this order:** first optional audio, then decorative
+  artwork, then the number of extra stories in story 3's "over time" beat.
+- **Keep the core:** the splash across boundaries, assimilation into a
+  coherent changed product, and the story going to history.
 
 ## Open decisions
 
-These are proposals, not Terry's decisions. They are recorded because they
-change the stories' outcomes:
-
-- **Format and length:** carry forward the square frame and about three
-  minutes for story 3, or choose again (for example, 16:9 so it can drop into
-  talks). This is proposed to be settled during story 1.
-- **Open Dough visibility:** keep the film tool-neutral about the idea, or end
-  by naming Open Dough as the working implementation. The proposal is
-  tool-neutral, with an optional closing credit.
-- **The projectile:** keep a projectile at all, or let a fuzzy coral story
-  split into slices before contact. The proposal is a fuzzy story that splits,
-  with no weapon imagery. Terry's earlier bomb/missile direction belonged to
-  the rejected effort, and he should confirm whether it still stands.
-- **Where human judgment appears:** show it as a figure (humans own decisions,
-  agents carry delegated judgment) or keep it abstract. The proposal is
-  abstract, with an optional human hand at the moment of decision.
+- **Length of the full film:** the previous effort used about three minutes.
+  The lighter tone may suit a shorter film. Settle this during story 1 or 3.
+- **Audio:** keep the film silent-first, with optional playful sound effects.
+  Decide at release.
 
 ## When to surface
 
-After the TPS and AI talk is conference-ready, which is the current
-near-future direction, or earlier if Terry selects story 1. Story 1 is cheap
-enough to run alongside that work.
+Whenever Terry chooses to digress from the TPS and AI work. Story 1 is cheap
+enough to run alongside it.
 
 ## Breadcrumbs
 
 - Intention: [essay](romantic-stories-disciplined-products.md) and
   [flip chart](story-driven-product-space.jpg).
-- The rejected effort, recoverable from Git: seed `e657ee8:Story Driven/seed.md`
-  (the original intention, before it drifted to the missile) and
-  `7a5ac06:Story Driven/seed.md`. Plan `7a5ac06:.planning/quick/006-revised-story-driven-cut/PLAN.md`.
-- Open Dough (`~/git/open-dough`):
-  - ADR 0001 defines Story as a "romantic, speculative account".
-  - ADR 0008 (Proposed) describes story, feature, and structure as three related
-    dimensions.
-  - ADR 0002 principles cover whole product, PFE / one representation, reducing
-    the judgment left in the repository, and stop-and-fix.
-  - ADR 0005 §5 covers deleting spent evidence.
-  - `dough-story-decomposition/references/problem-decomposition.md` covers the
-    3V gate and Behavior/Structure slices.
-  - `dough-post-change-refactor` covers restabilizing before commit.
-  - `dough-story-wrap-up` covers assimilating lasting knowledge, the
-    before-cleanup commit, and deleting spent history.
-  - `dough-execution-retrospective` covers the learning loop.
-  - `dough-pfe` covers Proudly Found Elsewhere.
+- The rejected effort can be recovered from Git: the original seed
+  `e657ee8:Story Driven/seed.md` and the last seed `7a5ac06:Story Driven/seed.md`.
+- Concept confirmation only: Open Dough's ADRs (`~/git/open-dough/docs/adrs`,
+  for example ADR 0001, where Story is a romantic, speculative account) define
+  the same concepts.
 - [ADR-0000](../docs/adrs/0000-use-adrs-accepted.md) keeps durable
   decisions with Terry. This seed makes no platform decision.
