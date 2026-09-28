@@ -21,8 +21,7 @@ change, report empty scope and use the completion handoff below without edits
 or tests.
 
 For a nonempty change, resolve this project's navigation, domain vocabulary,
-production subsystem boundaries and applicable architectural decisions, file-size
-limits and exemptions, tooling wrapper,
+production subsystem boundaries and applicable architectural decisions, tooling wrapper,
 whitespace check with generated-artifact exclusions, and focused test commands.
 Resolve generation triggers and commands only when affected. If necessary
 context is missing, report it and stop without claiming completion.
@@ -65,10 +64,13 @@ any conflict for human resolution before the conflicting edit.
 
 If a candidate needs coordinated production refactoring in more than one
 production subsystem, stop before editing unless the human has authorized that
-named concept and those subsystems. Generic cleanup authorization is insufficient. Tests,
-fixtures, generated artifacts, and configuration following one production seam
-do not alone constitute a crossing; neither does the original behavior change
-spanning subsystems.
+named concept and those subsystems, or the active plan specifically identifies
+the cross-subsystem structure as necessary for the current authorized
+responsibility. The plan must connect the concept, affected boundaries, and
+current outcome; an inferred benefit, generic cleanup authorization, or a later
+story is insufficient. Tests, fixtures, generated artifacts, and configuration
+following one production seam do not alone constitute a crossing; neither does
+the original behavior change spanning subsystems.
 
 If this crossing becomes apparent during editing, stop before the first
 cross-subsystem edit and reverse only this agent's edits for that candidate.
@@ -82,21 +84,35 @@ source generator and validate consumers; never manually repair generated output.
 
 ## Verify edits
 
-When the caller supplied `proof:` commands, rerun only those whose covered
-behavior or paths the refactor invalidated. If the covered boundary moved,
-explain why the original command no longer applies and run a focused replacement.
-Without supplied proof, run focused tests related to the refactor edits. Use
-this project's literal commands and the shared
+When the caller supplied accepted proof, compare each refactor edit with its
+reported boundary, implementation, setup, and observation locations. Identify
+which accepted proof remains unchanged and which the refactor invalidated;
+unchanged proof requires no rerun. Rerun only commands whose covered behavior or
+paths the refactor invalidated. If the covered boundary moved, explain why the
+original command no longer applies and run a focused replacement. Without
+supplied proof, run focused tests related to the refactor edits. Use this
+project's literal commands and the shared
 [behavioral test guidance](references/refactor-checks.md#tests-as-behavioral-documentation).
-Do not run the full suite. Fix failures caused by the refactor and require
+Do not run the full suite. Own any verification command that yields a running
+command identity through its terminal result under the shared
+[verification ownership](../dough-execute-plan/references/delegation.md#own-verification-to-its-terminal-result)
+rule. Fix failures caused by the refactor and require
 passing relevant proof before completion. Report other unresolved failures to
 the caller; do not claim success.
 
 ## Return control
 
-On completion, report checks that changed code, files renamed, extracted, split,
-or deleted, passing test commands or `skipped — no refactor edits`, and approximate
-active elapsed time. End with `## REFACTOR COMPLETE`.
+On completion, return a targeted report with the refactor outcome, every path
+and conceptual or product boundary changed by refactoring, and checks that
+changed code. For each relevant accepted proof, name whether its boundary and
+inspected locations stayed unchanged or which edit invalidated them. For
+invalidated or replacement proof, report the literal command, result, and
+concrete setup and assertion or signal locations. Also report files renamed,
+extracted, split, or deleted; unresolved gaps or contradictions; consequential
+learnings; passing test commands or `skipped — no refactor edits`; and
+approximate active elapsed time. Do not attach routine raw traces, full command
+logs, or a duplicate full diff; the caller inspects the reported locations. End
+with `## REFACTOR COMPLETE`.
 
 For a disputed plan restriction, return the shared plan-conflict handoff and end
 with `## REFACTOR JIDOKA STOP`; the caller must resolve it before treating the

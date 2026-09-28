@@ -1,405 +1,228 @@
 ---
 name: dough-execution-retrospective
 description: >-
-  Reviews one completed or in-progress plan execution against its original story,
-  aggregate commit set, current whole-product architecture, and test suite. Use for an execution
-  retrospective, product review, or backlog recommendation even when cleanup
-  removed the plan or the user supplies only a partial reference. `--skip-process`
-  and `--skip-product` omit those reviews independently. May plan unresolved
-  implementation findings, record supported process findings in `DearDough.md`,
-  and recommend product work; never implements them.
+  Reviews planned, completed planless quick, or quick-to-planned execution against
+  original intent, aggregate commits, current whole-product architecture, and tests,
+  including after cleanup. Process review is opt-in: it runs only when the project sets
+  `skipProcessRetrospective: false` or the request asks to include it, and needs available
+  agent history. Use for execution retrospective, product review, or backlog
+  recommendations from current/supplied history. Supports `--skip-process` and `--skip-product`.
+  May plan corrections, record process findings in `DearDough.md` (500-line warning, 1,000-line
+  ceiling, recoverable lower-priority replacement on overflow), and recommend product work; never
+  implements findings.
 ---
 
 # Review an execution
 
-Recover what one plan intended, identify the commits that executed it, and
-review their combined outcome, current product architecture, and whole test suite. By default,
-cover implementation, process, and
-product learning. Leave the project with evidence and, only when needed, a
-plan for bounded corrections. Do not implement, commit, or push those
-corrections. A retrospective authorizes product recommendations; it does not grant
-backlog-write authority. Leave the completed plan and routine
-completion or backlog actions for
+Review implementation and product learning by default, and process when enabled. Return evidence
+and needed correction plans; do not implement, commit, push, or change the backlog. Leave closure to
 [dough-story-wrap-up](../dough-story-wrap-up/SKILL.md).
+
+An execution retrospective may start once implementation is delivered while its
+applicable CI result remains pending. Treat the retained observer, publication
+target, accepted revision, and pending state as input, not as a missing
+completion prerequisite. Review the delivered implementation while observation
+continues and state which conclusions remain conditional on unresolved CI. Do
+not invoke the CI wait, stop or replace its observer, acknowledge its events, or
+claim final execution/review handoff; the invoking execution owns those actions
+through its [completion operation](../dough-execute-plan/references/ci-monitor.md#await-the-applicable-revision-at-completion).
 
 ## Select reviews
 
-Ordinary invocation considers implementation, process, and product review.
-`--skip-process` omits process analysis and recording, including any
-`DearDough.md` write when that destination exists. `--skip-product` omits
-product analysis and suggestions. Both flags may be supplied together.
-Neither skips implementation review or its correction planning.
+Select reviews before focus-specific actions or context, including log-location resolution.
+Independent, combinable `--skip-process` and `--skip-product` omit their analysis, suggestions,
+and destination access/writes. Unresolved process selection excludes that focus too. Other
+reviews retain their authority, implementation planning, and direction consideration.
 
-Choose the enabled set before loading focus-specific context or acting on that
-focus. Skipped product review does not suppress the shared direction consideration
-in implementation or enabled process review. Do not covertly review a skipped
-focus or write its destination.
+Read this project's optional `<established-planning-directory>/open-dough.json` (default:
+`<project-root>/.planning/open-dough.json`), not a skill-local or other project's file.
+Expect a JSON object with optional boolean `skipProcessRetrospective`: `false` enables process;
+missing file/key or `true` skips it like `--skip-process`. Ignore unknown keys; never create,
+rewrite, or repair it.
 
-## Work from these principles
-
-- **Original intent is the contract.** Recover the story, boundaries, approved
-  changes, and promised proof before judging implementation.
-- **Commit membership needs evidence.** A nearby commit is not part of the
-  execution merely because it is in the same range.
-- **Judge the aggregate result and current architecture.** Review the combined
-  execution outcome and the whole product's conceptual structure, including
-  relevant untouched code. Delivery decomposition is not a design objective;
-  coincident product boundaries need independent domain justification.
-- **Current truth decides remediation.** Report later fixes and do not plan work
-  that is already resolved.
-- **Plan state decides the destination.** Amend an unfinished plan; create a
-  follow-up plan only for a completed execution.
-- **The user owns disputed scope and constraints.** Stop when evidence cannot
-  distinguish two plans or when a finding would change the story rather than
-  correct it. Use the shared
-  [plan-conflict handoff](../dough-execute-plan/references/execution-decisions.md#resolve-a-disputed-plan-restriction)
-  for apparently accidental contractual restrictions; plan compliance does not
-  settle their justification.
-- **Product learning is not an implementation defect.** Keep product
-  recommendations out of correction plans and process findings.
-- **Direction is a criterion, not a deliverable.** Question alignment of
-  work and process with the established near-future direction; never propose
-  or edit that text.
+Explicit process selection overrides storage, including errors: `--skip-process` skips;
+an include-process request enables without a new flag. Clarify contradictory instructions.
+Otherwise unreadable/malformed/non-object JSON or non-boolean recognized values leave selection
+unresolved: report error, omit process analysis/log access, and continue independent reviews.
 
 ## Resolve this project's context
 
-Require one useful clue: a capability or story phrase, plan path, commit, or the
-current execution conversation. Resolve this project's plan and story locations,
-status vocabulary, cleanup lifecycle, repository navigation, and focused test
-commands. Preserve existing working-tree changes.
+Start from a capability/story phrase, correction plan, commit, or current/supplied conversation.
+Resolve project navigation, focused tests, cleanup lifecycle, relevant plan/story locations and
+statuses, and direction; backlog conventions only for dependent product recommendations.
+Missing decision-relevant context stops that path with a named gap, not invented conventions.
+Preserve worktree changes. Separate report artifacts require a request; allowed writes are
+correction plans, a new correction's minimal story, and process recording below.
+Quick inputs follow the recovery rules below.
 
-Resolve this project's established near-future direction when present. When
-product review is enabled, resolve backlog and canonical-story conventions when
-that review needs them. Do not invent a direction, backlog, or seed location.
+### Write only in an owned checkout
 
-If context needed for a review decision is missing, name it and stop that path.
-Do not invent a plan location, completion rule, or project convention.
-Return retrospective evidence in the response; do not create a separate artifact
-unless the user asks. Keep the repository read-only except for the process log
-and an allowed plan update described below.
+Make every allowed write in one owned checkout. When an invoking execution supplies its execution
+checkout as the write location, write there; that execution commits those records in its
+completion commit. Otherwise, immediately before the first write, select or reuse an owned workspace under
+[prepare records in an owned workspace](../dough-story-refinement/references/preparation-workspace.md),
+write there, and report the written result's pending disposition. Do not write in the checkout the review
+started from unless it is that supplied execution checkout. A review that writes nothing creates no
+workspace. Resolve the process-log path and correction story and plan locations in the chosen checkout.
 
-Read [dough-post-change-refactor](../dough-post-change-refactor/SKILL.md) and its
-refactor checks before assessing refactoring residue; apply its smell definitions
-to the aggregate result without running its editing workflow. Read
-[dough-slice-planning](../dough-slice-planning/SKILL.md) only when unresolved
-findings need planning, then follow its
-[bounded-correction entry](../dough-slice-planning/SKILL.md#require-an-understood-story),
-proof, sizing, and destination gates. Read [dough-product-backlog](../dough-product-backlog/SKILL.md) only when
-product review is enabled and recommendations depend on those conventions.
+Before residue assessment, read [refactoring](../dough-post-change-refactor/SKILL.md) and its
+checks; use the smell definitions on the aggregate result without editing. For needed correction
+planning, load [slice planning](../dough-slice-planning/SKILL.md#require-understood-planning-input)
+and follow its bounded-input, proof, sizing, and destination gates. Load [backlog guidance](../dough-product-backlog/SKILL.md)
+only for dependent enabled recommendations.
 
 ## Recover one execution
 
-Search the current conversation, current planning material, and Git history in
-that order. A partial reference or a plan removed by normal cleanup is sufficient
-when history identifies it. Recover the earliest execution-ready plan, its story
-and intended outcome, and any later changes supported by user approval or new
-evidence.
+Search conversation, supplied history, current planning, then Git history. Establish whether
+work was planned, explicitly planless, quick-to-planned, or planned with normal cleanup.
+File absence establishes none of these. Recover original intent before judging implementation:
 
-Determine completion from the latest plan state and execution evidence, not file
-presence. Any planned or in-progress slice makes the plan unfinished. A deleted
-plan needs history evidence of completion. If two candidates remain equally
-plausible, ask the user to choose and do not combine them.
+- **Planned:** recover the earliest execution-ready plan, story/correction input and outcome,
+  then later changes supported by approval or new evidence. Partial references and removed
+  plans suffice when history identifies them; removed plans remain planned executions.
+- **Quick:** require conversational evidence of explicit planless selection. Recover canonical
+  goal, boundaries, examples, promised proof, approved changes, related changes/commits, and
+  available proof. Use current chat when sufficient, otherwise supplied transcript; invent no
+  historical plan or substitute execution record.
+- **Quick-to-planned:** recover conversational quick selection/attempt and the ordinary
+  same-source remaining-work plan. Preserve compatible attributable quick work/proof as such,
+  not earlier planned slices; recover later slices/changes normally. Both parts form one execution.
 
-Build a manifest of related commits. Include each SHA with a reason grounded in
-the plan, commit message, diff, or execution transcript. Inspect intervening
-commits and exclude unrelated work. Treat planning-only commits as provenance,
-not product findings.
+Completion requires every planned slice done (history proves deleted plans), or quick
+conversation/repository proof of delivered outcome. Quick-to-planned needs a completed remaining
+plan plus quick/planned proof covering the original outcome without gaps or assumed repeated work.
+Missing kind, continuity, contract, completion, or proof limits dependent conclusions only.
+Two equally plausible executions need user selection; continue independently supported review.
+Pending CI alone does not make delivered implementation incomplete. Preserve its
+explicit pending state and do not convert it into passing validation.
 
-Use one net diff only when the implementation commits form an uncontaminated
-range. Otherwise review the selected patches together and inspect their files at
-the last related implementation commit. Never mutate the worktree to reconstruct
-history or mix later work into the historical boundary.
+Manifest each related SHA with a reason from story/plan, retained published revisions, message, diff, or transcript. When those published revisions exist, they are the related set; do not attribute a whole-trunk range, interleaved sibling work, or a rewritten unpublished SHA (use its published replacement).
+Inspect nearby/intervening commits and exclude unrelated work with reasons.
+Ambiguous attribution limits claims; planning-only commits are provenance.
+Use a net diff only for an uncontaminated range, otherwise selected patches together and files at the last related implementation commit.
+Review history read-only, excluding later work.
 
 ## Consider near-future direction
 
-For every enabled review, treat the established near-future direction as a
-high-priority criterion. Read it once from the resolved project location. If it
-is missing, say alignment cannot be assessed against an established direction
-and continue the independently supported reviews. Otherwise question apparent
-alignment and digression. Explain justified exceptions such as urgent fixes. Do
-not merely assert that the work fits.
-
-Route a supported deviation through that review's existing authority:
-
-- Implementation: supported defects and architectural weaknesses go to bounded
-  correction planning under current truth. A needed product-constraint or
-  promised-outcome change is the user's decision, not a rewritten historical
-  contract.
-- Process: produce a process recommendation; do not add it to an
-  implementation correction plan.
-- Product: recommend work or priorities. Do not treat a direction mismatch as
-  an implementation defect.
-
-A later change in direction does not retroactively make approved historical work
-a defect. Judge that work against its original approved contract; use today's
-direction only for remaining or proposed work.
-
-Never propose or apply a replacement or revision of the direction itself.
+Read direction once, prioritizing alignment/digression questions and explaining exceptions (e.g.
+urgent fixes). If absent, report unassessed alignment and continue; never invent, propose, or edit it.
+Route defects to corrections, process learning to findings, and product learning/priorities to advice.
+Users own constraint/outcome changes. Historical contracts stand; later direction governs future work.
 
 ## Review the outcome
 
-Apply the shared direction consideration. Then compare the story contract and
-approved changes with the aggregate code, tests, documentation, and proof at
-the execution boundary. For the historical assessment of an unfinished plan,
-judge only the completed slices;
-do not call unexecuted planned behavior missing or its explicitly temporary
-predecessor obsolete.
+Compare original intent, boundaries, approved changes, and promised proof to aggregate code,
+tests, docs, and proof. Assess only completed slices of unfinished plans; unexecuted work is not
+missing behavior, nor its temporary predecessor obsolete. Findings need evidence and plausible
+impact: bugs, regressions, drift/disputes, refactoring residue, architecture, or test coverage/cost.
 
-Keep only findings with concrete evidence and plausible impact:
+Assess whole-product domain responsibilities, dependencies, and representations, including relevant
+untouched code. Check coherent rules versus successive-example cases and explain impact, such as
+divergent rules or coordinated edits. Delivery sequence cannot justify boundaries; helpers alone
+cannot prove cohesion. Apply [ADR awareness](../dough-adr-awareness/SKILL.md) with human-owned conflicts.
+Older weaknesses may need correction; only provenance establishes an execution regression.
 
-1. bugs or regressions;
-2. story drift or an unresolved scope dispute;
-3. refactoring residue in complete implicated concepts;
-4. consequential weaknesses in the current whole-product architecture; and
-5. test coverage or execution-cost findings under the shared behavioral test guidance.
+Identify whether E2E tests drove development, then assess the whole suite, including older tests
+and executions adding no E2E tests, under [behavioral test guidance](../dough-post-change-refactor/references/refactor-checks.md#tests-as-behavioral-documentation).
+Ground retention, detail downgrades, and consolidation in coverage/cost; preserve journey
+information and integration proof. Use project testing guidance or the shared black-box fallback.
+Whole-suite assessment needs no full run; use focused read-only checks to confirm/dismiss findings.
 
-Assess overall responsibilities, dependencies, and representations against the
-product's domain, not the story sequence. Ask whether successive examples
-exercise a coherent model or accumulate special cases. Use the shared refactor
-checks for concrete concept examination; shared helpers alone do not establish
-cohesion. Follow architectural evidence beyond the changed files to relevant
-untouched code, and explain the concrete impact of a weakness, such as divergent
-domain rules or changes requiring repeated coordinated edits. Whole-product
-assessment is required; it does not require speculative redesign or treating
-cosmetic preferences as defects. Apply
-[dough-adr-awareness](../dough-adr-awareness/SKILL.md) to genuine architectural
-constraints and leave conflicting decisions with the human.
-
-Keep historical attribution separate from current assessment: only claim this
-execution introduced a defect when its provenance supports that claim. An older
-weakness can warrant current correction without becoming an execution regression.
-
-Identify whether E2E tests drove this execution's development, then assess the
-whole suite, including older tests outside the story, using
-[tests as behavioral documentation](../dough-post-change-refactor/references/refactor-checks.md#tests-as-behavioral-documentation).
-No newly added E2E tests does not exempt existing coverage from review. Ground
-retention, detail downgrades, and overlap consolidation in actual coverage and
-cost findings; preserve important journey documentation and integration proof.
-Use the project's testing guidance when supplied and the shared black-box
-fallback otherwise. Whole-suite assessment does not require running every test.
-
-Look explicitly for additions later worked around or replaced: dead branches,
-flags, callers, fixtures, compatibility paths, overlapping tests, tests of
-obsolete internals, and documentation that preserves implementation history
-instead of product truth. An explicit user decision is not drift. Style
-preferences, speculative redesigns, duplicate symptoms, and unsupported claims
-are not findings. Do not retain a negative test or documentation merely to prove
-that temporary behavior is gone unless its absence is an enduring requirement.
-
-Surface a disputed plan restriction through that handoff before planning its
-removal. Leave the disputed correction pending the human decision, retain genuine
-constraints, and continue independently supported reviews. Do not silently
-rewrite the historical contract or treat preservation as resolution.
-
-Use focused read-only checks when they can confirm or dismiss a finding. Do not
-run broad suites.
+Inspect worked-around/replaced branches, flags, callers, fixtures, compatibility paths, overlapping/
+obsolete-internal tests, and historical documentation. Removed temporary behavior warrants negative
+proof/docs only when absence remains required. Exclude cosmetic/speculative/unsupported findings,
+duplicate symptoms, and approved decisions mislabelled as drift. Before planning removal of a
+disputed restriction, use [plan-conflict handoff](../dough-execute-plan/references/execution-decisions.md#resolve-a-disputed-plan-restriction).
+Preserve genuine constraints; await human resolution of disputed corrections while independent
+review continues. Plan compliance alone does not settle justification.
 
 ## Reconcile findings with current truth
 
-Recheck every finding against the current revision and working tree. Report a
-later fix and deduplicate remaining findings by root cause. Use current evidence
-to bound needed corrections across the product, including outside the old
-story's implementation footprint. Preserve existing product promises and genuine
-constraints using the shared
-[scope distinction](../dough-story-refinement/references/planning.md#examples-and-constraints);
-review reach does not authorize new feature promises. If none remain, leave
-planning unchanged.
+Recheck findings against current revision/worktree; report later fixes and deduplicate by root
+cause. Current evidence bounds corrections, including beyond the old footprint, while preserving
+[scope and promises](../dough-story-refinement/references/planning.md#examples-and-constraints).
+No findings means unchanged plans; broader review grants no new feature promises.
 
-Give unresolved test downgrades and consolidation, including older redundant
-tests, explicit ownership in the bounded correction plan. Name the retained
-meaningful coverage and integration proof for consolidation; existing retained
-E2E coverage may suffice. For detail downgrades, make replacement unit coverage
-a prerequisite to removing or narrowing the corresponding E2E tests. Apply the same current-truth and
-destination rules as other corrections; the retrospective plans suite cleanup
-and does not perform it.
+Give suite cleanup explicit correction ownership, including older redundant tests. For consolidation,
+name surviving meaningful coverage/integration proof (retained E2E may suffice). For detail downgrades,
+require replacement unit coverage before narrowing/removing E2E tests. Plan cleanup; do not perform it.
 
-For an unfinished plan, update that plan in place. Preserve completed and
-in-progress evidence and history; place corrective work before still-planned
-work and revise overlapping planned slices instead of duplicating them. Do not
-renumber completed slices. Record the finding and reviewed commit manifest as a
-concise learning when this project's plan format supports it.
+- **Unfinished plan:** amend in place; retain completed evidence/resume history and numbering.
+  Put corrections before remaining work, revise overlapping slices instead of duplicating them,
+  and record findings/manifest as concise learning when the project format supports it.
+- **Planless, completion unresolved:** return evidence and exact completion/proof/attribution gaps.
+  Original unfinished work is not yet a completed-execution correction; reconstruct no plan or
+  create a correction destination until the completed execution boundary is established.
+- **Completed execution:** create one follow-up through slice planning in the established location:
+  its minimal story in a suitable seed, linked to the plan under the
+  [correction input](../dough-story-refinement/references/planning.md#choose-the-planning-level);
+  original contract/manifest as provenance; current findings as scope/evidence; bounded outcome,
+  concepts, impact, preserved behavior, and focused proof. Keep historical promises/attribution intact.
+  Changing promises/constraints or findings that cannot form one bounded correction need user decision.
 
-For a completed execution, use `dough-slice-planning` to create one follow-up
-plan in this project's established location. Cite the original story and commit
-manifest as historical provenance, and the current findings as the correction's
-scope and evidence. State one bounded correction outcome, affected concepts,
-concrete impact, preserved behavior, and focused proof. This may reach beyond the
-original story without rewriting its promises or attributing older defects to
-it. If correction would change product constraints or promised outcomes, stop
-for the user's decision. Stop likewise when the findings cannot form one bounded
-correction.
-
-When two authorized reviews cover the same plan, only the designated writer
-reconciles findings into it; the other reviewer returns read-only evidence.
-After any planning change, do not refine or execute that correction unless the
-user separately requests it. Continue every other enabled review, then
-report. That restriction applies to correction refinement and implementation, not
-to other enabled reviews.
+Only the designated writer changes the plan when two authorized reviews cover one execution;
+the other returns evidence. Continue enabled reviews; writing the follow-up neither queues nor
+authorizes it; a separate request executes the correction, and [dough-execute-plan](../dough-execute-plan/SKILL.md) publishes it through [increment and repair publication](../dough-execute-plan/references/trunk-publication.md#publish-an-execution-increment-or-repair). This review does not publish.
 
 ## Review process only from a real record
 
-When process review is enabled, apply the shared direction consideration, then
-when the current conversation or a sufficiently complete transcript contains the
-execution, separately identify evidence-backed process improvements: wasted
-work, rule-induced churn, a missing stop condition, a disproved sizing or
-decomposition assumption, avoidable digression from direction, or a useful
-practice to learn. Consider whether instructions were concise and context was
-organized for easy consumption, including this retrospective's own avoidable
-rereading, duplication, or reconstruction. Distinguish necessary investigation
-from avoidable waste.
+Review the coordinator's existing conversation and tool results. Inspect relevant
+sub-agent history through available host access when needed. If required history
+is unavailable, report the affected process review unavailable and continue
+independently supported reviews. Persist supported findings under the recording
+rules below; execution state follows the project's plan and Git conventions.
 
-Record observations separately from inferred cost and cause. Use token counts
-only when they are available in the record; otherwise cite the repeated work and
-qualify the cost. Neither shorter text nor skipped necessary investigation proves
-improvement. If the record is insufficient for a process conclusion, state that
-limit instead of manufacturing a finding. Do not infer missing events, edit
-guidance, require token measurement, or recursively launch another retrospective.
-Do not put process proposals into the repository correction plan.
+Use that history and the user's direction to identify waste, rule-induced churn,
+missing stops, disproved sizing/decomposition, digression, and useful practices. Assess instruction
+and context usability, including this review's avoidable rereading, duplication, and reconstruction.
+Separate necessary investigation, observation, and inferred cost/cause. Cite recorded token counts
+or repeated work with qualified cost; brevity/skipped investigation alone proves no gain. Insufficient
+records limit conclusions: invent no events, edit no guidance, require no measurements or recursive
+review. Process proposals stay outside correction plans.
 
 ### Record supported process findings
 
-After process analysis, record its supported findings in the project's canonical
-`DearDough.md`. This is a narrow process-recording allowance; it does not authorize
-other project or product maintenance. Product-only findings and implementation
-corrections stay in their own destinations. Preserve every unrelated file.
+When enabled process review produces supported findings, read and follow
+[process-finding recording](references/process-finding-recording.md). No findings
+or an identified identical rereview means no log change or reference load;
+skipped or unresolved process review does not access the log or its recording
+references.
 
-Apply `--skip-process` before resolving, checking, or reading the log location.
-When process review is skipped, do not create, read, or edit the log. When enabled
-review yields no supported process finding, do not create an empty log and leave
-an existing log unchanged. `--skip-product` does not suppress process recording.
+## Review product learning
 
-Use `<project-root>/DearDough.md` unless the user or this project's conventions
-explicitly establish another canonical location for that filename. An explicit
-location wins over the root default. Do not search other projects or invent an
-alternative. If the project root or canonical location is missing or conflicting,
-return the findings with that limitation and stop recording only; continue every
-independently supported review.
+Inspect direction and relevant queue entries/stories; unrelated urgent fixes need no queue survey.
+Preserve priorities; connect supported learning to recommendations or reasoned no-change. Unread
+entries stay unvalidated; inspirations are hypotheses. Unknown beneficiaries/outcomes warrant an
+exploration proposal, not discovery/decomposition. Missing conventions leave conclusions provisional:
+report gaps, invent no files/learning, and continue independent reviews.
 
-Identify the reviewed execution before writing. Reuse an execution identity
-already present in the log when available. Otherwise combine its canonical plan
-or story reference with its first related implementation commit. If it has no
-implementation commit, use an available stable execution-record reference. A
-later commit, another review, or the review date does not create another
-execution. If identity evidence is missing or conflicting, return the findings
-without a countable occurrence, report the limitation, and continue the other
-reviews. Do not make an identity from today's date or introduce a tracking
-system.
+Send recommendations, proposals, and unresolved choices to [story wrap-up](../dough-story-wrap-up/SKILL.md);
+backlog/story edits require that workflow or separately requested [maintenance](../dough-product-backlog/SKILL.md).
+Leave disputed goals/scope, conflicting priorities, and unknown beneficiaries/outcomes unresolved.
 
-For a new log, write this minimal Markdown shape, assigning `DD-001` upward in
-the order of supported findings:
+## Report
 
-```markdown
-# DearDough Process Findings
+Report work identity/completion, provenance, manifest/boundary, impact-ordered findings or `none`,
+and evidence limits. Classify planning as amended, new, read-only, unchanged, or unavailable pending
+execution-boundary evidence, with a new follow-up's story and plan links. Report enabled
+process proposals and product advice/reasoned no-change; unresolved process selection reports
+its error only. Distinguish evidence from hypotheses and
+recommendations from proposals/unresolved choices. When CI is pending, report its retained target
+and revision as pending and make no success claim. End with
+`## EXECUTION RETROSPECTIVE COMPLETE`; this marker completes review, not the
+execution's final CI handoff. When this review was invoked automatically by an
+active `dough-execute-plan` execution, do not end the turn at this marker:
+return immediately to that execution's completion operation,
+without asking for confirmation. If an authorized CI repair later changes
+reviewed code, resume only the affected conclusions using the retained review
+state.
 
-## DD-001 — <descriptive issue title>
-
-<concise concrete description>
-
-### Occurrences
-
-- Execution: <stable execution identity>
-  - Tool: <Codex, Cursor, Claude Code, or another identified tool>
-  - Model: <model identifier, when available>
-  - Evidence: <decisive compact references or locators>
-  - Observed effect: <what the record shows>
-  - Inference: <qualified cause, cost, or uncertainty, only when needed>
-```
-
-Keep observation separate from inference. Use compact references rather than
-transcript copies. The occurrence rows are the count; do not add a redundant
-total. Record one-off costs, useful practices, potentially general problems,
-and supported observations about this retrospective without claiming recurrence
-or generality the evidence does not establish.
-
-Record the tool name for every new occurrence. Use the tool that executed the
-work, such as Codex, Cursor, or Claude Code, rather than the tool reviewing it.
-Record the model identifier when the execution evidence supplies it; otherwise
-omit the Model line instead of guessing or performing a separate lookup. If the
-executing tool cannot be identified, report the finding without adding a
-countable occurrence. Do not backfill older rows without supporting evidence.
-
-When the canonical log exists, maintain it only when its issue headings,
-descriptions, and occurrence rows are interpretable enough to identify the
-affected issue, execution, and next unused local ID. Preserve existing IDs,
-human notes, prior evidence, unrelated entries, and all content outside the
-smallest supported edit. Do not migrate, normalize, reorder, delete, or
-automatically merge existing content.
-
-Match an existing issue only when decisive evidence supports the same concrete
-process problem or useful practice; similar wording or symptoms do not establish
-that match. If the relationship is uncertain but the log itself is interpretable,
-create a separate issue with the next unused `DD-NNN` ID and briefly state the
-matching uncertainty. Never change another issue's ID to fill a gap.
-
-Within a matched issue, treat equal execution identities as one occurrence. An
-identical rereview makes no edit. Add only newly available decisive evidence or
-a corrected qualified conclusion to that existing row, without discarding its
-prior evidence or human notes. Evidence of the same concrete issue in a distinct
-execution adds one occurrence row. A second symptom in the same execution does
-not add a row. Keep rows as the count; do not store or update a total.
-
-If malformed or ambiguous content prevents safe identification of entries,
-executions, or the next unused ID, leave the entire existing file byte-identical
-and report a recording limitation. Do the same when a write fails. Return the
-supported findings and continue other independently supported reviews; never
-describe either case as a successful write.
-
-In the final response, give a concise recording result: the canonical path and
-created issue IDs with occurrence rows, or `unchanged`/`not recorded` and the
-reason. Do not describe a skipped, refused, or failed write as successful.
-
-Surface a concrete overlooked request, decision, warning, failed verification,
-or Jidoka stop only when the record clearly shows that it still needs user
-attention. Put this banner at the absolute end when that gate passes:
+Only with the evidenced attention need above, append this at the absolute end
+of a standalone retrospective report. For an automatic execute-plan review,
+return the attention need to the invoking execution for its final handoff:
 
 ```text
 !!!!!!!!!! DEVELOPER ATTENTION REQUIRED !!!!!!!!!!
 <the overlooked item, its impact, and the response needed>
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```
-
-## Review product learning
-
-When product review is enabled, apply the shared direction consideration, then
-inspect queue entries and canonical stories only when they are relevant to this
-execution or a supported finding. An isolated urgent fix with no connection to
-other queued work does not trigger queue investigation. Preserve existing priority
-instructions.
-
-Connect supported learning to a relevant priority or story recommendation, or
-state a reasoned no-change result. Do not claim to validate unread backlog
-entries. Do not invent learning. Label inspirations as hypotheses. When
-beneficiary or outcome is unresolved, return a concrete exploration proposal; do
-not launch discovery or decomposition.
-
-If backlog or story conventions cannot be resolved, keep product conclusions
-provisional, identify that gap, and do not invent files. Independent supported
-implementation and enabled process review still proceed.
-
-Do not apply backlog or canonical-story edits during retrospective. Report
-recommendations, remaining proposals, and unresolved choices for
-[dough-story-wrap-up](../dough-story-wrap-up/SKILL.md). Standalone
-[dough-product-backlog](../dough-product-backlog/SKILL.md) maintenance remains
-available when a human requests it separately. A skip option is never write
-authority.
-
-Leave unresolved: a disputed goal or scope, conflicting explicit priorities, and
-ideas whose beneficiary or outcome is unknown. Do not implement product or
-implementation findings.
-
-## Report
-
-Report the resolved story and completion state, provenance, included commit
-manifest and review boundary, findings ordered by impact or `none`, planning
-result, and evidence limitations. Include supported process proposals only for
-enabled process review. Include product recommendations or a reasoned no-change
-result only for enabled product review; do not report backlog writes from this
-skill. Omit skipped-focus analysis, suggestions, and destination
-writes. Distinguish evidence from hypotheses, and recommendations from
-proposals and unresolved choices. State whether planning was updated in place,
-newly generated, read-only, or unchanged. End with:
-
-`## EXECUTION RETROSPECTIVE COMPLETE`
-
-Append the attention banner after that marker only when its evidence gate
-passes; otherwise nothing follows the marker.

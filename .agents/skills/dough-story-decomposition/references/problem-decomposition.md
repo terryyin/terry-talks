@@ -100,11 +100,10 @@ retaining an externally evaluable result. Start with a concrete case before a
 general solution; extract abstractions after repetition. Keep a prototype
 bounded to the cheapest evidence needed for its question.
 
-Estimate comparatively using the project's S/M/L definitions, without code
-inspection or implementation design. Record the band, confidence, and
-assumptions. Resolve missing band definitions before writing estimates. Split
-a likely larger-than-L story using the moves above; do not equalize estimates
-by making cuts that fail the 3V gate.
+Estimate comparatively using the project's S/M/L definitions. Record the band,
+confidence, and assumptions. Resolve missing band definitions before writing
+estimates. Split a likely larger-than-L story using the moves above; do not
+equalize estimates by making cuts that fail the 3V gate.
 
 ## Order and reassess
 
@@ -124,18 +123,20 @@ belongs in executable examples and product documentation.
 ## Decompose slices
 
 Use slices only after one story or a
-[bounded retrospective correction](../../dough-slice-planning/SKILL.md#require-an-understood-story)
+[bounded retrospective correction](../../dough-slice-planning/SKILL.md#require-understood-planning-input)
 is understood and executable planning is authorized. Every slice is exactly one of:
 
 | Type | Required content | Reject when |
 | --- | --- | --- |
-| **Behavior** | Pre-condition, trigger, one externally observable postcondition, and outside-in proof | It contains independent postconditions or proof loops |
+| **Behavior** | Pre-condition, trigger, cohesive externally observable postconditions, and outside-in proof | Its postconditions or proof loops are independent |
 | **Structure** | Internal change, unchanged external behavior, and the immediate next Behavior it enables, or the retrospective correction below | It prepares beyond that Behavior or evidenced correction |
 
-Tie every Behavior to included story or correction scope and an evaluable example.
-Put preparatory Structure immediately before its Behavior. Use the splitting moves above at this finer
-resolution, but do not split tests from the Behavior they prove or create slices
-around files, layers, components, specialists, or activities.
+Tie every Behavior to story or correction scope and an evaluable example. Keep
+implementation, outside-in proof, and cleanup for one cohesive change together
+unless separation yields useful progress, learning, risk isolation, or recovery.
+Split independent outcomes or proof loops, not tests, files, layers, components,
+specialists, or activities. Put preparatory Structure immediately before its
+Behavior.
 
 For an evidenced retrospective correction that changes structure while preserving
 product behavior, a Structure slice may instead own that correction directly.
@@ -144,14 +145,15 @@ at the affected external boundaries in the same slice. Do not invent a new
 Behavior promise merely to justify the correction. Keep one bounded outcome and
 proof loop; this exception does not authorize speculative preparation.
 
-Evolve the simplest common rule supported by the current examples and domain
-constraints. Apply the shared [examples and constraints
+Evolve and implement the simplest common domain rule supported by the current
+examples and constraints. Apply the shared [examples and constraints
 distinction](../../dough-story-refinement/references/planning.md#examples-and-constraints):
 fixture counts and arrangements alone do not justify production gates. A later
 example should exercise or extend the model, not prescribe another recognizer
-or parallel representation. Do not design a generic framework for hypothetical
-cases or expand delivery and verification promises to every naturally handled
-case. Retain independently justified constraints and their rejection proof.
+or parallel representation. Deferred special behavior does not justify machinery
+for it now. Do not design a generic framework for hypothetical cases or expand
+delivery and verification promises to every naturally handled case. Retain
+independently justified constraints and their rejection proof.
 
 Assess the sequence cumulatively alongside slice size and proof ownership:
 are the examples exercising one coherent model or accumulating special cases?
@@ -162,12 +164,11 @@ Revise unsupported design prescriptions within the authorized scope; use the sha
 for disputed product or plan constraints before conflicting
 changes. Passing each slice's proof does not answer this design question.
 
-Refine a slice when it has independent postconditions or proof loops, separable
-implementation beats before a green result, hidden preparation, low confidence
-at an execution or integration boundary, or, when a hard limit is supplied, a
-plausible path beyond it. Keep a multi-beat outside-in scenario explicitly
-unfinished until it is green; never make a CI-breaking state a delivery
-boundary.
+Rework boundaries when slices fragment one result or combine independent
+postconditions, proof loops, hidden preparation, credible execution or
+integration risk, or a supplied hard-limit concern. Consolidate, split, or
+retain accordingly. Keep a multi-beat outside-in scenario unfinished until
+green; never deliver a CI-breaking state.
 
 ## Size and escalate slices
 
