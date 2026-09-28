@@ -135,4 +135,19 @@ export const flightPoint = (t: number): Point => {
 
 export const HISTORY_BOX = { left: 40, right: 236, top: 118, bottom: 286 } as const;
 
+// The History box's front lip, the floor its spent balls rest on, and the
+// shape of a spent ball: pale, emptied and slumped, wider than it is tall.
+export const HISTORY_LIP_TOP = HISTORY_BOX.bottom - 50;
+export const HISTORY_FLOOR = HISTORY_LIP_TOP + 14;
+export const spentShape = (size: number) => {
+	const r = size * 0.9;
+	return { r, rx: r * 1.14, ry: r * 0.84 };
+};
+
+// Center of the index-th of `count` spent balls resting in the History box.
+export const historySpot = (count: number, index: number, size: number): Point => {
+	const slot = (HISTORY_BOX.right - HISTORY_BOX.left) / Math.max(count, 1);
+	return { x: HISTORY_BOX.left + slot * (index + 0.5), y: HISTORY_FLOOR - spentShape(size).ry };
+};
+
 export const CAPTION_BOX = { left: 40, right: 1040, top: 880, bottom: 1040 } as const;

@@ -7,6 +7,7 @@ import { Pose } from './scene';
 import { clamp01, FPS } from './motion';
 import { backlogBeat, flightBeat, FLIGHT_SECONDS, fuzzyBeat, splatBeat, wishBeat } from './storyBeats';
 import { ASSIMILATE_SECONDS, assimilateBeat, coherentBeat, wobbleBeat } from './productBeats';
+import { HISTORY_SECONDS, historyBeat, NEXT_SECONDS, nextBeat } from './historyBeats';
 
 export { FPS };
 
@@ -38,6 +39,8 @@ export const beats: Beat[] = [
 	beat('wobble', 3.5, 'Behavior gets messy. Structure wobbles.', wobbleBeat),
 	beat('assimilate', ASSIMILATE_SECONDS, 'Development assimilates the splash…', assimilateBeat),
 	beat('coherent', 4, '…into a coherent product, changed where it matters. No scars.', coherentBeat),
+	beat('history', HISTORY_SECONDS, 'The spent story goes to history. Available, but out of the way.', historyBeat),
+	beat('next', NEXT_SECONDS, 'Ready for the next story.', nextBeat),
 ];
 
 const framesOf = (b: Beat) => Math.round(b.seconds * FPS);

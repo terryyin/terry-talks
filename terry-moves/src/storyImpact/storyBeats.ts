@@ -17,7 +17,7 @@ import {
 	storyWishes,
 } from './scene';
 import { flightPoint, HOVER, Point, traySpot } from './layout';
-import { bounce, bounceSpeed, BOUNCY, clamp01, FPS, jelly, lerp, lerpPoint, POPPY, settle, unless, WOBBLY, withoutUndefined } from './motion';
+import { between, bounce, bounceSpeed, BOUNCY, clamp01, FPS, hopping, jelly, lerp, lerpPoint, POPPY, settle, unless, WOBBLY, withoutUndefined } from './motion';
 
 const storyOf = (base: Pose, motion: Partial<StoryPose>): Pose => ({
 	...base,
@@ -36,24 +36,13 @@ export const backlogBeat = (sec: number): Pose => {
 		{ from: 0.45, to: 0.95, height: 16 },
 		{ from: 1.05, to: 1.4, height: 8 },
 	];
-	const airborne = hops.find((h) => sec >= h.from && sec < h.to);
-	const landed = hops.find((h) => sec >= h.to && sec < h.to + 0.12);
-	let hop = 0;
-	let squash = 1;
-	if (airborne) {
-		const k = (sec - airborne.from) / (airborne.to - airborne.from);
-		hop = airborne.height * 4 * k * (1 - k);
-		squash = 1 - 0.12 * Math.sin(Math.PI * k);
-	} else if (landed) {
-		squash = 1 + 0.22 * Math.sin((Math.PI * (sec - landed.to)) / 0.12);
-	} else if (sec >= 1.5) {
+	const bouncing = hopping(sec, hops, 0.12);
+	let hop = bouncing?.hop ?? 0;
+	let squash = bouncing?.squash ?? 1;
+	if (!bouncing && sec >= 1.5) {
 		// Crouch, then rise onto its toes, ready to spring out.
 		const crouch = interpolate(sec, [1.5, 1.7], [0, 1], { extrapolateRight: 'clamp' });
-		const rise = interpolate(sec, [1.7, 2], [0, 1], {
-			extrapolateLeft: 'clamp',
-			extrapolateRight: 'clamp',
-			easing: Easing.out(Easing.quad),
-		});
+		const rise = between(sec, 1.7, 2, Easing.out(Easing.quad));
 		squash = 1 + 0.2 * crouch * (1 - rise) - 0.08 * rise;
 		hop = TAKE_OFF_HOP * rise;
 	}
@@ -125,11 +114,7 @@ export const flightBeat = (sec: number): Pose => {
 	const flight = flightAt(sec);
 	if (sec < CROUCH.to) {
 		// Still fuzzy, it gathers itself: dips and squashes.
-		const k = interpolate(sec, [CROUCH.from, CROUCH.to], [0, 1], {
-			extrapolateLeft: 'clamp',
-			extrapolateRight: 'clamp',
-			easing: Easing.inOut(Easing.quad),
-		});
+		const k = between(sec, CROUCH.from, CROUCH.to, Easing.inOut(Easing.quad));
 		return storyOf(storyIsFuzzy(), {
 			at: k === 0 ? undefined : lerpPoint(HOVER, CROUCH_POINT, k),
 			squash: unless(1 + 0.3 * k, 1),

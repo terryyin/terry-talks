@@ -2,7 +2,8 @@ import { render } from '@testing-library/react';
 import { beatRange, beats, captionAt, filmDurationInFrames, FPS, poseAt } from '@/storyImpact/film';
 import { flightPoint, wallPoint } from '@/storyImpact/layout';
 import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storyIsFuzzy, storySplashes, storyWishes } from '@/storyImpact/scene';
-import { assimilating, coherentProduct } from '@/storyImpact/assimilation';
+import { assimilating, coherentProduct, readyForNext, storyInHistory } from '@/storyImpact/assimilation';
+import { boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
 const framesOf = (name: string) => {
@@ -18,7 +19,7 @@ const lastFrame = (name: string) => {
 describe('StoryImpactOneSplash', () => {
 	test('the timeline is the sum of its beats', () => {
 		expect(filmDurationInFrames).toBe(beats.reduce((sum, b) => sum + Math.round(b.seconds * FPS), 0));
-		expect(beats.map((b) => b.name).slice(0, 8)).toEqual([
+		expect(beats.map((b) => b.name)).toEqual([
 			'backlog',
 			'wish',
 			'fuzzy',
@@ -27,7 +28,34 @@ describe('StoryImpactOneSplash', () => {
 			'wobble',
 			'assimilate',
 			'coherent',
+			'history',
+			'next',
 		]);
+	});
+
+	test('the whole film lasts between 30 and 45 seconds', () => {
+		expect(filmDurationInFrames).toBeGreaterThanOrEqual(30 * FPS);
+		expect(filmDurationInFrames).toBeLessThanOrEqual(45 * FPS);
+	});
+
+	test('every storyboard caption from the wish on shows in beat order, each for at least 2.5 s', () => {
+		const runs: { caption: string; frames: number }[] = [];
+		for (let f = 0; f < filmDurationInFrames; f++) {
+			const caption = captionAt(f);
+			const last = runs[runs.length - 1];
+			if (last && last.caption === caption) last.frames++;
+			else runs.push({ caption, frames: 1 });
+		}
+		expect(runs.map((r) => r.caption)).toEqual(boards.slice(2).map((b) => b.caption));
+		runs.forEach((r) => expect(r.frames).toBeGreaterThanOrEqual(2.5 * FPS));
+	});
+
+	test('every frame of the film renders', () => {
+		for (let f = 0; f < filmDurationInFrames; f += 5) {
+			const { unmount, getByTestId } = render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
+			expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
+			unmount();
+		}
 	});
 
 	describe('the wish takes off and splashes onto the product', () => {
@@ -92,30 +120,6 @@ describe('StoryImpactOneSplash', () => {
 			expect(poseAt(lastFrame('splat'))).toEqual(storySplashes());
 		});
 
-		test('captions follow the storyboard in order, each for at least 2.5 s', () => {
-			const runs: { caption: string; frames: number }[] = [];
-			for (let f = 0; f < filmDurationInFrames; f++) {
-				const caption = captionAt(f);
-				const last = runs[runs.length - 1];
-				if (last && last.caption === caption) last.frames++;
-				else runs.push({ caption, frames: 1 });
-			}
-			expect(runs.map((r) => r.caption).slice(0, 4)).toEqual([
-				'A story is romantic: a wish for a better world.',
-				'It\'s fuzzy. It doesn\'t care about our boundaries.',
-				'It carries an impact we want in the world…',
-				'…and it makes an impact on the product: SPLAT!',
-			]);
-			runs.forEach((r) => expect(r.frames).toBeGreaterThanOrEqual(2.5 * FPS));
-		});
-
-		test('every frame of these beats renders', () => {
-			for (let f = 0; f <= lastFrame('splat'); f += 7) {
-				const { unmount, getByTestId } = render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
-				expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
-				unmount();
-			}
-		});
 	});
 
 	describe('the product wobbles and then assimilates the splash', () => {
@@ -188,23 +192,49 @@ describe('StoryImpactOneSplash', () => {
 			expect(splitting[splitting.length - 1]).toBe(1);
 		});
 
-		test('captions for these beats follow the storyboard, each for at least 2.5 s', () => {
-			const at = (name: string) => captionAt(firstFrame(name));
-			expect(at('wobble')).toBe('Behavior gets messy. Structure wobbles.');
-			expect(at('assimilate')).toBe('Development assimilates the splash…');
-			expect(at('coherent')).toBe('…into a coherent product, changed where it matters. No scars.');
-			['wobble', 'assimilate', 'coherent'].forEach((name) => {
-				expect(framesOf(name).every((f) => captionAt(f) === at(name))).toBe(true);
-				expect(beatRange(name).durationInFrames).toBeGreaterThanOrEqual(2.5 * FPS);
-			});
+	});
+
+	describe('the spent story drifts into history and the next story steps up', () => {
+		test('the history beat ends on the history board, the next beat on the last board', () => {
+			expect(poseAt(lastFrame('history'))).toEqual(storyInHistory());
+			expect(poseAt(lastFrame('next'))).toEqual(readyForNext());
 		});
 
-		test('every frame of these beats renders', () => {
-			for (let f = firstFrame('wobble'); f <= lastFrame('coherent'); f += 5) {
-				const { unmount, getByTestId } = render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
-				expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
-				unmount();
-			}
+		test('the product keeps its changed cells while the spent story leaves', () => {
+			[...framesOf('history'), ...framesOf('next')].forEach((f) => expect(poseAt(f).cells).toEqual(coherentProduct().cells));
+		});
+
+		test('the History box pops in and the pale skin peels off near the impact, then drifts to History', () => {
+			const poses = framesOf('history').map(poseAt);
+			expect(poses[0].historyReveal).toBe(0);
+			expect(Math.max(...poses.map((p) => p.historyReveal ?? 1))).toBeGreaterThan(1); // pop overshoot
+			const skins = poses.filter((p) => p.spent).map((p) => p.spent!);
+			expect(skins[0].peel).toBe(0);
+			const impact = wallPoint(IMPACT.col + 0.5, IMPACT.row + 0.5);
+			expect(Math.hypot(skins[0].at.x - impact.x, skins[0].at.y - impact.y)).toBeLessThan(1);
+			const lastSkin = skins[skins.length - 1];
+			expect(lastSkin.at.x).toBeLessThan(250); // above the History box
+			expect(lastSkin.at.y).toBeLessThan(200);
+			// While it drifts, the story is not yet in History; afterwards it is.
+			poses.filter((p) => p.spent).forEach((p) => expect(p.history).toEqual([]));
+			expect(poses.filter((p) => !p.spent && p.history!.length === 1).length).toBeGreaterThan(0);
+		});
+
+		test('the next ball hops eagerly and the final pose holds at least 1.5 s', () => {
+			const hops = framesOf('next').map((f) => poseAt(f).backlog[0].hop ?? 0);
+			expect(Math.max(...hops)).toBeGreaterThan(10);
+			expect(poseAt(lastFrame('next') - 1.5 * FPS)).toEqual(readyForNext());
+		});
+
+		test('the last frame is changed, not reset, not stained', () => {
+			const pose = poseAt(filmDurationInFrames - 1);
+			pose.cells.forEach((c) => expect([c.dx, c.dy, c.rot]).toEqual([0, 0, 0]));
+			expect(pose.cells.filter((c) => c.color === exampleBall.color).length).toBeGreaterThanOrEqual(2);
+			expect(pose.cells.filter((c) => c.split).length).toBe(1);
+			pose.cells.forEach((c) => expect(c.smear).toBeUndefined());
+			expect(pose.splat).toBeUndefined();
+			expect(pose.history!.map((b) => b.id)).toEqual(['pink']);
+			expect(pose.backlog[0].id).toBe('sun');
 		});
 	});
 });

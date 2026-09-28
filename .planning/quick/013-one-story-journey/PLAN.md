@@ -100,7 +100,7 @@ changed cells, one cell splits, and the product ends tidy and changed.
 
 ### 3. The spent story drifts into history and the next story steps up
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 3 and 4 in the spec; MP4 rendered; stills of every beat viewed in order.
 
 Behavior: given the coherent changed product → when the last beats play → a
@@ -124,6 +124,13 @@ then the sun ball hops to the front of the queue, and the film ends there.
   `pnpm moves test` passed (194 tests). Storyboard PNGs stay byte-identical.
   Stills of the jelly wobble, the eased snaps with paint rising into the
   changed cells, and the still coherent product were viewed and accepted.
+- **Slice 3:** the spec passes 42 tests: the history and next beats end
+  deep-equal to `storyInHistory()` and `readyForNext()`, cells stay equal to
+  `coherentProduct().cells` throughout, the last frame is changed but not reset
+  or stained, the caption runs equal the storyboard's boards 3–11 in order at
+  ≥75 frames each, and the film lasts 34 s (1020 frames). `pnpm moves test`
+  passed. `out/story-impact-one-splash.mp4` rendered (34.05 s, 1080×1080), and
+  the chain of stills was viewed and accepted.
 
 ## Learnings
 
@@ -136,3 +143,10 @@ then the sun ball hops to the front of the queue, and the film ends there.
   assimilating board already shows them; "coherent" finishes the slide and
   drains the last paint. Beats live in `storyBeats.ts` (story motion) and
   `productBeats.ts` (product motion); `film.ts` only lists them.
+- Motion building blocks for later beats: `between` and `hopping` in
+  `motion.ts`. Release-polish candidates: the drifting ball crosses the
+  "History" label, and the sun's rays appear without a pop.
+
+## Execution complete
+
+Product advice: retrospective skipped

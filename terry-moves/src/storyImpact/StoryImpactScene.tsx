@@ -1,12 +1,15 @@
 import React from 'react';
 import { Pose } from './scene';
-import { STAGE } from './layout';
+import { HISTORY_BOX, scaleAround, STAGE } from './layout';
 import { Axes, BacklogTray, Paper, ProductGrid } from './pieces';
 import { Splat, WobbleMarks } from './splat';
 import { StoryBall } from './storyBall';
 import { CaptionBar } from './caption';
-import { HistoryBox } from './history';
+import { HistoryBox, SpentSkin } from './history';
 import { TidyMarks } from './tidyMarks';
+
+// The History box pops up from its bottom middle.
+const HISTORY_POP_FROM = { x: (HISTORY_BOX.left + HISTORY_BOX.right) / 2, y: HISTORY_BOX.bottom };
 
 export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ pose, caption }) => (
 	<svg
@@ -16,7 +19,11 @@ export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ po
 		height={STAGE.height}
 	>
 		<Paper />
-		{pose.history && pose.history.length > 0 ? <HistoryBox balls={pose.history} /> : null}
+		{pose.history ? (
+			<g transform={pose.historyReveal === undefined ? undefined : scaleAround(HISTORY_POP_FROM, pose.historyReveal, pose.historyReveal)}>
+				<HistoryBox balls={pose.history} />
+			</g>
+		) : null}
 		{pose.showTime && pose.backlog.length > 0 ? <BacklogTray balls={pose.backlog} /> : null}
 		<ProductGrid
 			cells={pose.cells}
@@ -35,6 +42,7 @@ export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ po
 		) : null}
 		<Axes showTime={pose.showTime} />
 		{pose.story ? <StoryBall story={pose.story} /> : null}
+		{pose.spent ? <SpentSkin spent={pose.spent} /> : null}
 		<CaptionBar caption={caption} />
 	</svg>
 );

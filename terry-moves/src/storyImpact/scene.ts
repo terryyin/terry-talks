@@ -99,6 +99,17 @@ export type Pose = {
 	assimilation?: 'underway' | 'done';
 	sparkles?: number; // film: pop-in scale of the sparkles once assimilation is done
 	history?: BallPose[]; // spent stories, oldest first
+	historyReveal?: number; // film: pop-in scale of the History box
+	spent?: SpentPose; // film: the spent story on its way to History
+};
+
+// The spent story's pale, emptied skin, peeling off the product and drifting
+// to History. Drawn like a history ball, but free on the stage.
+export type SpentPose = {
+	ball: BallPose;
+	at: { x: number; y: number }; // center of the skin
+	peel?: number; // 0 = lying flat on the wall, 1 (left out) = puffed up and free
+	squash?: number; // width over height, around its center
 };
 
 // The product's own checker color for a cell, before any story changed it.

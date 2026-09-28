@@ -3,14 +3,13 @@
 // with eased slides and crisp snaps. Each beat maps seconds into the beat to
 // a pose that ends on its storyboard board.
 
-import { Easing, interpolate } from 'remotion';
+import { Easing } from 'remotion';
 import { CellPose, distanceToCell, IMPACT, messyProduct, Pose, storySplashes } from './scene';
 import { assimilating, coherentProduct } from './assimilation';
-import { bounce, FPS, POPPY, settle, toward, unless, WOBBLY, withoutUndefined } from './motion';
+import { between, bounce, FPS, POPPY, settle, toward, unless, WOBBLY, withoutUndefined } from './motion';
 
 // The product moves tidily: eased slides between two moments of the beat.
-const tidily = (sec: number, from: number, to: number, easing = Easing.inOut(Easing.cubic)) =>
-	interpolate(sec, [from, to], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing });
+const tidily = (sec: number, from: number, to: number, easing = Easing.inOut(Easing.cubic)) => between(sec, from, to, easing);
 
 // A cell part-way from one pose to another: offsets and tilt by `k`, with
 // the rest of the fields given by the caller.
