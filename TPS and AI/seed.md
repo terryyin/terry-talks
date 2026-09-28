@@ -90,119 +90,6 @@ a response to Terry's direction; they are not his decisions. Effort bands are
 unassigned because this project has no S/M/L definitions. Relative effort is
 noted as a hypothesis.
 
-<a id="japanese"></a>
-### 3. Japanese-speaking attendees can follow every slide in Japanese
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/010-japanese/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"a76db6ada02abc973520091d1331853a9a36a6c2d20a4d2857fa8f965ba093e9","plan":"295fbe0b045aa888365e9adb02eff5c4dc6dc43bf4ecadb4a026988794610eb4"}}
-```
-
-#### Goal
-
-For the **Japanese-speaking attendees** at the Tokyo LeSS Conference, every
-slide of the accepted 30-slide *Freedom and Entrustment* deck shows its
-audience-facing text in **Japanese directly under the English**. They can
-follow Terry's English delivery slide by slide without relying on an
-interpreter or waiting for a separate Japanese view. International attendees
-still read the English first. This delivers the direction's "Japanese
-translation embedded" and tests whether bilingual slides stay readable
-without breaking the 35-slide ceiling.
-
-#### Scope
-
-**Decided with Terry (2026-09-28):**
-
-- **Format: same slide, Japanese under English.** Each English title, bullet,
-  statement, quote, and caption is followed by its Japanese rendering on the
-  same slide, set slightly smaller and visually secondary to the English. There are no
-  alternate or twin slides and no language toggle.
-- **Coverage: everything audience-facing.** This includes titles, bullets,
-  statement and quote slides, diagram labels (the inline SVGs and the mermaid
-  diagrams), image captions, the prose in doughnut-example boxes, the cover,
-  About Me, and the end slide.
-- **Speaker notes stay English only.**
-- **Reviewer:** Aki (aki@odd-e.com), a fluent Japanese reader and Terry's
-  friend, reviews the Japanese. Terry sends the rendered deck. Aki's
-  corrections are applied.
-
-**Required:**
-
-- **Count unchanged:** Adding Japanese adds no slides. The deck stays at its
-  accepted count (30), and at most 35.
-- **Readable at projection size:** On a projector-sized screen, each slide's
-  English and Japanese both fit without overflow, clipping, or overlapping
-  images. The Japanese does not crowd the English out of its hierarchy.
-- **Terms follow the claims' first-use rules:** nemawashi (根回し),
-  genchi genbutsu / Go See (現地現物), 一個ずつ確認, poka-yoke glossed as
-  mistake-proofing (ポカヨケ), jidoka (自働化), and the contrast between
-  entrust (任せる) and trust (信頼). TPS terms use Toyota's own Japanese
-  wording, not back-translations.
-- **Existing Japanese is not duplicated:** Text already in Japanese, such as
-  the 釈迦に説法 title and the 任せる / 信頼 line, keeps a single Japanese form.
-- **Review status is visible:** Until Aki's review is applied, Terry can see
-  which slides are still unreviewed.
-- **Commands:** Existing build, export, and `pnpm present` commands still work.
-
-**Rejection constraints:**
-
-- **More than 35 rendered slides** fails Terry's limit, so alternate
-  Japanese slides are out.
-
-**Deferred** (not built or verified here):
-
-- Japanese speaker notes, translated claims, and a Japanese-only deck.
-- A language toggle or a separate Japanese build.
-- Rehearsed timing with the bilingual deck, and offline font availability on
-  the presentation machine ([conference-ready](#conference-ready)).
-
-**Assumptions:**
-
-- **Overflowing slides:** If a slide overflows once Japanese is added, the
-  first remedy is layout: size, spacing, or moving an image. The second is
-  shortening that slide's English wording without dropping its beat. If a
-  beat would have to go, stop and ask Terry.
-- **Timing:** Aki can review by about 5 October. If the review is late, the
-  Japanese that Terry has checked still ships, and the unreviewed slides are
-  listed.
-
-#### Key examples
-
-1. **Plain text slide.** Today "The gates do not care who authored the
-   change" is English only. After the change, the title has a smaller
-   Japanese line beneath it, such as ゲートは変更の作者を問わない, and each
-   paragraph has its Japanese rendering beneath it. The slide still fits,
-   and the deck still totals 30 slides in presenter mode.
-2. **Doughnut example box.** On the same slide, the box's prose ("A Jidoka
-   stop binds the agent…") gains Japanese. The code block `A detour into a
-   note is recorded separately. / Do not guess the UX.` stays in English,
-   because it is quoted source.
-3. **Mermaid diagram.** In the climax diagram "AI speeds whichever loop you
-   feed", each node shows both languages, for example "AI generation volume
-   / AI生成量". The +/- edge labels stay as they are. The diagram still fits
-   beside its image.
-4. **Inline SVG.** The "Two houses" and "The triad" diagrams carry Japanese
-   labels wherever they carry English ones.
-5. **Quote slide.** The main-message quote and the closing crane quote each
-   show the full Japanese sentence beneath the English and stay legible over
-   the art.
-6. **Already Japanese.** 釈迦に説法 keeps its English gloss, *Preaching to the
-   Buddha*, and is not re-translated. The 任せる / 信頼 line is not doubled.
-7. **Term first use.** The first slide that says "Go-See" renders it as
-   現地現物 (Go See). Later slides use the same Japanese term consistently.
-8. **Late review.** On 5 October, Aki has reviewed slides 1–20 only. The
-   deck still ships with all 30 slides in Japanese, and slides 21–30 are
-   recorded as checked by Terry but not yet reviewed by Aki.
-
-- **Evaluation:** Terry pages through the rendered deck on a projector-sized
-  screen and confirms that every slide is bilingual and fits. Aki confirms
-  that the Japanese is natural and that the TPS terms match Toyota usage,
-  and Aki's corrections are applied.
-- **Effort hypothesis:** Medium. The uncertainty is in fitting dense slides
-  and in the review turnaround.
-- **Depends on:** the accepted 30-slide English deck. The storyline story is
-  done.
-- **Safe stopping point:** A fully bilingual deck that Terry has checked, with
-  the slides Aki has not yet reviewed listed.
-
 <a id="conference-ready"></a>
 ### 4. Terry can deliver the talk reliably on conference day
 ```json dough-story-state
@@ -252,7 +139,8 @@ accepted deck fits the slot at Terry's real pace.
   there are cut only if Terry says so.
 - **Bilingual stays true:** A slide whose English changes also gets its
   Japanese updated. The slide is then listed as not yet reviewed by Aki,
-  under the [japanese](#japanese) story's review rule.
+  under the review rule in
+  [japanese-review.md](../slides/tps-and-ai/japanese-review.md#keeping-the-deck-bilingual).
 - **Runs offline:** With the network off on Terry's Mac, `pnpm present`
   opens presenter mode. Every slide renders its Japanese glyphs, mermaid
   diagrams, and images, and the loom video plays.
@@ -330,7 +218,8 @@ accepted deck fits the slot at Terry's real pace.
   He opens the PDF and the static build from the USB stick.
 - **Effort hypothesis:** Small to medium. The uncertainty is how much the
   rehearsal changes.
-- **Depends on:** [japanese](#japanese). Final timing is rehearsed on the
+- **Depends on:** the bilingual deck (done; see
+  [japanese-review.md](../slides/tps-and-ai/japanese-review.md)). Final timing is rehearsed on the
   bilingual deck. Rewriting the notes and adding the credits touch the same
   `slides.md` as that story, so they follow it or are coordinated with it.
 - **Safe stopping point:** Spoken-cue notes with checkpoints, verified offline
@@ -382,7 +271,7 @@ review silently: if it is late, say so.
 - ~~**Japanese format and reviewer.**~~ Decided 2026-09-28: Japanese goes
   under the English on the same slide, covering all audience-facing text,
   with speaker notes left in English. Aki (aki@odd-e.com) reviews
-  ([japanese](#japanese)).
+  ([japanese-review.md](../slides/tps-and-ai/japanese-review.md)).
 - ~~**Conference-day readiness.**~~ Decided 2026-09-28: the notes become
   short spoken cues with elapsed-time checkpoints. The talk runs from Terry's
   Mac through `pnpm present`, with the PDF and static-build backups on the

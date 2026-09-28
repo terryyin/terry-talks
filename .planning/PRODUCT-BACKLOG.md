@@ -17,8 +17,6 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
-- [Japanese-speaking attendees can follow every slide in Japanese](../TPS%20and%20AI/seed.md#japanese) — tps-and-ai-talk#japanese ([plan](quick/010-japanese/PLAN.md))
-
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready

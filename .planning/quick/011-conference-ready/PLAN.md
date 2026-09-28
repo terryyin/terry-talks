@@ -35,7 +35,7 @@ Identity: `tps-and-ai-talk#conference-ready`
 
 ## Execution context and decisions
 
-- **Start condition:** Start only after the [japanese](../010-japanese/PLAN.md)
+- **Start condition:** Start only after the Japanese
   story's slice 2 (the fully bilingual deck) is on `origin/master`. Both
   stories edit `slides/tps-and-ai/slides.md`, and the checkpoints and the
   rehearsal must sit on the bilingual deck. Slice 3 of the Japanese story
@@ -74,7 +74,7 @@ Identity: `tps-and-ai-talk#conference-ready`
   commands to open the backups, and the checkpoint times. This is the one
   new file. Terry needs it on the day with the network off.
 - **Slide-list helper and PNG export:** Use the same commands as the
-  [japanese plan](../010-japanese/PLAN.md#execution-context-and-decisions).
+  [deck checks](../../../slides/tps-and-ai/japanese-review.md#checking-the-deck).
   Use `--range N` to export single slides.
 
 ## Decisive premises observed (2026-09-28, at `949673a`)
