@@ -202,9 +202,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G5. Watching the loom / watching the AI (mirrored pair, 1 of 2)
 
 - **Status:** done — `public/watching-the-loom-watching-the-ai.png`
-- **Slide:** first follow-on after "The loom's closed stop"
-- **Placement:** first of two separate follow-on slides; G6 follows as
-  the second, so the Type G photograph (item 3) keeps its own moment
+- **Slide:** the untitled image slide after "The loom's closed stop",
+  first image (captioned "Watching the loom / watching the AI")
+- **Placement:** full-bleed on that slide before its click; G6 replaces
+  it on the click, so the Type G photograph (item 3) keeps its own moment
 - **Generate from:** G1 as style reference. If the Claude Code terminal
   leaks outside the monitor, mask-correct only the display pixels.
 - **Prompt:** A weary factory worker with a sad face, chin in hand,
@@ -217,8 +218,9 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G6. Called by the stop (mirrored pair, 2 of 2)
 
 - **Status:** done — `public/called-by-the-stop.png`
-- **Slide:** second follow-on after "The loom's closed stop"
-- **Placement:** second of two separate follow-on slides, after G5
+- **Slide:** the untitled image slide after "The loom's closed stop",
+  second image (captioned "Called by the stop")
+- **Placement:** full-bleed on that slide, replacing G5 on the click
 - **Generate from:** G5, so the pair stays consistent; G1 as style
   reference. If the Claude Code terminal leaks outside the monitor,
   mask-correct only the display pixels.
@@ -259,8 +261,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G9. Same gate for everyone — torii
 
-- **Status:** done — `public/torii-same-gate.png`
-- **Slide:** the "Same gates for 'I' and AI" section divider
+- **Status:** retired 2026-09-28 — slide cut in the storyline story;
+  image deleted (recover from Git at `fd4a18e`) — was
+  `public/torii-same-gate.png`
+- **Slide:** (cut) the "Same gates for 'I' and AI" section divider
 - **Placement:** full-bleed section divider background
 - **Prompt:** A single torii gate on a straight path; a human developer
   and a small friendly robot approach side by side, both stopped at
@@ -289,8 +293,11 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G12. Green light on a stockpile
 
-- **Status:** implemented — `public/green-light-stockpile.png`
-- **Slide:** "Continuous integration is a practice, not a system"
+- **Status:** retired 2026-09-28 — slide cut in the storyline story;
+  image deleted (recover from Git at `fd4a18e`) — was
+  `public/green-light-stockpile.png`
+- **Slide:** (cut) "Continuous integration is a practice, not a
+  system" — merged into "Pull, don't stockpile" without this art
 - **Placement:** right half; the slide's one-liner is the caption
 - **Prompt:** A towering mountain of stacked crates inside a warehouse
   with a tiny traffic light glowing on its summit; a lone figure at
@@ -338,8 +345,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G17. Switching-cost stack
 
-- **Status:** done — `public/switching-cost-stack.png`
-- **Slide:** "Lower the switching cost"
+- **Status:** retired 2026-09-28 — slide cut in the storyline story;
+  image deleted (recover from Git at `fd4a18e`) — was
+  `public/switching-cost-stack.png`
+- **Slide:** (cut) "Lower the switching cost"
 - **Placement:** wide strip under the three bullets (same footprint as
   G13 / G16: 16:9 wide)
 - **Exception:** the common style prefix says “No text, no letters, no
@@ -373,8 +382,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G18. Burr puzzle (組木)
 
-- **Status:** done — generated at `public/burr-puzzle.png`
-- **Slide:** "But how to build one?"
+- **Status:** retired 2026-09-28 — slide cut in the storyline story;
+  image deleted (recover from Git at `fd4a18e`) — was
+  `public/burr-puzzle.png`
+- **Slide:** (cut) "But how to build one?"
 - **Placement:** right half / 4:3
 - **Why:** a Burr puzzle (組木 / kumiki) looks like a finished object
   but still needs the sequence in someone's head — judgment-loaded

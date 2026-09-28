@@ -81,7 +81,7 @@ Identity: `tps-and-ai-talk#storyline-art-cleanup`
 
 ### 1. Only used art ships, and the artwork list names current slides
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry builds the deck, and only art that some slide shows is in
 `public/`. He opens the artwork list and finds every entry either on a
 current slide title or marked retired with a recovery note.
@@ -96,6 +96,25 @@ Proof:
 - The slide-list helper still shows `total 30 climax 24 ratio 0.80`.
 - `pnpm exec slidev build slides/tps-and-ai/slides.md --out <tmp>` exits 0.
 - Owns the whole bounded outcome.
+
+Accepted proof (2026-09-28, on the change that follows Take `fd4a18e`):
+the unreferenced-asset loop printed nothing; the `git ls-files` count was
+`0`; the helper printed `total 30 climax 24 ratio 0.80`; `slidev build` exited
+0 and its output held none of the four images; `slides.md` had no diff. The
+refactor pass made no edits.
+
+Learnings:
+- The merged G5/G6 slide has no Slidev title. G5 shows on entry, and G6
+  replaces it on `v-click="1"`. The Slide fields therefore name it by
+  position ("the untitled image slide after \"The loom's closed stop\"") plus
+  each image's caption. Placement lines were updated to match. G14's
+  untitled closing-quote slide is named the same way and was left as it was.
+- The retirement status cites `fd4a18e`, the last commit that contains the
+  images, instead of the plan's "before <deleting commit>" placeholder.
+- Out-of-scope stale prose remains in `artwork-list.md`: the "Slides
+  intentionally without artwork" paragraph (cut "Same gates" divider, and
+  dividers not in the deck) and A1's narrative mentioning "But how to build
+  one?".
 
 Cumulative design and sizing: This is one concept, the mapping from art to
 the current deck, with one proof loop. There is no Structure slice and no
