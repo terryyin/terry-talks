@@ -289,3 +289,19 @@ own external proof loop (Aki's corrections).
 No numeric slice limit is supplied. Slice 2 is the largest: 20 slides of
 translation under one proof loop. Its sizing risk is in the dense slides,
 which the probe bounded. No remaining concerns.
+
+## Execution complete
+
+Product advice: No correction needed; the delivered deck meets slices 1–2
+and Terry's projector check, and slice 3 (Aki's review) is deferred by
+Terry as separate later work. For
+[conference-ready](../011-conference-ready/PLAN.md): its start condition
+is now met on master (bilingual deck merged), and its premise "the
+Japanese deck is not yet on master" is stale; Aki's pending review will
+still touch visible Japanese, so sequence it against 011's note edits. PNG
+and PDF export depend on `playwright-chromium`, which is not in the
+lockfile (a fresh worktree needed an ad-hoc install); 011's export work
+should make that dependency locked or documented. Also note that the
+installed `execution-start` refuses backlog hrefs containing `%20` (this
+execution took its claim manually) — an Open Dough issue to report
+upstream, not project work.
