@@ -17,8 +17,6 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
-- [Viewers follow the whole idea as stories come and go while the product stays coherent](../Story%20Driven/seed.md#full-cycle) — story-impact-animation#full-cycle ([plan](quick/014-full-cycle/PLAN.md))
-
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready

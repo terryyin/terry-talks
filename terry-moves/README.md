@@ -124,6 +124,24 @@ cd terry-moves
 npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splash.mp4
 ```
 
+Render the full film (`StoryImpactFilm`, about 88 seconds): title, product
+space, backlog, the pink story, the sun and grape stories, story versus
+feature, and the closing line.
+
+```bash
+cd terry-moves
+npx remotion render src/index.ts StoryImpactFilm out/story-impact-film.mp4
+```
+
+`timeline(beats)` in `film.ts` turns any beat list into a film; `fullFilm.ts`
+lists the full film's beats. A story is a `StorySpec` (ball, impact spot,
+changed cells, reorganized cell, splat seed, optional refill ball), and its
+poses and beats are built from the product as it stands before the story
+(`StoryBefore`); `afterStory` gives the next story's starting point. A cell
+changed by a later story takes the new color, and a reorganized cell is split
+between the old and the new colors, so the product always shows its current
+state and never a scar.
+
 Visual language: warm paper background, thick rounded ink outlines, flat
 offset shadows, flat bright fills, and a rounded bold font. Stories are
 bouncy, splashy paint balls with faces; the product is tidy and deliberate.
