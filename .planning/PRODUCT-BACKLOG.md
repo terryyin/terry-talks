@@ -17,9 +17,10 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
+- [Viewers watch one story splash onto the product and become part of it](../Story%20Driven/seed.md#one-story-journey) — story-impact-animation#one-story-journey ([plan](quick/013-one-story-journey/PLAN.md))
+
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
-- [Viewers watch one story splash onto the product and become part of it](../Story%20Driven/seed.md#one-story-journey) — story-impact-animation#one-story-journey
 - [Viewers follow the whole idea as stories come and go while the product stays coherent](../Story%20Driven/seed.md#full-cycle) — story-impact-animation#full-cycle
 - [Terry has a finished animation ready to share](../Story%20Driven/seed.md#release) — story-impact-animation#release

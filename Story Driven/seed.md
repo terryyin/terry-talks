@@ -118,7 +118,7 @@ These are non-executable candidates. None of them authorizes execution.
 <a id="one-story-journey"></a>
 ### 2. Viewers watch one story splash onto the product and become part of it
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/013-one-story-journey/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"1a0850d468f6f7d0bb7282e63f07db6493ab4b47afde7ad70055a8efb40fb03e","plan":"0ba747d638c0c6f3cb33d5347629ac6b00c6c466eff814654fc4e20103040e74"}}
 ```
 
 - **For / why:** Viewers need to see, in motion, the chain from desire to a
