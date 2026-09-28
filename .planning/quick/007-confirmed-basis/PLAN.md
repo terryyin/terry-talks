@@ -188,7 +188,7 @@ Proof (from `TPS and AI/`):
 
 ### 4. Terry's talk roles are recorded
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry reads the README list, each Confirmed claim, and the
 slice 3 wording choices, then confirms or changes each role and wording → the
 README shows his roles, and the claim files reflect his wording choices:
@@ -264,3 +264,15 @@ Proof:
   `^### 7\. ` counts 2 in Claim 13, and the role grep gives 25. The link
   check reports `broken links: 0`, and the §4–§7 anchors resolve to Claim 13's
   pulled headings.
+- Slice 4 (2026-09-28): Terry reviewed the roles and the slice 1–3 wording
+  choices and said: "Yep, they look all look good. Uh, accepted." The
+  proposed roles are now final, unchanged. Claim 15 stays Off-stage, so no
+  collapse was needed. The README note drops "(proposed)".
+  - The Claim 13 item-6 question (trim the stale phrase or restore
+    same-gates Priority 2) had no explicit answer. The in-scope option was
+    taken: the status line no longer cites the "same-gates harness", and the
+    §6 intro says "Priority 1" instead of "Priorities 1–2". Restoring
+    Priority 2 is still available later.
+  - Accepted proof: the role grep gives 25. The forming-path grep gives 0 on
+    every Confirmed claim (00, 1, 3, 4, 5, 6, 8, 10, 12, 17–24). The link
+    check reports `broken links: 0`.

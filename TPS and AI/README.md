@@ -21,7 +21,7 @@ The claims below are **Provisional**. Most now present one current
 opinion. Claim 15 still shows the forming path. Claim 13 is an
 evidence backlog.
 
-*Talk roles* (proposed) mark what each claim does in this talk.
+*Talk roles* mark what each claim does in this talk.
 **Confirmed** claims are the basis the talk stands on and may carry a
 primary beat. **Supporting** claims may appear only as a qualified or
 secondary beat. **Off-stage** claims stay in the workshop and are not

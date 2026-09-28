@@ -6,8 +6,8 @@ tagged class weeks (stage: tools and weeks, no student names);
 item 3 skipped for this talk (git missed stockpile; may return);
 item 4 ranked from latest-code descent + Claim 24 counter; item 5
 ranked from latest-code harness (unit + E2E + mock-forest
-counter); item 6 ranked from latest-code Jidoka-stop episode +
-same-gates harness; item 7 ranked from latest-code worktree
+counter); item 6 ranked from latest-code Jidoka-stop episode;
+item 7 ranked from latest-code worktree
 pre-commit hook (wrong tree / misleading commit)**
 
 ## Role
@@ -890,8 +890,8 @@ week. Hunt from the current execution guidance, then the Jidoka-stop trail in
 the 2026-08-26 recall-timing commits. Ranked by how completely the
 example matches the look-fors (same stop for a person and an
 agent; AI then helps without dissolving the stop; optional
-skip/delete counter), then stage discussability. Priorities 1–2
-are current project-owned harness (Terry Yin) — clearance is no.
+skip/delete counter), then stage discussability. Priority 1
+is current project-owned harness (Terry Yin) — clearance is no.
 The disable-tests counter is a tagged AI-era class week and is
 not AI-assisted.
 
