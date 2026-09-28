@@ -17,9 +17,10 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
+- [Japanese-speaking attendees can follow every slide in Japanese](../TPS%20and%20AI/seed.md#japanese) — tps-and-ai-talk#japanese ([plan](quick/010-japanese/PLAN.md))
+
 ## Backlog list
 
-- [Japanese-speaking attendees can follow every slide in Japanese](../TPS%20and%20AI/seed.md#japanese) — tps-and-ai-talk#japanese
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
 - [Viewers can follow the complete argument through the corrected product and explosive impact](../Story%20Driven/seed.md#revised-complete-cut) — `story-driven-animation`
 - [Terry has a finished square animation ready to share](../Story%20Driven/seed.md#release) — `story-driven-animation`
