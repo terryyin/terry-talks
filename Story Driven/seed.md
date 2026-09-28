@@ -118,29 +118,91 @@ These are non-executable candidates. None of them authorizes execution.
 <a id="full-cycle"></a>
 ### 3. Viewers follow the whole idea as stories come and go while the product stays coherent
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
 ```
 
 - **For / why:** Viewers need the complete argument: stories are temporary
   transitions, while the product persists. Terry needs to assess pacing and the
   ending.
-- **Visible outcome:** The complete square film, in these beats:
-  1. The product space and the backlog along Time.
-  2. What makes a story romantic.
-  3. Story ≠ feature: one ball colors several cells, and a cell carries colors
-     from many past balls.
-  4. Story 2's splash and assimilation.
-  5. More stories over time. The product keeps changing yet stays coherent and
-     unscarred, while spent stories pile up out of the way in history.
-  6. A closing line: stories should be romantic; products should not.
+
+#### Goal
+
+A viewer watches one complete, silent, captioned square film and comes away
+with the whole idea: the product is a Behavior × Structure space moving through
+Time; stories are romantic, boundary-crossing wishes that splash onto it;
+development assimilates each splash into a coherent, changed product; spent
+stories go to history; and a story is not a feature.
+
+#### Scope
+
+- **Required:**
+  - A `terry-moves` composition, `StoryImpactFilm`: 1080×1080, 30 fps, about
+    75–90 seconds, reproducibly rendered to an MP4.
+  - The beats, in order:
+    1. **Title:** "Romantic stories, disciplined products" (short).
+    2. **Product space:** the axes grow and the tidy cells pop into place.
+       Caption from the storyboard's first board.
+    3. **Time and backlog:** the Time arrow grows, the tray slides in, and the
+       balls bounce into it. Caption from the second board.
+    4. **One story:** the one-story film's beats, from the wish to the story in
+       history, reused as they are (not re-animated).
+    5. **More stories over time:** at least two further stories (sun, then
+       grape), each shorter: fly, splat across boundaries, wobble, assimilate,
+       and go to history. New balls roll into the back of the tray, so the
+       backlog never runs dry. Each story changes a different set of cells
+       that crosses rows and columns; at least one cell changed by the pink
+       story is changed again and ends split between two story colors. The
+       product is aligned with no smear after every story, and the History box
+       shows the spent balls stacked out of the way.
+    6. **Story ≠ feature:** one story's cells are outlined together (they
+       cross several Behavior columns and Structure rows), then one Behavior
+       column, a feature, is outlined and shows colors from several stories.
+    7. **Closing line:** "Stories should be romantic. Products should not." The
+       tidy product rests; the next ball waits in the tray. Hold, then end.
+  - Captions stay one at a time, each on screen for at least about 2.5
+    seconds, in beat order.
+- **Rejection constraints:** The seed's confirmed constraints still apply. No
+  story may leave the product unaligned, smeared, or dripping at its end (no
+  scars), and no story may leave it unchanged (no reset).
+- **Deferred promises:** Audio, readability polish at phone size, the known
+  label overlaps, and publication (story 4). Things *leaving* the product,
+  and the essay's negation argument, are not shown.
+- **Boundary assumptions (made on Terry's behalf):**
+  - Length about 80 seconds. That is shorter than the rejected three-minute
+    cut, which suits the lighter tone.
+  - "Story ≠ feature" comes after several stories, not before the first
+    splash as first listed. Only then does the product actually show one
+    story across several features and one feature carrying several stories.
+  - A cell carries several stories by being split among their colors: its
+    current state is tidy, and not a record of scars.
+  - The one-story film (`StoryImpactOneSplash`) stays available and unchanged.
+
+#### Key examples
+
+1. **The whole chain.** Given the rendered film, stills at each beat show, in
+   order: title, product space, backlog, the pink story's wish to history,
+   the sun and grape stories each splashing and being assimilated, story ≠
+   feature, and the closing line.
+2. **Stays coherent across stories.** At the end of each story's assimilation,
+   every cell is aligned with no smear or splat, and more cells carry story
+   colors than before that story.
+3. **Story ≠ feature.** At the story ≠ feature beat, the outlined story cells
+   span at least two columns and two rows, and the outlined column holds cells
+   of at least two different story colors.
+4. **History out of the way.** At the end, History holds every spent story
+   (pink, sun, grape) in the order they were spent, and none of them is in
+   the backlog.
+5. **Captions and length.** Captions show in beat order, each for at least
+   about 2.5 seconds, and the film runs 75–90 seconds.
+
 - **Evaluation:** After watching silently, viewers can explain what separates a
   story from a feature, why the product has no scars, and where the old stories
   went. Terry judges fidelity, tone, and pacing end to end.
 - **Value / learning:** Delivers the full explanation. Tests whether the splash
   language holds across several stories without becoming noisy.
-- **Boundary:** Extends the one-story film's motion language rather than inventing a new
-  one. Release polish, audio, and publication are out of scope.
-- **Effort hypothesis:** Unbanded. The broadest production work in the set.
+- **Boundary:** Extends the one-story film's motion language rather than
+  inventing a new one. Release polish, audio, and publication are out of
+  scope.
 - **Depends on:** The one-story film (`StoryImpactOneSplash`).
 - **Safe stopping point:** A complete, watchable working cut with editable
   source and a reproducible export.
