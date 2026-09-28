@@ -79,6 +79,44 @@ slide).
 | SMED | SMED（シングル段取り） |
 | Definition of Done | 完成の定義（Definition of Done） |
 
+## Keeping the deck bilingual
+
+- A slide whose English changes gets its Japanese updated in the same
+  change, and its *Aki reviewed* cell is cleared until Aki reviews it again.
+- Each English element gets one short Japanese line. When a slide is
+  cramped, shorten the Japanese before shrinking the type or moving art.
+- Mermaid sizes nodes before the Japanese fallback font renders, so keep
+  each Japanese node line no wider than the node's longest English line and
+  split it with `<br>` if needed.
+- Never put Japanese inside a `#` heading line: the Slidev title must stay
+  English (the helper below finds the climax by its title).
+
+## Checking the deck
+
+Run from the repository root. The slide-list helper prints each slide's
+title, the total, and the climax position:
+
+```sh
+node --input-type=module -e "
+const fs=await import('fs');const p=fs.readdirSync('node_modules/.pnpm').find(d=>d.startsWith('@slidev+parser@'));
+const {parse}=await import(process.cwd()+'/node_modules/.pnpm/'+p+'/node_modules/@slidev/parser/dist/index.mjs');
+const d=await parse(fs.readFileSync('slides/tps-and-ai/slides.md','utf8'),'slides.md');
+d.slides.forEach((s,i)=>console.log(i+1,s.title||'('+(s.frontmatter?.layout||'untitled')+')'));
+const n=d.slides.length,c=d.slides.findIndex(s=>/^AI speeds whichever loop you feed\$/.test(s.title||''))+1;
+console.log('total',n,'climax',c,'ratio',(c/n).toFixed(2));"
+```
+
+Export PNGs to inspect fit (every slide: Japanese under each English
+element, no clipping, no overlap with images, nothing off the bottom).
+`--with-clicks` adds v-click states. Export needs `playwright-chromium`
+resolvable from `node_modules`; it is not in the lockfile.
+
+```sh
+pnpm exec slidev export slides/tps-and-ai/slides.md --format png \
+  --output <tmp>/png --timeout 180000 --wait 1500 \
+  --executable-path "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+```
+
 ## Per-slide status
 
 *Translated*: the Japanese is on the slide. *Terry checked*: Terry has
