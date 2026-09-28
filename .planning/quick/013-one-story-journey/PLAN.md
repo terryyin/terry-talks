@@ -81,7 +81,7 @@ one proof loop (focused spec plus stills viewed by eye).
 
 ### 1. The wish takes off and splashes onto the product
 Type: Behavior
-Status: planned
+Status: done
 Proof: spec — beat ends match the wish, fuzzy and splat boards; the composition is registered and lasts 30–45 s once complete (checked in slice 3); stills viewed.
 
 Behavior: given the tidy product with the backlog → when the film plays its
@@ -106,3 +106,22 @@ Proof: examples 3 and 4 in the spec; MP4 rendered; stills of every beat viewed i
 Behavior: given the coherent changed product → when the last beats play → a
 pale, emptied ball peels off the product and floats into the History box,
 then the sun ball hops to the front of the queue, and the film ends there.
+
+## Accepted proof
+
+- **Slice 1:** `cd terry-moves && npx jest tests/storyImpact` passes 28 tests;
+  `tests/storyImpact/StoryImpactOneSplash.spec.tsx` checks that the wish,
+  fuzzy and splat beats end deep-equal to `storyWishes()`, `storyIsFuzzy()` and
+  `storySplashes()`, that flight progress rises to 1, that the splat grows with
+  overshoot, and that captions show in order for ≥2.5 s. `pnpm moves test`
+  passed (184 tests). Storyboard PNGs stay byte-identical. Film stills of the
+  first 14 s (hop, rise, bubble pop, fuzzy, crouch, stretched flight, splat)
+  were viewed and accepted.
+
+## Learnings
+
+- Beats: backlog 2 s, wish 3.5 s, fuzzy 3 s, flight 2.5 s, splat 3 s (14 s so
+  far). Motion helpers live in `motion.ts`; springs settle to exact targets so
+  a beat ends on its board's pose.
+- Known polish for the release story: the take-off briefly overlaps the
+  "Product Backlog" label, and that label drops 8 px when the pink ball leaves.

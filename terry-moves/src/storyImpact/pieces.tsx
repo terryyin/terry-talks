@@ -14,7 +14,11 @@ import {
 	roundedPath,
 	SHADOW,
 	STAGE,
+	HOP,
+	squashAround,
 	TRAY,
+	TRAY_FLOOR,
+	traySpot,
 	wallOutline,
 	wallPoint,
 } from './layout';
@@ -146,14 +150,15 @@ export const Axes: React.FC<{ showTime: boolean }> = ({ showTime }) => {
 };
 
 // An eager ball hops up from the tray floor, its shadow left behind.
-const HOP = 30;
-
-export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x, y: rest }) => {
+export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x: slotX, y: rest }) => {
 	const r = ball.size;
-	const y = ball.eager ? rest - HOP : rest;
+	const x = ball.dx === undefined ? slotX : slotX + ball.dx;
+	const y = ball.hop !== undefined ? rest - ball.hop : ball.eager ? rest - HOP : rest;
+	const shadow = ball.hop !== undefined ? 0.9 - (0.3 * Math.min(ball.hop, HOP)) / HOP : ball.eager ? 0.6 : 0.9;
+	const squash = squashAround({ x, y: y + r }, ball.squash);
 	return (
 		<g data-testid="backlog-ball" data-id={ball.id} data-eager={ball.eager ? 'true' : undefined}>
-			<ellipse cx={x + 4} cy={rest + r * 0.95} rx={r * (ball.eager ? 0.6 : 0.9)} ry={r * 0.18} fill={palette.ink} opacity={0.18} />
+			<ellipse cx={x + 4} cy={rest + r * 0.95} rx={r * shadow} ry={r * 0.18} fill={palette.ink} opacity={0.18} />
 			{ball.eager ? (
 				<g stroke={palette.ink} strokeWidth={5} strokeLinecap="round">
 					<line x1={x - r - 14} y1={y - r * 0.2} x2={x - r - 30} y2={y - r * 0.5} />
@@ -161,24 +166,25 @@ export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ 
 					<line x1={x} y1={y - r - 14} x2={x} y2={y - r - 32} />
 				</g>
 			) : null}
-			<circle cx={x} cy={y} r={r} fill={ball.color} stroke={palette.ink} strokeWidth={6} />
-			<ellipse
-				cx={x - r * 0.4}
-				cy={y - r * 0.45}
-				rx={r * 0.26}
-				ry={r * 0.16}
-				transform={`rotate(-35 ${x - r * 0.4} ${y - r * 0.45})`}
-				fill={palette.white}
-				opacity={0.85}
-			/>
-			<Face x={x} y={y} r={r} mood={ball.eager ? 'hopeful' : 'smile'} />
+			<g transform={squash}>
+				<circle cx={x} cy={y} r={r} fill={ball.color} stroke={palette.ink} strokeWidth={6} />
+				<ellipse
+					cx={x - r * 0.4}
+					cy={y - r * 0.45}
+					rx={r * 0.26}
+					ry={r * 0.16}
+					transform={`rotate(-35 ${x - r * 0.4} ${y - r * 0.45})`}
+					fill={palette.white}
+					opacity={0.85}
+				/>
+				<Face x={x} y={y} r={r} mood={ball.eager ? 'hopeful' : 'smile'} />
+			</g>
 		</g>
 	);
 };
 
 export const BacklogTray: React.FC<{ balls: BallPose[] }> = ({ balls }) => {
 	const { left, right, top, bottom } = TRAY;
-	const lip = 10;
 	const trayPath = [
 		`M${left},${top}`,
 		`L${left + 10},${bottom - 18}`,
@@ -187,15 +193,15 @@ export const BacklogTray: React.FC<{ balls: BallPose[] }> = ({ balls }) => {
 		`Q${right - 12},${bottom} ${right - 10},${bottom - 18}`,
 		`L${right},${top}`,
 	].join(' ');
-	const floor = bottom - lip;
-	const slot = (right - left - 60) / Math.max(balls.length, 1);
+	const floor = TRAY_FLOOR;
 	return (
 		<g data-testid="backlog-tray">
 			<path d={`${trayPath} Z`} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} />
 			<path d={`${trayPath} Z`} fill={palette.trayInside} />
-			{balls.map((ball, i) => (
-				<PaintBall key={ball.id} ball={ball} x={left + 30 + slot * (i + 0.5)} y={floor - ball.size} />
-			))}
+			{balls.map((ball, i) => {
+				const spot = traySpot(balls.length, i, ball.size);
+				return <PaintBall key={ball.id} ball={ball} x={spot.x} y={spot.y} />;
+			})}
 			<path
 				d={`M${left + 2},${bottom - 32} L${right - 2},${bottom - 32} L${right - 8},${bottom - 12} Q${right - 12},${bottom} ${right - 30},${bottom} L${left + 30},${bottom} Q${left + 12},${bottom} ${left + 8},${bottom - 12} Z`}
 				fill={palette.tray}

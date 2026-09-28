@@ -18,6 +18,14 @@ export const OUTLINE = 7;
 // Offset of the flat drop shadow behind panels.
 export const SHADOW: Point = { x: 9, y: 9 };
 
+// SVG transforms that scale a part in place around a point, for film motion.
+export const scaleAround = (p: Point, sx: number, sy: number): string =>
+	`translate(${p.x} ${p.y}) scale(${sx} ${sy}) translate(${-p.x} ${-p.y})`;
+
+// Squash keeps a ball's area: wider means flatter. Left out, no transform.
+export const squashAround = (p: Point, squash?: number): string | undefined =>
+	squash === undefined ? undefined : scaleAround(p, squash, 1 / squash);
+
 export const ORIGIN: Point = { x: 480, y: 590 };
 export const BEHAVIOR_STEP: Point = { x: -60, y: 40 };
 export const STRUCTURE_STEP: Point = { x: 0, y: -92 };
@@ -95,6 +103,18 @@ export const AXES = {
 };
 
 export const TRAY = { left: 560, right: 1010, top: ORIGIN.y - 88, bottom: ORIGIN.y - 18 } as const;
+
+// The tray's floor, and the center of a resting ball of the given radius in
+// the index-th of `count` evenly spread slots.
+export const TRAY_FLOOR = TRAY.bottom - 10;
+
+export const traySpot = (count: number, index: number, radius: number): Point => {
+	const slot = (TRAY.right - TRAY.left - 60) / Math.max(count, 1);
+	return { x: TRAY.left + 30 + slot * (index + 0.5), y: TRAY_FLOOR - radius };
+};
+
+// How high an eager ball hops up from the tray floor.
+export const HOP = 30;
 
 // Where the example story hovers after popping out of the tray, and the arc
 // it flies along from the tray to where it hits the product.

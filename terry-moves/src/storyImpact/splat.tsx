@@ -1,7 +1,7 @@
 import React from 'react';
 import { CellPose, palette, seeded, SplatPose } from './scene';
 import { cellCenter } from './cell';
-import { FONT_FAMILY, HOVER, ORIGIN, Point, smoothBlob, wallPoint } from './layout';
+import { FONT_FAMILY, HOVER, ORIGIN, Point, scaleAround, smoothBlob, wallPoint } from './layout';
 
 // Paint on the product wall, drawn on top of the cells so it visibly runs
 // over their gaps. Pure function of the splat pose.
@@ -72,11 +72,12 @@ const SplatShapes: React.FC<{ splat: SplatPose; fill: string; grow: number }> = 
 	);
 };
 
-const Shout: React.FC<{ text: string; color: string }> = ({ text, color }) => {
+const Shout: React.FC<{ text: string; color: string; scale?: number }> = ({ text, color, scale }) => {
 	const x = HOVER.x + 40;
 	const y = HOVER.y - 10;
+	const popped = scale === undefined ? '' : ` ${scaleAround({ x, y }, scale, scale)}`;
 	return (
-		<g data-testid="splat-shout" transform={`rotate(-9 ${x} ${y})`}>
+		<g data-testid="splat-shout" transform={`rotate(-9 ${x} ${y})${popped}`}>
 			<text
 				x={x + 7}
 				y={y + 7}
@@ -126,7 +127,7 @@ export const Splat: React.FC<{ splat: SplatPose }> = ({ splat }) => {
 				opacity={0.7}
 			/>
 			<circle cx={highlight.x + 30} cy={highlight.y - 10} r={6} fill={palette.white} opacity={0.7} />
-			{splat.shout ? <Shout text={splat.shout} color={splat.color} /> : null}
+			{splat.shout && splat.shoutScale !== 0 ? <Shout text={splat.shout} color={splat.color} scale={splat.shoutScale} /> : null}
 		</g>
 	);
 };

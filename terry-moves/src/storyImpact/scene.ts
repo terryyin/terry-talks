@@ -45,6 +45,10 @@ export type BallPose = {
 	color: string;
 	size: number; // radius in px
 	eager?: boolean; // hops at the front of the queue, ready for its turn
+	// Motion in the film; left out, the ball sits as on the storyboard.
+	hop?: number; // px above the tray floor, instead of the eager hop
+	squash?: number; // width over height, around where it touches the floor
+	dx?: number; // px along Time from its slot, while it rolls to a new slot
 };
 
 // A spot on the product wall in grid units (cell (c, r) spans c..c+1, r..r+1).
@@ -59,6 +63,12 @@ export type StoryPose = {
 	state: StoryState;
 	wish: string;
 	flight: number; // 0 = hovering above the tray, 1 = hitting the product
+	// Motion in the film; left out, the story looks as on the storyboard.
+	at?: { x: number; y: number }; // ball center, instead of its hover or flight point
+	squash?: number; // width over height, around the ball's center
+	stretch?: { along: number; across: number }; // flying: scale along and across its heading
+	bubble?: number; // wishing: pop-in scale of the wish bubble and its hearts
+	fuzz?: number; // fuzzy: 0 = still smooth, 1 = fully fuzzy
 };
 
 // Paint on the product wall. The blob is round in grid units around its
@@ -71,6 +81,7 @@ export type SplatPose = {
 	drip: number; // how far the paint has run down, 1 = fresh splat
 	shout?: string; // comic sound word shown at the moment of impact
 	seeped: boolean; // the paint has run into the gaps under shifted cells
+	shoutScale?: number; // film: pop-in scale of the sound word
 };
 
 export type Pose = {

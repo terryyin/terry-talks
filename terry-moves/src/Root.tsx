@@ -13,6 +13,7 @@ import { StorySimpleExample } from './stories/StorySimpleExample';
 import { StoryLoomWarpStop } from './stories/StoryLoomWarpStop';
 import { StoryLeSSInAction } from './stories/StoryLeSSInAction';
 import { StoryImpactStoryboard } from './stories/StoryImpactStoryboard';
+import { StoryImpactOneSplash } from './stories/StoryImpactOneSplash';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -32,6 +33,7 @@ export const RemotionRoot: React.FC = () => {
 			<StoryGameOfLife />
 			<StoryLeSSInAction />
 			<StoryImpactStoryboard />
+			<StoryImpactOneSplash />
 		</>
 	);
 };
