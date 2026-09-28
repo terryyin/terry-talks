@@ -12,6 +12,7 @@ import { StoryInterationSprint } from './stories/StoryIternationSprint';
 import { StorySimpleExample } from './stories/StorySimpleExample';
 import { StoryLoomWarpStop } from './stories/StoryLoomWarpStop';
 import { StoryLeSSInAction } from './stories/StoryLeSSInAction';
+import { StoryImpactStoryboard } from './stories/StoryImpactStoryboard';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -30,6 +31,7 @@ export const RemotionRoot: React.FC = () => {
 			<StoryTransparent />
 			<StoryGameOfLife />
 			<StoryLeSSInAction />
+			<StoryImpactStoryboard />
 		</>
 	);
 };

@@ -45,7 +45,7 @@ Identity: `story-impact-animation#intention-storyboard`
 - **Render commands:**
   - Boards: `cd terry-moves && npx remotion render src/index.ts StoryImpactStoryboard out/storyboard --sequence --image-format=png`
   - Contact sheet: `ffmpeg -y -i out/storyboard/element-%02d.png -vf "scale=540:540,tile=4x3:padding=12:color=white" -frames:v 1 "../Story Driven/storyboard.png"`
-    (the frame file pattern is checked after the first render).
+    (the first render wrote `element-0.png`, `element-1.png`; with 11 boards check whether Remotion pads to `element-00.png` and use the matching pattern).
 
 ## Decisive premises observed (2026-09-28, at `e89bc2a`)
 
@@ -81,7 +81,7 @@ Tone and recognition are judged by eye on the rendered PNGs, not by tests.
 
 ### 1. The product space and the backlog appear as cartoon boards
 Type: Behavior
-Status: planned
+Status: done
 Proof: spec renders boards 1–2 and reads their captions; the two PNGs render and are viewed.
 
 Behavior: given the storyboard composition → when boards 1 and 2 are rendered →
@@ -109,3 +109,20 @@ is re-sorted into an aligned grid that keeps the story color in the cells where
 the change belongs with one cell split, the pale spent ball rests in History,
 and the next ball waits at the front of the backlog; the contact sheet shows
 all eleven boards in order.
+
+## Accepted proof
+
+- **Slice 1:** `cd terry-moves && npx jest tests/storyImpact` passes 8 tests
+  in `tests/storyImpact/StoryImpactStoryboard.spec.tsx` (captions in order;
+  board 1 has 20 cells and both axes, no time axis or tray; board 2 adds the
+  time axis, tray and ≥3 balls). `pnpm moves test` passed. The render of
+  boards 1–2 was viewed and accepted: flat cartoon wall on Behavior ×
+  Structure, Time arrow, orange backlog tray with four smiling balls.
+
+## Learnings
+
+- Visual language to keep: paper `#FFF6E5`, ink `#2B2D42` 7px outlines, flat
+  tan offset shadows, Chalkboard SE-style rounded bold font, sky/mint checker
+  cells, balls pink/sun/grape/lime with faces. Free space for History is the
+  top-left; the ball's flight path is the band above the tray and the wall.
+- The split-cell field was removed as speculative in slice 1; slice 3 adds it.
