@@ -4,7 +4,7 @@ status: proposed-decomposition
 created: 2026-09-28
 created_during: A digression from the current near-future direction (the TPS and AI talk); a redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort
 trigger_when: When Terry chooses to spend time on the animation; it is not for the TPS and AI talk
-scope: four queued candidate stories plus one conditional; S/M/L bands unassigned (no project definitions)
+scope: four delivered stories, five queued improvement stories (6-10), and one conditional; S/M/L bands unassigned (no project definitions)
 ---
 
 # Story impact animation: romantic stories, disciplined products
@@ -73,10 +73,10 @@ is better. The film should give them different movement qualities: stories are
 bouncy, splashy, and irregular, and the product is tidy and deliberate. Neither
 should be shown as morally better.
 
-**Kept out of the picture:** the upper "ABC of Architecture" triangle, and human
-judgment. The essay's judgment argument, including automated tests as spent
-judgment, is not depicted. The essay's historical-negation argument is also
-left out of the film.
+**Kept out of the picture:** the upper "ABC of Architecture" triangle and the
+essay's historical-negation argument. Human judgment and automated tests were
+first kept out too. On 2026-09-29 Terry asked for them in improvement stories
+7 and 10, so they now come in through those stories only.
 
 ## Confirmed constraints and direction
 
@@ -114,6 +114,88 @@ tone, in cartoon splash frames before anyone animates them?**
 ## Candidate story decomposition
 
 These are non-executable candidates. None of them authorizes execution.
+
+## Improvement stories after the finished film (2026-09-29)
+
+Terry watched the finished 88-second film, liked it, and asked for these five
+improvements. They are listed in his order. Each is a non-executable
+candidate: refinement and slice planning come before execution. For each one,
+**Terry** judges whether the film now says what he means, and
+**representative viewers** (developers and product people) are the audience
+it must work for.
+
+<a id="customer-feedback-loop"></a>
+### 6. Viewers see a story's business impact come back as a new idea in the backlog
+
+- **For / why:** Viewers currently see only half of a story's impact. The splash
+  on the product (features and structure, which developers must assimilate)
+  is shown. The business impact on the customer is not.
+- **Outcome:** After the splat, a customer stands in front of the product,
+  looks at the splash, and reacts (nods). A light bulb appears over their head,
+  and a new idea (a new story ball) flies back into the Product Backlog. It
+  goes in as the **second** item, and the two existing items swap places, so
+  the backlog is visibly both **inserted into and reordered**.
+- **Also in scope:** make the existing product-impact half read more clearly as
+  assimilation *by the developers*, so that the two impacts are clearly
+  separate.
+- **Character decision (Terry agreed, 2026-09-29):** the customer is a **flat
+  2D cartoon character** in the film's existing style, not 3D. A 3D figure would clash with the flat, bright genre
+  that Terry just approved, and it would cost much more to make and change.
+  Use a simple silhouette and face with no copied characters.
+
+<a id="protected-and-mapped"></a>
+### 7. Viewers see that behavior is protected by tests and structure maps to the domain
+
+- **For / why:** Viewers should understand what keeps the assimilated product
+  coherent. The film shows the result but not the discipline behind it.
+- **Outcome:** A brief, strengthening beat or caption. The **Behavior** side is
+  shown protected by automated tests (mostly end-to-end tests), for example as a
+  guard or shield on the feature cells. The **Structure** side, the
+  architecture, is shown mapping directly to the domain model, for example with
+  links from the structure cells to domain concepts. The beat must stay short
+  and playful and must not become a lecture.
+
+<a id="crisp-ending"></a>
+### 8. Viewers leave with a crisp, powerful ending, and Terry is credited
+
+- **For / why:** The current close ("Stories should be romantic. Products
+  should not.") should land harder and leave the viewer with one memorable
+  message.
+- **Outcome:** A short, punchy final beat that lands the key message, followed
+  by an end credit to Terry Yin as the author of the idea and the film.
+- **Order note:** it is best refined after stories 6, 7, 9 and 10 have
+  shaped the film, but it has no hard prerequisite.
+
+<a id="value-vs-whole-product-focus"></a>
+### 9. Viewers see that a story is customer-value focused and development is whole-product focused
+
+- **For / why:** The two sides need two different focuses, and the film does
+  not name them.
+- **Outcome:** When a story is taken from the backlog, a label beneath the ball
+  says it is **customer-value focused**. When it splashes onto the product, the
+  film says the work is now **whole-product focused**.
+- **Source of the term:** use the whole-product view from Open Dough's
+  ADR 0002 (principle 1, "Centralized product focus and customer view", and
+  principle 2, "keeping the solution cohesive with the whole product") to
+  confirm the concept only. The film still does not name Open Dough.
+
+<a id="judgment-intensive-to-spent"></a>
+### 10. Viewers see that assimilation is judgment-intensive and leaves spent judgment in the product
+
+- **For / why:** This is the essay's judgment argument, which Terry now wants in
+  the film.
+- **Outcome:** While a story is being assimilated, the development work is shown
+  as **judgment-intensive** (the term from the TPS and AI talk, Claim 00). The
+  resulting product holds **spent judgment** (the essay's "Automated tests
+  are an example of spent judgment", and ADR 0002 principle 5, "Reduce the
+  judgment left in the repository").
+- **Open decision:** the story ball that goes to history (Git) might be labeled
+  "judgment archived" or "judgment forgotten". Terry has not decided. Refinement
+  proposes one of them, or neither.
+- **Relation to story 7:** tests are the spent-judgment example, so refine 7
+  and 10 together so that they do not say the same thing twice.
+
+## Conditional candidate
 
 <a id="authoring-improvement"></a>
 ### 5. The author can revise a scene without repairing unrelated timing (conditional, not queued)
