@@ -1,7 +1,8 @@
 import React from 'react';
-import { CellPose, palette, seeded, SplatPose } from './scene';
+import { CellPose, GRID, palette, seeded, SplatPose } from './scene';
+import type { GridSpot } from './poseTypes';
 import { cellCenter } from './cell';
-import { FONT_FAMILY, HOVER, ORIGIN, Point, scaleAround, smoothBlob, wallPoint } from './layout';
+import { FONT_FAMILY, GRID_MARGIN, HOVER, ORIGIN, Point, scaleAround, smoothBlob, wallPoint } from './layout';
 
 // Paint on the product wall, drawn on top of the cells so it visibly runs
 // over their gaps. Pure function of the splat pose.
@@ -10,11 +11,16 @@ import { FONT_FAMILY, HOVER, ORIGIN, Point, scaleAround, smoothBlob, wallPoint }
 // blob is stretched along Behavior to look round.
 const COL_STRETCH = 1.2;
 
-const onWall = (splat: SplatPose, angle: number, dist: number): Point =>
-	wallPoint(
-		splat.center.col + Math.cos(angle) * dist * COL_STRETCH,
-		splat.center.row + Math.sin(angle) * dist,
-	);
+// The grid spot `dist` from the splat's center, in the direction `angle`.
+const spotAround = (splat: SplatPose, angle: number, dist: number): GridSpot => ({
+	col: splat.center.col + Math.cos(angle) * dist * COL_STRETCH,
+	row: splat.center.row + Math.sin(angle) * dist,
+});
+
+const onWall = (splat: SplatPose, angle: number, dist: number): Point => {
+	const { col, row } = spotAround(splat, angle, dist);
+	return wallPoint(col, row);
+};
 
 const LOBES = 22;
 
@@ -38,14 +44,21 @@ const dripsOf = (splat: SplatPose): Drip[] =>
 			width: 15 + 6 * seeded(splat.seed + 50 + i),
 		}));
 
-// Droplets stay on the wall, off the Structure axis.
-const dropsOf = (splat: SplatPose): Drop[] =>
+// Droplets stay on the wall, off the Structure axis: each is pulled in from
+// the wall's edges far enough to lie wholly inside its outline (with its ink
+// rim). A step along Behavior moves 60 px across the edge it runs to, and a
+// step along Structure about 77 px.
+const DROP_RIM = 5.5;
+export const splatDrops = (splat: SplatPose): Drop[] =>
 	Array.from({ length: 9 }, (_, i) => {
 		const angle = (i / 9) * Math.PI * 2 + seeded(splat.seed + 60 + i) * 0.5;
-		return {
-			at: onWall(splat, angle, splat.radius * (1.55 + 0.25 * seeded(splat.seed + 70 + i))),
-			r: 6 + 7 * seeded(splat.seed + 80 + i),
-		};
+		const dist = splat.radius * (1.55 + 0.25 * seeded(splat.seed + 70 + i));
+		const r = 6 + 7 * seeded(splat.seed + 80 + i);
+		const pad = { col: (r + DROP_RIM) / 60, row: (r + DROP_RIM) / 77 };
+		const spot = spotAround(splat, angle, dist);
+		const col = Math.min(spot.col, GRID.columns + GRID_MARGIN.col - pad.col);
+		const row = Math.max(-GRID_MARGIN.row + pad.row, Math.min(spot.row, GRID.rows + GRID_MARGIN.row - pad.row));
+		return { at: wallPoint(col, row), r };
 	}).filter((drop) => drop.at.x < ORIGIN.x - 24);
 
 const dripPath = ({ from, length, width }: Drip): string => {
@@ -65,7 +78,7 @@ const SplatShapes: React.FC<{ splat: SplatPose; fill: string; grow: number }> = 
 					<circle cx={drip.from.x} cy={drip.from.y + drip.length} r={drip.width * 0.62} />
 				</g>
 			))}
-			{dropsOf(splat).map((drop, i) => (
+			{splatDrops(splat).map((drop, i) => (
 				<circle key={i} cx={drop.at.x} cy={drop.at.y} r={drop.r} />
 			))}
 		</g>

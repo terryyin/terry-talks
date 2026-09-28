@@ -47,7 +47,8 @@ export type StoryPose = {
 	squash?: number; // width over height, around the ball's center
 	stretch?: { along: number; across: number }; // flying: scale along and across its heading
 	bubble?: number; // wishing: pop-in scale of the wish bubble and its hearts
-	fuzz?: number; // fuzzy: 0 = still smooth, 1 = fully fuzzy
+	fuzz?: number; // fuzzy: 0 = still smooth, 1 = fully fuzzy; wishing: 0 (left out) = smooth, turning fuzzy as it gets ready to fly
+	marks?: number; // fuzzy: 0–1, how much its ignored grid lines and squiggles show; left out, as fuzzy as it is
 };
 
 // Paint on the product wall. The blob is round in grid units around its

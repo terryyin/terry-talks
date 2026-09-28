@@ -78,7 +78,7 @@ export const launchBeatOf = (spec: StorySpec, before: StoryBefore, eager = false
 	};
 };
 
-// A quick flight: from its hover spot it crouches, still smooth, then flies
+// A quick flight: from its hover spot it crouches, turning fuzzy, then flies
 // the first story's arc (from its launch on) to its own impact spot.
 export const QUICK_FLIGHT_SECONDS = 1.8;
 const QUICK_END = lastFrameAt(QUICK_FLIGHT_SECONDS);
@@ -93,6 +93,7 @@ export const quickFlightBeatOf = (spec: StorySpec, before: StoryBefore) => {
 				at: k === 0 ? undefined : lerpPoint(HOVER, CROUCH_POINT, k),
 				squash: unless(1 + 0.3 * k, 1),
 				bubble: 0,
+				fuzz: unless(k, 0),
 			});
 		}
 		const k = (sec - QUICK_CROUCH) / (QUICK_END - QUICK_CROUCH);

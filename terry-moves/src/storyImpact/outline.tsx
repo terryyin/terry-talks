@@ -97,10 +97,16 @@ const Pointer: React.FC<{ from: Point; to: Point; color: string }> = ({ from, to
 const TAG_R = 13;
 const TAG_STEP = 36;
 
+// How far the outline's name has popped in (0–1) as the outline is drawn:
+// with the last of its cells, or, for one outline around them all, while it
+// rises.
+export const tagShown = (outline: OutlinePose): number =>
+	clamp01((outline.draw - (outline.together ? 0.3 : 0.75)) / 0.25);
+
 // The outline's name off the wall, with a row of story-colored dots under
 // it and a pointer to the outline.
 const Tag: React.FC<{ outline: OutlinePose }> = ({ outline }) => {
-	const s = pop(clamp01((outline.draw - 0.75) / 0.25));
+	const s = pop(tagShown(outline));
 	if (s <= 0) return null;
 	const p = OUTLINE_LABEL;
 	const { tags } = outline;

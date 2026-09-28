@@ -19,10 +19,15 @@ const PEEL_FROM = 0.6;
 const PEEL_UNTIL = 1.3;
 const DRIFT = { from: 1.4, to: 3.3 };
 const FALL_UNTIL = 3.6;
-const DROP = 70; // px above its resting spot where it starts to drop in
+const DROP = 60; // px above its resting spot where it starts to drop in, just under the History label
 
 const LIFT: Point = { x: 12, y: -44 };
-const ARC_PEAK: Point = { x: 300, y: 40 };
+// It drifts down and round the wall's "Product" label, then up to the box,
+// under the History label.
+const BENDS: [Point, Point] = [
+	{ x: 230, y: 470 },
+	{ x: 100, y: 330 },
+];
 
 // The skin, from lying flat on the wall to drifting above its spot in
 // History, next to the stories spent before it.
@@ -35,10 +40,9 @@ const skinAt = (spec: StorySpec, before: StoryBefore, sec: number): SpentPose =>
 	const onArc = (u: number): Point => {
 		const from = { x: peelSpot.x + LIFT.x, y: peelSpot.y + LIFT.y };
 		const v = 1 - u;
-		return {
-			x: v * v * from.x + 2 * v * u * ARC_PEAK.x + u * u * aboveRest.x,
-			y: v * v * from.y + 2 * v * u * ARC_PEAK.y + u * u * aboveRest.y,
-		};
+		const [a, b] = BENDS;
+		const at = (k: 'x' | 'y') => v * v * v * from[k] + 3 * v * v * u * a[k] + 3 * v * u * u * b[k] + u * u * u * aboveRest[k];
+		return { x: at('x'), y: at('y') };
 	};
 	// It loosens slowly, then pops free with a little overshoot.
 	const peel = between(sec, PEEL_FROM, PEEL_UNTIL, Easing.out(Easing.back(2.2)));

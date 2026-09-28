@@ -1,7 +1,7 @@
 import React from 'react';
 import { BallPose, palette, SpentPose } from './scene';
 import { Face, Mood } from './face';
-import { BEHAVIOR_STEP, FONT_FAMILY, HISTORY_BOX, HISTORY_LIP_TOP, historySpot, historyWidth, OUTLINE, SHADOW, spentShape, squashAround } from './layout';
+import { BEHAVIOR_STEP, FONT_FAMILY, HISTORY_BOX, HISTORY_LABEL, historyLabelAt, HISTORY_LIP_TOP, historySpot, historyWidth, OUTLINE, SHADOW, spentShape, squashAround } from './layout';
 
 // The History box behind the product, top-left: spent stories rest here,
 // pale and content. Pure function of the spent balls. On its way there, a
@@ -97,6 +97,7 @@ export const HistoryBox: React.FC<{ balls: BallPose[]; room?: number }> = ({ bal
 	const lipTop = HISTORY_LIP_TOP;
 	const width = historyWidth(room);
 	const right = left + width;
+	const label = historyLabelAt(room);
 	return (
 		<g data-testid="history-box">
 			<rect x={left + SHADOW.x} y={top + SHADOW.y} width={width} height={bottom - top} rx={18} fill={palette.paperShadow} />
@@ -112,20 +113,19 @@ export const HistoryBox: React.FC<{ balls: BallPose[]; room?: number }> = ({ bal
 				);
 			})}
 			<rect x={left} y={lipTop} width={width} height={bottom - lipTop} rx={14} fill={crate.front} stroke={palette.ink} strokeWidth={OUTLINE} />
-			<line x1={left + 22} y1={(lipTop + bottom) / 2} x2={right - 22} y2={(lipTop + bottom) / 2} stroke={palette.ink} strokeWidth={4} strokeLinecap="round" opacity={0.35} />
+			<text x={(left + right) / 2} y={(lipTop + bottom) / 2 + 12} textAnchor="middle" fontFamily={FONT_FAMILY} fontWeight={700} fontSize={34} fill={palette.ink} opacity={0.8}>
+				(in Git)
+			</text>
 			<text
-				x={(left + right) / 2}
-				y={top - 20}
+				x={label.x}
+				y={label.y}
 				textAnchor="middle"
 				fontFamily={FONT_FAMILY}
 				fontWeight={700}
-				fontSize={40}
+				fontSize={HISTORY_LABEL.size}
 				fill={palette.ink}
 			>
-				History
-			</text>
-			<text x={(left + right) / 2} y={bottom + 40} textAnchor="middle" fontFamily={FONT_FAMILY} fontWeight={700} fontSize={26} fill={palette.ink} opacity={0.7}>
-				(in Git)
+				{HISTORY_LABEL.text}
 			</text>
 		</g>
 	);

@@ -14,6 +14,7 @@ export const palette = {
 	structure: '#3A6FF7',
 	time: '#2B2D42',
 	tray: '#F4A259',
+	trayInk: '#B4570F', // the tray's own darker orange, for its label
 	trayInside: '#FBD8A8',
 	cellSky: '#A9DEF9',
 	cellMint: '#B5EAD7',

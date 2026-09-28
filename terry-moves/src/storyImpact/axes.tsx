@@ -91,14 +91,14 @@ export const Axes: React.FC<{ showTime: boolean; grow?: number; timeGrow?: numbe
 				<g transform={behaviorPop.transform}>
 					<g transform={`rotate(${BEHAVIOR_LABEL_ANGLE} ${behaviorLabel.x} ${behaviorLabel.y})`}>
 						<Label x={behaviorLabel.x} y={behaviorLabel.y + 58} text="Behavior" color={palette.behavior} size={46} />
-						<Label x={behaviorLabel.x} y={behaviorLabel.y + 90} text="what it does" color={palette.ink} size={26} />
+						<Label x={behaviorLabel.x} y={behaviorLabel.y + 98} text="what it does" color={palette.ink} size={34} />
 					</g>
 				</g>
 			)}
 			{structurePop.hidden ? null : (
 				<g transform={structurePop.transform}>
 					<Label x={AXES.structureEnd.x + 30} y={AXES.structureEnd.y + 36} text="Structure" color={palette.structure} size={46} anchor="start" />
-					<Label x={AXES.structureEnd.x + 32} y={AXES.structureEnd.y + 68} text="how it's built" color={palette.ink} size={26} anchor="start" />
+					<Label x={AXES.structureEnd.x + 32} y={AXES.structureEnd.y + 76} text="how it's built" color={palette.ink} size={34} anchor="start" />
 				</g>
 			)}
 		</g>

@@ -84,7 +84,7 @@ const featureOutlineBeat = (sec: number): Pose => {
 		...settled,
 		outlines: [
 			...(fading > 0 ? [storyOutline(1, march, fading)] : []),
-			featureOutline(between(sec, SWAP, 1.8), sec),
+			featureOutline(between(sec, SWAP, 1.5), sec),
 		],
 		dim:
 			sec < SWAP

@@ -58,7 +58,7 @@ export. There is no structural change.
 
 ### 1. The film plays smoothly and reads at phone size
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 2 and 3 in a spec; stills at 360 px viewed; `pnpm moves test`.
 
 Behavior: given the full film → when it plays → labels stay steady and
@@ -74,3 +74,21 @@ Proof: example 4; the MP4 and poster are viewed.
 Behavior: given the source → when `pnpm -C terry-moves render:story-impact`
 runs → `out/story-impact-animation.mp4` (h264, yuv420p, 1080×1080, 30 fps,
 about 88 s) and `out/story-impact-animation-poster.png` are written.
+
+## Accepted proof
+
+- **Slice 1:** `tests/storyImpact/StoryImpactRelease.spec.tsx` checks, over
+  every frame of the full film, that the "Product Backlog" label moves at most
+  2 px per frame; that no tray, story or spent ball covers the backlog,
+  History or "Product" labels; that every splat droplet lies inside the wall
+  (every film splat, plus a grid of impacts and seeds); that fuzz changes
+  smoothly; and that "a feature" appears before its outline finishes. 82
+  tests pass in `tests/storyImpact`; `pnpm moves test` passed (238). Stills
+  of every beat at 360 px were viewed and accepted. The storyboard contact
+  sheet was re-rendered with the new label placement and sizes.
+
+## Learnings
+
+- Remaining minor overlaps, left as they are: the flying ball crosses
+  "Structure / how it's built" near the top of its arc, and grape's "snap!"
+  briefly touches the "Product" label.

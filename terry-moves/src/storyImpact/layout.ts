@@ -97,6 +97,10 @@ export const wallOutline = (): Point[] =>
 // Text that runs along the Behavior axis is rotated by this angle (degrees).
 export const BEHAVIOR_LABEL_ANGLE = (Math.atan2(-BEHAVIOR_STEP.y, -BEHAVIOR_STEP.x) * 180) / Math.PI;
 
+// The wall's "Product" name, along its top edge.
+const wallTopMid = centerOf([wallPoint(0, GRID.rows + GRID_MARGIN.row), wallPoint(GRID.columns, GRID.rows + GRID_MARGIN.row)]);
+export const PRODUCT_LABEL = { at: { x: wallTopMid.x - 8, y: wallTopMid.y - 22 } as Point, size: 40, text: 'Product' } as const;
+
 export const AXES = {
 	behaviorEnd: wallPoint(GRID.columns + 1.2, 0),
 	structureEnd: wallPoint(0, GRID.rows + 1.35),
@@ -116,6 +120,18 @@ export const traySpot = (count: number, index: number, radius: number): Point =>
 
 // How high an eager ball hops up from the tray floor.
 export const HOP = 30;
+
+// Where a backlog ball's center is drawn: at its slot, rolled by `dx`, and
+// lifted by its hop (or its eager hop).
+export const trayBallCenter = (ball: { size: number; eager?: boolean; hop?: number; dx?: number }, spot: Point): Point => ({
+	x: spot.x + (ball.dx ?? 0),
+	y: spot.y - (ball.hop ?? (ball.eager ? HOP : 0)),
+});
+
+// The "Product Backlog" label stays put under the tray, below the Time
+// axis and clear of its Time label, where no ball ever goes: balls hop, take
+// off and drop in above it.
+export const BACKLOG_LABEL = { at: { x: 690, y: 672 } as Point, size: 40, text: 'Product Backlog' } as const;
 
 // Where the example story hovers after popping out of the tray, and the arc
 // it flies along from the tray to where it hits the product (by default,
@@ -139,6 +155,11 @@ export const flightPoint = (t: number, impact: GridSpot = IMPACT): Point => {
 export const OUTLINE_LABEL: Point = { x: 720, y: 300 };
 
 export const HISTORY_BOX = { left: 40, right: 236, top: 118, bottom: 286 } as const;
+
+// The "History" name above the box, centered on it as it grows for `room`
+// spent balls.
+export const HISTORY_LABEL = { size: 40, text: 'History' } as const;
+export const historyLabelAt = (room: number): Point => ({ x: HISTORY_BOX.left + historyWidth(room) / 2, y: HISTORY_BOX.top - 20 });
 
 // The History box's front lip, the floor its spent balls rest on, and the
 // shape of a spent ball: pale, emptied and slumped, wider than it is tall.

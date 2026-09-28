@@ -168,11 +168,15 @@ const PopIn: React.FC<{ at: Point; scale?: number; maxWidth?: number; children: 
 		<g transform={scaleAround(at, Math.min(scale, maxWidth), scale)}>{children}</g>
 	);
 
+// Where the story ball's center is: moved, on its flight arc, or hovering.
+export const storyCenter = (story: StoryPose): Point =>
+	story.at ?? (story.state === 'flying' ? flightPoint(story.flight, story.toward) : HOVER);
+
 export const StoryBall: React.FC<{ story: StoryPose }> = ({ story }) => {
-	const { ball, state, wish, flight, toward, at: moved, squash, stretch, bubble, fuzz } = story;
+	const { ball, state, wish, flight, toward, squash, stretch, bubble, fuzz, marks } = story;
 	const r = ball.size;
 	if (state === 'flying') {
-		const at = moved ?? flightPoint(flight, toward);
+		const at = storyCenter(story);
 		// Heading along the arc; at its very end, the heading it arrives with.
 		const arcAt = Math.min(flight, 0.98);
 		const onPath = flightPoint(arcAt, toward);
@@ -190,9 +194,10 @@ export const StoryBall: React.FC<{ story: StoryPose }> = ({ story }) => {
 			</g>
 		);
 	}
-	const at = moved ?? HOVER;
+	const at = storyCenter(story);
 	if (state === 'fuzzy') {
-		const shown = fuzz === undefined ? undefined : Math.max(0, Math.min(1, fuzz));
+		const fuzzShown = fuzz === undefined ? undefined : Math.max(0, Math.min(1, fuzz));
+		const shown = marks ?? fuzzShown;
 		const squiggles = (
 			<>
 				<Squiggle x={at.x - r - 44} y={at.y - 30} vertical />
@@ -219,7 +224,16 @@ export const StoryBall: React.FC<{ story: StoryPose }> = ({ story }) => {
 	}
 	return (
 		<g data-testid="story-ball" data-state={state}>
-			<StoryBody x={at.x} y={at.y} r={r} color={ball.color} fuzzy={false} mood="hopeful" transform={squashAround(at, squash)} />
+			<StoryBody
+				x={at.x}
+				y={at.y}
+				r={r}
+				color={ball.color}
+				fuzzy={fuzz !== undefined && fuzz > 0}
+				mood="hopeful"
+				transform={squashAround(at, squash)}
+				fuzz={fuzz}
+			/>
 			<PopIn at={at} scale={bubble}>
 				<Heart x={at.x - r - 18} y={at.y - r + 2} s={16} rot={-18} />
 				<Heart x={at.x - r + 16} y={at.y - r - 38} s={11} rot={12} />

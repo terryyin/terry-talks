@@ -131,11 +131,13 @@ export const flightBeatOf: StoryBeat = (spec, before) => (sec) => {
 	const arc = (t: number) => flightPoint(t, spec.impact);
 	const flight = flightAt(sec);
 	if (sec < CROUCH.to) {
-		// Still fuzzy, it gathers itself: dips and squashes.
+		// Still fuzzy, it gathers itself: dips and squashes, leaving the grid
+		// lines it ignored behind.
 		const k = between(sec, CROUCH.from, CROUCH.to, Easing.inOut(Easing.quad));
 		return storyOf(storyIsFuzzyOf(spec, before), {
 			at: k === 0 ? undefined : lerpPoint(HOVER, CROUCH_POINT, k),
 			squash: unless(1 + 0.3 * k, 1),
+			marks: unless(1 - k, 1),
 		});
 	}
 	// Leaving the crouch, it eases from its crouch point onto the arc.

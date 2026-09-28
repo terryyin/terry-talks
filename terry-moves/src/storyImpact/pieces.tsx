@@ -1,13 +1,13 @@
 import React from 'react';
-import { BallPose, CellPose, GRID, palette } from './scene';
+import { BallPose, CellPose, palette } from './scene';
 import { Face } from './face';
 import { ProductCell } from './cell';
 import {
+	BACKLOG_LABEL,
 	BEHAVIOR_LABEL_ANGLE,
-	centerOf,
 	FONT_FAMILY,
-	GRID_MARGIN,
 	ORIGIN,
+	PRODUCT_LABEL,
 	OUTLINE,
 	roundedPath,
 	scaleAround,
@@ -16,10 +16,9 @@ import {
 	HOP,
 	squashAround,
 	TRAY,
-	TRAY_FLOOR,
+	trayBallCenter,
 	traySpot,
 	wallOutline,
-	wallPoint,
 } from './layout';
 
 // Every piece is a pure function of its props: no frame hooks here, so the
@@ -75,7 +74,6 @@ export const ProductGrid: React.FC<{ cells: CellPose[]; underCells?: React.React
 	if (wall !== undefined && wall <= 0) return null;
 	const wallPop = wall === undefined ? undefined : scaleAround(ORIGIN, wall, wall);
 	const outline = roundedPath(wallOutline(), 18);
-	const topMid = centerOf([wallPoint(0, GRID.rows + GRID_MARGIN.row), wallPoint(GRID.columns, GRID.rows + GRID_MARGIN.row)]);
 	return (
 		<g data-testid="product-grid">
 			<g transform={wallPop}>
@@ -87,7 +85,7 @@ export const ProductGrid: React.FC<{ cells: CellPose[]; underCells?: React.React
 				<ProductCell key={`${cell.col}-${cell.row}`} cell={cell} />
 			))}
 			<g transform={wallPop}>
-				<Label x={topMid.x - 8} y={topMid.y - 22} text="Product" color={palette.ink} size={40} angle={BEHAVIOR_LABEL_ANGLE} />
+				<Label x={PRODUCT_LABEL.at.x} y={PRODUCT_LABEL.at.y} text={PRODUCT_LABEL.text} color={palette.ink} size={PRODUCT_LABEL.size} angle={BEHAVIOR_LABEL_ANGLE} />
 			</g>
 		</g>
 	);
@@ -99,8 +97,7 @@ const DROP_SHADOW_FROM = 80;
 // An eager ball hops up from the tray floor, its shadow left behind.
 export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x: slotX, y: rest }) => {
 	const r = ball.size;
-	const x = ball.dx === undefined ? slotX : slotX + ball.dx;
-	const y = ball.hop !== undefined ? rest - ball.hop : ball.eager ? rest - HOP : rest;
+	const { x, y } = trayBallCenter(ball, { x: slotX, y: rest });
 	// A ball dropping in from high above casts a shadow that grows as it nears.
 	const falling = ball.hop !== undefined && ball.hop > DROP_SHADOW_FROM ? Math.max(0, 1 - (ball.hop - DROP_SHADOW_FROM) / 400) : 1;
 	const shadow = (ball.hop !== undefined ? 0.9 - (0.3 * Math.min(ball.hop, HOP)) / HOP : ball.eager ? 0.6 : 0.9) * falling;
@@ -142,7 +139,6 @@ export const BacklogTray: React.FC<{ balls: BallPose[] }> = ({ balls }) => {
 		`Q${right - 12},${bottom} ${right - 10},${bottom - 18}`,
 		`L${right},${top}`,
 	].join(' ');
-	const floor = TRAY_FLOOR;
 	return (
 		<g data-testid="backlog-tray">
 			<path d={`${trayPath} Z`} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} />
@@ -159,7 +155,7 @@ export const BacklogTray: React.FC<{ balls: BallPose[] }> = ({ balls }) => {
 				strokeLinejoin="round"
 			/>
 			<path d={trayPath} fill="none" stroke={palette.ink} strokeWidth={OUTLINE} strokeLinejoin="round" strokeLinecap="round" />
-			<Label x={(left + right) / 2} y={Math.min(top, floor - Math.max(...balls.map((b) => 2 * b.size + (b.eager ? HOP + 40 : 0)))) - 20} text="Product Backlog" color={palette.ink} size={40} />
+			<Label x={BACKLOG_LABEL.at.x} y={BACKLOG_LABEL.at.y} text={BACKLOG_LABEL.text} color={palette.trayInk} size={BACKLOG_LABEL.size} />
 		</g>
 	);
 };
