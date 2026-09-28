@@ -1,11 +1,12 @@
 // The product's beats of the one-story film: it wobbles under the splash,
 // then development assimilates it into a coherent product. The product moves
 // with eased slides and crisp snaps. Each beat maps seconds into the beat to
-// a pose that ends on its storyboard board.
+// a pose that ends on its storyboard board. Each beat is built from a story
+// and the stage before it; the plain beats are the pink (example) story's.
 
 import { Easing } from 'remotion';
-import { CellPose, distanceToCell, IMPACT, messyProduct, Pose, storySplashes } from './scene';
-import { assimilating, coherentProduct } from './assimilation';
+import { CellPose, distanceToCell, messyProductOf, pinkBefore, pinkStory, StoryBeat, storySplashesOf } from './scene';
+import { assimilatingOf, coherentProductOf } from './assimilation';
 import { between, bounce, FPS, POPPY, settle, toward, unless, WOBBLY, withoutUndefined } from './motion';
 
 // The product moves tidily: eased slides between two moments of the beat.
@@ -31,13 +32,13 @@ const isMoved = (cell: CellPose) => cell.dx !== 0 || cell.dy !== 0 || cell.rot !
 // 6. The product wobbles: the cells near the splat get knocked and jiggle
 // like jelly into their messy offsets, the paint seeps in and smears them,
 // and the drips run further.
-export const wobbleBeat = (sec: number): Pose => {
-	const messy = messyProduct();
+export const wobbleBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const messy = messyProductOf(spec, before);
 	const splat = messy.splat!;
-	const fresh = storySplashes().splat!;
+	const fresh = storySplashesOf(spec, before).splat!;
 	const cells = messy.cells.map((cell) => {
 		if (!isMoved(cell)) return cell;
-		const delay = 0.04 + 0.12 * distanceToCell(IMPACT, cell.col, cell.row);
+		const delay = 0.04 + 0.12 * distanceToCell(spec.impact, cell.col, cell.row);
 		const k = bounce(sec, delay, WOBBLY);
 		const smearAmount = cell.smear ? tidily(sec, 0.35 + delay, 1.4 + delay) : 1;
 		return withoutUndefined({
@@ -67,9 +68,9 @@ export const wobbleBeat = (sec: number): Pose => {
 // and the reorganized cell splits in two.
 export const ASSIMILATE_SECONDS = 4;
 const ASSIMILATE_END = (ASSIMILATE_SECONDS * FPS - 1) / FPS;
-export const assimilateBeat = (sec: number): Pose => {
-	const messy = messyProduct();
-	const target = assimilating();
+export const assimilateBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const messy = messyProductOf(spec, before);
+	const target = assimilatingOf(spec, before);
 	const nudged = messy.cells.filter((c, i) => isMoved(c) && target.cells[i].snapped);
 	const cells = messy.cells.map((from, i) => {
 		const to = target.cells[i];
@@ -98,9 +99,9 @@ export const assimilateBeat = (sec: number): Pose => {
 // paint drains away with the smears, and sparkles pop on the changed cells.
 // Then it holds still, so viewers see what changed.
 const DONE_AT = 1.4;
-export const coherentBeat = (sec: number): Pose => {
-	const from = assimilating();
-	const target = coherentProduct();
+export const coherentBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const from = assimilatingOf(spec, before);
+	const target = coherentProductOf(spec, before);
 	const done = sec >= DONE_AT;
 	const cells = from.cells.map((cell, i) => {
 		const to = target.cells[i];
@@ -121,3 +122,8 @@ export const coherentBeat = (sec: number): Pose => {
 		sparkles: unless(sparkles, 1),
 	});
 };
+
+const pink = pinkBefore();
+export const wobbleBeat = wobbleBeatOf(pinkStory, pink);
+export const assimilateBeat = assimilateBeatOf(pinkStory, pink);
+export const coherentBeat = coherentBeatOf(pinkStory, pink);

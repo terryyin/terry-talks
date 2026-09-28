@@ -1,36 +1,34 @@
 // Poses after the splash: development assimilates it into the product, and
 // the spent story goes to history. Same pose model as the earlier boards.
+// Each is built from a story and the product before it; the zero-argument
+// forms are the pink (example) story's.
 
 import {
 	CellPose,
 	distanceToCell,
-	exampleBall,
-	exampleSplat,
 	GridSpot,
-	IMPACT,
 	knockedCells,
-	laterStories,
+	pinkBefore,
+	pinkStory,
 	Pose,
-	storyOutOfBacklog,
-	tidyCells,
+	sameSpot,
+	StoryBefore,
+	storyOutOfBacklogOf,
+	storySplat,
+	StorySpec,
 } from './scene';
 
-// Where the change belongs once it is understood: not the splat's shape, but
-// a few behaviors and structural parts spread over the product. The cell that
-// was hit hardest is reorganized into two halves.
-const CHANGED_CELLS: GridSpot[] = [
-	{ col: IMPACT.col, row: 0 },
-	{ col: IMPACT.col - 1, row: IMPACT.row },
-	{ col: IMPACT.col + 1, row: IMPACT.row - 1 },
-];
-const REORGANIZED_CELL: GridSpot = IMPACT;
+const at = (spots: GridSpot[], cell: CellPose) => spots.some((s) => sameSpot(s, cell));
 
-const at = (spots: GridSpot[], cell: CellPose) => spots.some((s) => s.col === cell.col && s.row === cell.row);
-
-const assimilatedCells = (): CellPose[] =>
-	tidyCells().map((cell) => {
-		if (at(CHANGED_CELLS, cell)) return { ...cell, color: exampleBall.color };
-		if (at([REORGANIZED_CELL], cell)) return { ...cell, split: exampleBall.color };
+// Where the change belongs: the changed cells take the story's color (over
+// any earlier story's), and the reorganized cell takes it on one half — the
+// upper half if it is whole, the lower one if an earlier story split it.
+const assimilatedCells = (spec: StorySpec, before: StoryBefore): CellPose[] =>
+	before.cells.map((cell) => {
+		if (at(spec.changed, cell)) return { ...cell, color: spec.ball.color };
+		if (at([spec.reorganized], cell)) {
+			return cell.split ? { ...cell, color: spec.ball.color } : { ...cell, split: spec.ball.color };
+		}
 		return cell;
 	});
 
@@ -38,10 +36,10 @@ const assimilatedCells = (): CellPose[] =>
 // the ones under the paint still slide home, and a little paint is left.
 const SLIDING = 0.4;
 
-const assimilatingCells = (): CellPose[] => {
-	const splat = exampleSplat(1.35, true);
-	const target = assimilatedCells();
-	return knockedCells(splat).map((knocked, i) => {
+const assimilatingCells = (spec: StorySpec, before: StoryBefore): CellPose[] => {
+	const splat = storySplat(spec, 1.35, true);
+	const target = assimilatedCells(spec, before);
+	return knockedCells(splat, before.cells).map((knocked, i) => {
 		const moved = knocked.dx !== 0 || knocked.dy !== 0 || knocked.rot !== 0;
 		if (!moved) return target[i];
 		if (distanceToCell(splat.center, knocked.col, knocked.row) > splat.radius) {
@@ -52,25 +50,40 @@ const assimilatingCells = (): CellPose[] => {
 			dx: Math.round(knocked.dx * SLIDING),
 			dy: Math.round(knocked.dy * SLIDING),
 			rot: Math.round(knocked.rot * SLIDING * 10) / 10,
-			smear: target[i].color === exampleBall.color ? undefined : knocked.smear,
+			smear: at(spec.changed, knocked) ? undefined : knocked.smear,
 		};
 	});
 };
 
-export const assimilating = (): Pose =>
-	storyOutOfBacklog({
-		cells: assimilatingCells(),
-		splat: { ...exampleSplat(0, true), radius: 0.55 },
+export const assimilatingOf = (spec: StorySpec, before: StoryBefore): Pose =>
+	storyOutOfBacklogOf(before, {
+		cells: assimilatingCells(spec, before),
+		splat: { ...storySplat(spec, 0, true), radius: 0.55 },
 		assimilation: 'underway',
 	});
 
-export const coherentProduct = (): Pose =>
-	storyOutOfBacklog({ cells: assimilatedCells(), assimilation: 'done' });
+export const coherentProductOf = (spec: StorySpec, before: StoryBefore): Pose =>
+	storyOutOfBacklogOf(before, { cells: assimilatedCells(spec, before), assimilation: 'done' });
 
-export const storyInHistory = (): Pose =>
-	storyOutOfBacklog({ cells: assimilatedCells(), history: [exampleBall] });
+// The spent ball joins the earlier spent stories, in spent order.
+export const storyInHistoryOf = (spec: StorySpec, before: StoryBefore): Pose =>
+	storyOutOfBacklogOf(before, { cells: assimilatedCells(spec, before), history: [...before.history, spec.ball] });
 
-export const readyForNext = (): Pose => {
-	const [next, ...rest] = laterStories;
-	return { ...storyInHistory(), backlog: [{ ...next, eager: true }, ...rest] };
+// The ball behind the story steps up, eager, at the front of the queue.
+export const readyForNextOf = (spec: StorySpec, before: StoryBefore): Pose => {
+	const [next, ...rest] = before.backlog;
+	return { ...storyInHistoryOf(spec, before), backlog: [{ ...next, eager: true }, ...rest] };
 };
+
+// What the next story finds: this story's product, History and the queue
+// behind it (the front ball of which is the next story).
+export const afterStory = (spec: StorySpec, before: StoryBefore): StoryBefore => ({
+	cells: assimilatedCells(spec, before),
+	history: [...before.history, spec.ball],
+	backlog: before.backlog.slice(1),
+});
+
+export const assimilating = (): Pose => assimilatingOf(pinkStory, pinkBefore());
+export const coherentProduct = (): Pose => coherentProductOf(pinkStory, pinkBefore());
+export const storyInHistory = (): Pose => storyInHistoryOf(pinkStory, pinkBefore());
+export const readyForNext = (): Pose => readyForNextOf(pinkStory, pinkBefore());

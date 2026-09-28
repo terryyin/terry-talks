@@ -98,7 +98,7 @@ ball stepping up.
 
 ### 2. Story poses are built from any story and the product before it
 Type: Structure
-Status: planned
+Status: done
 Proof: storyboard PNGs byte-identical; storyboard and one-splash specs unchanged and green; a spec that the pink story built through the general form deep-equals today's poses.
 
 Internal change: splash, messy, assimilating, coherent and history poses (and
@@ -137,6 +137,13 @@ waiting.
   `pnpm moves test` passed (209). Storyboard PNGs stay byte-identical. Opening
   stills (title splash, axes growing, cell wave, tray slide, balls bouncing
   in) were viewed and accepted.
+- **Slice 2:** `tests/storyImpact/storySpec.spec.ts` shows that the pink
+  story built through `StorySpec`/`StoryBefore` strictly equals the
+  zero-argument builders (9 poses, 8 beats sampled), and that a sun story
+  built on `afterStory(pinkStory, …)` keeps the pink cells and splits a pink
+  cell into pink and sun. 61 tests pass; `pnpm moves test` passed (217).
+  Storyboard PNGs and film stills at frames 700, 900, 1200 and 1350 are
+  byte-identical.
 
 ## Learnings
 
@@ -144,3 +151,7 @@ waiting.
   beat list is `fullFilm.ts`. Opening beats live in `openingBeats.ts`, the
   title piece in `title.tsx`, axes in `axes.tsx`. An empty caption hides the
   caption bar. The full film is 46 s so far.
+- Story poses and beats take `(spec: StorySpec, before: StoryBefore)`;
+  `afterStory` returns the next story's before-state. Open for slice 3: no
+  short launch beat, no backlog refill, and earlier History balls jump rather
+  than reflow when a new one lands.

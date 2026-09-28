@@ -27,110 +27,21 @@ export const ballColors = {
 	grape: '#9B5DE5',
 	lime: '#6BCB3B',
 } as const;
-
-export type CellPose = {
-	col: number; // 0 = next to the Structure axis, grows along Behavior
-	row: number; // 0 = on the ground, grows up along Structure
-	color: string;
-	dx: number;
-	dy: number;
-	rot: number; // degrees, around the cell's own center
-	smear?: string; // paint smeared over part of the cell
-	split?: string; // reorganized into two halves; the upper half has this color
-	snapped?: boolean; // has just clicked back into its place
-	// Motion in the film; left out, the cell looks as on the storyboard.
-	smearAmount?: number; // 0–1: how much of the smear shows while it seeps in or fades
-	splitting?: number; // 0–1: how far the upper half has grown in while the cell splits
-	filling?: number; // 0–1: how high `color` has risen over the cell's plain color
-	pop?: number; // pop-in scale around its center while the product is built; 0 = not there yet
-};
-
-export type BallPose = {
-	id: string;
-	color: string;
-	size: number; // radius in px
-	eager?: boolean; // hops at the front of the queue, ready for its turn
-	// Motion in the film; left out, the ball sits as on the storyboard.
-	hop?: number; // px above the tray floor, instead of the eager hop
-	squash?: number; // width over height, around where it touches the floor
-	dx?: number; // px along Time from its slot, while it rolls to a new slot
-};
-
-// A spot on the product wall in grid units (cell (c, r) spans c..c+1, r..r+1).
-export type GridSpot = { col: number; row: number };
-
-// The example story once it has left the backlog: first it wishes (speech
-// bubble), then it shows how fuzzy it is, then it flies toward the product.
-export type StoryState = 'wishing' | 'fuzzy' | 'flying';
-
-export type StoryPose = {
-	ball: BallPose;
-	state: StoryState;
-	wish: string;
-	flight: number; // 0 = hovering above the tray, 1 = hitting the product
-	// Motion in the film; left out, the story looks as on the storyboard.
-	at?: { x: number; y: number }; // ball center, instead of its hover or flight point
-	squash?: number; // width over height, around the ball's center
-	stretch?: { along: number; across: number }; // flying: scale along and across its heading
-	bubble?: number; // wishing: pop-in scale of the wish bubble and its hearts
-	fuzz?: number; // fuzzy: 0 = still smooth, 1 = fully fuzzy
-};
-
-// Paint on the product wall. The blob is round in grid units around its
-// center; its lobes, droplets and drips come from the seed.
-export type SplatPose = {
-	center: GridSpot;
-	radius: number; // grid units
-	color: string;
-	seed: number;
-	drip: number; // how far the paint has run down, 1 = fresh splat
-	shout?: string; // comic sound word shown at the moment of impact
-	seeped: boolean; // the paint has run into the gaps under shifted cells
-	shoutScale?: number; // film: pop-in scale of the sound word
-	cover?: number; // film, once seeped: 0–1, paint still lying on top of the cells
-};
-
-export type Pose = {
-	cells: CellPose[];
-	showTime: boolean;
-	backlog: BallPose[]; // front of the queue first (nearest the product)
-	story?: StoryPose;
-	splat?: SplatPose;
-	// Development re-sorting the splash into the product, then finished.
-	assimilation?: 'underway' | 'done';
-	sparkles?: number; // film: pop-in scale of the sparkles once assimilation is done
-	history?: BallPose[]; // spent stories, oldest first
-	historyReveal?: number; // film: pop-in scale of the History box
-	spent?: SpentPose; // film: the spent story on its way to History
-	// The film's opening; each left out looks as on the storyboard.
-	title?: TitlePose; // the film's title over the empty paper
-	axes?: number; // 0–1: how far the Behavior and Structure axes have grown from the origin
-	wall?: number; // pop-in scale of the product wall behind the cells; 0 = not there yet
-	timeGrow?: number; // 0–1: how far the Time arrow has grown from the origin
-	trayIn?: number; // 0 = the backlog tray waits off stage right, 1 = in place
-};
-
-// The film's title: a romantic first line whose letters drop in like paint
-// balls onto a splash, and a disciplined second line that snaps into place
-// over a ruled underline.
-export type TitlePose = {
-	romantic: string;
-	disciplined: string;
-	splash: number; // pop-in scale of the paint splash behind the first line
-	drops: (number | null)[]; // per letter of the first line: px above its place, null = not dropped yet
-	snap: number; // scale of the second line; 0 = not there yet
-	underline: number; // 0–1: how far the underline has been ruled
-	leave: number; // 0 = standing, 1 = shrunk away
-};
-
-// The spent story's pale, emptied skin, peeling off the product and drifting
-// to History. Drawn like a history ball, but free on the stage.
-export type SpentPose = {
-	ball: BallPose;
-	at: { x: number; y: number }; // center of the skin
-	peel?: number; // 0 = lying flat on the wall, 1 (left out) = puffed up and free
-	squash?: number; // width over height, around its center
-};
+export type {
+	BallPose,
+	CellPose,
+	GridSpot,
+	Pose,
+	SpentPose,
+	SplatPose,
+	StoryBeat,
+	StoryBefore,
+	StoryPose,
+	StorySpec,
+	StoryState,
+	TitlePose,
+} from './poseTypes';
+import type { BallPose, CellPose, GridSpot, Pose, SplatPose, StoryBefore, StoryPose, StorySpec, StoryState } from './poseTypes';
 
 // The product's own checker color for a cell, before any story changed it.
 export const plainCellColor = ({ col, row }: GridSpot): string =>
@@ -172,38 +83,78 @@ export const seeded = (n: number): number => {
 // Where the example story hits the product wall.
 export const IMPACT: GridSpot = { col: 2, row: 2 };
 
-const EXAMPLE_WISH = 'I wish I could split the bill with friends in one tap!';
-
 export const [exampleBall, ...laterStories] = waitingStories();
 
-const exampleStory = (state: StoryState, flight: number): StoryPose => ({
-	ball: { ...exampleBall, size: 62 },
+// The example (pink) story. Its change belongs, once understood, not in the
+// splat's shape but in a few behaviors and structural parts spread over the
+// product; the cell that was hit hardest is reorganized into two halves.
+export const pinkStory: StorySpec = {
+	ball: exampleBall,
+	impact: IMPACT,
+	changed: [
+		{ col: IMPACT.col, row: 0 },
+		{ col: IMPACT.col - 1, row: IMPACT.row },
+		{ col: IMPACT.col + 1, row: IMPACT.row - 1 },
+	],
+	reorganized: IMPACT,
+	seed: 7,
+	wish: 'I wish I could split the bill with friends in one tap!',
+};
+
+// Before the pink story: the tidy product, nothing spent, the rest waiting.
+export const pinkBefore = (): StoryBefore => ({ cells: tidyCells(), history: [], backlog: laterStories });
+
+// A story out of the backlog grows to this size while it wishes and flies.
+const STORY_SIZE = 62;
+
+export const sameSpot = (a: GridSpot, b: GridSpot) => a.col === b.col && a.row === b.row;
+
+const storyPoseOf = (spec: StorySpec, state: StoryState, flight: number): StoryPose => ({
+	ball: { ...spec.ball, size: STORY_SIZE },
 	state,
-	wish: EXAMPLE_WISH,
+	wish: spec.wish ?? '',
 	flight,
+	...(sameSpot(spec.impact, IMPACT) ? {} : { toward: spec.impact }),
 });
 
-// The example story has left the backlog; the rest of the pose says what it
-// is doing now and what it did to the product.
-export const storyOutOfBacklog = (
+// The story still waits at the front of the backlog, before the product
+// earlier stories left.
+export const storyInBacklogOf = (spec: StorySpec, before: StoryBefore): Pose => ({
+	...productOverTime(),
+	cells: before.cells,
+	backlog: [spec.ball, ...before.backlog],
+	...(before.history.length > 0 ? { history: before.history } : {}),
+});
+
+// The story has left the backlog; the rest of the pose says what it is doing
+// now and what it did to the product.
+export const storyOutOfBacklogOf = (
+	before: StoryBefore,
 	now: Partial<Pick<Pose, 'cells' | 'story' | 'splat' | 'assimilation' | 'history'>>,
 ): Pose => ({
 	...productOverTime(),
-	backlog: laterStories,
+	cells: before.cells,
+	backlog: before.backlog,
+	...(before.history.length > 0 ? { history: before.history } : {}),
 	...now,
 });
 
-export const storyWishes = (): Pose => storyOutOfBacklog({ story: exampleStory('wishing', 0) });
+export const storyWishesOf = (spec: StorySpec, before: StoryBefore): Pose =>
+	storyOutOfBacklogOf(before, { story: storyPoseOf(spec, 'wishing', 0) });
+export const storyIsFuzzyOf = (spec: StorySpec, before: StoryBefore): Pose =>
+	storyOutOfBacklogOf(before, { story: storyPoseOf(spec, 'fuzzy', 0) });
+export const storyFliesOf = (spec: StorySpec, before: StoryBefore): Pose =>
+	storyOutOfBacklogOf(before, { story: storyPoseOf(spec, 'flying', 0.4) });
 
-export const storyIsFuzzy = (): Pose => storyOutOfBacklog({ story: exampleStory('fuzzy', 0) });
+export const storyWishes = (): Pose => storyWishesOf(pinkStory, pinkBefore());
+export const storyIsFuzzy = (): Pose => storyIsFuzzyOf(pinkStory, pinkBefore());
+export const storyFlies = (): Pose => storyFliesOf(pinkStory, pinkBefore());
 
-export const storyFlies = (): Pose => storyOutOfBacklog({ story: exampleStory('flying', 0.4) });
-
-export const exampleSplat = (drip: number, seeped: boolean, shout?: string): SplatPose => ({
-	center: IMPACT,
+export const storySplat = (spec: StorySpec, drip: number, seeped: boolean, shout?: string): SplatPose => ({
+	center: spec.impact,
 	radius: 1,
-	color: exampleBall.color,
-	seed: 7,
+	color: spec.ball.color,
+	seed: spec.seed,
 	drip,
 	shout,
 	seeped,
@@ -221,12 +172,16 @@ export const splatCells = (pose: Pose): GridSpot[] => {
 		.map(({ col, row }) => ({ col, row }));
 };
 
-export const storySplashes = (): Pose => storyOutOfBacklog({ splat: exampleSplat(1, false, 'SPLAT!') });
+export const storySplashesOf = (spec: StorySpec, before: StoryBefore): Pose =>
+	storyOutOfBacklogOf(before, { splat: storySplat(spec, 1, false, 'SPLAT!') });
+
+export const storySplashes = (): Pose => storySplashesOf(pinkStory, pinkBefore());
 
 // Cells under and next to the splat get knocked out of line; the ones under
-// it also carry a smear of the story's paint.
-export const knockedCells = (splat: SplatPose): CellPose[] =>
-	tidyCells().map((cell) => {
+// it also carry a smear of the story's paint. They keep the colors earlier
+// stories gave them.
+export const knockedCells = (splat: SplatPose, cells: CellPose[]): CellPose[] =>
+	cells.map((cell) => {
 		const d = distanceToCell(splat.center, cell.col, cell.row);
 		const reach = splat.radius + 0.9;
 		if (d > reach) return cell;
@@ -242,7 +197,9 @@ export const knockedCells = (splat: SplatPose): CellPose[] =>
 		};
 	});
 
-export const messyProduct = (): Pose => {
-	const splat = exampleSplat(1.35, true);
-	return storyOutOfBacklog({ cells: knockedCells(splat), splat });
+export const messyProductOf = (spec: StorySpec, before: StoryBefore): Pose => {
+	const splat = storySplat(spec, 1.35, true);
+	return storyOutOfBacklogOf(before, { cells: knockedCells(splat, before.cells), splat });
 };
+
+export const messyProduct = (): Pose => messyProductOf(pinkStory, pinkBefore());

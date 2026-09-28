@@ -1,20 +1,24 @@
 // The story's beats of the one-story film: the front ball hops, wishes, turns
 // fuzzy, flies and splats. Stories move with springs, squash and stretch.
-// Each beat maps seconds into the beat to a pose.
+// Each beat is built from a story and the stage before it, and maps seconds
+// into the beat to a pose; the plain beats are the pink (example) story's.
 
 import { Easing, interpolate } from 'remotion';
 import {
 	BallPose,
-	exampleBall,
-	laterStories,
+	pinkBefore,
+	pinkStory,
 	Pose,
-	productOverTime,
 	SplatPose,
+	StoryBeat,
+	StoryBefore,
+	storyFliesOf,
+	storyInBacklogOf,
+	storyIsFuzzyOf,
 	StoryPose,
-	storyFlies,
-	storyIsFuzzy,
-	storySplashes,
-	storyWishes,
+	storySplashesOf,
+	StorySpec,
+	storyWishesOf,
 } from './scene';
 import { flightPoint, HOVER, Point, traySpot } from './layout';
 import { between, bounce, bounceSpeed, BOUNCY, clamp01, FPS, hopping, jelly, lerp, lerpPoint, POPPY, settle, unless, WOBBLY, withoutUndefined } from './motion';
@@ -24,14 +28,14 @@ const storyOf = (base: Pose, motion: Partial<StoryPose>): Pose => ({
 	story: withoutUndefined({ ...base.story!, ...motion }),
 });
 
-// The front ball's spot in the full tray, and the rest of the queue's.
-const frontSpot = traySpot(laterStories.length + 1, 0, exampleBall.size);
+// The front ball's spot in the full tray.
+const frontSpot = (spec: StorySpec, before: StoryBefore) => traySpot(before.backlog.length + 1, 0, spec.ball.size);
 // Just high enough to clear the tray's front lip.
 const TAKE_OFF_HOP = 22;
 
 // 1. The tidy product with its backlog; the front ball gets eager and hops.
-export const backlogBeat = (sec: number): Pose => {
-	const base = productOverTime();
+export const backlogBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const base = storyInBacklogOf(spec, before);
 	const hops = [
 		{ from: 0.45, to: 0.95, height: 16 },
 		{ from: 1.05, to: 1.4, height: 8 },
@@ -52,14 +56,15 @@ export const backlogBeat = (sec: number): Pose => {
 };
 
 // 2. The front ball springs up out of the tray to hover, and its wish pops out.
-export const wishBeat = (sec: number): Pose => {
-	const base = storyWishes();
+export const wishBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const base = storyWishesOf(spec, before);
 	const LAUNCH = 0.05;
 	const rise = bounce(sec, LAUNCH, BOUNCY);
 	const speed = Math.abs(bounceSpeed(sec, LAUNCH, BOUNCY));
-	const start = { x: frontSpot.x, y: frontSpot.y - TAKE_OFF_HOP };
+	const front = frontSpot(spec, before);
+	const start = { x: front.x, y: front.y - TAKE_OFF_HOP };
 	const at = rise === 1 ? undefined : lerpPoint(start, HOVER, rise);
-	const size = lerp(exampleBall.size, base.story!.ball.size, Math.min(1, rise));
+	const size = lerp(spec.ball.size, base.story!.ball.size, Math.min(1, rise));
 	// Tall and thin while shooting up, then a jelly wobble once it hovers.
 	const squash = settle(jelly(sec, 0.6, 0.12, 2.5, 4) / (1 + speed * 2), 1);
 	const bubble = bounce(sec, 0.9, POPPY);
@@ -86,14 +91,14 @@ export const wishBeat = (sec: number): Pose => {
 
 // 3. The wish bubble pops away and the ball turns fuzzy, wobbling like jelly.
 const FUZZ_FROM = 0.35;
-export const fuzzyBeat = (sec: number): Pose => {
+export const fuzzyBeatOf: StoryBeat = (spec, before) => (sec) => {
 	if (sec < FUZZ_FROM) {
 		const shrink = interpolate(sec, [0, FUZZ_FROM], [0, 1], { easing: Easing.in(Easing.back(2)) });
-		return storyOf(storyWishes(), { bubble: unless(Math.max(0, 1 - shrink), 1) });
+		return storyOf(storyWishesOf(spec, before), { bubble: unless(Math.max(0, 1 - shrink), 1) });
 	}
 	const fuzz = bounce(sec, FUZZ_FROM, WOBBLY);
 	const squash = jelly(sec, FUZZ_FROM, 0.16);
-	return storyOf(storyIsFuzzy(), { fuzz: unless(fuzz, 1), squash: unless(squash, 1) });
+	return storyOf(storyIsFuzzyOf(spec, before), { fuzz: unless(fuzz, 1), squash: unless(squash, 1) });
 };
 
 // 4. It crouches, launches, and flies along its arc, stretching with speed.
@@ -109,25 +114,26 @@ const flightAt = (sec: number): number => {
 	return 0.75 * u + 0.25 * u * u;
 };
 
-export const flightBeat = (sec: number): Pose => {
-	const base = storyFlies();
+export const flightBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const base = storyFliesOf(spec, before);
+	const arc = (t: number) => flightPoint(t, spec.impact);
 	const flight = flightAt(sec);
 	if (sec < CROUCH.to) {
 		// Still fuzzy, it gathers itself: dips and squashes.
 		const k = between(sec, CROUCH.from, CROUCH.to, Easing.inOut(Easing.quad));
-		return storyOf(storyIsFuzzy(), {
+		return storyOf(storyIsFuzzyOf(spec, before), {
 			at: k === 0 ? undefined : lerpPoint(HOVER, CROUCH_POINT, k),
 			squash: unless(1 + 0.3 * k, 1),
 		});
 	}
 	// Leaving the crouch, it eases from its crouch point onto the arc.
 	const join = clamp01(flight / 0.25);
-	const offset = { x: CROUCH_POINT.x - flightPoint(0).x, y: CROUCH_POINT.y - flightPoint(0).y };
-	const onArc = flightPoint(flight);
+	const offset = { x: CROUCH_POINT.x - arc(0).x, y: CROUCH_POINT.y - arc(0).y };
+	const onArc = arc(flight);
 	const at = join < 1 ? { x: onArc.x + offset.x * (1 - join), y: onArc.y + offset.y * (1 - join) } : undefined;
 	const step = 1 / FPS;
-	const a = flightPoint(flightAt(sec - step));
-	const b = flightPoint(flightAt(sec + step));
+	const a = arc(flightAt(sec - step));
+	const b = arc(flightAt(sec + step));
 	const speed = Math.hypot(b.x - a.x, b.y - a.y) / 2; // px per frame
 	const along = Math.min(1.5, 1 + speed / 70);
 	const snap = Math.max(0, 1 - (sec - CROUCH.to) / 0.12); // launch: squash snaps into stretch
@@ -136,8 +142,8 @@ export const flightBeat = (sec: number): Pose => {
 };
 
 // 5. SPLAT: the paint bursts across cells and rows, the word pops, and it drips.
-export const splatBeat = (sec: number): Pose => {
-	const base = storySplashes();
+export const splatBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const base = storySplashesOf(spec, before);
 	const splat = base.splat!;
 	const radius = settle(lerp(0.3, splat.radius, bounce(sec, 0, POPPY)), splat.radius);
 	const drip = settle(
@@ -152,3 +158,10 @@ export const splatBeat = (sec: number): Pose => {
 	const growing: SplatPose = withoutUndefined({ ...splat, radius, drip, shoutScale: unless(shoutScale, 1) });
 	return { ...base, splat: growing };
 };
+
+const pink = pinkBefore();
+export const backlogBeat = backlogBeatOf(pinkStory, pink);
+export const wishBeat = wishBeatOf(pinkStory, pink);
+export const fuzzyBeat = fuzzyBeatOf(pinkStory, pink);
+export const flightBeat = flightBeatOf(pinkStory, pink);
+export const splatBeat = splatBeatOf(pinkStory, pink);

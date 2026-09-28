@@ -1,5 +1,5 @@
 import React from 'react';
-import { ballColors, palette, seeded, StoryPose } from './scene';
+import { ballColors, GridSpot, palette, seeded, StoryPose } from './scene';
 import { Face, Mood } from './face';
 import { flightPoint, HOVER, Point, scaleAround, smoothBlob, squashAround } from './layout';
 import { BUBBLE, WishBubble } from './wishBubble';
@@ -121,14 +121,14 @@ const IgnoredLines: React.FC<{ at: Point; fade?: number /* 0–1 */ }> = ({ at, 
 	</g>
 );
 
-const FlightTrail: React.FC<{ upTo: number }> = ({ upTo }) => {
+const FlightTrail: React.FC<{ upTo: number; toward?: GridSpot }> = ({ upTo, toward }) => {
 	const dots = Array.from({ length: 30 }, (_, i) => i / 30);
 	return (
 		<g data-testid="flight-trail">
 			{dots
 				.filter((s) => s < upTo - 0.12 || s > upTo + 0.14)
 				.map((s) => {
-					const p = flightPoint(s);
+					const p = flightPoint(s, toward);
 					const ahead = s > upTo;
 					return <circle key={s} cx={p.x} cy={p.y} r={ahead ? 5 : 7} fill={palette.ink} opacity={ahead ? 0.25 : 0.7} />;
 				})}
@@ -169,14 +169,14 @@ const PopIn: React.FC<{ at: Point; scale?: number; maxWidth?: number; children: 
 	);
 
 export const StoryBall: React.FC<{ story: StoryPose }> = ({ story }) => {
-	const { ball, state, wish, flight, at: moved, squash, stretch, bubble, fuzz } = story;
+	const { ball, state, wish, flight, toward, at: moved, squash, stretch, bubble, fuzz } = story;
 	const r = ball.size;
 	if (state === 'flying') {
-		const at = moved ?? flightPoint(flight);
+		const at = moved ?? flightPoint(flight, toward);
 		// Heading along the arc; at its very end, the heading it arrives with.
 		const arcAt = Math.min(flight, 0.98);
-		const onPath = flightPoint(arcAt);
-		const next = flightPoint(arcAt + 0.02);
+		const onPath = flightPoint(arcAt, toward);
+		const next = flightPoint(arcAt + 0.02, toward);
 		const heading = { x: next.x - onPath.x, y: next.y - onPath.y };
 		const angle = (Math.atan2(heading.y, heading.x) * 180) / Math.PI;
 		const { along, across } = stretch ?? { along: 1.14, across: 0.9 };
@@ -184,7 +184,7 @@ export const StoryBall: React.FC<{ story: StoryPose }> = ({ story }) => {
 		const fast = stretch === undefined || stretch.along > 1.08;
 		return (
 			<g data-testid="story-ball" data-state={state}>
-				<FlightTrail upTo={flight} />
+				<FlightTrail upTo={flight} toward={toward} />
 				{fast ? <SpeedLines at={at} heading={heading} r={r} /> : null}
 				<StoryBody x={at.x} y={at.y} r={r} color={ball.color} fuzzy mood="gleeful" transform={stretched} grounded={false} />
 			</g>

@@ -2,10 +2,12 @@
 // peels off the product and drifts, bouncy and content, into History; then
 // the next ball hops eagerly at the front of the queue. The product's changed
 // cells stay: the story's effect remains, only the used-up story leaves.
+// Each beat is built from a story and the stage before it; the plain beats
+// are the pink (example) story's.
 
 import { Easing } from 'remotion';
-import { BallPose, exampleBall, IMPACT, Pose, SpentPose } from './scene';
-import { coherentProduct, readyForNext, storyInHistory } from './assimilation';
+import { BallPose, pinkBefore, pinkStory, SpentPose, StoryBeat, StoryBefore, StorySpec } from './scene';
+import { coherentProductOf, readyForNextOf, storyInHistoryOf } from './assimilation';
 import { historySpot, HOP, Point, wallPoint } from './layout';
 import { between, bounce, bounceSpeed, BOUNCY, hopping, jelly, lerpPoint, POPPY, unless, withoutUndefined } from './motion';
 
@@ -19,29 +21,30 @@ const DRIFT = { from: 1.4, to: 3.3 };
 const FALL_UNTIL = 3.6;
 const DROP = 70; // px above its resting spot where it starts to drop in
 
-// It peels off the middle of the cell the story hit hardest.
-const PEEL_SPOT: Point = wallPoint(IMPACT.col + 0.5, IMPACT.row + 0.5);
 const LIFT: Point = { x: 12, y: -44 };
-const REST = historySpot(1, 0, exampleBall.size);
-const ABOVE_REST: Point = { x: REST.x, y: REST.y - DROP };
 const ARC_PEAK: Point = { x: 300, y: 40 };
 
-const onArc = (u: number): Point => {
-	const from = { x: PEEL_SPOT.x + LIFT.x, y: PEEL_SPOT.y + LIFT.y };
-	const v = 1 - u;
-	return {
-		x: v * v * from.x + 2 * v * u * ARC_PEAK.x + u * u * ABOVE_REST.x,
-		y: v * v * from.y + 2 * v * u * ARC_PEAK.y + u * u * ABOVE_REST.y,
+// The skin, from lying flat on the wall to drifting above its spot in
+// History, next to the stories spent before it.
+const skinAt = (spec: StorySpec, before: StoryBefore, sec: number): SpentPose => {
+	// It peels off the middle of the cell the story hit hardest.
+	const peelSpot: Point = wallPoint(spec.impact.col + 0.5, spec.impact.row + 0.5);
+	const spent = before.history.length;
+	const rest = historySpot(spent + 1, spent, spec.ball.size);
+	const aboveRest: Point = { x: rest.x, y: rest.y - DROP };
+	const onArc = (u: number): Point => {
+		const from = { x: peelSpot.x + LIFT.x, y: peelSpot.y + LIFT.y };
+		const v = 1 - u;
+		return {
+			x: v * v * from.x + 2 * v * u * ARC_PEAK.x + u * u * aboveRest.x,
+			y: v * v * from.y + 2 * v * u * ARC_PEAK.y + u * u * aboveRest.y,
+		};
 	};
-};
-
-// The skin, from lying flat on the wall to drifting above its spot.
-const skinAt = (sec: number): SpentPose => {
 	// It loosens slowly, then pops free with a little overshoot.
 	const peel = between(sec, PEEL_FROM, PEEL_UNTIL, Easing.out(Easing.back(2.2)));
-	const ball = exampleBall;
+	const ball = spec.ball;
 	if (sec < DRIFT.from) {
-		const lifted = lerpPoint(PEEL_SPOT, { x: PEEL_SPOT.x + LIFT.x, y: PEEL_SPOT.y + LIFT.y }, Math.min(1, peel));
+		const lifted = lerpPoint(peelSpot, { x: peelSpot.x + LIFT.x, y: peelSpot.y + LIFT.y }, Math.min(1, peel));
 		return withoutUndefined({ ball, at: lifted, peel: unless(peel, 1), squash: unless(jelly(sec, PEEL_UNTIL - 0.2, 0.12), 1) });
 	}
 	// A gentle, bouncy drift: bobbing up and down and wobbling as it floats.
@@ -56,21 +59,22 @@ const skinAt = (sec: number): SpentPose => {
 
 export const HISTORY_SECONDS = 4.5;
 
-export const historyBeat = (sec: number): Pose => {
-	const target = storyInHistory();
+export const historyBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const target = storyInHistoryOf(spec, before);
 	// The coherent product's sparkles fade as the story's journey goes on.
 	const sparkles = 1 - between(sec, 0, SPARKLES_OUT);
-	const fading = sparkles > 0 ? { assimilation: coherentProduct().assimilation, sparkles } : {};
-	const reveal = bounce(sec, BOX_FROM, POPPY);
-	let history: BallPose[] = [];
+	const fading = sparkles > 0 ? { assimilation: coherentProductOf(spec, before).assimilation, sparkles } : {};
+	// The History box pops in with the first spent story; later, it is there.
+	const reveal = before.history.length === 0 ? bounce(sec, BOX_FROM, POPPY) : 1;
+	let history: BallPose[] = before.history;
 	let spent: SpentPose | undefined;
 	if (sec < DRIFT.to) {
-		spent = skinAt(sec);
+		spent = skinAt(spec, before, sec);
 	} else {
 		// It drops into the box, squashes on landing, wobbles and dozes off.
 		const fall = between(sec, DRIFT.to, FALL_UNTIL, Easing.in(Easing.quad));
 		const squash = sec < FALL_UNTIL ? 1 - 0.12 * fall : jelly(sec, FALL_UNTIL, 0.28, 3, 8);
-		history = [withoutUndefined({ ...exampleBall, hop: unless(DROP * (1 - fall), 0), squash: unless(squash, 1) })];
+		history = [...before.history, withoutUndefined({ ...spec.ball, hop: unless(DROP * (1 - fall), 0), squash: unless(squash, 1) })];
 	}
 	return withoutUndefined({
 		...target,
@@ -87,9 +91,9 @@ const EAGER_FROM = 1.3;
 
 export const NEXT_SECONDS = 4;
 
-export const nextBeat = (sec: number): Pose => {
-	const target = readyForNext();
-	const [next, ...rest] = storyInHistory().backlog;
+export const nextBeatOf: StoryBeat = (spec, before) => (sec) => {
+	const target = readyForNextOf(spec, before);
+	const [next, ...rest] = before.backlog;
 	// The next ball gets excited: two little hops, then an eager spring up.
 	let front: BallPose;
 	if (sec < EAGER_FROM) {
@@ -116,3 +120,7 @@ export const nextBeat = (sec: number): Pose => {
 	});
 	return { ...target, backlog: [front, ...queue] };
 };
+
+const pink = pinkBefore();
+export const historyBeat = historyBeatOf(pinkStory, pink);
+export const nextBeat = nextBeatOf(pinkStory, pink);

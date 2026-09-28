@@ -5,6 +5,7 @@
 // free for the ball's flight from the tray to the product.
 
 import { GRID, IMPACT } from './scene';
+import type { GridSpot } from './poseTypes';
 
 export type Point = { x: number; y: number };
 
@@ -117,19 +118,20 @@ export const traySpot = (count: number, index: number, radius: number): Point =>
 export const HOP = 30;
 
 // Where the example story hovers after popping out of the tray, and the arc
-// it flies along from the tray to where it hits the product.
+// it flies along from the tray to where it hits the product (by default,
+// where the example story hits it).
 export const HOVER: Point = { x: 628, y: 318 };
 const FLIGHT = {
 	from: { x: 620, y: 470 } as Point,
 	peak: { x: 600, y: 20 } as Point,
-	to: wallPoint(IMPACT.col, IMPACT.row),
 };
 
-export const flightPoint = (t: number): Point => {
+export const flightPoint = (t: number, impact: GridSpot = IMPACT): Point => {
 	const u = 1 - t;
+	const to = wallPoint(impact.col, impact.row);
 	return {
-		x: u * u * FLIGHT.from.x + 2 * u * t * FLIGHT.peak.x + t * t * FLIGHT.to.x,
-		y: u * u * FLIGHT.from.y + 2 * u * t * FLIGHT.peak.y + t * t * FLIGHT.to.y,
+		x: u * u * FLIGHT.from.x + 2 * u * t * FLIGHT.peak.x + t * t * to.x,
+		y: u * u * FLIGHT.from.y + 2 * u * t * FLIGHT.peak.y + t * t * to.y,
 	};
 };
 
