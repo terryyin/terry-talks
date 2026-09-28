@@ -1,6 +1,3 @@
-import {StoryMissileImpactComposition} from './stories/StoryMissileImpact';
-import {StoryDrivenDevelopmentComposition} from './stories/StoryDrivenDevelopment';
-import {StoryAssimilationComposition} from './stories/StoryAssimilation';
 import { StoryProductDeveloper } from './stories/StoryProductDeveloper';
 import { StoryFailureVsFailure } from './stories/StoryFailureVsFailure';
 import { StoryBooleanParameters } from './stories/StoryBooleanParameters';
@@ -19,9 +16,6 @@ import { StoryLeSSInAction } from './stories/StoryLeSSInAction';
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
-			<StoryDrivenDevelopmentComposition />
-			<StoryAssimilationComposition />
-			<StoryMissileImpactComposition />
 			<StorySimpleExample />
 			<StoryLoomWarpStop />
 			<StoryFailureVsFailure />
