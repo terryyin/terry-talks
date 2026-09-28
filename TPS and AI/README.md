@@ -21,31 +21,39 @@ The claims below are **Provisional**. Most now present one current
 opinion. Claims 15 and 22 still show the forming path. Claim 13 is an
 evidence backlog.
 
-0. [Claim 00: Judgment-intensive work consumes live judgment; judgment-loaded output still demands it](claims/00-judgment-intensive-work.md)
-1. [The useful transfer from TPS is system reasoning, not manufacturing mechanisms](claims/01-tps-reasoning-not-mechanisms.md)
-2. [Toyota's TPS overview and the Lean Thinking house show different layers](claims/02-tps-and-lean-houses.md)
-3. [Jidoka frees, JIT entrusts, Respect for People supports growth](claims/03-jidoka-enables-jit-trusts-respect-grows.md)
-4. [JIT creates assurance through resourceful capability, not abundance](claims/04-jit-assurance-resourcefulness-not-abundance.md)
-5. [SMED for software means cheap changeovers so customer-centric focus is not interrupted](claims/05-smed-software-changeover-and-ai-friendly-context.md)
-6. [Jidoka embeds previously learned judgment so adaptive attention can learn](claims/06-jidoka-embeds-routine-judgment.md)
-7. [The Algorithm has a TPS family resemblance; it is not a proven extension of TPS](claims/07-the-algorithm-and-tps-family-resemblance.md)
-8. [Technical excellence enables JIT coordination in LeSS](claims/08-technical-excellence-enables-jit-coordination-in-less.md)
-9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md)
-10. [Freedom and entrustment can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
-11. [Software mixes production and discovery inside a product that is also the process](claims/11-physical-production-and-software-differences.md)
-12. [Respect for People cultivates people who can think](claims/12-respect-for-people-who-can-think.md)
-13. [Doughnut project as an evidence backlog for other claims](claims/13-doughnut-project-examples.md)
-14. [Ebata's JIT teaching can be corroborated in print](claims/14-ebata-jit-teaching-in-print.md)
-15. [Extreme conditions interrupt JIT; they do not refute capable response](claims/15-extreme-conditions-interrupt-jit.md)
-16. [Go-See means firsthand facts; AI work may require entering the harness](claims/16-go-see-ai-harness.md)
-17. [Thin vertical slices make software flow and confirmation possible](claims/17-jit-vertical-slicing-one-piece-flow.md)
-18. [Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is the TPS example, Definition of Done the LeSS measure](claims/18-continuous-improvement-towards-perfection.md)
-19. [Stop & Fix is the culture of actually responding to a jidoka signal; a detector everyone continues past is a dashboard](claims/19-stop-and-fix.md)
-20. [Poka-yoke mistake-proofs a known error at the source; it supports jidoka](claims/20-poka-yoke-supports-jidoka.md)
-21. [CI is a developer practice; a CI service is not CI](claims/21-ci-practice-is-not-a-ci-system.md)
-22. [A causal loop diagram can show how TPS reasoning inspires LeSS+AI](claims/22-cld-shows-tps-reasoning-for-less-ai.md) ([companion CLD](claims/22-tps-less-ai-cld.md))
-23. [Honest CI and disposable prototypes are a tension pair](claims/23-ci-and-disposable-prototypes-tension-pair.md)
-24. [A warning left visible after triage is unpaid judgment; keep the interrupt channel quiet](claims/24-warnings-as-stop-no-news-is-good-news.md)
+*Talk roles* (proposed) mark what each claim does in this talk.
+**Confirmed** claims are the basis the talk stands on and may carry a
+primary beat. **Supporting** claims may appear only as a qualified or
+secondary beat. **Off-stage** claims stay in the workshop and are not
+used in this talk. A role is about this talk only: it does not change a
+claim's Provisional or Backlog status, and Confirmed does not mean
+**Finalized**. The companion CLD follows Claim 22's role.
+
+0. [Claim 00: Judgment-intensive work consumes live judgment; judgment-loaded output still demands it](claims/00-judgment-intensive-work.md) — **Confirmed**
+1. [The useful transfer from TPS is system reasoning, not manufacturing mechanisms](claims/01-tps-reasoning-not-mechanisms.md) — **Confirmed**
+2. [Toyota's TPS overview and the Lean Thinking house show different layers](claims/02-tps-and-lean-houses.md) — **Supporting**
+3. [Jidoka frees, JIT entrusts, Respect for People supports growth](claims/03-jidoka-enables-jit-trusts-respect-grows.md) — **Confirmed**
+4. [JIT creates assurance through resourceful capability, not abundance](claims/04-jit-assurance-resourcefulness-not-abundance.md) — **Confirmed**
+5. [SMED for software means cheap changeovers so customer-centric focus is not interrupted](claims/05-smed-software-changeover-and-ai-friendly-context.md) — **Confirmed**
+6. [Jidoka embeds previously learned judgment so adaptive attention can learn](claims/06-jidoka-embeds-routine-judgment.md) — **Confirmed**
+7. [The Algorithm has a TPS family resemblance; it is not a proven extension of TPS](claims/07-the-algorithm-and-tps-family-resemblance.md) — **Supporting**
+8. [Technical excellence enables JIT coordination in LeSS](claims/08-technical-excellence-enables-jit-coordination-in-less.md) — **Confirmed**
+9. [Nemawashi supports self-organized deliberation in LeSS](claims/09-nemawashi-self-organized-deliberation-in-less.md) — **Supporting**
+10. [Freedom and entrustment can reinforce one another through jidoka](claims/10-freedom-and-trust-reinforce-through-jidoka.md) — **Confirmed**
+11. [Software mixes production and discovery inside a product that is also the process](claims/11-physical-production-and-software-differences.md) — **Supporting**
+12. [Respect for People cultivates people who can think](claims/12-respect-for-people-who-can-think.md) — **Confirmed**
+13. [Doughnut project as an evidence backlog for other claims](claims/13-doughnut-project-examples.md) — **Off-stage**
+14. [Ebata's JIT teaching can be corroborated in print](claims/14-ebata-jit-teaching-in-print.md) — **Supporting**
+15. [Extreme conditions interrupt JIT; they do not refute capable response](claims/15-extreme-conditions-interrupt-jit.md) — **Off-stage**
+16. [Go-See means firsthand facts; AI work may require entering the harness](claims/16-go-see-ai-harness.md) — **Supporting**
+17. [Thin vertical slices make software flow and confirmation possible](claims/17-jit-vertical-slicing-one-piece-flow.md) — **Confirmed**
+18. [Continuous improvement towards perfection is a LeSS principle from Toyota Way and lean thinking; SMED is the TPS example, Definition of Done the LeSS measure](claims/18-continuous-improvement-towards-perfection.md) — **Confirmed**
+19. [Stop & Fix is the culture of actually responding to a jidoka signal; a detector everyone continues past is a dashboard](claims/19-stop-and-fix.md) — **Confirmed**
+20. [Poka-yoke mistake-proofs a known error at the source; it supports jidoka](claims/20-poka-yoke-supports-jidoka.md) — **Confirmed**
+21. [CI is a developer practice; a CI service is not CI](claims/21-ci-practice-is-not-a-ci-system.md) — **Confirmed**
+22. [A causal loop diagram can show how TPS reasoning inspires LeSS+AI](claims/22-cld-shows-tps-reasoning-for-less-ai.md) ([companion CLD](claims/22-tps-less-ai-cld.md)) — **Confirmed**
+23. [Honest CI and disposable prototypes are a tension pair](claims/23-ci-and-disposable-prototypes-tension-pair.md) — **Confirmed**
+24. [A warning left visible after triage is unpaid judgment; keep the interrupt channel quiet](claims/24-warnings-as-stop-no-news-is-good-news.md) — **Confirmed**
 
 Questions that cut across the claims are collected in
 [Open questions](open-questions.md). The talk's theme, framing, and

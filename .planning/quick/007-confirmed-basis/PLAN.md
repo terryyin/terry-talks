@@ -120,7 +120,7 @@ concerns were found in this assessment.
 
 ### 1. README shows each claim's proposed talk role
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry opens the README claim list → every entry 0–24 ends with
 exactly one talk role, following the proposal, and a short *Talk roles* note
 explains Confirmed, Supporting, and Off-stage and how they differ from
@@ -222,3 +222,8 @@ Proof:
 - `a2cb854` ("chore: adopt Open Dough workflow") also removed Claim 13's
   item 6 "Priority 2 — same-gates text the person and the agent both read".
   No current text cites it, so it is out of scope. Terry may ask to restore it.
+- Slice 1 (2026-09-28): the *Talk roles* note uses the story's terms:
+  Confirmed "may carry a primary beat", Supporting "only a qualified or
+  secondary beat", Off-stage "not used in this talk". Accepted proof: the
+  role grep gives 25, the `Talk roles` grep gives 1, the link check reports
+  `broken links: 0`, and no claim file changed.
