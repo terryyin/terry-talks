@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Akiho-chan",
-  "email": "akiho-chan@example.org",
-  "activity": "preparation",
-  "identity": "tps-and-ai-talk#conference-ready",
-  "host": "claude",
-  "model": "claude-opus-5-5"
-}
