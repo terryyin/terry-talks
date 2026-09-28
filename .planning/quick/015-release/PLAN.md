@@ -68,7 +68,7 @@ the History label without covering it, and all text is legible at 360 px.
 
 ### 2. Terry can render the final export with one command
 Type: Behavior
-Status: planned
+Status: done
 Proof: example 4; the MP4 and poster are viewed.
 
 Behavior: given the source → when `pnpm -C terry-moves render:story-impact`
@@ -86,9 +86,20 @@ about 88 s) and `out/story-impact-animation-poster.png` are written.
   tests pass in `tests/storyImpact`; `pnpm moves test` passed (238). Stills
   of every beat at 360 px were viewed and accepted. The storyboard contact
   sheet was re-rendered with the new label placement and sizes.
+- **Slice 2:** `pnpm -C terry-moves render:story-impact` wrote
+  `out/story-impact-animation.mp4`; ffprobe shows h264, yuv420p, 1080×1080,
+  30 fps, 88.15 s (plus Remotion's silent AAC track). It also wrote
+  `out/story-impact-animation-poster.png` (the closing frame). The poster and
+  stills of ten moments at 360 px were viewed and accepted.
 
 ## Learnings
 
 - Remaining minor overlaps, left as they are: the flying ball crosses
   "Structure / how it's built" near the top of its arc, and grape's "snap!"
   briefly touches the "Product" label.
+- Remotion's default h264 output is full-range `yuvj420p`;
+  `--color-space=bt709` gives the standard `yuv420p`.
+
+## Execution complete
+
+Product advice: retrospective skipped
