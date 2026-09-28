@@ -20,3 +20,7 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
+- [Terry recognizes his intention in a key-frame storyboard of one story's full cycle](../Story%20Driven/seed.md#intention-storyboard) — story-impact-animation#intention-storyboard
+- [Viewers watch one story become part of a coherent product](../Story%20Driven/seed.md#one-story-journey) — story-impact-animation#one-story-journey
+- [Viewers follow the whole idea: a living backlog feeding a product that stays coherent over time](../Story%20Driven/seed.md#full-cycle) — story-impact-animation#full-cycle
+- [Terry has a finished animation ready to share](../Story%20Driven/seed.md#release) — story-impact-animation#release
