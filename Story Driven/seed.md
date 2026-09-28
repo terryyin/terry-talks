@@ -115,93 +115,6 @@ tone, in cartoon splash frames before anyone animates them?**
 
 These are non-executable candidates. None of them authorizes execution.
 
-<a id="one-story-journey"></a>
-### 2. Viewers watch one story splash onto the product and become part of it
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/013-one-story-journey/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"1a0850d468f6f7d0bb7282e63f07db6493ab4b47afde7ad70055a8efb40fb03e","plan":"0ba747d638c0c6f3cb33d5347629ac6b00c6c466eff814654fc4e20103040e74"}}
-```
-
-- **For / why:** Viewers need to see, in motion, the chain from desire to a
-  changed, coherent product. Terry needs to judge the fun and the rhythm of
-  splash and recovery.
-
-#### Goal
-
-A viewer watches one story travel from the backlog to history in a short,
-silent, captioned square film. Afterwards they can say what changed in the
-product, what remains of the story (its effect, in a few cells), and where the
-story went (history). Assimilation reads as neither a reset nor a permanent
-stain.
-
-#### Scope
-
-- **Required:**
-  - A `terry-moves` composition, `StoryImpactOneSplash`: 1080×1080, 30 fps,
-    about 40 seconds, reproducibly rendered to an MP4.
-  - It animates the storyboard's poses and pieces, so every storyboard board
-    from the wish to the next story waiting appears as a moment of the film.
-    The beats, in order:
-    1. The tidy product and backlog; the front ball hops up with its wish.
-    2. It turns fuzzy, launches, and flies in an arc.
-    3. SPLAT: the paint spreads across cell and row boundaries, with droplets
-       and drips.
-    4. The product wobbles: cells jiggle and sit out of alignment.
-    5. Assimilation: cells slide back, the paint drains into the cells where
-       the change belongs, one cell splits in two, and the product ends tidy
-       and visibly changed.
-    6. The spent story (a pale, emptied ball) peels off the product and drifts
-       into the History box.
-    7. The next ball hops to the front of the queue.
-  - One caption at a time, in the storyboard's caption bar, timed to the beats
-    and on screen long enough to read (at least about 2.5 seconds each).
-  - The two sides move differently. Stories are bouncy: springs, squash and
-    stretch, overshoot, and wobble. The product is tidy and deliberate: eased
-    slides and crisp snaps. Neither side is shown as morally better.
-- **Rejection constraints:** The seed's confirmed constraints still apply (no
-  bombs, missiles, or explosions; no Open Dough; no human judgment; no ABC
-  triangle; no copied Splatoon material). The film must not end with the
-  product unchanged (a reset), and it must not end with any smear or drip
-  left on the product (a stain).
-- **Deferred promises:** The "story ≠ feature" beat, several stories over
-  time, the closing line, audio, and release polish (stories 3 and 4).
-- **Boundary assumptions (made on Terry's behalf):**
-  - The film opens on the wish because the chain starts from desire. The
-    storyboard's opening boards on the product space are left to story 3's
-    full film.
-  - The spent story is the ball's pale, emptied skin. Its paint has become
-    part of the product, and what goes to history is the used-up story.
-  - Representative viewers are not available to the delegated coordinator. No
-    viewer answers are collected or invented; the coordinator checks stills
-    against the three viewer questions and records that only.
-
-#### Key examples
-
-1. **Chain in order.** Given the rendered film, when stills are taken at each
-   beat, they show in order: the wish, the flight, the splat across
-   boundaries, the wobbling product, assimilation underway, the coherent
-   changed product, the pale ball in History, and the next ball at the front.
-2. **Passes through the storyboard.** Given the film's timeline, at the moment
-   of each storyboard board's beat, the film's pose matches that board's pose
-   (for example, the fully assimilated moment equals the "coherent and
-   changed" board).
-3. **Changed, not reset, not stained.** Given the last frame, the product's
-   cells are aligned, carry the story color in several cells with one cell
-   split, and show no smear or drip. The pink ball is in History, and the sun
-   ball is first in the backlog.
-4. **Readable captions.** Given the caption schedule, each caption shows
-   alone for at least about 2.5 seconds, and captions appear in beat order.
-
-- **Evaluation:** Terry judges the movement and tone against the storyboard. A
-  representative viewer is asked what changed, what remains, and where the
-  story went, and their answers are recorded as given.
-- **Value / learning:** Tests whether cartoon motion makes assimilation read
-  clearly, not as a reset or as a permanent stain.
-- **Boundary:** One story, from backlog to history. Several stories over time
-  belong to story 3.
-- **Depends on:** The finished storyboard ([storyboard.png](storyboard.png)).
-- **Safe stopping point:** An independently watchable short explanation with
-  editable source and a reproducible render.
-
 <a id="full-cycle"></a>
 ### 3. Viewers follow the whole idea as stories come and go while the product stays coherent
 ```json dough-story-state
@@ -225,10 +138,10 @@ stain.
   went. Terry judges fidelity, tone, and pacing end to end.
 - **Value / learning:** Delivers the full explanation. Tests whether the splash
   language holds across several stories without becoming noisy.
-- **Boundary:** Extends story 2's motion language rather than inventing a new
+- **Boundary:** Extends the one-story film's motion language rather than inventing a new
   one. Release polish, audio, and publication are out of scope.
 - **Effort hypothesis:** Unbanded. The broadest production work in the set.
-- **Depends on:** Story 2.
+- **Depends on:** The one-story film (`StoryImpactOneSplash`).
 - **Safe stopping point:** A complete, watchable working cut with editable
   source and a reproducible export.
 
@@ -296,6 +209,11 @@ enough to run alongside it.
   coordinator checked the boards against the recovered intention and accepted
   them; Terry's own verdict can still revise them. The example wish is "I wish
   I could split the bill with friends in one tap!"
+- The one-story film is done: `StoryImpactOneSplash` in `terry-moves`
+  (about 34 seconds) carries the wish through flight, splat, wobble,
+  assimilation, and history to the next story, passing exactly through the
+  storyboard's boards. No representative viewers were available to the
+  delegated coordinator, so no viewer answers are recorded.
 
 - Intention: [essay](romantic-stories-disciplined-products.md) and
   [flip chart](story-driven-product-space.jpg).

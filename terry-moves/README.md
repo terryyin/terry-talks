@@ -100,6 +100,12 @@ essay and flip chart in `Story Driven/`). Its source lives in
   `tidyMarks.tsx`, `history.tsx`, `caption.tsx`) draw a pose. They never read
   the frame, so they can be tested in jsdom and animated by changing the pose.
 - `boards.ts` lists the storyboard: one caption and one pose per board.
+- `film.ts` lists the film's beats: each has a length, an optional caption
+  (shown until the next captioned beat), and a pure function from beat
+  progress to a pose. A beat that matches a storyboard board ends exactly on
+  that board's pose. Story motion (springs, squash and stretch) lives in
+  `storyBeats.ts` and `historyBeats.ts`; product motion (eased slides and
+  snaps) lives in `productBeats.ts`; shared easing helpers are in `motion.ts`.
 
 Render the storyboard boards and their contact sheet:
 
@@ -108,6 +114,14 @@ cd terry-moves
 npx remotion render src/index.ts StoryImpactStoryboard out/storyboard --sequence --image-format=png
 ffmpeg -y -start_number 0 -i out/storyboard/element-%02d.png \
   -vf "scale=540:540,tile=4x3:padding=12:color=white" -frames:v 1 "../Story Driven/storyboard.png"
+```
+
+Render the one-story film (`StoryImpactOneSplash`, about 34 seconds, silent,
+captioned):
+
+```bash
+cd terry-moves
+npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splash.mp4
 ```
 
 Visual language: warm paper background, thick rounded ink outlines, flat
