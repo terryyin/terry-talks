@@ -118,21 +118,79 @@ These are non-executable candidates. None of them authorizes execution.
 <a id="one-story-journey"></a>
 ### 2. Viewers watch one story splash onto the product and become part of it
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
 ```
 
 - **For / why:** Viewers need to see, in motion, the chain from desire to a
   changed, coherent product. Terry needs to judge the fun and the rhythm of
   splash and recovery.
-- **Visible outcome:** A short square film of about 30–45 seconds, rendered in
-  `terry-moves`, that animates the approved storyboard for a single story, with
-  captions for this excerpt:
-  1. The ball flies in.
-  2. It splats across behavior and structure boundaries.
-  3. The product wobbles, messy and unstable.
-  4. Behavior is reconciled and structure reorganized, into a coherent product
-     that is visibly changed.
-  5. The spent story drifts back into history.
+
+#### Goal
+
+A viewer watches one story travel from the backlog to history in a short,
+silent, captioned square film. Afterwards they can say what changed in the
+product, what remains of the story (its effect, in a few cells), and where the
+story went (history). Assimilation reads as neither a reset nor a permanent
+stain.
+
+#### Scope
+
+- **Required:**
+  - A `terry-moves` composition, `StoryImpactOneSplash`: 1080×1080, 30 fps,
+    about 40 seconds, reproducibly rendered to an MP4.
+  - It animates the storyboard's poses and pieces, so every storyboard board
+    from the wish to the next story waiting appears as a moment of the film.
+    The beats, in order:
+    1. The tidy product and backlog; the front ball hops up with its wish.
+    2. It turns fuzzy, launches, and flies in an arc.
+    3. SPLAT: the paint spreads across cell and row boundaries, with droplets
+       and drips.
+    4. The product wobbles: cells jiggle and sit out of alignment.
+    5. Assimilation: cells slide back, the paint drains into the cells where
+       the change belongs, one cell splits in two, and the product ends tidy
+       and visibly changed.
+    6. The spent story (a pale, emptied ball) peels off the product and drifts
+       into the History box.
+    7. The next ball hops to the front of the queue.
+  - One caption at a time, in the storyboard's caption bar, timed to the beats
+    and on screen long enough to read (at least about 2.5 seconds each).
+  - The two sides move differently. Stories are bouncy: springs, squash and
+    stretch, overshoot, and wobble. The product is tidy and deliberate: eased
+    slides and crisp snaps. Neither side is shown as morally better.
+- **Rejection constraints:** The seed's confirmed constraints still apply (no
+  bombs, missiles, or explosions; no Open Dough; no human judgment; no ABC
+  triangle; no copied Splatoon material). The film must not end with the
+  product unchanged (a reset), and it must not end with any smear or drip
+  left on the product (a stain).
+- **Deferred promises:** The "story ≠ feature" beat, several stories over
+  time, the closing line, audio, and release polish (stories 3 and 4).
+- **Boundary assumptions (made on Terry's behalf):**
+  - The film opens on the wish because the chain starts from desire. The
+    storyboard's opening boards on the product space are left to story 3's
+    full film.
+  - The spent story is the ball's pale, emptied skin. Its paint has become
+    part of the product, and what goes to history is the used-up story.
+  - Representative viewers are not available to the delegated coordinator. No
+    viewer answers are collected or invented; the coordinator checks stills
+    against the three viewer questions and records that only.
+
+#### Key examples
+
+1. **Chain in order.** Given the rendered film, when stills are taken at each
+   beat, they show in order: the wish, the flight, the splat across
+   boundaries, the wobbling product, assimilation underway, the coherent
+   changed product, the pale ball in History, and the next ball at the front.
+2. **Passes through the storyboard.** Given the film's timeline, at the moment
+   of each storyboard board's beat, the film's pose matches that board's pose
+   (for example, the fully assimilated moment equals the "coherent and
+   changed" board).
+3. **Changed, not reset, not stained.** Given the last frame, the product's
+   cells are aligned, carry the story color in several cells with one cell
+   split, and show no smear or drip. The pink ball is in History, and the sun
+   ball is first in the backlog.
+4. **Readable captions.** Given the caption schedule, each caption shows
+   alone for at least about 2.5 seconds, and captions appear in beat order.
+
 - **Evaluation:** Terry judges the movement and tone against the storyboard. A
   representative viewer is asked what changed, what remains, and where the
   story went, and their answers are recorded as given.
@@ -140,7 +198,6 @@ These are non-executable candidates. None of them authorizes execution.
   clearly, not as a reset or as a permanent stain.
 - **Boundary:** One story, from backlog to history. Several stories over time
   belong to story 3.
-- **Effort hypothesis:** Unbanded. Carries the main motion uncertainty.
 - **Depends on:** The finished storyboard ([storyboard.png](storyboard.png)).
 - **Safe stopping point:** An independently watchable short explanation with
   editable source and a reproducible render.
