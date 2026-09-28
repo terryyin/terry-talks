@@ -16,8 +16,7 @@ the LeSS Conference in Tokyo (with TPS, lean, and LeSS experts, some from
 Toyota, in the room), the current
 [Freedom and Entrustment deck](../slides/tps-and-ai/slides.md) should change
 from a comprehensive working draft into a presentation he can deliver with
-confidence. It should be built on the claims he stands behind, fit in at most
-32 slides with Japanese embedded, and follow a deliberate arc: a casual opening
+confidence. It should be built on the claims he stands behind, fit in about 33 slides (never more than 35) with Japanese embedded, and follow a deliberate arc: a casual opening
 that puts the key message first, a streamlined narrative, a climax at about the
 three-quarter point, then a wind-down to a solid ending.
 
@@ -73,13 +72,13 @@ doughnut examples are the "hands-on project experience".
 
 | Approach | Value | Decision and reason |
 | --- | --- | --- |
-| Do nothing: present the current deck | No work | Reject: over 32 slides, no Japanese, no designed climax. It fails every requirement in the direction. |
-| Trim to 32 in place, then translate | Least editing | Reject as sufficient: the count would be met, but the arc and the confirmed basis would not. Translating before the storyline stabilizes wastes translation work on slides that later change. |
+| Do nothing: present the current deck | No work | Reject: over the slide limit, no Japanese, no designed climax. It fails every requirement in the direction. |
+| Trim to the limit in place, then translate | Least editing | Reject as sufficient: the count would be met, but the arc and the confirmed basis would not. Translating before the storyline stabilizes wastes translation work on slides that later change. |
 | Rely on a live interpreter or spoken Japanese instead of embedded text | Avoids translation work | Reject: the direction explicitly requires embedded Japanese. It can still complement the slides on the day. |
 | Settle the claim basis, then restructure the storyline, then embed Japanese, then rehearse and harden for the day | Every stage consumes stable input from the stage before it | **Recommended.** |
 
-**Highest learning:** Can the argument be told as one arc within 32 slides,
-with a real climax at about slide 24, without dropping a claim Terry considers
+**Highest learning:** Can the argument be told as one arc within about 33 slides,
+with a real climax at about slide 25, without dropping a claim Terry considers
 core? That tests the most consequential assumption, so the storyline story
 carries it. The claim basis it needs is already settled as the README's talk
 roles.
@@ -92,42 +91,140 @@ unassigned because this project has no S/M/L definitions. Relative effort is
 noted as a hypothesis.
 
 <a id="storyline"></a>
-### 2. The audience follows one arc to a climax in at most 32 slides
+### 2. The audience follows one arc to a climax in at most 35 slides
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/008-storyline/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"9a2097df7bbdf3116190c92f7799454366af844b95ff2d7cfaa5e3c3ea00914f","plan":"2117d9450ff9c3062bf100fb104978ebfa0d3edd54c4c9cc054f08c252105376"}}
 ```
 
-- **For / why:** The audience remembers a few points when the talk builds to
-  one peak. Terry needs a deck whose order he can speak naturally.
-- **Visible outcome:** An English deck of at most 32 slides (counted as
-  rendered, including cover and end):
-  - A casual opening whose first few slides state the key message: the
-    diagnostic *freed vs. constrained*, and the Freedom and Entrustment theme.
-  - A streamlined middle in which each slide advances one thread.
-  - A designated climax at about the three-quarter mark (around slide 24 of 32).
-  - A wind-down through the takeaways to the closing crane.
-  - Primary beats come from Confirmed claims. Supporting claims appear only as
-    qualified or secondary beats.
-  - Speaker notes cite claims consistently with their talk roles.
-  - Cut or merged slides stay recoverable through Git.
-- **Evaluation:** Terry pages through the rendered deck in presenter mode. The
-  slide count is at most 32. He can name the climax slide and sees it at about
-  the 3/4 point. Ideally he also tells the arc to a colleague and gets back the
-  key message and the takeaways. Existing build and export commands still work.
-- **Value / learning:** The central test of the direction. It gives a
-  presentable English deck even if Japanese or rehearsal slips.
-- **Boundary:** Research and new artwork are out of scope unless a restructured
-  slide needs an asset. Existing unused art such as the Go-See harness image may
-  be reused. Japanese text belongs to the next story. The **climax slide choice
-  is Terry's**. The candidates are the loop pair ("AI speeds whichever loop you
-  feed") or "Same gates for 'I' and AI", with the jidoka and JIT material
-  building toward it. Claim 13's pulled example §7 (Go-See harness failure)
-  was ranked before 2026-09-09; re-verify it against the current doughnut
-  repository before it carries a beat.
+#### Goal
+
+For the **Tokyo LeSS Conference audience** (mixed Japanese and international,
+with TPS and Toyota experts in the room), the English deck tells **one arc**.
+It opens casually with the key message and builds to a single peak, **"AI
+speeds whichever loop you feed"**, at about the three-quarter mark. It then
+winds down to the takeaways and the closing crane, in **about 33 rendered
+slides, never more than 35**, within a **45-minute** delivery. The audience leaves with the few takeaways. Terry gets an
+order he can speak naturally. This is the direction's central test: can the
+argument be told as one arc within that limit without dropping a claim Terry
+considers core? It also gives a presentable English deck even if the Japanese
+or rehearsal stories slip.
+
+#### Scope
+
+**Decided with Terry (2026-09-28):**
+
+- **Climax: the loop pair.** The designated climax is the "AI speeds whichever
+  loop you feed" causal-loop slide (Claim 22, Figure 2). It sits at about
+  75% of the final count: slides 24–26 of 33, or the same proportion if the
+  deck ends shorter or longer. The slide explicitly pays off the early statement slide
+  ("AI can produce plausible software faster…", which already ends on that
+  line). "The engine of freedom and entrustment" may sit directly before it or
+  earlier as the model. The jidoka material (the loom's closed stop,
+  smart → dumb → gone, Stop & Fix, same gates, and the five human judgments)
+  and the JIT flow material (pull, CI as a practice, the shared product pulls
+  collaboration) come **before** the climax and build toward it.
+- **Cover:** The title stays **Freedom and Entrustment**. The subtitle becomes
+  the listed session title, *What AI-Augmented Development Can Learn from the
+  Toyota Production System*, so attendees recognize the session they chose.
+
+**Required:**
+
+- **Count:** Aim for about 33 slides; **35 is the hard ceiling** (Terry,
+  2026-09-28, loosening the direction's 32). Slides are counted as `slidev`
+  renders them in presenter mode, including the cover, the About Me slide,
+  section dividers, quote slides, each frame of the loom sequence, and the
+  end slide.
+- **Density:** The talk is **45 minutes**, leaving a 15-minute Q&A bank in the
+  one-hour slot (Terry, 2026-09-28). That is about 1.3–1.4 minutes per slide,
+  so a slide carries one beat Terry can speak in that time; rehearsal timing
+  itself belongs to [conference-ready](#conference-ready).
+- **Opening:** The opening stays casual (the 釈迦に説法 tone). By about slide 5,
+  the audience has seen the diagnostic *freed vs. constrained* and the Freedom
+  and Entrustment theme. The early "AI speeds whichever loop you feed"
+  statement sets up the climax.
+- **Middle:** A streamlined middle in which each slide advances one thread
+  toward the climax. Merge or cut slides that repeat a beat.
+- **Wind-down:** After the climax, the talk winds down through what remains
+  (Respect for People, continuous improvement, and at least one **tension**
+  beat) to the takeaways, the closing crane, and the end slide.
+- **Session-page promises:** The session page's promises stay visible: TPS's
+  influence on Agile thinking (the lineage), hands-on doughnut experience,
+  learning, flow, quality, and coordination, and at least one tension
+  ([Claim 23](claims/23-ci-and-disposable-prototypes-tension-pair.md) carries
+  it).
+- **Talk roles:** Primary beats come only from **Confirmed** claims.
+  **Supporting** claims (2, 7, 9, 11, 14, 16) appear only as qualified or
+  secondary beats.
+- **Speaker notes:** Notes cite claims consistently with those roles.
+- **Recoverability:** Cut or merged slides are deleted from the deck, not
+  hidden. Git recovers them.
+- **Commands:** Existing build, export, and `pnpm present` commands still work.
+
+**Rejection constraints:**
+
+- **More than 35 rendered slides** fails Terry's limit.
+- **Off-stage claims on slides:** Off-stage claims (13, 15) do not appear on
+  slides ([README](README.md) talk roles). Doughnut examples reach slides only
+  as evidence for the claim they illustrate, never as Claim 13 itself.
+
+**Deferred** (not built or verified here):
+
+- Japanese text and layout ([japanese](#japanese)).
+- Rehearsed timing, reducing notes to spoken text, and offline or PDF backups
+  ([conference-ready](#conference-ready)).
+- New research and new artwork, unless a restructured slide needs an asset.
+  Existing unused art, such as the Go-See harness image, may be reused.
+
+**Assumptions:**
+
+- **Go-See harness example re-verified (2026-09-28)** against doughnut HEAD
+  `a0ab5999db`. The pre-fix pre-commit hook resolved `REPO_ROOT` as
+  `$HOOK_DIR/../..`, which is the main checkout when committing from a
+  worktree, and ran `git add -u` there. Fix `1c696d455d` (2026-07-24,
+  Cursor-coauthored) switched to `git rev-parse --show-toplevel`, and its
+  comment names that failure; the current hook keeps the fix. The symptom
+  commits are not in published history (the `perf/recall-stats` branch is
+  gone), so tell it through the mechanism, not as a quoted commit. It may carry
+  a **secondary** Go-See beat (Claim 16 is Supporting).
+- If fitting 35 slides would drop a beat Terry considers core, stop and ask.
+  Do not cut it silently. The seed's shortening order is the default: the
+  switching-cost follow-on, Preferred tests, section dividers, then one tension.
+
+#### Key examples
+
+1. **Count and cover.** The current deck renders **38** slides and its cover
+   subtitle is "…and LeSS Can Learn from the TPS". After the change, presenter
+   mode shows a total of about **33**, never more than **35**. The cover reads *Freedom and Entrustment*
+   over *What AI-Augmented Development Can Learn from the Toyota Production
+   System*.
+2. **Climax placement.** Today "AI speeds whichever loop you feed" is slide 15
+   of 38 (about 40%), before any jidoka or JIT slide. After the change, Terry
+   pages to about slide 25 of 33 and lands on it. The loom's closed stop,
+   Stop & Fix, same gates, and pull/CI all come earlier. Its notes point back
+   to the early statement it pays off.
+3. **Opening.** Paging from the cover, the diagnostic ("How do you know if the
+   organization is using AI right? … more **freed** than **constrained**") and
+   the theme appear by about slide 5. There is no long preamble before the key
+   message.
+4. **Talk roles on the tension slide.** Today "Tensions and honest limits"
+   lists Claim 15 (Off-stage) and Claim 7 (Supporting) as peer bullets. After
+   the change, Claim 15 is gone from the slide. Claim 23's honest-CI versus
+   disposable-prototype pair carries the tension. Claim 7, if kept, is worded
+   as a family resemblance, not a proven extension.
+5. **Boundary: the ceiling.** A 31-slide deck with the climax at slide 23
+   satisfies the story, as does 35 with the climax at 26. A 36-slide deck
+   does not, however strong slide 36 is.
+6. **Cut slide.** "Lower the switching cost" is cut to meet the count. It is
+   absent from `slides.md` rather than marked `hide: true`, and
+   `git log -p slides/tps-and-ai/slides.md` recovers it.
+
+- **Evaluation:** Terry pages through the rendered deck in presenter mode. He
+  confirms the count and the climax position and names the climax slide.
+  Ideally he also tells the arc to a colleague and gets back the key message
+  and the takeaways.
 - **Effort hypothesis:** Largest editorial work in the set. The uncertainty is
   in narrative judgment, not tooling.
-- **Depends on:** the talk roles in the [README](README.md) claim list, for
-  what may be primary.
+- **Depends on:** the talk roles in the [README](README.md) claim list.
 - **Safe stopping point:** A complete, deliverable English deck at the limit.
 
 <a id="japanese"></a>
@@ -151,7 +248,7 @@ noted as a hypothesis.
   A fluent Japanese reader, whom Terry arranges, confirms the text is natural
   and the TPS terms match Toyota usage. Their corrections are applied.
 - **Value / learning:** Tests whether bilingual slides stay readable within
-  the 32-slide budget. If they do not, the storyline story may need to reduce
+  the slide budget (about 33, at most 35). If they do not, the storyline story may need to reduce
   text density.
 - **Boundary:** Translating the claims, the speaker notes, or a separate
   Japanese-only deck is out of scope unless Terry decides otherwise. The
@@ -207,8 +304,8 @@ talk roles. The storyline carries the highest learning.
 | japanese | about 5 October, leaving time for the fluent reviewer |
 | conference-ready | rehearsals on 6–7 October |
 
-A one-hour slot with at most 32 slides allows roughly 1.5–2 minutes per slide.
-The exact figure depends on how much time Terry reserves for Q&A.
+A 45-minute talk (15 minutes banked for Q&A) with about 33 slides allows
+roughly 1.3–1.4 minutes per slide.
 
 If time runs short, cut or shorten slides in this order, least important
 first:
@@ -225,15 +322,16 @@ review silently: if it is late, say so.
 
 ## Open decisions
 
-- **Title alignment.** The session page lists *What AI-Augmented Development
-  Can Learn from the Toyota Production System*. Terry chooses whether to keep
-  *Freedom and Entrustment* with that as its subtitle, or to change the cover.
-- **Q&A share of the hour.** This sets the slide density and the rehearsal
-  target.
+- ~~**Title alignment.**~~ Decided 2026-09-28: keep *Freedom and
+  Entrustment*, with the listed session title as the subtitle
+  ([storyline](#storyline)).
+- ~~**Q&A share of the hour.**~~ Decided 2026-09-28: a 45-minute talk with
+  a 15-minute Q&A bank; slide limit about 33, never more than 35.
 - ~~**What "confirmed" means.**~~ Decided 2026-09-28: a talk role (Confirmed,
   Supporting, Off-stage) that Terry sets in the [README](README.md) claim
   list.
-- **Climax slide.** Terry's choice during storyline refinement.
+- ~~**Climax slide.**~~ Decided 2026-09-28: the loop pair, "AI speeds
+  whichever loop you feed", at about slide 25 of 33 ([storyline](#storyline)).
 - **Japanese format and reviewer.** Same slide or alternate slides, and who
   reviews the translation.
 

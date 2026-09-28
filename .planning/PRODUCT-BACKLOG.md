@@ -7,7 +7,8 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 - **Content:** Consolidate the best current understanding, as captured in the
   confirmed claims. Claims not yet confirmed may appear, but only in a
   supporting role.
-- **Size and language:** At most 32 slides, with a Japanese translation embedded.
+- **Size and language:** About 33 slides, never more than 35, for a 45-minute talk
+  (15 minutes banked for Q&A), with a Japanese translation embedded.
 - **Flow:**
   - Open casually, but put the key message up front.
   - Keep the story engaging and streamlined.
@@ -18,7 +19,7 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Backlog list
 
-- [The audience follows one arc to a climax in at most 32 slides](../TPS%20and%20AI/seed.md#storyline) — tps-and-ai-talk#storyline
+- [The audience follows one arc to a climax in at most 35 slides](../TPS%20and%20AI/seed.md#storyline) — tps-and-ai-talk#storyline
 - [Japanese-speaking attendees can follow every slide in Japanese](../TPS%20and%20AI/seed.md#japanese) — tps-and-ai-talk#japanese
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
 - [Viewers can follow the complete argument through the corrected product and explosive impact](../Story%20Driven/seed.md#revised-complete-cut) — `story-driven-animation`
