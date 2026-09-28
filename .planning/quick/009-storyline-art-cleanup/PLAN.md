@@ -97,7 +97,7 @@ Proof:
 - `pnpm exec slidev build slides/tps-and-ai/slides.md --out <tmp>` exits 0.
 - Owns the whole bounded outcome.
 
-Accepted proof (2026-09-28, on the change that follows Take `fd4a18e`):
+Accepted proof (2026-09-28, on the change that follows Take `6c71a23`):
 the unreferenced-asset loop printed nothing; the `git ls-files` count was
 `0`; the helper printed `total 30 climax 24 ratio 0.80`; `slidev build` exited
 0 and its output held none of the four images; `slides.md` had no diff. The
@@ -109,7 +109,7 @@ Learnings:
   position ("the untitled image slide after \"The loom's closed stop\"") plus
   each image's caption. Placement lines were updated to match. G14's
   untitled closing-quote slide is named the same way and was left as it was.
-- The retirement status cites `fd4a18e`, the last commit that contains the
+- The retirement status cites `6c71a23`, the last commit that contains the
   images, instead of the plan's "before <deleting commit>" placeholder.
 - Out-of-scope stale prose remains in `artwork-list.md`: the "Slides
   intentionally without artwork" paragraph (cut "Same gates" divider, and

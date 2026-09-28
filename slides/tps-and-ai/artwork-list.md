@@ -5,6 +5,11 @@ Art needed for `slides.md`, oriented by
 title only — never by page number — so the list survives inserting or
 reordering slides.
 
+Only art some slide shows stays in `public/`. When a slide is cut, its
+entry's status becomes **retired**, and the status names a Git revision
+that still holds the image. Its image is deleted, and its prompt stays,
+so the art can be regenerated or recovered if the slide returns.
+
 Four source categories:
 
 - **Find (authoritative)** — real artifacts where authenticity matters,
@@ -262,7 +267,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G9. Same gate for everyone — torii
 
 - **Status:** retired 2026-09-28 — slide cut in the storyline story;
-  image deleted (recover from Git at `fd4a18e`) — was
+  image deleted (recover from Git at `6c71a23`) — was
   `public/torii-same-gate.png`
 - **Slide:** (cut) the "Same gates for 'I' and AI" section divider
 - **Placement:** full-bleed section divider background
@@ -294,7 +299,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G12. Green light on a stockpile
 
 - **Status:** retired 2026-09-28 — slide cut in the storyline story;
-  image deleted (recover from Git at `fd4a18e`) — was
+  image deleted (recover from Git at `6c71a23`) — was
   `public/green-light-stockpile.png`
 - **Slide:** (cut) "Continuous integration is a practice, not a
   system" — merged into "Pull, don't stockpile" without this art
@@ -346,7 +351,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G17. Switching-cost stack
 
 - **Status:** retired 2026-09-28 — slide cut in the storyline story;
-  image deleted (recover from Git at `fd4a18e`) — was
+  image deleted (recover from Git at `6c71a23`) — was
   `public/switching-cost-stack.png`
 - **Slide:** (cut) "Lower the switching cost"
 - **Placement:** wide strip under the three bullets (same footprint as
@@ -383,7 +388,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G18. Burr puzzle (組木)
 
 - **Status:** retired 2026-09-28 — slide cut in the storyline story;
-  image deleted (recover from Git at `fd4a18e`) — was
+  image deleted (recover from Git at `6c71a23`) — was
   `public/burr-puzzle.png`
 - **Slide:** (cut) "But how to build one?"
 - **Placement:** right half / 4:3
@@ -552,13 +557,10 @@ Mermaid only auto-places.
 The diagnostic question ("How do you know…"), the early statement
 slide ("AI can produce plausible software faster than a product group
 can absorb it" — its planned loop map moved to the dedicated "AI
-speeds whichever loop you feed" slide later in the deck), the "The
-apparent tradeoff" and "JIT flow in LeSS" section dividers, the
-main-message quote, "Jidoka preserves knowledge", "Preferred tests: E2E or unit —
-nothing in between",
-"Respect for People: making things means making people", and "Takeaways". The "Same gates" divider and "The gates do
-not care who authored the change" share G9 — whichever does not take
-it stays text-only. The stark, text-only look serves the "small
+speeds whichever loop you feed" slide later in the deck), the
+main-message quote, "Jidoka preserves knowledge", "The gates do not
+care who authored the change", "Respect for People: making things
+means making people", and "Takeaways". The stark, text-only look serves the "small
 collection of memorable points" goal; the quote slides in particular
 should not compete with their own words.
 
@@ -666,7 +668,7 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
 - **Context and purpose:** the audience has heard "Jidoka preserves
   knowledge," seen "The loom's closed stop," compared watching a
   loom with watching AI, and seen "Called by the stop." The next
-  question is "But how to build one?" A1 answers by making the
+  question is how such a stop is built. A1 answers by making the
   physical cause of the stop legible. The takeaway is **earlier human
   judgment becomes an enforced stop, freeing attention for the next
   problem**. This supports the talk's freedom-and-entrustment theme.
