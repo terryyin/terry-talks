@@ -4,7 +4,7 @@ status: proposed-decomposition
 created: 2026-09-28
 created_during: Near-future direction — TPS and AI talk ready for the LeSS Conference in Tokyo, 2026
 trigger_when: Now; the backlog direction selects this talk
-scope: four candidate stories; S/M/L bands unassigned (no project definitions)
+scope: three candidate stories; S/M/L bands unassigned (no project definitions)
 ---
 
 # TPS and AI talk: from a working deck to a Tokyo-ready presentation
@@ -65,20 +65,9 @@ doughnut examples are the "hands-on project experience".
   translation layer. [Claim 9](claims/09-nemawashi-self-organized-deliberation-in-less.md)
   already assumes "slides will be translated". Claims 16, 17, and 20 set
   first-use rules for genchi genbutsu, 一個ずつ確認, and poka-yoke.
-- **Claims:** None is marked Confirmed or Finalized. 25 are *Provisional* and
-  Claim 13 is *Backlog*. Terry has explicitly accepted Claim 00's vocabulary
-  and Claim 3's triad wording. Most other claims present one settled opinion.
-  Claims 15 and 22 still show their forming path, and 7, 11, 2, 16, 14, 12,
-  and 9 have open questions that affect their use on stage.
-- **Stale cross-references among the claims:**
-  - Claim 13's status names an "item 7", but its section was removed in
-    `a2cb854`.
-  - Claims 6, 20, and 24 say "example search not started", although Claim 13
-    has already ranked those examples.
-  - Claim 9 cites text that Claim 3 no longer contains.
-  - The wording on detailed control differs between Claims 1, 10, and 22.
-  - The CLD's skill list disagrees with Claim 12's open editorial choice.
-  - Claims 15 and 22 still carry "still open" footers.
+- **Claims:** The [README](README.md) claim list gives each claim a talk
+  role Terry set: Confirmed (may carry a primary beat), Supporting (qualified
+  or secondary beats only), or Off-stage.
 
 ## Alternatives and proposed direction
 
@@ -92,8 +81,8 @@ doughnut examples are the "hands-on project experience".
 **Highest learning:** Can the argument be told as one arc within 32 slides,
 with a real climax at about slide 24, without dropping a claim Terry considers
 core? That tests the most consequential assumption, so the storyline story
-carries it. The claim-basis story before it is kept small so that it does not
-delay that learning.
+carries it. The claim basis it needs is already settled as the README's talk
+roles.
 
 ## Candidate story decomposition
 
@@ -101,96 +90,6 @@ These are non-executable candidates. The proposed story boundaries and order are
 a response to Terry's direction; they are not his decisions. Effort bands are
 unassigned because this project has no S/M/L definitions. Relative effort is
 noted as a hypothesis.
-
-<a id="confirmed-basis"></a>
-### 1. Terry can see which claims the talk stands on
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/007-confirmed-basis/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"3072dbf9bd41121a90cfebe44efb5af1e40046038d933f3df63d0748aff741a5","plan":"c1738744700eb1328ddfd1253f7e86d78908af7f7b6499b1bc16e702fb2feec4"}}
-```
-
-#### Goal
-
-Before cutting slides, Terry can look up any beat's claim and see whether it
-may be primary. That makes the direction's content rule ("confirmed claims
-primary, unconfirmed secondary") decidable in one place, instead of slide by
-slide during the [storyline](#storyline) cut. With Toyota experts in the
-audience, every primary beat must rest on a claim he has confirmed.
-
-#### Scope
-
-- **Talk role, README only:** Each entry in the [README](README.md) claim list
-  carries one talk role:
-  - **Confirmed:** may carry a primary beat.
-  - **Supporting:** may appear only as a qualified or secondary beat.
-  - **Off-stage:** not used in this talk.
-
-  The role is separate from a claim's `Provisional`/`Backlog` status line.
-  Claim files do not repeat the role, and their status lines stay unchanged
-  unless a repair below touches them. The README explains the three roles in
-  one short note.
-- **Confirmed claims read as one opinion:** A Confirmed claim that still shows
-  its forming path or a "still open" footer (currently Claims 15 and 22) is
-  collapsed to its current opinion. Questions that remain genuinely open stay
-  as open questions. Open questions do not by themselves block Confirmed.
-- **Stale cross-references repaired,** all of those listed under *Evidence*,
-  whatever the claim's role:
-  - Claim 13's reference to a removed "item 7"
-  - "example search not started" in Claims 6, 20, and 24, now that Claim 13
-    ranks those examples
-  - Claim 9 citing text that Claim 3 no longer contains
-  - the detailed-control wording that differs across Claims 1, 10, and 22
-  - the CLD skill list versus Claim 12's open editorial choice
-- **Terry decides roles.** The agent proposes roles and makes the repairs. The
-  starting proposal Terry accepted on 2026-09-28 is:
-  - **Confirmed:** 00, 1, 3, 4, 5, 6, 8, 10, 12, 17, 18, 19, 20, 21, 22, 23, 24
-    (23 because the abstract promises a tension)
-  - **Supporting:** 2, 7, 9, 11, 14, 16
-  - **Off-stage:** 13 (an evidence backlog, not a claim; its ranked examples
-    still feed other claims) and 15
-
-  Terry confirms or changes each role while reading the Confirmed claims. If he
-  reopens a claim's substance, it becomes Supporting for this talk; it does not
-  start new research.
-- **Deferred:**
-  - Aligning the deck's speaker-note claim citations with the roles moves to
-    the [storyline](#storyline) story, which rewrites those slides anyway.
-  - New research, new claims, and resolving open questions that do not change
-    a role are out.
-  - The CLD's companion file (`22-tps-less-ai-cld.md`) is not listed
-    separately; it follows Claim 22's role.
-
-#### Key examples
-
-1. **Already settled:** Claim 3 (Terry accepted its triad wording) is proposed
-   Confirmed. Terry agrees. The README entry shows Confirmed, and the claim
-   file is unchanged.
-2. **Collapse on confirm:** Claim 22 is Confirmed but still carries "still
-   open" footers. The forming path collapses to the settled talk device. The
-   open doughnut-walkthrough question stays as an open question.
-3. **Open question, qualified use:** Claim 7 has an open staging-label
-   question and is Supporting. Its file keeps its open questions. The storyline
-   may use it only as a qualified beat.
-4. **Evidence backlog:** Claim 13 is Off-stage. Its README entry says so, and
-   Claims 6, 20, and 24 now point to its ranked examples instead of saying the
-   search has not started.
-5. **Terry overrides:** Terry moves Claim 16 (Go-See) from Supporting to
-   Confirmed. The README follows his role. If the harness transfer then needs
-   collapsing to one opinion, the story does that too.
-6. **Terry reopens:** Terry doubts Claim 11's talk sequence. Claim 11 stays
-   Supporting, and the question stays open; no research starts in this story.
-
-#### Evaluation and sizing
-
-- **Evaluation:** Terry reads the README list and each Confirmed claim and
-  agrees with every role. None of the listed stale references remains.
-- **Value / learning:** Tests whether the agent's "settled enough" reading
-  matches Terry's own.
-- **Effort hypothesis:** Smallest in the set. Mostly review and consistency
-  repair, time-boxed to about 29 September. Confidence is moderate, because
-  Terry may reopen a claim.
-- **Depends on:** none.
-- **Safe stopping point:** A trustworthy claim map that is useful for any later
-  talk or blog, even if the deck work stops.
 
 <a id="storyline"></a>
 ### 2. The audience follows one arc to a climax in at most 32 slides
@@ -209,8 +108,7 @@ audience, every primary beat must rest on a claim he has confirmed.
   - A wind-down through the takeaways to the closing crane.
   - Primary beats come from Confirmed claims. Supporting claims appear only as
     qualified or secondary beats.
-  - Speaker notes cite claims consistently with their talk roles (deferred
-    here from [confirmed-basis](#confirmed-basis)).
+  - Speaker notes cite claims consistently with their talk roles.
   - Cut or merged slides stay recoverable through Git.
 - **Evaluation:** Terry pages through the rendered deck in presenter mode. The
   slide count is at most 32. He can name the climax slide and sees it at about
@@ -228,7 +126,8 @@ audience, every primary beat must rest on a claim he has confirmed.
   repository before it carries a beat.
 - **Effort hypothesis:** Largest editorial work in the set. The uncertainty is
   in narrative judgment, not tooling.
-- **Depends on:** [confirmed-basis](#confirmed-basis), for what may be primary.
+- **Depends on:** the talk roles in the [README](README.md) claim list, for
+  what may be primary.
 - **Safe stopping point:** A complete, deliverable English deck at the limit.
 
 <a id="japanese"></a>
@@ -295,16 +194,15 @@ audience, every primary beat must rest on a claim he has confirmed.
 
 ## Ordering and scope reduction
 
-Order: confirmed-basis → storyline → japanese → conference-ready. Each story
-consumes the stable output of the one before it. The storyline carries the
-highest learning, and the story ahead of it is deliberately small.
+Order: storyline → japanese → conference-ready. Each story consumes the
+stable output of the one before it; the storyline starts from the README's
+talk roles. The storyline carries the highest learning.
 
 **Calendar (proposed, not committed):** there are ten days until
 8 October 15:45, so each story needs a time-box:
 
 | Story | Finish by |
 | --- | --- |
-| confirmed-basis | about 29 September (one working day) |
 | storyline | about 2 October |
 | japanese | about 5 October, leaving time for the fluent reviewer |
 | conference-ready | rehearsals on 6–7 October |
@@ -332,9 +230,9 @@ review silently: if it is late, say so.
   *Freedom and Entrustment* with that as its subtitle, or to change the cover.
 - **Q&A share of the hour.** This sets the slide density and the rehearsal
   target.
-- ~~**What "confirmed" means.**~~ Decided 2026-09-28 in
-  [confirmed-basis](#confirmed-basis): a talk role (Confirmed, Supporting,
-  Off-stage) that Terry sets in the README claim list.
+- ~~**What "confirmed" means.**~~ Decided 2026-09-28: a talk role (Confirmed,
+  Supporting, Off-stage) that Terry sets in the [README](README.md) claim
+  list.
 - **Climax slide.** Terry's choice during storyline refinement.
 - **Japanese format and reviewer.** Same slide or alternate slides, and who
   reviews the translation.

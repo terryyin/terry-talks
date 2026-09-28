@@ -16,8 +16,6 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
-- [Terry can see which claims the talk stands on](../TPS%20and%20AI/seed.md#confirmed-basis) — tps-and-ai-talk#confirmed-basis ([plan](quick/007-confirmed-basis/PLAN.md))
-
 ## Backlog list
 
 - [The audience follows one arc to a climax in at most 32 slides](../TPS%20and%20AI/seed.md#storyline) — tps-and-ai-talk#storyline
