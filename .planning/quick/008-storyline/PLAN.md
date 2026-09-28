@@ -144,7 +144,7 @@ exited 0. Learning for wrap-up: `TPS and AI/main-theme-and-stage-setting.md`
 
 ### 2. Every claim appears only in its talk role
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry reads the tension slide, the notes, and the same-gates
 cluster:
 - "Tensions and honest limits" no longer shows the Claim 15 bullet.
@@ -162,6 +162,15 @@ Proof:
 - The slide list shows the Go-See slide adjacent to the gates slide.
 - The build exits 0.
 - Owns key example 4.
+
+Accepted proof (2026-09-28): before the edit the grep matched lines 785,
+1032, and 1042; afterwards it matches nothing. The Go-See slide is restored
+with its image as slide 27, directly after the gates slide (26); its note
+cites Claim 16 as supporting. The tensions slide keeps Claim 23's pair and
+qualifies Claim 7 as a family resemblance. The coordinator also dropped
+Claim 16 from the Takeaways note, since a supporting claim is not a
+takeaway. The helper shows `total 39 climax 15 ratio 0.38`. The build
+exited 0.
 
 ### 3. The climax lands after jidoka and JIT
 Type: Behavior

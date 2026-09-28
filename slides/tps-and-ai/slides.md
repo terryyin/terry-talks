@@ -782,7 +782,7 @@ build is first priority.
 Who stops: the people who broke it stop and fix; everyone else stops
 pushing to trunk until it is green — not a plant-wide freeze.
 
-Spoken dashboard contrast (Claims 13 / 24): doughnut leftover Biome
+Spoken dashboard contrast (Claim 24): doughnut leftover Biome
 `"warn"` pile — `biome.json` / `frontend/biome.json` park rules as
 `"warn"`; the CI lint command does not pass `--error-on-warnings`;
 Gradle has no warnings-as-errors. A new `debugger` or unused TS
@@ -850,6 +850,42 @@ tests) without deleting or `@wip`-away the stop.
 Spoken counter: `a2060f1d70` disabled two backend tests to pass
 the pipeline (re-enable `ee9ca9aa68` / `29712022b1`) — dissolve
 the stop to green; the opposite of this episode.
+-->
+
+---
+layout: image-right
+image: /entering-ai-harness.png
+backgroundSize: contain
+class: "[&>h1]:!mb-2 [&_p]:!my-2 [&_.slidev-code-wrapper]:!my-2 [&_pre]:!text-[13px] [&_pre]:!leading-snug [&_pre]:!py-1"
+---
+
+# Go-See may mean entering the AI harness
+
+Genchi genbutsu when the work happens inside an agent loop:
+go to where the work is actually done.
+
+<div class="doughnut-example">
+
+`git commit` reports success. The pre-commit hook records the **main** tree.
+
+```bash
+REPO_ROOT="$HOOK_DIR/../.."
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+```
+
+</div>
+
+<!--
+Claim 16 (supporting) — a secondary, qualified beat after the same gates:
+Go-See means firsthand facts; for AI work it *may* mean entering the
+harness. One example, not a general rule.
+
+Leftover: doughnut `scripts/git-hooks/pre-commit`. `$HOOK_DIR/../..`
+resolves to the **main** checkout — the hook lives in shared
+`.git/hooks`. Hash: `1c696d455d` (`git rev-parse --show-toplevel`).
+
+Spoken callback: the P1 N+1 leftover on *Smart → dumb → gone* is
+what later landed once the tree was true — `0bd1dd2995`.
 -->
 
 ---
@@ -1029,8 +1065,8 @@ Claims 5 and 18.
 # Tensions and honest limits
 
 - Honest CI **versus** disposable prototypes — a real tension pair
-- Extreme conditions interrupt JIT
-- The Algorithm's family resemblance
+- The Algorithm resembles TPS — a family resemblance, not a proven
+  extension
 
 <img
   src="/tension-loop.png"
@@ -1039,7 +1075,12 @@ Claims 5 and 18.
 />
 
 <!--
-Claims 23, 15, 7.
+Claim 23 carries the tension: honest CI seeks complete integration-cycle
+feedback; a disposable prototype seeks cheap learning outside the product.
+Both are good ideas; each limits the other.
+
+Claim 7 (supporting, qualified aside): the Algorithm's operating logic
+resembles TPS and lean; direct derivation from TPS is unproven.
 -->
 
 ---
@@ -1056,7 +1097,7 @@ Claims 23, 15, 7.
 
 <!--
 The small collection of main points to be useful the following day.
-Claims 10, 12, 4, 17, 6, 19, 20, 16, 8.
+Claims 10, 12, 4, 17, 6, 19, 20, 8.
 -->
 
 ---
