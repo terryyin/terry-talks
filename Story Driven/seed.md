@@ -1,6 +1,6 @@
 ---
 id: story-impact-animation
-status: delivered
+status: proposed-decomposition
 created: 2026-09-28
 created_during: A digression from the current near-future direction (the TPS and AI talk); a redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort
 trigger_when: When Terry chooses to spend time on the animation; it is not for the TPS and AI talk
