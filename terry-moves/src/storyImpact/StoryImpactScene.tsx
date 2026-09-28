@@ -23,8 +23,13 @@ export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ po
 			underCells={pose.splat?.seeped ? <Splat splat={pose.splat} /> : null}
 		/>
 		{pose.splat && !pose.splat.seeped ? <Splat splat={pose.splat} /> : null}
+		{pose.splat?.seeped && pose.splat.cover ? (
+			<g opacity={pose.splat.cover}>
+				<Splat splat={pose.splat} />
+			</g>
+		) : null}
 		{pose.assimilation ? (
-			<TidyMarks cells={pose.cells} done={pose.assimilation === 'done'} />
+			<TidyMarks cells={pose.cells} done={pose.assimilation === 'done'} sparkles={pose.sparkles} />
 		) : pose.cells.some((c) => c.rot !== 0) ? (
 			<WobbleMarks cells={pose.cells} />
 		) : null}

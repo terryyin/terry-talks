@@ -38,6 +38,10 @@ export type CellPose = {
 	smear?: string; // paint smeared over part of the cell
 	split?: string; // reorganized into two halves; the upper half has this color
 	snapped?: boolean; // has just clicked back into its place
+	// Motion in the film; left out, the cell looks as on the storyboard.
+	smearAmount?: number; // 0–1: how much of the smear shows while it seeps in or fades
+	splitting?: number; // 0–1: how far the upper half has grown in while the cell splits
+	filling?: number; // 0–1: how high `color` has risen over the cell's plain color
 };
 
 export type BallPose = {
@@ -82,6 +86,7 @@ export type SplatPose = {
 	shout?: string; // comic sound word shown at the moment of impact
 	seeped: boolean; // the paint has run into the gaps under shifted cells
 	shoutScale?: number; // film: pop-in scale of the sound word
+	cover?: number; // film, once seeped: 0–1, paint still lying on top of the cells
 };
 
 export type Pose = {
@@ -92,6 +97,7 @@ export type Pose = {
 	splat?: SplatPose;
 	// Development re-sorting the splash into the product, then finished.
 	assimilation?: 'underway' | 'done';
+	sparkles?: number; // film: pop-in scale of the sparkles once assimilation is done
 	history?: BallPose[]; // spent stories, oldest first
 };
 

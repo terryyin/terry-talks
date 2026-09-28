@@ -173,8 +173,10 @@ export const StoryBall: React.FC<{ story: StoryPose }> = ({ story }) => {
 	const r = ball.size;
 	if (state === 'flying') {
 		const at = moved ?? flightPoint(flight);
-		const onPath = flightPoint(flight);
-		const next = flightPoint(Math.min(1, flight + 0.02));
+		// Heading along the arc; at its very end, the heading it arrives with.
+		const arcAt = Math.min(flight, 0.98);
+		const onPath = flightPoint(arcAt);
+		const next = flightPoint(arcAt + 0.02);
 		const heading = { x: next.x - onPath.x, y: next.y - onPath.y };
 		const angle = (Math.atan2(heading.y, heading.x) * 180) / Math.PI;
 		const { along, across } = stretch ?? { along: 1.14, across: 0.9 };

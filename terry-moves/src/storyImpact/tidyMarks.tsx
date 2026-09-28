@@ -61,13 +61,14 @@ const SnapWord: React.FC<{ at: Point }> = ({ at }) => (
 	</text>
 );
 
-export const TidyMarks: React.FC<{ cells: CellPose[]; done: boolean }> = ({ cells, done }) => {
+export const TidyMarks: React.FC<{ cells: CellPose[]; done: boolean; sparkles?: number }> = ({ cells, done, sparkles = 1 }) => {
 	if (done) {
+		if (sparkles <= 0) return null;
 		const changed = cells.filter((c) => c.split || c.color !== plainCellColor(c)).map(cellCenter);
 		return (
 			<g data-testid="tidy-marks" data-stage="done">
 				{changed.map((p, i) => (
-					<Sparkle key={i} x={p.x + (i % 2 === 0 ? 34 : -34)} y={p.y - 46} s={i % 2 === 0 ? 20 : 16} />
+					<Sparkle key={i} x={p.x + (i % 2 === 0 ? 34 : -34)} y={p.y - 46} s={(i % 2 === 0 ? 20 : 16) * sparkles} />
 				))}
 			</g>
 		);

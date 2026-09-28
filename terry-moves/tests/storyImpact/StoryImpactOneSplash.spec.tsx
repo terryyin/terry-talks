@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react';
 import { beatRange, beats, captionAt, filmDurationInFrames, FPS, poseAt } from '@/storyImpact/film';
 import { flightPoint, wallPoint } from '@/storyImpact/layout';
-import { IMPACT, productOverTime, storyIsFuzzy, storySplashes, storyWishes } from '@/storyImpact/scene';
+import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storyIsFuzzy, storySplashes, storyWishes } from '@/storyImpact/scene';
+import { assimilating, coherentProduct } from '@/storyImpact/assimilation';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
 const framesOf = (name: string) => {
@@ -17,7 +18,16 @@ const lastFrame = (name: string) => {
 describe('StoryImpactOneSplash', () => {
 	test('the timeline is the sum of its beats', () => {
 		expect(filmDurationInFrames).toBe(beats.reduce((sum, b) => sum + Math.round(b.seconds * FPS), 0));
-		expect(beats.map((b) => b.name).slice(0, 5)).toEqual(['backlog', 'wish', 'fuzzy', 'flight', 'splat']);
+		expect(beats.map((b) => b.name).slice(0, 8)).toEqual([
+			'backlog',
+			'wish',
+			'fuzzy',
+			'flight',
+			'splat',
+			'wobble',
+			'assimilate',
+			'coherent',
+		]);
 	});
 
 	describe('the wish takes off and splashes onto the product', () => {
@@ -100,7 +110,97 @@ describe('StoryImpactOneSplash', () => {
 		});
 
 		test('every frame of these beats renders', () => {
-			for (let f = 0; f < lastFrame('splat'); f += 7) {
+			for (let f = 0; f <= lastFrame('splat'); f += 7) {
+				const { unmount, getByTestId } = render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
+				expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
+				unmount();
+			}
+		});
+	});
+
+	describe('the product wobbles and then assimilates the splash', () => {
+		const displacement = (pose: Pose) => pose.cells.reduce((sum, c) => sum + Math.abs(c.dx) + Math.abs(c.dy), 0);
+		const changedIndexes = coherentProduct()
+			.cells.map((c, i) => (c.color !== plainCellColor(c) ? i : -1))
+			.filter((i) => i >= 0);
+
+		test('the wobble ends on the messy board', () => {
+			expect(poseAt(lastFrame('wobble'))).toEqual(messyProduct());
+		});
+
+		test('the cells jiggle past their messy offsets before they settle', () => {
+			const messy = displacement(messyProduct());
+			const wobble = framesOf('wobble').map((f) => displacement(poseAt(f)));
+			expect(wobble[0]).toBeLessThan(messy * 0.2);
+			expect(Math.max(...wobble)).toBeGreaterThan(messy * 1.1);
+		});
+
+		test('the paint seeps in from on top of the cells', () => {
+			const covers = framesOf('wobble').map((f) => poseAt(f).splat!.cover ?? 0);
+			expect(covers[0]).toBe(1);
+			expect(covers[covers.length - 1]).toBe(0);
+		});
+
+		test('the assimilate beat ends on the assimilating board', () => {
+			expect(poseAt(lastFrame('assimilate'))).toEqual(assimilating());
+		});
+
+		test('the coherent beat ends on the coherent board and holds still', () => {
+			expect(poseAt(lastFrame('coherent'))).toEqual(coherentProduct());
+			expect(poseAt(lastFrame('coherent') - 1.5 * FPS)).toEqual(coherentProduct());
+		});
+
+		test('cells slide home steadily, from messy to aligned', () => {
+			const slides = [...framesOf('assimilate'), ...framesOf('coherent')].map((f) => displacement(poseAt(f)));
+			slides.slice(1).forEach((d, i) => expect(d).toBeLessThanOrEqual(slides[i] + 1e-9));
+			const messy = displacement(messyProduct());
+			const mid = displacement(poseAt(firstFrame('assimilate') + beatRange('assimilate').durationInFrames / 2));
+			expect(mid).toBeGreaterThan(0);
+			expect(mid).toBeLessThan(messy);
+			expect(slides[slides.length - 1]).toBe(0);
+		});
+
+		test('the paint drains into the changed cells, which fill with the story color only by the end', () => {
+			expect(changedIndexes.length).toBeGreaterThanOrEqual(2);
+			// How much of each changed cell shows the story color.
+			const filled = (f: number) =>
+				changedIndexes.map((i) => {
+					const cell = poseAt(f).cells[i];
+					return cell.color === exampleBall.color ? cell.filling ?? 1 : 0;
+				});
+			expect(filled(firstFrame('assimilate'))).toEqual(changedIndexes.map(() => 0));
+			const midway = filled(firstFrame('assimilate') + Math.round(beatRange('assimilate').durationInFrames * 0.6));
+			midway.forEach((k) => expect(k).toBeLessThan(1));
+			expect(midway.some((k) => k > 0)).toBe(true);
+			expect(filled(lastFrame('assimilate') - 10).some((k) => k < 1)).toBe(true);
+			expect(filled(lastFrame('assimilate'))).toEqual(changedIndexes.map(() => 1));
+			const radii = framesOf('assimilate').map((f) => poseAt(f).splat!.radius);
+			expect(radii[radii.length - 1]).toBeLessThan(radii[0]);
+		});
+
+		test('the reorganized cell splits in from nothing', () => {
+			const splitting = framesOf('assimilate').map((f) => {
+				const cell = poseAt(f).cells.find((c) => c.col === IMPACT.col && c.row === IMPACT.row)!;
+				return cell.split ? cell.splitting ?? 1 : 0;
+			});
+			expect(splitting[0]).toBe(0);
+			expect(splitting.some((s) => s > 0 && s < 1)).toBe(true);
+			expect(splitting[splitting.length - 1]).toBe(1);
+		});
+
+		test('captions for these beats follow the storyboard, each for at least 2.5 s', () => {
+			const at = (name: string) => captionAt(firstFrame(name));
+			expect(at('wobble')).toBe('Behavior gets messy. Structure wobbles.');
+			expect(at('assimilate')).toBe('Development assimilates the splash…');
+			expect(at('coherent')).toBe('…into a coherent product, changed where it matters. No scars.');
+			['wobble', 'assimilate', 'coherent'].forEach((name) => {
+				expect(framesOf(name).every((f) => captionAt(f) === at(name))).toBe(true);
+				expect(beatRange(name).durationInFrames).toBeGreaterThanOrEqual(2.5 * FPS);
+			});
+		});
+
+		test('every frame of these beats renders', () => {
+			for (let f = firstFrame('wobble'); f <= lastFrame('coherent'); f += 5) {
 				const { unmount, getByTestId } = render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
 				expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
 				unmount();

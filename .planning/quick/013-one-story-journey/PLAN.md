@@ -91,7 +91,7 @@ growing across cell and row boundaries and dripping.
 
 ### 2. The product wobbles and then assimilates the splash
 Type: Behavior
-Status: planned
+Status: done
 Proof: spec — beat ends match the messy, assimilating and coherent boards; mid-beat poses lie between them; stills viewed.
 
 Behavior: given the fresh splat → when the next beats play → the cells jiggle
@@ -117,6 +117,13 @@ then the sun ball hops to the front of the queue, and the film ends there.
   passed (184 tests). Storyboard PNGs stay byte-identical. Film stills of the
   first 14 s (hop, rise, bubble pop, fuzzy, crouch, stretched flight, splat)
   were viewed and accepted.
+- **Slice 2:** the spec passes 38 tests: the wobble, assimilate and coherent
+  beats end deep-equal to `messyProduct()`, `assimilating()` and
+  `coherentProduct()`; displacement never increases while tidying; changed
+  cells fill only by the end of assimilate; the coherent pose holds ≥1.5 s.
+  `pnpm moves test` passed (194 tests). Storyboard PNGs stay byte-identical.
+  Stills of the jelly wobble, the eased snaps with paint rising into the
+  changed cells, and the still coherent product were viewed and accepted.
 
 ## Learnings
 
@@ -125,3 +132,7 @@ then the sun ball hops to the front of the queue, and the film ends there.
   a beat ends on its board's pose.
 - Known polish for the release story: the take-off briefly overlaps the
   "Product Backlog" label, and that label drops 8 px when the pink ball leaves.
+- The cell fill and split finish within "assimilate", because the storyboard's
+  assimilating board already shows them; "coherent" finishes the slide and
+  drains the last paint. Beats live in `storyBeats.ts` (story motion) and
+  `productBeats.ts` (product motion); `film.ts` only lists them.

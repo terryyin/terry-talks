@@ -40,3 +40,6 @@ export const jelly = (sec: number, delay: number, amount: number, hz = 3, decay 
 	if (s <= 0) return 1;
 	return settle(1 + amount * Math.sin(2 * Math.PI * hz * s) * Math.exp(-decay * s), 1);
 };
+
+// From a to b by k, landing exactly on b, so beats end on storyboard values.
+export const toward = (a: number, b: number, k: number) => (k >= 1 ? b : lerp(a, b, k));
