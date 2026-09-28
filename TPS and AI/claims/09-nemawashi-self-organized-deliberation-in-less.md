@@ -140,10 +140,10 @@ What LeSS actually specifies (detail of bounded self-management is
 - Managers are optional. If they exist, they improve the development
   system, not the Sprint.
 
-[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already
-rejects dependable inter-team relationships as the LeSS translation.
-Nemawashi must fit **Whole Product Focus**: integration of shared work
-can pull collaboration; earlier conversation is not forbidden. [Claim
+[Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) names
+**Whole Product Focus** as the LeSS translation: when integration of
+feature teams' work conflicts, that need pulls collaboration. Nemawashi
+must fit it; earlier conversation is not forbidden. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) is the
 technical precondition that makes that pull cheap enough.
 

@@ -82,8 +82,10 @@ its purpose.
 
 - Which single doughnut-project harness failure best makes the idea
   concrete: wrong context, a misleading tool call, a rule that did not
-  fire, or a permission failure? Queued on
-  [Claim 13](13-doughnut-project-examples.md).
+  fire, or a permission failure? [Claim 13's pulled example
+  §7](13-doughnut-project-examples.md#7-go-see-harness-failure-claim-16)
+  ranks one: a worktree `git commit` that wrote the wrong tree (wrong
+  context and a misleading tool call).
 - Does this need its own beat, or one sentence under jidoka? Decide
   later.
 

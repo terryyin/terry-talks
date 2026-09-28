@@ -940,6 +940,69 @@ not AI-assisted.
   and also-considered `@skip` hashes. Primitive stop; not a
   second ranked counter here.
 
+### 7. Go-See harness failure (Claim 16)
+
+Latest doughnut HEAD `e683b74615` (2026-08-26), not a tagged class
+week. Hunt from current harness (`scripts/git-hooks/pre-commit`,
+execution Jidoka, `.cursorignore` / agent-map indexing, cloud-agent
+docs) then plan notes and Cursor transcripts for a *failure*: wrong
+context, a misleading tool call, a rule that did not fire, or a
+permission failure. Ranked by how completely the episode matches
+those look-fors (inspect the harness, not the agent's summary), then
+stage discussability. Priority 1 is current project-owned harness
+(Terry Yin) — clearance is no.
+
+`0b56ebc81a` (item 6) is a *correct* Jidoka stop: the rule fired.
+That is not this look-for.
+
+#### Priority 1 — worktree `git commit` wrote the wrong tree
+
+- **Priority:** 1
+- **Example:** 2026-07-24, Cursor-coauthored worktree
+  `doughnut-recall-stats-perf` (`perf/recall-stats`). The agent
+  ran `git commit`; the tool returned success. Installed
+  `scripts/git-hooks/pre-commit` resolved `REPO_ROOT` as
+  `$HOOK_DIR/../..` — the hook file lives in the shared
+  `.git/hooks` directory, whose parent is the **main** checkout,
+  not the worktree — then `cd` and `git add -u`. Commits were
+  empty, or later picked up the main tree's
+  `.planning/ROADMAP.md` / `STATE.md` instead of the staged
+  recall-stats files. The agent's “committed the N+1 fix” was
+  false until someone read the hook and `git show`. Fix
+  `1c696d455d` (“make pre-commit hook worktree-aware”) switches
+  to `git rev-parse --show-toplevel`. The product change later
+  landed from the main checkout as `0bd1dd2995` (item 4). Most
+  complete Go-See failure: wrong context *and* a misleading
+  tool call; the facts were in the harness, not the summary.
+- **Source:** latest code (HEAD `e683b74615`; introducing
+  `1c696d455d`; product landing `0bd1dd2995`)
+- **Slide:** *Go-See may mean entering the AI harness*
+- **Use:** spoken beat — the single story making genchi
+  genbutsu concrete: do not manage by the agent's “commit
+  succeeded”; inspect the hook and the tree that actually
+  recorded
+- **Clearance:** no — current harness owned by the project
+
+#### Also considered (correct stop, generic docs, skill pattern)
+
+- **Correct Jidoka, not a harness failure:** `0b56ebc81a` →
+  `a24d4141b2` → Cursor `f078923b63` (item 6). Ambiguity stop
+  that *did* fire. Same family: `b6966f2be9` display-name
+  migration stop, still waiting.
+- **Cloud-agent “permission denied”:**
+  `docs/cloud_agent_backend_testing.md` tells the reader to
+  check `whoami` if setup fails. Troubleshooting text, not a
+  dated episode of a permission the agent hit.
+- **Nested-agent wrap-up skip (skill text, not a trace):**
+  `b2e2fad2f0` adds execution-skill guidance “If the implementer already
+  committed → process failure” because “nested agents routinely
+  skip spawning a second Task.” Pattern encoded in the skill;
+  no single commit/trace of a missed wrap-up to put on stage.
+- **Indexing exclusion is design, not an incident:**
+  `.cursor/agent-map.md` excludes `docs/` from default indexing
+  so agents must read ADRs explicitly. Intentional context
+  shaping; no recorded wrong-context miss from it.
+
 ## Dropped — not talk-blocking
 
 Dropped items remain true as workshop observations if they turn up
@@ -998,10 +1061,20 @@ JSON from an internal mock forest. Item 6 from latest doughnut
 HEAD `e683b74615` 2026-08-26 (episode `0b56ebc81a` →
 `a24d4141b2` → Cursor `f078923b63`; counter `a2060f1d70` reused
 from items 1–2). Ranked: Jidoka-stop then Cursor implements detour.
+Item 7 from latest doughnut HEAD `e683b74615` 2026-08-26 (harness:
+`scripts/git-hooks/pre-commit` now `git rev-parse --show-toplevel`;
+introducing `1c696d455d` after a 2026-07-24 worktree session where
+`git commit` succeeded with an empty/wrong tree because
+`$HOOK_DIR/../..` was the main checkout; product landing `0bd1dd2995`
+reused from item 4; `0b56ebc81a` excluded as a correct Jidoka stop;
+cloud-agent permission text and the nested-skip skill text not
+ranked). Ranked: (1) worktree pre-commit wrote the wrong tree.
 
 **Phase 1 done. Search set tagged (4+4 by commit count). Queue ordered
 for the Tokyo talk. Items 1–2 ranked from tagged class weeks (stage:
 tools and weeks, no student names). Item 3 skipped for this talk.
 Item 4 ranked from latest-code descent + Claim 24 counter. Item 5
 ranked from latest-code harness (unit + E2E + mock-forest counter).
-Item 6 ranked from the latest-code Jidoka-stop episode.**
+Item 6 ranked from the latest-code Jidoka-stop episode. Item 7 ranked
+from latest-code worktree pre-commit hook (wrong tree / misleading
+commit).**

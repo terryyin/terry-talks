@@ -86,9 +86,10 @@ versus a quiet gate—the software punchline of control versus warning.
 
 ## Questions still open
 
-- Doughnut-sourced prevention and control fixtures, queued on
-  [Claim 13](13-doughnut-project-examples.md) with Claim 6's judgment
-  descent; example search not started.
+- Doughnut-sourced prevention and control fixtures are ranked with
+  Claim 6's judgment descent in [Claim 13's pulled
+  examples, §4](13-doughnut-project-examples.md#4-judgment-descent-claims-6-20-24).
+  Which to put on stage is still open.
 
 ## Sources consulted
 

@@ -100,7 +100,8 @@ its values with building trust. Teams make capability visible by
 delivering working software, exposing abnormalities, preserving what
 they learn, and improving the system. As
 [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md) develops,
-that gives the organization reason to rely less on detailed control.
+that gives the organization reason to entrust more and rely less on
+coercive control.
 
 For this talk, a sustainable product has two observable properties:
 

@@ -75,9 +75,11 @@ observability. Parent slogan: [Claim
 
 ## Questions still open
 
-- Doughnut-sourced warning-pile versus quiet-gate episode, queued on
-  [Claim 13](13-doughnut-project-examples.md) with Claim 6's judgment
-  descent; example search not started.
+- Doughnut-sourced warning-pile versus quiet-gate episode is ranked
+  with Claim 6's judgment descent in [Claim 13's pulled
+  examples, §4](13-doughnut-project-examples.md#4-judgment-descent-claims-6-20-24)
+  (Priority 3 is the Biome leftover `"warn"` counter). Which to put on
+  stage is still open.
 
 ## Sources consulted
 

@@ -159,7 +159,7 @@ Proof:
 
 ### 3. Claims no longer contradict one another
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry follows a cross-reference between claims → it agrees with the
 owning claim:
 - Claims 6, 20, and 24 point to Claim 13's ranked judgment-descent examples
@@ -241,3 +241,26 @@ Proof:
   - Accepted proof: the forming-path grep gives 0, `Claims 15 and 22` has no
     match, the role grep gives 25, and the link check reports
     `broken links: 0`.
+- Slice 3 (2026-09-28): the wording choices Terry reviews in slice 4:
+  - Claim 1: "entrust more and rely less on coercive control".
+  - The CLD row "People who can think": "problem-solving and teaching others
+    to solve problems (the sourced skills; any longer list is Claim 12's
+    open choice)".
+  - Claim 9: "Claim 3 names **Whole Product Focus** as the LeSS
+    translation".
+  - Claims 6, 20, and 24 each end "Which to put on stage is still open."
+  - Claim 13 §7 was restored verbatim from `a2cb854^` with two changes:
+    "execute-plan" became "execution", as `a2cb854` did elsewhere in the
+    file. The §7 Sources paragraph and its closing-summary item were also
+    restored.
+- Open for slice 4: Claim 13's status line still says item 6 was ranked from
+  the "Jidoka-stop episode + same-gates harness", but the same-gates
+  Priority 2 is still removed. Terry either trims that phrase or restores
+  item 6's Priority 2. The §6 intro ("Priorities 1–2 …") has the same stale
+  premise. §7 is text from before 2026-09-09 and has not been re-verified
+  against the doughnut repo.
+- Slice 3 accepted proof: none of the `not started`, `inter-team`,
+  `detailed control`, or `facilitation, analysis, coaching` greps matches.
+  `^### 7\. ` counts 2 in Claim 13, and the role grep gives 25. The link
+  check reports `broken links: 0`, and the §4–§7 anchors resolve to Claim 13's
+  pulled headings.

@@ -264,9 +264,14 @@ knowledge; jidoka encodes the part that can become a stop.
 
 - Doughnut-sourced **smart → dumb** and **smart → gone** examples,
   one same-gates episode, and preferred unit/E2E examples for the
-  preferred-tests slide are queued on
-  [Claim 13](13-doughnut-project-examples.md); training weeks
-  located; example search not started.
+  preferred-tests slide are ranked in [Claim 13's pulled
+  examples](13-doughnut-project-examples.md): judgment descent in
+  [§4](13-doughnut-project-examples.md#4-judgment-descent-claims-6-20-24),
+  preferred tests in
+  [§5](13-doughnut-project-examples.md#5-preferred-tests-claim-6), and
+  same gates in
+  [§6](13-doughnut-project-examples.md#6-same-gates-for-i-and-ai-claim-6).
+  Which to put on stage is still open.
 
 ## Sources consulted
 
