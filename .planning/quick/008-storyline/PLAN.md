@@ -276,3 +276,21 @@ Accepted (2026-09-28): Terry walked through the rendered deck and said "They
 look good. Let's keep it." That keeps option **B**: 30 slides, climax 24,
 ratio 0.80. He requested no changes, so the slice 4 proofs stand: helper,
 slice 2 greps, and a build rerun on `8faf6cd`.
+
+## Execution complete
+
+Product advice:
+- **Accepted deck:** 30 slides, climax 24, ratio 0.80. That is below the
+  "about 33" in the backlog direction and in this story's seed. At wrap-up,
+  reconcile the seed's wording. The direction text is Terry's to change.
+- **Headroom for Japanese:** about 1.5 minutes per slide gives the
+  [japanese](../../../TPS%20and%20AI/seed.md#japanese) story room for denser
+  bilingual slides. It stays next in order.
+- **Correction:** the retrospective planned one bounded correction,
+  [009-storyline-art-cleanup](../009-storyline-art-cleanup/PLAN.md). It
+  deletes the four unused images and updates the stale artwork-list
+  mappings. It is not queued.
+- **Wrap-up assimilation:** `TPS and AI/main-theme-and-stage-setting.md`
+  still quotes the old subtitle.
+- **Review scope:** process review was skipped, because the project has no
+  `open-dough.json`.
