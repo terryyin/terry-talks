@@ -22,7 +22,10 @@ colorSchema: light
 
 # Freedom and Entrustment
 
+[自由と、任せること]{.ja-title}
+
 What AI-Augmented Development Can Learn from the Toyota Production System
+[AI拡張開発がトヨタ生産方式から学べること]{.ja}
 
 Terry Yin · Odd-e
 
@@ -40,13 +43,20 @@ system responsive and learnable (Claim 1).
 
 # About Me
 
+[自己紹介]{.ja-title}
+
 I coach **LeSS** and technical practices at **Odd-e**.
+[**Odd-e**で**LeSS**と技術プラクティスのコーチをしています。]{.ja}
 
 Nearly **30 years** building software, including a decade inside Nokia R&D —
 and I still program.
+[ソフトウェア開発は**30年**近く、うち10年はNokiaのR&D。今もプログラムを書いています。]{.ja}
 
 <div class="mt-6 text-xl opacity-70">
+
 Still programming. Still learning. Now asking what AI should free us from.
+[今もプログラミングし、学び続けている。いま問うのは、AIが私たちを何から解放すべきか。]{.ja}
+
 </div>
 
 <div class="mt-4 text-lg opacity-60">
@@ -68,20 +78,25 @@ manufacturing tourist.
 layout: image-right
 image: /preaching-to-the-buddha.png
 backgroundSize: contain
+class: "!text-[1rem] [&_li]:!leading-snug"
 ---
 
 # 釈迦に説法
 
 *Preaching to the Buddha* — sharing about TPS, in Tokyo, at a LeSS
 conference.
+[東京のLeSSカンファレンスでTPSを語る。]{.ja}
 
 But TPS has inspired and benefited me so much — before the AI era, and
 even more in it — that I cannot resist shamelessly sharing.
+[それでもTPSにはAI以前から、AI時代はなおさら刺激と恩恵を受けてきた。厚かましくも共有したい。]{.ja}
 
 - Software is **not a factory** — it mixes discovery and production in
   one evolving product
+  [ソフトウェアは**工場ではない**——ひとつの進化するプロダクトに発見と生産が混在する]{.ja}
 - So this talk takes TPS as **inspiration and reasoning**, never a recipe
   to apply directly
+  [だからTPSは**着想と考え方**として扱う。直接当てはめるレシピではない]{.ja}
 
 <!--
 Carries the talk boundary up front so it need not repeat later:
@@ -95,23 +110,28 @@ class: text-center
 
 # One lineage of inspiration
 
+[ひとつながりの着想の系譜]{.ja-title}
+
 ```mermaid {scale: 0.9}
 %%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 20}}}%%
 flowchart LR
-  TPS(TPS)
-  XP(XP /<br>Agile)
+  TPS(TPS<br><small>トヨタ生産方式</small>)
+  XP(XP /<br>Agile<br><small>XP / アジャイル</small>)
   LESS(LeSS)
-  AI(AI-augmented<br>development)
+  AI(AI-augmented<br>development<br><small>AI拡張開発</small>)
 
   TPS --> XP --> LESS --> AI
   class AI accent
 ```
 
 **TPS** inspired **XP** and the Agile movement,
+[**TPS**が**XP**とアジャイルムーブメントに着想を与え、]{.ja}
 
 then **LeSS** —
+[続いて**LeSS**に——]{.ja}
 
 and now, **AI-augmented development**.
+[そして今、**AI拡張開発**へ。]{.ja}
 
 ---
 layout: center
@@ -120,7 +140,11 @@ class: text-center
 
 ## How do you know if the organization is using AI right?
 
+[組織がAIを正しく使えているか、どうすればわかるか？]{.ja-title}
+
 # If the teams are more **freed** than **constrained** by what they built.
+
+[チームが自ら作ったものに**縛られる**より、**解放されて**いるなら。]{.ja-title}
 
 <!--
 The diagnostic question — one of the first slides (stage setting).
@@ -128,44 +152,55 @@ Claim 10.
 -->
 
 ---
-class: "[&>h1]:!mb-1 [&>h2]:!mt-0 [&>h2]:!mb-3"
+class: "[&>h2]:!mt-0 [&_p]:!my-2"
 ---
 
 # Judgment-intensive work
 
+[判断集約型の仕事]{.ja-title}
+
 ## Work that still requires **live judgment**
 
-<div class="text-[19px] leading-snug">
+[今なお**その場の判断**を必要とする仕事]{.ja-title}
+
+<div class="text-[18px] leading-snug">
 
 **Live, context-sensitive intelligence** is material to reaching the next
 valid action or acceptable result:
+[次の妥当な行動や受け入れられる結果に至るには、**その場の、文脈に応じた知性**が欠かせない：]{.ja}
 
 **understand the situation → frame what matters → create or adapt → weigh → decide**
+[**状況を理解する → 重要な点を捉える → 創る・適応させる → 比較検討する → 決める**]{.ja}
 
 </div>
 
-<div class="mt-4 grid grid-cols-2 gap-5 text-[17px] leading-snug">
+<div class="mt-2 grid grid-cols-2 gap-5 text-[16px] leading-snug">
 
-<div class="border-l-4 border-[#b33a2b] pl-4 py-1">
+<div class="border-l-4 border-[#b33a2b] pl-4">
 
-**Pulled product work**<br>
+**Pulled product work**
+[**プルされたプロダクトの仕事**]{.ja}
 Create for a real need.
+[本当のニーズのために創る。]{.ja}
 
 </div>
 
-<div class="border-l-4 border-[#b33a2b] pl-4 py-1">
+<div class="border-l-4 border-[#b33a2b] pl-4">
 
-**Emergent Stop & Fix**<br>
+**Emergent Stop & Fix**
+[**突発的な Stop & Fix（止めて直す）**]{.ja}
 Contain and solve an abnormality.
+[異常を封じ込め、解決する。]{.ja}
 
 </div>
 
 </div>
 
-<div class="mt-4 rounded bg-[#b33a2b]/10 px-4 py-2 text-[18px] leading-snug">
+<div class="mt-2 rounded bg-[#b33a2b]/10 px-4 py-1 text-[17px] leading-snug">
 
 The problem is not spending judgment. It is leaving a demand for live judgment
 in the output, so someone downstream must **interpret, rank, and re-decide**.
+[問題は判断を使うことではない。判断の必要をアウトプットに残し、下流に**解釈・順位づけ・決め直し**をさせることだ。]{.ja}
 
 </div>
 
@@ -182,11 +217,17 @@ backgroundSize: contain
 
 # Constrained by what they built
 
+[自ら作ったものに縛られる]{.ja-title}
+
 - Leftover ownership
+  [残されたオーナーシップ]{.ja}
 - Judgment-loaded output presented as finished
+  [判断を抱えたまま「完成」とされるアウトプット]{.ja}
 - Unable to take the next highest-value item
+  [次に最も価値の高いアイテムに取りかかれない]{.ja}
 
 Being **constrained** ≠ taking **responsibility**
+[**縛られる** ≠ **責任を引き受ける**]{.ja}
 
 ---
 layout: statement
@@ -194,15 +235,21 @@ layout: statement
 
 # AI can produce plausible software faster than a product group can absorb it
 
+[AIは、プロダクトグループが吸収できるより速く、<br>もっともらしいソフトウェアを生み出せる]{.ja-title}
+
 A generated branch, test, analysis, or design is not yet capability.
 Until it is understood, owned, integrated, and judged, it is
 **judgment-loaded output** in inventory. Someone downstream must
 **interpret, rank, and re-decide** — teams **constrained** by what they built.
+[生成されたブランチ、テスト、分析、設計は、まだ能力ではない。理解・所有・統合・判断されるまでは在庫の**判断を抱えたアウトプット**だ。下流が**解釈し、優先順位をつけ、決め直す**——作ったものがチームを**縛る**。]{.ja}
 
 Or AI helps make the next slice smaller and known failures easier to
 prevent or stop — teams **freed** by what they built.
+[あるいはAIが次のスライスを小さくし、既知の失敗を防ぎやすく止めやすくする——作ったものがチームを**解放する**。]{.ja}
 
 ## **AI speeds whichever loop you feed.**
+
+[**AIは、あなたが回すほうのループを加速する。**]{.ja-title}
 
 <!--
 Sets the AI stage early: this talk is also about AI-augmented development.
@@ -226,11 +273,15 @@ Hashes: `7b61a5705c` (`/sync` pull), `fce957dd3d` (`/export` pin),
 
 # Freedom vs. entrustment?
 
+[自由か、任せることか？]{.ja-title}
+
 To hand over the work that matters, it seems you must **constrain** people
 in advance.
+[大事な仕事を任せるには、前もって人を**縛らなければならない**ように見える。]{.ja}
 
 To give real freedom, it seems you **cannot hand over** the work that
 matters.
+[本当の自由を与えるなら、大事な仕事は**任せられない**ように見える。]{.ja}
 
 **Entrust**, 任せる · **trust**, 信頼
 
@@ -256,6 +307,7 @@ layout: quote
 > that make greater freedom responsible — and use that freedom to produce
 > the next learning on which deeper entrustment, and then mutual trust,
 > can rest.**
+> [**TPSが示すのは、システムが学びを絶えず制約に変え、より大きな自由を責任あるものにし——その自由で次の学びを生み出す方法だ。その学びの上に、より深く任せることが、そしてやがて相互の信頼が成り立つ。**]{.ja}
 
 <!--
 The main message. Claim 10.

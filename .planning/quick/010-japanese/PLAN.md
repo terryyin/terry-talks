@@ -35,6 +35,10 @@ Identity: `tps-and-ai-talk#japanese`
 
 ## Execution context and decisions
 
+- **Execution:** Story Branch Mode on `exec/010-japanese`, worktree
+  `../terry-talks-worktrees/010-japanese`; claim `3a8e550` on
+  `origin/master`. No CI workflows exist, so publication is unobserved.
+
 - **Scope of the work:** deck content, theme CSS, and a review document. No
   ADR or North Star topic applies.
 - **Plan location:** `.planning/quick/`. 009 was the highest number already
@@ -108,7 +112,7 @@ Identity: `tps-and-ai-talk#japanese`
 
 ### 1. Attendees follow the opening act in Japanese (slides 1–10)
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: Terry pages through slides 1–10 (cover through the main-message
 quote). Each English text element has a slightly smaller Japanese line under
@@ -136,6 +140,30 @@ Proof:
 Covers story examples 5 (main-message quote) and 6 (already Japanese). This
 slice is also the early check on the format: if the cover or a quote layout
 cannot carry the Japanese, record the layout fix here before slice 2.
+
+**Delivered (accepted proof):** helper `total 30 climax 24 ratio 0.80`;
+`slidev build` exit 0; PNGs of slides 1–10 inspected against the four
+criteria (the wrapped-bullet gap on "Constrained by what they built" is
+pre-existing). Notes blocks byte-identical; English unchanged.
+
+**Learnings for slice 2:**
+- Markup: body line `[…]{.ja}` on the line right after the English inside
+  the same paragraph or list item; title line `[…]{.ja-title}` as its own
+  paragraph after the h1/h2. Never put Japanese inside a `#` heading — it
+  changes the Slidev title and the helper's climax regex.
+- Mermaid: `<br><small>…</small>`, not `.ja` (grey is unreadable on the
+  dark and red nodes).
+- Overflow relief without touching English: slide-local
+  `[&_p]:!my-2` / `[&_li]:!leading-snug` / smaller text class, plus shorter
+  Japanese (used on 釈迦に説法 and "Judgment-intensive work"). Expect the
+  gates slide and image-right slides to need it.
+- Colour is the theme's `--odde-secondary-ink`, shared with
+  `.doughnut-example`.
+- PNG export in a fresh worktree needs `playwright-chromium` resolvable
+  (not in the lockfile); a scratch install symlinked into `node_modules`
+  worked.
+- Consistent deck terms live in `japanese-review.md` (e.g. the climax line
+  AIは、あなたが回すほうのループを加速する).
 
 ### 2. Attendees follow the rest of the talk in Japanese (slides 11–30)
 Type: Behavior
