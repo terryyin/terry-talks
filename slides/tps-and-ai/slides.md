@@ -4,7 +4,7 @@ layout: cover
 title: Freedom and Entrustment
 info: |
   ## Freedom and Entrustment
-  What AI-Augmented Development and LeSS Can Learn from the TPS
+  What AI-Augmented Development Can Learn from the Toyota Production System
   Terry Yin, Odd-e — Tokyo LeSS Conference
 class: text-center
 transition: slide-left
@@ -22,7 +22,7 @@ colorSchema: light
 
 # Freedom and Entrustment
 
-What AI-Augmented Development and LeSS Can Learn from the TPS
+What AI-Augmented Development Can Learn from the Toyota Production System
 
 Terry Yin · Odd-e
 

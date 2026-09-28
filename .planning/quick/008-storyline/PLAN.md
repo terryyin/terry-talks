@@ -121,7 +121,7 @@ concerns were found in this assessment.
 
 ### 1. The cover names the session attendees chose
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry opens the deck → the cover reads **Freedom and Entrustment**
 over *What AI-Augmented Development Can Learn from the Toyota Production
 System*, in both the headmatter `info` and the cover slide. The diagnostic is
@@ -134,6 +134,13 @@ Proof:
 - The slide-list helper shows the diagnostic at index ≤ 5.
 - The build exits 0.
 - Owns key example 1 (cover half) and key example 3.
+
+Accepted proof (2026-09-28, current-branch execution on master after Take
+`c3c8156`): lines 7 and 25 of the deck carry the new subtitle. The greps
+return `2` and `0`. The helper shows slide 1 "Freedom and Entrustment" and
+the diagnostic at slide 5 (`total 38 climax 15 ratio 0.39`). The build
+exited 0. Learning for wrap-up: `TPS and AI/main-theme-and-stage-setting.md`
+("Title") still quotes the old subtitle; it is outside this deck-only plan.
 
 ### 2. Every claim appears only in its talk role
 Type: Behavior
