@@ -1,6 +1,7 @@
 import React from 'react';
 import { BallPose, CellPose, GRID, palette } from './scene';
 import { Face } from './face';
+import { ProductCell } from './cell';
 import {
 	AXES,
 	BEHAVIOR_LABEL_ANGLE,
@@ -10,10 +11,8 @@ import {
 	ORIGIN,
 	OUTLINE,
 	Point,
-	quad,
 	roundedPath,
 	SHADOW,
-	shrink,
 	STAGE,
 	TRAY,
 	wallOutline,
@@ -107,46 +106,6 @@ export const Paper: React.FC = () => (
 	</g>
 );
 
-export const ProductCell: React.FC<{ cell: CellPose }> = ({ cell }) => {
-	const corners = quad(cell.col, cell.col + 1, cell.row, cell.row + 1);
-	const c = centerOf(corners);
-	return (
-		<g
-			data-testid="product-cell"
-			data-col={cell.col}
-			data-row={cell.row}
-			transform={`translate(${cell.dx} ${cell.dy}) rotate(${cell.rot} ${c.x} ${c.y})`}
-		>
-			<path
-				d={roundedPath(shrink(corners, 0.82), 10)}
-				fill={cell.color}
-				stroke={palette.ink}
-				strokeWidth={5}
-				strokeLinejoin="round"
-			/>
-			{cell.smear ? <Smear corners={shrink(corners, 0.82)} color={cell.smear} flip={(cell.col + cell.row) % 2 === 0} /> : null}
-		</g>
-	);
-};
-
-// A patch of paint wiped over one side of a cell.
-const Smear: React.FC<{ corners: Point[]; color: string; flip: boolean }> = ({ corners, color, flip }) => {
-	const [a, b, c, d] = flip ? corners : [corners[1], corners[2], corners[3], corners[0]];
-	const lerp = (p: Point, q: Point, t: number): Point => ({ x: p.x + (q.x - p.x) * t, y: p.y + (q.y - p.y) * t });
-	const patch = [a, lerp(a, b, 0.75), lerp(lerp(a, b, 0.5), lerp(d, c, 0.5), 0.55), lerp(a, d, 0.8)];
-	return (
-		<path
-			data-testid="cell-smear"
-			d={roundedPath(patch, 9)}
-			fill={color}
-			stroke={palette.ink}
-			strokeWidth={3}
-			strokeLinejoin="round"
-			opacity={0.95}
-		/>
-	);
-};
-
 // `underCells` is paint that sits on the wall behind the cells.
 export const ProductGrid: React.FC<{ cells: CellPose[]; underCells?: React.ReactNode }> = ({ cells, underCells }) => {
 	const outline = roundedPath(wallOutline(), 18);
@@ -186,11 +145,22 @@ export const Axes: React.FC<{ showTime: boolean }> = ({ showTime }) => {
 	);
 };
 
-export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x, y }) => {
+// An eager ball hops up from the tray floor, its shadow left behind.
+const HOP = 30;
+
+export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x, y: rest }) => {
 	const r = ball.size;
+	const y = ball.eager ? rest - HOP : rest;
 	return (
-		<g data-testid="backlog-ball" data-id={ball.id}>
-			<ellipse cx={x + 4} cy={y + r * 0.95} rx={r * 0.9} ry={r * 0.22} fill={palette.ink} opacity={0.18} />
+		<g data-testid="backlog-ball" data-id={ball.id} data-eager={ball.eager ? 'true' : undefined}>
+			<ellipse cx={x + 4} cy={rest + r * 0.95} rx={r * (ball.eager ? 0.6 : 0.9)} ry={r * 0.18} fill={palette.ink} opacity={0.18} />
+			{ball.eager ? (
+				<g stroke={palette.ink} strokeWidth={5} strokeLinecap="round">
+					<line x1={x - r - 14} y1={y - r * 0.2} x2={x - r - 30} y2={y - r * 0.5} />
+					<line x1={x + r + 14} y1={y - r * 0.2} x2={x + r + 30} y2={y - r * 0.5} />
+					<line x1={x} y1={y - r - 14} x2={x} y2={y - r - 32} />
+				</g>
+			) : null}
 			<circle cx={x} cy={y} r={r} fill={ball.color} stroke={palette.ink} strokeWidth={6} />
 			<ellipse
 				cx={x - r * 0.4}
@@ -201,7 +171,7 @@ export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ 
 				fill={palette.white}
 				opacity={0.85}
 			/>
-			<Face x={x} y={y} r={r} />
+			<Face x={x} y={y} r={r} mood={ball.eager ? 'hopeful' : 'smile'} />
 		</g>
 	);
 };
@@ -234,7 +204,7 @@ export const BacklogTray: React.FC<{ balls: BallPose[] }> = ({ balls }) => {
 				strokeLinejoin="round"
 			/>
 			<path d={trayPath} fill="none" stroke={palette.ink} strokeWidth={OUTLINE} strokeLinejoin="round" strokeLinecap="round" />
-			<Label x={(left + right) / 2} y={Math.min(top, floor - 2 * Math.max(...balls.map((b) => b.size))) - 20} text="Product Backlog" color={palette.ink} size={40} />
+			<Label x={(left + right) / 2} y={Math.min(top, floor - Math.max(...balls.map((b) => 2 * b.size + (b.eager ? HOP + 40 : 0)))) - 20} text="Product Backlog" color={palette.ink} size={40} />
 		</g>
 	);
 };

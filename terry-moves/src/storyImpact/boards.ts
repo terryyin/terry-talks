@@ -8,6 +8,7 @@ import {
 	storySplashes,
 	storyWishes,
 } from './scene';
+import { assimilating, coherentProduct, readyForNext, storyInHistory } from './assimilation';
 
 export type Board = {
 	caption: string;
@@ -42,6 +43,22 @@ export const boards: Board[] = [
 	{
 		caption: 'Behavior gets messy. Structure wobbles.',
 		pose: messyProduct(),
+	},
+	{
+		caption: 'Development assimilates the splash…',
+		pose: assimilating(),
+	},
+	{
+		caption: '…into a coherent product, changed where it matters. No scars.',
+		pose: coherentProduct(),
+	},
+	{
+		caption: 'The spent story goes to history. Available, but out of the way.',
+		pose: storyInHistory(),
+	},
+	{
+		caption: 'Ready for the next story.',
+		pose: readyForNext(),
 	},
 ];
 

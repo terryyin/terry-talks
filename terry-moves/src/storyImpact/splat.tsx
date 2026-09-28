@@ -1,6 +1,7 @@
 import React from 'react';
 import { CellPose, palette, seeded, SplatPose } from './scene';
-import { centerOf, FONT_FAMILY, HOVER, ORIGIN, Point, quad, smoothBlob, wallPoint } from './layout';
+import { cellCenter } from './cell';
+import { FONT_FAMILY, HOVER, ORIGIN, Point, smoothBlob, wallPoint } from './layout';
 
 // Paint on the product wall, drawn on top of the cells so it visibly runs
 // over their gaps. Pure function of the splat pose.
@@ -139,9 +140,7 @@ export const WobbleMarks: React.FC<{ cells: CellPose[] }> = ({ cells }) => {
 	return (
 		<g data-testid="wobble-marks" fill="none" stroke={palette.ink} strokeWidth={5} strokeLinecap="round">
 			{shaken.map((cell) => {
-				const c = centerOf(quad(cell.col, cell.col + 1, cell.row, cell.row + 1));
-				const x = c.x + cell.dx;
-				const y = c.y + cell.dy;
+				const { x, y } = cellCenter(cell);
 				return (
 					<g key={`${cell.col}-${cell.row}`}>
 						<path d={`M${x - 44},${y - 22} q-10,22 0,44`} />

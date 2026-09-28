@@ -1,7 +1,7 @@
 import React from 'react';
 import { palette } from './scene';
 
-export type Mood = 'smile' | 'hopeful' | 'dreamy' | 'gleeful';
+export type Mood = 'smile' | 'hopeful' | 'dreamy' | 'gleeful' | 'sleepy';
 
 const Cheeks: React.FC<{ x: number; y: number; r: number }> = ({ x, y, r }) => (
 	<g>
@@ -47,6 +47,26 @@ const ArcEyes: React.FC<{ x: number; y: number; r: number }> = ({ x, y, r }) => 
 	</g>
 );
 
+// Closed, resting eyes: little downward curves.
+const SleepyEyes: React.FC<{ x: number; y: number; r: number }> = ({ x, y, r }) => (
+	<g>
+		{[-1, 1].map((side) => {
+			const ex = x + side * r * 0.3;
+			const ey = y - r * 0.02;
+			return (
+				<path
+					key={side}
+					d={`M${ex - r * 0.14},${ey} Q${ex},${ey + r * 0.14} ${ex + r * 0.14},${ey}`}
+					fill="none"
+					stroke={palette.ink}
+					strokeWidth={Math.max(3, r * 0.08)}
+					strokeLinecap="round"
+				/>
+			);
+		})}
+	</g>
+);
+
 const OpenMouth: React.FC<{ x: number; y: number; r: number; size: number }> = ({ x, y, r, size }) => {
 	const w = r * 0.22 * size;
 	const top = y + r * 0.17;
@@ -71,11 +91,13 @@ export const Face: React.FC<{ x: number; y: number; r: number; mood?: Mood }> = 
 		<g data-testid="face" data-mood={mood}>
 			{mood === 'smile' || mood === 'hopeful' ? (
 				<DotEyes x={x} y={y} r={r} scale={mood === 'hopeful' ? 1.35 : 1} />
+			) : mood === 'sleepy' ? (
+				<SleepyEyes x={x} y={y} r={r} />
 			) : (
 				<ArcEyes x={x} y={y} r={r} />
 			)}
 			<Cheeks x={x} y={y} r={r} />
-			{mood === 'smile' ? (
+			{mood === 'smile' || mood === 'sleepy' ? (
 				<path
 					d={`M${x - r * 0.18},${y + r * 0.2} Q${x},${y + r * 0.42} ${x + r * 0.18},${y + r * 0.2}`}
 					fill="none"

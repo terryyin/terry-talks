@@ -1,8 +1,8 @@
 // Fixed stage geometry for the 1080×1080 storyboard, following the flip
 // chart's lower diagram: the product is a wall standing on the Behavior axis
 // (running toward the viewer, down-left), Structure goes up, Time runs right.
-// Free room is kept top-left (History box, later) and above the Time axis
-// (ball flight from the tray to the product, later).
+// The History box sits top-left, and the band above the Time axis is kept
+// free for the ball's flight from the tray to the product.
 
 import { GRID, IMPACT } from './scene';
 
@@ -112,5 +112,7 @@ export const flightPoint = (t: number): Point => {
 		y: u * u * FLIGHT.from.y + 2 * u * t * FLIGHT.peak.y + t * t * FLIGHT.to.y,
 	};
 };
+
+export const HISTORY_BOX = { left: 40, right: 236, top: 118, bottom: 286 } as const;
 
 export const CAPTION_BOX = { left: 40, right: 1040, top: 880, bottom: 1040 } as const;

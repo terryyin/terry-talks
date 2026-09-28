@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { boardAt, boards } from '@/storyImpact/boards';
-import { GRID, splatCells } from '@/storyImpact/scene';
+import { ballColors, GRID, splatCells } from '@/storyImpact/scene';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 import { captionLines } from '@/storyImpact/caption';
 
@@ -25,13 +25,17 @@ describe('StoryImpactStoryboard', () => {
 			'It carries an impact we want in the world…',
 			'…and it makes an impact on the product: SPLAT!',
 			'Behavior gets messy. Structure wobbles.',
+			'Development assimilates the splash…',
+			'…into a coherent product, changed where it matters. No scars.',
+			'The spent story goes to history. Available, but out of the way.',
+			'Ready for the next story.',
 		]);
 	});
 
 	test('each frame picks its own board', () => {
 		expect(boardAt(0)).toBe(boards[0]);
 		expect(boardAt(1)).toBe(boards[1]);
-		expect(boardAt(6)).toBe(boards[6]);
+		expect(boardAt(10)).toBe(boards[10]);
 	});
 
 	describe('board 1: the product space', () => {
@@ -108,6 +112,55 @@ describe('StoryImpactStoryboard', () => {
 			const { getAllByTestId, getByTestId } = renderBoard(6);
 			expect(getAllByTestId('cell-smear').length).toBeGreaterThanOrEqual(2);
 			expect(getByTestId('wobble-marks')).toBeInTheDocument();
+		});
+	});
+
+	describe('boards 8–11: assimilated, then the story goes to history', () => {
+		const backlogIds = (container: HTMLElement) =>
+			Array.from(container.querySelectorAll('[data-testid="backlog-ball"]')).map((b) => b.getAttribute('data-id'));
+
+		test('board 8: cells slide back toward alignment while little paint is left', () => {
+			const messy = boards[6].pose.cells;
+			const { cells } = boards[7].pose;
+			const tilt = (cs: typeof cells) => cs.reduce((sum, c) => sum + Math.abs(c.rot), 0);
+			expect(tilt(cells)).toBeLessThan(tilt(messy));
+			expect(cells.some((c) => c.rot !== 0)).toBe(true);
+			expect(boards[7].pose.splat!.radius).toBeLessThan(boards[6].pose.splat!.radius);
+			const { getByTestId, queryByTestId } = renderBoard(7);
+			expect(getByTestId('tidy-marks')).toHaveAttribute('data-stage', 'underway');
+			expect(queryByTestId('wobble-marks')).toBeNull();
+		});
+
+		test('board 9: aligned again, changed where it matters, no scars', () => {
+			const first = boards[0].pose.cells;
+			const { cells, splat } = boards[8].pose;
+			expect(cells).toHaveLength(first.length);
+			expect(cells.every((c) => c.dx === 0 && c.dy === 0 && c.rot === 0 && !c.smear)).toBe(true);
+			expect(splat).toBeUndefined();
+			expect(cells.filter((c) => c.color === ballColors.pink).length).toBeGreaterThanOrEqual(2);
+			expect(cells.filter((c) => c.split)).toHaveLength(1);
+			const { queryByTestId, queryAllByTestId, getAllByTestId } = renderBoard(8);
+			expect(queryByTestId('splat')).toBeNull();
+			expect(queryAllByTestId('cell-smear')).toHaveLength(0);
+			expect(getAllByTestId('split-cell')).toHaveLength(1);
+			expect(getAllByTestId('product-cell')).toHaveLength(GRID.columns * GRID.rows);
+		});
+
+		test('board 10: the spent story rests in History, not in the backlog or on the product', () => {
+			const { getByTestId, queryByTestId, container } = renderBoard(9);
+			expect(backlogIds(container)).not.toContain('pink');
+			expect(queryByTestId('story-ball')).toBeNull();
+			expect(queryByTestId('splat')).toBeNull();
+			expect(getByTestId('history-box')).toContainElement(getByTestId('history-ball'));
+			expect(getByTestId('history-ball')).toHaveAttribute('data-id', 'pink');
+		});
+
+		test('board 11: a different story waits eagerly at the front of the backlog', () => {
+			const { getByTestId, container } = renderBoard(10);
+			const [front] = Array.from(container.querySelectorAll('[data-testid="backlog-ball"]'));
+			expect(front.getAttribute('data-id')).not.toBe('pink');
+			expect(front).toHaveAttribute('data-eager', 'true');
+			expect(getByTestId('history-ball')).toHaveAttribute('data-id', 'pink');
 		});
 	});
 });

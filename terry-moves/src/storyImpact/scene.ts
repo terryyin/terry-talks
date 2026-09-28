@@ -36,12 +36,15 @@ export type CellPose = {
 	dy: number;
 	rot: number; // degrees, around the cell's own center
 	smear?: string; // paint smeared over part of the cell
+	split?: string; // reorganized into two halves; the upper half has this color
+	snapped?: boolean; // has just clicked back into its place
 };
 
 export type BallPose = {
 	id: string;
 	color: string;
 	size: number; // radius in px
+	eager?: boolean; // hops at the front of the queue, ready for its turn
 };
 
 // A spot on the product wall in grid units (cell (c, r) spans c..c+1, r..r+1).
@@ -76,7 +79,14 @@ export type Pose = {
 	backlog: BallPose[]; // front of the queue first (nearest the product)
 	story?: StoryPose;
 	splat?: SplatPose;
+	// Development re-sorting the splash into the product, then finished.
+	assimilation?: 'underway' | 'done';
+	history?: BallPose[]; // spent stories, oldest first
 };
+
+// The product's own checker color for a cell, before any story changed it.
+export const plainCellColor = ({ col, row }: GridSpot): string =>
+	(col + row) % 2 === 0 ? palette.cellSky : palette.cellMint;
 
 export const tidyCells = (): CellPose[] => {
 	const cells: CellPose[] = [];
@@ -85,7 +95,7 @@ export const tidyCells = (): CellPose[] => {
 			cells.push({
 				col,
 				row,
-				color: (col + row) % 2 === 0 ? palette.cellSky : palette.cellMint,
+				color: plainCellColor({ col, row }),
 				dx: 0,
 				dy: 0,
 				rot: 0,
@@ -126,7 +136,7 @@ export const IMPACT: GridSpot = { col: 2, row: 2 };
 
 const EXAMPLE_WISH = 'I wish I could split the bill with friends in one tap!';
 
-const [exampleBall, ...laterStories] = waitingStories();
+export const [exampleBall, ...laterStories] = waitingStories();
 
 const exampleStory = (state: StoryState, flight: number): StoryPose => ({
 	ball: { ...exampleBall, size: 62 },
@@ -137,7 +147,9 @@ const exampleStory = (state: StoryState, flight: number): StoryPose => ({
 
 // The example story has left the backlog; the rest of the pose says what it
 // is doing now and what it did to the product.
-const storyOutOfBacklog = (now: Partial<Pick<Pose, 'cells' | 'story' | 'splat'>>): Pose => ({
+export const storyOutOfBacklog = (
+	now: Partial<Pick<Pose, 'cells' | 'story' | 'splat' | 'assimilation' | 'history'>>,
+): Pose => ({
 	...productOverTime(),
 	backlog: laterStories,
 	...now,
@@ -149,7 +161,7 @@ export const storyIsFuzzy = (): Pose => storyOutOfBacklog({ story: exampleStory(
 
 export const storyFlies = (): Pose => storyOutOfBacklog({ story: exampleStory('flying', 0.4) });
 
-const exampleSplat = (drip: number, seeped: boolean, shout?: string): SplatPose => ({
+export const exampleSplat = (drip: number, seeped: boolean, shout?: string): SplatPose => ({
 	center: IMPACT,
 	radius: 1,
 	color: exampleBall.color,
@@ -159,7 +171,7 @@ const exampleSplat = (drip: number, seeped: boolean, shout?: string): SplatPose 
 	seeped,
 });
 
-const distanceToCell = (spot: GridSpot, col: number, row: number): number =>
+export const distanceToCell = (spot: GridSpot, col: number, row: number): number =>
 	Math.hypot(col + 0.5 - spot.col, row + 0.5 - spot.row);
 
 // The cells whose centers lie under the splat blob.
@@ -175,7 +187,7 @@ export const storySplashes = (): Pose => storyOutOfBacklog({ splat: exampleSplat
 
 // Cells under and next to the splat get knocked out of line; the ones under
 // it also carry a smear of the story's paint.
-const knockedCells = (splat: SplatPose): CellPose[] =>
+export const knockedCells = (splat: SplatPose): CellPose[] =>
 	tidyCells().map((cell) => {
 		const d = distanceToCell(splat.center, cell.col, cell.row);
 		const reach = splat.radius + 0.9;

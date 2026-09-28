@@ -87,7 +87,7 @@ const Heart: React.FC<{ x: number; y: number; s: number; rot: number }> = ({ x, 
 	/>
 );
 
-const Sparkle: React.FC<{ x: number; y: number; s: number }> = ({ x, y, s }) => (
+export const Sparkle: React.FC<{ x: number; y: number; s: number }> = ({ x, y, s }) => (
 	<path d={sparklePath(x, y, s)} fill={ballColors.sun} stroke={palette.ink} strokeWidth={3.5} strokeLinejoin="round" />
 );
 

@@ -101,7 +101,7 @@ then the product is messy with cells knocked out of alignment.
 
 ### 3. The splash is assimilated and the spent story goes to history
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 1, 3 and 4 in the spec; boards 8–11 render; the contact sheet is written and viewed.
 
 Behavior: given the messy product → when boards 8–11 are rendered → the product
@@ -124,6 +124,18 @@ all eleven boards in order.
   passed (169 tests). Boards 3–7 were viewed and accepted: wish bubble,
   striped wobbly ball, flight trail, pink paint splat with "SPLAT!", tilted
   smeared cells.
+- **Slice 3:** the spec passes 17 tests (11 captions in order; board 9 has
+  every cell aligned, no smear or splat, 3 pink cells and one split cell;
+  board 10 has the example ball in the History box and not in the backlog;
+  board 11 has the eager sun ball first). `pnpm moves test` passed (173
+  tests). Boards 8–11 and the contact sheet `Story Driven/storyboard.png`
+  were viewed and accepted.
+- **Coordinator's storyboard review (standing in for Terry):** the boards read
+  in the essay's order. The splash crosses cell boundaries. The coherent board
+  differs from both the tidy start and the splat, which reads as changed
+  rather than reset or scarred. History is out of the way, and the tone is
+  playful throughout. Board 8 is busy at contact-sheet size, and the split
+  cell is subtle; motion should make both clearer.
 
 ## Learnings
 
@@ -133,3 +145,7 @@ all eleven boards in order.
   top-left; the ball's flight path is the band above the tray and the wall.
 - The split-cell field was removed as speculative in slice 1; slice 3 adds it.
 - The story hit point is one constant, `IMPACT`, and every story pose goes through `storyOutOfBacklog`; slice 3's history pose builds on it.
+
+## Execution complete
+
+Product advice: retrospective skipped
