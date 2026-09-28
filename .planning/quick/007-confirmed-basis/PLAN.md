@@ -135,7 +135,7 @@ Proof:
 
 ### 2. Claim 22 reads as one current opinion
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry reads Claim 22 → it states the settled talk device (two slide
 figures of at most six variables each; a map of existing claims, not a new
 empirical result) as one opinion:
@@ -227,3 +227,17 @@ Proof:
   secondary beat", Off-stage "not used in this talk". Accepted proof: the
   role grep gives 25, the `Talk roles` grep gives 1, the link check reports
   `broken links: 0`, and no claim file changed.
+- Slice 2 (2026-09-28): Claim 22 is now `## Claim` (the settled loop
+  statement), `### What a CLD is, and is not`, `### The loops`,
+  `### AI as the gain on R5`, `## Implication for the talk`,
+  `## Questions still open` (only the doughnut walkthrough), and
+  `## Sources consulted`.
+  - The verbatim quote of the old Claim 10 loop was dropped in favour of the
+    pointer to Claim 10. That removed Claim 22's only "detailed control"
+    phrase, so slice 3 aligns only Claim 1.
+  - The loop names in the table now match the companion CLD's loop catalog.
+  - Terry reviews these in slice 4: the subheading names, the status wording,
+    and the choice of settled answers now stated as prose.
+  - Accepted proof: the forming-path grep gives 0, `Claims 15 and 22` has no
+    match, the role grep gives 25, and the link check reports
+    `broken links: 0`.

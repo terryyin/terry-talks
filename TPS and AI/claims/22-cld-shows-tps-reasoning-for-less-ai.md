@@ -1,41 +1,38 @@
 # Claim 22: A causal loop diagram can show how TPS reasoning inspires LeSS+AI
 
 **Status: Provisional — talk device settled: two slide figures (at
-most six variables each) in the companion CLD; doughnut walkthrough
-stories still open; the diagram is a map of existing claims, not a
-new empirical result**
+most six variables each) in the companion CLD; the diagram is a map of
+existing claims, not a new empirical result; doughnut walkthrough
+stories still open**
 
-## Original claim / hypothesis
+## Claim
 
-[Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md) already
-proposed a reinforcing loop:
+> **TPS can inspire LeSS+AI as a system of loops, not as a list of
+> practices.** Encoded jidoka frees attention. That capability, made
+> visible in one product, warrants *entrustment* so actual need can pull
+> work and collaboration. Mutual trust grows under Respect for People:
+> people who can think inside that system. AI does not replace a loop. It
+> speeds generation relative to encoding, and so amplifies whichever
+> direction R5 is already running.
 
-> **Jidoka and technical excellence preserve learning → routine burden and
-> switching cost fall → people gain room and authority to learn and respond →
-> demonstrated capability makes trust warranted → less detailed control is
-> needed in advance → real need can pull responsible action just in time.**
+A causal loop diagram (CLD) is the right *form* for [Claim
+1](01-tps-reasoning-not-mechanisms.md). Claim 1 says the useful transfer
+is the reasoning by which Toyota made a whole system responsive and
+learnable, and that one should examine pull, jidoka, small batches,
+technical excellence, human agency, and continuous improvement for the
+**relationships** they create. A CLD is a notation for those
+relationships. It does not add a new Toyota or LeSS source. [Claim
+10](10-freedom-and-trust-reinforce-through-jidoka.md) already states one
+such reinforcing loop under the polarity **freedom and entrustment**;
+the loop text lives there. Drawn this way, the TPS reasoning is
+not a toolkit of mechanisms to install beside AI, but loops in which
+jidoka, JIT, technical excellence, and Respect for People reinforce one
+another—and in which AI changes the gain.
 
-That sequence is one loop. The same form can show the *dynamic of the
-reasoning* by which TPS inspires LeSS+AI: not a toolkit of mechanisms to
-install beside AI, but loops in which jidoka, JIT, technical excellence,
-and Respect for People reinforce one another—and in which AI changes the
-gain.
+The diagram lives in a companion file, so the model can move without
+rewriting the argument: [22-tps-less-ai-cld.md](22-tps-less-ai-cld.md).
 
-This is a lightly edited record of Terry's hypothesis. The diagram is
-a companion file, so the model can move without rewriting the
-argument: [22-tps-less-ai-cld.md](22-tps-less-ai-cld.md).
-
-## Research-based adjustment
-
-The hypothesis is the right *form* for [Claim
-1](01-tps-reasoning-not-mechanisms.md). Claim 10 now names the polarity
-**freedom and entrustment**; the current loop text lives there. Claim 1
-already says the useful transfer is the reasoning by which Toyota made a
-whole system responsive and learnable, and that one should examine pull,
-jidoka, small batches, technical excellence, human agency, and continuous
-improvement for the **relationships** they create. A causal loop
-diagram (CLD) is a notation for those relationships. It does not add a
-new Toyota or LeSS source.
+### What a CLD is, and is not
 
 A CLD is a qualitative system-dynamics sketch: variables that can rise
 or fall, links with **+** (same direction) or **−** (opposite),
@@ -48,30 +45,33 @@ Used carefully it makes two talk moves that a parts list cannot:
    cycle.
 2. Show where AI sits: **an injection that raises the gain**.
 
+The diagram is a map of *this talk's* claims. Toyota does not publish
+this CLD. LeSS does not. Polarities are interpretive. A link that
+cannot be read as “other things equal, more of A means more (or less)
+of B” does not belong on it.
+
+### The loops
+
 The companion groups the existing claims into five reinforcing loops
 and one balancing loop, and presents two slide figures as views of
 those loops. R2 and R5 each run both ways. Detail, polarities, and
 omitted mechanisms live only in the [companion
-CLD](22-tps-less-ai-cld.md).
+CLD](22-tps-less-ai-cld.md). **Nemawashi**, **Go See**, **SMED**, and
+utilization pressure stay inside the variables, as the companion's
+“Left off the diagram on purpose” section records.
 
 | Loop | What it is | Already owned by |
 |---|---|---|
-| **R1 Encode and free** | Known abnormality becomes a closed stop; attention returns to novelty; novelty becomes the next stop. | [6](06-jidoka-embeds-routine-judgment.md) |
+| **R1 Encode the known, free attention** | Known abnormality becomes a closed stop; attention returns to novelty; novelty becomes the next stop. | [6](06-jidoka-embeds-routine-judgment.md) |
 | **R2 Freedom and entrustment** | Capability warrants *entrusting* the next highest-value item; coercive control falls so actual need can pull. Vicious: failure invites more advance control, which starves that capability. Mutual trust sits under Respect for People. | [10](10-freedom-and-trust-reinforce-through-jidoka.md), [3](03-jidoka-enables-jit-trusts-respect-grows.md) |
-| **R3 Excellence for integration** | Technical excellence makes one product continuously integrable; that evidence encodes stops and pulls collaboration. | [8](08-technical-excellence-enables-jit-coordination-in-less.md) |
-| **R4 Work makes people** | Pull and real problems grow people who can think; that capability is what JIT and jidoka run on. | [12](12-respect-for-people-who-can-think.md) |
+| **R3 Technical excellence for continuous integration** | Technical excellence makes one product continuously integrable; that evidence encodes stops and pulls collaboration. | [8](08-technical-excellence-enables-jit-coordination-in-less.md) |
+| **R4 The work makes people** | Pull and real problems grow people who can think; that capability is what JIT and jidoka run on. | [12](12-respect-for-people-who-can-think.md) |
 | **R5 Inventory, attention, and AI** | Judgment-loaded output stacked as finished consumes attention, which prevents encoding, which stacks more output. AI generation injects into that inventory. | [4](04-jit-assurance-resourcefulness-not-abundance.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md) |
 | **B1 Stop and contain** | A visible abnormality, actually halted, becomes emergent judgment-intensive work while propagation is contained. The resulting encoding reduces recurrence of *that* defect; the learning still feeds R1 and R3. | [19](19-stop-and-fix.md) |
 
-> **TPS can inspire LeSS+AI as a system of loops, not as a list of
-> practices.** Encoded jidoka frees attention. That capability, made
-> visible in one product, warrants *entrustment* so actual need can pull
-> work and collaboration. Mutual trust grows under Respect for People:
-> people who can think inside that system. AI does not replace a loop. It
-> speeds generation relative to encoding, and so amplifies whichever
-> direction R5 is already running.
+### AI as the gain on R5
 
-That last sentence is the DORA 2025 amplifier finding, drawn as
+The claim's last sentence is the DORA 2025 amplifier finding, drawn as
 structure rather than as a slogan. Comprehension-seeking versus
 delegating-production use of AI, already in [Claim
 10](10-freedom-and-trust-reinforce-through-jidoka.md), is how people
@@ -85,30 +85,34 @@ work and emergent Stop & Fix work can both use valuable live judgment;
 R5 is the failure of passing that demand downstream in output treated as
 finished.
 
-The diagram is a map of *this talk's* claims. Toyota does not publish
-this CLD. LeSS does not. Polarities are interpretive. A link that
-cannot be read as “other things equal, more of A means more (or less)
-of B” does not belong on it.
-
-## Emerging implication for the talk
+## Implication for the talk
 
 > **Do not teach TPS as a toolkit to install beside AI. Show the loops.
 > Ask which loop AI is currently amplifying.**
 
-The slide form is settled: the companion's two figures, each at
-most six variables, with no overview figure — the full map stays in
-its Canonical links table. Walk a figure's loop until it closes, then
-add AI as a gain on inventory—not as a cloud labelled
-“transformation.” Figure 1, **Freedom and entrustment — the engine**
-(R1 and R2), serves the main-message beat: R2 is the theme loop
-([Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)).
-Figure 2, **AI as amplifier** (R5), serves the “AI speeds whichever
-loop you feed” beat: R5 is why the theme gets harder when generation
-is cheap; on a slide it reads as an overlay on Figure 1's R1. R3 is
-not a slide figure: it stays a speaker-side loop in the companion's
-Loop catalog, and its LeSS JIT-flow beat stays text-only. R3 remains
-why the talk is a LeSS talk — Whole Product Focus needs technical
-excellence so evidence and collaboration can be pulled.
+The figures are audience-visible slides, not a speaker-only map or a
+writing-only tool. The slide form is the companion's two figures, each
+at most six variables, with no overview figure — the full map stays in
+its Canonical links table. That cap and the missing overview keep the
+figures from reading as a completed system-dynamics paper. Walk a
+figure's loop until it closes, then add AI as a gain on inventory—not
+as a cloud labelled “transformation.”
+
+- Figure 1, **Freedom and entrustment — the engine** (R1 and R2), serves
+  the main-message beat: R2 is the theme loop ([Claim
+  10](10-freedom-and-trust-reinforce-through-jidoka.md)). The slide set
+  draws **Encoded jidoka** as its node; **Technical excellence** stays a
+  catalog variable.
+- Figure 2, **AI as amplifier** (R5), serves the “AI speeds whichever
+  loop you feed” beat: R5 is why the theme gets harder when generation
+  is cheap; on a slide it reads as an overlay on Figure 1's R1.
+- R3 is not a slide figure: it stays a speaker-side loop in the
+  companion's Loop catalog, and its LeSS JIT-flow beat stays text-only.
+  R3 remains why the talk is a LeSS talk — Whole Product Focus needs
+  technical excellence so evidence and collaboration can be pulled.
+
+Final embedding and styling of the figures is a deck decision, not made
+here.
 
 Memorable:
 
@@ -124,7 +128,7 @@ protects):
 > at higher gain: generation is cheap; confirmed customer value is not.**
 
 The strongest version is the same as [Claim
-1](01-tps-reasoning-not-mechanisms.md), now with a picture of the
+1](01-tps-reasoning-not-mechanisms.md), with a picture of the
 relationships:
 
 > **The useful transfer is the dynamic: keep generation, encoding, pull,
@@ -132,19 +136,6 @@ relationships:
 > links.**
 
 ## Questions still open
-
-The slide-form questions are settled in “Emerging implication for
-the talk” above: the figures are audience-visible slides, not a
-speaker-only map or a writing-only tool. Whether **Encoded jidoka**
-and **Technical excellence** should collapse into one node is moot:
-the slide set draws only Encoded jidoka, and Technical excellence
-stays a catalog variable. **Nemawashi**, **Go See**, **SMED**, and
-utilization pressure stay inside the variables, as the companion's
-“Left off the diagram on purpose” section records. The risk of
-reading as a completed system-dynamics paper is contained by the
-at-most-six-variables cap and by having no overview figure. Final
-embedding and styling of the figures in the deck is a deck decision,
-not made here.
 
 - What doughnut story walks R2 all the way around—and what story shows
   R5 turning vicious under AI volume? Owned with [Claim
@@ -169,7 +160,5 @@ modelling form and the amplifier finding.
    companion CLD that is R5's gain.
 4. Toyota Motor Corporation, [Toyota Production
    System](https://global.toyota/en/company/vision-and-philosophy/production-system/).
-   Primary account of the two operating pillars this map still uses:
+   Primary account of the two operating pillars this map uses:
    jidoka and Just-in-Time. Toyota does not present them as this CLD.
-
-**Still open for further discussion and fact-checking.**

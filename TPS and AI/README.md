@@ -18,7 +18,7 @@ folder should be treated as a finalized talk argument unless its status is
 explicitly changed to **Finalized**.
 
 The claims below are **Provisional**. Most now present one current
-opinion. Claims 15 and 22 still show the forming path. Claim 13 is an
+opinion. Claim 15 still shows the forming path. Claim 13 is an
 evidence backlog.
 
 *Talk roles* (proposed) mark what each claim does in this talk.
