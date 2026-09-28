@@ -6,7 +6,7 @@ Identity: `tps-and-ai-talk#storyline-art-cleanup`
 ## Correction input
 
 - **Provenance:** This correction comes from the execution retrospective of
-  [008-storyline](../008-storyline/PLAN.md) (story
+  `.planning/quick/008-storyline/PLAN.md` at before-cleanup commit `c0f952c` (story
   `tps-and-ai-talk#storyline`). The reviewed commits are `c3c8156`,
   `fd78fa9`, `ec99335`, `a9802f9`, `8faf6cd`, and `e3b5f1d`, from base
   `02616bf`. `8faf6cd` cut the deck from 39 to 30 slides. On 2026-09-28

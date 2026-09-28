@@ -17,8 +17,6 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
-- [The audience follows one arc to a climax in at most 35 slides](../TPS%20and%20AI/seed.md#storyline) — tps-and-ai-talk#storyline ([plan](quick/008-storyline/PLAN.md))
-
 ## Backlog list
 
 - [The deck's art matches the accepted 30-slide storyline](../TPS%20and%20AI/seed.md#storyline-art-cleanup) — tps-and-ai-talk#storyline-art-cleanup
