@@ -259,7 +259,7 @@ walkthrough.
 
 ### 5. Terry accepts the arc
 Type: Behavior
-Status: planned
+Status: done
 Behavior: Terry pages through the rendered deck in presenter mode
 (`pnpm present`) → he names the climax slide and sees it at about 3/4, and he
 confirms no core beat was lost. His requested changes are applied within the
@@ -271,3 +271,8 @@ Proof:
 - Optionally, Terry tells the arc to a colleague and gets back the key message
   and the takeaways.
 - Owns the story's evaluation.
+
+Accepted (2026-09-28): Terry walked through the rendered deck and said "They
+look good. Let's keep it." That keeps option **B**: 30 slides, climax 24,
+ratio 0.80. He requested no changes, so the slice 4 proofs stand: helper,
+slice 2 greps, and a build rerun on `8faf6cd`.
