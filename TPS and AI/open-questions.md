@@ -162,7 +162,7 @@ future discussion, not a set of conclusions.
   trainings. The ordered hunt is on
   [Claim 13](claims/13-doughnut-project-examples.md): training weeks
   located; 4+4 class search set; queue ordered for the Tokyo talk;
-  example search not started. [Claim
+  every item ranked except item 3, skipped for this talk. [Claim
   9](claims/09-nemawashi-self-organized-deliberation-in-less.md)
   already pulled doughnut's ADR propose-to-accept path (Whale /
   Wärtsilä minutes; not a class-week search).

@@ -223,7 +223,9 @@ audience, every primary beat must rest on a claim he has confirmed.
   be reused. Japanese text belongs to the next story. The **climax slide choice
   is Terry's**. The candidates are the loop pair ("AI speeds whichever loop you
   feed") or "Same gates for 'I' and AI", with the jidoka and JIT material
-  building toward it.
+  building toward it. Claim 13's pulled example §7 (Go-See harness failure)
+  was ranked before 2026-09-09; re-verify it against the current doughnut
+  repository before it carries a beat.
 - **Effort hypothesis:** Largest editorial work in the set. The uncertainty is
   in narrative judgment, not tooling.
 - **Depends on:** [confirmed-basis](#confirmed-basis), for what may be primary.

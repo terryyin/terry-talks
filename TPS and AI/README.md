@@ -27,7 +27,9 @@ primary beat. **Supporting** claims may appear only as a qualified or
 secondary beat. **Off-stage** claims stay in the workshop and are not
 used in this talk. A role is about this talk only: it does not change a
 claim's Provisional or Backlog status, and Confirmed does not mean
-**Finalized**. The companion CLD follows Claim 22's role.
+**Finalized**. A Confirmed claim reads as one current opinion; its
+genuinely open questions may stay. A claim whose substance Terry reopens
+is Supporting for this talk. The companion CLD follows Claim 22's role.
 
 0. [Claim 00: Judgment-intensive work consumes live judgment; judgment-loaded output still demands it](claims/00-judgment-intensive-work.md) — **Confirmed**
 1. [The useful transfer from TPS is system reasoning, not manufacturing mechanisms](claims/01-tps-reasoning-not-mechanisms.md) — **Confirmed**
