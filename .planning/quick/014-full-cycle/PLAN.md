@@ -118,7 +118,7 @@ ball rolls into the back of the tray.
 
 ### 4. Story ≠ feature and the closing line end the film
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 3 and 5 in the spec; the MP4 renders; the full chain of stills is viewed.
 
 Behavior: given several stories assimilated → when the final beats play → one
@@ -151,6 +151,14 @@ waiting.
   ends `['pink','sun','grape']` with none of them in the backlog; captions stay
   ≥75 frames. `pnpm moves test` passed. Storyboard PNGs stay byte-identical.
   Stills of both later stories were viewed and accepted.
+- **Slice 4:** `tests/storyImpact/StoryImpactFilmEnding.spec.tsx` checks
+  that the story outline is exactly the pink story's cells across ≥2 columns
+  and ≥2 rows, that the feature outline is column 1 (rows 0–3) carrying pink,
+  sun and grape, that the product stays unchanged through the ending, and that
+  the last 2 s hold still. The main spec checks captions in order (≥75 frames
+  each), ending on the closing line, and a length of 75–90 s. 75 tests pass;
+  `pnpm moves test` passed (231). `out/story-impact-film.mp4` rendered at
+  88.15 s, and the 30-still chain and ending stills were viewed and accepted.
 
 ## Learnings
 
@@ -166,3 +174,12 @@ waiting.
   2.0, assimilate 2.5, coherent 1.8, history 2.6); the film is 75.6 s before
   slice 4. Feature columns for slice 4: column 2 holds pink and grape, column
   3 holds sun and pink+sun, column 1 holds pink and sun+grape.
+- Release-polish candidates observed: "Product Backlog" label jumps when the
+  front ball turns eager or leaves; refill and take-off balls cross that
+  label; the flying ball switches abruptly to fuzzy; a couple of droplets land
+  past the wall edge; the "a feature" label appears late in its beat;
+  phone-size readability is unchecked.
+
+## Execution complete
+
+Product advice: retrospective skipped

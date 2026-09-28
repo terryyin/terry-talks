@@ -135,6 +135,9 @@ export const flightPoint = (t: number, impact: GridSpot = IMPACT): Point => {
 	};
 };
 
+// Where the ending's outline names go: in the free space above the tray.
+export const OUTLINE_LABEL: Point = { x: 720, y: 300 };
+
 export const HISTORY_BOX = { left: 40, right: 236, top: 118, bottom: 286 } as const;
 
 // The History box's front lip, the floor its spent balls rest on, and the

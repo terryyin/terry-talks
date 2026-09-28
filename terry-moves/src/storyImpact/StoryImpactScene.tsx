@@ -9,6 +9,7 @@ import { CaptionBar } from './caption';
 import { HistoryBox, SpentSkin } from './history';
 import { TidyMarks } from './tidyMarks';
 import { Title } from './title';
+import { Dim, Outlines } from './outline';
 
 // The History box pops up from its bottom middle.
 const HISTORY_POP_FROM = { x: (HISTORY_BOX.left + HISTORY_BOX.right) / 2, y: HISTORY_BOX.bottom };
@@ -46,12 +47,14 @@ export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ po
 				<Splat splat={pose.splat} />
 			</g>
 		) : null}
+		{pose.dim ? <Dim cells={pose.cells} dim={pose.dim} /> : null}
 		{pose.assimilation ? (
 			<TidyMarks cells={pose.cells} done={pose.assimilation === 'done'} sparkles={pose.sparkles} />
 		) : pose.cells.some((c) => c.rot !== 0) ? (
 			<WobbleMarks cells={pose.cells} />
 		) : null}
 		<Axes showTime={pose.showTime} grow={pose.axes} timeGrow={pose.timeGrow} />
+		{pose.outlines ? <Outlines outlines={pose.outlines} /> : null}
 		{pose.story ? <StoryBall story={pose.story} /> : null}
 		{pose.spent ? <SpentSkin spent={pose.spent} /> : null}
 		{pose.title ? <Title title={pose.title} /> : null}

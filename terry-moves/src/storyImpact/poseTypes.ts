@@ -83,6 +83,32 @@ export type Pose = {
 	wall?: number; // pop-in scale of the product wall behind the cells; 0 = not there yet
 	timeGrow?: number; // 0–1: how far the Time arrow has grown from the origin
 	trayIn?: number; // 0 = the backlog tray waits off stage right, 1 = in place
+	// The film's ending: parts of the product outlined to show what a story
+	// and a feature are; each left out is not there.
+	outlines?: OutlinePose[];
+	dim?: DimPose; // the rest of the product fades back while some cells are in focus
+};
+
+// A dashed outline over product cells: around each cell on its own, or
+// around all of them together as one band (a Behavior column). It is drawn
+// on over `draw`, its dashes march along with `march`, and small tags show
+// which stories it stands for.
+export type OutlinePose = {
+	cells: GridSpot[];
+	color: string;
+	together?: boolean; // one outline around all the cells, instead of one per cell
+	draw: number; // 0–1: how far the outline has been drawn on
+	march: number; // px the dashes have marched along the outline
+	opacity?: number; // 0–1, while it fades away
+	label: string; // a short name, off the wall, with a pointer to the outline
+	pointAt: GridSpot; // where on the wall the name's pointer ends
+	tags: string[]; // story colors, as little dots next to the label
+};
+
+// Cells outside `except` fade back toward the paper by `amount` (0–1).
+export type DimPose = {
+	except: GridSpot[];
+	amount: number;
 };
 
 // The film's title: a romantic first line whose letters drop in like paint

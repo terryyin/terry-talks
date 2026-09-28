@@ -1,5 +1,5 @@
 import React from 'react';
-import { CellPose, palette, plainCellColor } from './scene';
+import { CellPose, palette, storyColorsOf } from './scene';
 import { Sparkle } from './storyBall';
 import { cellCenter } from './cell';
 import { FONT_FAMILY, Point } from './layout';
@@ -64,7 +64,7 @@ const SnapWord: React.FC<{ at: Point }> = ({ at }) => (
 export const TidyMarks: React.FC<{ cells: CellPose[]; done: boolean; sparkles?: number }> = ({ cells, done, sparkles = 1 }) => {
 	if (done) {
 		if (sparkles <= 0) return null;
-		const changed = cells.filter((c) => c.split || c.color !== plainCellColor(c)).map(cellCenter);
+		const changed = cells.filter((c) => storyColorsOf(c).length > 0).map(cellCenter);
 		return (
 			<g data-testid="tidy-marks" data-stage="done">
 				{changed.map((p, i) => (

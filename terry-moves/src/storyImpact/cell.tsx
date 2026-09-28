@@ -1,13 +1,15 @@
 import React from 'react';
-import { CellPose, palette, plainCellColor } from './scene';
+import { CellPose, GridSpot, palette, plainCellColor } from './scene';
 import { centerOf, Point, quad, roundedPath, scaleAround, shrink } from './layout';
 import { toward } from './motion';
 
 // One cell of the product wall. Pure function of its pose.
 
-const CELL_SCALE = 0.82;
+// How much of its grid square a cell fills.
+export const CELL_SCALE = 0.82;
 
-const cellCorners = (cell: CellPose): Point[] => quad(cell.col, cell.col + 1, cell.row, cell.row + 1);
+// A cell's grid square on the wall.
+export const cellCorners = ({ col, row }: GridSpot): Point[] => quad(col, col + 1, row, row + 1);
 
 // Where a cell is drawn on the stage, including how far it has been knocked.
 export const cellCenter = (cell: CellPose): Point => {

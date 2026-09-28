@@ -32,7 +32,9 @@ export const ballColors = {
 export type {
 	BallPose,
 	CellPose,
+	DimPose,
 	GridSpot,
+	OutlinePose,
 	Pose,
 	SpentPose,
 	SplatPose,
@@ -48,6 +50,11 @@ import type { BallPose, CellPose, GridSpot, Pose, SplatPose, StoryBefore, StoryP
 // The product's own checker color for a cell, before any story changed it.
 export const plainCellColor = ({ col, row }: GridSpot): string =>
 	(col + row) % 2 === 0 ? palette.cellSky : palette.cellMint;
+
+// The story colors a cell carries: its color, if a story gave it one, and
+// the color of its reorganized half.
+export const storyColorsOf = (cell: CellPose): string[] =>
+	[cell.color, cell.split].filter((c): c is string => c !== undefined && c !== plainCellColor(cell));
 
 // Row by row from the ground, each row from the Structure axis outward.
 export const tidyCells = (): CellPose[] =>

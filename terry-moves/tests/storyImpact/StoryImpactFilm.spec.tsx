@@ -21,7 +21,7 @@ const lastFrame = (name: string) => {
 const renderFrame = (f: number) => render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
 
 describe('StoryImpactFilm', () => {
-	test('opens with the title, the product space and Time, then the one-story beats, then more stories', () => {
+	test('opens with the title, the product space and Time, then the one-story beats, then more stories, then the ending', () => {
 		const later = ['launch', 'flight', 'splat', 'wobble', 'assimilate', 'coherent', 'history'];
 		expect(fullFilm.beats.map((b) => b.name)).toEqual([
 			'title',
@@ -30,6 +30,9 @@ describe('StoryImpactFilm', () => {
 			...oneStoryBeats.map((b) => b.name),
 			...later.map((b) => `sun-${b}`),
 			...later.map((b) => `grape-${b}`),
+			'story-outline',
+			'feature-outline',
+			'closing',
 		]);
 	});
 
@@ -104,7 +107,7 @@ describe('StoryImpactFilm', () => {
 		}
 	});
 
-	test('captions show in beat order, each for at least 2.5 s', () => {
+	test('captions show in beat order, each for at least 2.5 s, ending on the closing line, in 75–90 s', () => {
 		const runs: { caption: string; frames: number }[] = [];
 		for (let f = 0; f < durationInFrames; f++) {
 			const caption = captionAt(f);
@@ -119,8 +122,13 @@ describe('StoryImpactFilm', () => {
 			'…and the product stays coherent. No scars.',
 			'Each one changes the product a little.',
 			'Spent stories pile up in History, out of the way.',
+			'One story touches many features…',
+			'…and one feature carries many stories.',
+			'Stories should be romantic. Products should not.',
 		]);
 		runs.slice(1).forEach((r) => expect(r.frames).toBeGreaterThanOrEqual(2.5 * FPS));
+		expect(durationInFrames).toBeGreaterThanOrEqual(75 * FPS);
+		expect(durationInFrames).toBeLessThanOrEqual(90 * FPS);
 	});
 
 	test('every frame of the opening renders', () => {
@@ -196,7 +204,7 @@ describe('StoryImpactFilm', () => {
 
 		test('every frame of the later stories renders', () => {
 			const from = beatRange(laterStoryBeatList[0].name).from;
-			for (let f = from; f < durationInFrames; f += 5) {
+			for (let f = from; f < beatRange('story-outline').from; f += 5) {
 				const { unmount, getByTestId } = renderFrame(f);
 				expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
 				unmount();

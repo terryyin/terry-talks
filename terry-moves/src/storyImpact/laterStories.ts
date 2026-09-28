@@ -46,6 +46,9 @@ const grapeStory: StorySpec = {
 const sunBefore = afterStory(pinkStory, pinkBefore());
 const grapeBefore = afterStory(sunStory, sunBefore);
 
+// The last story, and the stage once it has left the tray (with its refill).
+export const lastStory = { spec: grapeStory, stage: leftTrayOf(grapeStory, grapeBefore) };
+
 type Captions = { launch: string; assimilate?: string; history?: string };
 
 // A later story's beats, named after its ball. `eager`: the previous beat
