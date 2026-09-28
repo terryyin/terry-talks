@@ -86,3 +86,31 @@ To add audio, you need to add a `<Audio/>` to the `<Story>` component:
 The 'camera' actor is a special actor that is used to represent the camera in the scene. It is not a real actor, but a special object that is used to control the camera. You can move it as a normal 3d actor.
 
 The special ability it has is to 'look at' a position.
+
+# Story impact animation
+
+A square cartoon explainer of "romantic stories, disciplined products" (the
+essay and flip chart in `Story Driven/`). Its source lives in
+`src/storyImpact/`:
+
+- `scene.ts` and `assimilation.ts` hold the pose model: a product grid of
+  Behavior × Structure cells, the backlog of paint balls along Time, the story
+  ball, its splat, and the History box. Each pose is plain data.
+- The SVG pieces (`pieces.tsx`, `cell.tsx`, `storyBall.tsx`, `splat.tsx`,
+  `tidyMarks.tsx`, `history.tsx`, `caption.tsx`) draw a pose. They never read
+  the frame, so they can be tested in jsdom and animated by changing the pose.
+- `boards.ts` lists the storyboard: one caption and one pose per board.
+
+Render the storyboard boards and their contact sheet:
+
+```bash
+cd terry-moves
+npx remotion render src/index.ts StoryImpactStoryboard out/storyboard --sequence --image-format=png
+ffmpeg -y -start_number 0 -i out/storyboard/element-%02d.png \
+  -vf "scale=540:540,tile=4x3:padding=12:color=white" -frames:v 1 "../Story Driven/storyboard.png"
+```
+
+Visual language: warm paper background, thick rounded ink outlines, flat
+offset shadows, flat bright fills, and a rounded bold font. Stories are
+bouncy, splashy paint balls with faces; the product is tidy and deliberate.
+There are no bombs, missiles, or people judging.

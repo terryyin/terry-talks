@@ -115,100 +115,6 @@ tone, in cartoon splash frames before anyone animates them?**
 
 These are non-executable candidates. None of them authorizes execution.
 
-<a id="intention-storyboard"></a>
-### 1. Terry recognizes his idea in a cartoon storyboard of one story's splash
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/012-intention-storyboard/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"fbd2bef61a0ab320b21b9df6327eb33a0c2961454a86e5e9b2a02643e79b3588","plan":"77a4682d2a3bd015a172ae096c57224dfac622ac8d7d6e8838fd7e81ea3b8fa4"}}
-```
-
-- **For / why:** Terry needs to confirm the visual model and the cartoon tone
-  before any motion work is invested. The frames also become the brief that
-  stories 2 and 3 animate.
-
-#### Goal
-
-Terry can read one square storyboard, in order, and recognize the essay's
-chain for one story: product space → backlog along Time → a romantic story →
-its splash across boundaries → a messy product → assimilation into a coherent,
-visibly changed product → the spent story in history → the next story waiting.
-The tone is light and playful, never threatening.
-
-#### Scope
-
-- **Required:**
-  - Eleven square boards (1080×1080), each with a one-line caption, rendered as
-    stills from a `terry-moves` storyboard composition, plus one contact sheet
-    that shows all boards in reading order.
-  - A single cartoon visual language shared by every board, built as reusable
-    scene pieces that later stories can animate: a warm paper background, thick
-    rounded dark outlines, and flat bright colors.
-  - The product follows the flip chart's lower diagram: a grid of cells standing
-    on a Behavior axis, with Structure going up and Time running to the right.
-    The backlog is a tray on the Time axis holding paint balls with simple
-    faces (the flip chart draws its backlog items as little faces).
-  - One concrete, relatable romantic story carries the example. Its wish is
-    shown in a speech bubble, and its ball is wobbly and multi-colored to show
-    that it is fuzzy.
-  - The splash is paint: blobs and drips that cross cell and axis-row
-    boundaries. There is no fire, explosion, bomb, or missile.
-  - The messy state shows cells knocked out of alignment and paint smeared over
-    grid lines.
-  - The assimilated state shows a tidy grid again. The new color sits cleanly in
-    the cells where the change belongs, which are not the same shape as the
-    splat, and at least one cell is visibly reorganized (for example split in
-    two). No leftover smear or scar.
-  - The spent story appears pale and emptied, tucked into a small "History"
-    box off to the side and behind the product, with the next ball at the front
-    of the queue.
-- **Rejection constraints:** The seed's confirmed constraints apply: no bombs or
-  missiles or intimidating imagery, no Open Dough naming or depiction, no human
-  judgment in the picture, no ABC-of-Architecture triangle, and no copied
-  Splatoon characters, assets, or branding.
-- **Deferred promises:** Motion, timing, subtitle scripts, audio, the "story ≠
-  feature" beat, and several stories over time (stories 2 and 3). Generated
-  image-model artwork is not used; the boards are drawn in code so later
-  stories can animate the very same pieces.
-- **Boundary assumptions (made on Terry's behalf, since he delegated every
-  decision):**
-  - The example wish is *"I wish I could split the bill with friends in one
-    tap!"* It is everyday and emotional, and it naturally touches several
-    behaviors (payment, contacts, notifications) and several structural parts.
-  - The Time axis runs to the right and the product sits at its origin on the
-    left, as on the flip chart. History is placed behind the product, on the
-    left, because the product is "now" and the backlog is the future on the
-    right.
-  - Captions use plain words taken from the essay. The words *romantic*,
-    *splash*, *assimilate*, *coherent*, and *history* are kept.
-  - In place of Terry's in-person read, the coordinator reviews the rendered
-    boards against the recovered intention and records the result. Terry's own
-    verdict remains welcome and can still revise the boards.
-
-#### Key examples
-
-1. **Board order.** Given the contact sheet, when it is read left to right and
-   top to bottom, the boards are: product space; Time and backlog; the romantic
-   wish; fuzzy and boundary-free; launch; splat; messy product; assimilating;
-   coherent and changed; spent story to history; next story waiting.
-2. **Splash across boundaries.** Given the splat board, the paint visibly covers
-   parts of at least three cells in at least two rows and two columns, and runs
-   over the grid lines between them.
-3. **Changed, not reset and not scarred.** Given the "coherent and changed"
-   board, compared with the first board, the grid is aligned again, several
-   cells now carry the story's color, one cell is reorganized, and no smear
-   remains.
-4. **The story leaves.** Given the history board, the example ball is no longer
-   in the backlog or on the product. A pale version of it rests in the History
-   box, and a different ball waits at the front of the backlog.
-
-- **Evaluation:** Terry reads the frames in order and either says "yes, that is
-  my idea, and the tone is right" or marks which frames misstate it.
-  Automated checks do not establish acceptance.
-- **Boundary:** Stills and captions only: no motion, timing, or subtitle
-  script.
-- **Depends on:** None.
-- **Safe stopping point:** An approved or annotated storyboard, which is useful
-  on its own as an illustrated explanation.
-
 <a id="one-story-journey"></a>
 ### 2. Viewers watch one story splash onto the product and become part of it
 ```json dough-story-state
@@ -235,7 +141,7 @@ The tone is light and playful, never threatening.
 - **Boundary:** One story, from backlog to history. Several stories over time
   belong to story 3.
 - **Effort hypothesis:** Unbanded. Carries the main motion uncertainty.
-- **Depends on:** Story 1's storyboard, approved or revised.
+- **Depends on:** The finished storyboard ([storyboard.png](storyboard.png)).
 - **Safe stopping point:** An independently watchable short explanation with
   editable source and a reproducible render.
 
@@ -316,7 +222,7 @@ hardest motion to get right.
 ## Open decisions
 
 - **Length of the full film:** the previous effort used about three minutes.
-  The lighter tone may suit a shorter film. Settle this during story 1 or 3.
+  The lighter tone may suit a shorter film. Settle this during story 3.
 - **Audio:** keep the film silent-first, with optional playful sound effects.
   Decide at release.
 
@@ -326,6 +232,13 @@ Whenever Terry chooses to digress from the TPS and AI work. Story 1 is cheap
 enough to run alongside it.
 
 ## Breadcrumbs
+
+- The storyboard for one story's splash is done: eleven boards drawn in
+  `terry-moves` (`StoryImpactStoryboard`), with the contact sheet at
+  [storyboard.png](storyboard.png). Terry delegated the review. The
+  coordinator checked the boards against the recovered intention and accepted
+  them; Terry's own verdict can still revise them. The example wish is "I wish
+  I could split the bill with friends in one tap!"
 
 - Intention: [essay](romantic-stories-disciplined-products.md) and
   [flip chart](story-driven-product-space.jpg).
