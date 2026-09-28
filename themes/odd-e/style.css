@@ -15,6 +15,8 @@
 
 .slidev-layout {
   position: relative;
+  /* Dimmer ink for secondary copy (`.doughnut-example`, `.ja`). */
+  --odde-secondary-ink: #5c564e;
 }
 
 /*
@@ -55,5 +57,38 @@
  */
 .slidev-layout .doughnut-example {
   font-size: 0.88em;
-  color: #5c564e;
+  color: var(--odde-secondary-ink);
+}
+
+/*
+ * Japanese lines under the English (tps-and-ai, for the Tokyo audience),
+ * written as MDC spans so markdown bold still renders. Secondary ink,
+ * like `.doughnut-example`, so the Japanese reads as secondary. Two sizes:
+ * `[…]{.ja}` is a body line (0.9em of the English it follows, inside the
+ * same paragraph or list item); `[…]{.ja-title}` is a title line in its
+ * own paragraph right after an h1/h2. Unused on other decks.
+ */
+.slidev-layout .ja,
+.slidev-layout .ja-title {
+  display: block;
+  line-height: 1.5;
+  color: var(--odde-secondary-ink);
+}
+
+.slidev-layout .ja {
+  font-size: 0.9em;
+}
+
+.slidev-layout .ja-title {
+  font-size: 1.25em;
+  margin-top: -0.6rem;
+}
+
+/*
+ * `<text class="ja">` in inline SVG: same secondary ink, as fill. Each
+ * label keeps its own inline font-size. Japanese on a dark box keeps the
+ * box's light ink at 0.8 opacity instead.
+ */
+.slidev-layout svg text.ja {
+  fill: var(--odde-secondary-ink);
 }
