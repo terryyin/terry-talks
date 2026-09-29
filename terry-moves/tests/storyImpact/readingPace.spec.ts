@@ -1,6 +1,6 @@
 import { Beat, FPS } from '@/storyImpact/film';
 import { fullFilm, fullFilmBeats } from '@/storyImpact/fullFilm';
-import { paced, readingSeconds, syllables } from '@/storyImpact/readingPace';
+import { paced, PAUSE_SECONDS, readingSeconds, syllables } from '@/storyImpact/readingPace';
 import { productSpace } from '@/storyImpact/scene';
 
 const { beatRange, captionAt, durationInFrames, poseAt } = fullFilm;
@@ -39,8 +39,8 @@ describe('reading pace', () => {
 		expect(poseAt(from + frames - 1)).toEqual(authored.pose(1));
 	});
 
-	test('example 2: a caption whose span is already long enough keeps it', () => {
-		expect(shownSeconds('More stories come and go…')).toBeCloseTo(7.8, 1);
+	test('example 2: a caption whose span is already long enough keeps it, less its breath', () => {
+		expect(shownSeconds('More stories come and go…') + PAUSE_SECONDS).toBeCloseTo(7.8, 1);
 	});
 
 	test('every caption shows at least as long as its hand-set span did, and every beat ends on its authored pose', () => {
@@ -51,7 +51,8 @@ describe('reading pace', () => {
 			authoredSpans.set(current, (authoredSpans.get(current) ?? 0) + b.seconds);
 		});
 		authoredSpans.forEach((seconds, caption) => {
-			if (caption !== '') expect({ caption, kept: shownSeconds(caption) >= seconds - 1e-6 }).toEqual({ caption, kept: true });
+			const breath = fullFilmBeats.find((b) => b.caption === caption)?.pause ?? 0;
+			if (caption !== '') expect({ caption, kept: shownSeconds(caption) + breath >= seconds - 1e-6 }).toEqual({ caption, kept: true });
 		});
 		fullFilmBeats.forEach((b) => {
 			const { from, durationInFrames: frames } = beatRange(b.name);

@@ -106,6 +106,12 @@ essay and flip chart in `Story Driven/`). Its source lives in
   that board's pose. Story motion (springs, squash and stretch) lives in
   `storyBeats.ts` and `historyBeats.ts`; product motion (eased slides and
   snaps) lives in `productBeats.ts`; shared easing helpers are in `motion.ts`.
+- `readingPace.ts` times the captions: a caption holds for
+  `max(3.0 s, 1.0 s + syllables ÷ 3.5)`, counted from its words, and the
+  beats under it (until the next caption) slow evenly when they are shorter.
+  `afterABreath(beat)` leaves the caption line empty for 1.0 s at the start
+  of that caption's beats. `timeline()` applies both, so a reworded caption
+  re-times itself; do not hand-tune beat lengths for reading.
 
 Render the storyboard boards and their contact sheet:
 
@@ -117,7 +123,7 @@ ffmpeg -y -start_number 0 -i out/storyboard/element-%02d.png \
   -vf "scale=540:540,tile=6x3:padding=12:color=white" -frames:v 1 "../Story Driven/storyboard.png"
 ```
 
-Render the one-story film (`StoryImpactOneSplash`, about 53 seconds, silent,
+Render the one-story film (`StoryImpactOneSplash`, about 71 seconds, silent,
 captioned):
 
 ```bash
@@ -126,14 +132,14 @@ npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splas
 ```
 
 Render the final, shareable animation and its poster (H.264, yuv420p,
-1080×1080, silent, about 108 seconds):
+1080×1080, silent, about 133 seconds):
 
 ```bash
 pnpm -C terry-moves render:story-impact
 # writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
 ```
 
-Or render the full film (`StoryImpactFilm`, about 108 seconds) directly: title, product
+Or render the full film (`StoryImpactFilm`, about 133 seconds) directly: title, product
 space, backlog, the pink story and its two values, the sun story and the
 customer's idea (the cheap story), story versus feature, "neither is better", and the end card: the stage shrinks
 away and "Stories should be romantic. Products should not." lands in the

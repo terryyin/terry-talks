@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
-import { readingSeconds } from '@/storyImpact/readingPace';
+import { PAUSE_SECONDS, readingSeconds } from '@/storyImpact/readingPace';
 import { beats as oneStoryBeats, beatRange as oneStoryRange, FPS, poseAt as oneStoryPoseAt } from '@/storyImpact/film';
 import { fullFilm } from '@/storyImpact/fullFilm';
 import { ballColors, CellPose, extentOf, plainCellColor, productOverTime, productSpace, wallExtentOf } from '@/storyImpact/scene';
 import { laterStoryBeatList } from '@/storyImpact/laterStories';
 import { historySpot, traySpot, trayBallCenter } from '@/storyImpact/layout';
-import { boards } from '@/storyImpact/boards';
+import { boardNamed, boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
 const { beatRange, captionAt, durationInFrames, poseAt } = fullFilm;
@@ -110,7 +110,8 @@ describe('StoryImpactFilm', () => {
 		}
 	});
 
-	test('captions show in beat order, each for at least its reading time, ending on the end card, in 2–2.5 minutes', () => {
+	// The film's caption line, run by run.
+	const captionRuns = () => {
 		const runs: { caption: string; frames: number }[] = [];
 		for (let f = 0; f < durationInFrames; f++) {
 			const caption = captionAt(f);
@@ -118,7 +119,12 @@ describe('StoryImpactFilm', () => {
 			if (last && last.caption === caption) last.frames++;
 			else runs.push({ caption, frames: 1 });
 		}
-		expect(runs.map((r) => r.caption)).toEqual([
+		return runs;
+	};
+
+	test('captions show in beat order, each for at least its reading time, ending on the end card, in 2–2.5 minutes', () => {
+		const runs = captionRuns();
+		expect(runs.map((r) => r.caption).filter((c, i, all) => c !== '' || i === 0 || i === all.length - 1)).toEqual([
 			'',
 			...boards.map((b) => b.caption),
 			'More stories come and go…',
@@ -134,6 +140,31 @@ describe('StoryImpactFilm', () => {
 		runs.forEach((r) => expect({ caption: r.caption, enough: r.frames >= readingSeconds(r.caption) * FPS }).toEqual({ caption: r.caption, enough: true }));
 		expect(durationInFrames).toBeGreaterThanOrEqual(120 * FPS);
 		expect(durationInFrames).toBeLessThanOrEqual(150 * FPS);
+	});
+
+	test('the film breathes: the caption line is empty for 1 s at six places while the picture moves', () => {
+		const runs = captionRuns();
+		const breaths = runs.flatMap((r, i) => (r.caption === '' && i > 0 && i < runs.length - 1 ? [{ before: runs[i + 1].caption, frames: r.frames }] : []));
+		expect(breaths.map((b) => b.before)).toEqual([
+			'Behavior gets messy. Structure wobbles.',
+			"A story's goal is an impact, with two values.",
+			'Option value, unseen by users: judgment spent on tests…',
+			'More stories come and go…',
+			'One story touches many features…',
+			'Neither is better. They do different jobs.',
+		]);
+		breaths.forEach((b) => expect(b.frames).toBe(PAUSE_SECONDS * FPS));
+	});
+
+	test('example 3: a breath after the SPLAT while the cells start to wobble, then the wobble ends on its board', () => {
+		const wobble = framesOf('wobble');
+		const breath = wobble.slice(0, PAUSE_SECONDS * FPS);
+		expect(captionAt(breath[0] - 1)).toBe('…and it makes an impact on the product: SPLAT!');
+		breath.forEach((f) => expect(captionAt(f)).toBe(''));
+		expect(poseAt(breath[breath.length - 1])).not.toEqual(poseAt(breath[0]));
+		const caption = 'Behavior gets messy. Structure wobbles.';
+		expect(wobble.slice(PAUSE_SECONDS * FPS).length).toBeGreaterThanOrEqual(readingSeconds(caption) * FPS);
+		expect(poseAt(lastFrame('wobble'))).toEqual(boardNamed('wobble').pose);
 	});
 
 	test('every frame of the opening renders', () => {
@@ -314,8 +345,9 @@ describe('StoryImpactFilm', () => {
 		test('every frame of the later stories renders', () => {
 			const from = beatRange(laterStoryBeatList[0].name).from;
 			for (let f = from; f < beatRange('story-outline').from; f += 5) {
-				const { unmount, getByTestId } = renderFrame(f);
-				expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
+				const { unmount, queryByTestId } = renderFrame(f);
+				if (captionAt(f) === '') expect(queryByTestId('caption')).toBeNull();
+				else expect(queryByTestId('caption')).toHaveTextContent(captionAt(f));
 				unmount();
 			}
 		});

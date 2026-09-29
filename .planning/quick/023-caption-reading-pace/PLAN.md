@@ -67,6 +67,12 @@ Identity: `story-impact-animation#caption-reading-pace`
   examples 1, 2, 4, every beat ends on its authored pose) and the film specs
   (each caption run ≥ its reading time); `pnpm moves test`: 267 passed, lint
   and tsc clean. Film 128.2 s before pauses.
+- Slice 2: film specs (six 1.0 s breaths in order, example 3, runs ≥
+  reading time, film 120–150 s); `pnpm moves test`: 269 passed, lint and
+  tsc clean. `pnpm -C terry-moves render:story-impact`: 133.2 s mp4 and
+  poster; 16 stills viewed as a contact sheet (breath frames show no
+  caption, the look is unchanged). Captions total 117.8 s against 99.0 s
+  (1.19×).
 
 ## Learnings
 
@@ -87,7 +93,7 @@ and every beat ends on the same pose.
 
 ### 2. The film breathes at six places
 Type: Behavior
-Status: planned
+Status: done
 Proof: film specs (empty caption runs at the six places, film 120–150 s);
 render, contact-sheet stills viewed; caption timing table; `pnpm moves test`.
 
@@ -95,3 +101,9 @@ Behavior: given the paced film → it plays → after the SPLAT, before the key
 line, between the two values, before "More stories…", before the ending and
 before the punch line, the caption line is empty for 1.0 s while the
 picture moves, then the caption shows for its full reading time.
+
+## Execution complete
+
+- Both slices delivered in Trunk Mode on local `master` (not pushed, per
+  the coordinator's instruction); no CI was observed.
+- Product advice: retrospective skipped

@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { PAUSE_SECONDS } from '@/storyImpact/readingPace';
 import { FPS } from '@/storyImpact/film';
 import { fullFilm } from '@/storyImpact/fullFilm';
 import { CellPose, GridSpot, pinkStory, plainCellColor, sameSpot } from '@/storyImpact/scene';
@@ -70,7 +71,9 @@ describe('StoryImpactFilm ending: a story is not a feature', () => {
 
 	test('the product rests with the next ball eager: neither is better', () => {
 		const frames = framesOf('closing');
-		frames.forEach((f) => expect(captionAt(f)).toBe('Neither is better. They do different jobs.'));
+		const breath = Math.round(PAUSE_SECONDS * FPS);
+		frames.slice(0, breath).forEach((f) => expect(captionAt(f)).toBe(''));
+		frames.slice(breath).forEach((f) => expect(captionAt(f)).toBe('Neither is better. They do different jobs.'));
 		expect(Math.max(...frames.map((f) => poseAt(f).backlog[0].hop ?? 0))).toBeGreaterThan(0);
 		const last = poseAt(frames[frames.length - 1]);
 		expect(last.outlines).toBeUndefined();

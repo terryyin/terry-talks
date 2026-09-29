@@ -5,7 +5,7 @@
 // sampled in tests.
 
 import { Pose } from './scene';
-import { paced } from './readingPace';
+import { afterABreath, paced } from './readingPace';
 import { clamp01, FPS } from './motion';
 import { backlogBeat, FLIGHT_SECONDS, splatBeat } from './storyBeats';
 import { ASSIMILATE_SECONDS, WOBBLE_SECONDS } from './productBeats';
@@ -118,13 +118,13 @@ export const beats: Beat[] = [
 	beat('fuzzy', 3, 'It\'s fuzzy. It doesn\'t care about our boundaries.', valueFuzzyBeat),
 	beat('flight', FLIGHT_SECONDS, 'It carries an impact we want in the world…', valueFlightBeat),
 	beat('splat', SPLAT_SECONDS, '…and it makes an impact on the product: SPLAT!', splatBeat),
-	beat('wobble', WOBBLE_SECONDS, 'Behavior gets messy. Structure wobbles.', productWobbleBeat),
+	afterABreath(beat('wobble', WOBBLE_SECONDS, 'Behavior gets messy. Structure wobbles.', productWobbleBeat)),
 	beat('assimilate', ASSIMILATE_SECONDS, 'Developers assimilate the splash…', productAssimilateBeat),
 	beat('coherent', COHERENT_SECONDS, '…into a coherent product, changed where it matters. No scars.', productCoherentBeat),
-	beat('impact', IMPACT_SECONDS, 'A story\'s goal is an impact, with two values.', impactBeat),
+	afterABreath(beat('impact', IMPACT_SECONDS, 'A story\'s goal is an impact, with two values.', impactBeat)),
 	beat('customer', CUSTOMER_SECONDS, 'Customer value: people feel the new behavior…', customerValueBeat),
 	beat('new-idea', NEW_IDEA_SECONDS, '…and bring new ideas. The backlog is reordered.', newIdeaValueBeat),
-	beat('tests', TESTS_SECONDS, 'Option value, unseen by users: judgment spent on tests…', optionTestsBeat),
+	afterABreath(beat('tests', TESTS_SECONDS, 'Option value, unseen by users: judgment spent on tests…', optionTestsBeat)),
 	beat('domain', DOMAIN_SECONDS, '…and on a structure that maps the domain.', optionDomainBeat),
 	beat('history', HISTORY_SECONDS, 'The spent story goes to history. Available, but out of the way.', pinkHistoryBeat),
 	beat('next', NEXT_SECONDS, 'Ready for the next story.', nextBeat),

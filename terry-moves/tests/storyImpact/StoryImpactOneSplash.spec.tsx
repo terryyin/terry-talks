@@ -5,13 +5,15 @@ import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTim
 import { coherentProduct, readyForNext, storyInHistory } from '@/storyImpact/assimilation';
 import { boardNamed, boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
-import { paced, readingSeconds } from '@/storyImpact/readingPace';
+import { paced, PAUSE_SECONDS, readingSeconds } from '@/storyImpact/readingPace';
 
 const framesOf = (name: string) => {
 	const { from, durationInFrames } = beatRange(name);
 	return Array.from({ length: durationInFrames }, (_, i) => from + i);
 };
 const firstFrame = (name: string) => beatRange(name).from;
+// A beat's frames once its caption's breath is over.
+const afterTheBreath = (name: string) => framesOf(name).slice(Math.round(PAUSE_SECONDS * FPS));
 const lastFrame = (name: string) => {
 	const { from, durationInFrames } = beatRange(name);
 	return from + durationInFrames - 1;
@@ -59,8 +61,9 @@ describe('StoryImpactOneSplash', () => {
 
 	test('every frame of the film renders', () => {
 		for (let f = 0; f < filmDurationInFrames; f += 5) {
-			const { unmount, getByTestId } = render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
-			expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
+			const { unmount, queryByTestId } = render(<StoryImpactScene pose={poseAt(f)} caption={captionAt(f)} />);
+			if (captionAt(f) === '') expect(queryByTestId('caption')).toBeNull();
+			else expect(queryByTestId('caption')).toHaveTextContent(captionAt(f));
 			unmount();
 		}
 	});
@@ -263,7 +266,7 @@ describe('StoryImpactOneSplash', () => {
 		});
 
 		test('the test shields are captioned as spent judgment, bought as option value', () => {
-			framesOf('tests').forEach((f) => expect(captionAt(f)).toBe('Option value, unseen by users: judgment spent on tests…'));
+			afterTheBreath('tests').forEach((f) => expect(captionAt(f)).toBe('Option value, unseen by users: judgment spent on tests…'));
 		});
 
 		test('the spent story goes to History with no judgment label', () => {
@@ -280,10 +283,8 @@ describe('StoryImpactOneSplash', () => {
 		const valuesAt = (f: number) => poseAt(f).values;
 
 		test('"impact!" bursts over the coherent product, and two value pills spring out of it', () => {
-			framesOf('impact').forEach((f) => {
-				expect(captionAt(f)).toBe("A story's goal is an impact, with two values.");
-				expect(poseAt(f).cells).toEqual(coherentProduct().cells);
-			});
+			afterTheBreath('impact').forEach((f) => expect(captionAt(f)).toBe("A story's goal is an impact, with two values."));
+			framesOf('impact').forEach((f) => expect(poseAt(f).cells).toEqual(coherentProduct().cells));
 			const bursts = framesOf('impact').map((f) => valuesAt(f)?.burst ?? 0);
 			expect(Math.max(...bursts)).toBeGreaterThan(1); // pops with overshoot
 			expect(valuesAt(lastFrame('impact'))).toEqual({ spring: 1, customer: 1, option: 1 });

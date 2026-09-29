@@ -15,6 +15,7 @@ import { launchBeatOf, LAUNCH_SECONDS, QUICK_FLIGHT_SECONDS, quickFlightBeatOf }
 import { splatBeatOf } from './storyBeats';
 import { ASSIMILATE_SECONDS, assimilateBeatOf, coherentBeatOf, wobbleBeatOf } from './productBeats';
 import { HISTORY_SECONDS, historyBeatOf } from './historyBeats';
+import { afterABreath } from './readingPace';
 
 const [sun] = laterStories;
 
@@ -59,7 +60,7 @@ const ideaBefore = afterStory(sunStory, sunBefore);
 // The last story, and the stage once it has left the tray (with its refill).
 export const lastStory = { spec: ideaStory, stage: leftTrayOf(ideaStory, ideaBefore) };
 
-type Captions = { launch: string; wobble?: string; assimilate?: string; history?: string };
+type Captions = { launch: string; wobble?: string; assimilate?: string; history?: string; breath?: boolean };
 
 // How long the product's work on a story takes, in seconds.
 type Pace = { splat: number; wobble: number; assimilate: number; coherent: number };
@@ -88,8 +89,9 @@ const laterStoryBeats = (spec: StorySpec, before: StoryBefore, captions: Caption
 		const last = Math.round(seconds * FPS) - 1;
 		return { ...plain, pose: (t) => extra(part, (clamp01(t) * last) / FPS, plain.pose(t)) };
 	};
+	const launch = beat(name('launch'), LAUNCH_SECONDS, captions.launch, withExtra('launch', launchBeatOf(spec, before, eager)));
 	return [
-		beat(name('launch'), LAUNCH_SECONDS, captions.launch, withExtra('launch', launchBeatOf(spec, before, eager))),
+		captions.breath ? afterABreath(launch) : launch,
 		beat(name('flight'), QUICK_FLIGHT_SECONDS, undefined, withExtra('flight', quickFlightBeatOf(spec, stage))),
 		squeezedBeat('splat', pace.splat, undefined, splatBeatOf(spec, stage), SPLAT_SECONDS),
 		squeezedBeat('wobble', pace.wobble, captions.wobble, wobbleBeatOf(spec, stage), WOBBLE_SECONDS),
@@ -112,7 +114,7 @@ export const laterStoryBeatList: Beat[] = [
 	...laterStoryBeats(
 		sunStory,
 		sunBefore,
-		{ launch: 'More stories come and go…', assimilate: '…and the product stays coherent. No scars.' },
+		{ launch: 'More stories come and go…', assimilate: '…and the product stays coherent. No scars.', breath: true },
 		true,
 	),
 	...laterStoryBeats(

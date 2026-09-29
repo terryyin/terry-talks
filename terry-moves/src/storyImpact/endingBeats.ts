@@ -15,6 +15,7 @@ import { lastStory } from './laterStories';
 import { Easing } from 'remotion';
 import { between, bounce, BOUNCY, POPPY, settle, unless, withoutUndefined } from './motion';
 import { END_CARD } from './endCard';
+import { afterABreath } from './readingPace';
 
 // The product at rest after the last story, with every spent story in History.
 const settled: Pose = storyInHistoryOf(lastStory.spec, lastStory.stage);
@@ -140,8 +141,8 @@ const finaleBeat = (sec: number): Pose => {
 };
 
 export const endingBeatList: Beat[] = [
-	beat('story-outline', STORY_OUTLINE_SECONDS, 'One story touches many features…', storyOutlineBeat),
+	afterABreath(beat('story-outline', STORY_OUTLINE_SECONDS, 'One story touches many features…', storyOutlineBeat)),
 	beat('feature-outline', FEATURE_OUTLINE_SECONDS, '…and one feature carries many stories.', featureOutlineBeat),
-	beat('closing', CLOSING_SECONDS, 'Neither is better. They do different jobs.', closingBeat),
+	afterABreath(beat('closing', CLOSING_SECONDS, 'Neither is better. They do different jobs.', closingBeat)),
 	beat('finale', FINALE_SECONDS, '', finaleBeat),
 ];
