@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Composition, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, Audio, Composition, staticFile, useCurrentFrame } from 'remotion';
 import { FPS } from '../storyImpact/film';
 import { fullFilm } from '../storyImpact/fullFilm';
 import { STAGE } from '../storyImpact/layout';
@@ -16,11 +16,15 @@ const FilmFrame: React.FC = () => {
 	);
 };
 
-// The same film with Traditional Chinese subtitles; the picture stays English.
+// The same film with Traditional Chinese subtitles and Terry's Chinese
+// narration, recorded against this timeline; the picture stays English.
+export const ZH_HANT_NARRATION = 'assets/audios/impact_zh.m4a';
+
 const ZhHantFilmFrame: React.FC = () => {
 	const frame = useCurrentFrame();
 	return (
 		<AbsoluteFill>
+			<Audio src={staticFile(ZH_HANT_NARRATION)} />
 			<StoryImpactScene pose={fullFilm.poseAt(frame)} caption={zhHantCaption(fullFilm.captionAt(frame))} />
 		</AbsoluteFill>
 	);

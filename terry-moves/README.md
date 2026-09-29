@@ -139,8 +139,11 @@ pnpm -C terry-moves render:story-impact
 # writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
 ```
 
-The same film with Traditional Chinese subtitles (`StoryImpactFilmZhHant`;
-only the captions are translated, the picture stays in English):
+The same film with Traditional Chinese subtitles and Terry's Chinese
+narration (`StoryImpactFilmZhHant`; only the captions are translated, the
+picture stays in English). The narration, `public/assets/audios/impact_zh.m4a`
+(AAC, 48 kHz stereo), was recorded against this timeline and plays from frame
+0; its silent tail past the film's end is cut:
 
 ```bash
 pnpm -C terry-moves render:story-impact:zh-hant
