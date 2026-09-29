@@ -7,7 +7,8 @@ import { Protect } from './protect';
 import { EndCard } from './endCard';
 import { Axes } from './axes';
 import { Splat, WobbleMarks } from './splat';
-import { StoryBall } from './storyBall';
+import { StoryBall, storyCenter } from './storyBall';
+import { StoryTag } from './storyTag';
 import { CaptionBar } from './caption';
 import { HistoryBox, SpentSkin } from './history';
 import { TidyMarks } from './tidyMarks';
@@ -59,6 +60,7 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => (
 		{pose.protect ? <Protect protect={pose.protect} /> : null}
 		{pose.customer ? <Customer customer={pose.customer} /> : null}
 		{pose.backlog.some((b) => b.flying) ? <FlyingBalls balls={pose.backlog} /> : null}
+		{pose.tag && pose.story ? <StoryTag tag={pose.tag} ball={storyCenter(pose.story)} r={pose.story.ball.size} /> : null}
 		{pose.story ? <StoryBall story={pose.story} /> : null}
 		{pose.spent ? <SpentSkin spent={pose.spent} /> : null}
 	</>

@@ -244,6 +244,13 @@ describe('StoryImpactFilm', () => {
 			}
 		});
 
+		test('the later stories carry no focus labels', () => {
+			for (const f of framesOf('sun-launch').concat(framesOf('idea-assimilate'))) {
+				expect(poseAt(f).tag).toBeUndefined();
+				expect(poseAt(f).outlines).toBeUndefined();
+			}
+		});
+
 		test('every frame of the later stories renders', () => {
 			const from = beatRange(laterStoryBeatList[0].name).from;
 			for (let f = from; f < beatRange('story-outline').from; f += 5) {

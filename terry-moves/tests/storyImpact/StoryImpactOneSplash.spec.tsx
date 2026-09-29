@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import { beatRange, beats, captionAt, filmDurationInFrames, FPS, poseAt } from '@/storyImpact/film';
 import { flightPoint, wallPoint } from '@/storyImpact/layout';
-import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storyIsFuzzy, storySplashes, storyWishes } from '@/storyImpact/scene';
-import { assimilating, coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory, structureMapsDomain, testsGuardBehavior } from '@/storyImpact/assimilation';
+import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storySplashes } from '@/storyImpact/scene';
+import { coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory, structureMapsDomain, testsGuardBehavior } from '@/storyImpact/assimilation';
 import { boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
@@ -77,7 +77,7 @@ describe('StoryImpactOneSplash', () => {
 		});
 
 		test('the wish beat ends on the wish board', () => {
-			expect(poseAt(lastFrame('wish'))).toEqual(storyWishes());
+			expect(poseAt(lastFrame('wish'))).toEqual(boards[2].pose);
 		});
 
 		test('the ball springs up past its hover spot and the bubble pops in', () => {
@@ -95,7 +95,7 @@ describe('StoryImpactOneSplash', () => {
 				.filter((p) => p.story!.state === 'fuzzy')
 				.map((p) => p.story!.fuzz ?? 1);
 			expect(fuzz[0]).toBeLessThan(0.5);
-			expect(poseAt(lastFrame('fuzzy'))).toEqual(storyIsFuzzy());
+			expect(poseAt(lastFrame('fuzzy'))).toEqual(boards[3].pose);
 		});
 
 		test('the flight moves steadily from the tray to the product', () => {
@@ -133,7 +133,7 @@ describe('StoryImpactOneSplash', () => {
 			.filter((i) => i >= 0);
 
 		test('the wobble ends on the messy board', () => {
-			expect(poseAt(lastFrame('wobble'))).toEqual(messyProduct());
+			expect(poseAt(lastFrame('wobble'))).toEqual(boards[6].pose);
 		});
 
 		test('the cells jiggle past their messy offsets before they settle', () => {
@@ -150,7 +150,7 @@ describe('StoryImpactOneSplash', () => {
 		});
 
 		test('the assimilate beat ends on the assimilating board', () => {
-			expect(poseAt(lastFrame('assimilate'))).toEqual(assimilating());
+			expect(poseAt(lastFrame('assimilate'))).toEqual(boards[7].pose);
 		});
 
 		test('the coherent beat ends on the coherent board and holds still', () => {
@@ -196,6 +196,30 @@ describe('StoryImpactOneSplash', () => {
 			expect(splitting[splitting.length - 1]).toBe(1);
 		});
 
+	});
+
+	describe('the story is customer-value focused, the work whole-product focused', () => {
+		const tagOf = (f: number) => poseAt(f).tag;
+		const productOutline = (f: number) => poseAt(f).outlines?.find((o) => o.label === 'whole-product focused');
+
+		test('the hovering story wears its tag until it flies', () => {
+			expect(tagOf(lastFrame('wish'))).toMatchObject({ text: 'customer-value focused', show: 1 });
+			expect(tagOf(lastFrame('fuzzy'))).toMatchObject({ text: 'customer-value focused', show: 1 });
+			expect(tagOf(lastFrame('flight'))).toBeUndefined();
+			const { getByTestId, unmount } = render(<StoryImpactScene pose={poseAt(lastFrame('fuzzy'))} caption="" />);
+			expect(getByTestId('story-tag')).toHaveTextContent('customer-value focused');
+			unmount();
+		});
+
+		test('the whole product is outlined while it wobbles and is assimilated, and not once coherent', () => {
+			for (const f of [lastFrame('wobble'), firstFrame('assimilate'), lastFrame('assimilate')]) {
+				const outline = productOutline(f)!;
+				expect(outline.together).toBe(true);
+				expect(outline.cells).toHaveLength(20);
+			}
+			expect(productOutline(firstFrame('wobble'))).toBeUndefined();
+			expect(productOutline(lastFrame('coherent'))).toBeUndefined();
+		});
 	});
 
 	describe('tests guard the behavior and the structure maps the domain', () => {

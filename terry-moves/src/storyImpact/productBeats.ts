@@ -29,6 +29,8 @@ const smearing = (smear: string | undefined, amount: number): Pick<CellPose, 'sm
 
 const isMoved = (cell: CellPose) => cell.dx !== 0 || cell.dy !== 0 || cell.rot !== 0;
 
+export const WOBBLE_SECONDS = 3.5;
+
 // 6. The product wobbles: the cells near the splat get knocked and jiggle
 // like jelly into their messy offsets, the paint seeps in and smears them,
 // and the drips run further.

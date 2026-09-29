@@ -48,9 +48,25 @@ Identity: `story-impact-animation#value-vs-whole-product-focus`
 
 ### 1. The story is tagged customer-value focused and the work whole-product focused
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 1–3 in the film specs; stills viewed; `pnpm moves test`.
 
 Behavior: given the pink story → when it hovers, then splashes → the tag
 hangs under it until it flies, then the whole wall is outlined as
 "whole-product focused" until the product is coherent.
+
+Accepted proof: `pnpm moves test` passed (249 tests, lint and tsc clean).
+Stills of the wish, fuzzy, flight, wobble, assimilate and coherent beats
+(frames 480–1040) viewed: the tag reads inside its pill, clear of the
+Structure axis, the wish bubble and the tray balls; the whole-product
+outline and its name are clear of the Structure label.
+
+## Learnings
+
+- `WOBBLE_SECONDS` moved to `productBeats.ts` (next to
+  `ASSIMILATE_SECONDS`) so `focus.ts` can use it without a cycle through
+  `film.ts`.
+
+## Execution complete
+
+Product advice: retrospective skipped

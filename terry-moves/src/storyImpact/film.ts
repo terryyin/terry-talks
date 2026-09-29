@@ -6,13 +6,14 @@
 
 import { Pose } from './scene';
 import { clamp01, FPS } from './motion';
-import { backlogBeat, flightBeat, FLIGHT_SECONDS, fuzzyBeat, splatBeat, wishBeat } from './storyBeats';
-import { ASSIMILATE_SECONDS, assimilateBeat, coherentBeat, wobbleBeat } from './productBeats';
+import { backlogBeat, FLIGHT_SECONDS, splatBeat } from './storyBeats';
+import { ASSIMILATE_SECONDS, WOBBLE_SECONDS } from './productBeats';
+import { productAssimilateBeat, productCoherentBeat, productWobbleBeat, valueFlightBeat, valueFuzzyBeat, valueWishBeat } from './focus';
 import { HISTORY_SECONDS, historyBeat, NEXT_SECONDS, nextBeat } from './historyBeats';
 import { DOMAIN_SECONDS, domainBeat, TESTS_SECONDS, testsBeat } from './protectBeats';
 import { CUSTOMER_SECONDS, customerBeat, NEW_IDEA_SECONDS, newIdeaBeat } from './customerBeats';
 
-export { FPS };
+export { FPS, WOBBLE_SECONDS };
 
 export type Beat = {
 	name: string;
@@ -101,18 +102,17 @@ export const timeline = (beats: Beat[]): Timeline => {
 
 // The one-story film.
 export const SPLAT_SECONDS = 3;
-export const WOBBLE_SECONDS = 3.5;
 export const COHERENT_SECONDS = 4;
 
 export const beats: Beat[] = [
 	beat('backlog', 2, 'A story is romantic: a wish for a better world.', backlogBeat),
-	beat('wish', 3.5, undefined, wishBeat),
-	beat('fuzzy', 3, 'It\'s fuzzy. It doesn\'t care about our boundaries.', fuzzyBeat),
-	beat('flight', FLIGHT_SECONDS, 'It carries an impact we want in the world…', flightBeat),
+	beat('wish', 3.5, undefined, valueWishBeat),
+	beat('fuzzy', 3, 'It\'s fuzzy. It doesn\'t care about our boundaries.', valueFuzzyBeat),
+	beat('flight', FLIGHT_SECONDS, 'It carries an impact we want in the world…', valueFlightBeat),
 	beat('splat', SPLAT_SECONDS, '…and it makes an impact on the product: SPLAT!', splatBeat),
-	beat('wobble', WOBBLE_SECONDS, 'Behavior gets messy. Structure wobbles.', wobbleBeat),
-	beat('assimilate', ASSIMILATE_SECONDS, 'Developers assimilate the splash…', assimilateBeat),
-	beat('coherent', COHERENT_SECONDS, '…into a coherent product, changed where it matters. No scars.', coherentBeat),
+	beat('wobble', WOBBLE_SECONDS, 'Behavior gets messy. Structure wobbles.', productWobbleBeat),
+	beat('assimilate', ASSIMILATE_SECONDS, 'Developers assimilate the splash…', productAssimilateBeat),
+	beat('coherent', COHERENT_SECONDS, '…into a coherent product, changed where it matters. No scars.', productCoherentBeat),
 	beat('tests', TESTS_SECONDS, 'Tests guard what it does…', testsBeat),
 	beat('domain', DOMAIN_SECONDS, '…and how it\'s built maps the domain.', domainBeat),
 	beat('customer', CUSTOMER_SECONDS, 'A customer feels the impact… and gets a new idea!', customerBeat),

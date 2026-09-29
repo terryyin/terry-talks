@@ -92,6 +92,7 @@ export type Pose = {
 	dim?: DimPose; // the rest of the product fades back while some cells are in focus
 	customer?: CustomerPose; // a customer in front of the product, feeling a story's impact
 	protect?: ProtectPose; // what keeps the product coherent: tests and the domain
+	tag?: TagPose; // a tag hanging from the story ball, naming its focus
 	// The film's end: the stage shrinks away and an end card plays on the paper.
 	stageLeave?: number; // 0 (left out) = in place, 1 = shrunk away
 	endCard?: EndCardPose;
@@ -107,6 +108,14 @@ export type EndCardPose = {
 	snap: number; // scale of the disciplined line; 0 = not there yet
 	underline: number; // 0–1: how far the underline has been ruled
 	credit: number; // pop-in scale of the credit
+};
+
+// A pill tag hanging on a string from the story ball.
+export type TagPose = {
+	text: string;
+	color: string; // its border, the story's color
+	show: number; // pop-in scale; 0 = not there yet
+	fade?: number; // 0–1 opacity while it fades away; left out, fully shown
 };
 
 // What keeps the product coherent: a test shield on every Behavior column,
@@ -137,6 +146,7 @@ export type OutlinePose = {
 	march: number; // px the dashes have marched along the outline
 	opacity?: number; // 0–1, while it fades away
 	label: string; // a short name, off the wall, with a pointer to the outline
+	at?: { x: number; y: number }; // where the name goes; left out, the ending's spot above the tray
 	pointAt: GridSpot; // where on the wall the name's pointer ends
 	tags: string[]; // story colors, as little dots next to the label
 };

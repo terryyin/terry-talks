@@ -8,6 +8,7 @@ import {
 	storySplashes,
 	storyWishes,
 } from './scene';
+import { assimilateEndOutline, wobbleEndOutline, withOutline, withValueTag } from './focus';
 import { assimilating, coherentProduct, customerHasIdea, structureMapsDomain, testsGuardBehavior, ideaInBacklog, readyForNext, storyInHistory } from './assimilation';
 
 export type Board = {
@@ -26,11 +27,11 @@ export const boards: Board[] = [
 	},
 	{
 		caption: 'A story is romantic: a wish for a better world.',
-		pose: storyWishes(),
+		pose: withValueTag(storyWishes(), 1),
 	},
 	{
 		caption: 'It\'s fuzzy. It doesn\'t care about our boundaries.',
-		pose: storyIsFuzzy(),
+		pose: withValueTag(storyIsFuzzy(), 1),
 	},
 	{
 		caption: 'It carries an impact we want in the world…',
@@ -42,11 +43,11 @@ export const boards: Board[] = [
 	},
 	{
 		caption: 'Behavior gets messy. Structure wobbles.',
-		pose: messyProduct(),
+		pose: withOutline(messyProduct(), wobbleEndOutline()),
 	},
 	{
 		caption: 'Developers assimilate the splash…',
-		pose: assimilating(),
+		pose: withOutline(assimilating(), assimilateEndOutline()),
 	},
 	{
 		caption: '…into a coherent product, changed where it matters. No scars.',
