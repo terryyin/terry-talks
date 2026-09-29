@@ -6,7 +6,7 @@ import { FONT_FAMILY, Point, scaleAround } from './layout';
 // right, clear of the Structure axis and above the tray's balls. Pure
 // function of the pose and where the ball is.
 
-export const STORY_TAG = { at: { x: 725, y: 450 } as Point, size: 30, height: 46 } as const;
+export const STORY_TAG = { at: { x: 745, y: 450 } as Point, size: 34, height: 50 } as const;
 
 export const tagWidth = (text: string) => text.length * STORY_TAG.size * 0.62 + 40;
 
