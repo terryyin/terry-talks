@@ -72,7 +72,7 @@ export const boards: Board[] = [
 	},
 	{
 		name: 'coherent',
-		caption: '…into a coherent product, changed where it matters. No scars.',
+		caption: '…into a coherent product, changed where it matters.',
 		pose: coherentProduct(),
 	},
 	{

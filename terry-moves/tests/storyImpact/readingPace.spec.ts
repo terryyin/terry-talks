@@ -20,17 +20,17 @@ describe('reading pace', () => {
 		expect(syllables('…and bring new ideas. The backlog is reordered.')).toBe(13);
 		expect(syllables('Customer value: people feel the new behavior…')).toBe(13);
 		expect(syllables('One story touches many features…')).toBe(9);
-		expect(syllables('Spent stories pile up in History, out of the way.')).toBe(13);
+		expect(syllables('The product shows what is, not what was.')).toBe(9);
 	});
 
 	test('a caption needs a lead-in plus its syllables at 3.5 a second, and never less than 3 s', () => {
-		expect(readingSeconds('Spent stories pile up in History, out of the way.')).toBeCloseTo(1 + 13 / 3.5);
+		expect(readingSeconds('The product shows what is, not what was.')).toBeCloseTo(1 + 9 / 3.5);
 		expect(readingSeconds('More stories come and go…')).toBe(3);
 		expect(readingSeconds('')).toBe(0);
 	});
 
 	test('example 1: a caption that was too short gets its reading time, and its beat still ends in History', () => {
-		const caption = 'Spent stories pile up in History, out of the way.';
+		const caption = 'The product shows what is, not what was.';
 		expect(shownSeconds(caption)).toBeGreaterThanOrEqual(readingSeconds(caption));
 		expect(shownSeconds(caption)).toBeLessThan(readingSeconds(caption) + 0.1);
 		const authored = fullFilmBeats.find((b) => b.name === 'idea-history')!;

@@ -30,7 +30,7 @@ describe('StoryImpactStoryboard', () => {
 			'…and it makes an impact on the product: SPLAT!',
 			'Behavior gets messy. Structure wobbles.',
 			'Developers assimilate the splash…',
-			'…into a coherent product, changed where it matters. No scars.',
+			'…into a coherent product, changed where it matters.',
 			'A story\'s goal is an impact, with two values.',
 			'Customer value: people feel the new behavior…',
 			'…and bring new ideas. The backlog is reordered.',
@@ -140,7 +140,7 @@ describe('StoryImpactStoryboard', () => {
 			expect(queryByTestId('wobble-marks')).toBeNull();
 		});
 
-		test('board 9: aligned again, changed where it matters, no scars', () => {
+		test('board 9: aligned again, changed where it matters', () => {
 			const { cells, splat } = boards[9].pose;
 			expect(extentOf(cells)).toEqual({ columns: start.columns + 1, rows: start.rows }); // a new Behavior column
 			expect(cells.every((c) => c.dx === 0 && c.dy === 0 && c.rot === 0 && !c.smear)).toBe(true);

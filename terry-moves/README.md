@@ -132,14 +132,14 @@ npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splas
 ```
 
 Render the final, shareable animation and its poster (H.264, yuv420p,
-1080×1080, silent, about 135 seconds):
+1080×1080, silent, about 133 seconds):
 
 ```bash
 pnpm -C terry-moves render:story-impact
 # writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
 ```
 
-Or render the full film (`StoryImpactFilm`, about 135 seconds) directly: title, product
+Or render the full film (`StoryImpactFilm`, about 133 seconds) directly: title, product
 space, backlog, the pink story and its two values, the sun story and the
 customer's idea (the cheap story), story versus feature (one story touches
 many features; one feature takes many layers working together), "neither is

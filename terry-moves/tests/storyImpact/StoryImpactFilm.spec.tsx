@@ -131,7 +131,7 @@ describe('StoryImpactFilm', () => {
 			'…and the product stays coherent. No scars.',
 			'The idea fits the same domain…',
 			'…so it comes cheap: the option pays off.',
-			'Spent stories pile up in History, out of the way.',
+			'The product shows what is, not what was.',
 			'One story touches many features…',
 			'…and one feature takes many layers working together.',
 			'Neither is better. They do different jobs.',

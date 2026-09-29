@@ -123,7 +123,7 @@ export const laterStoryBeatList: Beat[] = [
 		{
 			launch: 'The idea fits the same domain…',
 			wobble: '…so it comes cheap: the option pays off.',
-			history: 'Spent stories pile up in History, out of the way.',
+			history: 'The product shows what is, not what was.',
 		},
 		false,
 		CHEAP,
