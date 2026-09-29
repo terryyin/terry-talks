@@ -112,11 +112,12 @@ Render the storyboard boards and their contact sheet:
 ```bash
 cd terry-moves
 npx remotion render src/index.ts StoryImpactStoryboard out/storyboard --sequence --image-format=png
+# 17 boards: 6 across, 3 down (tile=COLSxROWS must hold every board)
 ffmpeg -y -start_number 0 -i out/storyboard/element-%02d.png \
-  -vf "scale=540:540,tile=4x3:padding=12:color=white" -frames:v 1 "../Story Driven/storyboard.png"
+  -vf "scale=540:540,tile=6x3:padding=12:color=white" -frames:v 1 "../Story Driven/storyboard.png"
 ```
 
-Render the one-story film (`StoryImpactOneSplash`, about 40 seconds, silent,
+Render the one-story film (`StoryImpactOneSplash`, about 53 seconds, silent,
 captioned):
 
 ```bash
@@ -125,16 +126,16 @@ npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splas
 ```
 
 Render the final, shareable animation and its poster (H.264, yuv420p,
-1080×1080, silent, about 104 seconds):
+1080×1080, silent, about 108 seconds):
 
 ```bash
 pnpm -C terry-moves render:story-impact
 # writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
 ```
 
-Or render the full film (`StoryImpactFilm`, about 104 seconds) directly: title, product
-space, backlog, the pink story, the sun story and the customer's idea, story
-versus feature, "neither is better", and the end card: the stage shrinks
+Or render the full film (`StoryImpactFilm`, about 108 seconds) directly: title, product
+space, backlog, the pink story and its two values, the sun story and the
+customer's idea (the cheap story), story versus feature, "neither is better", and the end card: the stage shrinks
 away and "Stories should be romantic. Products should not." lands in the
 title's styles (`endCard.tsx`, reusing `title.tsx`'s lines), with the credit
 "An idea and film by Terry Yin". The poster is the last frame.
@@ -171,17 +172,30 @@ same spot, to "judgment-intensive" with "?" thought bubbles (`judgment.tsx`,
 the pose's `judgment`), and the outline stays until the product is coherent. The test shields that follow are captioned as spent judgment.
 Later stories carry none of these.
 
-Once a story is assimilated, the film shows what keeps the product coherent
-(`protect.tsx`, the pose's `protect` field, `protectBeats.ts`): a green test
-shield on every Behavior column, then each Structure row linked to a domain
-concept from the example wish (`DOMAIN` in `layout.ts`).
+Once the first story is coherent, the film names its impact and the two
+values it delivers (`valueBeats.ts`, `values.tsx`, the pose's `values`): an
+"impact!" burst pops and two pills spring out of it, "customer value" (a
+heart) beside where the customer stands and "option value" (a key) in the
+top-right corner; the pill in focus is bright and the other dims.
 
-A story has two impacts. On the product, the developers assimilate its
-splash. In the world, a flat cartoon customer (`customer.tsx`, the pose's
-`customer` field) nods at the change and gets a light-bulb idea; the new ball
-flies into the tray as the second ball while the two balls behind it swap
-(`withIdea`, `customerBeats.ts`). That idea is the next-but-one story. A ball
-flying into the tray from outside it is `flying` and drawn above the stage.
+Customer value: the Behavior columns the story touched are outlined in green
+(adjacent ones in one band, `touchedBehaviorOf`), and a flat cartoon customer
+(`customer.tsx`, the pose's `customer`) pops up in front of them — they see
+behavior, never structure — hearts pop, they nod, and they get a light-bulb
+idea; the new ball flies into the tray as the second ball while the two balls
+behind it swap (`withIdea`, `customerBeats.ts`). A ball flying into the tray
+from outside it is `flying` and drawn above the stage. No customer is on
+stage before the product is coherent or while option value is shown.
+
+Option value, unseen by users: a green test shield on every Behavior column,
+then each Structure row linked to a domain concept from the example wish
+(`protect.tsx`, the pose's `protect`, `protectBeats.ts`, `DOMAIN` in
+`layout.ts`), captioned as judgment spent on tests and on a structure that
+maps the domain. The pills, shields and links fade as the story goes to
+History. The customer's idea is later the cheap story that exercises the
+option: its option pill comes back and its key glints, and its `splash` is
+smaller, so it knocks fewer cells, and its wobble-to-coherent beats are
+shorter than the sun story's (`CHEAP` pace in `laterStories.ts`).
 
 Visual language: warm paper background, thick rounded ink outlines, flat
 offset shadows, flat bright fills, and a rounded bold font. Stories are

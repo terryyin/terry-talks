@@ -4,7 +4,7 @@ status: proposed-decomposition
 created: 2026-09-28
 created_during: A digression from the current near-future direction (the TPS and AI talk); a redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort
 trigger_when: When Terry chooses to spend time on the animation; it is not for the TPS and AI talk
-scope: four delivered stories, improvement stories 6-10 (all delivered), and one conditional; S/M/L bands unassigned (no project definitions)
+scope: four delivered stories, improvement stories 6-10 and corrections 11-12 (all delivered), and one conditional; S/M/L bands unassigned (no project definitions)
 ---
 
 # Story impact animation: romantic stories, disciplined products
@@ -126,121 +126,9 @@ is now about 104 seconds.
 
 Terry watched the 104-second film. He confirmed that the History ball gets no
 judgment label and accepted the other delegated decisions, with one
-exception: when the customer reacts. He asked for two stories, in this
-order: 11, one message at a time and a product that changes shape
-(delivered; see the breadcrumbs), then 12 below. For each one, **Terry** judges
-whether the film says what he means, and **representative viewers**
-(developers and product people) are the audience it must work for.
-
-<a id="two-impacts-two-values"></a>
-### 12. Viewers learn that a story's impact delivers two values: customer value and option value
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/022-two-impacts-two-values/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"262160b58ca184211f8ceee7b34c6408949f9f50612dd2dde545b3cc6000aba9","plan":"3a309f882fb6af888f07db4fade63fd39ba1cf620aa2acf3be7b070867c9fa68"}}
-```
-
-- **For / why:** The film never says the word **impact**, yet impact is the
-  point of a story. Terry's idea, restated: *the goal of a story is to make an
-  impact, and the impact delivers two values.*
-  - **Customer value (business impact):** the user value delivered to the
-    user, which the user experiences.
-  - **Option value:** the impact on the product's features and structure,
-    which external users cannot see. "Option" as in a stock option or real
-    option: something you do not have yet and have not paid for, but can buy
-    later at low cost. It is not a feature, so you cannot build it directly.
-    You get it by keeping things simple, keeping doors open and, above all,
-    keeping the structure mapped to the best possible domain model. The
-    realistic need of a real user is the chance to shape behavior and
-    structure so that future stories in the domain come cheap.
-- **Outcome:** In the middle of the film (after the splat has been
-  assimilated), "impact" is named explicitly and split into the two values.
-  The customer's reaction becomes the **customer value** beat: the customer
-  experiences the behavior this story changed. Terry would rather the customer
-  did not nod at the mess. A better option to evaluate is to highlight, with a
-  boundary, the behavior this story touched, so that the customer reacts to
-  that. The coordinator decides where the reaction goes (at the splash, after
-  assimilation, or at the next story) as long as it does not break the
-  narrative. The **option value** beat shows the invisible side: the tidy,
-  domain-mapped structure makes a later story land cheaply. For example, a
-  later story splashes and is assimilated visibly faster or more smoothly
-  because it "exercises the option".
-- **Wording:** there is little room for text. Capture the spirit with the
-  fewest words and the best artistic representation, not a lecture.
-- **Handed over from story 11:** when the customer reacts. Terry now thinks
-  the customer should react to what they can see, the behavior, and not to
-  internal structure, which is invisible to them.
-- **Relation to existing beats:** the tests-and-domain beat (story 7) and
-  "Judgment spent" already show part of this. Merge or re-caption them so
-  that option value is not said twice.
-- **Length:** the whole film may now run **2 to 2.5 minutes** (Terry,
-  2026-09-29).
-
-#### Goal
-
-Viewers can say, after the first story, that a story's goal is an impact
-and that the impact delivers two values: customer value, which people feel
-in the behavior, and option value, which users cannot see but which makes
-the next stories in the domain cheap. The customer reacts only to what they
-can see.
-
-#### Scope
-
-- **Required:**
-  - **Impact, named.** Right after the pink story is coherent, a comic
-    "impact!" burst (the physical SPLAT!'s bright cousin) pops in the free
-    space right of the Structure axis, and two value pills spring out of it
-    to their places: "customer value" (heart) down by where the customer
-    will stand, "option value" (key) up in the top-right corner. Caption:
-    "A story's goal is an impact, with two values."
-  - **Customer value.** The "option value" pill steps back (dims); the
-    Behavior this story touched (its columns, adjacent ones in one band) is
-    outlined with a green dashed boundary; the customer pops up in front of
-    it, hearts pop, they nod, and the light bulb follows. Caption: "Customer
-    value: people feel the new behavior…". The new-idea beat follows with
-    "…and bring new ideas. The backlog is reordered."; the bands fade.
-  - **Option value.** Then the "customer value" pill dims and "option
-    value" steps forward; the test shields and domain links (stories 7 and
-    10) play here, re-captioned "Option value, unseen by users: judgment
-    spent on tests…" and "…and on a structure that maps the domain." This
-    is the only place the film says "judgment spent" and the only place it
-    explains option value. The pills fade as the story goes to History.
-  - **The option pays off.** The customer's idea is the cheap story: when
-    it launches the "option value" pill pops back; it splashes smaller,
-    knocks fewer cells, and is assimilated in visibly less time than the
-    sun story, while the pill's key glints. Captions: "The idea fits the
-    same domain…" then "…so it comes cheap: the option pays off."
-- **Rejection constraints:** no customer before the product is coherent,
-  and no customer during the option beats (users cannot see it); pills,
-  burst, bands, shields and chips cover no label and no ball and read at
-  360×360; flat bright cartoon tone, no bombs; Open Dough is not named.
-- **Deferred promises:** option value on the sun story; any audio.
-- **Decisions made on Terry's behalf (delegated, 2026-09-29):**
-  - The customer reacts **after assimilation**, to an outline around the
-    Behavior columns the story touched (not at the splash, when there is
-    only mess, and not at the next story, which would split the pink
-    story's two values apart). Hearts, a nod and the idea.
-  - Option value is shown twice without being said twice: explained once
-    (tests and domain, re-captioned as "judgment spent"), then exercised by
-    the customer's idea, the cheap story. "Judgment spent" survives as the
-    way the option is bought.
-  - The value icons: a heart for customer value, a key (doors kept open)
-    for option value.
-  - The film stays near two minutes rather than stretching to 2.5: the new
-    beats add about 8 s and the cheap story saves a few.
-
-#### Key examples
-
-1. **Impact named.** After "…changed where it matters. No scars.", the
-   "impact!" burst pops and the two pills spring to their places under "A
-   story's goal is an impact, with two values."
-2. **Customer sees behavior.** When the customer shows, the product is
-   coherent and green bands outline the pink story's Behavior columns;
-   hearts, nod, then the bulb.
-3. **Option value unseen.** While shields and domain links pop, no customer
-   is on stage, "option value" is the bright pill, and the captions name
-   judgment spent.
-4. **Option exercised.** The idea story's splat is smaller and knocks fewer
-   cells than the sun story's, its product work (wobble to coherent) takes
-   clearly less time, and the "option value" pill shows while it lands.
+exception: when the customer reacts. He asked for two stories, 11 and 12,
+both delivered (see the breadcrumbs). The film is now about 108 seconds;
+Terry allowed up to 2.5 minutes.
 
 ## Conditional candidate
 
@@ -272,7 +160,8 @@ hardest motion to get right.
 
 - **Length of the full film:** the previous effort used about three minutes.
   Settled at about 88 seconds for the lighter tone; about 104 seconds after
-  improvements 6–10 (aimed at no more than about 120).
+  improvements 6–10; about 108 seconds after corrections 11–12 (Terry
+  allowed up to 2.5 minutes).
 - **Audio:** keep the film silent-first, with optional playful sound effects.
   Decide at release.
 
@@ -342,6 +231,23 @@ enough to run alongside it.
   wish bubble; one calm change per story, only at the far column or top row;
   a slightly shorter Behavior step so six columns fit. Recoverable from
   `9272290`.
+- Impact and its two values are done (correction 12): once the pink story
+  is coherent, an "impact!" burst splits into a "customer value" pill (a
+  heart) and an "option value" pill (a key). Customer value: the Behavior
+  columns the story touched are outlined and the customer, seeing only
+  behavior, gets hearts, nods and the idea. Option value, unseen by users:
+  the shields and domain links, re-captioned "judgment spent on tests… and
+  on a structure that maps the domain". The customer's idea is the cheap
+  story that exercises the option: a smaller splash, fewer knocked cells,
+  about half the product work of the sun story, while the key glints.
+  Decided on Terry's behalf: the customer reacts after assimilation, to the
+  outlined behavior (not at the splash, and not at the next story, which
+  would split the pink story's two values apart); option value is explained
+  once and exercised once; "judgment spent" is how the option is bought;
+  the film stays near two minutes rather than stretching to 2.5.
+  Recoverable from `1466af8`.
+- The storyboard now has 17 boards (named after the beats they end on); its
+  contact sheet is refreshed.
 - The animation is finished and ready to share:
   `pnpm -C terry-moves render:story-impact` writes
   `terry-moves/out/story-impact-animation.mp4` and its poster. It is silent
