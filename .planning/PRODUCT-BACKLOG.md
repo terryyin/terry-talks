@@ -17,10 +17,11 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
+- [Viewers see a story's business impact come back as a new idea in the backlog](../Story%20Driven/seed.md#customer-feedback-loop) — story-impact-animation#customer-feedback-loop ([plan](quick/016-customer-feedback-loop/PLAN.md))
+
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
-- [Viewers see a story's business impact come back as a new idea in the backlog](../Story%20Driven/seed.md#customer-feedback-loop) — story-impact-animation#customer-feedback-loop
 - [Viewers see that behavior is protected by tests and structure maps to the domain](../Story%20Driven/seed.md#protected-and-mapped) — story-impact-animation#protected-and-mapped
 - [Viewers leave with a crisp, powerful ending, and Terry is credited](../Story%20Driven/seed.md#crisp-ending) — story-impact-animation#crisp-ending
 - [Viewers see that a story is customer-value focused and development is whole-product focused](../Story%20Driven/seed.md#value-vs-whole-product-focus) — story-impact-animation#value-vs-whole-product-focus

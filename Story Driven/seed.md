@@ -126,6 +126,9 @@ it must work for.
 
 <a id="customer-feedback-loop"></a>
 ### 6. Viewers see a story's business impact come back as a new idea in the backlog
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/016-customer-feedback-loop/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"59cd5dcd51f55f7ebd6dcbb25d317016cd79f338d45a0c8f5d2aa6c33d763edf","plan":"4ec2db82b378043720ba735f986f3d8aad7afee046e719591de9f74ef8f46988"}}
+```
 
 - **For / why:** Viewers currently see only half of a story's impact. The splash
   on the product (features and structure, which developers must assimilate)
@@ -142,6 +145,65 @@ it must work for.
   2D cartoon character** in the film's existing style, not 3D. A 3D figure would clash with the flat, bright genre
   that Terry just approved, and it would cost much more to make and change.
   Use a simple silhouette and face with no copied characters.
+
+#### Goal
+
+Viewers see both impacts of one story as two separate things: the product
+impact, which the **developers** assimilate, and the business impact on a
+**customer**, which comes back as a new idea that reshapes the backlog. This
+closes the loop from the world back to Time.
+
+#### Scope
+
+- **Required:**
+  - A customer beat in the pink (first) story, after the product is coherent
+    again. A flat 2D cartoon customer pops up in front of the product (the
+    free space just below the wall's origin, above the caption bar), looks up
+    at the pink cells, and nods. A light bulb pops over their head, a new
+    teal ball comes out of it and bounces into the tray as the **second**
+    ball, and the two balls behind it swap places. Then the customer leaves.
+  - Captions for it, each on screen for at least 2.5 s: "A customer feels the
+    impact… and gets a new idea!" then "New ideas join the backlog, and it's
+    reordered."
+  - The assimilation caption says who does it: "Developers assimilate the
+    splash…" (was "Development assimilates the splash…"), on the storyboard
+    board as well.
+  - The customer's idea is the second later story: after the sun story, the
+    teal idea (not the grape) is launched, splats, is assimilated and goes to
+    History. The sun story drops no refill ball (the idea took its place);
+    the idea story still drops the orange refill.
+- **Rejection constraints:** the seed's confirmed constraints (flat, bright,
+  playful 2D; no bombs or missiles; Open Dough never named or shown; no copied
+  characters). No ball ever covers the "Product Backlog" label.
+- **Deferred promises:** customers for the later stories, speech from the
+  customer, any customer-journey detail, and drawing the developers as
+  characters.
+- **Decisions made on Terry's behalf (delegated, 2026-09-29):**
+  - **When the customer reacts:** after assimilation, not at the moment of the
+    splat. A customer feels a story's business impact through the delivered,
+    coherent product; reacting to the fresh mess would suggest customers use
+    half-built work. The customer still looks at the story's splash of color,
+    now assimilated into the product.
+  - **Which items swap:** the new idea goes in second, and the two balls
+    behind it (grape and lime) swap, so the queue is sun, idea, lime, grape.
+    The front ball (sun) keeps its turn, so the film's next story stays the
+    one already eager.
+  - **Developers:** made explicit through the caption rather than new
+    characters, to keep the film tight.
+
+#### Key examples
+
+1. **The customer reacts.** Given the pink story's coherent product, when the
+   customer beat plays, a customer appears below the wall, nods at least once,
+   and a light bulb shows over their head.
+2. **Inserted and reordered.** Given the backlog sun, grape, lime before the
+   beat, when it ends, the backlog is sun, idea (teal), lime, grape, and every
+   ball moved there smoothly (no jumps).
+3. **The idea becomes a story.** Given the rest of the film, when it ends,
+   History holds pink, sun and the teal idea, in that order.
+4. **Two impacts read apart.** The product impact is captioned as the
+   developers' assimilation; the customer's impact has its own beat and
+   caption.
 
 <a id="protected-and-mapped"></a>
 ### 7. Viewers see that behavior is protected by tests and structure maps to the domain
