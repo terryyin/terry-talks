@@ -1,19 +1,22 @@
 // The film's ending, on the product the last story left: a story is not a
 // feature. First one story's cells are outlined — they lie across several
 // Behavior columns and Structure rows; then one Behavior column, a feature,
-// is outlined — it carries the colors of several stories. Then the outlines
-// fade, the product rests and the next ball hops eagerly in the tray: neither
-// is better. The product itself does not change. Finally the whole stage
-// shrinks away and the end card lands the essay's last line, like the title,
-// and credits the author.
+// is outlined and washed in its own color — it takes every Structure layer,
+// and joints pop on where the layers work together. A story is an impact
+// that means something only for planning, so nothing ties the feature back
+// to stories: it is picked by its place, and it shows layers, not stories'
+// colors. Then the outlines fade, the product rests and the next ball hops
+// eagerly in the tray: neither is better. The product itself does not
+// change. Finally the whole stage shrinks away and the end card lands the
+// essay's last line, like the title, and credits the author.
 
-import { CellPose, extentOf, GridSpot, OutlinePose, palette, pinkStory, Pose, StorySpec, storyColorsOf } from './scene';
+import { extentOf, GridSpot, OutlinePose, palette, pinkStory, Pose, StorySpec } from './scene';
 import { storyInHistoryOf } from './assimilation';
 import { beat, Beat } from './film';
 import { nextBeatOf } from './historyBeats';
 import { lastStory } from './laterStories';
 import { Easing } from 'remotion';
-import { between, bounce, BOUNCY, POPPY, settle, unless, withoutUndefined } from './motion';
+import { between, bounce, BOUNCY, clamp01, POPPY, settle, unless, withoutUndefined } from './motion';
 import { END_CARD } from './endCard';
 import { afterABreath } from './readingPace';
 
@@ -23,21 +26,11 @@ const settled: Pose = storyInHistoryOf(lastStory.spec, lastStory.stage);
 // The cells a story changed and reorganized.
 const storyCellsOf = (spec: StorySpec): GridSpot[] => [...spec.changed, spec.reorganized];
 
-// The Behavior column that carries the most different stories, with their
-// colors in the order the stories were spent.
-const featureColumnOf = (cells: CellPose[], spentOrder: string[]): { col: number; colors: string[] } => {
-	const columns = Array.from({ length: extentOf(cells).columns }, (_, col) => {
-		const colors = new Set(cells.filter((c) => c.col === col).flatMap(storyColorsOf));
-		return { col, colors: spentOrder.filter((c) => colors.has(c)) };
-	});
-	return columns.reduce((best, c) => (c.colors.length > best.colors.length ? c : best));
-};
-
-const feature = featureColumnOf(
-	settled.cells,
-	settled.history!.map((b) => b.color),
-);
-const featureCells: GridSpot[] = Array.from({ length: extentOf(settled.cells).rows }, (_, row) => ({ col: feature.col, row }));
+// The feature: the Behavior column standing on the Structure axis, through
+// every Structure row.
+const FEATURE_COL = 0;
+const layerCount = extentOf(settled.cells).rows;
+const featureCells: GridSpot[] = Array.from({ length: layerCount }, (_, row) => ({ col: FEATURE_COL, row }));
 const storyCells = storyCellsOf(pinkStory);
 
 const DIM = 0.55;
@@ -56,8 +49,11 @@ const storyOutline = (draw: number, sec: number, opacity = 1): OutlinePose =>
 		tags: [pinkStory.ball.color],
 	});
 
-// The feature: one outline along the whole column.
-const featureOutline = (draw: number, sec: number, opacity = 1): OutlinePose =>
+const WASH = 0.85;
+
+// The feature: one outline along the whole column, its cells washed in the
+// feature's color, and joints between its layers.
+const featureOutline = (draw: number, sec: number, opacity = 1, joints = 1): OutlinePose =>
 	withoutUndefined({
 		cells: featureCells,
 		color: palette.behavior,
@@ -66,8 +62,11 @@ const featureOutline = (draw: number, sec: number, opacity = 1): OutlinePose =>
 		march: MARCH_SPEED * sec,
 		opacity: unless(opacity, 1),
 		label: 'a feature',
-		pointAt: { col: feature.col - 0.12, row: 3.4 },
-		tags: feature.colors,
+		pointAt: { col: FEATURE_COL - 0.12, row: 3.4 },
+		tags: [],
+		layers: layerCount,
+		wash: WASH * clamp01(draw / 0.6),
+		joints,
 	});
 
 export const STORY_OUTLINE_SECONDS = 3.5;
@@ -90,7 +89,7 @@ const featureOutlineBeat = (sec: number): Pose => {
 		...settled,
 		outlines: [
 			...(fading > 0 ? [storyOutline(1, march, fading)] : []),
-			featureOutline(between(sec, SWAP, 1.5), sec),
+			featureOutline(between(sec, SWAP, 1.5), sec, 1, between(sec, 1.5, 2.4)),
 		],
 		dim:
 			sec < SWAP
@@ -142,7 +141,7 @@ const finaleBeat = (sec: number): Pose => {
 
 export const endingBeatList: Beat[] = [
 	afterABreath(beat('story-outline', STORY_OUTLINE_SECONDS, 'One story touches many features…', storyOutlineBeat)),
-	beat('feature-outline', FEATURE_OUTLINE_SECONDS, '…and one feature carries many stories.', featureOutlineBeat),
+	beat('feature-outline', FEATURE_OUTLINE_SECONDS, '…and one feature takes many layers working together.', featureOutlineBeat),
 	afterABreath(beat('closing', CLOSING_SECONDS, 'Neither is better. They do different jobs.', closingBeat)),
 	beat('finale', FINALE_SECONDS, '', finaleBeat),
 ];

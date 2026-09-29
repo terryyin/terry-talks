@@ -103,8 +103,32 @@ const TAG_STEP = 36;
 export const tagShown = (outline: OutlinePose): number =>
 	clamp01((outline.draw - (outline.together ? 0.3 : 0.75)) / 0.25);
 
-// The outline's name off the wall, with a row of story-colored dots under
-// it and a pointer to the outline.
+const BAR_W = 64;
+const BAR_H = 13;
+const BAR_STEP = 19;
+
+// A small stack of Structure layer bars under a name, top bar first.
+const LayerBars: React.FC<{ x: number; y: number; count: number }> = ({ x, y, count }) => (
+	<g data-testid="outline-layers">
+		{Array.from({ length: count }, (_, i) => (
+			<rect
+				key={i}
+				data-testid="outline-layer-bar"
+				x={x - BAR_W / 2}
+				y={y + i * BAR_STEP}
+				width={BAR_W}
+				height={BAR_H}
+				rx={BAR_H / 2}
+				fill={palette.structure}
+				stroke={palette.ink}
+				strokeWidth={OUTLINE - 2}
+			/>
+		))}
+	</g>
+);
+
+// The outline's name off the wall, with its dots or layer bars under it and
+// a pointer to the outline.
 const Tag: React.FC<{ outline: OutlinePose }> = ({ outline }) => {
 	const s = pop(tagShown(outline));
 	if (outline.label === '' || s <= 0 || (outline.labelShow !== undefined && outline.labelShow <= 0)) return null;
@@ -115,6 +139,7 @@ const Tag: React.FC<{ outline: OutlinePose }> = ({ outline }) => {
 		<g data-testid="outline-tag" transform={scaleAround(p, s, s)} opacity={outline.labelShow}>
 			<Pointer from={{ x: p.x - 120, y: p.y - 14 }} to={wallPoint(outline.pointAt.col, outline.pointAt.row)} color={outline.color} />
 			<Label x={p.x} y={p.y} text={outline.label} color={outline.color} size={44} />
+			{outline.layers ? <LayerBars x={p.x} y={p.y + 24} count={outline.layers} /> : null}
 			{tags.map((color, i) => (
 				<circle
 					key={i}
@@ -132,11 +157,51 @@ const Tag: React.FC<{ outline: OutlinePose }> = ({ outline }) => {
 	);
 };
 
+// A fill in the outline's color over its cells, so they read as one thing.
+const Wash: React.FC<{ outline: OutlinePose }> = ({ outline }) =>
+	(outline.wash ?? 0) <= 0 ? null : (
+		<g data-testid="outline-wash" opacity={outline.wash}>
+			{outline.cells.map((spot) => (
+				<path key={`${spot.col}-${spot.row}`} d={roundedPath(shrink(cellCorners(spot), CELL_SCALE + 0.03), 10)} fill={outline.color} />
+			))}
+		</g>
+	);
+
+const JOINT_W = 24;
+const JOINT_H = 46;
+
+// Where each cell meets the one stacked on it, a joint pops on, bottom up:
+// the layers working together.
+const Joints: React.FC<{ outline: OutlinePose }> = ({ outline }) => {
+	const joins = outline.cells.filter((a) => outline.cells.some((b) => b.col === a.col && b.row === a.row - 1)).sort((a, b) => a.row - b.row);
+	const n = joins.length;
+	if (!outline.joints || n === 0) return null;
+	return (
+		<g data-testid="outline-joints">
+			{joins.map((spot, i) => {
+				const k = clamp01(outline.joints! * n - i);
+				if (k <= 0) return null;
+				const c = wallPoint(spot.col + 0.5, spot.row);
+				const s = pop(k);
+				return (
+					<g key={`${spot.col}-${spot.row}`} data-testid="outline-joint" transform={scaleAround(c, s, s)}>
+						<rect x={c.x - JOINT_W / 2} y={c.y - JOINT_H / 2} width={JOINT_W} height={JOINT_H} rx={JOINT_W / 2} fill={outline.color} stroke={palette.ink} strokeWidth={OUTLINE} />
+						<circle cx={c.x} cy={c.y - JOINT_H / 4 + 2} r={4} fill={palette.paper} />
+						<circle cx={c.x} cy={c.y + JOINT_H / 4 - 2} r={4} fill={palette.paper} />
+					</g>
+				);
+			})}
+		</g>
+	);
+};
+
 export const Outlines: React.FC<{ outlines: OutlinePose[] }> = ({ outlines }) => (
 	<g data-testid="outlines">
 		{outlines.map((outline, i) => (
 			<g key={i} data-testid="outline" data-color={outline.color} opacity={outline.opacity}>
+				<Wash outline={outline} />
 				{outline.together ? <Together outline={outline} march={outline.march} /> : <EachCell outline={outline} march={outline.march} />}
+				<Joints outline={outline} />
 				<Tag outline={outline} />
 			</g>
 		))}

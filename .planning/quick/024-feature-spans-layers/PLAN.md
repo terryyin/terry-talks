@@ -59,7 +59,7 @@ Identity: `story-impact-animation#feature-spans-layers`
 
 ### 1. The feature beat shows one feature as many layers working together
 Type: Behavior
-Status: planned
+Status: done
 Proof: ending and caption specs as mapped; `pnpm moves test`; render
 `pnpm -C terry-moves render:story-impact`; stills of the feature beat
 viewed at 1080 and 360 px.
@@ -70,3 +70,16 @@ the column on the Structure axis is outlined and washed in feature green,
 joints pop between its three layers bottom-up, and "a feature" shows layer
 bars, not story dots. Comments, README and seed no longer claim a
 feature↔story mapping.
+
+Accepted proof: `pnpm moves test` passes (270 tests, eslint and tsc clean);
+the ending spec covers the caption, the col-0 outline over rows 0–2, empty
+tags, 3 layer bars, 2 joints, no tag dots, and joints after the outline has
+risen; stills at frames 3610, 3640, 3690 viewed at 1080 px and 3690 at
+360 px (layer bars and joints legible). The feature beat grew from 116 to
+142 frames; the film from 4012 to 4038 frames (134.6 s).
+
+## Learnings
+
+- Terry committed `75b6a20` ("a software product is a space…") on master
+  during this execution; its syllable spec still expected 13 for the new
+  15-syllable caption. Fixed in its own commit so the local gate passes.

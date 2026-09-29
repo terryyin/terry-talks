@@ -45,18 +45,31 @@ describe('StoryImpactFilm ending: a story is not a feature', () => {
 		story.cells.forEach((spot) => expect(storyColors(product.find((c) => sameSpot(c, spot))!)).toContain(pinkStory.ball.color));
 	});
 
-	test('one outlined Behavior column carries several story colors', () => {
-		const outlines = poseAt(lastFrame('feature-outline')).outlines!;
+	test('the feature is the Behavior column on the Structure axis, taking every layer, with no tie to stories', () => {
+		const f = lastFrame('feature-outline');
+		expect(captionAt(f)).toBe('…and one feature takes many layers working together.');
+		const outlines = poseAt(f).outlines!;
 		expect(outlines).toHaveLength(1);
 		const [feature] = outlines;
 		expect(feature.together).toBe(true);
-		const cols = new Set(feature.cells.map((c) => c.col));
-		expect(cols.size).toBe(1);
-		const [col] = [...cols];
-		expect(feature.cells.map((c) => c.row).sort()).toEqual([0, 1, 2]);
-		const colors = new Set(product.filter((c) => c.col === col).flatMap(storyColors));
-		expect(colors.size).toBeGreaterThanOrEqual(2);
-		expect(new Set(feature.tags)).toEqual(colors);
+		expect(feature.cells.map(spotKey).sort()).toEqual(['0,0', '0,1', '0,2']);
+		expect(feature.tags).toEqual([]);
+		expect(feature.layers).toBe(3);
+		expect(feature.joints).toBe(1);
+		expect(feature.wash).toBeGreaterThan(0.5);
+		const { getAllByTestId, queryAllByTestId, unmount } = renderFrame(f);
+		expect(getAllByTestId('outline-layer-bar')).toHaveLength(3);
+		expect(getAllByTestId('outline-joint')).toHaveLength(2);
+		expect(queryAllByTestId('outline-tag-dot')).toHaveLength(0);
+		unmount();
+	});
+
+	test('the joints between the layers pop on after the outline has risen, bottom up', () => {
+		const joints = framesOf('feature-outline').map((fr) => poseAt(fr).outlines!.find((o) => o.label === 'a feature')!);
+		const risenAt = joints.findIndex((o) => o.draw >= 1);
+		const firstJoint = joints.findIndex((o) => (o.joints ?? 0) > 0);
+		expect(firstJoint).toBeGreaterThanOrEqual(risenAt);
+		expect(joints[joints.length - 1].joints).toBe(1);
 	});
 
 	test('the story outline fades as the feature outline is drawn on', () => {

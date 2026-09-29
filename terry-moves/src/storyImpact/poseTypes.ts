@@ -163,8 +163,9 @@ export type CustomerPose = {
 
 // A dashed outline over product cells: around each cell on its own, or
 // around all of them together as one band (a Behavior column). It is drawn
-// on over `draw`, its dashes march along with `march`, and small tags show
-// which stories it stands for.
+// on over `draw` and its dashes march along with `march`. A story's outline
+// shows its color as a dot under its name; a feature's shows the layers it
+// takes, and the joints where they work together.
 export type OutlinePose = {
 	cells: GridSpot[];
 	color: string;
@@ -177,7 +178,10 @@ export type OutlinePose = {
 	labelShow?: number; // 0–1 opacity of the name while it gives way to another message; left out, shown
 	at?: { x: number; y: number }; // where the name goes; left out, the ending's spot above the tray
 	pointAt: GridSpot; // where on the wall the name's pointer ends
-	tags: string[]; // story colors, as little dots next to the label
+	tags: string[]; // a story's color, as a little dot under the name
+	layers?: number; // a stack of this many Structure layer bars under the name
+	wash?: number; // 0–1 opacity of a fill in the outline's color over its cells
+	joints?: number; // 0–1: how far the joints between its stacked cells have popped on, bottom up
 };
 
 // Cells outside `except` fade back toward the paper by `amount` (0–1).

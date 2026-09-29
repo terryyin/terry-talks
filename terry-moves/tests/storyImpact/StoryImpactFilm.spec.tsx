@@ -133,7 +133,7 @@ describe('StoryImpactFilm', () => {
 			'…so it comes cheap: the option pays off.',
 			'Spent stories pile up in History, out of the way.',
 			'One story touches many features…',
-			'…and one feature carries many stories.',
+			'…and one feature takes many layers working together.',
 			'Neither is better. They do different jobs.',
 			'',
 		]);
