@@ -13,7 +13,7 @@ export const JUDGMENT_LABEL = { at: { x: 760, y: 385 } as Point, size: 40, text:
 
 const BUBBLES: { at: Point; phase: number }[] = [
 	{ at: wallPoint(1.0, 3.6), phase: 0 },
-	{ at: wallPoint(3.8, 2.6), phase: 2.1 },
+	{ at: wallPoint(3.2, 3.5), phase: 2.1 },
 	{ at: wallPoint(2.7, 0.75), phase: 4.2 },
 ];
 

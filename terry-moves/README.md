@@ -125,14 +125,14 @@ npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splas
 ```
 
 Render the final, shareable animation and its poster (H.264, yuv420p,
-1080×1080, silent, about 88 seconds):
+1080×1080, silent, about 104 seconds):
 
 ```bash
 pnpm -C terry-moves render:story-impact
 # writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
 ```
 
-Or render the full film (`StoryImpactFilm`, about 88 seconds) directly: title, product
+Or render the full film (`StoryImpactFilm`, about 104 seconds) directly: title, product
 space, backlog, the pink story, the sun story and the customer's idea, story
 versus feature, "neither is better", and the end card: the stage shrinks
 away and "Stories should be romantic. Products should not." lands in the
@@ -176,6 +176,7 @@ flying into the tray from outside it is `flying` and drawn above the stage.
 Visual language: warm paper background, thick rounded ink outlines, flat
 offset shadows, flat bright fills, and a rounded bold font. Stories are
 bouncy, splashy paint balls with faces; the product is tidy and deliberate.
-There are no bombs, missiles, or people judging. Text stays legible at
+There are no bombs, missiles, or people judging (judgment shows only as "?"
+bubbles and words). Text stays legible at
 360×360 px, labels never jump or get covered, and paint stays on the product
 wall; `tests/storyImpact/StoryImpactRelease.spec.tsx` guards these.

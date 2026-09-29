@@ -82,6 +82,8 @@ export const TidyMarks: React.FC<{ cells: CellPose[]; done: boolean; sparkles?: 
 		.filter((c) => c.snapped)
 		.sort((a, b) => b.col - a.col || b.row - a.row)
 		.slice(0, 2);
+	// The word goes by the lowest of them, well clear of the wall's "Product" name along its top.
+	const snapWordCell = [...snapped].sort((a, b) => a.row - b.row)[0];
 	return (
 		<g data-testid="tidy-marks" data-stage="underway">
 			{sliding.map((c) => (
@@ -90,7 +92,7 @@ export const TidyMarks: React.FC<{ cells: CellPose[]; done: boolean; sparkles?: 
 			{snapped.map((c) => (
 				<SnapTicks key={`${c.col}-${c.row}`} at={cellCenter(c)} />
 			))}
-			{snapped.length > 0 ? <SnapWord at={{ x: cellCenter(snapped[0]).x - 70, y: cellCenter(snapped[0]).y - 84 }} /> : null}
+			{snapWordCell ? <SnapWord at={{ x: cellCenter(snapWordCell).x - 70, y: cellCenter(snapWordCell).y - 84 }} /> : null}
 			{sliding.map((c, i) => (
 				<Sparkle key={i} x={cellCenter(c).x - 40} y={cellCenter(c).y + 46} s={10} />
 			))}

@@ -96,7 +96,8 @@ first kept out too. On 2026-09-29 Terry asked for them in improvement stories
 - Use only the lower diagram of the flip chart. Author, render, and keep the
   source in `terry-moves`. Generated artwork is allowed where it helps; it is
   not a quota, and no image model name is assumed.
-- Open Dough is not named or depicted. Human judgment is not depicted.
+- Open Dough is not named or depicted. Human judgment appears only as "?"
+  thought bubbles and words (improvement 10), never as people judging.
 - A finished export does not authorize external publication.
 
 ## Alternatives and decision
@@ -117,12 +118,9 @@ These are non-executable candidates. None of them authorizes execution.
 
 ## Improvement stories after the finished film (2026-09-29)
 
-Terry watched the finished 88-second film, liked it, and asked for these five
-improvements. They are listed in his order. Each is a non-executable
-candidate: refinement and slice planning come before execution. For each one,
-**Terry** judges whether the film now says what he means, and
-**representative viewers** (developers and product people) are the audience
-it must work for.
+Terry watched the finished 88-second film, liked it, and asked for five
+improvements (6–10). All five are delivered; see the breadcrumbs. The film
+is now about 104 seconds.
 
 ## Conditional candidate
 
@@ -153,7 +151,8 @@ hardest motion to get right.
 ## Open decisions
 
 - **Length of the full film:** the previous effort used about three minutes.
-  Settled at about 88 seconds for the lighter tone.
+  Settled at about 88 seconds for the lighter tone; about 104 seconds after
+  improvements 6–10 (aimed at no more than about 120).
 - **Audio:** keep the film silent-first, with optional playful sound effects.
   Decide at release.
 

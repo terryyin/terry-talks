@@ -139,7 +139,7 @@ export const BACKLOG_LABEL = { at: { x: 690, y: 672 } as Point, size: 40, text: 
 export const HOVER: Point = { x: 628, y: 318 };
 const FLIGHT = {
 	from: { x: 620, y: 470 } as Point,
-	peak: { x: 600, y: 20 } as Point,
+	peak: { x: 600, y: 90 } as Point, // low enough that the ball passes under the Structure label
 };
 
 export const flightPoint = (t: number, impact: GridSpot = IMPACT): Point => {

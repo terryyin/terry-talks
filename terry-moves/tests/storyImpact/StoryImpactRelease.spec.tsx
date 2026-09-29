@@ -140,6 +140,20 @@ describe('StoryImpactFilm plays smoothly and reads at phone size', () => {
 			});
 	});
 
+	test('the flying ball passes under the "Structure / how it\'s built" label', () => {
+		// The labels' boxes (start-anchored), and the ball as a circle generous
+		// enough for its fuzz and its stretch across its heading.
+		const structure = { left: 510, right: 510 + 9 * 46 * 0.55, top: 134 - 46 * 0.8, bottom: 134 + 46 * 0.3 };
+		const howBuilt = { left: 512, right: 512 + 14 * 34 * 0.55, top: 174 - 34 * 0.8, bottom: 174 + 34 * 0.3 };
+		const flying = frames.filter((f) => poses[f].story?.state === 'flying');
+		expect(flying.length).toBeGreaterThan(0);
+		flying.forEach((f) => {
+			const story = poses[f].story!;
+			const ball = { at: storyCenter(story), r: story.ball.size * 1.2 + 3 };
+			expect({ f, covers: covers(ball, structure) || covers(ball, howBuilt) }).toEqual({ f, covers: false });
+		});
+	});
+
 	test('example 3: every splat droplet lies inside the product wall', () => {
 		const wall = wallOutline();
 		const splats: SplatPose[] = poses.flatMap((p) => (p.splat ? [p.splat] : []));
