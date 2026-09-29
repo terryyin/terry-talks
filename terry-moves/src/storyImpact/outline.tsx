@@ -107,12 +107,12 @@ export const tagShown = (outline: OutlinePose): number =>
 // it and a pointer to the outline.
 const Tag: React.FC<{ outline: OutlinePose }> = ({ outline }) => {
 	const s = pop(tagShown(outline));
-	if (s <= 0) return null;
+	if (s <= 0 || (outline.labelShow !== undefined && outline.labelShow <= 0)) return null;
 	const p = outline.at ?? OUTLINE_LABEL;
 	const { tags } = outline;
 	const x0 = p.x - ((tags.length - 1) * TAG_STEP) / 2;
 	return (
-		<g data-testid="outline-tag" transform={scaleAround(p, s, s)}>
+		<g data-testid="outline-tag" transform={scaleAround(p, s, s)} opacity={outline.labelShow}>
 			<Pointer from={{ x: p.x - 120, y: p.y - 14 }} to={wallPoint(outline.pointAt.col, outline.pointAt.row)} color={outline.color} />
 			<Label x={p.x} y={p.y} text={outline.label} color={outline.color} size={44} />
 			{tags.map((color, i) => (

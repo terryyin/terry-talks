@@ -63,7 +63,7 @@ Identity: `story-impact-animation#calmer-screen-living-product`
 
 ### 1. One message at a time
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 1–2 in the film specs; stills viewed; `pnpm moves test`.
 
 Behavior: given the pink story → it wishes, then shows its focus, then turns

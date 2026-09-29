@@ -155,6 +155,7 @@ export type OutlinePose = {
 	march: number; // px the dashes have marched along the outline
 	opacity?: number; // 0–1, while it fades away
 	label: string; // a short name, off the wall, with a pointer to the outline
+	labelShow?: number; // 0–1 opacity of the name while it gives way to another message; left out, shown
 	at?: { x: number; y: number }; // where the name goes; left out, the ending's spot above the tray
 	pointAt: GridSpot; // where on the wall the name's pointer ends
 	tags: string[]; // story colors, as little dots next to the label

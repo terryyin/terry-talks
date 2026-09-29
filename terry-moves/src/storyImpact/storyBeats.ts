@@ -102,7 +102,7 @@ export const wishBeatOf: StoryBeat = (spec, before) => (sec) => {
 };
 
 // 3. The wish bubble pops away and the ball turns fuzzy, wobbling like jelly.
-const FUZZ_FROM = 0.35;
+export const FUZZ_FROM = 0.35;
 export const fuzzyBeatOf: StoryBeat = (spec, before) => (sec) => {
 	if (sec < FUZZ_FROM) {
 		const shrink = interpolate(sec, [0, FUZZ_FROM], [0, 1], { easing: Easing.in(Easing.back(2)) });

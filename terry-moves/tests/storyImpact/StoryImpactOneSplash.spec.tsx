@@ -3,7 +3,7 @@ import { beatRange, beats, captionAt, filmDurationInFrames, FPS, poseAt } from '
 import { flightPoint, wallPoint } from '@/storyImpact/layout';
 import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storySplashes } from '@/storyImpact/scene';
 import { coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory, structureMapsDomain, testsGuardBehavior } from '@/storyImpact/assimilation';
-import { boards } from '@/storyImpact/boards';
+import { boardNamed, boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
 const framesOf = (name: string) => {
@@ -22,6 +22,7 @@ describe('StoryImpactOneSplash', () => {
 		expect(beats.map((b) => b.name)).toEqual([
 			'backlog',
 			'wish',
+			'focus',
 			'fuzzy',
 			'flight',
 			'splat',
@@ -77,7 +78,7 @@ describe('StoryImpactOneSplash', () => {
 		});
 
 		test('the wish beat ends on the wish board', () => {
-			expect(poseAt(lastFrame('wish'))).toEqual(boards[2].pose);
+			expect(poseAt(lastFrame('wish'))).toEqual(boardNamed('wish').pose);
 		});
 
 		test('the ball springs up past its hover spot and the bubble pops in', () => {
@@ -95,7 +96,7 @@ describe('StoryImpactOneSplash', () => {
 				.filter((p) => p.story!.state === 'fuzzy')
 				.map((p) => p.story!.fuzz ?? 1);
 			expect(fuzz[0]).toBeLessThan(0.5);
-			expect(poseAt(lastFrame('fuzzy'))).toEqual(boards[3].pose);
+			expect(poseAt(lastFrame('fuzzy'))).toEqual(boardNamed('fuzzy').pose);
 		});
 
 		test('the flight moves steadily from the tray to the product', () => {
@@ -133,7 +134,7 @@ describe('StoryImpactOneSplash', () => {
 			.filter((i) => i >= 0);
 
 		test('the wobble ends on the messy board', () => {
-			expect(poseAt(lastFrame('wobble'))).toEqual(boards[6].pose);
+			expect(poseAt(lastFrame('wobble'))).toEqual(boardNamed('wobble').pose);
 		});
 
 		test('the cells jiggle past their messy offsets before they settle', () => {
@@ -150,7 +151,7 @@ describe('StoryImpactOneSplash', () => {
 		});
 
 		test('the assimilate beat ends on the assimilating board', () => {
-			expect(poseAt(lastFrame('assimilate'))).toEqual(boards[7].pose);
+			expect(poseAt(lastFrame('assimilate'))).toEqual(boardNamed('assimilate').pose);
 		});
 
 		test('the coherent beat ends on the coherent board and holds still', () => {
@@ -202,12 +203,21 @@ describe('StoryImpactOneSplash', () => {
 		const tagOf = (f: number) => poseAt(f).tag;
 		const productOutline = (f: number) => poseAt(f).outlines?.find((o) => o.label === 'whole-product focused');
 
-		test('the hovering story wears its tag until it flies', () => {
-			expect(tagOf(lastFrame('wish'))).toMatchObject({ text: 'customer-value focused', show: 1 });
-			expect(tagOf(lastFrame('fuzzy'))).toMatchObject({ text: 'customer-value focused', show: 1 });
+		test('the wish bubble shows alone, then the tag in a beat of its own, gone before the story turns fuzzy', () => {
+			framesOf('wish').forEach((f) => expect(tagOf(f)).toBeUndefined());
+			expect(tagOf(lastFrame('focus'))).toMatchObject({ text: 'customer-value focused', show: 1 });
+			expect(poseAt(lastFrame('focus'))).toEqual(boardNamed('focus').pose);
+			framesOf('focus').forEach((f) => expect(captionAt(f)).toBe("It's focused on customer value."));
+			[...framesOf('focus'), ...framesOf('fuzzy')].forEach((f) => {
+				const { story, tag } = poseAt(f);
+				const bubbleShown = story!.state === 'wishing' && (story!.bubble ?? 1) > 0;
+				expect({ f, both: bubbleShown && tag !== undefined }).toEqual({ f, both: false });
+				if (story!.state === 'fuzzy') expect(tag).toBeUndefined();
+			});
 			expect(tagOf(lastFrame('flight'))).toBeUndefined();
-			const { getByTestId, unmount } = render(<StoryImpactScene pose={poseAt(lastFrame('fuzzy'))} caption="" />);
+			const { getByTestId, queryByTestId, unmount } = render(<StoryImpactScene pose={poseAt(lastFrame('focus'))} caption="" />);
 			expect(getByTestId('story-tag')).toHaveTextContent('customer-value focused');
+			expect(queryByTestId('wish-bubble')).toBeNull();
 			unmount();
 		});
 
@@ -223,6 +233,23 @@ describe('StoryImpactOneSplash', () => {
 	});
 
 	describe('assimilation is judgment-intensive, and the judgment is spent', () => {
+		test('"whole-product focused" and "judgment-intensive" never show together', () => {
+			const labelShown = (f: number) => {
+				const outline = poseAt(f).outlines?.find((o) => o.label === 'whole-product focused');
+				return outline !== undefined && (outline.labelShow ?? 1) > 0;
+			};
+			const judgmentShown = (f: number) => (poseAt(f).judgment?.show ?? 0) > 0;
+			[...framesOf('wobble'), ...framesOf('assimilate'), ...framesOf('coherent')].forEach((f) =>
+				expect({ f, both: labelShown(f) && judgmentShown(f) }).toEqual({ f, both: false }),
+			);
+			expect(labelShown(lastFrame('wobble'))).toBe(true);
+			expect(judgmentShown(lastFrame('assimilate'))).toBe(true);
+			const { queryByTestId, unmount } = render(<StoryImpactScene pose={poseAt(lastFrame('assimilate'))} caption="" />);
+			expect(queryByTestId('outline-tag')).toBeNull();
+			unmount();
+		});
+
+
 		test('the label and three "?" bubbles show while the splash is assimilated, and are gone once coherent', () => {
 			expect(poseAt(firstFrame('assimilate')).judgment).toBeUndefined();
 			expect(poseAt(lastFrame('assimilate')).judgment).toMatchObject({ show: 1 });

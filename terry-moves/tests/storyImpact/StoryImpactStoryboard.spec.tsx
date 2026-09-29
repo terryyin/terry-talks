@@ -21,6 +21,7 @@ describe('StoryImpactStoryboard', () => {
 			'A product is a space: what it does × how it\'s built.',
 			'It moves through Time. The backlog holds stories waiting their turn.',
 			'A story is romantic: a wish for a better world.',
+			'It\'s focused on customer value.',
 			'It\'s fuzzy. It doesn\'t care about our boundaries.',
 			'It carries an impact we want in the world…',
 			'…and it makes an impact on the product: SPLAT!',
@@ -84,13 +85,13 @@ describe('StoryImpactStoryboard', () => {
 		});
 
 		test('board 4: the same story looks fuzzy across boundary lines', () => {
-			const { getByTestId } = renderBoard(3);
+			const { getByTestId } = renderBoard(4);
 			expect(getByTestId('story-ball')).toHaveAttribute('data-state', 'fuzzy');
 			expect(getByTestId('ignored-lines')).toBeInTheDocument();
 		});
 
 		test('board 5: the story flies along a trail while the tray no longer holds it', () => {
-			const { getByTestId, container } = renderBoard(4);
+			const { getByTestId, container } = renderBoard(5);
 			expect(getByTestId('story-ball')).toHaveAttribute('data-state', 'flying');
 			expect(getByTestId('flight-trail')).toBeInTheDocument();
 			expect(backlogIds(container)).not.toContain('pink');
@@ -98,22 +99,22 @@ describe('StoryImpactStoryboard', () => {
 		});
 
 		test('board 6: the splat covers at least three cells across rows and columns', () => {
-			const { pose } = boards[5];
+			const { pose } = boards[6];
 			const covered = splatCells(pose);
 			expect(covered.length).toBeGreaterThanOrEqual(3);
 			expect(new Set(covered.map((c) => c.row)).size).toBeGreaterThanOrEqual(2);
 			expect(new Set(covered.map((c) => c.col)).size).toBeGreaterThanOrEqual(2);
-			const { getByTestId, queryByTestId } = renderBoard(5);
+			const { getByTestId, queryByTestId } = renderBoard(6);
 			expect(getByTestId('splat')).toBeInTheDocument();
 			expect(queryByTestId('story-ball')).toBeNull();
 		});
 
 		test('board 7: cells near the splat are knocked out of line and smeared', () => {
-			const { pose } = boards[6];
+			const { pose } = boards[7];
 			const knocked = pose.cells.filter((c) => c.dx !== 0 || c.dy !== 0 || c.rot !== 0);
 			expect(knocked.length).toBeGreaterThanOrEqual(3);
 			expect(pose.cells.filter((c) => c.rot === 0 && c.dx === 0 && c.dy === 0).length).toBeGreaterThan(0);
-			const { getAllByTestId, getByTestId } = renderBoard(6);
+			const { getAllByTestId, getByTestId } = renderBoard(7);
 			expect(getAllByTestId('cell-smear').length).toBeGreaterThanOrEqual(2);
 			expect(getByTestId('wobble-marks')).toBeInTheDocument();
 		});
@@ -124,26 +125,26 @@ describe('StoryImpactStoryboard', () => {
 			Array.from(container.querySelectorAll('[data-testid="backlog-ball"]')).map((b) => b.getAttribute('data-id'));
 
 		test('board 8: cells slide back toward alignment while little paint is left', () => {
-			const messy = boards[6].pose.cells;
-			const { cells } = boards[7].pose;
+			const messy = boards[7].pose.cells;
+			const { cells } = boards[8].pose;
 			const tilt = (cs: typeof cells) => cs.reduce((sum, c) => sum + Math.abs(c.rot), 0);
 			expect(tilt(cells)).toBeLessThan(tilt(messy));
 			expect(cells.some((c) => c.rot !== 0)).toBe(true);
-			expect(boards[7].pose.splat!.radius).toBeLessThan(boards[6].pose.splat!.radius);
-			const { getByTestId, queryByTestId } = renderBoard(7);
+			expect(boards[8].pose.splat!.radius).toBeLessThan(boards[7].pose.splat!.radius);
+			const { getByTestId, queryByTestId } = renderBoard(8);
 			expect(getByTestId('tidy-marks')).toHaveAttribute('data-stage', 'underway');
 			expect(queryByTestId('wobble-marks')).toBeNull();
 		});
 
 		test('board 9: aligned again, changed where it matters, no scars', () => {
 			const first = boards[0].pose.cells;
-			const { cells, splat } = boards[8].pose;
+			const { cells, splat } = boards[9].pose;
 			expect(cells).toHaveLength(first.length);
 			expect(cells.every((c) => c.dx === 0 && c.dy === 0 && c.rot === 0 && !c.smear)).toBe(true);
 			expect(splat).toBeUndefined();
 			expect(cells.filter((c) => c.color === ballColors.pink).length).toBeGreaterThanOrEqual(2);
 			expect(cells.filter((c) => c.split)).toHaveLength(1);
-			const { queryByTestId, queryAllByTestId, getAllByTestId } = renderBoard(8);
+			const { queryByTestId, queryAllByTestId, getAllByTestId } = renderBoard(9);
 			expect(queryByTestId('splat')).toBeNull();
 			expect(queryAllByTestId('cell-smear')).toHaveLength(0);
 			expect(getAllByTestId('split-cell')).toHaveLength(1);
@@ -151,7 +152,7 @@ describe('StoryImpactStoryboard', () => {
 		});
 
 		test('board 14: the spent story rests in History, not in the backlog or on the product', () => {
-			const { getByTestId, queryByTestId, container } = renderBoard(13);
+			const { getByTestId, queryByTestId, container } = renderBoard(14);
 			expect(backlogIds(container)).not.toContain('pink');
 			expect(queryByTestId('story-ball')).toBeNull();
 			expect(queryByTestId('splat')).toBeNull();
@@ -160,7 +161,7 @@ describe('StoryImpactStoryboard', () => {
 		});
 
 		test('board 15: a different story waits eagerly at the front of the backlog', () => {
-			const { getByTestId, container } = renderBoard(14);
+			const { getByTestId, container } = renderBoard(15);
 			const [front] = Array.from(container.querySelectorAll('[data-testid="backlog-ball"]'));
 			expect(front.getAttribute('data-id')).not.toBe('pink');
 			expect(front).toHaveAttribute('data-eager', 'true');

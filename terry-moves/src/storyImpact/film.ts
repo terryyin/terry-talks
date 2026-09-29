@@ -8,7 +8,7 @@ import { Pose } from './scene';
 import { clamp01, FPS } from './motion';
 import { backlogBeat, FLIGHT_SECONDS, splatBeat } from './storyBeats';
 import { ASSIMILATE_SECONDS, WOBBLE_SECONDS } from './productBeats';
-import { productAssimilateBeat, productCoherentBeat, productWobbleBeat, valueFlightBeat, valueFuzzyBeat, valueWishBeat } from './focus';
+import { FOCUS_SECONDS, productAssimilateBeat, productCoherentBeat, productWobbleBeat, valueFlightBeat, valueFocusBeat, valueFuzzyBeat, valueWishBeat } from './focus';
 import { HISTORY_SECONDS, historyBeat, NEXT_SECONDS, nextBeat } from './historyBeats';
 import { DOMAIN_SECONDS, domainBeat, TESTS_SECONDS, testsBeat } from './protectBeats';
 import { CUSTOMER_SECONDS, customerBeat, NEW_IDEA_SECONDS, newIdeaBeat } from './customerBeats';
@@ -107,6 +107,7 @@ export const COHERENT_SECONDS = 4;
 export const beats: Beat[] = [
 	beat('backlog', 2, 'A story is romantic: a wish for a better world.', backlogBeat),
 	beat('wish', 3.5, undefined, valueWishBeat),
+	beat('focus', FOCUS_SECONDS, 'It\'s focused on customer value.', valueFocusBeat),
 	beat('fuzzy', 3, 'It\'s fuzzy. It doesn\'t care about our boundaries.', valueFuzzyBeat),
 	beat('flight', FLIGHT_SECONDS, 'It carries an impact we want in the world…', valueFlightBeat),
 	beat('splat', SPLAT_SECONDS, '…and it makes an impact on the product: SPLAT!', splatBeat),

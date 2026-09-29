@@ -9,7 +9,8 @@ import { clamp01 } from './motion';
 // whole-product name, and "?" thought bubbles bobbing over the product.
 // Pure function of the pose.
 
-export const JUDGMENT_LABEL = { at: { x: 760, y: 385 } as Point, size: 40, text: 'judgment-intensive' } as const;
+// It takes the whole-product name's spot, once that name has given way.
+export const JUDGMENT_LABEL = { at: { x: 760, y: 300 } as Point, size: 40, text: 'judgment-intensive' } as const;
 
 const BUBBLES: { at: Point; phase: number }[] = [
 	{ at: wallPoint(1.0, 3.6), phase: 0 },
