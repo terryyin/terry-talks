@@ -68,21 +68,38 @@ describe('StoryImpactFilm ending: a story is not a feature', () => {
 		opacities.slice(1).forEach((o, i) => expect(o).toBeLessThanOrEqual(opacities[i]));
 	});
 
-	test('the closing line holds on the tidy product with the next ball eager in the tray', () => {
-		const last = poseAt(durationInFrames - 1);
-		expect(captionAt(durationInFrames - 1)).toBe('Stories should be romantic. Products should not.');
+	test('the product rests with the next ball eager: neither is better', () => {
+		const frames = framesOf('closing');
+		frames.forEach((f) => expect(captionAt(f)).toBe('Neither is better. They do different jobs.'));
+		expect(Math.max(...frames.map((f) => poseAt(f).backlog[0].hop ?? 0))).toBeGreaterThan(0);
+		const last = poseAt(frames[frames.length - 1]);
 		expect(last.outlines).toBeUndefined();
 		expect(last.dim).toBeUndefined();
 		expect(last.backlog[0].eager).toBe(true);
-		// The next ball hops during the closing beat, then everything rests for at least 2 s.
-		expect(Math.max(...framesOf('closing').map((f) => poseAt(f).backlog[0].hop ?? 0))).toBeGreaterThan(0);
-		for (let f = durationInFrames - 2 * FPS; f < durationInFrames; f++) expect(poseAt(f)).toEqual(last);
+	});
+
+	test('the stage shrinks away and the end card lands the line, then credits Terry Yin and holds', () => {
+		const end = durationInFrames - 1;
+		expect(captionAt(end)).toBe('');
+		const { getByTestId, queryByTestId } = renderFrame(end);
+		expect(queryByTestId('product-grid')).toBeNull();
+		expect(queryByTestId('behavior-axis')).toBeNull();
+		expect(queryByTestId('caption')).toBeNull();
+		expect(getByTestId('end-lead')).toHaveTextContent('Stories should be');
+		expect(getByTestId('title-romantic')).toHaveTextContent('romantic.');
+		expect(getByTestId('title-disciplined')).toHaveTextContent('Products should not.');
+		expect(getByTestId('end-credit')).toHaveTextContent('An idea and film by Terry Yin');
+		const leave = framesOf('finale').map((f) => poseAt(f).stageLeave ?? 0);
+		expect(leave[0]).toBe(0);
+		expect(leave.some((l) => l > 0.2 && l < 0.8)).toBe(true);
+		for (let f = durationInFrames - 2 * FPS; f < durationInFrames; f++) expect(poseAt(f)).toEqual(poseAt(end));
 	});
 
 	test('every 5th frame of the ending renders, with outlines while they show', () => {
 		for (let f = beatRange('story-outline').from; f < durationInFrames; f += 5) {
 			const { unmount, getByTestId, queryByTestId } = renderFrame(f);
-			expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
+			if (captionAt(f) === '') expect(queryByTestId('caption')).toBeNull();
+			else expect(getByTestId('caption')).toHaveTextContent(captionAt(f));
 			if (poseAt(f).outlines) expect(queryByTestId('outlines')).not.toBeNull();
 			else expect(queryByTestId('outlines')).toBeNull();
 			unmount();

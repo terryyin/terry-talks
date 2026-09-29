@@ -14,7 +14,7 @@
 		"lint": "eslint src",
 		"test": "jest && pnpm lint && tsc",
 		"srt": "tsx ./src/srt.ts",
-		"render:story-impact": "remotion render src/index.ts StoryImpactFilm out/story-impact-animation.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 && remotion still src/index.ts StoryImpactFilm out/story-impact-animation-poster.png --frame=2600"
+		"render:story-impact": "remotion render src/index.ts StoryImpactFilm out/story-impact-animation.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 && remotion still src/index.ts StoryImpactFilm out/story-impact-animation-poster.png --frame=-1"
 	},
 	"repository": {},
 	"license": "UNLICENSED",

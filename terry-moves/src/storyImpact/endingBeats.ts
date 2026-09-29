@@ -2,15 +2,19 @@
 // feature. First one story's cells are outlined — they lie across several
 // Behavior columns and Structure rows; then one Behavior column, a feature,
 // is outlined — it carries the colors of several stories. Then the outlines
-// fade, the product rests, the next ball hops eagerly in the tray, and the
-// closing line holds. The product itself does not change.
+// fade, the product rests and the next ball hops eagerly in the tray: neither
+// is better. The product itself does not change. Finally the whole stage
+// shrinks away and the end card lands the essay's last line, like the title,
+// and credits the author.
 
 import { CellPose, GRID, GridSpot, OutlinePose, palette, pinkStory, Pose, StorySpec, storyColorsOf } from './scene';
 import { storyInHistoryOf } from './assimilation';
 import { beat, Beat } from './film';
 import { nextBeatOf } from './historyBeats';
 import { lastStory } from './laterStories';
-import { between, unless, withoutUndefined } from './motion';
+import { Easing } from 'remotion';
+import { between, bounce, BOUNCY, POPPY, settle, unless, withoutUndefined } from './motion';
+import { END_CARD } from './endCard';
 
 // The product at rest after the last story, with every spent story in History.
 const settled: Pose = storyInHistoryOf(lastStory.spec, lastStory.stage);
@@ -67,7 +71,8 @@ const featureOutline = (draw: number, sec: number, opacity = 1): OutlinePose =>
 
 export const STORY_OUTLINE_SECONDS = 3.5;
 export const FEATURE_OUTLINE_SECONDS = 3.5;
-export const CLOSING_SECONDS = 5.5;
+export const CLOSING_SECONDS = 3.2;
+export const FINALE_SECONDS = 6.2;
 
 const storyOutlineBeat = (sec: number): Pose => ({
 	...settled,
@@ -107,8 +112,36 @@ const closingBeat = (sec: number): Pose => {
 		: next;
 };
 
+// The end card: the stage shrinks away, a splash pops, the lead-in pops, the
+// romantic word's letters drop in, the disciplined line snaps in over its
+// ruled underline, then the credit. Then it holds still.
+const LETTER_FROM = 0.95;
+const LETTER_EVERY = 0.06;
+const LETTER_DROP = 170;
+
+const finaleBeat = (sec: number): Pose => {
+	const stage = closingBeat(CLOSING_SECONDS + sec);
+	const drops = [...END_CARD.romantic.text].map((_, i) => {
+		const from = LETTER_FROM + i * LETTER_EVERY;
+		return sec < from ? null : LETTER_DROP * (1 - bounce(sec, from, BOUNCY));
+	});
+	return {
+		...stage,
+		stageLeave: settle(between(sec, 0, 0.5, Easing.in(Easing.back(1.8))), 1),
+		endCard: {
+			splash: bounce(sec, 0.55, POPPY),
+			lead: between(sec, 0.6, 0.85, Easing.out(Easing.back(2.5))),
+			drops,
+			snap: between(sec, 2.0, 2.25, Easing.out(Easing.back(2.5))),
+			underline: between(sec, 2.25, 2.7, Easing.inOut(Easing.cubic)),
+			credit: between(sec, 3.2, 3.55, Easing.out(Easing.back(2.2))),
+		},
+	};
+};
+
 export const endingBeatList: Beat[] = [
 	beat('story-outline', STORY_OUTLINE_SECONDS, 'One story touches many features…', storyOutlineBeat),
 	beat('feature-outline', FEATURE_OUTLINE_SECONDS, '…and one feature carries many stories.', featureOutlineBeat),
-	beat('closing', CLOSING_SECONDS, 'Stories should be romantic. Products should not.', closingBeat),
+	beat('closing', CLOSING_SECONDS, 'Neither is better. They do different jobs.', closingBeat),
+	beat('finale', FINALE_SECONDS, '', finaleBeat),
 ];

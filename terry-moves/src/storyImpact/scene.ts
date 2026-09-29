@@ -33,6 +33,7 @@ export const ballColors = {
 export type {
 	BallPose,
 	CustomerPose,
+	EndCardPose,
 	ProtectPose,
 	CellPose,
 	DimPose,

@@ -16,34 +16,43 @@ const LETTER_COLORS = [ballColors.grape, ballColors.pink, ballColors.sun, ballCo
 const SPLASH: Point = { x: 150, y: 385 };
 const SPLASH_SEED = 11;
 
-const splashBlob = (r: number): string =>
+const splashBlob = (at: Point, r: number): string =>
 	smoothBlob(
 		Array.from({ length: 18 }, (_, i) => {
 			const angle = (i / 18) * Math.PI * 2;
 			const dist = r * (i % 2 === 0 ? 1.05 + 0.35 * seeded(SPLASH_SEED + i) : 0.85 + 0.1 * seeded(SPLASH_SEED + i));
-			return { x: SPLASH.x + Math.cos(angle) * dist, y: SPLASH.y + Math.sin(angle) * dist };
+			return { x: at.x + Math.cos(angle) * dist, y: at.y + Math.sin(angle) * dist };
 		}),
 	);
 
-const splashDrops = Array.from({ length: 6 }, (_, i) => {
-	const angle = -0.6 + i * 0.95 + seeded(SPLASH_SEED + 30 + i) * 0.4;
-	const dist = 105 + 40 * seeded(SPLASH_SEED + 40 + i);
-	return { x: SPLASH.x + Math.cos(angle) * dist, y: SPLASH.y + Math.sin(angle) * dist, r: 7 + 7 * seeded(SPLASH_SEED + 50 + i) };
-});
+const splashDrops = (at: Point) =>
+	Array.from({ length: 6 }, (_, i) => {
+		const angle = -0.6 + i * 0.95 + seeded(SPLASH_SEED + 30 + i) * 0.4;
+		const dist = 105 + 40 * seeded(SPLASH_SEED + 40 + i);
+		return { x: at.x + Math.cos(angle) * dist, y: at.y + Math.sin(angle) * dist, r: 7 + 7 * seeded(SPLASH_SEED + 50 + i) };
+	});
 
-const Splash: React.FC<{ scale: number }> = ({ scale }) =>
+// A paint splash, like the paint ball that brought the romantic letters.
+export const Splash: React.FC<{ scale: number; at?: Point }> = ({ scale, at = SPLASH }) =>
 	scale <= 0 ? null : (
-		<g data-testid="title-splash" transform={scaleAround(SPLASH, scale, scale)} fill={ballColors.pink}>
-			<path d={splashBlob(68)} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} />
-			<path d={splashBlob(68)} stroke={palette.ink} strokeWidth={OUTLINE} strokeLinejoin="round" />
-			{splashDrops.map((d, i) => (
+		<g data-testid="title-splash" transform={scaleAround(at, scale, scale)} fill={ballColors.pink}>
+			<path d={splashBlob(at, 68)} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} />
+			<path d={splashBlob(at, 68)} stroke={palette.ink} strokeWidth={OUTLINE} strokeLinejoin="round" />
+			{splashDrops(at).map((d, i) => (
 				<circle key={i} cx={d.x} cy={d.y} r={d.r} stroke={palette.ink} strokeWidth={4} />
 			))}
-			<ellipse cx={SPLASH.x - 26} cy={SPLASH.y - 28} rx={18} ry={10} transform={`rotate(-35 ${SPLASH.x - 26} ${SPLASH.y - 28})`} fill={palette.white} opacity={0.8} />
+			<ellipse cx={at.x - 26} cy={at.y - 28} rx={18} ry={10} transform={`rotate(-35 ${at.x - 26} ${at.y - 28})`} fill={palette.white} opacity={0.8} />
 		</g>
 	);
 
-const RomanticLine: React.FC<{ text: string; drops: (number | null)[] }> = ({ text, drops }) => {
+// Bright, tilted letters that drop in one by one (`drops`: px above their
+// place, null = not dropped yet).
+export const RomanticLine: React.FC<{ text: string; drops: (number | null)[]; y?: number; size?: number }> = ({
+	text,
+	drops,
+	y = ROMANTIC.y,
+	size = ROMANTIC.size,
+}) => {
 	let colorIndex = 0;
 	const letters = [...text].map((ch, i) => {
 		const color = ch === ' ' ? palette.ink : LETTER_COLORS[colorIndex++ % LETTER_COLORS.length];
@@ -53,11 +62,11 @@ const RomanticLine: React.FC<{ text: string; drops: (number | null)[] }> = ({ te
 		<text
 			data-testid="title-romantic"
 			x={CENTER.x}
-			y={ROMANTIC.y}
+			y={y}
 			textAnchor="middle"
 			fontFamily={FONT_FAMILY}
 			fontWeight={800}
-			fontSize={ROMANTIC.size}
+			fontSize={size}
 			stroke={palette.ink}
 			strokeWidth={12}
 			strokeLinejoin="round"
@@ -74,23 +83,30 @@ const RomanticLine: React.FC<{ text: string; drops: (number | null)[] }> = ({ te
 	);
 };
 
-const DisciplinedLine: React.FC<{ text: string; snap: number; underline: number }> = ({ text, snap, underline }) => {
+// Straight ink that snaps into place over a ruled underline.
+export const DisciplinedLine: React.FC<{ text: string; snap: number; underline: number; y?: number; size?: number }> = ({
+	text,
+	snap,
+	underline,
+	y = DISCIPLINED.y,
+	size = DISCIPLINED.size,
+}) => {
 	const half = 330;
-	const lineY = DISCIPLINED.y + 34;
+	const lineY = y + 34;
 	const ticks = Array.from({ length: 11 }, (_, i) => CENTER.x - half + (i * 2 * half) / 10).filter(
 		(x) => x <= CENTER.x - half + 2 * half * underline + 0.5,
 	);
 	return (
 		<g data-testid="title-disciplined">
 			{snap > 0 ? (
-				<g transform={scaleAround({ x: CENTER.x, y: DISCIPLINED.y - 30 }, snap, snap)}>
+				<g transform={scaleAround({ x: CENTER.x, y: y - 30 }, snap, snap)}>
 					<text
 						x={CENTER.x}
-						y={DISCIPLINED.y}
+						y={y}
 						textAnchor="middle"
 						fontFamily={FONT_FAMILY}
 						fontWeight={800}
-						fontSize={DISCIPLINED.size}
+						fontSize={size}
 						fill={palette.ink}
 					>
 						{text}

@@ -49,10 +49,25 @@ Identity: `story-impact-animation#crisp-ending`
 
 ### 1. The film ends on a bold end card and credits Terry Yin
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 1–3 in `StoryImpactFilmEnding.spec.tsx`; stills viewed;
 `pnpm moves test`; poster rendered.
 
 Behavior: given the product at rest after story versus feature → when the
 closing and finale beats play → the set-up caption shows, the stage shrinks
 away, the end card lands the line, and the credit holds.
+
+Accepted proof: `pnpm moves test` passed (lint and tsc clean). Stills of the
+closing and finale beats (frames 2850–3104) viewed, and the last frame at
+360×360: the lead-in, "romantic.", "Products should not." and the credit are
+legible. `remotion still --frame=-1` renders the last frame, so the poster
+now follows the film's length.
+
+## Learnings
+
+- The stage and the end card are separate layers of the scene: the stage
+  (everything but the paper, title, end card and caption) shrinks as one.
+
+## Execution complete
+
+Product advice: retrospective skipped

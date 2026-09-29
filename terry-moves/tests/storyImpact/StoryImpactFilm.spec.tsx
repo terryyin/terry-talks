@@ -33,6 +33,7 @@ describe('StoryImpactFilm', () => {
 			'story-outline',
 			'feature-outline',
 			'closing',
+			'finale',
 		]);
 	});
 
@@ -107,7 +108,7 @@ describe('StoryImpactFilm', () => {
 		}
 	});
 
-	test('captions show in beat order, each for at least 2.5 s, ending on the closing line, in 75–120 s', () => {
+	test('captions show in beat order, each for at least 2.5 s, ending on the end card, in 75–120 s', () => {
 		const runs: { caption: string; frames: number }[] = [];
 		for (let f = 0; f < durationInFrames; f++) {
 			const caption = captionAt(f);
@@ -124,7 +125,8 @@ describe('StoryImpactFilm', () => {
 			'Spent stories pile up in History, out of the way.',
 			'One story touches many features…',
 			'…and one feature carries many stories.',
-			'Stories should be romantic. Products should not.',
+			'Neither is better. They do different jobs.',
+			'',
 		]);
 		runs.slice(1).forEach((r) => expect(r.frames).toBeGreaterThanOrEqual(2.5 * FPS));
 		expect(durationInFrames).toBeGreaterThanOrEqual(75 * FPS);

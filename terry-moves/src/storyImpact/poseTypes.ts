@@ -92,6 +92,21 @@ export type Pose = {
 	dim?: DimPose; // the rest of the product fades back while some cells are in focus
 	customer?: CustomerPose; // a customer in front of the product, feeling a story's impact
 	protect?: ProtectPose; // what keeps the product coherent: tests and the domain
+	// The film's end: the stage shrinks away and an end card plays on the paper.
+	stageLeave?: number; // 0 (left out) = in place, 1 = shrunk away
+	endCard?: EndCardPose;
+};
+
+// The end card, in the title's styles: a lead-in, a romantic word dropping in
+// letter by letter onto a splash, a disciplined line snapping in over a ruled
+// underline, and the credit.
+export type EndCardPose = {
+	lead: number; // pop-in scale of the lead-in
+	splash: number; // pop-in scale of the paint splash
+	drops: (number | null)[]; // per letter of the romantic word: px above its place, null = not dropped yet
+	snap: number; // scale of the disciplined line; 0 = not there yet
+	underline: number; // 0–1: how far the underline has been ruled
+	credit: number; // pop-in scale of the credit
 };
 
 // What keeps the product coherent: a test shield on every Behavior column,
