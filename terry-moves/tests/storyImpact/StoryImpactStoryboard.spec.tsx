@@ -27,6 +27,8 @@ describe('StoryImpactStoryboard', () => {
 			'Behavior gets messy. Structure wobbles.',
 			'Developers assimilate the splash…',
 			'…into a coherent product, changed where it matters. No scars.',
+			'Tests guard what it does…',
+			'…and how it\'s built maps the domain.',
 			'A customer feels the impact… and gets a new idea!',
 			'New ideas join the backlog, and it\'s reordered.',
 			'The spent story goes to history. Available, but out of the way.',
@@ -148,8 +150,8 @@ describe('StoryImpactStoryboard', () => {
 			expect(getAllByTestId('product-cell')).toHaveLength(GRID.columns * GRID.rows);
 		});
 
-		test('board 12: the spent story rests in History, not in the backlog or on the product', () => {
-			const { getByTestId, queryByTestId, container } = renderBoard(11);
+		test('board 14: the spent story rests in History, not in the backlog or on the product', () => {
+			const { getByTestId, queryByTestId, container } = renderBoard(13);
 			expect(backlogIds(container)).not.toContain('pink');
 			expect(queryByTestId('story-ball')).toBeNull();
 			expect(queryByTestId('splat')).toBeNull();
@@ -157,8 +159,8 @@ describe('StoryImpactStoryboard', () => {
 			expect(getByTestId('history-ball')).toHaveAttribute('data-id', 'pink');
 		});
 
-		test('board 13: a different story waits eagerly at the front of the backlog', () => {
-			const { getByTestId, container } = renderBoard(12);
+		test('board 15: a different story waits eagerly at the front of the backlog', () => {
+			const { getByTestId, container } = renderBoard(14);
 			const [front] = Array.from(container.querySelectorAll('[data-testid="backlog-ball"]'));
 			expect(front.getAttribute('data-id')).not.toBe('pink');
 			expect(front).toHaveAttribute('data-eager', 'true');

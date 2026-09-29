@@ -205,3 +205,14 @@ export const ideaFlightPoint = (t: number, to: Point): Point => {
 		y: u * u * from.y + 2 * u * t * IDEA_BEND.y + t * t * to.y,
 	};
 };
+
+// The domain concepts the Structure rows map to (from the example wish,
+// "split the bill with friends"), bottom row first, as chips right of the
+// Structure axis: between its label and the tray, left of the wish bubble.
+export const DOMAIN = {
+	concepts: ['Payment', 'Bill', 'Share', 'Friend'],
+	left: 620,
+	ys: [440, 370, 300, 230],
+	size: 32,
+	height: 50,
+} as const;

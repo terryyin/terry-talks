@@ -45,9 +45,24 @@ Identity: `story-impact-animation#protected-and-mapped`
 
 ### 1. Tests guard the behavior and the structure maps the domain
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 1–3 in the film specs; stills viewed; `pnpm moves test`.
 
 Behavior: given the coherent pink product → when the tests and domain beats
 play → shields pop onto every Behavior column, then domain chips link to the
 Structure rows → they fade as the customer appears.
+
+Accepted proof: `pnpm moves test` passed (245 tests, lint and tsc clean).
+Stills of the tests and domain beats (frames 1040–1290) viewed: five shields
+on the bottom cells, four chips (Payment, Bill, Share, Friend) each linked to
+its Structure row, clear of the Structure label and the tray.
+
+## Learnings
+
+- The customer now pops in after the shields and links have faded (0.25 s),
+  so the two never show together.
+- The one-story film is now about 45.5 s; its length bound became 30–50 s.
+
+## Execution complete
+
+Product advice: retrospective skipped

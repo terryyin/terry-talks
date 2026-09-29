@@ -88,6 +88,10 @@ export const afterStory = (spec: StorySpec, before: StoryBefore): StoryBefore =>
 
 export const assimilating = (): Pose => assimilatingOf(pinkStory, pinkBefore());
 export const coherentProduct = (): Pose => coherentProductOf(pinkStory, pinkBefore());
+// Tests guard every Behavior column of the coherent product…
+export const testsGuardBehavior = (): Pose => ({ ...coherentProduct(), protect: { shields: 1, links: 0 } });
+// …and each Structure row maps to a domain concept.
+export const structureMapsDomain = (): Pose => ({ ...coherentProduct(), protect: { shields: 1, links: 1 } });
 // A customer, in front of the coherent product, has an idea.
 export const customerHasIdea = (): Pose => ({ ...coherentProduct(), customer: { bulb: 1 } });
 // The idea has joined the backlog second, and the balls behind it swapped.

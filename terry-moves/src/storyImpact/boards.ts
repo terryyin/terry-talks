@@ -8,7 +8,7 @@ import {
 	storySplashes,
 	storyWishes,
 } from './scene';
-import { assimilating, coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory } from './assimilation';
+import { assimilating, coherentProduct, customerHasIdea, structureMapsDomain, testsGuardBehavior, ideaInBacklog, readyForNext, storyInHistory } from './assimilation';
 
 export type Board = {
 	caption: string;
@@ -51,6 +51,14 @@ export const boards: Board[] = [
 	{
 		caption: '…into a coherent product, changed where it matters. No scars.',
 		pose: coherentProduct(),
+	},
+	{
+		caption: 'Tests guard what it does…',
+		pose: testsGuardBehavior(),
+	},
+	{
+		caption: '…and how it\'s built maps the domain.',
+		pose: structureMapsDomain(),
 	},
 	{
 		caption: 'A customer feels the impact… and gets a new idea!',

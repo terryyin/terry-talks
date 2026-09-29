@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { beatRange, beats, captionAt, filmDurationInFrames, FPS, poseAt } from '@/storyImpact/film';
 import { flightPoint, wallPoint } from '@/storyImpact/layout';
 import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storyIsFuzzy, storySplashes, storyWishes } from '@/storyImpact/scene';
-import { assimilating, coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory } from '@/storyImpact/assimilation';
+import { assimilating, coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory, structureMapsDomain, testsGuardBehavior } from '@/storyImpact/assimilation';
 import { boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
@@ -28,6 +28,8 @@ describe('StoryImpactOneSplash', () => {
 			'wobble',
 			'assimilate',
 			'coherent',
+			'tests',
+			'domain',
 			'customer',
 			'new-idea',
 			'history',
@@ -35,9 +37,9 @@ describe('StoryImpactOneSplash', () => {
 		]);
 	});
 
-	test('the whole film lasts between 30 and 45 seconds', () => {
+	test('the whole film lasts between 30 and 50 seconds', () => {
 		expect(filmDurationInFrames).toBeGreaterThanOrEqual(30 * FPS);
-		expect(filmDurationInFrames).toBeLessThanOrEqual(45 * FPS);
+		expect(filmDurationInFrames).toBeLessThanOrEqual(50 * FPS);
 	});
 
 	test('every storyboard caption from the wish on shows in beat order, each for at least 2.5 s', () => {
@@ -194,6 +196,31 @@ describe('StoryImpactOneSplash', () => {
 			expect(splitting[splitting.length - 1]).toBe(1);
 		});
 
+	});
+
+	describe('tests guard the behavior and the structure maps the domain', () => {
+		test('the tests beat ends on the tests board, the domain beat on the domain board', () => {
+			expect(poseAt(lastFrame('tests'))).toEqual(testsGuardBehavior());
+			expect(poseAt(lastFrame('domain'))).toEqual(structureMapsDomain());
+		});
+
+		test('a shield guards every Behavior column, then every Structure row links to its own domain concept', () => {
+			const shields = render(<StoryImpactScene pose={testsGuardBehavior()} caption="" />);
+			expect(shields.getAllByTestId('test-shield')).toHaveLength(5);
+			expect(shields.queryAllByTestId('domain-chip')).toHaveLength(0);
+			shields.unmount();
+			const { getAllByTestId } = render(<StoryImpactScene pose={structureMapsDomain()} caption="" />);
+			expect(getAllByTestId('test-shield')).toHaveLength(5);
+			expect(getAllByTestId('domain-chip')).toHaveLength(4);
+			expect(new Set(getAllByTestId('domain-link').map((l) => l.getAttribute('data-row')))).toEqual(new Set(['0', '1', '2', '3']));
+		});
+
+		test('the product does not change, and the shields and links are gone once the customer is there', () => {
+			[...framesOf('tests'), ...framesOf('domain'), ...framesOf('customer')].forEach((f) => expect(poseAt(f).cells).toEqual(coherentProduct().cells));
+			framesOf('customer')
+				.filter((f) => (poseAt(f).customer!.show ?? 1) >= 0.5)
+				.forEach((f) => expect(poseAt(f).protect).toBeUndefined());
+		});
 	});
 
 	test('the customer beat ends on the customer board, the new-idea beat on the idea board', () => {

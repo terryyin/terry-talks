@@ -91,6 +91,15 @@ export type Pose = {
 	outlines?: OutlinePose[];
 	dim?: DimPose; // the rest of the product fades back while some cells are in focus
 	customer?: CustomerPose; // a customer in front of the product, feeling a story's impact
+	protect?: ProtectPose; // what keeps the product coherent: tests and the domain
+};
+
+// What keeps the product coherent: a test shield on every Behavior column,
+// and domain concepts linked to the Structure rows.
+export type ProtectPose = {
+	shields: number; // 0–1: how far the shields have popped on, column by column
+	links: number; // 0–1: how far the domain links have been drawn, row by row
+	fade?: number; // 0–1 opacity while they fade away; left out, fully shown
 };
 
 // A flat cartoon customer standing below the product wall. Each motion field

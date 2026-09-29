@@ -16,24 +16,27 @@ export const NEW_IDEA_SECONDS = 3;
 
 // Two nods, each a quick dip and back.
 const NODS = [
-	{ from: 0.75, to: 1.2 },
-	{ from: 1.3, to: 1.75 },
+	{ from: 0.9, to: 1.3 },
+	{ from: 1.4, to: 1.85 },
 ];
 const nodAt = (sec: number): number => {
 	const nod = NODS.find((n) => sec >= n.from && sec < n.to);
 	return nod ? Math.sin(Math.PI * between(sec, nod.from, nod.to)) : 0;
 };
 
-const BULB_POP = { from: 1.9, to: 2.3 };
+const BULB_POP = { from: 2.0, to: 2.4 };
 
 // The customer pops up, nods at the product, and a light bulb pops over them.
+// The tests and domain links fade as they appear.
 export const customerBeatOf = (spec: StorySpec, before: StoryBefore) => (sec: number): Pose => {
-	const show = between(sec, 0.05, 0.5, Easing.out(Easing.back(1.8)));
+	const show = between(sec, 0.25, 0.7, Easing.out(Easing.back(1.8)));
 	const bulb = between(sec, BULB_POP.from, BULB_POP.to, Easing.out(Easing.back(2.6)));
-	return {
+	const fade = 1 - between(sec, 0, 0.25);
+	return withoutUndefined({
 		...coherentProductOf(spec, before),
+		protect: fade > 0 ? { shields: 1, links: 1, fade: unless(fade, 1) } : undefined,
 		customer: withoutUndefined({ show: unless(show, 1), nod: unless(nodAt(sec), 0), bulb }),
-	};
+	});
 };
 
 const QUEUE = { from: 0.15, to: 0.85 }; // the queue makes room, the swapped ball hopping over
