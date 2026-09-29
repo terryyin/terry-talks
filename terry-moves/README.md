@@ -132,7 +132,9 @@ npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splas
 ```
 
 Render the final, shareable animation and its poster (H.264, yuv420p,
-1080×1080, silent, about 133 seconds):
+1080×1080, about 133 seconds, with Terry's English narration
+`public/assets/audios/impact_en.m4a`, recorded against this timeline and
+playing from frame 0):
 
 ```bash
 pnpm -C terry-moves render:story-impact

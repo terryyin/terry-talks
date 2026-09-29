@@ -6,11 +6,15 @@ import { STAGE } from '../storyImpact/layout';
 import { StoryImpactScene } from '../storyImpact/StoryImpactScene';
 import { zhHantCaption } from '../storyImpact/zhHant';
 
-// The full story-impact film: each frame draws the full timeline's pose.
+// The full story-impact film: each frame draws the full timeline's pose, with
+// Terry's English narration, recorded against this timeline.
+export const EN_NARRATION = 'assets/audios/impact_en.m4a';
+
 const FilmFrame: React.FC = () => {
 	const frame = useCurrentFrame();
 	return (
 		<AbsoluteFill>
+			<Audio src={staticFile(EN_NARRATION)} />
 			<StoryImpactScene pose={fullFilm.poseAt(frame)} caption={fullFilm.captionAt(frame)} />
 		</AbsoluteFill>
 	);
