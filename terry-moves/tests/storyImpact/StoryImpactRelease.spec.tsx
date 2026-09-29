@@ -20,6 +20,8 @@ import { BacklogTray } from '@/storyImpact/pieces';
 import { splatDrops } from '@/storyImpact/splat';
 import { storyCenter } from '@/storyImpact/storyBall';
 import { tagShown } from '@/storyImpact/outline';
+import { IMPACT_BURST, pillWidth, VALUE_PILLS } from '@/storyImpact/values';
+import { CAPTION_BOX } from '@/storyImpact/layout';
 
 const { beatRange, durationInFrames, poseAt } = fullFilm;
 const frames = Array.from({ length: durationInFrames }, (_, f) => f);
@@ -179,6 +181,33 @@ describe('StoryImpactFilm plays smoothly and reads at phone size', () => {
 	test('the flying ball turns fuzzy, and its ignored grid lines fade, smoothly', () => {
 		expect(maxStep(poses.map((p) => fuzziness(p.story)))).toBeLessThanOrEqual(0.4);
 		expect(maxStep(poses.map((p) => marksShown(p.story)))).toBeLessThanOrEqual(0.4);
+	});
+
+	test('the value pills and the impact burst cover no label, no tray ball, and not the caption', () => {
+		const pill = (kind: 'customer' | 'option'): Box => {
+			const { at, text } = VALUE_PILLS[kind];
+			const w = pillWidth(text);
+			return { left: at.x - w / 2, right: at.x + w / 2, top: at.y - VALUE_PILLS.height / 2, bottom: at.y + VALUE_PILLS.height / 2 };
+		};
+		const burst: Box = {
+			left: IMPACT_BURST.at.x - IMPACT_BURST.rx,
+			right: IMPACT_BURST.at.x + IMPACT_BURST.rx,
+			top: IMPACT_BURST.at.y - IMPACT_BURST.ry,
+			bottom: IMPACT_BURST.at.y + IMPACT_BURST.ry,
+		};
+		const structure = { left: 510, right: 510 + 9 * 46 * 0.55, top: 134 - 46 * 0.8, bottom: 174 + 34 * 0.3 };
+		const labels = [structure, labelBox(BACKLOG_LABEL.at, BACKLOG_LABEL.text, BACKLOG_LABEL.size), { ...CAPTION_BOX }];
+		[pill('customer'), pill('option'), burst].forEach((box) => {
+			expect(box.left).toBeGreaterThanOrEqual(0);
+			expect(box.right).toBeLessThanOrEqual(1080);
+			labels.forEach((label) => expect({ box, label, overlaps: overlaps(box, label) }).toEqual({ box, label, overlaps: false }));
+		});
+		frames
+			.filter((f) => poses[f].values)
+			.forEach((f) => {
+				const covering = trayBalls(poses[f]).filter((ball) => covers(ball, burst) && (poses[f].values!.burst ?? 0) > 0);
+				expect({ f, covering }).toEqual({ f, covering: [] });
+			});
 	});
 
 	test('"a feature" arrives with its outline, early in its beat', () => {

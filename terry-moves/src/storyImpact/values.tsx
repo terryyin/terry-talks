@@ -11,16 +11,16 @@ import { FONT_FAMILY, lerpPointOnArc, OUTLINE, Point, scaleAround, SHADOW } from
 export const IMPACT_BURST = { at: { x: 790, y: 330 } as Point, rx: 215, ry: 118, text: 'impact!', size: 88 } as const;
 export const VALUE_PILLS = {
 	customer: { at: { x: 800, y: 790 } as Point, text: 'customer value', border: palette.behavior },
-	option: { at: { x: 890, y: 62 } as Point, text: 'option value', border: palette.structure },
-	size: 32,
-	height: 54,
+	option: { at: { x: 872, y: 58 } as Point, text: 'option value', border: palette.structure },
+	size: 36,
+	height: 58,
 } as const;
 
 const HEART = '#FF5DA2';
 const KEY = '#FFC93C';
 const BURST_FILL = '#FFE066';
 
-const TEXT_FROM = 78; // px from the pill's left end to its text, past the icon
+const TEXT_FROM = 80; // px from the pill's left end to its text, past the icon
 export const pillWidth = (text: string) => text.length * VALUE_PILLS.size * 0.56 + TEXT_FROM + 30;
 
 // A spiky comic burst around its center.
@@ -89,9 +89,9 @@ const KeyIcon: React.FC<{ at: Point; glint: number }> = ({ at, glint }) => {
 const Glint: React.FC<{ at: Point; k: number }> = ({ at, k }) => (
 	<g data-testid="option-glint" fill={palette.white} stroke={palette.ink} strokeWidth={3} strokeLinejoin="round">
 		{[
-			{ dx: -34, dy: -30, s: 13 },
-			{ dx: 30, dy: -34, s: 10 },
-			{ dx: 38, dy: 22, s: 8 },
+			{ dx: -30, dy: -30, s: 13 },
+			{ dx: 2, dy: -38, s: 9 },
+			{ dx: -36, dy: 24, s: 8 },
 		].map(({ dx, dy, s }, i) => {
 			const r = s * k;
 			const cx = at.x + dx;
