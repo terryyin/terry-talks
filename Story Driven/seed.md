@@ -134,6 +134,9 @@ Terry allowed up to 2.5 minutes.
 
 <a id="caption-reading-pace"></a>
 ### 14. Viewers, and Terry reading aloud, have time to read every caption
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/023-caption-reading-pace/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"adb4c14948e128b0eb458104530da54dc12668feca94f6fefdada696be6cf58a","plan":"49f29a21e7e7329e9ab19f9f777ff7355b256f3d5ecd6abed9912d0b5e47e216"}}
+```
 
 - **For / why:** In general the captions go by a bit faster than Terry can read
   them, and some are far too short. This also sets the time budget for Terry's
@@ -154,6 +157,76 @@ Terry allowed up to 2.5 minutes.
     2 to 2.5 minute allowance.
 - **Evaluation:** Terry reads every caption aloud at a comfortable pace
   against the render without being cut off.
+
+#### Goal
+
+Viewers can read every caption, and Terry can read each one aloud at a
+comfortable pace, before it leaves the screen. The film also leaves short
+caption-free breaths, so the picture can speak and Terry can breathe. The
+resulting timings are the time budget for the voice-over (story 13).
+
+#### Scope
+
+- **Required:**
+  - **Reading time is a rule.** A caption's reading time is
+    `max(3.0 s, 1.0 s + syllables ÷ 3.5 per second)`. Syllables are counted
+    from the caption's words by an English syllable rule in code, with
+    "×" read as "times". The 1.0 s lead-in lets the eye find the line and
+    gives short captions relatively more time. With this rule the captions
+    total about 1.2× their previous time (99 s → about 119 s).
+  - **The picture stretches with its caption.** A caption covers its beat
+    and any caption-less beats after it (its span). When the span is shorter
+    than the caption needs, every beat in the span is slowed by the same
+    factor. Each beat still ends on the same pose, so the storyboard boards
+    still match. A span that is already long enough keeps its length:
+    captions never lose time.
+  - **Breathing pauses.** At chosen places, the caption waits a short
+    pause (1.0 s) at the start of its span while the picture already moves.
+    The span grows so that the caption still gets its full reading time
+    after the pause.
+  - **Rewording re-times.** Changing a caption's words changes its span's
+    length with no other edit.
+  - The whole film stays within 2 to 2.5 minutes.
+- **Rejection constraints:** no caption shows for less than its reading
+  time; no beat ends on a different pose than before (the boards match); the
+  look, the motion design, and the captions' words stay as they are. Terry
+  allowed at most 2.5 minutes.
+- **Deferred promises:** the voice-over itself (story 13); timing for the
+  title and end card text, which are not captions (they keep their current
+  hold); per-caption hand tuning.
+- **Decisions made on Terry's behalf (delegated, 2026-09-29):**
+  - Pace: 3.5 syllables a second (about 140 words a minute, a comfortable
+    narration pace) plus a 1.0 s lead-in, with a 3.0 s minimum hold. These
+    three numbers are calibrated so the captions total about 1.2× their
+    previous time; short captions such as "Spent stories pile up in
+    History, out of the way." (13 syllables in 2.6 s) get the most.
+  - Stretching slows a span's motion evenly, instead of freezing its last
+    pose, because some spans end mid-motion (the ball in flight). Springs
+    are sampled between frames so slowed motion stays smooth.
+  - Six breathing pauses of 1.0 s: after the SPLAT (before "Behavior gets
+    messy…"), before "A story's goal is an impact…" (the key line), between
+    the two values (before "Option value…"), before "More stories come and
+    go…" (a new chapter), before "One story touches many features…" (the
+    ending), and before "Neither is better…" (the punch line).
+  - Captions whose span is already longer than their reading time keep
+    that length rather than being shortened: the animation there needs the
+    time.
+
+#### Key examples
+
+1. **Too short.** "Spent stories pile up in History, out of the way." has 13
+   syllables and needs 1.0 + 13 ÷ 3.5 ≈ 4.7 s, but its span was 2.6 s. The
+   idea story's trip to History now plays over about 4.7 s and still ends
+   with the ball resting in History.
+2. **Already long enough.** "More stories come and go…" (6 syllables, 3.0 s
+   needed) spans the sun story's launch to its wobble, 7.8 s. The span keeps
+   7.8 s; after its 1.0 s breath the caption shows for 6.8 s.
+3. **A breath after the splat.** After "…SPLAT!" the caption line is empty
+   for 1.0 s while the cells start to wobble, then "Behavior gets messy.
+   Structure wobbles." shows for its full reading time, and the wobble ends
+   on the wobble board.
+4. **Reworded.** Making a caption longer by some words makes its span
+   longer by the added syllables ÷ 3.5 s, without touching any beat length.
 
 ## Voice-over (2026-09-29)
 
