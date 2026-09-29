@@ -133,6 +133,9 @@ whether the film says what he means, and **representative viewers**
 
 <a id="calmer-screen-living-product"></a>
 ### 11. Viewers read one message at a time and see the product space change shape
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/021-calmer-screen-living-product/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"e283a816e421a2682429256bd7da80911eccf85a765fe806dd547b2bcb7c98ac","plan":"56efd8c532cf80a9e5145fa9774441a702e1720b95766f0e28e47b6fe3abad25"}}
+```
 
 - **For / why:** Some moments show too much at once, and the product space
   looks frozen in size, even though real products grow and shrink.
@@ -151,6 +154,68 @@ whether the film says what he means, and **representative viewers**
   customer should react to what they can see, the behavior, and not to internal
   structure, which is invisible to them. The redesign of the reaction belongs
   to the impact story.
+
+#### Goal
+
+Viewers take in one message at a time, and see the product as a living
+thing whose shape changes from story to story (mostly growing, once
+shrinking), while it stays tidy.
+
+#### Scope
+
+- **Required:**
+  - **The tag waits for the wish.** The wish bubble ("I wish I could split
+    the bill…", the callout that says what a story is) shows alone. It pops
+    away, and only then does the "customer-value focused" tag pop in, in a
+    short beat of its own with the caption "It's focused on customer
+    value." The tag is gone before the story turns fuzzy.
+  - **One focus label at a time while assimilating.** "whole-product
+    focused" names the outline while the product wobbles. As the developers
+    start assimilating, that label gives way (in the same spot) to
+    "judgment-intensive"; the dashed outline itself stays.
+  - **The product changes shape.** The product starts at 4 Behavior columns
+    × 4 Structure rows. The pink story adds a Behavior column (5 × 4), the
+    sun story removes a Structure row (5 × 3), and the customer's idea adds
+    a Behavior column (6 × 3). Each change happens once, while that story is
+    assimilated: the wall eases to its new size and the new cells pop in
+    along the new column, or the removed row's cells pop out before the wall
+    eases in. The axes stay put: they are the space the product can grow
+    into.
+- **Rejection constraints:** nothing jitters: sizes change by whole
+  columns or rows with eased motion, never in the same moment as another
+  change of size; the "Product" label moves with the wall's top edge by at
+  most a few px a frame; paint stays on the (current) wall; labels are not
+  covered and stay readable at 360×360.
+- **Deferred promises:** changing shape in the middle of a column or row
+  (only the far column and the top row change); resizing during the
+  opening; any new wording beyond the tag's caption.
+- **Decisions made on Terry's behalf (delegated, 2026-09-29):**
+  - "The callout that explains what a user story is" is read as the wish
+    bubble. The tag gets its own beat and caption rather than sharing the
+    fuzzy beat, which already carries its own message.
+  - The size sequence 4×4 → 5×4 → 5×3 → 6×3: two growths and one shrink,
+    columns and rows changing by different amounts, one calm change per
+    story. The pink story's new column is its new behavior (one new cell
+    takes pink). The sun story folds the (plain) top row away, a structure
+    simplified. The idea grows only behavior, which story 12 uses as the
+    cheap, option-exercising story.
+  - To fit six columns without crowding the caption, the Behavior step on
+    screen gets a little shorter; the axes are sized for the largest
+    product.
+
+#### Key examples
+
+1. **Wish, then tag.** While the wish bubble shows, there is no tag; when
+   the tag shows, the bubble is gone and the caption reads "It's focused on
+   customer value."; while the story is fuzzy there is neither.
+2. **One focus label.** During the wobble, "whole-product focused" shows
+   and "judgment-intensive" does not; later in the assimilation it is the
+   other way round.
+3. **Shape over time.** The coherent product after the pink, sun and idea
+   stories has 5×4, 5×3 and 6×3 cells; before the pink story it has 4×4.
+4. **Tidy growth.** While a column is added, the wall's outline eases out
+   and the new cells pop in one after another; no frame shows a cell
+   outside the wall.
 
 <a id="two-impacts-two-values"></a>
 ### 12. Viewers learn that a story's impact delivers two values: customer value and option value
