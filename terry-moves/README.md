@@ -150,6 +150,11 @@ changed by a later story takes the new color, and a reorganized cell is split
 between the old and the new colors, so the product always shows its current
 state and never a scar.
 
+Once a story is assimilated, the film shows what keeps the product coherent
+(`protect.tsx`, the pose's `protect` field, `protectBeats.ts`): a green test
+shield on every Behavior column, then each Structure row linked to a domain
+concept from the example wish (`DOMAIN` in `layout.ts`).
+
 A story has two impacts. On the product, the developers assimilate its
 splash. In the world, a flat cartoon customer (`customer.tsx`, the pose's
 `customer` field) nods at the change and gets a light-bulb idea; the new ball

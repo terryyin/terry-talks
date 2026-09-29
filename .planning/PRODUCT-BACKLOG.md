@@ -17,8 +17,6 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
-- [Viewers see that behavior is protected by tests and structure maps to the domain](../Story%20Driven/seed.md#protected-and-mapped) — story-impact-animation#protected-and-mapped ([plan](quick/017-protected-and-mapped/PLAN.md))
-
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
