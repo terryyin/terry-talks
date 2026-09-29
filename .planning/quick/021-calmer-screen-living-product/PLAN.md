@@ -97,3 +97,7 @@ Proof: examples 3–4 in the film specs; stills of each resize viewed;
 Behavior: given the 4×4 product → the pink, sun and idea stories are
 assimilated → the wall eases to 5×4, 5×3 and 6×3 with cells popping in or
 out tidily; the ending's feature and story outlines work on the 6×3 product.
+
+## Execution complete
+
+Product advice: retrospective skipped
