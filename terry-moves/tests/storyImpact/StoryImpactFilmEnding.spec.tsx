@@ -82,16 +82,18 @@ describe('StoryImpactFilm ending: a story is not a feature', () => {
 		opacities.slice(1).forEach((o, i) => expect(o).toBeLessThanOrEqual(opacities[i]));
 	});
 
-	test('the product rests with the next ball eager: neither is better', () => {
+	test('the product rests with the next ball eager as both values build up, not debt', () => {
 		const frames = framesOf('closing');
 		const breath = Math.round(PAUSE_SECONDS * FPS);
 		frames.slice(0, breath).forEach((f) => expect(captionAt(f)).toBe(''));
-		frames.slice(breath).forEach((f) => expect(captionAt(f)).toBe('Neither is better. They do different jobs.'));
+		frames.slice(breath).forEach((f) => expect(captionAt(f)).toBe('Story after story, value builds up. Not debt.'));
 		expect(Math.max(...frames.map((f) => poseAt(f).backlog[0].hop ?? 0))).toBeGreaterThan(0);
 		const last = poseAt(frames[frames.length - 1]);
 		expect(last.outlines).toBeUndefined();
 		expect(last.dim).toBeUndefined();
 		expect(last.backlog[0].eager).toBe(true);
+		expect(poseAt(frames[0]).values).toBeUndefined();
+		expect(last.values).toMatchObject({ spring: 1, customer: 1, option: 1 });
 	});
 
 	test('the stage shrinks away and the end card lands the line, then credits Terry Yin and holds', () => {

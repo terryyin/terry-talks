@@ -243,8 +243,10 @@ enough to run alongside it.
   Structure rows link to domain concepts from the wish (Payment, Bill, Share,
   Friend). Decided on Terry's behalf: this is the film's one picture of spent
   judgment, which story 10 names. Recoverable from `51f35b4`.
-- The crisp ending is done (improvement 8): the product rests under "Neither
-  is better. They do different jobs.", then the stage shrinks away and an end
+- The crisp ending is done (improvement 8): the product rests under "Story
+  after story, value builds up. Not debt." while the two value pills spring
+  back (Terry, 2026-09-29, replacing the weaker "Neither is better. They do
+  different jobs."), then the stage shrinks away and an end
   card in the title's styles lands "Stories should be / romantic. / Products
   should not." with the credit "An idea and film by Terry Yin". Decided on
   Terry's behalf: keep the essay's own last line as the punchline and mirror

@@ -134,7 +134,7 @@ describe('StoryImpactFilm', () => {
 			'The product shows what is, not what was.',
 			'One story touches many features…',
 			'…and one feature takes many layers working together.',
-			'Neither is better. They do different jobs.',
+			'Story after story, value builds up. Not debt.',
 			'',
 		]);
 		runs.forEach((r) => expect({ caption: r.caption, enough: r.frames >= readingSeconds(r.caption) * FPS }).toEqual({ caption: r.caption, enough: true }));
@@ -151,7 +151,7 @@ describe('StoryImpactFilm', () => {
 			'Option value, unseen by users: judgment spent on tests…',
 			'More stories come and go…',
 			'One story touches many features…',
-			'Neither is better. They do different jobs.',
+			'Story after story, value builds up. Not debt.',
 		]);
 		breaths.forEach((b) => expect(b.frames).toBe(PAUSE_SECONDS * FPS));
 	});

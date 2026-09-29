@@ -6,8 +6,9 @@
 // that means something only for planning, so nothing ties the feature back
 // to stories: it is picked by its place, and it shows layers, not stories'
 // colors. Then the outlines fade, the product rests and the next ball hops
-// eagerly in the tray: neither is better. The product itself does not
-// change. Finally the whole stage shrinks away and the end card lands the
+// eagerly in the tray, while the two value pills spring back over it: story
+// after story, customer value and option value build up, not debt. The
+// product itself does not change. Finally the whole stage shrinks away and the end card lands the
 // essay's last line, like the title, and credits the author.
 
 import { extentOf, GridSpot, OutlinePose, palette, pinkStory, Pose, StorySpec } from './scene';
@@ -19,6 +20,7 @@ import { Easing } from 'remotion';
 import { between, bounce, BOUNCY, clamp01, POPPY, settle, unless, withoutUndefined } from './motion';
 import { END_CARD } from './endCard';
 import { afterABreath } from './readingPace';
+import { withValues } from './valueBeats';
 
 // The product at rest after the last story, with every spent story in History.
 const settled: Pose = storyInHistoryOf(lastStory.spec, lastStory.stage);
@@ -100,16 +102,24 @@ const featureOutlineBeat = (sec: number): Pose => {
 
 const HOP_FROM = 0.3; // the next ball starts hopping as the outlines fade
 
+// The two values spring back as the line lands, and the option's key glints.
+const VALUES_SPRING = { from: 0.8, to: 1.5 };
+const VALUES_GLINT = { from: 1.7, to: 2.2 };
+
 const closingBeat = (sec: number): Pose => {
 	const next = nextBeatOf(lastStory.spec, lastStory.stage)(Math.max(0, sec - HOP_FROM));
 	const fading = 1 - between(sec, 0, 0.6);
-	return fading > 0
-		? {
-				...next,
-				outlines: [featureOutline(1, FEATURE_OUTLINE_SECONDS + sec, fading)],
-				dim: { except: featureCells, amount: DIM * fading },
-			}
-		: next;
+	const rested: Pose =
+		fading > 0
+			? {
+					...next,
+					outlines: [featureOutline(1, FEATURE_OUTLINE_SECONDS + sec, fading)],
+					dim: { except: featureCells, amount: DIM * fading },
+				}
+			: next;
+	const spring = between(sec, VALUES_SPRING.from, VALUES_SPRING.to, Easing.out(Easing.back(1.6)));
+	const glint = between(sec, VALUES_GLINT.from, VALUES_GLINT.to, Easing.out(Easing.back(2)));
+	return spring > 0 ? withValues(rested, withoutUndefined({ spring: Math.min(spring, 1), customer: 1, option: 1, glint: unless(glint, 0) })) : rested;
 };
 
 // The end card: the stage shrinks away, a splash pops, the lead-in pops, the
@@ -142,6 +152,6 @@ const finaleBeat = (sec: number): Pose => {
 export const endingBeatList: Beat[] = [
 	afterABreath(beat('story-outline', STORY_OUTLINE_SECONDS, 'One story touches many features…', storyOutlineBeat)),
 	beat('feature-outline', FEATURE_OUTLINE_SECONDS, '…and one feature takes many layers working together.', featureOutlineBeat),
-	afterABreath(beat('closing', CLOSING_SECONDS, 'Neither is better. They do different jobs.', closingBeat)),
+	afterABreath(beat('closing', CLOSING_SECONDS, 'Story after story, value builds up. Not debt.', closingBeat)),
 	beat('finale', FINALE_SECONDS, '', finaleBeat),
 ];
