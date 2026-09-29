@@ -222,6 +222,31 @@ describe('StoryImpactOneSplash', () => {
 		});
 	});
 
+	describe('assimilation is judgment-intensive, and the judgment is spent', () => {
+		test('the label and three "?" bubbles show while the splash is assimilated, and are gone once coherent', () => {
+			expect(poseAt(firstFrame('assimilate')).judgment).toBeUndefined();
+			expect(poseAt(lastFrame('assimilate')).judgment).toMatchObject({ show: 1 });
+			expect(poseAt(lastFrame('coherent')).judgment).toBeUndefined();
+			const { getByTestId, getAllByTestId, unmount } = render(<StoryImpactScene pose={poseAt(lastFrame('assimilate'))} caption="" />);
+			expect(getByTestId('judgment')).toHaveTextContent('judgment-intensive');
+			expect(getAllByTestId('judgment-bubble')).toHaveLength(3);
+			unmount();
+		});
+
+		test('the test shields are captioned as spent judgment', () => {
+			framesOf('tests').forEach((f) => expect(captionAt(f)).toBe('Judgment spent: tests guard what it does…'));
+		});
+
+		test('the spent story goes to History with no judgment label', () => {
+			framesOf('history')
+				.filter((f) => poseAt(f).spent)
+				.forEach((f) => {
+					expect(poseAt(f).judgment).toBeUndefined();
+					expect(poseAt(f).tag).toBeUndefined();
+				});
+		});
+	});
+
 	describe('tests guard the behavior and the structure maps the domain', () => {
 		test('the tests beat ends on the tests board, the domain beat on the domain board', () => {
 			expect(poseAt(lastFrame('tests'))).toEqual(testsGuardBehavior());

@@ -1,4 +1,5 @@
-// The two focuses, shown on the pink (first) story only: while the story
+// The two focuses, and the judgment the work takes, shown on the pink
+// (first) story only: while the story
 // hovers it wears a "customer-value focused" tag; once it has splashed onto
 // the product, the whole wall is outlined as "whole-product focused" while
 // the developers assimilate the splash. The general story beats stay
@@ -51,13 +52,21 @@ export const productWobbleBeat = (sec: number): Pose => {
 	const draw = between(sec, DRAW.from, DRAW.to);
 	return withOutline(wobbleBeat(sec), draw > 0 ? wholeProductOutline(draw, sec) : undefined);
 };
-export const productAssimilateBeat = (sec: number): Pose => withOutline(assimilateBeat(sec), wholeProductOutline(1, WOBBLE_SECONDS + sec));
+// While the developers assimilate the splash, it is judgment-intensive.
+const JUDGMENT_POP = { from: 0.3, to: 1.3 };
+export const withJudgment = (pose: Pose, show: number, bob: number, fade = 1): Pose =>
+	show > 0 && fade > 0 ? { ...pose, judgment: withoutUndefined({ show, bob, fade: unless(fade, 1) }) } : pose;
+
+export const productAssimilateBeat = (sec: number): Pose =>
+	withJudgment(withOutline(assimilateBeat(sec), wholeProductOutline(1, WOBBLE_SECONDS + sec)), between(sec, JUDGMENT_POP.from, JUDGMENT_POP.to), sec);
 export const productCoherentBeat = (sec: number): Pose => {
 	const opacity = 1 - between(sec, 0, 0.5);
 	const march = WOBBLE_SECONDS + ASSIMILATE_SECONDS + sec;
-	return withOutline(coherentBeat(sec), opacity > 0 ? wholeProductOutline(1, march, opacity) : undefined);
+	const coherent = withOutline(coherentBeat(sec), opacity > 0 ? wholeProductOutline(1, march, opacity) : undefined);
+	return withJudgment(coherent, 1, ASSIMILATE_SECONDS + sec, opacity);
 };
 
 // Where the wobble and assimilate beats end, for their boards.
 export const wobbleEndOutline = () => wholeProductOutline(1, lastFrameAt(WOBBLE_SECONDS));
 export const assimilateEndOutline = () => wholeProductOutline(1, WOBBLE_SECONDS + lastFrameAt(ASSIMILATE_SECONDS));
+export const assimilateEndJudgment = (pose: Pose): Pose => withJudgment(pose, 1, lastFrameAt(ASSIMILATE_SECONDS));

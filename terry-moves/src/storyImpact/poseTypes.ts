@@ -93,6 +93,7 @@ export type Pose = {
 	customer?: CustomerPose; // a customer in front of the product, feeling a story's impact
 	protect?: ProtectPose; // what keeps the product coherent: tests and the domain
 	tag?: TagPose; // a tag hanging from the story ball, naming its focus
+	judgment?: JudgmentPose; // development at work: judgment-intensive
 	// The film's end: the stage shrinks away and an end card plays on the paper.
 	stageLeave?: number; // 0 (left out) = in place, 1 = shrunk away
 	endCard?: EndCardPose;
@@ -108,6 +109,14 @@ export type EndCardPose = {
 	snap: number; // scale of the disciplined line; 0 = not there yet
 	underline: number; // 0–1: how far the underline has been ruled
 	credit: number; // pop-in scale of the credit
+};
+
+// "judgment-intensive" under the whole-product name, and "?" thought bubbles
+// bobbing over the product while the developers assimilate a splash.
+export type JudgmentPose = {
+	show: number; // 0–1: how far the label and bubbles have popped in, one after another
+	bob: number; // seconds of bobbing, for the bubbles' phase
+	fade?: number; // 0–1 opacity while they fade away; left out, fully shown
 };
 
 // A pill tag hanging on a string from the story ball.

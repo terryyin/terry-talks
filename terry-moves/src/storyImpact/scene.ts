@@ -38,6 +38,7 @@ export type {
 	CellPose,
 	DimPose,
 	GridSpot,
+	JudgmentPose,
 	OutlinePose,
 	Pose,
 	SpentPose,

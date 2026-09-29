@@ -42,9 +42,23 @@ Identity: `story-impact-animation#judgment-intensive-to-spent`
 
 ### 1. Assimilation is judgment-intensive and the judgment is spent
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 1–3 in the film specs; stills viewed; `pnpm moves test`.
 
 Behavior: given the pink story's splash → while it is assimilated → the
 "judgment-intensive" label and "?" bubbles show, then fade as it becomes
 coherent; the shields are captioned as spent judgment.
+
+Accepted proof: `pnpm moves test` passed (252 tests, lint and tsc clean).
+Stills of the assimilate, coherent and tests beats (frames 900–1140) viewed:
+"judgment-intensive" sits under "whole-product focused", clear of the tray;
+three "?" bubbles bob over the wall and fade with the outline.
+
+## Learnings
+
+- The known "snap!" mark now also crowds a "?" bubble near the wall's left
+  edge; the final polish pass moves it.
+
+## Execution complete
+
+Product advice: retrospective skipped

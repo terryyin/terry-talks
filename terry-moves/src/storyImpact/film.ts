@@ -113,7 +113,7 @@ export const beats: Beat[] = [
 	beat('wobble', WOBBLE_SECONDS, 'Behavior gets messy. Structure wobbles.', productWobbleBeat),
 	beat('assimilate', ASSIMILATE_SECONDS, 'Developers assimilate the splash…', productAssimilateBeat),
 	beat('coherent', COHERENT_SECONDS, '…into a coherent product, changed where it matters. No scars.', productCoherentBeat),
-	beat('tests', TESTS_SECONDS, 'Tests guard what it does…', testsBeat),
+	beat('tests', TESTS_SECONDS, 'Judgment spent: tests guard what it does…', testsBeat),
 	beat('domain', DOMAIN_SECONDS, '…and how it\'s built maps the domain.', domainBeat),
 	beat('customer', CUSTOMER_SECONDS, 'A customer feels the impact… and gets a new idea!', customerBeat),
 	beat('new-idea', NEW_IDEA_SECONDS, 'New ideas join the backlog, and it\'s reordered.', newIdeaBeat),

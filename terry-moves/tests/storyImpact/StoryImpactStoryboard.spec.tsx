@@ -27,7 +27,7 @@ describe('StoryImpactStoryboard', () => {
 			'Behavior gets messy. Structure wobbles.',
 			'Developers assimilate the splash…',
 			'…into a coherent product, changed where it matters. No scars.',
-			'Tests guard what it does…',
+			'Judgment spent: tests guard what it does…',
 			'…and how it\'s built maps the domain.',
 			'A customer feels the impact… and gets a new idea!',
 			'New ideas join the backlog, and it\'s reordered.',

@@ -9,6 +9,7 @@ import { Axes } from './axes';
 import { Splat, WobbleMarks } from './splat';
 import { StoryBall, storyCenter } from './storyBall';
 import { StoryTag } from './storyTag';
+import { Judgment } from './judgment';
 import { CaptionBar } from './caption';
 import { HistoryBox, SpentSkin } from './history';
 import { TidyMarks } from './tidyMarks';
@@ -57,6 +58,7 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => (
 		) : null}
 		<Axes showTime={pose.showTime} grow={pose.axes} timeGrow={pose.timeGrow} />
 		{pose.outlines ? <Outlines outlines={pose.outlines} /> : null}
+		{pose.judgment ? <Judgment judgment={pose.judgment} /> : null}
 		{pose.protect ? <Protect protect={pose.protect} /> : null}
 		{pose.customer ? <Customer customer={pose.customer} /> : null}
 		{pose.backlog.some((b) => b.flying) ? <FlyingBalls balls={pose.backlog} /> : null}

@@ -8,7 +8,7 @@ import {
 	storySplashes,
 	storyWishes,
 } from './scene';
-import { assimilateEndOutline, wobbleEndOutline, withOutline, withValueTag } from './focus';
+import { assimilateEndJudgment, assimilateEndOutline, wobbleEndOutline, withOutline, withValueTag } from './focus';
 import { assimilating, coherentProduct, customerHasIdea, structureMapsDomain, testsGuardBehavior, ideaInBacklog, readyForNext, storyInHistory } from './assimilation';
 
 export type Board = {
@@ -47,14 +47,14 @@ export const boards: Board[] = [
 	},
 	{
 		caption: 'Developers assimilate the splash…',
-		pose: withOutline(assimilating(), assimilateEndOutline()),
+		pose: assimilateEndJudgment(withOutline(assimilating(), assimilateEndOutline())),
 	},
 	{
 		caption: '…into a coherent product, changed where it matters. No scars.',
 		pose: coherentProduct(),
 	},
 	{
-		caption: 'Tests guard what it does…',
+		caption: 'Judgment spent: tests guard what it does…',
 		pose: testsGuardBehavior(),
 	},
 	{
