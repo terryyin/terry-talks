@@ -20,3 +20,5 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
+- [Viewers read one message at a time and see the product space change shape](../Story%20Driven/seed.md#calmer-screen-living-product) — story-impact-animation#calmer-screen-living-product
+- [Viewers learn that a story's impact delivers two values: customer value and option value](../Story%20Driven/seed.md#two-impacts-two-values) — story-impact-animation#two-impacts-two-values

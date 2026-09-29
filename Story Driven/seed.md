@@ -122,6 +122,72 @@ Terry watched the finished 88-second film, liked it, and asked for five
 improvements (6–10). All five are delivered; see the breadcrumbs. The film
 is now about 104 seconds.
 
+## Corrections after the improved film (2026-09-29)
+
+Terry watched the 104-second film. He confirmed that the History ball gets no
+judgment label and accepted the other delegated decisions, with one
+exception: when the customer reacts. He asked for the two stories below, in
+this order. Each is a non-executable candidate. For each one, **Terry** judges
+whether the film says what he means, and **representative viewers**
+(developers and product people) are the audience it must work for.
+
+<a id="calmer-screen-living-product"></a>
+### 11. Viewers read one message at a time and see the product space change shape
+
+- **For / why:** Some moments show too much at once, and the product space
+  looks frozen in size, even though real products grow and shrink.
+- **Outcome:**
+  - **One callout at a time.** The "customer-value focused" tag and the callout
+    that explains what a user story is must never be on screen together. Show
+    them one after the other so each moment carries one message. Check the
+    rest of the film for other crowded moments.
+  - **The space changes shape.** The Behavior and Structure extents (columns
+    and rows) vary across stories, mostly growing but sometimes shrinking, so
+    the product is visibly changing, not only expanding. Columns and rows may
+    change by different amounts. It **must stay pretty**: tidy and
+    deliberate, never jittery. If uneven changes look messy, use fewer and
+    calmer changes.
+- **Handed to story 12:** when the customer reacts. Terry now thinks the
+  customer should react to what they can see, the behavior, and not to internal
+  structure, which is invisible to them. The redesign of the reaction belongs
+  to the impact story.
+
+<a id="two-impacts-two-values"></a>
+### 12. Viewers learn that a story's impact delivers two values: customer value and option value
+
+- **For / why:** The film never says the word **impact**, yet impact is the
+  point of a story. Terry's idea, restated: *the goal of a story is to make an
+  impact, and the impact delivers two values.*
+  - **Customer value (business impact):** the user value delivered to the
+    user, which the user experiences.
+  - **Option value:** the impact on the product's features and structure,
+    which external users cannot see. "Option" as in a stock option or real
+    option: something you do not have yet and have not paid for, but can buy
+    later at low cost. It is not a feature, so you cannot build it directly.
+    You get it by keeping things simple, keeping doors open and, above all,
+    keeping the structure mapped to the best possible domain model. The
+    realistic need of a real user is the chance to shape behavior and
+    structure so that future stories in the domain come cheap.
+- **Outcome:** In the middle of the film (after the splat has been
+  assimilated), "impact" is named explicitly and split into the two values.
+  The customer's reaction becomes the **customer value** beat: the customer
+  experiences the behavior this story changed. Terry would rather the customer
+  did not nod at the mess. A better option to evaluate is to highlight, with a
+  boundary, the behavior this story touched, so that the customer reacts to
+  that. The coordinator decides where the reaction goes (at the splash, after
+  assimilation, or at the next story) as long as it does not break the
+  narrative. The **option value** beat shows the invisible side: the tidy,
+  domain-mapped structure makes a later story land cheaply. For example, a
+  later story splashes and is assimilated visibly faster or more smoothly
+  because it "exercises the option".
+- **Wording:** there is little room for text. Capture the spirit with the
+  fewest words and the best artistic representation, not a lecture.
+- **Relation to existing beats:** the tests-and-domain beat (story 7) and
+  "Judgment spent" already show part of this. Merge or re-caption them so
+  that option value is not said twice.
+- **Length:** the whole film may now run **2 to 2.5 minutes** (Terry,
+  2026-09-29).
+
 ## Conditional candidate
 
 <a id="authoring-improvement"></a>
