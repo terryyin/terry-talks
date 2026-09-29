@@ -17,8 +17,9 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
+- [Viewers see that a story is customer-value focused and development is whole-product focused](../Story%20Driven/seed.md#value-vs-whole-product-focus) — story-impact-animation#value-vs-whole-product-focus ([plan](quick/019-value-vs-whole-product-focus/PLAN.md))
+
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
-- [Viewers see that a story is customer-value focused and development is whole-product focused](../Story%20Driven/seed.md#value-vs-whole-product-focus) — story-impact-animation#value-vs-whole-product-focus
 - [Viewers see that assimilation is judgment-intensive and leaves spent judgment in the product](../Story%20Driven/seed.md#judgment-intensive-to-spent) — story-impact-animation#judgment-intensive-to-spent
