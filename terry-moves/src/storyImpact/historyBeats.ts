@@ -131,5 +131,4 @@ export const nextBeatOf: StoryBeat = (spec, before) => (sec) => {
 };
 
 const pink = pinkAfterIdea();
-export const historyBeat = historyBeatOf(pinkStory, pink);
 export const nextBeat = nextBeatOf(pinkStory, pink);

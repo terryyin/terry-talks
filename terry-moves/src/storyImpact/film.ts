@@ -9,9 +9,10 @@ import { clamp01, FPS } from './motion';
 import { backlogBeat, FLIGHT_SECONDS, splatBeat } from './storyBeats';
 import { ASSIMILATE_SECONDS, WOBBLE_SECONDS } from './productBeats';
 import { FOCUS_SECONDS, productAssimilateBeat, productCoherentBeat, productWobbleBeat, valueFlightBeat, valueFocusBeat, valueFuzzyBeat, valueWishBeat } from './focus';
-import { HISTORY_SECONDS, historyBeat, NEXT_SECONDS, nextBeat } from './historyBeats';
-import { DOMAIN_SECONDS, domainBeat, TESTS_SECONDS, testsBeat } from './protectBeats';
-import { CUSTOMER_SECONDS, customerBeat, NEW_IDEA_SECONDS, newIdeaBeat } from './customerBeats';
+import { HISTORY_SECONDS, NEXT_SECONDS, nextBeat } from './historyBeats';
+import { DOMAIN_SECONDS, TESTS_SECONDS } from './protectBeats';
+import { CUSTOMER_SECONDS, NEW_IDEA_SECONDS } from './customerBeats';
+import { customerValueBeat, IMPACT_SECONDS, impactBeat, newIdeaValueBeat, optionDomainBeat, optionTestsBeat, pinkHistoryBeat } from './valueBeats';
 
 export { FPS, WOBBLE_SECONDS };
 
@@ -114,11 +115,12 @@ export const beats: Beat[] = [
 	beat('wobble', WOBBLE_SECONDS, 'Behavior gets messy. Structure wobbles.', productWobbleBeat),
 	beat('assimilate', ASSIMILATE_SECONDS, 'Developers assimilate the splash…', productAssimilateBeat),
 	beat('coherent', COHERENT_SECONDS, '…into a coherent product, changed where it matters. No scars.', productCoherentBeat),
-	beat('tests', TESTS_SECONDS, 'Judgment spent: tests guard what it does…', testsBeat),
-	beat('domain', DOMAIN_SECONDS, '…and how it\'s built maps the domain.', domainBeat),
-	beat('customer', CUSTOMER_SECONDS, 'A customer feels the impact… and gets a new idea!', customerBeat),
-	beat('new-idea', NEW_IDEA_SECONDS, 'New ideas join the backlog, and it\'s reordered.', newIdeaBeat),
-	beat('history', HISTORY_SECONDS, 'The spent story goes to history. Available, but out of the way.', historyBeat),
+	beat('impact', IMPACT_SECONDS, 'A story\'s goal is an impact, with two values.', impactBeat),
+	beat('customer', CUSTOMER_SECONDS, 'Customer value: people feel the new behavior…', customerValueBeat),
+	beat('new-idea', NEW_IDEA_SECONDS, '…and bring new ideas. The backlog is reordered.', newIdeaValueBeat),
+	beat('tests', TESTS_SECONDS, 'Option value, unseen by users: judgment spent on tests…', optionTestsBeat),
+	beat('domain', DOMAIN_SECONDS, '…and on a structure that maps the domain.', optionDomainBeat),
+	beat('history', HISTORY_SECONDS, 'The spent story goes to history. Available, but out of the way.', pinkHistoryBeat),
 	beat('next', NEXT_SECONDS, 'Ready for the next story.', nextBeat),
 ];
 

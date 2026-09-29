@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { beatRange, beats, captionAt, filmDurationInFrames, FPS, poseAt } from '@/storyImpact/film';
 import { flightPoint, wallPoint } from '@/storyImpact/layout';
 import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storySplashes, wallExtentOf } from '@/storyImpact/scene';
-import { coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory, structureMapsDomain, testsGuardBehavior } from '@/storyImpact/assimilation';
+import { coherentProduct, readyForNext, storyInHistory } from '@/storyImpact/assimilation';
 import { boardNamed, boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
@@ -29,18 +29,19 @@ describe('StoryImpactOneSplash', () => {
 			'wobble',
 			'assimilate',
 			'coherent',
-			'tests',
-			'domain',
+			'impact',
 			'customer',
 			'new-idea',
+			'tests',
+			'domain',
 			'history',
 			'next',
 		]);
 	});
 
-	test('the whole film lasts between 30 and 50 seconds', () => {
+	test('the whole film lasts between 30 and 60 seconds', () => {
 		expect(filmDurationInFrames).toBeGreaterThanOrEqual(30 * FPS);
-		expect(filmDurationInFrames).toBeLessThanOrEqual(50 * FPS);
+		expect(filmDurationInFrames).toBeLessThanOrEqual(60 * FPS);
 	});
 
 	test('every storyboard caption from the wish on shows in beat order, each for at least 2.5 s', () => {
@@ -260,8 +261,8 @@ describe('StoryImpactOneSplash', () => {
 			unmount();
 		});
 
-		test('the test shields are captioned as spent judgment', () => {
-			framesOf('tests').forEach((f) => expect(captionAt(f)).toBe('Judgment spent: tests guard what it does…'));
+		test('the test shields are captioned as spent judgment, bought as option value', () => {
+			framesOf('tests').forEach((f) => expect(captionAt(f)).toBe('Option value, unseen by users: judgment spent on tests…'));
 		});
 
 		test('the spent story goes to History with no judgment label', () => {
@@ -274,35 +275,81 @@ describe('StoryImpactOneSplash', () => {
 		});
 	});
 
-	describe('tests guard the behavior and the structure maps the domain', () => {
-		test('the tests beat ends on the tests board, the domain beat on the domain board', () => {
-			expect(poseAt(lastFrame('tests'))).toEqual(testsGuardBehavior());
-			expect(poseAt(lastFrame('domain'))).toEqual(structureMapsDomain());
+	describe("the story's impact delivers customer value and option value", () => {
+		const valuesAt = (f: number) => poseAt(f).values;
+
+		test('"impact!" bursts over the coherent product, and two value pills spring out of it', () => {
+			framesOf('impact').forEach((f) => {
+				expect(captionAt(f)).toBe("A story's goal is an impact, with two values.");
+				expect(poseAt(f).cells).toEqual(coherentProduct().cells);
+			});
+			const bursts = framesOf('impact').map((f) => valuesAt(f)?.burst ?? 0);
+			expect(Math.max(...bursts)).toBeGreaterThan(1); // pops with overshoot
+			expect(valuesAt(lastFrame('impact'))).toEqual({ spring: 1, customer: 1, option: 1 });
+			expect(poseAt(lastFrame('impact'))).toEqual(boardNamed('impact').pose);
+			const { getByTestId, unmount } = render(<StoryImpactScene pose={poseAt(framesOf('impact')[45])} caption="" />);
+			expect(getByTestId('impact-burst')).toHaveTextContent('impact!');
+			unmount();
+			const pills = render(<StoryImpactScene pose={poseAt(lastFrame('impact'))} caption="" />);
+			expect(pills.getByTestId('customer-value')).toHaveTextContent('customer value');
+			expect(pills.getByTestId('option-value')).toHaveTextContent('option value');
+			expect(pills.queryByTestId('impact-burst')).toBeNull();
+			pills.unmount();
 		});
 
-		test('a shield guards every Behavior column, then every Structure row links to its own domain concept', () => {
-			const shields = render(<StoryImpactScene pose={testsGuardBehavior()} caption="" />);
+		test('customer value: the customer sees the outlined behavior the story touched, loves it, and gets an idea', () => {
+			const frames = framesOf('customer');
+			frames.forEach((f) => expect(poseAt(f).cells).toEqual(coherentProduct().cells));
+			const end = poseAt(lastFrame('customer'));
+			expect(end).toEqual(boardNamed('customer').pose);
+			const bandCols = end.outlines!.map((o) => [...new Set(o.cells.map((c) => c.col))]);
+			expect(bandCols).toEqual([[1, 2], [4]]);
+			end.outlines!.forEach((o) => expect(o.together).toBe(true));
+			expect(end.customer).toMatchObject({ bulb: 1, hearts: 1 });
+			expect(end.values).toMatchObject({ customer: 1, option: 0.35 });
+			const heartsAt = frames.findIndex((f) => (poseAt(f).customer?.hearts ?? 0) > 0);
+			const bulbAt = frames.findIndex((f) => (poseAt(f).customer?.bulb ?? 0) > 0);
+			const bandsDrawn = frames.findIndex((f) => poseAt(f).outlines?.[0].draw === 1);
+			const customerAt = frames.findIndex((f) => poseAt(f).customer);
+			expect(bandsDrawn).toBeLessThanOrEqual(customerAt); // the behavior is outlined before the customer looks
+			expect(heartsAt).toBeLessThan(bulbAt);
+		});
+
+		test('no customer before the product is coherent, and none while option value is shown', () => {
+			const withCustomer = Array.from({ length: filmDurationInFrames }, (_, f) => f).filter((f) => poseAt(f).customer);
+			const allowed = new Set([...framesOf('customer'), ...framesOf('new-idea')]);
+			withCustomer.forEach((f) => expect({ f, allowed: allowed.has(f) }).toEqual({ f, allowed: true }));
+		});
+
+		test('the idea joins the backlog second while the bands fade', () => {
+			expect(poseAt(lastFrame('new-idea'))).toEqual(boardNamed('new-idea').pose);
+			expect(poseAt(lastFrame('new-idea')).outlines).toBeUndefined();
+			expect(poseAt(lastFrame('new-idea')).backlog.map((b) => b.id)).toEqual(['sun', 'idea', 'lime', 'grape']);
+		});
+
+		test('option value: the shields and domain links pop while the option pill is in focus', () => {
+			expect(poseAt(lastFrame('tests'))).toEqual(boardNamed('tests').pose);
+			expect(poseAt(lastFrame('domain'))).toEqual(boardNamed('domain').pose);
+			[...framesOf('tests'), ...framesOf('domain')].forEach((f) => expect(poseAt(f).customer).toBeUndefined());
+			expect(valuesAt(lastFrame('tests'))).toMatchObject({ customer: 0.35, option: 1 });
+			framesOf('domain').forEach((f) => expect(captionAt(f)).toBe('…and on a structure that maps the domain.'));
+			const shields = render(<StoryImpactScene pose={boardNamed('tests').pose} caption="" />);
 			expect(shields.getAllByTestId('test-shield')).toHaveLength(5);
 			expect(shields.queryAllByTestId('domain-chip')).toHaveLength(0);
 			shields.unmount();
-			const { getAllByTestId } = render(<StoryImpactScene pose={structureMapsDomain()} caption="" />);
+			const { getAllByTestId } = render(<StoryImpactScene pose={boardNamed('domain').pose} caption="" />);
 			expect(getAllByTestId('test-shield')).toHaveLength(5);
 			expect(getAllByTestId('domain-chip')).toHaveLength(4);
 			expect(new Set(getAllByTestId('domain-link').map((l) => l.getAttribute('data-row')))).toEqual(new Set(['0', '1', '2', '3']));
 		});
 
-		test('the product does not change, and the shields and links are gone once the customer is there', () => {
-			[...framesOf('tests'), ...framesOf('domain'), ...framesOf('customer')].forEach((f) => expect(poseAt(f).cells).toEqual(coherentProduct().cells));
-			framesOf('customer')
-				.filter((f) => (poseAt(f).customer!.show ?? 1) >= 0.5)
-				.forEach((f) => expect(poseAt(f).protect).toBeUndefined());
+		test('the pills, shields and links fade as the spent story sets off', () => {
+			const lifted = framesOf('history').filter((f) => poseAt(f).spent && (poseAt(f).spent!.peel ?? 1) > 0);
+			lifted.forEach((f) => {
+				expect(poseAt(f).values).toBeUndefined();
+				expect(poseAt(f).protect).toBeUndefined();
+			});
 		});
-	});
-
-	test('the customer beat ends on the customer board, the new-idea beat on the idea board', () => {
-		expect(poseAt(lastFrame('customer'))).toEqual(customerHasIdea());
-		expect(poseAt(lastFrame('new-idea'))).toEqual(ideaInBacklog());
-		expect(poseAt(firstFrame('history')).backlog.map((b) => b.id)).toEqual(ideaInBacklog().backlog.map((b) => b.id));
 	});
 
 	describe('the spent story drifts into history and the next story steps up', () => {

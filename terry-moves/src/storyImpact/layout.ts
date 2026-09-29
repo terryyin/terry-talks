@@ -158,6 +158,16 @@ export const flightPoint = (t: number, impact: GridSpot = IMPACT): Point => {
 	};
 };
 
+// From one point to another along a gentle arc bulging to the right.
+export const lerpPointOnArc = (from: Point, to: Point, t: number): Point => {
+	const bend = { x: (from.x + to.x) / 2 + 150, y: (from.y + to.y) / 2 };
+	const u = 1 - t;
+	return {
+		x: u * u * from.x + 2 * u * t * bend.x + t * t * to.x,
+		y: u * u * from.y + 2 * u * t * bend.y + t * t * to.y,
+	};
+};
+
 // Where the ending's outline names go: in the free space above the tray.
 export const OUTLINE_LABEL: Point = { x: 720, y: 300 };
 

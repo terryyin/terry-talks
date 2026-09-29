@@ -147,9 +147,10 @@ describe('StoryImpactFilm', () => {
 		const customers = framesOf('customer').map((f) => poseAt(f).customer);
 
 		test('a customer appears in front of the coherent product, nods, and a light bulb pops', () => {
-			expect(customers[0]!.show ?? 1).toBeLessThan(0.2);
-			expect(Math.max(...customers.map((c) => c!.nod ?? 0))).toBeGreaterThan(0.9);
-			expect(customers[customers.length - 1]).toEqual({ bulb: 1 });
+			const shown = customers.filter((c) => c !== undefined);
+			expect(customers[0]).toBeUndefined();
+			expect(Math.max(...shown.map((c) => c!.nod ?? 0))).toBeGreaterThan(0.9);
+			expect(customers[customers.length - 1]).toEqual({ bulb: 1, hearts: 1 });
 			framesOf('customer').forEach((f) => expect(poseAt(f).cells).toEqual(poseAt(lastFrame('coherent')).cells));
 			const { getByTestId, unmount } = renderFrame(lastFrame('customer'));
 			expect(getByTestId('customer')).toContainElement(getByTestId('light-bulb'));

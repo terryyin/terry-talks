@@ -15,6 +15,7 @@ import { HistoryBox, SpentSkin } from './history';
 import { TidyMarks } from './tidyMarks';
 import { Title } from './title';
 import { Dim, Outlines } from './outline';
+import { Values } from './values';
 
 // The History box pops up from its bottom middle.
 const HISTORY_POP_FROM = { x: (HISTORY_BOX.left + HISTORY_BOX.right) / 2, y: HISTORY_BOX.bottom };
@@ -64,6 +65,7 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => {
 		{pose.judgment ? <Judgment judgment={pose.judgment} /> : null}
 		{pose.protect ? <Protect protect={pose.protect} columns={wall.columns} /> : null}
 		{pose.customer ? <Customer customer={pose.customer} /> : null}
+		{pose.values ? <Values values={pose.values} /> : null}
 		{pose.backlog.some((b) => b.flying) ? <FlyingBalls balls={pose.backlog} /> : null}
 		{pose.tag && pose.story ? <StoryTag tag={pose.tag} ball={storyCenter(pose.story)} r={pose.story.ball.size} /> : null}
 		{pose.story ? <StoryBall story={pose.story} /> : null}

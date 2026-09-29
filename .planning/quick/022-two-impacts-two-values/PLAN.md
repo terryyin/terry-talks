@@ -64,7 +64,7 @@ Identity: `story-impact-animation#two-impacts-two-values`
 
 ### 1. The first story's impact delivers customer value and option value
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 1–3 in the film specs; stills viewed; `pnpm moves test`.
 
 Behavior: given the pink story coherent → the film plays on → "impact!"

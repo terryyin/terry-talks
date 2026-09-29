@@ -1,10 +1,9 @@
 // What keeps the product coherent once the story is assimilated: first a
 // test shield pops onto every Behavior column, then each Structure row is
-// linked to a domain concept. Each beat ends on its storyboard board; the
-// customer beat fades them away.
+// linked to a domain concept: the option value a story leaves behind.
 
 import { Easing } from 'remotion';
-import { pinkBefore, pinkStory, Pose, StoryBefore, StorySpec } from './scene';
+import { Pose, StoryBefore, StorySpec } from './scene';
 import { coherentProductOf } from './assimilation';
 import { between } from './motion';
 
@@ -23,6 +22,3 @@ export const domainBeatOf = (spec: StorySpec, before: StoryBefore) => (sec: numb
 	protect: { shields: 1, links: tidily(sec, 0.1, 1.6) },
 });
 
-const pink = pinkBefore();
-export const testsBeat = testsBeatOf(pinkStory, pink);
-export const domainBeat = domainBeatOf(pinkStory, pink);

@@ -98,6 +98,7 @@ export type Pose = {
 	protect?: ProtectPose; // what keeps the product coherent: tests and the domain
 	tag?: TagPose; // a tag hanging from the story ball, naming its focus
 	judgment?: JudgmentPose; // development at work: judgment-intensive
+	values?: ValuesPose; // the story's impact and the two values it delivers
 	// The film's end: the stage shrinks away and an end card plays on the paper.
 	stageLeave?: number; // 0 (left out) = in place, 1 = shrunk away
 	endCard?: EndCardPose;
@@ -123,6 +124,18 @@ export type JudgmentPose = {
 	fade?: number; // 0–1 opacity while they fade away; left out, fully shown
 };
 
+// The story's impact, named: an "impact!" burst out of which two value pills
+// spring to their places. Each pill's number is its opacity: 1 in focus, less
+// while the other one is, 0 not shown.
+export type ValuesPose = {
+	burst?: number; // pop-in scale of the burst; left out, no burst
+	burstFade?: number; // 0–1 opacity while the burst fades; left out, fully shown
+	spring: number; // 0–1: how far the pills have sprung from the burst to their places
+	customer: number;
+	option: number;
+	glint?: number; // 0–1: the option's key glints as the option pays off
+};
+
 // A pill tag hanging on a string from the story ball.
 export type TagPose = {
 	text: string;
@@ -145,6 +158,7 @@ export type CustomerPose = {
 	show?: number; // pop-in scale around the feet; 0 = not there yet
 	nod?: number; // 0–1: how far the head dips forward
 	bulb: number; // pop-in scale of the light bulb over the head; 0 = no idea yet
+	hearts?: number; // pop-in scale of the hearts over the head: they love what they see
 };
 
 // A dashed outline over product cells: around each cell on its own, or

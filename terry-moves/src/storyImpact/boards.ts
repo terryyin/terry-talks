@@ -9,7 +9,14 @@ import {
 	storyWishes,
 } from './scene';
 import { assimilateEndJudgment, assimilateEndOutline, focusBoard, wobbleEndOutline } from './focus';
-import { assimilating, coherentProduct, customerHasIdea, structureMapsDomain, testsGuardBehavior, ideaInBacklog, readyForNext, storyInHistory } from './assimilation';
+import { assimilating, coherentProduct, readyForNext, storyInHistory } from './assimilation';
+import { customerValueBeat, IMPACT_SECONDS, impactBeat, newIdeaValueBeat, optionDomainBeat, optionTestsBeat } from './valueBeats';
+import { CUSTOMER_SECONDS, NEW_IDEA_SECONDS } from './customerBeats';
+import { DOMAIN_SECONDS, TESTS_SECONDS } from './protectBeats';
+import { lastFrameAt } from './motion';
+
+// The pose a beat ends on.
+const endOf = (beat: (sec: number) => Pose, seconds: number): Pose => beat(lastFrameAt(seconds));
 
 export type Board = {
 	name: string; // the film beat that ends on this board
@@ -69,24 +76,29 @@ export const boards: Board[] = [
 		pose: coherentProduct(),
 	},
 	{
-		name: 'tests',
-		caption: 'Judgment spent: tests guard what it does…',
-		pose: testsGuardBehavior(),
-	},
-	{
-		name: 'domain',
-		caption: '…and how it\'s built maps the domain.',
-		pose: structureMapsDomain(),
+		name: 'impact',
+		caption: 'A story\'s goal is an impact, with two values.',
+		pose: endOf(impactBeat, IMPACT_SECONDS),
 	},
 	{
 		name: 'customer',
-		caption: 'A customer feels the impact… and gets a new idea!',
-		pose: customerHasIdea(),
+		caption: 'Customer value: people feel the new behavior…',
+		pose: endOf(customerValueBeat, CUSTOMER_SECONDS),
 	},
 	{
 		name: 'new-idea',
-		caption: 'New ideas join the backlog, and it\'s reordered.',
-		pose: ideaInBacklog(),
+		caption: '…and bring new ideas. The backlog is reordered.',
+		pose: endOf(newIdeaValueBeat, NEW_IDEA_SECONDS),
+	},
+	{
+		name: 'tests',
+		caption: 'Option value, unseen by users: judgment spent on tests…',
+		pose: endOf(optionTestsBeat, TESTS_SECONDS),
+	},
+	{
+		name: 'domain',
+		caption: '…and on a structure that maps the domain.',
+		pose: endOf(optionDomainBeat, DOMAIN_SECONDS),
 	},
 	{
 		name: 'history',

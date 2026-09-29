@@ -31,8 +31,40 @@ const Bulb: React.FC<{ scale: number }> = ({ scale }) => {
 	);
 };
 
+const HEART = '#FF5DA2';
+const heartPath = (x: number, y: number, s: number): string =>
+	`M${x},${y + s * 0.9} C${x - s * 1.4},${y - s * 0.1} ${x - s * 0.7},${y - s * 1.1} ${x},${y - s * 0.35} C${x + s * 0.7},${y - s * 1.1} ${x + s * 1.4},${y - s * 0.1} ${x},${y + s * 0.9} Z`;
+
+// Little hearts beside the head, toward the product.
+const HEARTS = [
+	{ dx: -64, dy: -40, s: 15 },
+	{ dx: 84, dy: 6, s: 11 },
+	{ dx: 60, dy: -46, s: 12 },
+];
+const Hearts: React.FC<{ scale: number }> = ({ scale }) => {
+	const head = customerHead();
+	return (
+		<g data-testid="customer-hearts">
+			{HEARTS.map(({ dx, dy, s }, i) => {
+				const at = { x: head.x + dx, y: head.y + dy };
+				return (
+					<path
+						key={i}
+						d={heartPath(at.x, at.y, s)}
+						transform={scale === 1 ? undefined : scaleAround(at, scale, scale)}
+						fill={HEART}
+						stroke={palette.ink}
+						strokeWidth={4}
+						strokeLinejoin="round"
+					/>
+				);
+			})}
+		</g>
+	);
+};
+
 export const Customer: React.FC<{ customer: CustomerPose }> = ({ customer }) => {
-	const { show = 1, nod = 0, bulb } = customer;
+	const { show = 1, nod = 0, bulb, hearts = 0 } = customer;
 	if (show <= 0) return null;
 	const { x, feet, headR: r } = CUSTOMER;
 	const head = customerHead();
@@ -64,8 +96,9 @@ export const Customer: React.FC<{ customer: CustomerPose }> = ({ customer }) => 
 					strokeWidth={4}
 					strokeLinejoin="round"
 				/>
-				<Face x={head.x - 7} y={head.y + 4} r={r * 0.9} mood={bulb > 0 ? 'gleeful' : 'smile'} />
+				<Face x={head.x - 7} y={head.y + 4} r={r * 0.9} mood={bulb > 0 || hearts > 0 ? 'gleeful' : 'smile'} />
 			</g>
+			{hearts > 0 ? <Hearts scale={hearts} /> : null}
 			{bulb > 0 ? <Bulb scale={bulb} /> : null}
 		</g>
 	);

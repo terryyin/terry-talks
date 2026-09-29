@@ -107,7 +107,7 @@ export const tagShown = (outline: OutlinePose): number =>
 // it and a pointer to the outline.
 const Tag: React.FC<{ outline: OutlinePose }> = ({ outline }) => {
 	const s = pop(tagShown(outline));
-	if (s <= 0 || (outline.labelShow !== undefined && outline.labelShow <= 0)) return null;
+	if (outline.label === '' || s <= 0 || (outline.labelShow !== undefined && outline.labelShow <= 0)) return null;
 	const p = outline.at ?? OUTLINE_LABEL;
 	const { tags } = outline;
 	const x0 = p.x - ((tags.length - 1) * TAG_STEP) / 2;

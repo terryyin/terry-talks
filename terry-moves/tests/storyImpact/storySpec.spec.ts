@@ -31,7 +31,7 @@ import {
 } from '@/storyImpact/assimilation';
 import { flightBeat, flightBeatOf, splatBeat, splatBeatOf, wishBeat, wishBeatOf } from '@/storyImpact/storyBeats';
 import { assimilateBeat, assimilateBeatOf, coherentBeat, coherentBeatOf, wobbleBeat, wobbleBeatOf } from '@/storyImpact/productBeats';
-import { historyBeat, historyBeatOf, nextBeat, nextBeatOf } from '@/storyImpact/historyBeats';
+import { historyBeatOf, nextBeat, nextBeatOf } from '@/storyImpact/historyBeats';
 
 const pinkFromScratch = () => ({ cells: tidyCells(), history: [], backlog: laterStories });
 
@@ -63,10 +63,7 @@ describe('story poses built from any story and the product before it', () => {
 			[assimilateBeatOf, assimilateBeat],
 			[coherentBeatOf, coherentBeat],
 		] as const;
-		const afterIdea = [
-			[historyBeatOf, historyBeat],
-			[nextBeatOf, nextBeat],
-		] as const;
+		const afterIdea = [[nextBeatOf, nextBeat]] as const;
 		const secs = [0, 0.5, 1.2, 2.4, 3.5];
 		for (const [general, pink] of pairs) {
 			const beat = general(pinkStory, before);

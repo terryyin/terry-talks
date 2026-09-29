@@ -1,41 +1,74 @@
-// The story's other impact: out in the world. Once the product is coherent,
-// a customer pops up in front of it, looks at the change and nods, and a
-// light bulb pops over their head. Then the new idea springs out of the bulb
-// and bounces into the tray as the second ball, while the two balls behind
-// it swap places, and the customer leaves. Each beat ends on its storyboard
-// board.
+// Customer value: once the product is coherent, the Behavior the story
+// touched is outlined, and a customer pops up in front of it — they see the
+// behavior, never the structure — hearts pop, they nod, and a light bulb
+// pops over their head. Then the new idea springs out of the bulb and
+// bounces into the tray as the second ball, while the two balls behind it
+// swap places, and the customer leaves.
 
 import { Easing } from 'remotion';
-import { BallPose, ideaBall, pinkBefore, pinkStory, Pose, StoryBefore, StorySpec, withIdea } from './scene';
+import { BallPose, extentOf, GridSpot, ideaBall, OutlinePose, palette, Pose, StoryBefore, StorySpec, withIdea } from './scene';
 import { coherentProductOf } from './assimilation';
 import { ideaFlightPoint, traySpot } from './layout';
-import { between, hopping, jelly, lerp, unless, withoutUndefined } from './motion';
+import { between, hopping, jelly, lastFrameAt, lerp, unless, withoutUndefined } from './motion';
 
-export const CUSTOMER_SECONDS = 3;
+export const CUSTOMER_SECONDS = 3.5;
 export const NEW_IDEA_SECONDS = 3;
 
 // Two nods, each a quick dip and back.
 const NODS = [
-	{ from: 0.9, to: 1.3 },
-	{ from: 1.4, to: 1.85 },
+	{ from: 1.7, to: 2.1 },
+	{ from: 2.2, to: 2.6 },
 ];
 const nodAt = (sec: number): number => {
 	const nod = NODS.find((n) => sec >= n.from && sec < n.to);
 	return nod ? Math.sin(Math.PI * between(sec, nod.from, nod.to)) : 0;
 };
 
-const BULB_POP = { from: 2.0, to: 2.4 };
+const BULB_POP = { from: 2.8, to: 3.2 };
+const SHOW = { from: 0.75, to: 1.15 };
+const HEARTS = { from: 1.2, to: 1.6 };
+const BANDS = { from: 0.1, to: 0.75 };
+const MARCH_SPEED = 28; // px per second
 
-// The customer pops up, nods at the product, and a light bulb pops over them.
-// The tests and domain links fade as they appear.
+// The Behavior columns a story touched, adjacent ones together in one band.
+export const touchedBehaviorOf = (spec: StorySpec, before: StoryBefore): GridSpot[][] => {
+	const { rows } = extentOf(coherentProductOf(spec, before).cells);
+	const cols = [...new Set([...spec.changed, spec.reorganized].map((c) => c.col))].sort((a, b) => a - b);
+	const runs = cols.reduce<number[][]>((all, col) => {
+		const last = all[all.length - 1];
+		return last && last[last.length - 1] === col - 1 ? [...all.slice(0, -1), [...last, col]] : [...all, [col]];
+	}, []);
+	return runs.map((run) => run.flatMap((col) => Array.from({ length: rows }, (_, row) => ({ col, row }))));
+};
+
+// Green dashed boundaries around the touched Behavior, with no name: the
+// customer-value pill names it.
+export const behaviorBands = (spec: StorySpec, before: StoryBefore, draw: number, sec: number, opacity = 1): OutlinePose[] =>
+	touchedBehaviorOf(spec, before).map((cells) =>
+		withoutUndefined({
+			cells,
+			color: palette.behavior,
+			together: true,
+			draw,
+			march: MARCH_SPEED * sec,
+			opacity: unless(opacity, 1),
+			label: '',
+			pointAt: cells[0],
+			tags: [],
+		}),
+	);
+
+// The customer pops up in front of the outlined behavior, hearts pop, they
+// nod, and a light bulb pops over them.
 export const customerBeatOf = (spec: StorySpec, before: StoryBefore) => (sec: number): Pose => {
-	const show = between(sec, 0.25, 0.7, Easing.out(Easing.back(1.8)));
+	const show = between(sec, SHOW.from, SHOW.to, Easing.out(Easing.back(1.8)));
+	const hearts = between(sec, HEARTS.from, HEARTS.to, Easing.out(Easing.back(2.6)));
 	const bulb = between(sec, BULB_POP.from, BULB_POP.to, Easing.out(Easing.back(2.6)));
-	const fade = 1 - between(sec, 0, 0.25);
+	const draw = between(sec, BANDS.from, BANDS.to);
 	return withoutUndefined({
 		...coherentProductOf(spec, before),
-		protect: fade > 0 ? { shields: 1, links: 1, fade: unless(fade, 1) } : undefined,
-		customer: withoutUndefined({ show: unless(show, 1), nod: unless(nodAt(sec), 0), bulb }),
+		outlines: draw > 0 ? behaviorBands(spec, before, draw, sec) : undefined,
+		customer: sec > SHOW.from ? withoutUndefined({ show: unless(show, 1), nod: unless(nodAt(sec), 0), bulb, hearts: unless(hearts, 0) }) : undefined,
 	});
 };
 
@@ -53,8 +86,11 @@ export const newIdeaBeatOf = (spec: StorySpec, before: StoryBefore) => (sec: num
 	const after = withIdea(before.backlog, ideaBall);
 	const base = coherentProductOf(spec, before);
 	const leave = between(sec, LEAVE.from, LEAVE.to, Easing.in(Easing.back(1.6)));
-	const customer = leave >= 1 ? undefined : withoutUndefined({ show: unless(1 - leave, 1), bulb: 1 });
-	if (sec < QUEUE.from) return withoutUndefined({ ...base, customer });
+	const customer = leave >= 1 ? undefined : withoutUndefined({ show: unless(1 - leave, 1), bulb: 1, hearts: 1 });
+	// The bands fade as the idea takes off.
+	const bandsFade = 1 - between(sec, 0, 0.4);
+	const outlines = bandsFade > 0 ? behaviorBands(spec, before, 1, lastFrameAt(CUSTOMER_SECONDS) + sec, bandsFade) : undefined;
+	if (sec < QUEUE.from) return withoutUndefined({ ...base, customer, outlines });
 
 	const move = between(sec, QUEUE.from, QUEUE.to, Easing.inOut(Easing.cubic));
 	const flight = between(sec, FLIGHT.from, FLIGHT.to, Easing.inOut(Easing.quad));
@@ -84,9 +120,6 @@ export const newIdeaBeatOf = (spec: StorySpec, before: StoryBefore) => (sec: num
 		const hop = i > old + 1 && move < 1 ? SWAP_HOP * Math.sin(Math.PI * move) : 0;
 		return withoutUndefined({ ...ball, dx: unless(dx, 0), hop: unless(hop, 0) });
 	});
-	return withoutUndefined({ ...base, backlog, customer });
+	return withoutUndefined({ ...base, backlog, customer, outlines });
 };
 
-const pink = pinkBefore();
-export const customerBeat = customerBeatOf(pinkStory, pink);
-export const newIdeaBeat = newIdeaBeatOf(pinkStory, pink);

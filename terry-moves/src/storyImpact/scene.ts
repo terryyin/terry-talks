@@ -56,6 +56,7 @@ export type {
 	StoryState,
 	TagPose,
 	TitlePose,
+	ValuesPose,
 } from './poseTypes';
 import type { BallPose, CellPose, GridSpot, Pose, SplatPose, StoryBefore, StoryPose, StorySpec, StoryState } from './poseTypes';
 
