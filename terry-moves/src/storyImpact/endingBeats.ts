@@ -7,7 +7,7 @@
 // shrinks away and the end card lands the essay's last line, like the title,
 // and credits the author.
 
-import { CellPose, GRID, GridSpot, OutlinePose, palette, pinkStory, Pose, StorySpec, storyColorsOf } from './scene';
+import { CellPose, extentOf, GridSpot, OutlinePose, palette, pinkStory, Pose, StorySpec, storyColorsOf } from './scene';
 import { storyInHistoryOf } from './assimilation';
 import { beat, Beat } from './film';
 import { nextBeatOf } from './historyBeats';
@@ -25,7 +25,7 @@ const storyCellsOf = (spec: StorySpec): GridSpot[] => [...spec.changed, spec.reo
 // The Behavior column that carries the most different stories, with their
 // colors in the order the stories were spent.
 const featureColumnOf = (cells: CellPose[], spentOrder: string[]): { col: number; colors: string[] } => {
-	const columns = Array.from({ length: GRID.columns }, (_, col) => {
+	const columns = Array.from({ length: extentOf(cells).columns }, (_, col) => {
 		const colors = new Set(cells.filter((c) => c.col === col).flatMap(storyColorsOf));
 		return { col, colors: spentOrder.filter((c) => colors.has(c)) };
 	});
@@ -36,7 +36,7 @@ const feature = featureColumnOf(
 	settled.cells,
 	settled.history!.map((b) => b.color),
 );
-const featureCells: GridSpot[] = Array.from({ length: GRID.rows }, (_, row) => ({ col: feature.col, row }));
+const featureCells: GridSpot[] = Array.from({ length: extentOf(settled.cells).rows }, (_, row) => ({ col: feature.col, row }));
 const storyCells = storyCellsOf(pinkStory);
 
 const DIM = 0.55;

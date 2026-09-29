@@ -1,6 +1,6 @@
 import React from 'react';
-import { CellPose, GRID, palette, seeded, SplatPose } from './scene';
-import type { GridSpot } from './poseTypes';
+import { CellPose, palette, seeded, SplatPose } from './scene';
+import type { Extent, GridSpot } from './poseTypes';
 import { cellCenter } from './cell';
 import { FONT_FAMILY, GRID_MARGIN, HOVER, ORIGIN, Point, scaleAround, smoothBlob, wallPoint } from './layout';
 
@@ -49,15 +49,15 @@ const dripsOf = (splat: SplatPose): Drip[] =>
 // rim). A step along Behavior moves 60 px across the edge it runs to, and a
 // step along Structure about 77 px.
 const DROP_RIM = 5.5;
-export const splatDrops = (splat: SplatPose): Drop[] =>
+export const splatDrops = (splat: SplatPose, wall: Extent): Drop[] =>
 	Array.from({ length: 9 }, (_, i) => {
 		const angle = (i / 9) * Math.PI * 2 + seeded(splat.seed + 60 + i) * 0.5;
 		const dist = splat.radius * (1.55 + 0.25 * seeded(splat.seed + 70 + i));
 		const r = 6 + 7 * seeded(splat.seed + 80 + i);
 		const pad = { col: (r + DROP_RIM) / 60, row: (r + DROP_RIM) / 77 };
 		const spot = spotAround(splat, angle, dist);
-		const col = Math.min(spot.col, GRID.columns + GRID_MARGIN.col - pad.col);
-		const row = Math.max(-GRID_MARGIN.row + pad.row, Math.min(spot.row, GRID.rows + GRID_MARGIN.row - pad.row));
+		const col = Math.min(spot.col, wall.columns + GRID_MARGIN.col - pad.col);
+		const row = Math.max(-GRID_MARGIN.row + pad.row, Math.min(spot.row, wall.rows + GRID_MARGIN.row - pad.row));
 		return { at: wallPoint(col, row), r };
 	}).filter((drop) => drop.at.x < ORIGIN.x - 24);
 
@@ -67,7 +67,7 @@ const dripPath = ({ from, length, width }: Drip): string => {
 	return `M${from.x - w},${from.y} L${from.x - w},${end} A${w},${w} 0 0 0 ${from.x + w},${end} L${from.x + w},${from.y} Z`;
 };
 
-const SplatShapes: React.FC<{ splat: SplatPose; fill: string; grow: number }> = ({ splat, fill, grow }) => {
+const SplatShapes: React.FC<{ splat: SplatPose; wall: Extent; fill: string; grow: number }> = ({ splat, wall, fill, grow }) => {
 	const blob = smoothBlob(blobShape(splat).map((p) => p.point));
 	return (
 		<g fill={fill} stroke={fill} strokeWidth={grow} strokeLinejoin="round">
@@ -78,7 +78,7 @@ const SplatShapes: React.FC<{ splat: SplatPose; fill: string; grow: number }> = 
 					<circle cx={drip.from.x} cy={drip.from.y + drip.length} r={drip.width * 0.62} />
 				</g>
 			))}
-			{splatDrops(splat).map((drop, i) => (
+			{splatDrops(splat, wall).map((drop, i) => (
 				<circle key={i} cx={drop.at.x} cy={drop.at.y} r={drop.r} />
 			))}
 		</g>
@@ -124,12 +124,13 @@ const Shout: React.FC<{ text: string; color: string; scale?: number }> = ({ text
 	);
 };
 
-export const Splat: React.FC<{ splat: SplatPose }> = ({ splat }) => {
+// `wall`: the size of the wall the paint stays on.
+export const Splat: React.FC<{ splat: SplatPose; wall: Extent }> = ({ splat, wall }) => {
 	const highlight = onWall(splat, 2.3, splat.radius * 0.55);
 	return (
 		<g data-testid="splat">
-			<SplatShapes splat={splat} fill={palette.ink} grow={11} />
-			<SplatShapes splat={splat} fill={splat.color} grow={0} />
+			<SplatShapes splat={splat} wall={wall} fill={palette.ink} grow={11} />
+			<SplatShapes splat={splat} wall={wall} fill={splat.color} grow={0} />
 			<ellipse
 				cx={highlight.x}
 				cy={highlight.y}

@@ -4,8 +4,8 @@
 // The History box sits top-left, and the band above the Time axis is kept
 // free for the ball's flight from the tray to the product.
 
-import { GRID, IMPACT } from './scene';
-import type { GridSpot } from './poseTypes';
+import { IMPACT, SPACE } from './scene';
+import type { Extent, GridSpot } from './poseTypes';
 
 export type Point = { x: number; y: number };
 
@@ -91,19 +91,22 @@ export const smoothBlob = (points: Point[]): string => {
 // How far the product wall's outline reaches beyond the cells, in grid units.
 export const GRID_MARGIN = { col: 0.15, row: 0.12 } as const;
 
-export const wallOutline = (): Point[] =>
-	quad(-GRID_MARGIN.col, GRID.columns + GRID_MARGIN.col, -GRID_MARGIN.row, GRID.rows + GRID_MARGIN.row);
+export const wallOutline = (extent: Extent): Point[] =>
+	quad(-GRID_MARGIN.col, extent.columns + GRID_MARGIN.col, -GRID_MARGIN.row, extent.rows + GRID_MARGIN.row);
 
 // Text that runs along the Behavior axis is rotated by this angle (degrees).
 export const BEHAVIOR_LABEL_ANGLE = (Math.atan2(-BEHAVIOR_STEP.y, -BEHAVIOR_STEP.x) * 180) / Math.PI;
 
-// The wall's "Product" name, along its top edge.
-const wallTopMid = centerOf([wallPoint(0, GRID.rows + GRID_MARGIN.row), wallPoint(GRID.columns, GRID.rows + GRID_MARGIN.row)]);
-export const PRODUCT_LABEL = { at: { x: wallTopMid.x - 8, y: wallTopMid.y - 22 } as Point, size: 40, text: 'Product' } as const;
+// The wall's "Product" name, along the middle of its top edge.
+export const PRODUCT_LABEL = { size: 40, text: 'Product' } as const;
+export const productLabelAt = (extent: Extent): Point => {
+	const top = centerOf([wallPoint(0, extent.rows + GRID_MARGIN.row), wallPoint(extent.columns, extent.rows + GRID_MARGIN.row)]);
+	return { x: top.x - 8, y: top.y - 22 };
+};
 
 export const AXES = {
-	behaviorEnd: wallPoint(GRID.columns + 1.2, 0),
-	structureEnd: wallPoint(0, GRID.rows + 1.35),
+	behaviorEnd: wallPoint(SPACE.columns + 1.2, 0),
+	structureEnd: wallPoint(0, SPACE.rows + 1.35),
 	timeEnd: { x: 1035, y: ORIGIN.y } as Point,
 };
 

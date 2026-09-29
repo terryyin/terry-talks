@@ -72,7 +72,7 @@ labels each show alone.
 
 ### 2. The product's size follows its cells
 Type: Structure
-Status: planned
+Status: done
 Proof: existing specs stay green with `extentOf` replacing `GRID` (still
 5 × 4 everywhere); `pnpm moves test`.
 

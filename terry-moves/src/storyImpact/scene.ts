@@ -3,7 +3,12 @@
 // Later boards (splash, mess, assimilation, history) are new poses of this
 // same model, and animation can interpolate between poses.
 
-export const GRID = { columns: 5, rows: 4 } as const;
+import type { Extent } from './poseTypes';
+
+// The product's size when the film starts, and the largest it ever gets: the
+// axes span that space, so the product can grow into it.
+export const START: Extent = { columns: 5, rows: 4 };
+export const SPACE: Extent = { columns: 5, rows: 4 };
 
 export const palette = {
 	paper: '#FFF6E5',
@@ -37,6 +42,7 @@ export type {
 	ProtectPose,
 	CellPose,
 	DimPose,
+	Extent,
 	GridSpot,
 	JudgmentPose,
 	OutlinePose,
@@ -62,10 +68,19 @@ export const plainCellColor = ({ col, row }: GridSpot): string =>
 export const storyColorsOf = (cell: CellPose): string[] =>
 	[cell.color, cell.split].filter((c): c is string => c !== undefined && c !== plainCellColor(cell));
 
+// The product's size: as far as its cells reach.
+export const extentOf = (cells: GridSpot[]): Extent => ({
+	columns: cells.reduce((n, c) => Math.max(n, c.col + 1), 0),
+	rows: cells.reduce((n, c) => Math.max(n, c.row + 1), 0),
+});
+
+// The size the wall is drawn at: its easing size, or its cells' extent.
+export const wallExtentOf = (pose: Pick<Pose, 'cells' | 'extent'>): Extent => pose.extent ?? extentOf(pose.cells);
+
 // Row by row from the ground, each row from the Structure axis outward.
-export const tidyCells = (): CellPose[] =>
-	Array.from({ length: GRID.rows * GRID.columns }, (_, i) => {
-		const spot = { col: i % GRID.columns, row: Math.floor(i / GRID.columns) };
+export const tidyCells = (extent: Extent = START): CellPose[] =>
+	Array.from({ length: extent.rows * extent.columns }, (_, i) => {
+		const spot = { col: i % extent.columns, row: Math.floor(i / extent.columns) };
 		return { ...spot, color: plainCellColor(spot), dx: 0, dy: 0, rot: 0 };
 	});
 

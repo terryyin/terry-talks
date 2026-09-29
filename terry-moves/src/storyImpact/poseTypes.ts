@@ -31,6 +31,9 @@ export type BallPose = {
 	scale?: number; // pop-in scale around its center; 0 = not there yet
 };
 
+// The product's size in grid units: Behavior columns × Structure rows.
+export type Extent = { columns: number; rows: number };
+
 // A spot on the product wall in grid units (cell (c, r) spans c..c+1, r..r+1).
 export type GridSpot = { col: number; row: number };
 
@@ -84,6 +87,7 @@ export type Pose = {
 	title?: TitlePose; // the film's title over the empty paper
 	axes?: number; // 0–1: how far the Behavior and Structure axes have grown from the origin
 	wall?: number; // pop-in scale of the product wall behind the cells; 0 = not there yet
+	extent?: Extent; // film: the wall's size while it eases to a new one; left out, the cells' extent
 	timeGrow?: number; // 0–1: how far the Time arrow has grown from the origin
 	trayIn?: number; // 0 = the backlog tray waits off stage right, 1 = in place
 	// The film's ending: parts of the product outlined to show what a story

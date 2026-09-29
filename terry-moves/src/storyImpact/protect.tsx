@@ -10,7 +10,6 @@ import { clamp01 } from './motion';
 // Structure row to a domain concept. Pure function of the pose.
 
 const pop = Easing.out(Easing.back(2.4));
-const COLUMNS = 5;
 
 const Shield: React.FC<{ at: Point; scale: number }> = ({ at, scale }) => {
 	const s = 24;
@@ -54,7 +53,8 @@ const DomainLink: React.FC<{ row: number; k: number }> = ({ row, k }) => {
 	);
 };
 
-export const Protect: React.FC<{ protect: ProtectPose }> = ({ protect }) => {
+// A shield on each of the product's `columns`.
+export const Protect: React.FC<{ protect: ProtectPose; columns: number }> = ({ protect, columns }) => {
 	const { shields, links, fade } = protect;
 	if (fade !== undefined && fade <= 0) return null;
 	const rows = DOMAIN.concepts.length;
@@ -64,8 +64,8 @@ export const Protect: React.FC<{ protect: ProtectPose }> = ({ protect }) => {
 				const k = clamp01(links * rows - row);
 				return k > 0 ? <DomainLink key={row} row={row} k={k} /> : null;
 			})}
-			{Array.from({ length: COLUMNS }, (_, col) => {
-				const k = clamp01((shields * COLUMNS - col) / 1.5);
+			{Array.from({ length: columns }, (_, col) => {
+				const k = clamp01((shields * columns - col) / 1.5);
 				return k > 0 ? <Shield key={col} at={cellCenter({ col, row: 0, dx: 0, dy: 0, rot: 0, color: '' })} scale={pop(k)} /> : null;
 			})}
 		</g>

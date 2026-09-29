@@ -6,7 +6,7 @@
 // unchanged, so later stories carry neither.
 
 import { Easing } from 'remotion';
-import { GridSpot, OutlinePose, palette, pinkStory, Pose, tidyCells } from './scene';
+import { GridSpot, OutlinePose, palette, pinkBefore, pinkStory, Pose } from './scene';
 import { flightBeat, fuzzyBeat, FUZZ_FROM, storyOf, wishBeat } from './storyBeats';
 import { storyWishes } from './scene';
 import { ASSIMILATE_SECONDS, assimilateBeat, coherentBeat, WOBBLE_SECONDS, wobbleBeat } from './productBeats';
@@ -20,7 +20,7 @@ export const withValueTag = (pose: Pose, show: number, fade = 1): Pose => ({
 	tag: withoutUndefined({ text: VALUE_FOCUS, color: pinkStory.ball.color, show, fade: unless(fade, 1) }),
 });
 
-const everyCell: GridSpot[] = tidyCells().map(({ col, row }) => ({ col, row }));
+const everyCell: GridSpot[] = pinkBefore().cells.map(({ col, row }) => ({ col, row }));
 const MARCH_SPEED = 28; // px per second
 
 export const wholeProductOutline = (draw: number, sec: number, opacity = 1, labelShow = 1): OutlinePose =>

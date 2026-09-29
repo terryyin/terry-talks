@@ -1,5 +1,5 @@
 import React from 'react';
-import { BallPose, CellPose, palette } from './scene';
+import { BallPose, CellPose, Extent, palette } from './scene';
 import { Face } from './face';
 import { ProductCell } from './cell';
 import {
@@ -8,6 +8,7 @@ import {
 	FONT_FAMILY,
 	ORIGIN,
 	PRODUCT_LABEL,
+	productLabelAt,
 	OUTLINE,
 	roundedPath,
 	scaleAround,
@@ -70,10 +71,12 @@ export const Paper: React.FC = () => (
 
 // `underCells` is paint that sits on the wall behind the cells.
 // `wall` pops the wall in from the origin while the product is built.
-export const ProductGrid: React.FC<{ cells: CellPose[]; underCells?: React.ReactNode; wall?: number }> = ({ cells, underCells, wall }) => {
+// `extent` is the wall's size in grid units.
+export const ProductGrid: React.FC<{ cells: CellPose[]; extent: Extent; underCells?: React.ReactNode; wall?: number }> = ({ cells, extent, underCells, wall }) => {
 	if (wall !== undefined && wall <= 0) return null;
 	const wallPop = wall === undefined ? undefined : scaleAround(ORIGIN, wall, wall);
-	const outline = roundedPath(wallOutline(), 18);
+	const outline = roundedPath(wallOutline(extent), 18);
+	const label = productLabelAt(extent);
 	return (
 		<g data-testid="product-grid">
 			<g transform={wallPop}>
@@ -85,7 +88,7 @@ export const ProductGrid: React.FC<{ cells: CellPose[]; underCells?: React.React
 				<ProductCell key={`${cell.col}-${cell.row}`} cell={cell} />
 			))}
 			<g transform={wallPop}>
-				<Label x={PRODUCT_LABEL.at.x} y={PRODUCT_LABEL.at.y} text={PRODUCT_LABEL.text} color={palette.ink} size={PRODUCT_LABEL.size} angle={BEHAVIOR_LABEL_ANGLE} />
+				<Label x={label.x} y={label.y} text={PRODUCT_LABEL.text} color={palette.ink} size={PRODUCT_LABEL.size} angle={BEHAVIOR_LABEL_ANGLE} />
 			</g>
 		</g>
 	);

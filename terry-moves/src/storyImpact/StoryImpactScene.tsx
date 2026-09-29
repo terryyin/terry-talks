@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pose } from './scene';
+import { Pose, wallExtentOf } from './scene';
 import { HISTORY_BOX, scaleAround, STAGE, TRAY } from './layout';
 import { BacklogTray, FlyingBalls, Paper, ProductGrid } from './pieces';
 import { Customer } from './customer';
@@ -27,7 +27,9 @@ const TRAY_SLIDE = STAGE.width - TRAY.left + 40;
 
 // Everything on stage: the product space, the backlog, History, and the
 // stories and people moving about it.
-const Stage: React.FC<{ pose: Pose }> = ({ pose }) => (
+const Stage: React.FC<{ pose: Pose }> = ({ pose }) => {
+	const wall = wallExtentOf(pose);
+	return (
 	<>
 		{pose.history ? (
 			<g transform={pose.historyReveal === undefined ? undefined : scaleAround(HISTORY_POP_FROM, pose.historyReveal, pose.historyReveal)}>
@@ -41,13 +43,14 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => (
 		) : null}
 		<ProductGrid
 			cells={pose.cells}
+			extent={wall}
 			wall={pose.wall}
-			underCells={pose.splat?.seeped ? <Splat splat={pose.splat} /> : null}
+			underCells={pose.splat?.seeped ? <Splat splat={pose.splat} wall={wall} /> : null}
 		/>
-		{pose.splat && !pose.splat.seeped ? <Splat splat={pose.splat} /> : null}
+		{pose.splat && !pose.splat.seeped ? <Splat splat={pose.splat} wall={wall} /> : null}
 		{pose.splat?.seeped && pose.splat.cover ? (
 			<g opacity={pose.splat.cover}>
-				<Splat splat={pose.splat} />
+				<Splat splat={pose.splat} wall={wall} />
 			</g>
 		) : null}
 		{pose.dim ? <Dim cells={pose.cells} dim={pose.dim} /> : null}
@@ -59,14 +62,15 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => (
 		<Axes showTime={pose.showTime} grow={pose.axes} timeGrow={pose.timeGrow} />
 		{pose.outlines ? <Outlines outlines={pose.outlines} /> : null}
 		{pose.judgment ? <Judgment judgment={pose.judgment} /> : null}
-		{pose.protect ? <Protect protect={pose.protect} /> : null}
+		{pose.protect ? <Protect protect={pose.protect} columns={wall.columns} /> : null}
 		{pose.customer ? <Customer customer={pose.customer} /> : null}
 		{pose.backlog.some((b) => b.flying) ? <FlyingBalls balls={pose.backlog} /> : null}
 		{pose.tag && pose.story ? <StoryTag tag={pose.tag} ball={storyCenter(pose.story)} r={pose.story.ball.size} /> : null}
 		{pose.story ? <StoryBall story={pose.story} /> : null}
 		{pose.spent ? <SpentSkin spent={pose.spent} /> : null}
 	</>
-);
+	);
+};
 
 // An empty caption hides the caption bar.
 export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ pose, caption }) => {

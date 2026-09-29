@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { fullFilm } from '@/storyImpact/fullFilm';
 import { FPS } from '@/storyImpact/film';
-import { Pose, StoryPose, SplatPose } from '@/storyImpact/scene';
+import { Pose, SPACE, StoryPose, SplatPose, wallExtentOf } from '@/storyImpact/scene';
 import {
 	BACKLOG_LABEL,
 	BEHAVIOR_LABEL_ANGLE,
@@ -10,6 +10,7 @@ import {
 	historySpot,
 	Point,
 	PRODUCT_LABEL,
+	productLabelAt,
 	spentShape,
 	trayBallCenter,
 	traySpot,
@@ -112,15 +113,16 @@ describe('StoryImpactFilm plays smoothly and reads at phone size', () => {
 
 	test('the spent ball drifts past the "Product" label on the wall without covering it', () => {
 		// In the label's own (unrotated) frame, the spent ball as a circle as wide as it is.
-		const label = labelBox(PRODUCT_LABEL.at, PRODUCT_LABEL.text, PRODUCT_LABEL.size);
 		const a = (-BEHAVIOR_LABEL_ANGLE * Math.PI) / 180;
-		const unrotated = ({ x, y }: Point): Point => {
-			const [dx, dy] = [x - PRODUCT_LABEL.at.x, y - PRODUCT_LABEL.at.y];
-			return { x: PRODUCT_LABEL.at.x + dx * Math.cos(a) - dy * Math.sin(a), y: PRODUCT_LABEL.at.y + dx * Math.sin(a) + dy * Math.cos(a) };
-		};
 		frames
 			.filter((f) => poses[f].spent)
 			.forEach((f) => {
+				const labelAt = productLabelAt(wallExtentOf(poses[f]));
+				const label = labelBox(labelAt, PRODUCT_LABEL.text, PRODUCT_LABEL.size);
+				const unrotated = ({ x, y }: Point): Point => {
+					const [dx, dy] = [x - labelAt.x, y - labelAt.y];
+					return { x: labelAt.x + dx * Math.cos(a) - dy * Math.sin(a), y: labelAt.y + dx * Math.sin(a) + dy * Math.cos(a) };
+				};
 				const { ball, at } = poses[f].spent!;
 				const shape = spentShape(ball.size);
 				const skin = { at: unrotated(at), r: (shape.rx + shape.ry) / 2 + 3 };
@@ -155,17 +157,22 @@ describe('StoryImpactFilm plays smoothly and reads at phone size', () => {
 	});
 
 	test('example 3: every splat droplet lies inside the product wall', () => {
-		const wall = wallOutline();
-		const splats: SplatPose[] = poses.flatMap((p) => (p.splat ? [p.splat] : []));
+		// Each splat in the film, on the wall as it is then.
+		const splats = poses.flatMap((p) => (p.splat ? [{ splat: p.splat, wall: wallExtentOf(p) }] : []));
 		expect(splats.length).toBeGreaterThan(0);
-		// Any story's splat, wherever it hits the wall.
-		for (let col = 0; col <= 5; col += 0.5) {
-			for (let row = 0; row <= 4; row += 0.5) {
-				for (let seed = 1; seed <= 30; seed += 1) splats.push({ center: { col, row }, radius: 1, color: '', seed, drip: 1, seeped: false });
+		// Any story's splat, wherever it hits the largest wall.
+		for (let col = 0; col <= SPACE.columns; col += 0.5) {
+			for (let row = 0; row <= SPACE.rows; row += 0.5) {
+				for (let seed = 1; seed <= 30; seed += 1) {
+					const splat: SplatPose = { center: { col, row }, radius: 1, color: '', seed, drip: 1, seeped: false };
+					splats.push({ splat, wall: SPACE });
+				}
 			}
 		}
-		splats.forEach((splat) =>
-			splatDrops(splat).forEach((drop) => expect({ splat, drop, inside: whollyInside(drop, wall) }).toEqual({ splat, drop, inside: true })),
+		splats.forEach(({ splat, wall }) =>
+			splatDrops(splat, wall).forEach((drop) =>
+				expect({ splat, drop, inside: whollyInside(drop, wallOutline(wall)) }).toEqual({ splat, drop, inside: true }),
+			),
 		);
 	});
 

@@ -1,10 +1,13 @@
 import { render } from '@testing-library/react';
 import { boardAt, boards } from '@/storyImpact/boards';
-import { ballColors, GRID, splatCells } from '@/storyImpact/scene';
+import { ballColors, extentOf, splatCells } from '@/storyImpact/scene';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 import { captionLines } from '@/storyImpact/caption';
 
 describe('StoryImpactStoryboard', () => {
+	const start = extentOf(boards[0].pose.cells);
+	const cellCount = start.columns * start.rows;
+
 	const renderBoard = (index: number) => {
 		const board = boards[index];
 		return render(<StoryImpactScene pose={board.pose} caption={board.caption} />);
@@ -46,7 +49,7 @@ describe('StoryImpactStoryboard', () => {
 	describe('board 1: the product space', () => {
 		test('shows the tidy product grid on Behavior and Structure', () => {
 			const { getAllByTestId, getByTestId, getByText } = renderBoard(0);
-			expect(getAllByTestId('product-cell')).toHaveLength(GRID.columns * GRID.rows);
+			expect(getAllByTestId('product-cell')).toHaveLength(cellCount);
 			expect(getByTestId('behavior-axis')).toBeInTheDocument();
 			expect(getByTestId('structure-axis')).toBeInTheDocument();
 			expect(getByText('Behavior')).toBeInTheDocument();
@@ -68,7 +71,7 @@ describe('StoryImpactStoryboard', () => {
 			expect(getByText('Time')).toBeInTheDocument();
 			expect(getByTestId('backlog-tray')).toBeInTheDocument();
 			expect(getAllByTestId('backlog-ball').length).toBeGreaterThanOrEqual(3);
-			expect(getAllByTestId('product-cell')).toHaveLength(GRID.columns * GRID.rows);
+			expect(getAllByTestId('product-cell')).toHaveLength(cellCount);
 		});
 	});
 	describe('boards 3–7: the story flies in and splashes', () => {
@@ -148,7 +151,7 @@ describe('StoryImpactStoryboard', () => {
 			expect(queryByTestId('splat')).toBeNull();
 			expect(queryAllByTestId('cell-smear')).toHaveLength(0);
 			expect(getAllByTestId('split-cell')).toHaveLength(1);
-			expect(getAllByTestId('product-cell')).toHaveLength(GRID.columns * GRID.rows);
+			expect(getAllByTestId('product-cell')).toHaveLength(cellCount);
 		});
 
 		test('board 14: the spent story rests in History, not in the backlog or on the product', () => {
