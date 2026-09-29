@@ -2,7 +2,7 @@ import React from 'react';
 import { CellPose, palette, seeded, SplatPose } from './scene';
 import type { Extent, GridSpot } from './poseTypes';
 import { cellCenter } from './cell';
-import { FONT_FAMILY, GRID_MARGIN, HOVER, ORIGIN, Point, scaleAround, smoothBlob, wallPoint } from './layout';
+import { BEHAVIOR_STEP, FONT_FAMILY, GRID_MARGIN, HOVER, ORIGIN, Point, scaleAround, smoothBlob, wallPoint } from './layout';
 
 // Paint on the product wall, drawn on top of the cells so it visibly runs
 // over their gaps. Pure function of the splat pose.
@@ -46,15 +46,15 @@ const dripsOf = (splat: SplatPose): Drip[] =>
 
 // Droplets stay on the wall, off the Structure axis: each is pulled in from
 // the wall's edges far enough to lie wholly inside its outline (with its ink
-// rim). A step along Behavior moves 60 px across the edge it runs to, and a
-// step along Structure about 77 px.
+// rim). A step along Behavior moves |BEHAVIOR_STEP.x| px across the edge it
+// runs to, and a step along Structure about 77 px.
 const DROP_RIM = 5.5;
 export const splatDrops = (splat: SplatPose, wall: Extent): Drop[] =>
 	Array.from({ length: 9 }, (_, i) => {
 		const angle = (i / 9) * Math.PI * 2 + seeded(splat.seed + 60 + i) * 0.5;
 		const dist = splat.radius * (1.55 + 0.25 * seeded(splat.seed + 70 + i));
 		const r = 6 + 7 * seeded(splat.seed + 80 + i);
-		const pad = { col: (r + DROP_RIM) / 60, row: (r + DROP_RIM) / 77 };
+		const pad = { col: (r + DROP_RIM) / -BEHAVIOR_STEP.x, row: (r + DROP_RIM) / 77 };
 		const spot = spotAround(splat, angle, dist);
 		const col = Math.min(spot.col, wall.columns + GRID_MARGIN.col - pad.col);
 		const row = Math.max(-GRID_MARGIN.row + pad.row, Math.min(spot.row, wall.rows + GRID_MARGIN.row - pad.row));

@@ -8,7 +8,7 @@ import {
 	storySplashes,
 	storyWishes,
 } from './scene';
-import { assimilateEndJudgment, assimilateEndOutline, focusBoard, wobbleEndOutline, withOutline } from './focus';
+import { assimilateEndJudgment, assimilateEndOutline, focusBoard, wobbleEndOutline } from './focus';
 import { assimilating, coherentProduct, customerHasIdea, structureMapsDomain, testsGuardBehavior, ideaInBacklog, readyForNext, storyInHistory } from './assimilation';
 
 export type Board = {
@@ -56,12 +56,12 @@ export const boards: Board[] = [
 	{
 		name: 'wobble',
 		caption: 'Behavior gets messy. Structure wobbles.',
-		pose: withOutline(messyProduct(), wobbleEndOutline()),
+		pose: wobbleEndOutline(messyProduct()),
 	},
 	{
 		name: 'assimilate',
 		caption: 'Developers assimilate the splash…',
-		pose: assimilateEndJudgment(withOutline(assimilating(), assimilateEndOutline())),
+		pose: assimilateEndJudgment(assimilateEndOutline(assimilating())),
 	},
 	{
 		name: 'coherent',

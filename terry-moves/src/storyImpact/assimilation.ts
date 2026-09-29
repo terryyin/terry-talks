@@ -6,6 +6,8 @@
 import {
 	CellPose,
 	distanceToCell,
+	Extent,
+	extentOf,
 	GridSpot,
 	knockedCells,
 	leftTrayOf,
@@ -18,15 +20,27 @@ import {
 	storyOutOfBacklogOf,
 	storySplat,
 	StorySpec,
+	tidyCells,
 } from './scene';
 
 const at = (spots: GridSpot[], cell: CellPose) => spots.some((s) => sameSpot(s, cell));
+
+// The product's size once the story is assimilated.
+export const grownExtentOf = (spec: StorySpec, before: StoryBefore): Extent => {
+	const now = extentOf(before.cells);
+	return { columns: now.columns + (spec.grow?.columns ?? 0), rows: now.rows + (spec.grow?.rows ?? 0) };
+};
+
+// The product's cells at its new size: the cells it keeps as they were, and
+// new plain ones where it grew.
+const resizedCells = (spec: StorySpec, before: StoryBefore): CellPose[] =>
+	tidyCells(grownExtentOf(spec, before)).map((plain) => before.cells.find((c) => sameSpot(c, plain)) ?? plain);
 
 // Where the change belongs: the changed cells take the story's color (over
 // any earlier story's), and the reorganized cell takes it on one half — the
 // upper half if it is whole, the lower one if an earlier story split it.
 const assimilatedCells = (spec: StorySpec, before: StoryBefore): CellPose[] =>
-	before.cells.map((cell) => {
+	resizedCells(spec, before).map((cell) => {
 		if (at(spec.changed, cell)) return { ...cell, color: spec.ball.color };
 		if (at([spec.reorganized], cell)) {
 			return cell.split ? { ...cell, color: spec.ball.color } : { ...cell, split: spec.ball.color };
@@ -40,19 +54,20 @@ const SLIDING = 0.4;
 
 const assimilatingCells = (spec: StorySpec, before: StoryBefore): CellPose[] => {
 	const splat = storySplat(spec, 1.35, true);
-	const target = assimilatedCells(spec, before);
-	return knockedCells(splat, before.cells).map((knocked, i) => {
-		const moved = knocked.dx !== 0 || knocked.dy !== 0 || knocked.rot !== 0;
-		if (!moved) return target[i];
-		if (distanceToCell(splat.center, knocked.col, knocked.row) > splat.radius) {
-			return { ...target[i], snapped: true };
+	const knocked = knockedCells(splat, before.cells);
+	return assimilatedCells(spec, before).map((target) => {
+		const from = knocked.find((c) => sameSpot(c, target));
+		const moved = from !== undefined && (from.dx !== 0 || from.dy !== 0 || from.rot !== 0);
+		if (!from || !moved) return target;
+		if (distanceToCell(splat.center, from.col, from.row) > splat.radius) {
+			return { ...target, snapped: true };
 		}
 		return {
-			...target[i],
-			dx: Math.round(knocked.dx * SLIDING),
-			dy: Math.round(knocked.dy * SLIDING),
-			rot: Math.round(knocked.rot * SLIDING * 10) / 10,
-			smear: at(spec.changed, knocked) ? undefined : knocked.smear,
+			...target,
+			dx: Math.round(from.dx * SLIDING),
+			dy: Math.round(from.dy * SLIDING),
+			rot: Math.round(from.rot * SLIDING * 10) / 10,
+			smear: at(spec.changed, from) ? undefined : from.smear,
 		};
 	});
 };

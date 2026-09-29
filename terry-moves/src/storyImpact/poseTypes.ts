@@ -155,6 +155,7 @@ export type OutlinePose = {
 	cells: GridSpot[];
 	color: string;
 	together?: boolean; // one outline around all the cells, instead of one per cell
+	wall?: Extent; // together: around the whole wall at this size, instead of around the cells
 	draw: number; // 0–1: how far the outline has been drawn on
 	march: number; // px the dashes have marched along the outline
 	opacity?: number; // 0–1, while it fades away
@@ -204,6 +205,7 @@ export type StorySpec = {
 	seed: number; // shapes its splat and how it knocks the cells
 	wish?: string;
 	refill?: BallPose; // a new ball that drops into the back of the tray once this story has left it
+	grow?: Partial<Extent>; // how the product's size changes once assimilated: a column or row more (+1) or less (−1), at the far edge
 };
 
 // What is on stage before a story leaves the backlog: the product's cells as

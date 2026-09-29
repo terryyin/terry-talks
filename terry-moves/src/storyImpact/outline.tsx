@@ -60,8 +60,8 @@ const EachCell: React.FC<{ outline: OutlinePose; march: number }> = ({ outline, 
 // One outline around all the cells, rising from the bottom as it is drawn.
 const Together: React.FC<{ outline: OutlinePose; march: number }> = ({ outline, march }) => {
 	if (outline.draw <= 0) return null;
-	const cols = outline.cells.map((c) => c.col);
-	const rows = outline.cells.map((c) => c.row);
+	const cols = outline.wall ? [0, outline.wall.columns - 1] : outline.cells.map((c) => c.col);
+	const rows = outline.wall ? [0, outline.wall.rows - 1] : outline.cells.map((c) => c.row);
 	const [c0, c1] = [Math.min(...cols) - 0.03, Math.max(...cols) + 1.03];
 	const [r0, r1] = [Math.min(...rows) - 0.06, Math.max(...rows) + 1.06];
 	const top = r0 + (r1 - r0) * Easing.inOut(Easing.cubic)(outline.draw);

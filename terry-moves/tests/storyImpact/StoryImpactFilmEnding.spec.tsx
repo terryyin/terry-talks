@@ -52,7 +52,7 @@ describe('StoryImpactFilm ending: a story is not a feature', () => {
 		const cols = new Set(feature.cells.map((c) => c.col));
 		expect(cols.size).toBe(1);
 		const [col] = [...cols];
-		expect(feature.cells.map((c) => c.row).sort()).toEqual([0, 1, 2, 3]);
+		expect(feature.cells.map((c) => c.row).sort()).toEqual([0, 1, 2]);
 		const colors = new Set(product.filter((c) => c.col === col).flatMap(storyColors));
 		expect(colors.size).toBeGreaterThanOrEqual(2);
 		expect(new Set(feature.tags)).toEqual(colors);

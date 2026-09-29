@@ -28,7 +28,9 @@ export const squashAround = (p: Point, squash?: number): string | undefined =>
 	squash === undefined ? undefined : scaleAround(p, squash, 1 / squash);
 
 export const ORIGIN: Point = { x: 480, y: 590 };
-export const BEHAVIOR_STEP: Point = { x: -60, y: 40 };
+// Short enough along Behavior that the largest product (six columns) fits
+// above the caption.
+export const BEHAVIOR_STEP: Point = { x: -56, y: 37 };
 export const STRUCTURE_STEP: Point = { x: 0, y: -92 };
 
 // A point on the product wall in grid units (col along Behavior, row along Structure).
@@ -97,15 +99,17 @@ export const wallOutline = (extent: Extent): Point[] =>
 // Text that runs along the Behavior axis is rotated by this angle (degrees).
 export const BEHAVIOR_LABEL_ANGLE = (Math.atan2(-BEHAVIOR_STEP.y, -BEHAVIOR_STEP.x) * 180) / Math.PI;
 
-// The wall's "Product" name, along the middle of its top edge.
-export const PRODUCT_LABEL = { size: 40, text: 'Product' } as const;
+// The wall's "Product" name, along its top edge two columns out from the
+// Structure axis (the middle of the first product), so it moves only when
+// rows come or go, and spent stories drift past it on its far side.
+export const PRODUCT_LABEL = { size: 40, text: 'Product', col: 2 } as const;
 export const productLabelAt = (extent: Extent): Point => {
-	const top = centerOf([wallPoint(0, extent.rows + GRID_MARGIN.row), wallPoint(extent.columns, extent.rows + GRID_MARGIN.row)]);
+	const top = wallPoint(PRODUCT_LABEL.col, extent.rows + GRID_MARGIN.row);
 	return { x: top.x - 8, y: top.y - 22 };
 };
 
 export const AXES = {
-	behaviorEnd: wallPoint(SPACE.columns + 1.2, 0),
+	behaviorEnd: wallPoint(SPACE.columns + 0.9, 0),
 	structureEnd: wallPoint(0, SPACE.rows + 1.35),
 	timeEnd: { x: 1035, y: ORIGIN.y } as Point,
 };

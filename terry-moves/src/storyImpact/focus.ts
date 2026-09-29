@@ -6,7 +6,7 @@
 // unchanged, so later stories carry neither.
 
 import { Easing } from 'remotion';
-import { GridSpot, OutlinePose, palette, pinkBefore, pinkStory, Pose } from './scene';
+import { Extent, GridSpot, OutlinePose, palette, pinkStory, Pose, tidyCells, wallExtentOf } from './scene';
 import { flightBeat, fuzzyBeat, FUZZ_FROM, storyOf, wishBeat } from './storyBeats';
 import { storyWishes } from './scene';
 import { ASSIMILATE_SECONDS, assimilateBeat, coherentBeat, WOBBLE_SECONDS, wobbleBeat } from './productBeats';
@@ -20,13 +20,14 @@ export const withValueTag = (pose: Pose, show: number, fade = 1): Pose => ({
 	tag: withoutUndefined({ text: VALUE_FOCUS, color: pinkStory.ball.color, show, fade: unless(fade, 1) }),
 });
 
-const everyCell: GridSpot[] = pinkBefore().cells.map(({ col, row }) => ({ col, row }));
 const MARCH_SPEED = 28; // px per second
 
-export const wholeProductOutline = (draw: number, sec: number, opacity = 1, labelShow = 1): OutlinePose =>
+// The outline around the whole wall, at the size it is drawn at.
+export const wholeProductOutline = (wall: Extent, draw: number, sec: number, opacity = 1, labelShow = 1): OutlinePose =>
 	withoutUndefined({
 		labelShow: unless(labelShow, 1),
-		cells: everyCell,
+		cells: tidyCells({ columns: Math.ceil(wall.columns), rows: Math.ceil(wall.rows) }).map(({ col, row }): GridSpot => ({ col, row })),
+		wall,
 		color: palette.structure,
 		together: true,
 		draw,
@@ -39,6 +40,10 @@ export const wholeProductOutline = (draw: number, sec: number, opacity = 1, labe
 	});
 
 export const withOutline = (pose: Pose, outline: OutlinePose | undefined): Pose => (outline ? { ...pose, outlines: [outline] } : pose);
+
+// The pose with the whole wall outlined, as it is drawn.
+const outlined = (pose: Pose, draw: number, sec: number, opacity = 1, labelShow = 1): Pose =>
+	withOutline(pose, draw > 0 && opacity > 0 ? wholeProductOutline(wallExtentOf(pose), draw, sec, opacity, labelShow) : undefined);
 
 // The pink story's beats with its focuses. One message at a time: the wish
 // bubble shows alone; it pops away, and only then the tag pops in, in a beat
@@ -71,7 +76,7 @@ export const valueFlightBeat = flightBeat;
 
 export const productWobbleBeat = (sec: number): Pose => {
 	const draw = between(sec, DRAW.from, DRAW.to);
-	return withOutline(wobbleBeat(sec), draw > 0 ? wholeProductOutline(draw, sec) : undefined);
+	return outlined(wobbleBeat(sec), draw, sec);
 };
 // While the developers assimilate the splash, it is judgment-intensive: the
 // whole-product name gives way to "judgment-intensive" in the same spot,
@@ -83,15 +88,15 @@ export const withJudgment = (pose: Pose, show: number, bob: number, fade = 1): P
 	show > 0 && fade > 0 ? { ...pose, judgment: withoutUndefined({ show, bob, fade: unless(fade, 1) }) } : pose;
 
 export const productAssimilateBeat = (sec: number): Pose =>
-	withJudgment(withOutline(assimilateBeat(sec), wholeProductOutline(1, WOBBLE_SECONDS + sec, 1, labelShowAt(sec))), between(sec, JUDGMENT_POP.from, JUDGMENT_POP.to), sec);
+	withJudgment(outlined(assimilateBeat(sec), 1, WOBBLE_SECONDS + sec, 1, labelShowAt(sec)), between(sec, JUDGMENT_POP.from, JUDGMENT_POP.to), sec);
 export const productCoherentBeat = (sec: number): Pose => {
 	const opacity = 1 - between(sec, 0, 0.5);
 	const march = WOBBLE_SECONDS + ASSIMILATE_SECONDS + sec;
-	const coherent = withOutline(coherentBeat(sec), opacity > 0 ? wholeProductOutline(1, march, opacity, 0) : undefined);
+	const coherent = outlined(coherentBeat(sec), 1, march, opacity, 0);
 	return withJudgment(coherent, 1, ASSIMILATE_SECONDS + sec, opacity);
 };
 
 // Where the wobble and assimilate beats end, for their boards.
-export const wobbleEndOutline = () => wholeProductOutline(1, lastFrameAt(WOBBLE_SECONDS));
-export const assimilateEndOutline = () => wholeProductOutline(1, WOBBLE_SECONDS + lastFrameAt(ASSIMILATE_SECONDS), 1, 0);
+export const wobbleEndOutline = (pose: Pose) => outlined(pose, 1, lastFrameAt(WOBBLE_SECONDS));
+export const assimilateEndOutline = (pose: Pose) => outlined(pose, 1, WOBBLE_SECONDS + lastFrameAt(ASSIMILATE_SECONDS), 1, 0);
 export const assimilateEndJudgment = (pose: Pose): Pose => withJudgment(pose, 1, lastFrameAt(ASSIMILATE_SECONDS));

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { beats as oneStoryBeats, beatRange as oneStoryRange, FPS, poseAt as oneStoryPoseAt } from '@/storyImpact/film';
 import { fullFilm } from '@/storyImpact/fullFilm';
-import { ballColors, CellPose, plainCellColor, productOverTime, productSpace } from '@/storyImpact/scene';
+import { ballColors, CellPose, extentOf, plainCellColor, productOverTime, productSpace, wallExtentOf } from '@/storyImpact/scene';
 import { laterStoryBeatList } from '@/storyImpact/laterStories';
 import { historySpot, traySpot, trayBallCenter } from '@/storyImpact/layout';
 import { boards } from '@/storyImpact/boards';
@@ -69,8 +69,9 @@ describe('StoryImpactFilm', () => {
 		test('the cells pop in one after another', () => {
 			const shown = framesOf('space').map((f) => poseAt(f).cells.filter((c) => (c.pop ?? 1) > 0).length);
 			expect(shown[0]).toBe(0);
-			expect(shown.some((n) => n > 0 && n < 20)).toBe(true);
-			expect(shown[shown.length - 1]).toBe(20);
+			const all = productSpace().cells.length;
+			expect(shown.some((n) => n > 0 && n < all)).toBe(true);
+			expect(shown[shown.length - 1]).toBe(all);
 		});
 
 		test('ends on the first board', () => {
@@ -179,6 +180,49 @@ describe('StoryImpactFilm', () => {
 				}),
 			);
 			expect(framesOf('new-idea').some((f) => poseAt(f).backlog.some((b) => b.flying))).toBe(true);
+		});
+	});
+
+	describe('the product changes shape, tidily', () => {
+		const sizeAt = (f: number) => extentOf(poseAt(f).cells);
+
+		test('4×4 at first, then 5×4, 5×3 and 6×3 after the pink, sun and idea stories', () => {
+			expect(sizeAt(lastFrame('space'))).toEqual({ columns: 4, rows: 4 });
+			expect(sizeAt(lastFrame('coherent'))).toEqual({ columns: 5, rows: 4 });
+			expect(sizeAt(lastFrame('sun-coherent'))).toEqual({ columns: 5, rows: 3 });
+			expect(sizeAt(lastFrame('idea-coherent'))).toEqual({ columns: 6, rows: 3 });
+			expect(sizeAt(durationInFrames - 1)).toEqual({ columns: 6, rows: 3 });
+		});
+
+		test('the wall eases to each new size, and no cell is ever drawn off it', () => {
+			const walls = Array.from({ length: beatRange('finale').from }, (_, f) => poseAt(f))
+				.filter((p) => p.cells.length > 0)
+				.map((p) => ({ p, wall: wallExtentOf(p) }));
+			walls.slice(1).forEach(({ wall }, i) => {
+				const was = walls[i].wall;
+				expect(Math.abs(wall.columns - was.columns)).toBeLessThanOrEqual(0.1);
+				expect(Math.abs(wall.rows - was.rows)).toBeLessThanOrEqual(0.1);
+			});
+			walls.forEach(({ p, wall }) =>
+				p.cells
+					.filter((c) => (c.pop ?? 1) > 0)
+					.forEach((c) => expect({ c, inside: c.col + 1 <= wall.columns + 1e-9 && c.row + 1 <= wall.rows + 1e-9 }).toEqual({ c, inside: true })),
+			);
+		});
+
+		test('only one size changes at a time, once per story', () => {
+			const changes = ['assimilate', 'sun-assimilate', 'idea-assimilate'].map((name) => {
+				const sizes = framesOf(name).map((f) => wallExtentOf(poseAt(f)));
+				return {
+					columns: sizes.some((s) => s.columns !== sizes[0].columns),
+					rows: sizes.some((s) => s.rows !== sizes[0].rows),
+				};
+			});
+			expect(changes).toEqual([
+				{ columns: true, rows: false },
+				{ columns: false, rows: true },
+				{ columns: true, rows: false },
+			]);
 		});
 	});
 

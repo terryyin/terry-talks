@@ -7,8 +7,8 @@ import type { Extent } from './poseTypes';
 
 // The product's size when the film starts, and the largest it ever gets: the
 // axes span that space, so the product can grow into it.
-export const START: Extent = { columns: 5, rows: 4 };
-export const SPACE: Extent = { columns: 5, rows: 4 };
+export const START: Extent = { columns: 4, rows: 4 };
+export const SPACE: Extent = { columns: 6, rows: 4 };
 
 export const palette = {
 	paper: '#FFF6E5',
@@ -117,16 +117,18 @@ export const [exampleBall, ...laterStories] = waitingStories();
 
 // The example (pink) story. Its change belongs, once understood, not in the
 // splat's shape but in a few behaviors and structural parts spread over the
-// product; the cell that was hit hardest is reorganized into two halves.
+// product; the cell that was hit hardest is reorganized into two halves. It
+// adds a Behavior column: a new behavior, part of which takes its color.
 export const pinkStory: StorySpec = {
 	ball: exampleBall,
 	impact: IMPACT,
 	changed: [
 		{ col: IMPACT.col, row: 0 },
 		{ col: IMPACT.col - 1, row: IMPACT.row },
-		{ col: IMPACT.col + 1, row: IMPACT.row - 1 },
+		{ col: IMPACT.col + 2, row: IMPACT.row - 1 }, // in the new column
 	],
 	reorganized: IMPACT,
+	grow: { columns: 1 }, // a new behavior
 	seed: 7,
 	wish: 'I wish I could split the bill with friends in one tap!',
 };

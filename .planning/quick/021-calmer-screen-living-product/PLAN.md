@@ -59,6 +59,14 @@ Identity: `story-impact-animation#calmer-screen-living-product`
 | 3. Shape over time | 2, 3 | spec: coherent cells 4×4 / 5×4 / 5×3 / 6×3 |
 | 4. Tidy growth | 2, 3 | spec: wall extent changes by ≤ 0.1 grid unit per frame; every drawn cell and splat droplet within the current wall; stills viewed |
 
+## Learnings
+
+- A later story's assimilate beat plays 1.6× faster, so the wall eases with
+  a sine curve over 1 s (4-s scale) to stay under 0.1 grid unit a frame.
+- The "Product" label is anchored two columns out from the Structure axis
+  (it moves only when rows change); at the wall's middle it sat under the
+  idea story's spent skin on the 6-column wall.
+
 ## Slices
 
 ### 1. One message at a time
@@ -82,7 +90,7 @@ Enables slice 3.
 
 ### 3. Each story changes the product's shape
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 3–4 in the film specs; stills of each resize viewed;
 `pnpm moves test`.
 

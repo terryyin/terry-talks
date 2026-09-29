@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { beatRange, beats, captionAt, filmDurationInFrames, FPS, poseAt } from '@/storyImpact/film';
 import { flightPoint, wallPoint } from '@/storyImpact/layout';
-import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storySplashes } from '@/storyImpact/scene';
+import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storySplashes, wallExtentOf } from '@/storyImpact/scene';
 import { coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory, structureMapsDomain, testsGuardBehavior } from '@/storyImpact/assimilation';
 import { boardNamed, boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
@@ -225,7 +225,7 @@ describe('StoryImpactOneSplash', () => {
 			for (const f of [lastFrame('wobble'), firstFrame('assimilate'), lastFrame('assimilate')]) {
 				const outline = productOutline(f)!;
 				expect(outline.together).toBe(true);
-				expect(outline.cells).toHaveLength(20);
+				expect(outline.wall).toEqual(wallExtentOf(poseAt(f)));
 			}
 			expect(productOutline(firstFrame('wobble'))).toBeUndefined();
 			expect(productOutline(lastFrame('coherent'))).toBeUndefined();

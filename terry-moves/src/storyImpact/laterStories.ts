@@ -16,30 +16,33 @@ import { HISTORY_SECONDS, historyBeatOf } from './historyBeats';
 const [sun] = laterStories;
 
 // Lower down and further along Behavior than the pink story; it reorganizes
-// a cell the pink story changed, which ends split between pink and sun.
+// the cell the pink story added, which ends split between pink and sun. It
+// folds the (plain) top Structure row away: the structure gets simpler.
 const sunStory: StorySpec = {
 	ball: sun,
 	impact: { col: 3, row: 1.6 },
 	changed: [
 		{ col: 3, row: 0 },
-		{ col: 4, row: 2 },
+		{ col: 0, row: 2 },
 		{ col: 1, row: 1 },
 	],
-	reorganized: { col: 3, row: 1 },
+	reorganized: { col: 4, row: 1 },
 	seed: 11,
+	grow: { rows: -1 },
 };
 
-// The customer's idea: higher up and nearer the Structure axis; it
-// reorganizes a sun cell.
+// The customer's idea: further along Behavior; it reorganizes a sun cell and
+// adds a Behavior column, part of which takes its color.
 const ideaStory: StorySpec = {
 	ball: ideaBall,
-	impact: { col: 1.6, row: 2.4 },
+	impact: { col: 3.3, row: 1.5 },
 	changed: [
-		{ col: 0, row: 3 },
-		{ col: 2, row: 3 },
-		{ col: 4, row: 1 },
+		{ col: 5, row: 0 },
+		{ col: 5, row: 1 },
+		{ col: 0, row: 1 },
 	],
-	reorganized: { col: 1, row: 1 },
+	reorganized: { col: 3, row: 0 },
+	grow: { columns: 1 },
 	seed: 23,
 	refill: { id: 'orange', color: ballColors.orange, size: 36 },
 };

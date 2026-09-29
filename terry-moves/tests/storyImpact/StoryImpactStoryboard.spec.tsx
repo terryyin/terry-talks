@@ -140,9 +140,8 @@ describe('StoryImpactStoryboard', () => {
 		});
 
 		test('board 9: aligned again, changed where it matters, no scars', () => {
-			const first = boards[0].pose.cells;
 			const { cells, splat } = boards[9].pose;
-			expect(cells).toHaveLength(first.length);
+			expect(extentOf(cells)).toEqual({ columns: start.columns + 1, rows: start.rows }); // a new Behavior column
 			expect(cells.every((c) => c.dx === 0 && c.dy === 0 && c.rot === 0 && !c.smear)).toBe(true);
 			expect(splat).toBeUndefined();
 			expect(cells.filter((c) => c.color === ballColors.pink).length).toBeGreaterThanOrEqual(2);
@@ -151,7 +150,7 @@ describe('StoryImpactStoryboard', () => {
 			expect(queryByTestId('splat')).toBeNull();
 			expect(queryAllByTestId('cell-smear')).toHaveLength(0);
 			expect(getAllByTestId('split-cell')).toHaveLength(1);
-			expect(getAllByTestId('product-cell')).toHaveLength(cellCount);
+			expect(getAllByTestId('product-cell')).toHaveLength(cells.length);
 		});
 
 		test('board 14: the spent story rests in History, not in the backlog or on the product', () => {
