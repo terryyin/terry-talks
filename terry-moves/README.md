@@ -156,7 +156,10 @@ state and never a scar.
 The first story also names the two focuses (`focus.ts`): while it hovers it
 wears a "customer-value focused" tag on a string (`storyTag.tsx`, the pose's
 `tag`), and once it splashes the whole wall is outlined as "whole-product
-focused" until the product is coherent. Later stories carry neither.
+focused" until the product is coherent, with "judgment-intensive" and "?"
+thought bubbles while it is assimilated (`judgment.tsx`, the pose's
+`judgment`). The test shields that follow are captioned as spent judgment.
+Later stories carry none of these.
 
 Once a story is assimilated, the film shows what keeps the product coherent
 (`protect.tsx`, the pose's `protect` field, `protectBeats.ts`): a green test
