@@ -17,8 +17,6 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
-- [Viewers see a story's business impact come back as a new idea in the backlog](../Story%20Driven/seed.md#customer-feedback-loop) — story-impact-animation#customer-feedback-loop ([plan](quick/016-customer-feedback-loop/PLAN.md))
-
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
