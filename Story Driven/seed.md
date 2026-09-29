@@ -18,7 +18,7 @@ lasting description of the system, Terry's idea exists only as an
 playful, square animation that explains the idea. The idea has four parts,
 the "3D + 1":
 
-- A product is a space of **Behavior × Structure** that moves through
+- a software product is a space of **Behavior × Structure** that moves through
   **Time**.
 - The **Product Backlog** holds romantic, fuzzy stories, queued along Time.
 - A story hits the product and splashes across its boundaries.
@@ -55,7 +55,9 @@ The film must carry these points from the [essay](romantic-stories-disciplined-p
    for describing state.
 4. **Story ≠ feature.** A feature belongs to the product state, and a story
    belongs to a transition. One story can touch several features and
-   components, and one feature is changed by many stories over time.
+   components. A story is a fuzzy impact that has meaning only as a unit of
+   planning, so there is no mapping between a feature and stories; a feature
+   takes many architectural layers (components) working together.
 5. **Impact, twice.** The story carries an impact we want in the world, and it
    makes a physical impact on the product. It cuts across the product's
    organization, so behavior gets messy and structure gets unstable.
@@ -141,23 +143,57 @@ and its caption timings are the time budget for the voice-over (story 13).
 
 <a id="feature-spans-layers"></a>
 ### 15. Viewers are not told that a feature maps to stories
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/024-feature-spans-layers/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"d40c9dce2827385495c2060e138d3784c4a4081a3ad8c0891feadcd2ab53c8e0","plan":"f890849670ba0a75af800200129e7ea1069861e6ff30353d6ca39cc13dbd36b0"}}
+```
 
-- **For / why:** The line "…and one feature carries many stories" is
-  inaccurate. Terry: a story is a fuzzy impact that has meaning only as a unit
-  of planning, so there is no mapping of any kind between a feature and
-  stories. The film must not claim or draw one.
-- **Outcome:** Replace the line, and any visual that ties a feature back to
-  stories (such as colors or counts showing which stories made a feature),
-  with the product's own truth: **a feature takes the collaboration of many
-  architectural layers**. One Behavior column is realized across many
-  Structure rows. "One story touches many features…" can stay, because it is
-  the story's transient impact, but check that the pair still reads as one
-  thought. Wording is the coordinator's call within this spirit (for example,
-  "…and one feature takes many layers working together.").
-- **Constraints:** keep the reading-pace rule, where captions re-time
-  themselves, and keep the flat 2D look. Update the essay-derived intention
-  point 4 in this seed so it no longer says "one feature is changed by many
-  stories over time".
+- **Goal:** Viewers of the film (developers and product people) leave
+  knowing that a story is a transient impact that touches many features, and
+  that a feature is the product's own thing: many architectural layers
+  working together. The film no longer claims or draws any mapping between a
+  feature and stories. Terry: a story is a fuzzy impact that has meaning only
+  as a unit of planning, so there is no mapping of any kind between a
+  feature and stories.
+- **Scope:**
+  - The caption "…and one feature carries many stories." becomes
+    **"…and one feature takes many layers working together."**, so the pair
+    reads as one thought: "One story touches many features… …and one feature
+    takes many layers working together." It re-times itself under the
+    reading-pace rule (the film grows by about 1.5 s).
+  - The feature beat's picture: one Behavior column, the one standing on
+    the Structure axis (chosen by its place, not by which stories touched
+    it), is outlined as "a feature". Under the name, a small stack of
+    Structure-blue layer bars replaces the story-colored dots. The column's
+    cells take a pale feature-green wash, so its story paint does not read
+    as "which stories made it", and joints pop on between its layers from
+    the bottom up: the layers working together.
+  - The product itself does not change in the ending; the story outline
+    beat ("One story touches many features…") keeps its picture.
+  - Every other claim of a feature↔story mapping in the film's code
+    comments, tests, README, and this seed is corrected, including
+    intention point 4.
+  - **Rejection constraints:** no count, color, or dot that ties a feature to
+    stories (Terry's correction above). Keep the reading-pace rule and its
+    pauses, and the flat 2D cartoon look.
+  - **Deferred:** Terry's essay
+    ([romantic-stories-disciplined-products.md](romantic-stories-disciplined-products.md))
+    still says "One feature may be changed by many stories"; it is Terry's
+    own text, so the film does not edit it (flagged for Terry).
+- **Key examples:**
+  - At the height of the feature beat, the caption reads "…and one feature
+    takes many layers working together."; one dashed green outline wraps the
+    column on the Structure axis across all three Structure rows; the name
+    "a feature" shows three layer bars and no story-colored dots; two
+    joints link its three layers.
+  - Early in the feature beat, the pink story's outline fades as the feature
+    outline rises, as before.
+  - Across the ending, the product's cells are exactly those the last story
+    left.
+- **Decided on Terry's behalf:** the wording above (his own example, which
+  keeps "and" so the two captions stay one sentence); the column on the
+  Structure axis (position, not stories, picks it); the green wash and the
+  joints as the picture of layers working together; the layer-bar badge in
+  place of the dots.
 
 ## Voice-over (2026-09-29)
 
