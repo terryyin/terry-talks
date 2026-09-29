@@ -126,6 +126,9 @@ it must work for.
 
 <a id="protected-and-mapped"></a>
 ### 7. Viewers see that behavior is protected by tests and structure maps to the domain
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/017-protected-and-mapped/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"d81b864c033737e5618e74062eb4f82565216351c15b9edbc51b1d075117102b","plan":"904c957283e331e9c16d0dfc817df24c5edb9b49fbe732605aceb9eb27137e19"}}
+```
 
 - **For / why:** Viewers should understand what keeps the assimilated product
   coherent. The film shows the result but not the discipline behind it.
@@ -135,6 +138,48 @@ it must work for.
   architecture, is shown mapping directly to the domain model, for example with
   links from the structure cells to domain concepts. The beat must stay short
   and playful and must not become a lecture.
+
+#### Goal
+
+Viewers see what keeps the assimilated product coherent: its behavior is
+guarded by automated tests, and its structure maps directly to the domain.
+
+#### Scope
+
+- **Required:**
+  - A short beat in the pink story, right after the product is coherent again
+    and before the customer beat, in two halves:
+    1. Test shields: a small green shield with a check mark pops onto the
+       bottom cell of every Behavior column, one after another. Caption:
+       "Tests guard what it does…"
+    2. Domain links: small domain-concept chips from the example wish ("split
+       the bill with friends": Friend, Share, Bill, Payment) pop up beside the
+       Structure axis, each linked by a dashed blue line to one Structure
+       row. Caption: "…and how it's built maps the domain."
+  - Each half holds at least 2.5 s; the whole beat is about 5.5 s. The
+    shields and links fade as the customer appears.
+  - Storyboard boards for both halves, so the one-story film still passes
+    exactly through the boards.
+- **Rejection constraints:** short and playful, not a lecture: no test
+  code, no diagrams with arrows between concepts, no extra labels beyond the
+  concept names. Nothing covers the axis, backlog or caption labels.
+- **Deferred promises:** tests or domain links for the later stories; test
+  kinds other than the shields ("mostly end-to-end" is carried by the shields
+  guarding whole features, not by a label).
+- **Relation to story 10 (decided on Terry's behalf, 2026-09-29):** this beat
+  is the film's one picture of **spent judgment**. Story 7 draws it; story 10
+  names it (it changes the first caption to "Judgment spent: tests guard what
+  it does…") and adds "judgment-intensive" to the assimilation. The film does
+  not say "spent judgment" anywhere else, so it is said once.
+
+#### Key examples
+
+1. **Shields.** Given the coherent pink product, when the first half ends,
+   each of the five Behavior columns has one shield on its bottom cell.
+2. **Domain links.** When the second half ends, four concept chips show, each
+   linked to a different Structure row, and the shields are still there.
+3. **Clean hand-off.** When the customer beat is under way, no shield, chip or
+   link is left, and the product cells are unchanged throughout.
 
 <a id="crisp-ending"></a>
 ### 8. Viewers leave with a crisp, powerful ending, and Terry is credited

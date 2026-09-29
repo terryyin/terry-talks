@@ -17,10 +17,11 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
+- [Viewers see that behavior is protected by tests and structure maps to the domain](../Story%20Driven/seed.md#protected-and-mapped) — story-impact-animation#protected-and-mapped ([plan](quick/017-protected-and-mapped/PLAN.md))
+
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
-- [Viewers see that behavior is protected by tests and structure maps to the domain](../Story%20Driven/seed.md#protected-and-mapped) — story-impact-animation#protected-and-mapped
 - [Viewers leave with a crisp, powerful ending, and Terry is credited](../Story%20Driven/seed.md#crisp-ending) — story-impact-animation#crisp-ending
 - [Viewers see that a story is customer-value focused and development is whole-product focused](../Story%20Driven/seed.md#value-vs-whole-product-focus) — story-impact-animation#value-vs-whole-product-focus
 - [Viewers see that assimilation is judgment-intensive and leaves spent judgment in the product](../Story%20Driven/seed.md#judgment-intensive-to-spent) — story-impact-animation#judgment-intensive-to-spent
