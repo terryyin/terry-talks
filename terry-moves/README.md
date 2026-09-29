@@ -139,11 +139,22 @@ pnpm -C terry-moves render:story-impact
 # writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
 ```
 
+The same film with Traditional Chinese subtitles (`StoryImpactFilmZhHant`;
+only the captions are translated, the picture stays in English):
+
+```bash
+pnpm -C terry-moves render:story-impact:zh-hant
+# writes out/story-impact-animation-zh-hant.mp4
+```
+
+The subtitles live in `src/storyImpact/zhHant.ts`, keyed by the English
+caption; a spec fails when a caption changes without its translation.
+
 Or render the full film (`StoryImpactFilm`, about 133 seconds) directly: title, product
 space, backlog, the pink story and its two values, the sun story and the
 customer's idea (the cheap story), story versus feature (one story touches
-many features; one feature takes many layers working together), "neither is
-better", and the end card: the stage shrinks away and "Stories should be
+many features; one feature takes many layers working together), "value builds
+up, not debt", and the end card: the stage shrinks away and "Stories should be
 romantic. Products should not." lands in the title's styles (`endCard.tsx`,
 reusing `title.tsx`'s lines), with the credit "An idea and film by Terry
 Yin". The poster is the last frame.

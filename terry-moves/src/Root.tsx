@@ -14,7 +14,7 @@ import { StoryLoomWarpStop } from './stories/StoryLoomWarpStop';
 import { StoryLeSSInAction } from './stories/StoryLeSSInAction';
 import { StoryImpactStoryboard } from './stories/StoryImpactStoryboard';
 import { StoryImpactOneSplash } from './stories/StoryImpactOneSplash';
-import { StoryImpactFilm } from './stories/StoryImpactFilm';
+import { StoryImpactFilm, StoryImpactFilmZhHant } from './stories/StoryImpactFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -36,6 +36,7 @@ export const RemotionRoot: React.FC = () => {
 			<StoryImpactStoryboard />
 			<StoryImpactOneSplash />
 			<StoryImpactFilm />
+			<StoryImpactFilmZhHant />
 		</>
 	);
 };
