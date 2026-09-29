@@ -122,7 +122,8 @@ describe('StoryImpactFilm', () => {
 			...boards.map((b) => b.caption),
 			'More stories come and go…',
 			'…and the product stays coherent. No scars.',
-			'Each one changes the product a little.',
+			'The idea fits the same domain…',
+			'…so it comes cheap: the option pays off.',
 			'Spent stories pile up in History, out of the way.',
 			'One story touches many features…',
 			'…and one feature carries many stories.',
@@ -252,12 +253,25 @@ describe('StoryImpactFilm', () => {
 			expect([before.color, before.split]).toEqual([ballColors.pink, undefined]);
 		});
 
-		test('each story splats across rows and columns', () => {
-			for (const name of ['sun-wobble', 'idea-wobble']) {
-				const knocked = poseAt(lastFrame(name)).cells.filter((c) => c.smear);
-				expect(new Set(knocked.map((c) => c.col)).size).toBeGreaterThanOrEqual(2);
-				expect(new Set(knocked.map((c) => c.row)).size).toBeGreaterThanOrEqual(2);
-			}
+		test('each story splats across cells', () => {
+			const knocked = poseAt(lastFrame('sun-wobble')).cells.filter((c) => c.smear);
+			expect(new Set(knocked.map((c) => c.col)).size).toBeGreaterThanOrEqual(2);
+			expect(new Set(knocked.map((c) => c.row)).size).toBeGreaterThanOrEqual(2);
+			expect(poseAt(lastFrame('idea-wobble')).cells.filter((c) => c.smear).length).toBeGreaterThanOrEqual(2);
+		});
+
+		test("the customer's idea exercises the option: a smaller splash, fewer knocked cells, less work", () => {
+			const moved = (name: string) => poseAt(lastFrame(name)).cells.filter((c) => c.dx !== 0 || c.dy !== 0 || c.rot !== 0).length;
+			expect(moved('idea-wobble')).toBeLessThan(moved('sun-wobble'));
+			expect(poseAt(lastFrame('idea-splat')).splat!.radius).toBeLessThan(poseAt(lastFrame('sun-splat')).splat!.radius);
+			const work = (story: string) => ['wobble', 'assimilate', 'coherent'].reduce((n, part) => n + beatRange(`${story}-${part}`).durationInFrames, 0);
+			expect(work('idea')).toBeLessThan(work('sun') * 0.8);
+			const option = (f: number) => poseAt(f).values?.option ?? 0;
+			[...framesOf('idea-flight'), ...framesOf('idea-assimilate'), ...framesOf('idea-coherent')].forEach((f) => expect(option(f)).toBe(1));
+			expect(poseAt(lastFrame('idea-coherent')).values).toMatchObject({ customer: 0, option: 1, glint: 1 });
+			[...framesOf('sun-launch'), ...framesOf('sun-coherent')].forEach((f) => expect(poseAt(f).values).toBeUndefined());
+			expect(poseAt(lastFrame('idea-history')).values).toBeUndefined();
+			framesOf('idea-wobble').forEach((f) => expect(captionAt(f)).toBe('…so it comes cheap: the option pays off.'));
 		});
 
 		test('a new ball drops into the back of the tray as the idea leaves it', () => {

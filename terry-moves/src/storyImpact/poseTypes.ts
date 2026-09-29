@@ -217,6 +217,7 @@ export type StorySpec = {
 	changed: GridSpot[];
 	reorganized: GridSpot;
 	seed: number; // shapes its splat and how it knocks the cells
+	splash?: number; // its splat's radius in grid units; left out, 1
 	wish?: string;
 	refill?: BallPose; // a new ball that drops into the back of the tray once this story has left it
 	grow?: Partial<Extent>; // how the product's size changes once assimilated: a column or row more (+1) or less (−1), at the far edge

@@ -203,7 +203,7 @@ export const storyFlies = (): Pose => storyFliesOf(pinkStory, pinkBefore());
 
 export const storySplat = (spec: StorySpec, drip: number, seeped: boolean, shout?: string): SplatPose => ({
 	center: spec.impact,
-	radius: 1,
+	radius: spec.splash ?? 1,
 	color: spec.ball.color,
 	seed: spec.seed,
 	drip,

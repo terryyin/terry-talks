@@ -72,9 +72,9 @@ export const wobbleBeatOf: StoryBeat = (spec, before) => (sec) => {
 // that go pop out before the wall eases in: one calm change at a time.
 export const ASSIMILATE_SECONDS = 4;
 const ASSIMILATE_END = lastFrameAt(ASSIMILATE_SECONDS);
-const GROW = { from: 0.3, to: 1.3 }; // the wall eases out
-const POP_IN = { from: 1.3, every: 0.12, seconds: 0.3 }; // then the new cells pop in, from the ground up
-const NEW_FILL_FROM = 2.0; // a new cell takes the story's color once it is there
+const GROW = { from: 0.3, to: 1.6 }; // the wall eases out
+const POP_IN = { from: 1.6, every: 0.12, seconds: 0.3 }; // then the new cells pop in, from the ground up
+const NEW_FILL_FROM = 2.3; // a new cell takes the story's color once it is there
 const POP_OUT = { from: 0.3, every: 0.1, seconds: 0.3 }; // the cells that go pop out, from the Structure axis outward
 const SHRINK = { from: 1.1, to: 2.1 }; // then the wall eases in
 

@@ -60,6 +60,11 @@ Identity: `story-impact-animation#two-impacts-two-values`
 | 3. Option value unseen | 1 | spec: tests/domain captions, no customer, option pill brightest; still viewed |
 | 4. Option exercised | 2 | spec: idea's knocked cells fewer than sun's, idea's wobble→coherent frames fewer than sun's, option pill shown in the idea's beats; stills viewed |
 
+## Learnings
+
+- The wall's growth window widened to 1.3 s (4-s scale) so the cheap
+  story's 1.8-s assimilate beat still eases under 0.1 grid unit a frame.
+
 ## Slices
 
 ### 1. The first story's impact delivers customer value and option value
@@ -73,9 +78,13 @@ the idea, then the shields and domain links are shown as option value.
 
 ### 2. The customer's idea exercises the option
 Type: Behavior
-Status: planned
+Status: done
 Proof: example 4 in the film specs; stills viewed; `pnpm moves test`.
 
 Behavior: given the pink story's option → the customer's idea launches →
 the option pill shows, and its splash is smaller and assimilated faster
 than the sun story's.
+
+## Execution complete
+
+Product advice: retrospective skipped
