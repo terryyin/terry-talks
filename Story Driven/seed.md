@@ -130,6 +130,30 @@ exception: when the customer reacts. He asked for two stories, 11 and 12,
 both delivered (see the breadcrumbs). The film is now about 108 seconds;
 Terry allowed up to 2.5 minutes.
 
+## Voice-over (2026-09-29)
+
+<a id="terry-voice-over"></a>
+### 13. Viewers hear Terry narrate the film in his own voice
+
+- **For / why:** The film is silent, and the captions carry it. Terry wants to
+  record himself reading the captions so that viewers hear the idea from its
+  author.
+- **Outcome:** The rendered film carries Terry's recorded narration, one
+  recorded line per caption, played in sync with each caption. Where a
+  recording is longer or shorter than its caption's slot, the beat's timing
+  adapts rather than cutting him off or leaving dead air. The captions stay
+  on screen (silent-first viewing still works). Re-recording one line and
+  re-rendering does not require manual timing repair elsewhere.
+- **Inputs from Terry:** his audio recordings. Refinement defines the
+  recording format and file naming, and the script (the caption list, in film
+  order) he reads from.
+- **Out of scope:** speech coaching. Terry judged automated delivery and
+  pronunciation feedback not useful.
+- **Assumption:** Terry asked for "the module for it". This is read as the
+  audio (voice-over) for the film. Correct it if another module was meant.
+- **Relation:** this may expose the authoring gap in conditional story 5
+  (revise a scene without repairing unrelated timing).
+
 ## Conditional candidate
 
 <a id="authoring-improvement"></a>
