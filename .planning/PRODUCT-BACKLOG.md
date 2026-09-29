@@ -17,7 +17,8 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
+- [Viewers see that assimilation is judgment-intensive and leaves spent judgment in the product](../Story%20Driven/seed.md#judgment-intensive-to-spent) — story-impact-animation#judgment-intensive-to-spent ([plan](quick/020-judgment-intensive-to-spent/PLAN.md))
+
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
-- [Viewers see that assimilation is judgment-intensive and leaves spent judgment in the product](../Story%20Driven/seed.md#judgment-intensive-to-spent) — story-impact-animation#judgment-intensive-to-spent

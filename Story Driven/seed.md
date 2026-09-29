@@ -126,6 +126,9 @@ it must work for.
 
 <a id="judgment-intensive-to-spent"></a>
 ### 10. Viewers see that assimilation is judgment-intensive and leaves spent judgment in the product
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/020-judgment-intensive-to-spent/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"55b010867b5d7a17009321d152877ae33764a0b9c5f26a76fc4f333676a03b57","plan":"cc5e514b6017ba2dbdf03e7a7465c314a0986377620d1c87960258c5dcb2d383"}}
+```
 
 - **For / why:** This is the essay's judgment argument, which Terry now wants in
   the film.
@@ -139,6 +142,49 @@ it must work for.
   proposes one of them, or neither.
 - **Relation to story 7:** tests are the spent-judgment example, so refine 7
   and 10 together so that they do not say the same thing twice.
+
+#### Goal
+
+Viewers see the essay's judgment argument in one pass: assimilating a story
+takes a lot of judgment, and once it is done that judgment is spent into the
+product (as tests and a domain-shaped structure), not left open.
+
+#### Scope
+
+- **Required:**
+  - Pink (first) story only. While the developers assimilate the splash, a
+    label "judgment-intensive" pops in under "whole-product focused", with
+    three small "?" thought bubbles bobbing over the product. They fade with
+    the whole-product outline as the product becomes coherent.
+  - The first caption of the tests-and-domain beat (story 7) becomes
+    "Judgment spent: tests guard what it does…", which names that beat as
+    spent judgment. The film says "spent judgment" only there.
+  - The assimilating board shows the label and the bubbles.
+- **Rejection constraints:** the label covers no other label and stays
+  clear of the tray balls; readable at 360×360. Human judgment is shown only
+  as "?" marks and words, not as people judging (the README's "no people
+  judging" still holds).
+- **Deferred promises:** judgment labels for the later stories.
+- **Decisions made on Terry's behalf (delegated, 2026-09-29):**
+  - **The ball going to History gets neither label.** "Judgment forgotten"
+    contradicts "available, but out of the way" (Git keeps it). "Judgment
+    archived" would blur where the judgment went: the essay puts the spent
+    judgment in the product as decisions, and only the deliberation (the
+    story) in history. The existing History caption already says what
+    matters.
+  - Stories 7 and 10 split the work: 7 draws the spent judgment (shields and
+    domain links), 10 names it and adds "judgment-intensive"; nothing is said
+    twice.
+
+#### Key examples
+
+1. **Judgment-intensive.** Given the splash being assimilated, the label
+   "judgment-intensive" and three "?" bubbles show; by the coherent board
+   they are gone.
+2. **Spent judgment.** When the shields pop in, the caption reads "Judgment
+   spent: tests guard what it does…".
+3. **History stays plain.** The spent ball drifting to History carries no
+   judgment label.
 
 ## Conditional candidate
 
