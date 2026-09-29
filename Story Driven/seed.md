@@ -4,7 +4,7 @@ status: proposed-decomposition
 created: 2026-09-28
 created_during: A digression from the current near-future direction (the TPS and AI talk); a redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort
 trigger_when: When Terry chooses to spend time on the animation; it is not for the TPS and AI talk
-scope: four delivered stories, improvement stories 6-10, corrections 11-12 and reading pace 14 (all delivered), voice-over 13 queued, and one conditional; S/M/L bands unassigned (no project definitions)
+scope: four delivered stories, improvement stories 6-10, corrections 11-12, reading pace 14 and the story ≠ feature correction 15 (all delivered), voice-over 13 queued, and one conditional; S/M/L bands unassigned (no project definitions)
 ---
 
 # Story impact animation: romantic stories, disciplined products
@@ -141,59 +141,11 @@ and its caption timings are the time budget for the voice-over (story 13).
 
 ## Story ≠ feature correction (2026-09-29)
 
-<a id="feature-spans-layers"></a>
-### 15. Viewers are not told that a feature maps to stories
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/024-feature-spans-layers/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"d40c9dce2827385495c2060e138d3784c4a4081a3ad8c0891feadcd2ab53c8e0","plan":"f890849670ba0a75af800200129e7ea1069861e6ff30353d6ca39cc13dbd36b0"}}
-```
-
-- **Goal:** Viewers of the film (developers and product people) leave
-  knowing that a story is a transient impact that touches many features, and
-  that a feature is the product's own thing: many architectural layers
-  working together. The film no longer claims or draws any mapping between a
-  feature and stories. Terry: a story is a fuzzy impact that has meaning only
-  as a unit of planning, so there is no mapping of any kind between a
-  feature and stories.
-- **Scope:**
-  - The caption "…and one feature carries many stories." becomes
-    **"…and one feature takes many layers working together."**, so the pair
-    reads as one thought: "One story touches many features… …and one feature
-    takes many layers working together." It re-times itself under the
-    reading-pace rule (the film grows by about 1.5 s).
-  - The feature beat's picture: one Behavior column, the one standing on
-    the Structure axis (chosen by its place, not by which stories touched
-    it), is outlined as "a feature". Under the name, a small stack of
-    Structure-blue layer bars replaces the story-colored dots. The column's
-    cells take a pale feature-green wash, so its story paint does not read
-    as "which stories made it", and joints pop on between its layers from
-    the bottom up: the layers working together.
-  - The product itself does not change in the ending; the story outline
-    beat ("One story touches many features…") keeps its picture.
-  - Every other claim of a feature↔story mapping in the film's code
-    comments, tests, README, and this seed is corrected, including
-    intention point 4.
-  - **Rejection constraints:** no count, color, or dot that ties a feature to
-    stories (Terry's correction above). Keep the reading-pace rule and its
-    pauses, and the flat 2D cartoon look.
-  - **Deferred:** Terry's essay
-    ([romantic-stories-disciplined-products.md](romantic-stories-disciplined-products.md))
-    still says "One feature may be changed by many stories"; it is Terry's
-    own text, so the film does not edit it (flagged for Terry).
-- **Key examples:**
-  - At the height of the feature beat, the caption reads "…and one feature
-    takes many layers working together."; one dashed green outline wraps the
-    column on the Structure axis across all three Structure rows; the name
-    "a feature" shows three layer bars and no story-colored dots; two
-    joints link its three layers.
-  - Early in the feature beat, the pink story's outline fades as the feature
-    outline rises, as before.
-  - Across the ending, the product's cells are exactly those the last story
-    left.
-- **Decided on Terry's behalf:** the wording above (his own example, which
-  keeps "and" so the two captions stay one sentence); the column on the
-  Structure axis (position, not stories, picks it); the green wash and the
-  joints as the picture of layers working together; the layer-bar badge in
-  place of the dots.
+Terry found "…and one feature carries many stories" inaccurate: a story is a
+fuzzy impact that has meaning only as a unit of planning, so there is no
+mapping of any kind between a feature and stories. Correction 15
+(delivered; see the breadcrumbs) replaced the line and its picture with a
+feature as many layers working together. The film is now about 135 seconds.
 
 ## Voice-over (2026-09-29)
 
@@ -250,8 +202,8 @@ hardest motion to get right.
 - **Length of the full film:** the previous effort used about three minutes.
   Settled at about 88 seconds for the lighter tone; about 104 seconds after
   improvements 6–10; about 108 seconds after corrections 11–12; about 133
-  seconds after the reading pace (story 14). Terry allowed up to 2.5
-  minutes.
+  seconds after the reading pace (story 14); about 135 seconds after the
+  story ≠ feature correction (15). Terry allowed up to 2.5 minutes.
 - **Audio:** keep the film silent-first, with optional playful sound effects.
   Decide at release.
 
@@ -276,8 +228,8 @@ enough to run alongside it.
 - The full film is done: `StoryImpactFilm` (about 88 seconds) adds a title,
   the product space and backlog, the sun and grape stories, a story versus
   feature beat, and the closing line "Stories should be romantic. Products
-  should not." Story versus feature comes after several stories, so that the
-  product can actually show it.
+  should not." Story versus feature comes after several stories, once the
+  product has grown enough to show a story spread across it.
 - The customer feedback loop is done (improvement 6): after the pink story is
   assimilated, a flat cartoon customer nods, gets a light-bulb idea, and the
   new teal ball lands second in the backlog while the two balls behind it
@@ -353,6 +305,21 @@ enough to run alongside it.
   last pose (some spans end mid-flight); captions already long enough keep
   their time rather than being shortened; the title and end card keep
   their holds. The film is 133 s. Recoverable from `3dca9fd`.
+- The story ≠ feature correction is done (correction 15): the ending's pair
+  reads "One story touches many features… …and one feature takes many
+  layers working together." The feature is the Behavior column on the
+  Structure axis, picked by its place and not by which stories touched it;
+  it is outlined, its cells washed in the feature's green so their story
+  paint does not read as "which stories made it", joints pop on between its
+  three layers from the bottom up, and a stack of Structure-blue layer bars
+  under "a feature" replaces the story-colored dots. No count, color, or
+  dot ties a feature to stories anywhere in the film. Decided on Terry's
+  behalf: his own example wording (keeping "and" so the two captions stay
+  one sentence); the column on the Structure axis; the green wash and
+  joints as the picture of layers working together; the layer bars in
+  place of the dots. Not changed: Terry's essay still says "One feature may
+  be changed by many stories" (his own text). The film is 134.7 s.
+  Recoverable from `9835628`.
 - The animation is finished and ready to share:
   `pnpm -C terry-moves render:story-impact` writes
   `terry-moves/out/story-impact-animation.mp4` and its poster. It is silent
