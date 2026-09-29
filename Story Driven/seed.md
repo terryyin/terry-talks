@@ -130,6 +130,31 @@ exception: when the customer reacts. He asked for two stories, 11 and 12,
 both delivered (see the breadcrumbs). The film is now about 108 seconds;
 Terry allowed up to 2.5 minutes.
 
+## Reading pace (2026-09-29)
+
+<a id="caption-reading-pace"></a>
+### 14. Viewers, and Terry reading aloud, have time to read every caption
+
+- **For / why:** In general the captions go by a bit faster than Terry can read
+  them, and some are far too short. This also sets the time budget for Terry's
+  voice-over (story 13), so it comes first.
+- **Outcome:**
+  - Each caption's on-screen time is re-measured from its sentence length,
+    counted in syllables, not a fixed slot. The baseline is about **1.2× the
+    current durations** overall. Captions that are too short for their
+    syllable count get more time. The timing is a rule in code (syllables to
+    seconds, with a minimum hold), not hand-tuned numbers, so a reworded
+    caption re-times itself.
+  - **Breathing pauses:** find the places where the film should leave a
+    pause, such as after a splat, before a key line, or between the two
+    values, so that captions do not fill all the time. Terry can then breathe
+    while narrating and viewers can take in the picture.
+  - The animation beats stretch with their captions and stay in sync. The
+    storyboard boards still match. The film can grow and stays within Terry's
+    2 to 2.5 minute allowance.
+- **Evaluation:** Terry reads every caption aloud at a comfortable pace
+  against the render without being cut off.
+
 ## Voice-over (2026-09-29)
 
 <a id="terry-voice-over"></a>
