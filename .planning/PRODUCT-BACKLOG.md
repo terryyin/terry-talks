@@ -17,8 +17,6 @@ Finish the TPS and AI slides so they are ready to present at the LeSS Conference
 
 ## Taken
 
-- [Viewers are not told that a feature maps to stories](../Story%20Driven/seed.md#feature-spans-layers) — story-impact-animation#feature-spans-layers ([plan](quick/024-feature-spans-layers/PLAN.md))
-
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
