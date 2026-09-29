@@ -50,7 +50,7 @@ Identity: `story-impact-animation#customer-feedback-loop`
 
 ### 1. A customer turns the story's impact into a new idea in the backlog
 Type: Behavior
-Status: planned
+Status: done
 Proof: examples 1–4 in `StoryImpactFilm.spec.tsx`; stills of the beat
 viewed; `pnpm moves test`.
 
@@ -58,3 +58,20 @@ Behavior: given the pink story's coherent product → when the customer beat
 plays → a customer nods, a bulb pops, the teal idea lands second and the two
 balls behind it swap; later the idea is launched after the sun and ends in
 History.
+
+Accepted proof: `pnpm moves test` passed (22 suites, 242 tests, lint and tsc
+clean). Stills of the `customer` and `new-idea` beats (frames 1150–1310) and
+the later stories (1600–2820) viewed: the customer is legible below the wall,
+clear of the Behavior and backlog labels; the idea arcs over the tray and
+lands second; the idea story launches after the sun.
+
+## Learnings
+
+- Two storyboard boards were added (customer with bulb, idea in the
+  backlog), so the one-story film still passes exactly through the boards.
+  The History and next boards now show the reordered queue.
+- The one-story film is now about 40 s.
+
+## Execution complete
+
+Product advice: retrospective skipped

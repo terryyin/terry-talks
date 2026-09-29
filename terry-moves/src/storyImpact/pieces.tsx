@@ -96,15 +96,17 @@ const DROP_SHADOW_FROM = 80;
 
 // An eager ball hops up from the tray floor, its shadow left behind.
 export const PaintBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x: slotX, y: rest }) => {
+	if (ball.scale !== undefined && ball.scale <= 0) return null;
 	const r = ball.size;
 	const { x, y } = trayBallCenter(ball, { x: slotX, y: rest });
+	const popped = ball.scale === undefined ? undefined : scaleAround({ x, y }, ball.scale, ball.scale);
 	// A ball dropping in from high above casts a shadow that grows as it nears.
 	const falling = ball.hop !== undefined && ball.hop > DROP_SHADOW_FROM ? Math.max(0, 1 - (ball.hop - DROP_SHADOW_FROM) / 400) : 1;
 	const shadow = (ball.hop !== undefined ? 0.9 - (0.3 * Math.min(ball.hop, HOP)) / HOP : ball.eager ? 0.6 : 0.9) * falling;
 	const squash = squashAround({ x, y: y + r }, ball.squash);
 	return (
-		<g data-testid="backlog-ball" data-id={ball.id} data-eager={ball.eager ? 'true' : undefined}>
-			<ellipse cx={x + 4} cy={rest + r * 0.95} rx={r * shadow} ry={r * 0.18} fill={palette.ink} opacity={0.18} />
+		<g data-testid="backlog-ball" data-id={ball.id} data-eager={ball.eager ? 'true' : undefined} transform={popped}>
+			{ball.flying ? null : <ellipse cx={x + 4} cy={rest + r * 0.95} rx={r * shadow} ry={r * 0.18} fill={palette.ink} opacity={0.18} />}
 			{ball.eager ? (
 				<g stroke={palette.ink} strokeWidth={5} strokeLinecap="round">
 					<line x1={x - r - 14} y1={y - r * 0.2} x2={x - r - 30} y2={y - r * 0.5} />
@@ -144,6 +146,7 @@ export const BacklogTray: React.FC<{ balls: BallPose[] }> = ({ balls }) => {
 			<path d={`${trayPath} Z`} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} />
 			<path d={`${trayPath} Z`} fill={palette.trayInside} />
 			{balls.map((ball, i) => {
+				if (ball.flying) return null;
 				const spot = traySpot(balls.length, i, ball.size);
 				return <PaintBall key={ball.id} ball={ball} x={spot.x} y={spot.y} />;
 			})}
@@ -159,3 +162,14 @@ export const BacklogTray: React.FC<{ balls: BallPose[] }> = ({ balls }) => {
 		</g>
 	);
 };
+
+// Balls on their way into the tray from outside it, drawn above the stage.
+export const FlyingBalls: React.FC<{ balls: BallPose[] }> = ({ balls }) => (
+	<g>
+		{balls.map((ball, i) => {
+			if (!ball.flying) return null;
+			const spot = traySpot(balls.length, i, ball.size);
+			return <PaintBall key={ball.id} ball={ball} x={spot.x} y={spot.y} />;
+		})}
+	</g>
+);

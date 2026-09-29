@@ -1,10 +1,11 @@
-// More stories over time: after the pink story, the sun and then the grape
-// story each launch, splat, wobble, are assimilated and go to History, in
-// shorter beats than the first story (its wish and fuzziness are not
-// repeated). Each changes a different set of cells across rows and columns;
-// a new ball drops into the back of the tray as each one leaves it.
+// More stories over time: after the pink story, the sun story and then the
+// customer's idea each launch, splat, wobble, are assimilated and go to
+// History, in shorter beats than the first story (its wish and fuzziness are
+// not repeated). Each changes a different set of cells across rows and
+// columns. The idea took the place of a refill behind the sun story; a new
+// ball drops into the back of the tray as the idea leaves it.
 
-import { ballColors, laterStories, leftTrayOf, pinkBefore, pinkStory, StoryBefore, StorySpec } from './scene';
+import { ballColors, ideaBall, laterStories, leftTrayOf, pinkAfterIdea, pinkStory, StoryBefore, StorySpec } from './scene';
 import { afterStory } from './assimilation';
 import { beat, Beat, COHERENT_SECONDS, SPLAT_SECONDS, squeezed, WOBBLE_SECONDS } from './film';
 import { launchBeatOf, LAUNCH_SECONDS, QUICK_FLIGHT_SECONDS, quickFlightBeatOf } from './launchBeats';
@@ -12,7 +13,7 @@ import { splatBeatOf } from './storyBeats';
 import { ASSIMILATE_SECONDS, assimilateBeatOf, coherentBeatOf, wobbleBeatOf } from './productBeats';
 import { HISTORY_SECONDS, historyBeatOf } from './historyBeats';
 
-const [sun, grape] = laterStories;
+const [sun] = laterStories;
 
 // Lower down and further along Behavior than the pink story; it reorganizes
 // a cell the pink story changed, which ends split between pink and sun.
@@ -26,12 +27,12 @@ const sunStory: StorySpec = {
 	],
 	reorganized: { col: 3, row: 1 },
 	seed: 11,
-	refill: { id: 'teal', color: ballColors.teal, size: 40 },
 };
 
-// Higher up and nearer the Structure axis; it reorganizes a sun cell.
-const grapeStory: StorySpec = {
-	ball: grape,
+// The customer's idea: higher up and nearer the Structure axis; it
+// reorganizes a sun cell.
+const ideaStory: StorySpec = {
+	ball: ideaBall,
 	impact: { col: 1.6, row: 2.4 },
 	changed: [
 		{ col: 0, row: 3 },
@@ -43,11 +44,11 @@ const grapeStory: StorySpec = {
 	refill: { id: 'orange', color: ballColors.orange, size: 36 },
 };
 
-const sunBefore = afterStory(pinkStory, pinkBefore());
-const grapeBefore = afterStory(sunStory, sunBefore);
+const sunBefore = afterStory(pinkStory, pinkAfterIdea());
+const ideaBefore = afterStory(sunStory, sunBefore);
 
 // The last story, and the stage once it has left the tray (with its refill).
-export const lastStory = { spec: grapeStory, stage: leftTrayOf(grapeStory, grapeBefore) };
+export const lastStory = { spec: ideaStory, stage: leftTrayOf(ideaStory, ideaBefore) };
 
 type Captions = { launch: string; assimilate?: string; history?: string };
 
@@ -75,8 +76,8 @@ export const laterStoryBeatList: Beat[] = [
 		true,
 	),
 	...laterStoryBeats(
-		grapeStory,
-		grapeBefore,
+		ideaStory,
+		ideaBefore,
 		{ launch: 'Each one changes the product a little.', history: 'Spent stories pile up in History, out of the way.' },
 		false,
 	),

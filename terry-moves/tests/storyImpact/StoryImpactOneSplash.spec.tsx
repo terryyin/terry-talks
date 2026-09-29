@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { beatRange, beats, captionAt, filmDurationInFrames, FPS, poseAt } from '@/storyImpact/film';
 import { flightPoint, wallPoint } from '@/storyImpact/layout';
 import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTime, storyIsFuzzy, storySplashes, storyWishes } from '@/storyImpact/scene';
-import { assimilating, coherentProduct, readyForNext, storyInHistory } from '@/storyImpact/assimilation';
+import { assimilating, coherentProduct, customerHasIdea, ideaInBacklog, readyForNext, storyInHistory } from '@/storyImpact/assimilation';
 import { boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
@@ -28,6 +28,8 @@ describe('StoryImpactOneSplash', () => {
 			'wobble',
 			'assimilate',
 			'coherent',
+			'customer',
+			'new-idea',
 			'history',
 			'next',
 		]);
@@ -192,6 +194,12 @@ describe('StoryImpactOneSplash', () => {
 			expect(splitting[splitting.length - 1]).toBe(1);
 		});
 
+	});
+
+	test('the customer beat ends on the customer board, the new-idea beat on the idea board', () => {
+		expect(poseAt(lastFrame('customer'))).toEqual(customerHasIdea());
+		expect(poseAt(lastFrame('new-idea'))).toEqual(ideaInBacklog());
+		expect(poseAt(firstFrame('history')).backlog.map((b) => b.id)).toEqual(ideaInBacklog().backlog.map((b) => b.id));
 	});
 
 	describe('the spent story drifts into history and the next story steps up', () => {

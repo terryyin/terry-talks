@@ -6,7 +6,7 @@
 // are the pink (example) story's.
 
 import { Easing } from 'remotion';
-import { BallPose, pinkBefore, pinkStory, SpentPose, StoryBeat, StoryBefore, StorySpec } from './scene';
+import { BallPose, pinkAfterIdea, pinkStory, SpentPose, StoryBeat, StoryBefore, StorySpec } from './scene';
 import { coherentProductOf, readyForNextOf, storyInHistoryOf } from './assimilation';
 import { historySpot, HOP, Point, wallPoint } from './layout';
 import { between, bounce, bounceSpeed, BOUNCY, hopping, jelly, lerpPoint, POPPY, unless, withoutUndefined } from './motion';
@@ -130,6 +130,6 @@ export const nextBeatOf: StoryBeat = (spec, before) => (sec) => {
 	return { ...target, backlog: [front, ...queue] };
 };
 
-const pink = pinkBefore();
+const pink = pinkAfterIdea();
 export const historyBeat = historyBeatOf(pinkStory, pink);
 export const nextBeat = nextBeatOf(pinkStory, pink);

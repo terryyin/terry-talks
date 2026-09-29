@@ -32,6 +32,7 @@ export const ballColors = {
 } as const;
 export type {
 	BallPose,
+	CustomerPose,
 	CellPose,
 	DimPose,
 	GridSpot,
@@ -113,6 +114,19 @@ export const pinkStory: StorySpec = {
 
 // Before the pink story: the tidy product, nothing spent, the rest waiting.
 export const pinkBefore = (): StoryBefore => ({ cells: tidyCells(), history: [], backlog: laterStories });
+
+// The new idea a customer gets from the pink story's impact.
+export const ideaBall: BallPose = { id: 'idea', color: ballColors.teal, size: 40 };
+
+// A new idea joins the backlog second, and the two balls behind it swap:
+// the backlog is both inserted into and reordered. The front ball keeps its turn.
+export const withIdea = (backlog: BallPose[], idea: BallPose): BallPose[] => {
+	const [front, second, third, ...rest] = backlog;
+	return [front, idea, third, second, ...rest];
+};
+
+// The pink story's stage once the customer's idea has joined the backlog.
+export const pinkAfterIdea = (): StoryBefore => ({ ...pinkBefore(), backlog: withIdea(laterStories, ideaBall) });
 
 // A story out of the backlog grows to this size while it wishes and flies.
 export const STORY_SIZE = 62;

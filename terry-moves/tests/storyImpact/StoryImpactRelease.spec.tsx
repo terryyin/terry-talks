@@ -41,7 +41,7 @@ const covers = ({ at, r }: Circle, box: Box) => {
 // Balls on stage, each as a circle generous enough to hold its squash,
 // stretch and ink outline.
 const trayBalls = (pose: Pose): Circle[] =>
-	pose.backlog.map((ball, i) => ({ at: trayBallCenter(ball, traySpot(pose.backlog.length, i, ball.size)), r: ball.size * 1.3 + 3 }));
+	pose.backlog.map((ball, i) => ({ at: trayBallCenter(ball, traySpot(pose.backlog.length, i, ball.size)), r: ball.size * (ball.scale ?? 1) * 1.3 + 3 }));
 const storyBall = (story: StoryPose): Circle => ({ at: storyCenter(story), r: story.ball.size * 1.5 + 3 });
 const spentBalls = (pose: Pose): Circle[] => {
 	const history = pose.history ?? [];

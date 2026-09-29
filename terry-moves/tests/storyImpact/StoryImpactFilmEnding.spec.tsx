@@ -21,7 +21,7 @@ const storyColors = (cell: CellPose) => [cell.color, cell.split].filter((c) => c
 const endingBeats = ['story-outline', 'feature-outline', 'closing'];
 
 describe('StoryImpactFilm ending: a story is not a feature', () => {
-	const product = poseAt(lastFrame('grape-coherent')).cells;
+	const product = poseAt(lastFrame('idea-coherent')).cells;
 
 	test('the product stays exactly as the last story left it', () => {
 		for (const name of endingBeats) {

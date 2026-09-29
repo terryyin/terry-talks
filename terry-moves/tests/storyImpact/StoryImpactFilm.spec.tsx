@@ -3,7 +3,7 @@ import { beats as oneStoryBeats, beatRange as oneStoryRange, FPS, poseAt as oneS
 import { fullFilm } from '@/storyImpact/fullFilm';
 import { ballColors, CellPose, plainCellColor, productOverTime, productSpace } from '@/storyImpact/scene';
 import { laterStoryBeatList } from '@/storyImpact/laterStories';
-import { historySpot } from '@/storyImpact/layout';
+import { historySpot, traySpot, trayBallCenter } from '@/storyImpact/layout';
 import { boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 
@@ -29,7 +29,7 @@ describe('StoryImpactFilm', () => {
 			'time',
 			...oneStoryBeats.map((b) => b.name),
 			...later.map((b) => `sun-${b}`),
-			...later.map((b) => `grape-${b}`),
+			...later.map((b) => `idea-${b}`),
 			'story-outline',
 			'feature-outline',
 			'closing',
@@ -107,7 +107,7 @@ describe('StoryImpactFilm', () => {
 		}
 	});
 
-	test('captions show in beat order, each for at least 2.5 s, ending on the closing line, in 75–90 s', () => {
+	test('captions show in beat order, each for at least 2.5 s, ending on the closing line, in 75–120 s', () => {
 		const runs: { caption: string; frames: number }[] = [];
 		for (let f = 0; f < durationInFrames; f++) {
 			const caption = captionAt(f);
@@ -128,7 +128,7 @@ describe('StoryImpactFilm', () => {
 		]);
 		runs.slice(1).forEach((r) => expect(r.frames).toBeGreaterThanOrEqual(2.5 * FPS));
 		expect(durationInFrames).toBeGreaterThanOrEqual(75 * FPS);
-		expect(durationInFrames).toBeLessThanOrEqual(90 * FPS);
+		expect(durationInFrames).toBeLessThanOrEqual(120 * FPS);
 	});
 
 	test('every frame of the opening renders', () => {
@@ -140,9 +140,49 @@ describe('StoryImpactFilm', () => {
 		}
 	});
 
+	describe("a customer feels the pink story's impact and gets a new idea", () => {
+		const customers = framesOf('customer').map((f) => poseAt(f).customer);
+
+		test('a customer appears in front of the coherent product, nods, and a light bulb pops', () => {
+			expect(customers[0]!.show ?? 1).toBeLessThan(0.2);
+			expect(Math.max(...customers.map((c) => c!.nod ?? 0))).toBeGreaterThan(0.9);
+			expect(customers[customers.length - 1]).toEqual({ bulb: 1 });
+			framesOf('customer').forEach((f) => expect(poseAt(f).cells).toEqual(poseAt(lastFrame('coherent')).cells));
+			const { getByTestId, unmount } = renderFrame(lastFrame('customer'));
+			expect(getByTestId('customer')).toContainElement(getByTestId('light-bulb'));
+			unmount();
+		});
+
+		test('the idea joins the backlog second and the two balls behind it swap', () => {
+			const ids = (f: number) => poseAt(f).backlog.map((b) => b.id);
+			expect(ids(lastFrame('coherent'))).toEqual(['sun', 'grape', 'lime']);
+			expect(ids(lastFrame('new-idea'))).toEqual(['sun', 'idea', 'lime', 'grape']);
+			expect(poseAt(lastFrame('new-idea')).customer).toBeUndefined();
+		});
+
+		test('every ball moves into its new place smoothly, the idea flying in from the bulb', () => {
+			const frames = [lastFrame('customer'), ...framesOf('new-idea')];
+			const centers = frames.map((f) => {
+				const { backlog } = poseAt(f);
+				return new Map(
+					backlog
+						.filter((b) => (b.scale ?? 1) > 0)
+						.map((b, _, all) => [b.id, trayBallCenter(b, traySpot(backlog.length, backlog.indexOf(b), b.size))] as const),
+				);
+			});
+			centers.slice(1).forEach((now, i) =>
+				now.forEach((at, id) => {
+					const was = centers[i].get(id);
+					if (was) expect({ id, step: Math.hypot(at.x - was.x, at.y - was.y) < 50 }).toEqual({ id, step: true });
+				}),
+			);
+			expect(framesOf('new-idea').some((f) => poseAt(f).backlog.some((b) => b.flying))).toBe(true);
+		});
+	});
+
 	describe('more stories come and go while the product stays coherent', () => {
 		const storyColored = (cells: CellPose[]) => cells.filter((c) => c.color !== plainCellColor(c) || c.split !== undefined).length;
-		const ends = ['coherent', 'sun-coherent', 'grape-coherent'].map((name) => poseAt(lastFrame(name)));
+		const ends = ['coherent', 'sun-coherent', 'idea-coherent'].map((name) => poseAt(lastFrame(name)));
 
 		test('each story ends aligned, with no smear or splat, and more story-colored cells', () => {
 			for (const pose of ends) {
@@ -166,15 +206,15 @@ describe('StoryImpactFilm', () => {
 		});
 
 		test('each story splats across rows and columns', () => {
-			for (const name of ['sun-wobble', 'grape-wobble']) {
+			for (const name of ['sun-wobble', 'idea-wobble']) {
 				const knocked = poseAt(lastFrame(name)).cells.filter((c) => c.smear);
 				expect(new Set(knocked.map((c) => c.col)).size).toBeGreaterThanOrEqual(2);
 				expect(new Set(knocked.map((c) => c.row)).size).toBeGreaterThanOrEqual(2);
 			}
 		});
 
-		test('a new ball drops into the back of the tray as each story leaves it', () => {
-			for (const story of ['sun', 'grape']) {
+		test('a new ball drops into the back of the tray as the idea leaves it', () => {
+			for (const story of ['idea']) {
 				const frames = framesOf(`${story}-launch`);
 				const backs = frames.map((f) => poseAt(f).backlog).filter((b) => b.length === 3 && b[0].id !== story);
 				expect(Math.max(...backs.map((b) => b[2].hop ?? 0))).toBeGreaterThan(300);
@@ -184,15 +224,15 @@ describe('StoryImpactFilm', () => {
 			}
 		});
 
-		test('at the end, History holds pink, sun and grape in spent order, none of them waiting', () => {
+		test("at the end, History holds pink, sun and the customer's idea in spent order, none of them waiting", () => {
 			const last = poseAt(durationInFrames - 1);
-			expect(last.history!.map((b) => b.id)).toEqual(['pink', 'sun', 'grape']);
+			expect(last.history!.map((b) => b.id)).toEqual(['pink', 'sun', 'idea']);
 			expect(last.backlog).toHaveLength(3);
-			last.backlog.forEach((b) => expect(['pink', 'sun', 'grape']).not.toContain(b.id));
+			last.backlog.forEach((b) => expect(['pink', 'sun', 'idea']).not.toContain(b.id));
 		});
 
 		test('earlier History balls shuffle aside smoothly to make room', () => {
-			for (const name of ['sun-history', 'grape-history']) {
+			for (const name of ['sun-history', 'idea-history']) {
 				const xs = framesOf(name).map((f) => {
 					const { history, historyRoom } = poseAt(f);
 					return historySpot(historyRoom ?? history!.length, 0, history![0].size).x;

@@ -187,3 +187,21 @@ export const historySpot = (room: number, index: number, size: number): Point =>
 };
 
 export const CAPTION_BOX = { left: 40, right: 1040, top: 880, bottom: 1040 } as const;
+
+// The customer stands below the wall's origin, in front of the product and
+// clear of the Behavior and "Product Backlog" labels, with the light bulb
+// over their head.
+export const CUSTOMER = { x: 505, feet: 866, headR: 36 } as const;
+export const customerHead = (): Point => ({ x: CUSTOMER.x, y: CUSTOMER.feet - 128 });
+export const BULB = { at: { x: 492, y: 646 } as Point, r: 20 } as const;
+
+// The new idea's arc from the light bulb into the tray.
+const IDEA_BEND: Point = { x: 540, y: 230 };
+export const ideaFlightPoint = (t: number, to: Point): Point => {
+	const u = 1 - t;
+	const from = { x: BULB.at.x, y: BULB.at.y - 10 };
+	return {
+		x: u * u * from.x + 2 * u * t * IDEA_BEND.x + t * t * to.x,
+		y: u * u * from.y + 2 * u * t * IDEA_BEND.y + t * t * to.y,
+	};
+};

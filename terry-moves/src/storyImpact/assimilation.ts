@@ -9,6 +9,7 @@ import {
 	GridSpot,
 	knockedCells,
 	leftTrayOf,
+	pinkAfterIdea,
 	pinkBefore,
 	pinkStory,
 	Pose,
@@ -87,5 +88,9 @@ export const afterStory = (spec: StorySpec, before: StoryBefore): StoryBefore =>
 
 export const assimilating = (): Pose => assimilatingOf(pinkStory, pinkBefore());
 export const coherentProduct = (): Pose => coherentProductOf(pinkStory, pinkBefore());
-export const storyInHistory = (): Pose => storyInHistoryOf(pinkStory, pinkBefore());
-export const readyForNext = (): Pose => readyForNextOf(pinkStory, pinkBefore());
+// A customer, in front of the coherent product, has an idea.
+export const customerHasIdea = (): Pose => ({ ...coherentProduct(), customer: { bulb: 1 } });
+// The idea has joined the backlog second, and the balls behind it swapped.
+export const ideaInBacklog = (): Pose => coherentProductOf(pinkStory, pinkAfterIdea());
+export const storyInHistory = (): Pose => storyInHistoryOf(pinkStory, pinkAfterIdea());
+export const readyForNext = (): Pose => readyForNextOf(pinkStory, pinkAfterIdea());

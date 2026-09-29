@@ -27,6 +27,8 @@ export type BallPose = {
 	hop?: number; // px above the tray floor, instead of the eager hop
 	squash?: number; // width over height, around where it touches the floor
 	dx?: number; // px along Time from its slot, while it rolls to a new slot
+	flying?: boolean; // on its way into the tray from outside it: drawn above the stage, without a floor shadow
+	scale?: number; // pop-in scale around its center; 0 = not there yet
 };
 
 // A spot on the product wall in grid units (cell (c, r) spans c..c+1, r..r+1).
@@ -88,6 +90,15 @@ export type Pose = {
 	// and a feature are; each left out is not there.
 	outlines?: OutlinePose[];
 	dim?: DimPose; // the rest of the product fades back while some cells are in focus
+	customer?: CustomerPose; // a customer in front of the product, feeling a story's impact
+};
+
+// A flat cartoon customer standing below the product wall. Each motion field
+// left out is at rest.
+export type CustomerPose = {
+	show?: number; // pop-in scale around the feet; 0 = not there yet
+	nod?: number; // 0–1: how far the head dips forward
+	bulb: number; // pop-in scale of the light bulb over the head; 0 = no idea yet
 };
 
 // A dashed outline over product cells: around each cell on its own, or

@@ -5,6 +5,7 @@ import {
 	laterStories,
 	messyProduct,
 	messyProductOf,
+	pinkAfterIdea,
 	pinkStory,
 	storyFlies,
 	storyFliesOf,
@@ -47,8 +48,9 @@ describe('story poses built from any story and the product before it', () => {
 		expect(messyProductOf(pinkStory, before)).toStrictEqual(messyProduct());
 		expect(assimilatingOf(pinkStory, before)).toStrictEqual(assimilating());
 		expect(coherentProductOf(pinkStory, before)).toStrictEqual(coherentProduct());
-		expect(storyInHistoryOf(pinkStory, before)).toStrictEqual(storyInHistory());
-		expect(readyForNextOf(pinkStory, before)).toStrictEqual(readyForNext());
+		// After the customer's idea has joined the backlog.
+		expect(storyInHistoryOf(pinkStory, pinkAfterIdea())).toStrictEqual(storyInHistory());
+		expect(readyForNextOf(pinkStory, pinkAfterIdea())).toStrictEqual(readyForNext());
 	});
 
 	test('the pink story\'s beats built through the general form move as today\'s', () => {
@@ -60,12 +62,19 @@ describe('story poses built from any story and the product before it', () => {
 			[wobbleBeatOf, wobbleBeat],
 			[assimilateBeatOf, assimilateBeat],
 			[coherentBeatOf, coherentBeat],
+		] as const;
+		const afterIdea = [
 			[historyBeatOf, historyBeat],
 			[nextBeatOf, nextBeat],
 		] as const;
+		const secs = [0, 0.5, 1.2, 2.4, 3.5];
 		for (const [general, pink] of pairs) {
 			const beat = general(pinkStory, before);
-			for (const sec of [0, 0.5, 1.2, 2.4, 3.5]) expect(beat(sec)).toStrictEqual(pink(sec));
+			for (const sec of secs) expect(beat(sec)).toStrictEqual(pink(sec));
+		}
+		for (const [general, pink] of afterIdea) {
+			const beat = general(pinkStory, pinkAfterIdea());
+			for (const sec of secs) expect(beat(sec)).toStrictEqual(pink(sec));
 		}
 	});
 

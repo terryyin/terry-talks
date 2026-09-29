@@ -1,7 +1,8 @@
 import React from 'react';
 import { Pose } from './scene';
 import { HISTORY_BOX, scaleAround, STAGE, TRAY } from './layout';
-import { BacklogTray, Paper, ProductGrid } from './pieces';
+import { BacklogTray, FlyingBalls, Paper, ProductGrid } from './pieces';
+import { Customer } from './customer';
 import { Axes } from './axes';
 import { Splat, WobbleMarks } from './splat';
 import { StoryBall } from './storyBall';
@@ -55,6 +56,8 @@ export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ po
 		) : null}
 		<Axes showTime={pose.showTime} grow={pose.axes} timeGrow={pose.timeGrow} />
 		{pose.outlines ? <Outlines outlines={pose.outlines} /> : null}
+		{pose.customer ? <Customer customer={pose.customer} /> : null}
+		{pose.backlog.some((b) => b.flying) ? <FlyingBalls balls={pose.backlog} /> : null}
 		{pose.story ? <StoryBall story={pose.story} /> : null}
 		{pose.spent ? <SpentSkin spent={pose.spent} /> : null}
 		{pose.title ? <Title title={pose.title} /> : null}
