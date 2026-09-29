@@ -4,7 +4,7 @@ status: proposed-decomposition
 created: 2026-09-28
 created_during: A digression from the current near-future direction (the TPS and AI talk); a redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort
 trigger_when: When Terry chooses to spend time on the animation; it is not for the TPS and AI talk
-scope: four delivered stories, improvement stories 6-10 (6, 7 and 8 delivered), and one conditional; S/M/L bands unassigned (no project definitions)
+scope: four delivered stories, improvement stories 6-10 (6 to 9 delivered), and one conditional; S/M/L bands unassigned (no project definitions)
 ---
 
 # Story impact animation: romantic stories, disciplined products
@@ -124,64 +124,6 @@ candidate: refinement and slice planning come before execution. For each one,
 **representative viewers** (developers and product people) are the audience
 it must work for.
 
-<a id="value-vs-whole-product-focus"></a>
-### 9. Viewers see that a story is customer-value focused and development is whole-product focused
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/019-value-vs-whole-product-focus/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"c3d6bc0d27ff02edd2ae705228bc50ef5c05d71db72761a3899416c6360c23cb","plan":"f9b28b234d2108e69f4e53dd562f1dd6dd1d5454f4f3ce38754dfc68d42577d9"}}
-```
-
-- **For / why:** The two sides need two different focuses, and the film does
-  not name them.
-- **Outcome:** When a story is taken from the backlog, a label beneath the ball
-  says it is **customer-value focused**. When it splashes onto the product, the
-  film says the work is now **whole-product focused**.
-- **Source of the term:** use the whole-product view from Open Dough's
-  ADR 0002 (principle 1, "Centralized product focus and customer view", and
-  principle 2, "keeping the solution cohesive with the whole product") to
-  confirm the concept only. The film still does not name Open Dough.
-
-#### Goal
-
-Viewers see that the story and the development work have different focuses:
-the story is about value for a customer, and the work on the product is about
-the whole product.
-
-#### Scope
-
-- **Required:**
-  - Pink (first) story only. Once it hovers after leaving the tray, a small
-    pill tag hangs from it on a string, just below and to the right of the
-    ball: "customer-value focused". It stays through the wish and fuzzy beats
-    and fades as the ball crouches to fly.
-  - When it has splashed and the "SPLAT!" word has gone, a dashed outline is
-    drawn around the whole product wall with the name "whole-product focused"
-    and a pointer, in the free space above the tray. It stays while the
-    developers assimilate the splash and fades as the product becomes
-    coherent.
-  - The storyboard's wish, fuzzy, messy and assimilating boards show them,
-    so the film still passes exactly through the boards.
-- **Rejection constraints:** the labels cover no other label, the wish
-  bubble, the flying ball's path or the tray balls; they read at 360×360.
-  Open Dough is not named.
-- **Deferred promises:** the labels for the later stories; the words
-  "focused" elsewhere.
-- **Decisions made on Terry's behalf (delegated, 2026-09-29):**
-  - The tag hangs from the ball rather than sitting directly beneath it,
-    because directly beneath it would cross the Structure axis.
-  - "Whole-product focused" is shown as an outline around the whole wall,
-    reusing the ending's outline style, so it says "all of it" without more
-    words.
-
-#### Key examples
-
-1. **The story's focus.** Given the pink story hovering with its wish, the
-   tag "customer-value focused" shows under it; once it flies, the tag is
-   gone.
-2. **The work's focus.** Given the splash on the product, while the cells
-   wobble and are assimilated, one dashed outline encloses every cell with
-   the name "whole-product focused"; by the coherent board it is gone.
-3. **Once only.** The sun and idea stories show neither label.
-
 <a id="judgment-intensive-to-spent"></a>
 ### 10. Viewers see that assimilation is judgment-intensive and leaves spent judgment in the product
 
@@ -273,6 +215,12 @@ enough to run alongside it.
   should not." with the credit "An idea and film by Terry Yin". Decided on
   Terry's behalf: keep the essay's own last line as the punchline and mirror
   the title as bookends. Recoverable from `0aab574`.
+- The two focuses are done (improvement 9): the first story wears a
+  "customer-value focused" tag while it hovers, and once it splashes the
+  whole wall is outlined as "whole-product focused" until it is coherent.
+  Decided on Terry's behalf: the tag hangs from the ball on a string (right
+  below it would cross the Structure axis), and the whole-product focus is
+  an outline around the whole wall. Recoverable from `b637fdf`.
 - The animation is finished and ready to share:
   `pnpm -C terry-moves render:story-impact` writes
   `terry-moves/out/story-impact-animation.mp4` and its poster. It is silent

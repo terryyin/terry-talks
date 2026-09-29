@@ -153,6 +153,11 @@ changed by a later story takes the new color, and a reorganized cell is split
 between the old and the new colors, so the product always shows its current
 state and never a scar.
 
+The first story also names the two focuses (`focus.ts`): while it hovers it
+wears a "customer-value focused" tag on a string (`storyTag.tsx`, the pose's
+`tag`), and once it splashes the whole wall is outlined as "whole-product
+focused" until the product is coherent. Later stories carry neither.
+
 Once a story is assimilated, the film shows what keeps the product coherent
 (`protect.tsx`, the pose's `protect` field, `protectBeats.ts`): a green test
 shield on every Behavior column, then each Structure row linked to a domain
