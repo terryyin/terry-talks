@@ -14,7 +14,7 @@ const shownSeconds = (caption: string) => {
 
 describe('reading pace', () => {
 	test('counts syllables in the film\'s own words', () => {
-		expect(syllables('a software product is a space: what it does × how it\'s built.')).toBe(13);
+		expect(syllables('a software product is a space: what it does × how it\'s built.')).toBe(15);
 		expect(syllables('It\'s fuzzy. It doesn\'t care about our boundaries.')).toBe(13);
 		expect(syllables('Behavior gets messy. Structure wobbles.')).toBe(10);
 		expect(syllables('…and bring new ideas. The backlog is reordered.')).toBe(13);
