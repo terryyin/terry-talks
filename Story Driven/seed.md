@@ -126,96 +126,11 @@ is now about 104 seconds.
 
 Terry watched the 104-second film. He confirmed that the History ball gets no
 judgment label and accepted the other delegated decisions, with one
-exception: when the customer reacts. He asked for the two stories below, in
-this order. Each is a non-executable candidate. For each one, **Terry** judges
+exception: when the customer reacts. He asked for two stories, in this
+order: 11, one message at a time and a product that changes shape
+(delivered; see the breadcrumbs), then 12 below. For each one, **Terry** judges
 whether the film says what he means, and **representative viewers**
 (developers and product people) are the audience it must work for.
-
-<a id="calmer-screen-living-product"></a>
-### 11. Viewers read one message at a time and see the product space change shape
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/021-calmer-screen-living-product/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"e283a816e421a2682429256bd7da80911eccf85a765fe806dd547b2bcb7c98ac","plan":"56efd8c532cf80a9e5145fa9774441a702e1720b95766f0e28e47b6fe3abad25"}}
-```
-
-- **For / why:** Some moments show too much at once, and the product space
-  looks frozen in size, even though real products grow and shrink.
-- **Outcome:**
-  - **One callout at a time.** The "customer-value focused" tag and the callout
-    that explains what a user story is must never be on screen together. Show
-    them one after the other so each moment carries one message. Check the
-    rest of the film for other crowded moments.
-  - **The space changes shape.** The Behavior and Structure extents (columns
-    and rows) vary across stories, mostly growing but sometimes shrinking, so
-    the product is visibly changing, not only expanding. Columns and rows may
-    change by different amounts. It **must stay pretty**: tidy and
-    deliberate, never jittery. If uneven changes look messy, use fewer and
-    calmer changes.
-- **Handed to story 12:** when the customer reacts. Terry now thinks the
-  customer should react to what they can see, the behavior, and not to internal
-  structure, which is invisible to them. The redesign of the reaction belongs
-  to the impact story.
-
-#### Goal
-
-Viewers take in one message at a time, and see the product as a living
-thing whose shape changes from story to story (mostly growing, once
-shrinking), while it stays tidy.
-
-#### Scope
-
-- **Required:**
-  - **The tag waits for the wish.** The wish bubble ("I wish I could split
-    the bill…", the callout that says what a story is) shows alone. It pops
-    away, and only then does the "customer-value focused" tag pop in, in a
-    short beat of its own with the caption "It's focused on customer
-    value." The tag is gone before the story turns fuzzy.
-  - **One focus label at a time while assimilating.** "whole-product
-    focused" names the outline while the product wobbles. As the developers
-    start assimilating, that label gives way (in the same spot) to
-    "judgment-intensive"; the dashed outline itself stays.
-  - **The product changes shape.** The product starts at 4 Behavior columns
-    × 4 Structure rows. The pink story adds a Behavior column (5 × 4), the
-    sun story removes a Structure row (5 × 3), and the customer's idea adds
-    a Behavior column (6 × 3). Each change happens once, while that story is
-    assimilated: the wall eases to its new size and the new cells pop in
-    along the new column, or the removed row's cells pop out before the wall
-    eases in. The axes stay put: they are the space the product can grow
-    into.
-- **Rejection constraints:** nothing jitters: sizes change by whole
-  columns or rows with eased motion, never in the same moment as another
-  change of size; the "Product" label moves with the wall's top edge by at
-  most a few px a frame; paint stays on the (current) wall; labels are not
-  covered and stay readable at 360×360.
-- **Deferred promises:** changing shape in the middle of a column or row
-  (only the far column and the top row change); resizing during the
-  opening; any new wording beyond the tag's caption.
-- **Decisions made on Terry's behalf (delegated, 2026-09-29):**
-  - "The callout that explains what a user story is" is read as the wish
-    bubble. The tag gets its own beat and caption rather than sharing the
-    fuzzy beat, which already carries its own message.
-  - The size sequence 4×4 → 5×4 → 5×3 → 6×3: two growths and one shrink,
-    columns and rows changing by different amounts, one calm change per
-    story. The pink story's new column is its new behavior (one new cell
-    takes pink). The sun story folds the (plain) top row away, a structure
-    simplified. The idea grows only behavior, which story 12 uses as the
-    cheap, option-exercising story.
-  - To fit six columns without crowding the caption, the Behavior step on
-    screen gets a little shorter; the axes are sized for the largest
-    product.
-
-#### Key examples
-
-1. **Wish, then tag.** While the wish bubble shows, there is no tag; when
-   the tag shows, the bubble is gone and the caption reads "It's focused on
-   customer value."; while the story is fuzzy there is neither.
-2. **One focus label.** During the wobble, "whole-product focused" shows
-   and "judgment-intensive" does not; later in the assimilation it is the
-   other way round.
-3. **Shape over time.** The coherent product after the pink, sun and idea
-   stories has 5×4, 5×3 and 6×3 cells; before the pink story it has 4×4.
-4. **Tidy growth.** While a column is added, the wall's outline eases out
-   and the new cells pop in one after another; no frame shows a cell
-   outside the wall.
 
 <a id="two-impacts-two-values"></a>
 ### 12. Viewers learn that a story's impact delivers two values: customer value and option value
@@ -247,6 +162,9 @@ shrinking), while it stays tidy.
   because it "exercises the option".
 - **Wording:** there is little room for text. Capture the spirit with the
   fewest words and the best artistic representation, not a lecture.
+- **Handed over from story 11:** when the customer reacts. Terry now thinks
+  the customer should react to what they can see, the behavior, and not to
+  internal structure, which is invisible to them.
 - **Relation to existing beats:** the tests-and-domain beat (story 7) and
   "Judgment spent" already show part of this. Merge or re-caption them so
   that option value is not said twice.
@@ -343,6 +261,16 @@ enough to run alongside it.
   contradicts Git keeping history available; "archived" would blur that the
   spent judgment lives in the product as decisions while only the
   deliberation (the story) goes to history. Recoverable from `8e7ab0b`.
+- One message at a time and a changing shape are done (correction 11): the
+  wish bubble shows alone, then the "customer-value focused" tag in its own
+  beat ("It's focused on customer value."); "whole-product focused" gives way
+  to "judgment-intensive" in the same spot. The product starts at 4 × 4 and
+  goes 5 × 4 (pink adds a Behavior column), 5 × 3 (sun folds the plain top
+  row away), 6 × 3 (the idea adds a column), easing calmly. Decided on
+  Terry's behalf: "the callout that explains what a user story is" is the
+  wish bubble; one calm change per story, only at the far column or top row;
+  a slightly shorter Behavior step so six columns fit. Recoverable from
+  `9272290`.
 - The animation is finished and ready to share:
   `pnpm -C terry-moves render:story-impact` writes
   `terry-moves/out/story-impact-animation.mp4` and its poster. It is silent

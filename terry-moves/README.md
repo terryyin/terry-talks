@@ -153,12 +153,22 @@ changed by a later story takes the new color, and a reorganized cell is split
 between the old and the new colors, so the product always shows its current
 state and never a scar.
 
-The first story also names the two focuses (`focus.ts`): while it hovers it
-wears a "customer-value focused" tag on a string (`storyTag.tsx`, the pose's
-`tag`), and once it splashes the whole wall is outlined as "whole-product
-focused" until the product is coherent, with "judgment-intensive" and "?"
-thought bubbles while it is assimilated (`judgment.tsx`, the pose's
-`judgment`). The test shields that follow are captioned as spent judgment.
+The product's size is its cells' extent (`extentOf`); a pose's `extent`
+overrides it while the wall eases to a new size. A story's `grow` adds or
+removes a Behavior column or Structure row at the far edge once it is
+assimilated: the wall eases out and the new cells pop in, or the leaving
+cells pop out before the wall eases in, one change at a time. The product
+starts at 4 × 4 (`START`) and goes 5 × 4, 5 × 3, 6 × 3 over the three
+stories; the axes span the largest product (`SPACE`), and the "Product"
+label rides the wall's top edge two columns out.
+
+The first story also names the two focuses (`focus.ts`), one message at a
+time: its wish bubble shows alone, then in a beat of its own it wears a
+"customer-value focused" tag on a string (`storyTag.tsx`, the pose's `tag`),
+gone before it turns fuzzy. Once it splashes, the whole wall is outlined as
+"whole-product focused"; while it is assimilated that name gives way, in the
+same spot, to "judgment-intensive" with "?" thought bubbles (`judgment.tsx`,
+the pose's `judgment`), and the outline stays until the product is coherent. The test shields that follow are captioned as spent judgment.
 Later stories carry none of these.
 
 Once a story is assimilated, the film shows what keeps the product coherent
