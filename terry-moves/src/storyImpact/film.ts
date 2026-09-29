@@ -5,6 +5,7 @@
 // sampled in tests.
 
 import { Pose } from './scene';
+import { paced } from './readingPace';
 import { clamp01, FPS } from './motion';
 import { backlogBeat, FLIGHT_SECONDS, splatBeat } from './storyBeats';
 import { ASSIMILATE_SECONDS, WOBBLE_SECONDS } from './productBeats';
@@ -20,6 +21,7 @@ export type Beat = {
 	name: string;
 	seconds: number;
 	caption?: string; // shown from this beat until the next captioned beat
+	pause?: number; // seconds the caption line stays empty first, a breath
 	pose: (t: number) => Pose;
 };
 
@@ -60,8 +62,10 @@ export type Timeline = {
 
 const framesOf = (b: Beat) => Math.round(b.seconds * FPS);
 
-// The arithmetic of a film made of the given beats, in order.
-export const timeline = (beats: Beat[]): Timeline => {
+// The arithmetic of a film made of the given beats, in order, each caption
+// paced for reading.
+export const timeline = (authored: Beat[]): Timeline => {
+	const beats = paced(authored);
 	const durationInFrames = beats.reduce((sum, b) => sum + framesOf(b), 0);
 
 	const beatRange = (name: string): { from: number; durationInFrames: number } => {
@@ -92,8 +96,10 @@ export const timeline = (beats: Beat[]): Timeline => {
 	const captionAt = (frame: number): string => {
 		const { index } = beatAt(frame);
 		for (let i = index; i >= 0; i--) {
-			const { caption } = beats[i];
-			if (caption !== undefined) return caption;
+			const { caption, name, pause } = beats[i];
+			if (caption === undefined) continue;
+			const breathing = pause !== undefined && Math.floor(frame) < beatRange(name).from + Math.round(pause * FPS);
+			return breathing ? '' : caption;
 		}
 		return '';
 	};

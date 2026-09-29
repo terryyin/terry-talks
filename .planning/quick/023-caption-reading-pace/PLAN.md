@@ -61,11 +61,23 @@ Identity: `story-impact-animation#caption-reading-pace`
 | 3. A breath after the splat | 2 | spec: empty caption for 1.0 s at the start of `wobble`, then the caption for its reading time; wobble ends on its board |
 | 4. Reworded | 1 | spec: pacing a span whose caption gains words grows it by the added syllables ÷ 3.5 |
 
+## Accepted proof
+
+- Slice 1: `tests/storyImpact/readingPace.spec.ts` (syllable counts, rule,
+  examples 1, 2, 4, every beat ends on its authored pose) and the film specs
+  (each caption run ≥ its reading time); `pnpm moves test`: 267 passed, lint
+  and tsc clean. Film 128.2 s before pauses.
+
+## Learnings
+
+- Sampling springs between frames moves a settle point by up to half a
+  frame: the one-story "next" hold is now 1.48 s, so its spec asks for 1.4 s.
+
 ## Slices
 
 ### 1. Captions hold for their syllable reading time
 Type: Behavior
-Status: planned
+Status: done
 Proof: reading-pace spec (syllable counts, rule, rewording); film specs
 (each run ≥ reading time, boards still match); `pnpm moves test`.
 

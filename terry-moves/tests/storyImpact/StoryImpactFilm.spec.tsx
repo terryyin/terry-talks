@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { readingSeconds } from '@/storyImpact/readingPace';
 import { beats as oneStoryBeats, beatRange as oneStoryRange, FPS, poseAt as oneStoryPoseAt } from '@/storyImpact/film';
 import { fullFilm } from '@/storyImpact/fullFilm';
 import { ballColors, CellPose, extentOf, plainCellColor, productOverTime, productSpace, wallExtentOf } from '@/storyImpact/scene';
@@ -109,7 +110,7 @@ describe('StoryImpactFilm', () => {
 		}
 	});
 
-	test('captions show in beat order, each for at least 2.5 s, ending on the end card, in 75–120 s', () => {
+	test('captions show in beat order, each for at least its reading time, ending on the end card, in 2–2.5 minutes', () => {
 		const runs: { caption: string; frames: number }[] = [];
 		for (let f = 0; f < durationInFrames; f++) {
 			const caption = captionAt(f);
@@ -130,9 +131,9 @@ describe('StoryImpactFilm', () => {
 			'Neither is better. They do different jobs.',
 			'',
 		]);
-		runs.slice(1).forEach((r) => expect(r.frames).toBeGreaterThanOrEqual(2.5 * FPS));
-		expect(durationInFrames).toBeGreaterThanOrEqual(75 * FPS);
-		expect(durationInFrames).toBeLessThanOrEqual(120 * FPS);
+		runs.forEach((r) => expect({ caption: r.caption, enough: r.frames >= readingSeconds(r.caption) * FPS }).toEqual({ caption: r.caption, enough: true }));
+		expect(durationInFrames).toBeGreaterThanOrEqual(120 * FPS);
+		expect(durationInFrames).toBeLessThanOrEqual(150 * FPS);
 	});
 
 	test('every frame of the opening renders', () => {

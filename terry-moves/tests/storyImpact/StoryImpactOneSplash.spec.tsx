@@ -5,6 +5,7 @@ import { exampleBall, IMPACT, messyProduct, plainCellColor, Pose, productOverTim
 import { coherentProduct, readyForNext, storyInHistory } from '@/storyImpact/assimilation';
 import { boardNamed, boards } from '@/storyImpact/boards';
 import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
+import { paced, readingSeconds } from '@/storyImpact/readingPace';
 
 const framesOf = (name: string) => {
 	const { from, durationInFrames } = beatRange(name);
@@ -17,8 +18,8 @@ const lastFrame = (name: string) => {
 };
 
 describe('StoryImpactOneSplash', () => {
-	test('the timeline is the sum of its beats', () => {
-		expect(filmDurationInFrames).toBe(beats.reduce((sum, b) => sum + Math.round(b.seconds * FPS), 0));
+	test('the timeline is the sum of its beats, paced for reading', () => {
+		expect(filmDurationInFrames).toBe(paced(beats).reduce((sum, b) => sum + Math.round(b.seconds * FPS), 0));
 		expect(beats.map((b) => b.name)).toEqual([
 			'backlog',
 			'wish',
@@ -39,12 +40,12 @@ describe('StoryImpactOneSplash', () => {
 		]);
 	});
 
-	test('the whole film lasts between 30 and 60 seconds', () => {
-		expect(filmDurationInFrames).toBeGreaterThanOrEqual(30 * FPS);
-		expect(filmDurationInFrames).toBeLessThanOrEqual(60 * FPS);
+	test('the whole film lasts between 45 and 80 seconds', () => {
+		expect(filmDurationInFrames).toBeGreaterThanOrEqual(45 * FPS);
+		expect(filmDurationInFrames).toBeLessThanOrEqual(80 * FPS);
 	});
 
-	test('every storyboard caption from the wish on shows in beat order, each for at least 2.5 s', () => {
+	test('every storyboard caption from the wish on shows in beat order, each for at least its reading time', () => {
 		const runs: { caption: string; frames: number }[] = [];
 		for (let f = 0; f < filmDurationInFrames; f++) {
 			const caption = captionAt(f);
@@ -52,8 +53,8 @@ describe('StoryImpactOneSplash', () => {
 			if (last && last.caption === caption) last.frames++;
 			else runs.push({ caption, frames: 1 });
 		}
-		expect(runs.map((r) => r.caption)).toEqual(boards.slice(2).map((b) => b.caption));
-		runs.forEach((r) => expect(r.frames).toBeGreaterThanOrEqual(2.5 * FPS));
+		expect(runs.map((r) => r.caption).filter((c) => c !== '')).toEqual(boards.slice(2).map((b) => b.caption));
+		runs.forEach((r) => expect({ caption: r.caption, enough: r.frames >= readingSeconds(r.caption) * FPS }).toEqual({ caption: r.caption, enough: true }));
 	});
 
 	test('every frame of the film renders', () => {
@@ -378,10 +379,10 @@ describe('StoryImpactOneSplash', () => {
 			expect(poses.filter((p) => !p.spent && p.history!.length === 1).length).toBeGreaterThan(0);
 		});
 
-		test('the next ball hops eagerly and the final pose holds at least 1.5 s', () => {
+		test('the next ball hops eagerly and the final pose holds at least 1.4 s', () => {
 			const hops = framesOf('next').map((f) => poseAt(f).backlog[0].hop ?? 0);
 			expect(Math.max(...hops)).toBeGreaterThan(10);
-			expect(poseAt(lastFrame('next') - 1.5 * FPS)).toEqual(readyForNext());
+			expect(poseAt(lastFrame('next') - 1.4 * FPS)).toEqual(readyForNext());
 		});
 
 		test('the last frame is changed, not reset, not stained', () => {

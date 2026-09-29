@@ -33,9 +33,10 @@ export const BOUNCY: Partial<SpringConfig> = { damping: 9, stiffness: 140, mass:
 export const POPPY: Partial<SpringConfig> = { damping: 8, stiffness: 180, mass: 0.6 };
 export const WOBBLY: Partial<SpringConfig> = { damping: 6, stiffness: 120, mass: 0.7 };
 
-// Springs from 0 toward 1 starting `delay` seconds into the beat.
+// Springs from 0 toward 1 starting `delay` seconds into the beat, sampled
+// between frames too, so a slowed beat stays smooth.
 export const bounce = (sec: number, delay: number, config: Partial<SpringConfig>) =>
-	settle(spring({ frame: Math.max(0, Math.round((sec - delay) * FPS)), fps: FPS, config }), 1);
+	settle(spring({ frame: Math.max(0, (sec - delay) * FPS), fps: FPS, config }), 1);
 
 // Speed of a spring in units per frame, for squash and stretch.
 export const bounceSpeed = (sec: number, delay: number, config: Partial<SpringConfig>) =>
