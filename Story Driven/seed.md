@@ -137,6 +137,28 @@ Story 14 (delivered; see the breadcrumbs) re-timed every caption from its
 syllables and added six breathing pauses. The film is now about 133 seconds,
 and its caption timings are the time budget for the voice-over (story 13).
 
+## Story ≠ feature correction (2026-09-29)
+
+<a id="feature-spans-layers"></a>
+### 15. Viewers are not told that a feature maps to stories
+
+- **For / why:** The line "…and one feature carries many stories" is
+  inaccurate. Terry: a story is a fuzzy impact that has meaning only as a unit
+  of planning, so there is no mapping of any kind between a feature and
+  stories. The film must not claim or draw one.
+- **Outcome:** Replace the line, and any visual that ties a feature back to
+  stories (such as colors or counts showing which stories made a feature),
+  with the product's own truth: **a feature takes the collaboration of many
+  architectural layers**. One Behavior column is realized across many
+  Structure rows. "One story touches many features…" can stay, because it is
+  the story's transient impact, but check that the pair still reads as one
+  thought. Wording is the coordinator's call within this spirit (for example,
+  "…and one feature takes many layers working together.").
+- **Constraints:** keep the reading-pace rule, where captions re-time
+  themselves, and keep the flat 2D look. Update the essay-derived intention
+  point 4 in this seed so it no longer says "one feature is changed by many
+  stories over time".
+
 ## Voice-over (2026-09-29)
 
 <a id="terry-voice-over"></a>
