@@ -134,7 +134,10 @@ pnpm -C terry-moves render:story-impact
 
 Or render the full film (`StoryImpactFilm`, about 88 seconds) directly: title, product
 space, backlog, the pink story, the sun story and the customer's idea, story
-versus feature, and the closing line.
+versus feature, "neither is better", and the end card: the stage shrinks
+away and "Stories should be romantic. Products should not." lands in the
+title's styles (`endCard.tsx`, reusing `title.tsx`'s lines), with the credit
+"An idea and film by Terry Yin". The poster is the last frame.
 
 ```bash
 cd terry-moves

@@ -4,7 +4,7 @@ status: proposed-decomposition
 created: 2026-09-28
 created_during: A digression from the current near-future direction (the TPS and AI talk); a redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort
 trigger_when: When Terry chooses to spend time on the animation; it is not for the TPS and AI talk
-scope: four delivered stories, improvement stories 6-10 (6 and 7 delivered), and one conditional; S/M/L bands unassigned (no project definitions)
+scope: four delivered stories, improvement stories 6-10 (6, 7 and 8 delivered), and one conditional; S/M/L bands unassigned (no project definitions)
 ---
 
 # Story impact animation: romantic stories, disciplined products
@@ -124,64 +124,6 @@ candidate: refinement and slice planning come before execution. For each one,
 **representative viewers** (developers and product people) are the audience
 it must work for.
 
-<a id="crisp-ending"></a>
-### 8. Viewers leave with a crisp, powerful ending, and Terry is credited
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/018-crisp-ending/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"9a430deb8dd0f7dbc61321bd3ea606a57effd67b23eaf2994bb83d80d0e52b20","plan":"6bd262ad1b5ab38c7634bcfe9bf1c82f2d85b0a1784538ce2bcc8d0e0bb9c5cf"}}
-```
-
-- **For / why:** The current close ("Stories should be romantic. Products
-  should not.") should land harder and leave the viewer with one memorable
-  message.
-- **Outcome:** A short, punchy final beat that lands the key message, followed
-  by an end credit to Terry Yin as the author of the idea and the film.
-- **Order note:** it is best refined after stories 6, 7, 9 and 10 have
-  shaped the film, but it has no hard prerequisite.
-
-#### Goal
-
-Viewers leave with the essay's one memorable message, "Stories should be
-romantic. Products should not.", landed as a bold end card that mirrors the
-opening title, and know the idea and film are Terry Yin's.
-
-#### Scope
-
-- **Required:**
-  - After story versus feature, the product rests with the next ball eager
-    (as now), captioned "Neither is better. They do different jobs." (the
-    essay's "neither side is better", which the film's movement qualities
-    already show but no caption says).
-  - Then the whole stage shrinks away, like the title did at the start, and
-    an end card plays on the empty paper in the title's own style: "Stories
-    should be" pops in, "romantic." drops in letter by letter, big and
-    bright, onto a paint splash, then "Products should not." snaps in over a
-    ruled underline. The caption bar is gone for the card.
-  - A credit then pops in under it: "An idea and film by Terry Yin". The
-    card holds still for at least 2 s at the end.
-  - The poster still is taken from the end card.
-- **Rejection constraints:** the seed's style constraints; the card must be
-  legible at 360×360; Open Dough is not credited or named.
-- **Deferred promises:** music or sound, a logo, links or other credits.
-- **Decisions made on Terry's behalf (delegated, 2026-09-29):**
-  - The punchline is the essay's own final line, kept word for word, rather
-    than a new slogan; the end card gives it the weight the caption bar
-    could not.
-  - The end card reuses the title's romantic and disciplined styles, so the
-    film opens and closes on the same pair: bookends.
-  - A final pass on the ending may follow stories 9 and 10 if they change
-    what the ending should land.
-
-#### Key examples
-
-1. **The set-up.** Given the product at rest after story versus feature,
-   the caption reads "Neither is better. They do different jobs." and the next
-   ball hops eagerly.
-2. **The punchline.** When the end card has played, it shows "Stories should
-   be", "romantic." and "Products should not.", with no product, axes or
-   caption bar.
-3. **The credit.** The last frame shows "An idea and film by Terry Yin", and
-   the last 2 s do not move.
-
 <a id="value-vs-whole-product-focus"></a>
 ### 9. Viewers see that a story is customer-value focused and development is whole-product focused
 
@@ -280,6 +222,12 @@ enough to run alongside it.
   Structure rows link to domain concepts from the wish (Payment, Bill, Share,
   Friend). Decided on Terry's behalf: this is the film's one picture of spent
   judgment, which story 10 names. Recoverable from `51f35b4`.
+- The crisp ending is done (improvement 8): the product rests under "Neither
+  is better. They do different jobs.", then the stage shrinks away and an end
+  card in the title's styles lands "Stories should be / romantic. / Products
+  should not." with the credit "An idea and film by Terry Yin". Decided on
+  Terry's behalf: keep the essay's own last line as the punchline and mirror
+  the title as bookends. Recoverable from `0aab574`.
 - The animation is finished and ready to share:
   `pnpm -C terry-moves render:story-impact` writes
   `terry-moves/out/story-impact-animation.mp4` and its poster. It is silent
