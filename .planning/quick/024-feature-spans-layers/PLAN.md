@@ -83,3 +83,7 @@ risen; stills at frames 3610, 3640, 3690 viewed at 1080 px and 3690 at
 - Terry committed `75b6a20` ("a software product is a space…") on master
   during this execution; its syllable spec still expected 13 for the new
   15-syllable caption. Fixed in its own commit so the local gate passes.
+
+## Execution complete
+
+Product advice: retrospective skipped
