@@ -21,7 +21,7 @@ describe('StoryImpactStoryboard', () => {
 			return text;
 		});
 		expect(captions).toEqual([
-			'A product is a space: what it does × how it\'s built.',
+			'a software product is a space: what it does × how it\'s built.',
 			'It moves through Time. The backlog holds stories waiting their turn.',
 			'A story is romantic: a wish for a better world.',
 			'It\'s focused on customer value.',
@@ -179,8 +179,8 @@ describe('captionLines', () => {
 	});
 
 	test('breaks after punctuation when both lines fit', () => {
-		expect(captionLines('A product is a space: what it does × how it\'s built.')).toEqual([
-			'A product is a space:',
+		expect(captionLines('a software product is a space: what it does × how it\'s built.')).toEqual([
+			'a software product is a space:',
 			'what it does × how it\'s built.',
 		]);
 	});

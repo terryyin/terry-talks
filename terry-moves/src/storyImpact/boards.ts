@@ -27,7 +27,7 @@ export type Board = {
 export const boards: Board[] = [
 	{
 		name: 'space',
-		caption: 'A product is a space: what it does × how it\'s built.',
+		caption: 'a software product is a space: what it does × how it\'s built.',
 		pose: productSpace(),
 	},
 	{
