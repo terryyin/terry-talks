@@ -16,14 +16,7 @@ export const FinishDefs: React.FC = () => (
 		<pattern id="ft-ticks" width={44} height={44} patternUnits="userSpaceOnUse">
 			<path d="M9,24 l7,8 l14,-16" fill="none" stroke={palette.white} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" opacity={0.85} />
 		</pattern>
-		<pattern id="ft-scrawl" width={58} height={40} patternUnits="userSpaceOnUse">
-			<path d="M4,30 L14,8 L22,32 L32,6 L40,30 L52,10" fill="none" stroke={palette.ink} strokeWidth={3.5} strokeLinecap="round" strokeLinejoin="round" opacity={0.5} />
-			<circle cx={46} cy={34} r={3} fill={palette.ink} opacity={0.4} />
-		</pattern>
-		<pattern id="ft-clash" width={22} height={22} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-			<path d="M0,0 V22" stroke={palette.ink} strokeWidth={6} opacity={0.5} />
-		</pattern>
-	</defs>
+</defs>
 );
 
 const points = (p: PatchPose, finish: Finish): Point[] => {
@@ -51,7 +44,7 @@ const Look: React.FC<{ p: PatchPose; finish: Finish; color: string; ink: number;
 	return (
 		<g>
 			<path d={d} fill={color} stroke={palette.ink} strokeWidth={OUTLINE - 1} strokeOpacity={ink} strokeLinejoin="round" strokeDasharray={finish === 'scrappy' ? '14 8' : undefined} />
-			<path d={d} fill={finish === 'scrappy' ? 'url(#ft-scrawl)' : 'url(#ft-ticks)'} opacity={shown} />
+			<path d={d} fill="url(#ft-ticks)" opacity={finish === 'scrappy' ? 0 : shown} />
 		</g>
 	);
 };
@@ -65,7 +58,7 @@ const Patch: React.FC<{ p: PatchPose; coherent: number }> = ({ p, coherent }) =>
 	const spread = p.repaint * p.r * 1.25;
 	const clip = `ft-repaint-${p.id}`;
 	return (
-		<g data-testid="patch" data-team={p.team} data-id={p.id} transform={`${scaleAround({ x: p.cx, y: p.cy }, p.grow, p.grow)} ${curl}`} opacity={1 - p.curl * 0.4}>
+		<g data-testid="patch" data-team={p.team} data-id={p.id} transform={`${scaleAround({ x: p.cx, y: p.cy }, p.grow * (1 - 0.4 * p.assimilate), p.grow * (1 - 0.4 * p.assimilate))} ${curl}`} opacity={(1 - p.curl * 0.4) * (1 - p.assimilate)}>
 			<path d={patchPath(p)} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} opacity={0.8} />
 			{scrappy && p.repaint > 0 ? (
 				<>
@@ -99,8 +92,7 @@ const Clash: React.FC<{ a: PatchPose; b: PatchPose }> = ({ a, b }) => {
 				<path d={patchPath(a)} />
 			</clipPath>
 			<g clipPath="url(#ft-overlap)">
-				<path d={patchPath(b, agreed >= 1 ? 'shared' : b.finish)} fill={CLASH} opacity={0.88 - agreed * 0.45} />
-				<path d={patchPath(b, agreed >= 1 ? 'shared' : b.finish)} fill="url(#ft-clash)" opacity={1 - agreed} />
+				<path d={patchPath(b, agreed >= 1 ? 'shared' : b.finish)} fill={CLASH} opacity={(0.62 - agreed * 0.3) * (1 - Math.max(a.assimilate, b.assimilate))} />
 			</g>
 		</g>
 	);

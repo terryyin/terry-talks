@@ -28,6 +28,7 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => {
 			<Header header={pose.header} />
 			<Product
 				column={pose.column}
+				cells={pose.cells}
 				coherent={pose.coherent}
 				under={<Patches patches={pose.patches} coherent={pose.coherent} />}
 				over={<Tags tags={pose.tags} s={pose.s} />}

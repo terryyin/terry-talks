@@ -9,7 +9,7 @@ import { Easing, interpolate } from 'remotion';
 import { between, bounce, BOUNCY, lerp, POPPY } from '../storyImpact/motion';
 import { ballColors } from '../storyImpact/scene';
 import type { Mood } from '../storyImpact/face';
-import { columnCenter } from './layout';
+import { cellCenter, cellsCovered, columnCenter } from './layout';
 import { CUE } from './cues';
 
 export type Finish = 'tidy' | 'scrappy' | 'shared';
@@ -27,7 +27,12 @@ export type PatchPose = {
 	finishShown: number; // 0–1: the finish showing over the plain paint
 	repaint: number; // 0–1: repainted to the shared finish, spreading from the middle
 	curl: number; // 0–1: curling up, nobody caring
+	cells: [number, number][]; // the cells (column, row) this impact is assimilated into
+	assimilate: number; // 0–1: the splash sinking tidily into those cells
 };
+
+// A cell of the product, taking on the finish of the impacts assimilated into it.
+export type CellPose = { col: number; row: number; fills: { color: string; amount: number }[] };
 
 export type BubblePose = { text: string; pop: number; tone: 'plain' | 'shout' | 'weary' };
 
@@ -41,11 +46,12 @@ export type DevPose = {
 	face: -1 | 1; // which way they look
 	bob: number; // seconds of walking, 0 = standing
 	hand: number; // 0–1: an arm raised toward the other
-	clipboard?: boolean;
+	dy: number; // px sunk below the floor, stepping out
+
 	bubble?: BubblePose;
 };
 
-export type BallPose = { id: string; color: string; x: number; y: number; r: number; show: number; squash: number; mood: Mood; label?: string };
+export type BallPose = { id: string; color: string; x: number; y: number; r: number; show: number; squash: number; mood: Mood; label?: string; twinkle?: number };
 
 export type ColumnPose = {
 	col: number;
@@ -65,6 +71,7 @@ export type Pose = {
 	sheet: { cover: number; uncover: number };
 	balls: BallPose[];
 	patches: PatchPose[];
+	cells: CellPose[];
 	tags: { tests: number; noTests: number; testsOnTeam2: number; overlap: number; warning: number };
 	zap: number;
 	devs: DevPose[];
@@ -110,7 +117,8 @@ const QUALITY: [number, number][] = [
 	[CUE.repaint + 6, 0.6],
 	[CUE.neglectFrom, 0.64],
 	[CUE.rewind + 0.8, 0.66],
-	[CUE.stories[0], 0.7],
+	[CUE.assimilate + 3.5, 0.72],
+	[CUE.stories[0], 0.72],
 	[CUE.stories[0] + 1.6, 0.76],
 	[CUE.stories[1] + 1.6, 0.83],
 	[CUE.stories[2] + 1.6, 0.9],
@@ -127,7 +135,7 @@ const HEADERS: { from: number; text: string; warn?: boolean }[] = [
 	{ from: CUE.painful, text: 'Painful, but very good' },
 	{ from: CUE.agree, text: 'Agree how we build here' },
 	{ from: CUE.neglectFrom, text: 'If nobody pays attention…', warn: true },
-	{ from: CUE.rewind, text: 'Facilitated: standards rise' },
+	{ from: CUE.rewind, text: 'Standards rise' },
 ];
 
 const headerAt = (s: number): Pose['header'] => {
@@ -140,18 +148,23 @@ const headerAt = (s: number): Pose['header'] => {
 const TEAM_A = { col: 1, color: ballColors.grape };
 const COMPONENT_SHIRTS = [ballColors.orange, TEAM_A.color, ballColors.lime, ballColors.sun];
 
+// The shiny, beautiful plan everybody can see, until Team A takes it to its own
+// column; it melts into the column without a splash.
+const PLAN_HOME = { x: 560, y: 118 };
 const componentBall = (s: number): BallPose => {
-	const y = lerp(100, 195, between(s, 2.5, 6.5, Easing.inOut(Easing.quad)));
-	const melt = 1 - between(s, CUE.melt, CUE.melt + 1.6);
+	const taken = between(s, CUE.planTakenFrom, CUE.melt - 0.6, Easing.inOut(Easing.quad));
+	const melt = 1 - between(s, CUE.melt, CUE.melt + 1.4);
 	return {
-		id: 'team-a',
+		id: 'plan',
 		color: TEAM_A.color,
-		x: columnCenter(TEAM_A.col),
-		y,
-		r: 34,
+		x: lerp(PLAN_HOME.x, columnCenter(TEAM_A.col), taken),
+		y: lerp(PLAN_HOME.y + Math.sin(s * 3) * 4 * (1 - taken), 215, taken),
+		r: 42,
 		show: pop(s, CUE.ballIn) * melt,
 		squash: 1,
 		mood: 'dreamy',
+		label: 'A shiny plan',
+		twinkle: s,
 	};
 };
 
@@ -169,14 +182,15 @@ const componentDevs = (s: number): DevPose[] => {
 				: undefined;
 		return {
 			id: `component-${col}`,
-			x: mine ? lerp(columnCenter(col), -110, walking) : columnCenter(col),
+			x: columnCenter(col),
 			show: pop(s, col * 0.15) * (1 - gone),
 			mood: mine ? 'smile' : shocked ? 'hopeful' : ignorant ? 'sleepy' : 'smile',
 			shirt,
 			label: mine && walking === 0 ? 'Team A' : undefined,
-			face: mine && walking > 0 ? -1 : 1,
-			bob: mine && walking > 0 && walking < 1 ? s : 0,
+			face: 1,
+			bob: 0,
 			hand: 0,
+			dy: mine ? walking * 260 : 0,
 			bubble,
 		};
 	});
@@ -192,42 +206,42 @@ const componentColumn = (s: number): ColumnPose => ({
 // --- feature teams ----------------------------------------------------------------
 
 type Team = { color: string; home: number; spot: { cx: number; cy: number } };
-const TEAM_1: Team = { color: ballColors.pink, home: 200, spot: { cx: 250, cy: 440 } };
-const TEAM_2: Team = { color: ballColors.teal, home: 560, spot: { cx: 470, cy: 500 } };
-const SPLASH_R = 165;
+const TEAM_1: Team = { color: ballColors.pink, home: 200, spot: { cx: 265, cy: 450 } };
+const TEAM_2: Team = { color: ballColors.teal, home: 560, spot: { cx: 410, cy: 510 } };
+const SPLASH_R = 170;
 
-// Later stories, landing where the two teams' work has not reached.
-export const LATER_SPOTS = [
-	{ cx: 135, cy: 235, r: 80, color: ballColors.sun },
-	{ cx: 565, cy: 235, r: 85, color: ballColors.lime },
-	{ cx: 615, cy: 645, r: 70, color: ballColors.orange },
-] as const;
+// Later stories, each assimilated tidily into a few free cells.
+export const LATER_STORIES: { cells: [number, number][]; color: string }[] = [
+	{ cells: [[0, 0], [0, 2]], color: ballColors.sun },
+	{ cells: [[2, 0], [3, 0]], color: ballColors.lime },
+	{ cells: [[3, 1], [3, 2]], color: ballColors.orange },
+];
 
-const teamBall = (s: number, id: string, team: Team, label: string): BallPose => {
+const teamBall = (s: number, id: string, team: Team): BallPose => {
 	const dive = between(s, CUE.dive, CUE.splash, Easing.in(Easing.quad));
 	const hop = s < CUE.dive ? Math.abs(Math.sin(s * 5 + team.home)) * 16 : 0;
 	return {
 		id,
 		color: team.color,
 		x: lerp(team.home, team.spot.cx, dive),
-		y: lerp(105 - hop, team.spot.cy, dive),
+		y: lerp(108 - hop, team.spot.cy, dive),
 		r: 38,
 		show: s < CUE.splash ? pop(s, CUE.teamsIn + 0.4) : 0,
 		squash: dive > 0 ? 1 - 0.18 * dive : 1,
 		mood: dive > 0 ? 'gleeful' : 'hopeful',
-		label,
 	};
 };
 
 const laterBalls = (s: number): BallPose[] =>
-	LATER_SPOTS.map((spot, i): BallPose => {
+	LATER_STORIES.map((story, i): BallPose => {
 		const at = CUE.stories[i];
+		const to = cellCenter(...story.cells[0]);
 		const fall = between(s, at - 0.9, at, Easing.in(Easing.quad));
 		return {
 			id: `later-${i}`,
-			color: spot.color,
-			x: spot.cx,
-			y: lerp(105, spot.cy, fall),
+			color: story.color,
+			x: to.x,
+			y: lerp(108, to.y, fall),
 			r: 30,
 			show: s >= at - 1.4 && s < at ? pop(s, at - 1.4) : 0,
 			squash: 1 - 0.15 * fall,
@@ -240,44 +254,81 @@ const grow = (s: number, at: number) => bounce(s, at, { damping: 9, stiffness: 1
 const patchesAt = (s: number, neglect: number): PatchPose[] => {
 	const curl = neglect;
 	const two = between(s, CUE.repaint, CUE.repaint + 6, ease);
-	const all: PatchPose[] = [
-		{ id: 'team-1', team: 1, ...TEAM_1.spot, r: SPLASH_R, seed: 5, color: TEAM_1.color, grow: grow(s, CUE.splash), finish: 'tidy', finishShown: between(s, CUE.finish, CUE.finish + 2), repaint: 0, curl },
-		{ id: 'team-2', team: 2, ...TEAM_2.spot, r: SPLASH_R, seed: 17, color: TEAM_2.color, grow: grow(s, CUE.splash), finish: 'scrappy', finishShown: between(s, CUE.finish, CUE.finish + 2), repaint: two, curl },
-		...LATER_SPOTS.map((spot, i): PatchPose => ({
+	const teams = [
+		{ id: 'team-1', team: 1 as const, team_: TEAM_1, seed: 5, finish: 'tidy' as const, repaint: 0 },
+		{ id: 'team-2', team: 2 as const, team_: TEAM_2, seed: 17, finish: 'scrappy' as const, repaint: two },
+	].map(({ id, team, team_, seed, finish, repaint }): PatchPose => ({
+		id,
+		team,
+		...team_.spot,
+		r: SPLASH_R,
+		seed,
+		color: team_.color,
+		grow: grow(s, CUE.splash),
+		finish,
+		finishShown: between(s, CUE.finish, CUE.finish + 2),
+		repaint,
+		curl,
+		cells: cellsCovered(team_.spot.cx, team_.spot.cy, SPLASH_R),
+		assimilate: between(s, CUE.assimilate, CUE.assimilate + 3.2, ease),
+	}));
+	const later = LATER_STORIES.map((story, i): PatchPose => {
+		const at = CUE.stories[i];
+		const to = cellCenter(...story.cells[0]);
+		return {
 			id: `later-${i}`,
 			team: 0,
-			cx: spot.cx,
-			cy: spot.cy,
-			r: spot.r,
+			cx: to.x,
+			cy: to.y,
+			r: 62,
 			seed: 31 + i * 7,
-			color: spot.color,
-			grow: grow(s, CUE.stories[i]),
+			color: story.color,
+			grow: grow(s, at),
 			finish: 'shared',
 			finishShown: 1,
 			repaint: 0,
 			curl,
-		})),
+			cells: story.cells,
+			assimilate: between(s, at + 0.5, at + 1.9, ease),
+		};
+	});
+	return [...teams, ...later].filter((p) => p.grow > 0 && p.assimilate < 1);
+};
+
+// The cells the impacts are sinking into: tidy, in the grid, in the shared finish,
+// one cell after another. Overlapping impacts share a cell.
+const cellsAt = (s: number): CellPose[] => {
+	const stories = [
+		{ color: TEAM_1.color, cells: cellsCovered(TEAM_1.spot.cx, TEAM_1.spot.cy, SPLASH_R), from: CUE.assimilate },
+		{ color: TEAM_2.color, cells: cellsCovered(TEAM_2.spot.cx, TEAM_2.spot.cy, SPLASH_R), from: CUE.assimilate },
+		...LATER_STORIES.map((story, i) => ({ ...story, from: CUE.stories[i] + 0.5 })),
 	];
-	return all.filter((p) => p.grow > 0);
+	const duration = (i: number) => (i < 2 ? 3.2 : 1.4);
+	const cells: CellPose[] = [];
+	for (let row = 0; row < 3; row++) {
+		for (let col = 0; col < 4; col++) {
+			const fills = stories.flatMap((story, i) => {
+				const k = story.cells.findIndex(([c, r]) => c === col && r === row);
+				if (k < 0) return [];
+				const amount = between(s, story.from + (k / story.cells.length) * duration(i) * 0.6, story.from + (k / story.cells.length) * duration(i) * 0.6 + duration(i) * 0.4);
+				return amount > 0 ? [{ color: story.color, amount }] : [];
+			});
+			cells.push({ col, row, fills });
+		}
+	}
+	return cells;
 };
 
 const teamDevs = (s: number, neglect: number): DevPose[] => {
 	const step = between(s, CUE.step, CUE.step + 0.8, ease);
-	const back = between(s, CUE.facilitator, CUE.facilitator + 0.7, ease);
 	const away = neglect > 0.35;
-	// The facilitator walks off when nobody pays attention, and comes back after the rewind.
-	const leaves = between(s, CUE.neglectFrom - 0.6, CUE.neglectFrom + 0.4);
-	const returns = between(s, CUE.rewind + 0.4, CUE.rewind + 1.1);
-	const facilitator = s >= CUE.facilitator ? pop(s, CUE.facilitator) * (s < CUE.rewind ? 1 - leaves : returns) : 0;
-	const painful = s >= CUE.reply - 0.3 && s < CUE.facilitator + 0.5;
+	const painful = s >= CUE.reply - 0.3 && s < CUE.together + 0.5;
 	const joyful = s >= CUE.joy;
 	const mood = (weary: Mood, idle: Mood): Mood => (away ? 'sleepy' : joyful ? 'gleeful' : painful ? weary : idle);
-	const homeA = TEAM_1.home;
-	const homeB = TEAM_2.home;
 	return [
 		{
 			id: 'dev-1',
-			x: lerp(homeA, 290, step) - 75 * back,
+			x: lerp(TEAM_1.home, 290, step),
 			show: pop(s, CUE.teamsIn),
 			mood: mood('hopeful', 'smile'),
 			shirt: TEAM_1.color,
@@ -285,14 +336,16 @@ const teamDevs = (s: number, neglect: number): DevPose[] => {
 			face: away ? -1 : 1,
 			bob: 0,
 			hand: s >= CUE.hey && s < CUE.reply ? between(s, CUE.hey, CUE.hey + 0.3) : 0,
+			dy: 0,
 			bubble:
 				speech(s, CUE.hey, CUE.tests - 0.3, 'Hey!', 'shout') ??
 				speech(s, CUE.tests, CUE.reply, "Aren't we supposed to write tests here?", 'shout') ??
-				speech(s, 88.2, 93.2, 'Meh.', 'weary'),
+				speech(s, 88.2, 93.2, 'Meh.', 'weary') ??
+				speech(s, CUE.talkAgain, CUE.talkAgain + 3, "Let's talk."),
 		},
 		{
 			id: 'dev-2',
-			x: lerp(homeB, 480, step) + 75 * back,
+			x: lerp(TEAM_2.home, 480, step),
 			show: pop(s, CUE.teamsIn + 0.15),
 			mood: mood('dreamy', 'smile'),
 			shirt: TEAM_2.color,
@@ -300,19 +353,11 @@ const teamDevs = (s: number, neglect: number): DevPose[] => {
 			face: away ? 1 : -1,
 			bob: 0,
 			hand: 0,
-			bubble: speech(s, CUE.reply, CUE.facilitator + 0.8, 'Ouch. Fair point.') ?? speech(s, 90, 94.6, 'Whatever.', 'weary'),
-		},
-		{
-			id: 'facilitator',
-			x: 385,
-			show: facilitator,
-			mood: joyful ? 'gleeful' : 'smile',
-			shirt: ballColors.sun,
-			label: 'Facilitator',
-			face: 1,
-			bob: 0,
-			hand: s >= CUE.rewind + 1 ? between(s, CUE.rewind + 1, CUE.rewind + 1.5) : 0,
-			clipboard: true,
+			dy: 0,
+			bubble:
+				speech(s, CUE.reply, CUE.together + 0.8, 'Ouch. Fair point.') ??
+				speech(s, 90, 94.6, 'Whatever.', 'weary') ??
+				speech(s, CUE.talkAgain + 1.6, CUE.talkAgain + 4.6, 'Agreed.'),
 		},
 	];
 };
@@ -327,6 +372,8 @@ export const poseAt = (seconds: number): Pose => {
 	const quality = qualityNow === undefined ? undefined : Math.max(0.08, lerp(qualityNow, 0.08, neglect));
 	const q = quality ?? 0.75;
 	const cardSince = s >= CUE.card;
+	// The test tags have done their job once the impacts sink into the cells.
+	const gone = 1 - between(s, CUE.assimilate, CUE.assimilate + 1.2);
 	return {
 		s,
 		header: headerAt(s),
@@ -338,17 +385,18 @@ export const poseAt = (seconds: number): Pose => {
 		column: feature ? undefined : componentColumn(s),
 		sheet: { cover: between(s, CUE.sheetIn, CUE.sheetIn + 0.8, ease), uncover: between(s, CUE.sheetOut, CUE.sheetOut + 0.8, ease) },
 		balls: feature
-			? [teamBall(s, 'team-1', TEAM_1, 'Team 1'), teamBall(s, 'team-2', TEAM_2, 'Team 2'), ...laterBalls(s)].filter((b) => b.show > 0)
+			? [teamBall(s, 'team-1', TEAM_1), teamBall(s, 'team-2', TEAM_2), ...laterBalls(s)].filter((b) => b.show > 0)
 			: [componentBall(s)].filter((b) => b.show > 0),
 		patches: feature ? patchesAt(s, neglect) : [],
+		cells: cellsAt(feature ? s : 0),
 		tags: {
-			tests: pop(s, CUE.testsTag),
-			noTests: pop(s, CUE.noTestsTag),
+			tests: pop(s, CUE.testsTag) * gone,
+			noTests: pop(s, CUE.noTestsTag) * gone,
 			testsOnTeam2: between(s, CUE.repaint + 2.5, CUE.repaint + 3.5),
 			overlap: pop(s, CUE.overlapLabel) * (1 - between(s, CUE.overlapLabel + 4, CUE.overlapLabel + 4.5)),
-			warning: pop(s, CUE.noTestsTag + 1.5) * (1 - between(s, CUE.repaint + 3, CUE.repaint + 4)),
+			warning: pop(s, CUE.noTestsTag + 1.5) * (1 - between(s, CUE.repaint + 3, CUE.repaint + 4)) * gone,
 		},
-		zap: s >= CUE.zap ? pop(s, CUE.zap) * (1 - between(s, CUE.facilitator - 0.2, CUE.facilitator + 0.3)) : 0,
+		zap: s >= CUE.zap ? pop(s, CUE.zap) * (1 - between(s, CUE.together - 0.2, CUE.together + 0.3)) : 0,
 		devs: feature ? teamDevs(s, neglect) : componentDevs(s),
 		card: cardSince
 			? {

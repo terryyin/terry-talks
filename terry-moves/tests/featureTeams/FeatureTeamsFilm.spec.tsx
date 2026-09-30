@@ -20,8 +20,8 @@ import {
 	OPEN_SECONDS,
 	TITLE,
 } from '@/featureTeams/film';
-import { BACKEND_ROW, columnsReached, LOGO, rowsReached } from '@/featureTeams/layout';
-import { poseAt } from '@/featureTeams/pose';
+import { cellsCovered, COMPONENTS, columnsReached, LOGO, rowsReached } from '@/featureTeams/layout';
+import { LATER_STORIES, poseAt } from '@/featureTeams/pose';
 import { FeatureTeamsScene } from '@/featureTeams/Scene';
 import { OddeCorner } from '@/stories/FeatureTeamsFilm';
 
@@ -48,7 +48,19 @@ describe('FeatureTeamsFilm timeline', () => {
 });
 
 describe('FeatureTeamsFilm story, at Bas\'s timestamps', () => {
-	test('0:00–0:29 a component team owns one part: a proper, shiny idea first, without a splash, then ugly and quirky', () => {
+	test('the product\'s columns are named components, the rows are features and unnamed', () => {
+		expect(COMPONENTS).toEqual(['Front end', 'Back end', 'Middleware', 'Data']);
+		const { getByTestId, queryByText } = render(<FeatureTeamsScene film={filmPoseAt(frameOf(40))} />);
+		expect(getByTestId('component-labels').textContent).toBe(COMPONENTS.join(''));
+		expect(queryByText('Backend')).toBeNull();
+	});
+
+	test('0:00–0:29 a shiny plan is first seen by everyone, then Team A applies it to its Back end column without a splash, and it turns ugly and quirky', () => {
+		const plan = at(0, 3);
+		expect(plan.balls.map((b) => b.id)).toEqual(['plan']);
+		expect(plan.balls[0].label).toBe('A shiny plan');
+		expect(plan.column).toMatchObject({ sheen: 0, mess: 0 });
+		expect(poseAt(CUE.melt - 0.5).balls[0].x).toBeCloseTo(280, -1);
 		const shiny = at(0, 12);
 		expect(shiny.patches).toEqual([]);
 		expect(shiny.column).toMatchObject({ col: 1, mess: 0 });
@@ -63,8 +75,9 @@ describe('FeatureTeamsFilm story, at Bas\'s timestamps', () => {
 	test('nobody notices the mess until the owning team leaves', () => {
 		const others = ['component-0', 'component-2', 'component-3'];
 		others.forEach((id) => expect(dev(at(0, 20), id).mood).toBe('sleepy'));
-		expect(dev(at(0, 20), 'component-1').x).toBeGreaterThan(200);
-		expect(dev(at(0, 26), 'component-1').x).toBeLessThan(0);
+		expect(dev(at(0, 20), 'component-1').dy).toBe(0);
+		expect(dev(at(0, 26), 'component-1').dy).toBeGreaterThan(200);
+		expect(dev(at(0, 26), 'component-0').dy).toBe(0);
 		others.forEach((id) => expect(dev(at(0, 27), id).mood).toBe('hopeful'));
 		expect(dev(at(0, 27.5), 'component-2').bubble?.text).toBe('Oh… what a mess!');
 	});
@@ -80,10 +93,12 @@ describe('FeatureTeamsFilm story, at Bas\'s timestamps', () => {
 		expect(one.grow).toBe(two.grow);
 		for (const p of [one, two]) {
 			expect(columnsReached(p.cx, p.r).length).toBeGreaterThanOrEqual(3);
-			expect(rowsReached(p.cy, p.r)).toContain(BACKEND_ROW);
-			expect(rowsReached(p.cy, p.r).length).toBeGreaterThanOrEqual(2);
+						expect(rowsReached(p.cy, p.r).length).toBeGreaterThanOrEqual(2);
 		}
-		expect(Math.hypot(one.cx - two.cx, one.cy - two.cy)).toBeLessThan(one.r + two.r - 60);
+		// A big overlap: at least three cells belong to both impacts.
+		const shared = cellsCovered(one.cx, one.cy, one.r).filter(([c, r]) => cellsCovered(two.cx, two.cy, two.r).some(([c2, r2]) => c === c2 && r === r2));
+		expect(shared.length).toBeGreaterThanOrEqual(3);
+		expect(Math.hypot(one.cx - two.cx, one.cy - two.cy)).toBeLessThan(one.r + two.r - 150);
 		expect(new Set([one.color, two.color]).size).toBe(2);
 	});
 
@@ -91,11 +106,11 @@ describe('FeatureTeamsFilm story, at Bas\'s timestamps', () => {
 		const pose = at(0, 40);
 		expect(patch(pose, 'team-1').finish).toBe('tidy');
 		expect(patch(pose, 'team-2').finish).toBe('scrappy');
+		expect(at(0, 46).tags.tests).toBeGreaterThan(0.9);
 		expect(patch(pose, 'team-1').finishShown).toBe(1);
 		const { getAllByTestId } = render(<FeatureTeamsScene film={filmPoseAt(frameOf(40))} />);
 		expect(getAllByTestId('patch')).toHaveLength(2);
 		expect(getAllByTestId('clash')).toHaveLength(1);
-		expect(getAllByTestId('backend-label')).toHaveLength(1);
 	});
 
 	test('0:54–1:03 the backend work has tests, the other change does not; "hey", then "Aren\'t we supposed to write tests here?"', () => {
@@ -115,10 +130,9 @@ describe('FeatureTeamsFilm story, at Bas\'s timestamps', () => {
 		expect(dev(at(0, 62), 'dev-2').bubble?.text).toBe('Ouch. Fair point.');
 	});
 
-	test('1:03–1:20 a facilitated conversation agrees shared practices on a card, pinned beside the product', () => {
+	test('1:03–1:20 the two teams talk it through themselves and agree shared practices on a card, pinned beside the product', () => {
 		expect(at(1, 2).card).toBeUndefined();
-		expect(dev(at(1, 2), 'facilitator').show).toBe(0);
-		expect(dev(at(1, 6), 'facilitator').show).toBe(1);
+		expect(at(1, 6).devs.map((d) => d.id)).toEqual(['dev-1', 'dev-2']);
 		expect(at(1, 5).header.text).toBe('Painful, but very good');
 		expect(poseAt(68.5).card!.items).toBeCloseTo(0, 1);
 		expect(at(1, 13).card!.items).toBeGreaterThan(1.9);
@@ -154,7 +168,6 @@ describe('FeatureTeamsFilm warning and improvement', () => {
 		neglected.patches.forEach((p) => expect(p.curl).toBeGreaterThan(0.9));
 		expect(dev(neglected, 'dev-1').mood).toBe('sleepy');
 		expect(dev(neglected, 'dev-1').face).toBe(-1);
-		expect(dev(neglected, 'facilitator').show).toBe(0);
 		expect(dev(at(1, 33), 'dev-1').bubble?.text).toBe('Meh.');
 	});
 
@@ -166,10 +179,12 @@ describe('FeatureTeamsFilm warning and improvement', () => {
 		const last = poseAt(CLIP_SECONDS);
 		expect(last.neglect).toBe(0);
 		expect(last.spiral).toBe(0);
-		expect(last.header.text).toBe('Facilitated: standards rise');
+		expect(last.header.text).toBe('Standards rise');
+		expect(poseAt(CUE.rewind + 1).devs).toHaveLength(2);
 		expect(last.quality!).toBeGreaterThan(0.95);
 		expect(last.quality!).toBeGreaterThan(poseAt(CUE.neglectFrom - 1).quality!);
 		expect(last.coherent).toBe(1);
+		expect(last.patches).toEqual([]);
 		expect(last.look.saturation).toBeGreaterThan(poseAt(CUE.neglectFrom - 1).look.saturation);
 	});
 
@@ -181,19 +196,41 @@ describe('FeatureTeamsFilm warning and improvement', () => {
 		qualities.forEach((q, i) => i > 0 && expect(q - qualities[i - 1]).toBeLessThan(0.2));
 	});
 
-	test('new stories land with the shared finish, one after another', () => {
+	test('after the rewind the two impacts sink tidily into the grid cells, in the shared finish, and are not left as circles', () => {
+		expect(poseAt(CUE.assimilate - 0.2).cells.every((c) => c.fills.length === 0)).toBe(true);
+		const mid = poseAt(CUE.assimilate + 1.5);
+		expect(mid.patches.filter((p) => p.team > 0).every((p) => p.assimilate > 0)).toBe(true);
+		expect(mid.cells.some((c) => c.fills.length > 0)).toBe(true);
+		const after = poseAt(CUE.assimilate + 3.5);
+		expect(after.patches.filter((p) => p.team > 0)).toEqual([]);
+		const filled = after.cells.filter((c) => c.fills.length > 0);
+		expect(filled.map((c) => `${c.col},${c.row}`).sort()).toEqual(['0,1', '1,0', '1,1', '1,2', '2,1', '2,2']);
+		// Where both impacts meet, the cell holds both, each fully.
+		filled.filter((c) => ['1,1', '2,1', '1,2'].includes(`${c.col},${c.row}`)).forEach((c) => {
+			expect(c.fills).toHaveLength(2);
+			c.fills.forEach((f) => expect(f.amount).toBe(1));
+		});
+		expect(filled.find((c) => c.col === 0 && c.row === 1)!.fills).toHaveLength(1);
+	});
+
+	test('new stories land with the shared finish, sink into free cells, and never leave circles behind', () => {
 		const shared = (s: number) => poseAt(s).patches.filter((p) => p.team === 0);
 		expect(shared(CUE.stories[0] - 0.5)).toHaveLength(0);
 		expect(shared(CUE.stories[0] + 1)).toHaveLength(1);
-		expect(shared(CUE.stories[2] + 1)).toHaveLength(3);
-		shared(CLIP_SECONDS).forEach((p) => expect(p.finish).toBe('shared'));
+		shared(CUE.stories[0] + 1).forEach((p) => expect(p.finish).toBe('shared'));
+		expect(shared(CLIP_SECONDS)).toEqual([]);
+		const end = poseAt(CLIP_SECONDS).cells;
+		expect(end.filter((c) => c.fills.length > 0)).toHaveLength(12);
+		// Each cell of the two teams' work is kept by them: later stories take only the free cells.
+		const taken = new Set([...cellsCovered(265, 450, 170), ...cellsCovered(410, 510, 170)].map(([c, r]) => `${c},${r}`));
+		LATER_STORIES.forEach((story) => story.cells.forEach(([c, r]) => expect(taken.has(`${c},${r}`)).toBe(false)));
 	});
 });
 
 describe('FeatureTeamsFilm opening, ending, cover and logo', () => {
 	test('the opening is short: the finished product briefly, then the title on paper, then the story', () => {
 		expect(filmPoseAt(0).title).toBeUndefined();
-		expect(filmPoseAt(0).scene.patches.length).toBeGreaterThan(3);
+		expect(filmPoseAt(0).scene.cells.filter((c) => c.fills.length > 0).length).toBeGreaterThan(8);
 		const title = filmPoseAt(Math.round(2.7 * FPS)).title!;
 		expect(title).toMatchObject({ romantic: TITLE.romantic, disciplined: TITLE.disciplined, snap: 1, underline: 1, leave: 0 });
 		expect(title.drops.every((d) => d === 0 || d === null || Math.abs(d) < 8)).toBe(true);
@@ -205,6 +242,7 @@ describe('FeatureTeamsFilm opening, ending, cover and logo', () => {
 	test('the ending is a closing line, then the unchanged credit to Terry and a credit to Bas', () => {
 		expect(END.credit).toBe('An idea and film by Terry Yin');
 		expect(END.bas).toMatch(/Bas Vodde/);
+		expect(`${END.lead} ${END.romantic} ${END.disciplined}`).not.toMatch(/facilitat/i);
 		const film = filmPoseAt(durationInFrames - 1);
 		expect(film.endCard).toMatchObject({ lead: 1, snap: 1, underline: 1, credit: 1, bas: 1 });
 		expect(film.stage).toBe(0);
@@ -218,12 +256,15 @@ describe('FeatureTeamsFilm opening, ending, cover and logo', () => {
 		expect(early.credit).toBe(0);
 	});
 
-	test('the cover is a later frame, not the first, at the tests conversation, and package.json renders it', () => {
+	test('the cover is a later, neat frame: the impacts assimilated tidily, the shared card pinned, quality high, no bubbles', () => {
 		expect(COVER_FRAME).toBeGreaterThan(OPEN_FRAMES);
 		expect(COVER_FRAME).toBeLessThan(durationInFrames);
 		const scene = filmPoseAt(COVER_FRAME).scene;
-		expect(dev(scene, 'dev-1').bubble?.text).toBe("Aren't we supposed to write tests here?");
-		expect(scene.patches).toHaveLength(2);
+		expect(scene.patches).toEqual([]);
+		expect(scene.cells.filter((c) => c.fills.length > 0).length).toBeGreaterThanOrEqual(10);
+		expect(scene.card!.items).toBe(3);
+		expect(scene.quality!).toBeGreaterThan(0.9);
+		expect(scene.devs.every((d) => d.bubble === undefined)).toBe(true);
 		const scripts = JSON.parse(fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf8')).scripts;
 		const script: string = scripts['render:feature-teams'];
 		expect(script).toContain('out/feature-teams-engineering-practices.mp4');

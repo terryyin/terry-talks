@@ -2,13 +2,16 @@ import React from 'react';
 import { palette, seeded } from '../storyImpact/scene';
 import { Face } from '../storyImpact/face';
 import { FONT_FAMILY, OUTLINE, Point, scaleAround, SHADOW } from '../storyImpact/layout';
-import { CARD, HEADER, METER, PANEL, ROW_TOPS } from './layout';
+import { CARD, HEADER, METER, PANEL } from './layout';
 import type { BallPose, CardPose, Pose } from './pose';
 import { mixHex } from './pose';
 
 // The smaller pieces around the product: the header pill, the story balls,
 // the test tags, the "how we build here" card, the quality meter, the
 // downward spiral, the page that turns between the two stories. Pure.
+
+const sparkle = (x: number, y: number, s: number): string =>
+	`M${x},${y - s} Q${x + s * 0.15},${y - s * 0.15} ${x + s},${y} Q${x + s * 0.15},${y + s * 0.15} ${x},${y + s} Q${x - s * 0.15},${y + s * 0.15} ${x - s},${y} Q${x - s * 0.15},${y - s * 0.15} ${x},${y - s} Z`;
 
 const GREEN = '#2A9D5C';
 const RED = '#E5484D';
@@ -28,6 +31,18 @@ export const Header: React.FC<{ header: Pose['header'] }> = ({ header }) => {
 	);
 };
 
+// A shiny plan: stars twinkling round it.
+const Twinkles: React.FC<{ at: Point; r: number; t: number }> = ({ at, r, t }) => (
+	<g data-testid="twinkles" fill={palette.white} stroke="#E8B923" strokeWidth={3} strokeLinejoin="round">
+		{[0, 1, 2, 3, 4].map((i) => {
+			const k = Math.max(0, Math.sin(t * 4 + i * 1.7));
+			const a = -2.6 + i * 1.3;
+			const d = r * 1.55;
+			return k < 0.05 ? null : <path key={i} d={sparkle(at.x + Math.cos(a) * d, at.y + Math.sin(a) * d, 14 * k)} />;
+		})}
+	</g>
+);
+
 export const Ball: React.FC<{ ball: BallPose }> = ({ ball }) => {
 	const { x, y, r } = ball;
 	return (
@@ -37,6 +52,7 @@ export const Ball: React.FC<{ ball: BallPose }> = ({ ball }) => {
 				<ellipse cx={x - r * 0.4} cy={y - r * 0.45} rx={r * 0.26} ry={r * 0.16} transform={`rotate(-35 ${x - r * 0.4} ${y - r * 0.45})`} fill={palette.white} opacity={0.85} />
 				<Face x={x} y={y} r={r} mood={ball.mood} />
 			</g>
+			{ball.twinkle === undefined ? null : <Twinkles at={{ x, y }} r={r} t={ball.twinkle} />}
 			{ball.label ? (
 				<text x={x} y={y - r - 14} textAnchor="middle" fontFamily={FONT_FAMILY} fontWeight={700} fontSize={26} fill={palette.ink} stroke={palette.paper} strokeWidth={6} paintOrder="stroke">
 					{ball.label}
@@ -79,13 +95,13 @@ export const Tags: React.FC<{ tags: Pose['tags']; s: number }> = ({ tags, s }) =
 	const fixed = tags.testsOnTeam2 > 0.5;
 	return (
 		<g data-testid="tags">
-			<Shield at={{ x: 235, y: 588 }} text="tests" color={GREEN} ok pop={tags.tests} />
-			<Shield at={{ x: 510, y: 640 }} text={fixed ? 'tests' : 'no tests'} color={fixed ? GREEN : RED} ok={fixed} pop={tags.noTests} />
-			<Warning at={{ x: 372, y: ROW_TOPS[2] + 34 }} pop={tags.warning} beat={s} />
+			<Shield at={{ x: 215, y: 585 }} text="tests" color={GREEN} ok pop={tags.tests} />
+			<Shield at={{ x: 480, y: 640 }} text={fixed ? 'tests' : 'no tests'} color={fixed ? GREEN : RED} ok={fixed} pop={tags.noTests} />
+			<Warning at={{ x: 337, y: 520 }} pop={tags.warning} beat={s} />
 			{tags.overlap > 0 ? (
-				<g data-testid="overlap-label" transform={scaleAround({ x: 372, y: 372 }, tags.overlap, tags.overlap)}>
-					<rect x={372 - 62} y={372 - 22} width={124} height={44} rx={22} fill={palette.white} stroke={palette.ink} strokeWidth={5} />
-					<text x={372} y={372 + 10} textAnchor="middle" fontFamily={FONT_FAMILY} fontWeight={800} fontSize={28} fill={palette.ink}>
+				<g data-testid="overlap-label" transform={scaleAround({ x: 337, y: 405 }, tags.overlap, tags.overlap)}>
+					<rect x={337 - 62} y={405 - 22} width={124} height={44} rx={22} fill={palette.white} stroke={palette.ink} strokeWidth={5} />
+					<text x={337} y={405 + 10} textAnchor="middle" fontFamily={FONT_FAMILY} fontWeight={800} fontSize={28} fill={palette.ink}>
 						overlap
 					</text>
 				</g>
@@ -190,8 +206,6 @@ export const Sheet: React.FC<{ sheet: Pose['sheet'] }> = ({ sheet }) => {
 };
 
 const SPARKS = Array.from({ length: 12 }, (_, i) => ({ x: 70 + seeded(i * 3 + 1) * 590, y: 180 + seeded(i * 3 + 2) * 530, s: 12 + seeded(i * 3 + 3) * 12, phase: seeded(i + 90) * 6 }));
-const sparkle = (x: number, y: number, s: number): string =>
-	`M${x},${y - s} Q${x + s * 0.15},${y - s * 0.15} ${x + s},${y} Q${x + s * 0.15},${y + s * 0.15} ${x},${y + s} Q${x - s * 0.15},${y + s * 0.15} ${x - s},${y} Q${x - s * 0.15},${y - s * 0.15} ${x},${y - s} Z`;
 
 // Sparkles over a product that reads as one surface.
 export const Sparkles: React.FC<{ joy: number; s: number }> = ({ joy, s }) =>

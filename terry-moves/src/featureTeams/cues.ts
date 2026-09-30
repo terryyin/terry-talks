@@ -6,7 +6,8 @@ export const CLIP_SECONDS = 113.5;
 export const CUE = {
 	// 0:00–0:29 component teams
 	ballIn: 0.5,
-	melt: 6.5,
+	planTakenFrom: 4.8,
+	melt: 7.6,
 	ourStandards: 8.5,
 	messFrom: 15,
 	messTo: 21.5,
@@ -30,9 +31,9 @@ export const CUE = {
 	hey: 54,
 	tests: 58,
 	reply: 61.2,
+	together: 63.4,
 	zap: 60.3,
 	// 1:03–1:20 agreeing on shared practices
-	facilitator: 63.4,
 	painful: 63,
 	agree: 68,
 	card: 66.2,
@@ -43,8 +44,10 @@ export const CUE = {
 	neglectFrom: 86,
 	neglectTo: 94.5,
 	rewind: 95.2,
+	talkAgain: 96.6,
+	assimilate: 96.8,
 	// 1:35–end: facilitated, standards rise
-	stories: [100.2, 102.9, 105.4],
-	coherent: 108,
-	joy: 109,
+	stories: [101.4, 103.8, 106.2],
+	coherent: 108.5,
+	joy: 109.3,
 } as const;

@@ -17,7 +17,7 @@ export const TITLE = { romantic: 'Team friction,', disciplined: 'raises standard
 export const END = {
 	lead: 'Friction is painful, but',
 	romantic: 'useful.',
-	disciplined: 'when facilitated.',
+	disciplined: 'when teams talk.',
 	credit: 'An idea and film by Terry Yin',
 	bas: 'Content and voice by Bas Vodde',
 } as const;
@@ -40,9 +40,9 @@ export type FilmPose = {
 	clipShown: number; // pop-in scale of Bas's inset
 };
 
-// The cover: Bas's "Aren't we supposed to write tests here?" moment, the
-// two splashes overlapping and the conversation opened.
-export const COVER_CLIP_SECONDS = 59.6;
+// The cover: a neat later frame, the impacts assimilated tidily into the
+// product's cells, the shared card pinned and quality high.
+export const COVER_CLIP_SECONDS = 108.6;
 export const COVER_FRAME = OPEN_FRAMES + Math.round(COVER_CLIP_SECONDS * FPS);
 
 const titleAt = (o: number): TitlePose => ({
