@@ -21,7 +21,7 @@ import {
 	TITLE,
 } from '@/featureTeams/film';
 import { cellsCovered, COMPONENTS, columnsReached, LOGO, rowsReached } from '@/featureTeams/layout';
-import { LATER_STORIES, poseAt } from '@/featureTeams/pose';
+import { footprint, LATER_STORIES, poseAt } from '@/featureTeams/pose';
 import { FeatureTeamsScene } from '@/featureTeams/Scene';
 import { OddeCorner } from '@/stories/FeatureTeamsFilm';
 
@@ -221,9 +221,17 @@ describe('FeatureTeamsFilm warning and improvement', () => {
 		expect(shared(CLIP_SECONDS)).toEqual([]);
 		const end = poseAt(CLIP_SECONDS).cells;
 		expect(end.filter((c) => c.fills.length > 0)).toHaveLength(12);
-		// Each cell of the two teams' work is kept by them: later stories take only the free cells.
-		const taken = new Set([...cellsCovered(265, 450, 170), ...cellsCovered(410, 510, 170)].map(([c, r]) => `${c},${r}`));
-		LATER_STORIES.forEach((story) => story.cells.forEach(([c, r]) => expect(taken.has(`${c},${r}`)).toBe(false)));
+		// Each later story covers several cells, across components and across features.
+		LATER_STORIES.forEach((story) => {
+			const cells = footprint(story);
+			expect(cells.length).toBeGreaterThanOrEqual(3);
+			expect(new Set(cells.map(([c]) => c)).size).toBeGreaterThanOrEqual(2);
+			expect(new Set(cells.map(([, r]) => r)).size).toBeGreaterThanOrEqual(2);
+		});
+		expect(new Set(LATER_STORIES.map((s) => footprint(s).map((c) => c.join()).join('|'))).size).toBe(3);
+		// A story's splash is assimilated cell by cell, not all at once.
+		const mid = poseAt(CUE.stories[1] + 1.4).cells.filter((c) => c.fills.some((f) => f.color === LATER_STORIES[1].color && f.amount > 0 && f.amount < 1));
+		expect(mid.length).toBeGreaterThan(0);
 	});
 });
 

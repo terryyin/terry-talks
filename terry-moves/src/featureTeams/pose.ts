@@ -9,7 +9,7 @@ import { Easing, interpolate } from 'remotion';
 import { between, bounce, BOUNCY, lerp, POPPY } from '../storyImpact/motion';
 import { ballColors } from '../storyImpact/scene';
 import type { Mood } from '../storyImpact/face';
-import { cellCenter, cellsCovered, columnCenter } from './layout';
+import { cellsCovered, columnCenter } from './layout';
 import { CUE } from './cues';
 
 export type Finish = 'tidy' | 'scrappy' | 'shared';
@@ -210,12 +210,15 @@ const TEAM_1: Team = { color: ballColors.pink, home: 200, spot: { cx: 265, cy: 4
 const TEAM_2: Team = { color: ballColors.teal, home: 560, spot: { cx: 410, cy: 510 } };
 const SPLASH_R = 170;
 
-// Later stories, each assimilated tidily into a few free cells.
-export const LATER_STORIES: { cells: [number, number][]; color: string }[] = [
-	{ cells: [[0, 0], [0, 2]], color: ballColors.sun },
-	{ cells: [[2, 0], [3, 0]], color: ballColors.lime },
-	{ cells: [[3, 1], [3, 2]], color: ballColors.orange },
+// Later stories: each splashes over its own irregular run of cells across
+// components and features, then is assimilated tidily into each of them.
+type Spot = { cx: number; cy: number; r: number };
+export const LATER_STORIES: { spot: Spot; color: string }[] = [
+	{ spot: { cx: 150, cy: 300, r: 170 }, color: ballColors.sun },
+	{ spot: { cx: 600, cy: 450, r: 220 }, color: ballColors.lime },
+	{ spot: { cx: 150, cy: 560, r: 170 }, color: ballColors.orange },
 ];
+export const footprint = ({ spot }: { spot: Spot }): [number, number][] => cellsCovered(spot.cx, spot.cy, spot.r);
 
 const teamBall = (s: number, id: string, team: Team): BallPose => {
 	const dive = between(s, CUE.dive, CUE.splash, Easing.in(Easing.quad));
@@ -235,13 +238,13 @@ const teamBall = (s: number, id: string, team: Team): BallPose => {
 const laterBalls = (s: number): BallPose[] =>
 	LATER_STORIES.map((story, i): BallPose => {
 		const at = CUE.stories[i];
-		const to = cellCenter(...story.cells[0]);
+		const to = story.spot;
 		const fall = between(s, at - 0.9, at, Easing.in(Easing.quad));
 		return {
 			id: `later-${i}`,
 			color: story.color,
-			x: to.x,
-			y: lerp(108, to.y, fall),
+			x: to.cx,
+			y: lerp(108, to.cy, fall),
 			r: 30,
 			show: s >= at - 1.4 && s < at ? pop(s, at - 1.4) : 0,
 			squash: 1 - 0.15 * fall,
@@ -274,13 +277,10 @@ const patchesAt = (s: number, neglect: number): PatchPose[] => {
 	}));
 	const later = LATER_STORIES.map((story, i): PatchPose => {
 		const at = CUE.stories[i];
-		const to = cellCenter(...story.cells[0]);
 		return {
 			id: `later-${i}`,
 			team: 0,
-			cx: to.x,
-			cy: to.y,
-			r: 62,
+			...story.spot,
 			seed: 31 + i * 7,
 			color: story.color,
 			grow: grow(s, at),
@@ -288,8 +288,8 @@ const patchesAt = (s: number, neglect: number): PatchPose[] => {
 			finishShown: 1,
 			repaint: 0,
 			curl,
-			cells: story.cells,
-			assimilate: between(s, at + 0.5, at + 1.9, ease),
+			cells: footprint(story),
+			assimilate: between(s, at + 0.6, at + 2.2, ease),
 		};
 	});
 	return [...teams, ...later].filter((p) => p.grow > 0 && p.assimilate < 1);
@@ -301,9 +301,9 @@ const cellsAt = (s: number): CellPose[] => {
 	const stories = [
 		{ color: TEAM_1.color, cells: cellsCovered(TEAM_1.spot.cx, TEAM_1.spot.cy, SPLASH_R), from: CUE.assimilate },
 		{ color: TEAM_2.color, cells: cellsCovered(TEAM_2.spot.cx, TEAM_2.spot.cy, SPLASH_R), from: CUE.assimilate },
-		...LATER_STORIES.map((story, i) => ({ ...story, from: CUE.stories[i] + 0.5 })),
+		...LATER_STORIES.map((story, i) => ({ color: story.color, cells: footprint(story), from: CUE.stories[i] + 0.6 })),
 	];
-	const duration = (i: number) => (i < 2 ? 3.2 : 1.4);
+	const duration = (i: number) => (i < 2 ? 3.2 : 1.7);
 	const cells: CellPose[] = [];
 	for (let row = 0; row < 3; row++) {
 		for (let col = 0; col < 4; col++) {

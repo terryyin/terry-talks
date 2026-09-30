@@ -71,7 +71,8 @@ const Cell: React.FC<{ col: number; row: number; column?: ColumnPose; coherent: 
 // split where two impacts meet in one cell.
 const Assimilated: React.FC<{ box: { x: number; y: number; w: number; h: number }; fills: CellPose['fills']; base: string; id: string }> = ({ box, fills, base, id }) => {
 	const { x, y, w, h } = box;
-	const [first, second] = fills;
+	// Where impacts pile up in one cell, the latest two show as its halves.
+	const [first, second] = fills.slice(-2);
 	const tint = (f: CellPose['fills'][number]) => mixHex(base, f.color, 0.9 * f.amount);
 	const clip = `ft-cell-${id}`;
 	const done = Math.max(...fills.map((f) => f.amount));

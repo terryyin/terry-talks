@@ -1,6 +1,7 @@
 import React from 'react';
 import { palette, seeded } from '../storyImpact/scene';
 import { OUTLINE, Point, roundedPath, scaleAround, SHADOW, smoothBlob } from '../storyImpact/layout';
+import { PANEL } from './layout';
 import { mixHex } from './pose';
 import type { Finish, PatchPose } from './pose';
 
@@ -102,8 +103,11 @@ export const Patches: React.FC<{ patches: PatchPose[]; coherent: number }> = ({ 
 	const one = patches.find((p) => p.team === 1);
 	const two = patches.find((p) => p.team === 2);
 	return (
-		<g data-testid="patches">
+		<g data-testid="patches" clipPath="url(#ft-panel)">
 			<FinishDefs />
+			<clipPath id="ft-panel">
+				<rect x={PANEL.left} y={PANEL.top} width={PANEL.width} height={PANEL.height} rx={18} />
+			</clipPath>
 			{patches.map((p) => (
 				<Patch key={p.id} p={p} coherent={coherent} />
 			))}
