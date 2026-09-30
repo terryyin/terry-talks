@@ -15,6 +15,7 @@ import { StoryLeSSInAction } from './stories/StoryLeSSInAction';
 import { StoryImpactStoryboard } from './stories/StoryImpactStoryboard';
 import { StoryImpactOneSplash } from './stories/StoryImpactOneSplash';
 import { StoryImpactFilm, StoryImpactFilmZhHant } from './stories/StoryImpactFilm';
+import { FeatureTeamsFilm } from './stories/FeatureTeamsFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -37,6 +38,7 @@ export const RemotionRoot: React.FC = () => {
 			<StoryImpactOneSplash />
 			<StoryImpactFilm />
 			<StoryImpactFilmZhHant />
+			<FeatureTeamsFilm />
 		</>
 	);
 };
