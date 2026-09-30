@@ -6,8 +6,6 @@ Make educational short videos.
 
 ## Taken
 
-- [Viewers see how feature teams can turn conflicting practices into shared engineering standards](../Engineering%20Practices/seed.md#shared-engineering-practices) — feature-teams-engineering-practices#shared-engineering-practices
-
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
