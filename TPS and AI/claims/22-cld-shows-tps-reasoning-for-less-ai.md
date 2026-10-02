@@ -52,9 +52,10 @@ of B” does not belong on it.
 
 ### The loops
 
-The companion groups the existing claims into five reinforcing loops
-and one balancing loop, and presents two slide figures as views of
-those loops. R2 and R5 each run both ways. Detail, polarities, and
+The companion groups the existing claims and the accepted pressure-response
+assumption into seven reinforcing loops
+and two balancing loops, and presents two slide figures as views of
+those loops. R2, R5, R6, and R7 can each run both ways. Detail, polarities, and
 omitted mechanisms live only in the [companion
 CLD](22-tps-less-ai-cld.md). **Nemawashi**, **Go See**, **SMED**, and
 utilization pressure stay inside the variables, as the companion's
@@ -68,6 +69,9 @@ utilization pressure stay inside the variables, as the companion's
 | **R4 The work makes people** | Pull and real problems grow people who can think; that capability is what JIT and jidoka run on. | [12](12-respect-for-people-who-can-think.md) |
 | **R5 Inventory, attention, and AI** | Judgment-loaded output stacked as finished consumes attention, which prevents encoding, which stacks more output. AI generation injects into that inventory. | [4](04-jit-assurance-resourcefulness-not-abundance.md), [6](06-jidoka-embeds-routine-judgment.md), [11](11-physical-production-and-software-differences.md) |
 | **B1 Stop and contain** | A visible abnormality, actually halted, becomes emergent judgment-intensive work while propagation is contained. The resulting encoding reduces recurrence of *that* defect; the learning still feeds R1 and R3. | [19](19-stop-and-fix.md) |
+| **R6 The backlog trap** | Accumulated judgment-loaded work raises effort per change for people and AI; lower completion leaves more work unresolved. | [00](00-judgment-intensive-work.md), [5](05-smed-software-changeover-and-ai-friendly-context.md) |
+| **B2 AI slows too** | The same interpretation and rework consume agent capacity, slowing further drafting; that slowdown alone does not finish the backlog. | [00](00-judgment-intensive-work.md), [5](05-smed-software-changeover-and-ai-friendly-context.md) |
+| **R7 Pressure for more AI solutions** | Artifacts requiring judgment raise effort for people and AI, slowing problem solving; responding by asking AI for more solutions adds further judgment demand. | [00](00-judgment-intensive-work.md), [5](05-smed-software-changeover-and-ai-friendly-context.md), plus Terry's accepted pressure-response assumption |
 
 ### AI as the gain on R5
 
@@ -95,17 +99,30 @@ writing-only tool. The slide form is the companion's two figures, each
 at most six variables, with no overview figure — the full map stays in
 its Canonical links table. That cap and the missing overview keep the
 figures from reading as a completed system-dynamics paper. Walk a
-figure's loop until it closes, then add AI as a gain on inventory—not
-as a cloud labelled “transformation.”
+figure's loop until it closes. The early figure puts AI inside the
+story of accumulated judgment demand, including the feedback that
+slows AI itself.
 
 - Figure 1, **Freedom and entrustment — the engine** (R1 and R2), serves
   the main-message beat: R2 is the theme loop ([Claim
   10](10-freedom-and-trust-reinforce-through-jidoka.md)). The slide set
-  draws **Encoded jidoka** as its node; **Technical excellence** stays a
-  catalog variable.
-- Figure 2, **AI as amplifier** (R5), serves the “AI speeds whichever
-  loop you feed” beat: R5 is why the theme gets harder when generation
-  is cheap; on a slide it reads as an overlay on Figure 1's R1.
+  uses five plain-language labels, from **Rules captured in tests & code**
+  through **Confidence to entrust the next problem** and **Freedom to follow
+  real user need**. The two negative links through coercive control are
+  condensed into one positive confidence-to-freedom path. Both reinforcing
+  loops and their learning and confidence delays remain visible.
+  A direct rules-to-confidence link adds reliable safeguards as a second
+  basis for entrustment. The endpoints name Jidoka/autonomation and
+  Just-in-time, with a level balance below to answer slide 9's tilted scale.
+  **Technical excellence** stays a catalog variable.
+- Figure 2, **AI speeds whichever loop you feed** (R7), is the
+  early problem-setting beat after judgment-intensive work. Four
+  variables show how pressure for more AI solutions adds artifacts
+  requiring judgment, raises effort for people and AI, slows problem
+  solving, and feeds pressure again. R6 and B2 retain the backlog and
+  agent-slowdown paths in the companion. R5 retains the
+  learning-and-encoding explanation in the companion; the early slide
+  establishes the problem before the TPS mechanisms are introduced.
 - R3 is not a slide figure: it stays a speaker-side loop in the
   companion's Loop catalog, and its LeSS JIT-flow beat stays text-only.
   R3 remains why the talk is a LeSS talk — Whole Product Focus needs

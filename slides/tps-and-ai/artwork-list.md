@@ -125,8 +125,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 - **Status:** done — `public/toyoda-type-g-automatic-loom.jpg`
 - **Slide:** "The loom's closed stop"
-- **Placement:** large, right half of the slide; the founding jidoka
-  artifact deserves a real photograph, not an illustration
+- **Placement:** left half of the slide, beside the 自働化 lettering.
+  A real photograph anchors the history. The caption identifies the
+  Type G as the 1924 example; the stopping devices originated in
+  Sakichi's earlier power looms.
 - **Source:** [Daderot, "Toyoda Automatic Loom - National Museum of
   Nature and Science, Tokyo - DSC07343.JPG"](https://commons.wikimedia.org/wiki/File:Toyoda_Automatic_Loom_-_National_Museum_of_Nature_and_Science,_Tokyo_-_DSC07343.JPG),
   own work, photographed at the National Museum of Nature and Science,
@@ -204,6 +206,17 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   single feather high in the air, the other sunk low under a heavy
   iron key; centered, ample empty margin above; 16:9 lower band.
 
+### G20. Freedom and entrustment — level balance
+
+- **Status:** done — `public/jidoka-jit-balanced-scale.png`
+- **Slide:** "The engine of freedom and entrustment"
+- **Placement:** centered beneath the CLD, on a transparent background
+- **Generation:** built-in imagegen; G4 supplied as the style/composition reference
+- **Meaning:** the left automatic stop represents Jidoka/autonomation;
+  the right single part with a pull card represents Just-in-time. The beam
+  and pans are level, answering G4's apparent freedom/entrustment tradeoff.
+- **Final prompt:** Use case: stylized-concept. Asset type: a low, wide spot illustration beneath a causal loop diagram in a Slidev talk. Create a NEW companion variation of the supplied antique balance-scale illustration. Reference image 1 supplies the sumi-e ink-and-watercolor style, antique scale construction, soft charcoal contours, sparse vermilion accents, and restrained visual mood. Make the scale perfectly BALANCED: its crossbeam is exactly horizontal and the two shallow pans hang at exactly the same height. Replace both original objects entirely: no feather and no key. LEFT pan: a compact mechanical loom automatic-stop/interlock device, a small bronze lever and catch with a subtle vermilion stop indicator, representing jidoka/autonomation that guards against known mistakes. RIGHT pan: exactly one simple wooden production part with a single blank cream kanban pull card tied to it, representing just-in-time response to actual need, without a pile or stockpile. Keep the objects simple and identifiable at small size; each pan holds one symbolic group of comparable visual weight. Low compact chains and modest-height central pedestal, wide horizontal composition with both pans fully visible, generous clean edges but little internal empty margin, center the subject so it can fit a short footer banner. Hand-painted Japanese brushwork, black/grey ink, sparse warm bronze, tiny vermilion accent. The output must have a genuinely TRANSPARENT background so the illustration can sit seamlessly on warm paper slide color. No paper texture background, no white rectangle, no scenery, no labels, no letters, no watermark, no other objects. The only shadows are a light painted ground shadow under the pedestal. The physical scale must be horizontal and unambiguously in equilibrium.
+
 ### G5. Watching the loom / watching the AI (mirrored pair, 1 of 2)
 
 - **Status:** done — `public/watching-the-loom-watching-the-ai.png`
@@ -246,13 +259,33 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 - **Status:** done — `public/smart-dumb-gone.png`
 - **Slide:** "Smart → dumb → gone"
-- **Placement:** wide strip under the three-step list; slide text
-  supplies the labels
-- **Prompt:** Three descending stone steps left to right: on the top
-  step a person examines a taut thread with a magnifier; on the middle
-  step a simple mechanical latch clamps the same thread; the bottom
-  step is empty and clean, the thread passing smoothly with nothing
-  attending it; 16:9 wide strip.
+- **Replaced:** 2026-10-02, using the built-in image generation tool.
+  The previous descending-steps artwork and its prompt are recoverable
+  at Git revision `12b8ca3`. The owner rejected its unexplained red line.
+- **Placement:** the main body, a transparent three-scene panorama.
+  Only three brief bilingual captions sit below it. The loom still,
+  photograph, and animation now have their own follow-up slide.
+- **Meaning:** a craftsperson spends judgment in design; a keyed joint
+  embodies a simple yes/no check; a one-piece bracket removes the joint
+  and its assembly question. The needed bracket function remains.
+  This is an original conceptual illustration, not a Toyota artifact.
+- **Reference:** G1 is the style reference only.
+- **Initial generation prompt (complete):**
+
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+  > Use case: illustration-story.
+  > Asset: a wide, quiet three-stage visual for a presentation about spending judgment in design, encoding it in a simple mechanism, then eliminating an unnecessary part. New artwork; reference image 1 is only the ink-and-wash style reference.
+  > Make three equally spaced scenes from left to right, on the same baseline, with generous clear gaps. Wide 3:1 composition. Transparent surrounding background, with paper-colored washes only within the painted subjects. No decorative scenery, bamboo, ropes, threads, connecting lines, arrows, borders, logos or typography.
+  > The SAME simple L-shaped wooden bracket is the visual anchor throughout, with matching proportions and clear large silhouettes.
+  > LEFT: a thoughtful craftsperson actively designs that bracket at a small workbench. Their hands compare two possible joints beside a sheet of geometric sketches. This is creation and careful decision making, not someone watching a machine run. The paper and joint samples visibly carry the thinking.
+  > MIDDLE: a large clear close-up of the completed bracket made from two wooden members. Its single keyed interlocking joint has an obvious asymmetric tongue and matching socket: the shape itself only permits the correct fit. Show the simple joint clearly, with no electronics, gears, magic intelligence, or person. A small wrong-orientation sample sits immediately above the matching socket and is visibly blocked by the shape; a small vermilion mark at that contact makes the stop clear. The main correctly assembled bracket remains easy to see. This is a physical yes-or-no check, carrying the designer's earlier decision.
+  > RIGHT: the same functional L-shaped bracket carved as ONE continuous piece of wood. Smooth continuous wood grain around the corner, completely solid and seamless. No joint, connector, pin, screw, socket, extra mechanism, or person. This should visually reveal that the assembly problem has disappeared because the unnecessary joint no longer exists.
+  > Keep the final two objects equally large and readable. Restrained detail; the audience must grasp the difference from a distance. Preserve natural hand-painted ink contours and subtle wash from the reference.
+
+- **Final targeted edit prompt (complete):**
+
+  > Edit only the middle scene of this three-stage sumi-e teaching illustration. Preserve the left craftsperson, the right one-piece bracket, the scene positions, proportions, ink-and-wash style, paper-colored washes, and transparent background exactly.
+  > Remove the small unattached wooden member floating above the middle bracket and remove its red burst marks. Keep the large middle L-shaped bracket made of two members. Make its existing keyed joint especially clear: a visibly asymmetric tongue seated in the matching socket, so the geometry plainly permits only the correct orientation. Put the single small vermilion accent on the joint's actual key surface, precisely where the tongue and socket meet. No floating symbol, extra component, arrows, lines, text, or decorative marks. The middle should read as a simple self-enforcing fit check; the right remains one continuous piece without a joint. The whole illustration should feel quieter and simpler.
 
 ### G8. Andon pull (fallback only)
 
@@ -533,18 +566,38 @@ Mermaid only auto-places.
   TPS → XP / Agile → LeSS → AI-augmented development. Mermaid or SVG;
   needs crisp text. Done — embedded as Mermaid; labels stay typeset
   text. Vermilion accent on the last node (where we are now).
-- **"The engine of freedom and entrustment"** (after "The triad"):
-  Figure 1 of the Claim 22 companion CLD — loops R1+R2, six
-  variables. Done — embedded as mermaid; labels stay typeset text.
+- **"The engine of freedom and entrustment"** (after the JIT-flow beat):
+  Figure 1 of the Claim 22 companion CLD — loops R1+R2, five
+  plain-language variables. Done — embedded as mermaid; labels stay
+  typeset text. Room to learn and freedom to follow real need use the
+  vermilion accent; learning and earned-confidence links show their delays.
+  Jidoka/autonomation and Just-in-time label the endpoints, with a direct
+  safeguards-to-confidence link and the level balance (G20) below the CLD.
   Optional polish: click-reveal walk of the loop.
-- **"AI speeds whichever loop you feed"** (follows the engine slide):
-  Figure 2 of the companion CLD — loop R5 with the AI injection,
-  four variables. Done — embedded as mermaid; reprises the early
-  statement slide's punchline once the engine has been walked.
-  Vermilion accent on the AI-volume injection.
+- **"AI speeds whichever loop you feed"** (early, after judgment-intensive work):
+  Figure 2 of the companion CLD — the reinforcing pressure trap,
+  four variables. Done — embedded as mermaid with plain-language labels:
+  pressure for more AI solutions adds artifacts requiring judgment,
+  raises effort for people and AI, slows problem solving, and feeds pressure.
+  Vermilion accent on pressure to ask AI for more solutions.
 - **"The triad":** triangle of Jidoka / JIT / Respect for
   People with the frees / entrusts / grows verbs on the edges. Done —
   embedded as inline SVG; labels stay typeset text.
+- **"The loom's closed stop":** done —
+  `public/jidoka-human-radical.svg`. Large 自働化 lettering with only
+  亻, the person radical (にんべん / ninben) inside 働, in vermilion.
+  The complete kanji outlines come from Hiragino Mincho ProN W6;
+  the radical is its own original contour, recolored without moving
+  or replacing strokes. All three main characters are paths, so font
+  substitution cannot alter the artwork. A small leader identifies
+  the radical as a person. This is vector lettering, not generated
+  Japanese text. The slide explicitly names Jidoka / Autonomation
+  and gives Toyota's meaning, automation with a human touch.
+  Toyota's [plant tour](https://global.toyota/en/company/plant-tours/production-system/)
+  supplies the mother-weaving origin story;
+  [The Birth of Jidoka](https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html)
+  connects the stopping devices to jidoka. The photograph remains
+  the real Type G artifact from item 3 above.
 - **"Five judgments stay human":** five icons (value,
   design, credentials, undiagnosed failure, ambiguity) from the
   Iconify sets already available in Slidev — consistent with each
@@ -554,11 +607,8 @@ Mermaid only auto-places.
 
 ## Slides intentionally without artwork
 
-The diagnostic question ("How do you know…"), the early statement
-slide ("AI can produce plausible software faster than a product group
-can absorb it" — its planned loop map moved to the dedicated "AI
-speeds whichever loop you feed" slide later in the deck), the
-main-message quote, "Jidoka preserves knowledge", "The gates do not
+The diagnostic question ("How do you know…"), the main-message quote,
+"Jidoka preserves knowledge", "The gates do not
 care who authored the change", "Respect for People: making things
 means making people", and "Takeaways". The stark, text-only look serves the "small
 collection of memorable points" goal; the quote slides in particular
@@ -568,8 +618,8 @@ should not compete with their own words.
 
 ## Addendum — how the loom's jidoka mechanism works
 
-A second visual beat for "Smart → dumb → gone", alongside G7's
-conceptual steps: show the actual Type G stop mechanism, because the
+A follow-up slide, "Dumb: the rule becomes a stop", after G7's
+conceptual example: show the actual Type G stop mechanism, because the
 mechanism *is* the argument — people learned which abnormality must
 stop production, then a closed physical mechanism preserved that
 judgment through gravity and a falling piece of metal. The Type G is
@@ -606,8 +656,8 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
 ### 6. Dropper mechanism photo
 
 - **Status:** done — `public/type-g-dropper-mechanism.jpg`
-- **Slide:** "Smart → dumb → gone"
-- **Placement:** small inset beside the "Dumb" line, as the real
+- **Slide:** "Dumb: the rule becomes a stop"
+- **Placement:** right-side inset, as the real
   artifact anchoring G15's illustration
 - **Source:** Christoph Roser's ["Toyoda Model G Automatic Loom Detail
   Warp Break Stop"](https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/)
@@ -627,13 +677,11 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
 
 ### G15. Loom jidoka mechanism — live judgment, closed mechanism
 
-- **Status:** done — `public/loom-jidoka-mechanism.png`. **A1 is
-  intended to replace this still**; keep both until we decide which
-  click-reveal to keep.
-- **Slide:** "Smart → dumb → gone"
-- **Placement:** click-reveal after G7's strip on the same slide, same
-  wide-strip footprint so it swaps in place; slide text supplies all
-  labels (dropper, feeler bar, knock-off — never in the image)
+- **Status:** done — `public/loom-jidoka-mechanism.png`.
+- **Slide:** "Dumb: the rule becomes a stop"
+- **Placement:** large initial before/after view, occupying two thirds
+  of the slide width. One click replaces it with A1 in the same footprint.
+  The right column keeps the real photograph and two short binary labels.
 - **Why generated:** no free-licensed explanatory diagram exists, and
   only an illustration can show the before/after action
 - **Prompt:** Two-panel before-and-after of a loom's warp stop, side
@@ -654,16 +702,15 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   compose in the slide. A1's revised brief below is authoritative for
   the animation; this describes the existing still.
 
-### A1. Loom warp-stop animation (candidate to replace G15)
+### A1. Loom warp-stop animation
 
 - **Status:** regenerated 2026-09-08 — `public/loom-warp-stop.mp4`.
   Silent 11-second loop, 1280×720 at 30 fps; revised sequence checked
-  frame by frame and in the slide's lower strip. Intended to replace
-  G15; both remain for comparison.
-- **Slide:** "Smart → dumb → gone"
-- **Placement:** same 16:9 wide-strip footprint as G7 / G15. While
-  both exist, a further click-reveal after G15 so G7 → G15 → A1 can
-  be compared. Explanation belongs in slide text or narration, never
+  frame by frame. Moved to the larger follow-up layout on 2026-10-02.
+- **Slide:** "Dumb: the rule becomes a stop"
+- **Placement:** one click replaces G15 with this animation, occupying
+  two thirds of the slide width. The same geometry stays in place.
+  Explanation belongs in the short side captions or narration, never
   inside the clip.
 - **Context and purpose:** the audience has heard "Jidoka preserves
   knowledge," seen "The loom's closed stop," compared watching a

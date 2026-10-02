@@ -73,9 +73,9 @@ Use the terms according to what they describe:
 - **judgment-removed** names the rung or result in which the recurring
   question no longer arises.
 
-Use the `-ing` forms for a mechanism's **function**, not for a rung in the
-paired triad: a closed test is **judgment-preserving**, and a prevention design
-is **judgment-removing**. The triad itself always uses the result names
+Use the `-ing` forms for a mechanism's **function**, not for a result in the
+spectrum: a closed test is **judgment-preserving**, and a prevention design
+is **judgment-removing**. The result spectrum uses the names
 **judgment-loaded → judgment-preserved → judgment-removed**. Do not mix the
 `-ing` and `-ed` variants within that sequence.
 
@@ -86,17 +86,21 @@ verify, accept, integrate, operate, or change them.
 
 ## Smart → dumb → gone
 
-Pair the memorable captions with their precise names:
+The slide's memorable captions tell a movement from creation to simpler
+later use. Smart names the work during creation; Dumb and Gone name what
+that work leaves behind:
 
-| Caption | Precise name | What later use requires |
+| Caption | Precise name | Meaning |
 |---|---|---|
-| **smart** | **judgment-loaded** | Live intelligence: interpret, rank, re-decide. |
+| **smart** | **judgment-intensive creation** | Spend live intelligence to understand, compare, and decide while creating. |
 | **dumb** | **judgment-preserved** | A closed mechanism carries earlier judgment. |
-| **gone** | **judgment-removed** | The recurring question or failure-producing path no longer exists. |
+| **gone** | **judgment-removed** | Remove an unnecessary part or failure-producing path, preserving the needed function. There is no such part left to understand or maintain. |
 
-The captions describe the demand left **in use**, not the intelligence that
-created the result. A judgment-preserving detector or a judgment-removing
-design may require substantial judgment-intensive work to create. [Claim
+The desirable intelligence is spent in creation. A judgment-preserving
+detector or a judgment-removing design may require substantial
+judgment-intensive work to create. An artifact still requiring comparable
+live judgment in use remains **judgment-loaded**; that is a separate
+description of its unfinished or intentionally open result. [Claim
 6](06-jidoka-embeds-routine-judgment.md) owns this descent and the jidoka
 mechanism that embeds previously learned judgment in a closed question.
 
@@ -117,10 +121,10 @@ emergent Stop & Fix work as two flow roles for the same cognitive resource.
 Locate the failure elsewhere: in judgment-loaded output passed on as finished,
 forcing someone later to reconstruct the context and do the real judging.
 
-Then use the paired descent consistently:
+Then tell the movement from creation to simpler use consistently:
 
-> **smart / judgment-loaded → dumb / judgment-preserved → gone /
-> judgment-removed**
+> **smart / judgment-intensive creation → dumb / judgment-preserved →
+> gone / judgment-removed**
 
 ## Question still open
 

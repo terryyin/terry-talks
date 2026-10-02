@@ -172,83 +172,116 @@ class: "[&>h2]:!mt-0 [&_p]:!my-2"
 
 [判断集約型の仕事]{.ja-title}
 
-## Work that still requires **live judgment**
+## Use judgment to discover. **Encode what you learn.**
 
-[今なお**その場の判断**を必要とする仕事]{.ja-title}
+[判断して見つける。**学びを仕組みにする。**]{.ja-title}
 
-<div class="text-[18px] leading-snug">
-
-**Live, context-sensitive intelligence** is material to reaching the next
-valid action or acceptable result:
-[次の妥当な行動や受け入れられる結果に至るには、**その場の、文脈に応じた知性**が欠かせない：]{.ja}
-
-**understand the situation → frame what matters → create or adapt → weigh → decide**
-[**状況を理解する → 重要な点を捉える → 創る・適応させる → 比較検討する → 決める**]{.ja}
-
-</div>
-
-<div class="mt-2 grid grid-cols-2 gap-5 text-[16px] leading-snug">
+<div class="mt-10 grid grid-cols-2 gap-8 text-[22px] leading-snug">
 
 <div class="border-l-4 border-[#b33a2b] pl-4">
 
-**Pulled product work**
-[**プルされたプロダクトの仕事**]{.ja}
-Create for a real need.
-[本当のニーズのために創る。]{.ja}
+**In a document**
+[**文書なら**]{.ja}
+“The list must not be empty.”
+[「リストは空にしない」]{.ja}
+
+Someone must interpret it.
+[誰かが解釈する。]{.ja}
 
 </div>
 
 <div class="border-l-4 border-[#b33a2b] pl-4">
 
-**Emergent Stop & Fix**
-[**突発的な Stop & Fix（止めて直す）**]{.ja}
-Contain and solve an abnormality.
-[異常を封じ込め、解決する。]{.ja}
+**In a test**
+[**テストなら**]{.ja}
+Empty list → failure.
+[空のリスト → 失敗。]{.ja}
+
+Otherwise, no news.
+[問題なければ、何も起きない。]{.ja}
 
 </div>
 
 </div>
 
-<div class="mt-2 rounded bg-[#b33a2b]/10 px-4 py-1 text-[17px] leading-snug">
+<div class="mt-10 rounded bg-[#b33a2b]/10 px-5 py-3 text-[22px] leading-snug">
 
-The problem is not spending judgment. It is leaving a demand for live judgment
-in the output, so someone downstream must **interpret, rank, and re-decide**.
-[問題は判断を使うことではない。判断の必要をアウトプットに残し、下流に**解釈・順位づけ・決め直し**をさせることだ。]{.ja}
+**The next person need not rediscover the rule.**
+[**次の人がルールを見つけ直さずに済む。**]{.ja}
 
 </div>
 
 <!--
-Claim 00. Pulled product work is often anticipated or planned; Stop & Fix is
-triggered by an abnormality. Same cognitive kind, different role in the flow.
+Claim 00. Building or improving the product is often anticipated or planned;
+Stop & Fix is triggered by an abnormality. Both need live judgment while the
+answer is being discovered. When the situation changes what matters or what
+counts as good enough, someone must decide in context. The list example shows
+what happens after a rule is understood: a document preserves it but asks each
+reader to interpret and
+apply it; an executable test checks it routinely and signals a violation.
+A failing test may still require investigation, but no one needs to decide
+again whether an empty list is allowed.
 -->
 
 ---
-layout: statement
----
 
-# AI can produce plausible software faster than a product group can absorb it
+# AI speeds whichever loop you feed
 
-[AIは、プロダクトグループが吸収できるより速く、<br>もっともらしいソフトウェアを生み出せる]{.ja-title}
+[AIは、あなたが回すほうのループを加速する]{.ja-title}
 
-A generated branch, test, analysis, or design is not yet capability.
-Until it is understood, owned, integrated, and judged, it is
-**judgment-loaded output** in inventory. Someone downstream must
-**interpret, rank, and re-decide** — teams **constrained** by what they built.
-[生成されたブランチ、テスト、分析、設計は、まだ能力ではない。理解・所有・統合・判断されるまでは在庫の**判断を抱えたアウトプット**だ。下流が**解釈し、優先順位をつけ、決め直す**——作ったものがチームを**縛る**。]{.ja}
+```mermaid {scale: 1.1}
+%%{init: {'flowchart': {'rankSpacing': 35, 'nodeSpacing': 28}}}%%
+flowchart LR
+  AI(Pressure to ask AI<br>for more solutions<br><small>AIにもっと<br>解決策を求める圧力</small>)
+  INV(Artifacts still<br>requiring judgment<br><small>判断がまだ必要な<br>成果物</small>)
+  EFF(Effort per change<br>for people + AI<br><small>人もAIも<br>変更にかかる手間</small>)
+  DONE(Problems solved<br>per day<br><small>一日に解決する<br>問題の数</small>)
 
-Or AI helps make the next slice smaller and known failures easier to
-prevent or stop — teams **freed** by what they built.
-[あるいはAIが次のスライスを小さくし、既知の失敗を防ぎやすく止めやすくする——作ったものがチームを**解放する**。]{.ja}
+  AI -->|"+"| INV
+  INV -->|"+"| EFF
+  EFF -->|"−"| DONE
+  DONE -->|"−"| AI
+  class AI accent
+```
 
-## **AI speeds whichever loop you feed.**
+<div class="mt-3 text-sm opacity-60">
 
-[**AIは、あなたが回すほうのループを加速する。**]{.ja-title}
+**+** increases · **−** reduces
+[＋ 増やす · − 減らす]{.ja}
+
+</div>
 
 <!--
-Sets the AI stage early: this talk is also about AI-augmented development.
-Connects back to the diagnostic (freed vs constrained) and forward to the
-loops. Loop map: Claim 22; generation cheap / judgment expensive belongs
-to the jidoka cluster (Claim 6).
+Figure 2 of Claim 22's companion CLD: R7's reinforcing pressure
+trap. Four variables, one loop. This is a qualitative hypothesis about work
+on one evolving product with finite people and AI capacity.
+
+Open with: "AI solved my problem!" The immediate solution can be real while
+its artifact still leaves judgment for the next person or agent. Artifacts
+include working code, tests, designs, and documents; this is not only a pile
+of unfinished drafts. The problem is recurring interpretation and decisions
+left in their use or change. The slide's artifact variable is the accumulated
+amount of that judgment-loaded output, not all artifacts regardless of kind.
+
+Walk the loop: pressure to ask AI for more solutions encourages more
+generation. When those solutions leave judgment behind, they add artifacts
+that people and AI must understand, reconcile, verify, or repair on the next
+change. Effort per change rises. With finite capacity, fewer problems are
+solved per day. Poor progress increases pressure to ask AI for still more
+solutions, completing the trap. Signs: +, +, −, −; reinforcing.
+
+The final link is a response to poor progress, not a claim that fewer solved
+problems automatically create more AI output. It applies when the response
+is "ask AI for more solutions." Pressure is distinct from actual AI output:
+agents can also slow down as they recover context and retry (B2 in the
+companion). The completion variable includes people and AI working together,
+so this loop shows the whole system's slowdown, not just a human review queue.
+
+The previous slide offers the first escape: encode a learned rule so both
+people and AI need less repeated interpretation. Later TPS slides explain
+how to keep changes small, finish them, and preserve the learning. Avoid
+implying that every useful act of judgment is waste, or that generated tests
+are already trustworthy. Claims 00, 5, 6, and 22.
 
 Doughnut — the notebook product we use in LeSS in Action. A
 Cursor-coauthored `/sync` pull lands remote note changes in one commit:
@@ -293,14 +326,38 @@ TPS shows they reinforce each other instead — next slide. Claim 10.
 -->
 
 ---
-layout: quote
+class: p-0
 ---
 
-> **TPS shows how a system can continually convert learning into constraints
-> that make greater freedom responsible — and use that freedom to produce
-> the next learning on which deeper entrustment, and then mutual trust,
-> can rest.**
-> [**TPSが示すのは、システムが学びを絶えず制約に変え、より大きな自由を責任あるものにし——その自由で次の学びを生み出す方法だ。その学びの上に、より深く任せることが、そしてやがて相互の信頼が成り立つ。**]{.ja}
+<div class="pointer-events-none absolute left-8 top-0 font-serif text-[150px] leading-none text-[#b33a2b]/10" aria-hidden="true">“</div>
+
+<div class="absolute inset-x-14 bottom-12 top-16 grid grid-cols-[1.65fr_1fr] items-center gap-10">
+
+<blockquote class="!m-0 !border-0 !bg-transparent !p-0 !not-italic text-[29px] font-semibold leading-[1.4]">
+  <p class="!m-0 !text-[29px] !leading-[1.4]">
+    TPS shows how a system can continually
+    <span class="text-[#b33a2b]">convert learning into constraints</span>
+    that make greater <span class="text-[#b33a2b]">freedom responsible</span> —
+  </p>
+  <p class="!mb-0 !mt-5 !text-[29px] !leading-[1.4]">
+    and use that freedom to produce the <span class="text-[#b33a2b]">next learning</span>
+  </p>
+  <p class="!mb-0 !mt-5 !text-[29px] !leading-[1.4]">
+    on which deeper <span class="text-[#b33a2b]">entrustment</span>,
+    and then <span class="text-[#b33a2b]">mutual trust</span>, can rest.
+  </p>
+</blockquote>
+
+<div class="border-l border-[#78716c]/30 pl-7 text-[19px] leading-[1.8] text-[#5c564e]" lang="ja">
+  <p class="!m-0">
+    TPSが示すのは、システムが学びを絶えず制約に変え、より大きな自由を責任あるものにし——その自由で次の学びを生み出す方法だ。
+  </p>
+  <p class="!mb-0 !mt-5">
+    その学びの上に、より深く任せることが、そしてやがて相互の信頼が成り立つ。
+  </p>
+</div>
+
+</div>
 
 <!--
 The main message. Claim 10.
@@ -509,28 +566,65 @@ Claim 6.
 -->
 
 ---
-layout: image-right
-image: /toyoda-type-g-automatic-loom.jpg
-backgroundSize: contain
+layout: default
 ---
 
 # The loom's closed stop
 
 [織機の「閉じた停止」]{.ja-title}
 
-The loom stops itself on a broken thread — nobody watches it.
-[糸が切れると、織機は自ら止まる——誰も見張っていない。]{.ja}
+<div class="absolute left-[5.5%] top-[26%] w-[43%]">
+  <p class="!m-0 !text-[21px] !leading-snug"><strong>Sakichi Toyoda</strong> wanted to ease<br>his mother's work.</p>
+  <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">豊田佐吉は、母の織る仕事を楽にしたかった。</p>
+  <img src="/toyoda-type-g-automatic-loom.jpg" alt="Toyoda Type G automatic loom exhibited in Tokyo." class="mt-3 h-[180px] w-full object-cover object-center">
+  <div class="mt-2 flex items-baseline justify-between gap-3 text-[11px] leading-tight text-[#5c564e]">
+    <span>Type G automatic loom, 1924</span>
+    <span class="text-[8px]">Photo: <a href="https://commons.wikimedia.org/wiki/File:Toyoda_Automatic_Loom_-_National_Museum_of_Nature_and_Science,_Tokyo_-_DSC07343.JPG">Daderot / Wikimedia</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></span>
+  </div>
+</div>
 
-A **closed stop**: the abnormality halts the work, not a person's vigilance.
-[**閉じた停止**：仕事を止めるのは異常そのもの。人の注意力ではない。]{.ja}
+<div class="absolute left-[54%] top-[26%] w-[40.5%] text-center">
+  <p class="!m-0 !text-[31px] !leading-snug"><strong>Jidoka</strong> <span class="text-[#5c564e]">/ Autonomation</span></p>
+  <img src="/jidoka-human-radical.svg" alt="自働化. Only 亻, the person radical (ninben) inside 働, is red." class="mt-3 w-full">
+  <p class="!mb-0 !mt-3 !text-[23px] !leading-snug">Automation with a <span class="text-[#c33b2b]">human touch</span></p>
+  <p class="!mb-0 !mt-1 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">人の知恵を加えた自動化</p>
+</div>
 
-<div class="absolute bottom-3 left-[102%] z-10 w-[96%] rounded bg-white/85 px-2 py-1 text-right text-[10px] leading-tight text-gray-700">
-  Photo: Daderot, via <a href="https://commons.wikimedia.org/wiki/File:Toyoda_Automatic_Loom_-_National_Museum_of_Nature_and_Science,_Tokyo_-_DSC07343.JPG">Wikimedia Commons</a> · <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a><br>
-  Exhibit: National Museum of Nature and Science, Tokyo
+<div class="absolute bottom-[6%] left-[5.5%] right-[5.5%] grid grid-cols-2 gap-[6%] border-t border-[#5c564e]/25 pt-4">
+  <div>
+    <p class="!m-0 !text-[22px] !leading-snug">A broken thread <strong>stops the loom.</strong></p>
+    <p class="!mb-0 !mt-1 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">糸が切れると、織機が自ら止まる。</p>
+  </div>
+  <div>
+    <p class="!m-0 !text-[22px] !leading-snug">People are <strong>free from watching.</strong></p>
+    <p class="!mb-0 !mt-1 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">人は見張りから解放される。</p>
+  </div>
 </div>
 
 <!--
 Claim 6 — the founding jidoka story.
+
+Sakichi Toyoda watched his mother weave and wanted to make her work easier.
+His power looms incorporated devices that stopped on broken or missing
+thread, preventing defective cloth and freeing an operator from continuous
+machine watching. Toyota identifies those stopping devices as the origin
+of jidoka. The Type G, developed in 1924, is the later example pictured;
+1924 is not the date when automatic stopping began.
+
+Jidoka is 自働化. The middle character 働 contains 亻 (にんべん / ninben),
+the person radical. Only that radical is red in the outlined SVG. Toyota
+calls this autonomation, or automation with a human touch: human wisdom
+built into the work. The radical does not mean somebody must keep watching.
+The mechanism handles the known abnormality; people respond when it stops
+and improve the process. The next slide shows that change in attention.
+
+[Sources]
+- https://global.toyota/en/company/plant-tours/production-system/
+- https://global.toyota/en/company/vision-and-philosophy/production-system/
+- https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html
+- https://www.toyota-industries.com/company/history/toyoda_sakichi/
+- https://www.jsme.or.jp/kikaiisan/heritage_016_en.html
+[/Sources]
 -->
 
 ---
@@ -543,7 +637,7 @@ class: p-0
   class="absolute inset-0 h-full w-full object-cover"
 />
 
-<div v-click.hide="1" class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+<div v-click.hide="1" class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Watching the loom / watching the AI
   <span class="ja">織機を見張る／AIを見張る</span>
 </div>
@@ -555,7 +649,7 @@ class: p-0
   class="absolute inset-0 h-full w-full object-cover"
 />
 
-<div v-click="1" class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+<div v-click="1" class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Called by the stop
   <span class="ja">停止に呼ばれる</span>
 </div>
@@ -570,77 +664,38 @@ creating an opportunity to learn.
 -->
 
 ---
-class: "[&>h1]:!mb-2"
+layout: default
 ---
 
 # Smart → dumb → gone
 
 [賢い → 単純 → 消える]{.ja-title}
 
-<div class="w-[60%] space-y-0.5 text-[15px] leading-snug [&_p]:my-0 [&_ol]:my-0 [&_li]:my-0 [&_.slidev-code-wrapper]:!my-0 [&_pre]:!my-0 [&_pre]:!py-0.5 [&_pre]:!text-[13px] [&_pre]:!leading-tight">
+<img
+  src="/smart-dumb-gone.png"
+  alt="A craftsperson designs a wooden bracket; a keyed joint permits only the correct fit; a one-piece bracket removes the joint altogether."
+  class="absolute left-[4.5%] top-[25%] h-[54%] w-[91%] object-contain"
+/>
 
-Move learned judgment downhill:
-[学んだ判断を、坂の下へと移していく：]{.ja}
-
-1. **Smart — judgment-loaded:** use requires live judgment
-   [**賢い——判断を抱える：** 使うたびにその場の判断が要る]{.ja}
-2. **Dumb — judgment-preserved:** a closed stop or check carries earlier judgment
-   [**単純——判断を保存：** 閉じた停止やチェックが、過去の判断を運ぶ]{.ja}
-3. **Gone — judgment-removed:** prevention — the recurring failure cannot occur
-   [**消える——判断が不要：** 予防——繰り返す失敗がそもそも起こらない]{.ja}
-
-Do not make every user or maintainer **interpret, rank, and re-decide**.
-[利用者や保守者のたびに**解釈・順位づけ・決め直し**をさせない。]{.ja}
-
-<div class="doughnut-example">
-
-**Dumb:** a recall-stats timeout is encoded as a query-count stop.
-[**単純：** recall統計のタイムアウトを、クエリ回数で止める仕組みに組み込む。]{.ja}
-
-**Gone:** OS-invalid titles are unrepresentable (`@Pattern`).
-[**消える：** OSで使えないタイトルは、そもそも表現できない（`@Pattern`）。]{.ja}
-
-```java
-assertThat(prepareStatementCount, lessThan(10L));
-```
-
-</div>
-
-</div>
-
-<div class="absolute right-[4%] top-[18%] z-10 w-[22%] overflow-hidden rounded border border-stone-300 bg-white shadow-sm">
-  <img
-    src="/type-g-dropper-mechanism.jpg"
-    alt="Rows of metal droppers hanging from the Type G loom's warp threads"
-    class="block w-full"
-  />
-  <div class="px-1.5 py-1 text-[8px] leading-tight text-gray-600">
-    Photo: <a href="https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/">Christoph Roser, AllAboutLean.com</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+<div class="absolute bottom-[6%] left-[5.5%] right-[5.5%] grid grid-cols-3 gap-5 text-center">
+  <div>
+    <p class="!m-0 !text-[25px] !leading-snug font-semibold">Smart</p>
+    <p class="!mb-0 !mt-1 !text-[19px] !leading-snug">Judge while creating</p>
+    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">つくるときに判断する</p>
+  </div>
+  <div>
+    <p class="!m-0 !text-[25px] !leading-snug font-semibold">Dumb</p>
+    <p class="!mb-0 !mt-1 !text-[19px] !leading-snug">The joint checks the fit</p>
+    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">形が間違いを防ぐ</p>
+  </div>
+  <div>
+    <p class="!m-0 !text-[25px] !leading-snug font-semibold">Gone</p>
+    <p class="!mb-0 !mt-1 !text-[19px] !leading-snug">No joint to maintain</p>
+    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">接合部も、その保守もなくす</p>
   </div>
 </div>
 
-<img
-  src="/smart-dumb-gone.png"
-  alt=""
-  class="absolute bottom-[2%] right-[2%] h-[40%] w-[36%] object-contain"
-/>
-
-<img
-  v-click
-  src="/loom-jidoka-mechanism.png"
-  alt=""
-  class="absolute bottom-[2%] right-[2%] h-[40%] w-[36%] object-contain"
-/>
-
-<video
-  v-click
-  muted
-  loop
-  playsinline
-  autoplay
-  src="/loom-warp-stop.mp4"
-  class="absolute bottom-[2%] right-[2%] h-[40%] w-[36%] object-contain"
-/>
+<div class="absolute bottom-[2%] right-[5.5%] text-[8px] text-[#5c564e]">AI-generated illustration</div>
 
 <!--
 Spoken bridge: so that's the jidoka that frees people — but how to build
@@ -648,7 +703,19 @@ one? Is AI a good excuse to accumulate loads of judgment-loaded output and
 call it done? (Claim 6.)
 
 Claims 00, 6, and 20 (poka-yoke supports jidoka).
-Gone: the best part is no part — the failure can no longer occur.
+
+Smart here means judgment spent during creation: understand the need,
+compare designs, and decide what must hold. We want that intelligence
+in the making, with less need to reconstruct those decisions in later use.
+Dumb means the result carries the knowledge in a simple, closed mechanism.
+The keyed joint is a physical yes/no check. In software, a simple test or
+enforced invariant can carry the same previously settled decision.
+Gone means the best part is no part. If the joint is unnecessary, a
+one-piece design removes it and its assembly question. There is no joint
+to inspect or maintain. This is an original conceptual example, not a
+historical Toyota device. The one-piece design preserves the needed
+function; removing a necessary joint or deleting a still-needed test
+would not demonstrate Gone. Other problems may still need judgment.
 
 In software, "dumb" mostly lives in tests that hold the encoded judgment:
 a unit test drives a stable boundary with crafted data (real lower layers,
@@ -668,6 +735,53 @@ Gone leftover: write DTOs (`NoteUpdateTitleDTO`, `FolderCreationRequest`,
 `@Pattern(regexp = DisplayNamePathSeparators.REGEXP)` so
 `\ / : * ? " < > |` cannot be authored. Hashes: `dfbde33184` /
 `55e5e55edc` / `445656f73a`.
+-->
+
+---
+layout: default
+---
+
+# Dumb: the rule becomes a stop
+
+[単純：判断を停止の仕組みに組み込む]{.ja-title}
+
+<div class="absolute left-[5.5%] top-[27%] aspect-video w-[67%]">
+  <img v-click.hide="1" src="/loom-jidoka-mechanism.png" alt="Loom warp stop: a taut thread holds a metal dropper up; a broken thread lets the dropper fall and block the detection bar." class="absolute inset-0 h-full w-full object-contain">
+  <video v-click="1" muted loop playsinline autoplay src="/loom-warp-stop.mp4" class="absolute inset-0 h-full w-full object-contain" aria-label="Animated loom warp stop: the thread breaks, the dropper falls, and the blocked bar triggers a stop."></video>
+</div>
+
+<div class="absolute right-[5.5%] top-[27%] w-[19.5%]">
+  <img src="/type-g-dropper-mechanism.jpg" alt="Actual metal droppers in the Toyoda Type G loom." class="w-full">
+  <div class="mt-1 text-[8px] leading-tight text-[#5c564e]">Photo: <a href="https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/">Christoph Roser</a><br><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div>
+  <div class="mt-7">
+    <p class="!m-0 !text-[19px] !leading-snug font-semibold">Thread intact: run</p>
+    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">糸が張ると動く</p>
+  </div>
+  <div class="mt-5">
+    <p class="!m-0 !text-[19px] !leading-snug font-semibold text-[#b33a2b]">Thread broken: stop</p>
+    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">糸が切れると止まる</p>
+  </div>
+</div>
+
+<div class="absolute bottom-[2%] left-[5.5%] text-[8px] text-[#5c564e]">Schematic illustration / 模式図</div>
+
+<!--
+One click replaces the large before/after still with the existing silent
+looping animation. The real Type G close-up anchors the schematic.
+
+The loom is powered. Thread tension holds a dropper up; a break lets it
+fall into an oscillating detection bar's path. Blocking the bar activates
+the stopping mechanism. Detection does not diagnose or repair the break.
+The prior decision is what counts as abnormal and must stop the work.
+The mechanism executes that closed decision. This demonstrates Dumb;
+the break still exists, so it does not demonstrate Gone.
+
+[Sources]
+- https://www.tcmit.org/vgt/textile/english/scene-10-iframe/target-04/
+- https://www.tcmit.org/vgt/textile/english/scene-13-iframe/target-03/
+- https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html
+- https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/
+[/Sources]
 -->
 
 ---
@@ -949,8 +1063,8 @@ frontend/src/components/recall/Assimilation.vue`) → `b62b0a183b`
 point). Same afternoon `34e121906e` / `bdc83aaa78` also edited
 `Assimilation.vue`.
 
-Spoken callback: the `/sync` beat on *AI can produce plausible
-software faster…* — this January chain is the same kind of tool
+Spoken callback: the `/sync` beat on *AI speeds whichever loop you feed* —
+this January chain is the same kind of tool
 kept small and stoppable, the **freed** pole of that contrast. Do
 not retell the July `/sync` episode.
 
@@ -964,69 +1078,81 @@ properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
 
 [自由と、任せることのエンジン]{.ja-title}
 
-```mermaid {scale: 0.75}
-%%{init: {'flowchart': {'rankSpacing': 30, 'nodeSpacing': 25}}}%%
+<div class="absolute left-[5.5%] right-[5.5%] top-[25%]">
+
+```mermaid {scale: 0.9}
+%%{init: {'flowchart': {'rankSpacing': 28, 'nodeSpacing': 25}}}%%
 flowchart LR
-  EJ(Encoded<br>jidoka<br><small>組み込まれた<br>自働化</small>)
-  AA(Adaptive<br>attention<br><small>適応的な注意</small>)
-  CAP(Capability<br>to respond<br><small>応える能力</small>)
-  WT(Warranted<br>trust<br><small>裏づけのある<br>信頼</small>)
-  CC(Coercive<br>control<br><small>強制的な<br>管理</small>)
-  PULL(Pull from<br>actual need<br><small>実需からの<br>プル</small>)
+  EJ(<b>Jidoka · 自働化</b><br><small>Autonomation</small><br>Rules captured<br>in tests & code<br><small>テストやコードに<br>組み込んだルール</small>)
+  AA(Room to learn<br>& improve<br><small>学び、改善する<br>余裕</small>)
+  CAP(Ability to solve<br>real problems<br><small>実際の問題を<br>解く力</small>)
+  WT(Confidence to entrust<br>the next problem<br><small>次の問題を<br>任せられる確信</small>)
+  PULL(<b>Just-in-time</b><br>Freedom to follow<br>real user need<br><small>実際のニーズに<br>応える自由</small>)
 
   EJ -->|"+"| AA
-  AA -->|"delay +<br><small>遅れて</small>"| EJ
+  AA -->|"+ //"| EJ
   AA -->|"+"| CAP
-  CAP -->|"delay +<br><small>遅れて</small>"| WT
-  WT -->|"-"| CC
-  CC -->|"-"| PULL
+  EJ -->|"+"| WT
+  CAP -->|"+ //"| WT
+  WT -->|"+"| PULL
   PULL -->|"+"| CAP
+  class AA,PULL accent
 ```
 
-Two reinforcing loops: **jidoka frees** attention; **JIT entrusts** capability.
-[二つの自己強化ループ：**自働化は**注意を**解放し**、**ジャスト・イン・タイムは**能力に**任せる**。]{.ja}
+</div>
+
+<div class="absolute bottom-[5%] left-[5.5%] text-[11px] opacity-60">
+
+**+** increases · **//** takes time
+[＋ 増やす · // 時間がかかる]{.ja}
+
+</div>
+
+<img
+  src="/jidoka-jit-balanced-scale.png"
+  alt="A level balance: a mechanical stop represents jidoka; one part with a pull card represents just-in-time."
+  class="absolute bottom-[3%] left-[25%] h-[28%] w-[50%] object-contain"
+/>
+
+<div class="absolute bottom-[2%] right-[5.5%] text-[8px] opacity-50">AI-generated illustration</div>
 
 <!--
-The triad drawn as loops, gathering the jidoka and JIT beats just
-walked — Figure 1 of Claim 22's companion CLD
-(R1 encode-and-free, R2 freedom-and-entrustment). Walk it until it
-closes: encoded learning frees attention; attention builds capability;
-capability earns warranted trust (delayed); trust lowers coercive
-control; low control lets actual need pull; pull grows capability.
-Claims 22 and 10.
--->
+Figure 1 of Claim 22's companion CLD: R1 and R2 in five plain-language
+variables. The title is unchanged. The two red nodes show substantive
+freedom: room to learn and the ability to follow the next real user need.
+The endpoints explicitly name Jidoka (autonomation, 自働化) and Just-in-time.
+The level scale answers slide 9's tilted balance: the automatic stop frees
+attention; the single part and pull card represent entrusting a response to
+actual need. They support one another rather than requiring a tradeoff.
 
----
+Start with the list example from slide 7. A rule in a test carries a judgment
+already made. People and AI need less repeated interpretation, leaving room
+to investigate and improve. If that room is used to learn, more rules can be
+captured in tests, code, and prevention designs over time. That closes R1.
+More generated tests alone do not produce this effect: checks must be owned,
+trustworthy, and used as real stops.
 
-# AI speeds whichever loop you feed
+The direct rules-to-confidence arrow adds a second basis for entrustment:
+reliable, owned safeguards carry known judgments and stop known mistakes.
+That confidence complements demonstrated capability to handle new problems;
+it is not a promise that every generated test or every new rule deserves trust.
 
-[AIは、あなたが回すほうのループを加速する]{.ja-title}
+That same room helps the team grow its ability to solve real problems.
+Visible, responsible results earn confidence to entrust the next problem;
+this takes time. Confidence reduces advance approvals and imposed solution
+plans, giving the team freedom to respond to the next real user need. Doing
+that work with support grows capability further. That closes R2.
 
-```mermaid {scale: 1.0}
-flowchart LR
-  AI(AI generation<br>volume<br><small>AIの生成量</small>)
-  INV(Judgment-stacked<br>inventory<br><small>判断が積み上がった<br>在庫</small>)
-  AA(Adaptive<br>attention<br><small>適応的な注意</small>)
-  EJ(Encoded<br>jidoka<br><small>組み込まれた<br>自働化</small>)
+The positive confidence-to-freedom arrow condenses two canonical negative
+links: warranted trust reduces coercive control; coercive control restricts
+pull from actual need. It does not mean abandoning quality gates, necessary
+planning, or accountability. The freedom node means those constraints no
+longer force work around leftover ownership, inventory, or external control.
 
-  AI -->|"+"| INV
-  INV -->|"-"| AA
-  AA -->|"delay +<br><small>遅れて</small>"| EJ
-  EJ -->|"-"| INV
-  class AI accent
-```
-
-AI **raises the gain** on the loop you are already running.
-[AIは、すでに回しているループの**ゲインを上げる**。]{.ja}
-
-<!--
-Figure 2 of Claim 22's companion CLD (R5), overlaying the engine's R1.
-Reinforcing, so it runs virtuous or vicious depending on the starting
-condition — the DORA 2025 amplifier finding as structure. Climax: pays
-off the early statement slide *AI can produce plausible software faster
-than a product group can absorb it*, which ended "AI speeds whichever
-loop you feed." — now that jidoka, JIT flow, and the engine have been
-walked. Claim 22.
+Contrast slide 8: there, more artifacts leave more repeated judgment and
+pressure for more output. Here, learned rules carry the judgment forward,
+and freed attention grows the capability to take the next valuable work.
+Claims 3, 6, 10, and 22.
 -->
 
 ---

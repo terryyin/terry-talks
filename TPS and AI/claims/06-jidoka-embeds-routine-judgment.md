@@ -10,8 +10,10 @@ still queued; model-first is a bet**
 > judgment into a closed question: detect a specified abnormality, stop
 > it near its origin, and bring people to the exception.** The detector
 > must be simpler than diagnosis, repair, and kaizen. Knowledge should
-> move downhill: **judgment-loaded → judgment-preserved →
-> judgment-removed** (**smart → dumb → gone**). Later use should need
+> move downhill: **spend judgment in creation (smart), capture known
+> decisions in a simple mechanism (dumb), and remove the need for an
+> unnecessary part (gone)**. The results move from judgment-loaded to
+> judgment-preserved or judgment-removed. Later use should need
 > *less* live judgment, not more. Encoded stops still age: when the
 > product or the environment changes, some of them require live judgment
 > again.
@@ -41,23 +43,25 @@ machine does not diagnose.
 
 ## Smart → dumb → gone
 
-Measure each rung by how much live judgment its **use** still
-requires. Precise names on the page; captions on the slide.
-**Smart** means that use requires someone capable of live judgment; it
-is not a synonym for waste. The live judgment can be valuable
-creation-time work: understanding and creating for a pulled product
-need, or investigating an emergent abnormality. The failure is leaving
-a comparable demand in an artifact or system presented as finished.
-**Dumb** is a closed question a mechanism can answer without a thinker.
-**Gone** is the question that no longer exists. Avoid *build / building*
-and *run time* as names for this movement—in software they already mean
-compile, CI, and program execution. Say *in the design* versus *in use*.
+The slide tells the movement from creation to a simpler result.
+**Smart** means spending live judgment while creating: understanding
+the need, comparing designs, and deciding what must hold. The useful
+intelligence is in the making. The failure is leaving a comparable
+demand in an artifact or system presented as finished.
+**Dumb** captures that previously spent judgment in a simple, closed
+mechanism. Its later use does not need a fresh survey of the context
+to re-decide the known rule. **Gone** removes the unnecessary part or
+failure-producing path itself: there is no such part left to understand,
+inspect, or maintain. The needed function must remain. Other questions
+may still require live judgment. Avoid *build / building* and *run time*
+as names for this movement—in software they already mean compile, CI,
+and program execution. Say *in the design* versus *in use*.
 
-| Caption | Rung | In use | Loom | Software |
+| Caption | Meaning | Judgment | Loom | Software |
 |---|---|---|---|---|
-| **smart** | **Judgment-loaded** | Live intelligence every time: interpret, rank, re-decide. | A watcher per loom; a report that a thread “might be unhealthy.” | Generated analysis, unowned tests, open-ended evaluators, patches that look finished until a person re-judges them. |
+| **smart** | **Judgment-intensive creation** | Spend intelligence now to understand, compare, and decide. | Learn which abnormality must stop the loom and design the stop. | Investigate the problem, choose a design, and settle the test's expected result. |
 | **dumb** | **Judgment-preserved** | Closed mechanism carrying earlier judgment. **Self-proven:** its firing *is* the evidence. **Self-protected:** it enforces its own consequence. | Drop-wire; weft fork. | A type that will not compile; a red mainline that will not ship; an assertion with a closed oracle. |
-| **gone** | **Judgment-removed** | No live judgment required: the question is simplified away or removed. | Warp-tension controller; better yarn. | Cohesive modules, unrepresentable invalid states, deleted code. |
+| **gone** | **Judgment-removed** | Remove the unnecessary part or failure-producing path; its recurring question disappears. | Removing a cause of thread breakage is a move toward prevention; the dropper alone does not achieve Gone. | Delete an unnecessary adapter, branch, or duplicated state while preserving the needed behavior. |
 
 The process loop is the same descent. Judgment-intensive work creates a
 mechanism whose later use occupies the simpler next rung:
@@ -72,13 +76,16 @@ investigation that produced it. If the “detector” is another
 open-ended reasoning pass, jidoka has not happened yet. Some rare or
 value-laden decisions should remain explicit human judgments.
 
-Prefer **gone** for a well-understood failure: information hiding, a
-narrow interface, a type that excludes invalid states, a fixture that
-permits only the correct orientation. That usually took substantial
+Prefer **gone** when the unnecessary part or failure-producing path can
+be removed. The slide's conceptual example is a one-piece bracket that
+needs no joint, so its joint-fit question disappears. A keyed joint is
+**dumb**: it still exists, but its shape answers the known fit question.
+In software, deleting an unnecessary adapter or duplicated state can
+remove both a component and the questions it created. That usually took substantial
 intelligence to create; Parnas's point is temporal—complexity has not
 left the universe; responsibility for it has been localized. On the
-loom, the warp-tension controller is this rung; the drop-wire is
-**dumb**.
+loom, a warp-tension controller reduces breakages but is still a part;
+the drop-wire is **dumb**. Neither is an example of removing a part outright.
 
 ## The loom stop is a closed physical question
 
