@@ -785,60 +785,73 @@ the break still exists, so it does not demonstrate Gone.
 -->
 
 ---
-class: "[&>h1]:!mb-2 [&_p]:!my-1.5"
+class: "[&>h1]:!mb-2"
 ---
 
-# Stop & Fix is emergent judgment-intensive work
+# Build the stop into the software
 
-[Stop & Fix（止めて直す）は、突発的な判断集約型の仕事]{.ja-title}
+[ソフトウェアに「止まる仕組み」を組み込む]{.ja-title}
 
-<div class="w-[76%] text-[16px] leading-snug">
-
-Pulling the andon cord makes the abnormality current work. People spend live
-judgment first to **stop and contain**, then to diagnose, fix, and learn —
-before more output inherits it.
-[アンドンの紐を引くと、異常が「いまの仕事」になる。その場の判断をまず**止めて封じ込める**ことに使い、次に診断し、直し、学ぶ——後続のアウトプットが引き継ぐ前に。]{.ja}
-
+<div class="absolute left-[6%] top-[30%] h-[49%] w-[88%]">
+  <svg viewBox="0 0 880 290" class="h-full w-full" role="img" aria-label="Human or AI changes run through the same tests and checks. Passing checks allow work to continue. Failing checks stop the work so people can fix the cause and encode their learning in the checks.">
+    <defs>
+      <marker id="software-check-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#78716c" stroke-width="1.5" /></marker>
+      <marker id="software-stop-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#b33a2b" stroke-width="1.5" /></marker>
+    </defs>
+    <g fill="#292524" font-family="inherit">
+      <text x="104" y="76" text-anchor="middle" style="font-size: 26px" font-weight="600">A change</text>
+      <text x="104" y="104" text-anchor="middle" style="font-size: 17px" fill="#5c564e">Human or AI</text>
+      <text x="104" y="129" text-anchor="middle" style="font-size: 16px" fill="#5c564e" lang="ja">人もAIも</text>
+      <path d="M 190 84 H 254" fill="none" stroke="#78716c" stroke-width="2" marker-end="url(#software-check-arrow)" />
+      <rect x="255" y="30" width="228" height="112" rx="4" fill="#fffaf3" stroke="#78716c" stroke-width="1.5" />
+      <text x="369" y="68" text-anchor="middle" style="font-size: 26px" font-weight="600">Tests &amp; checks</text>
+      <text x="369" y="96" text-anchor="middle" style="font-size: 17px" fill="#5c564e">Rules we know</text>
+      <text x="369" y="123" text-anchor="middle" style="font-size: 16px" fill="#5c564e" lang="ja">既知のルールを実行</text>
+      <path d="M 483 84 H 545 V 59 H 633" fill="none" stroke="#78716c" stroke-width="2" marker-end="url(#software-check-arrow)" />
+      <text x="581" y="39" text-anchor="middle" style="font-size: 15px" fill="#5c564e">Pass / 合格</text>
+      <text x="665" y="67" style="font-size: 27px" font-weight="600">Continue</text>
+      <text x="665" y="94" style="font-size: 16px" fill="#5c564e" lang="ja">そのまま進む</text>
+      <path d="M 545 84 V 179 H 633" fill="none" stroke="#b33a2b" stroke-width="2.5" marker-end="url(#software-stop-arrow)" />
+      <text x="566" y="148" style="font-size: 15px" fill="#b33a2b">Fail / 不合格</text>
+      <text x="665" y="188" style="font-size: 31px" font-weight="700" fill="#b33a2b">Stop &amp; Fix</text>
+      <text x="665" y="216" style="font-size: 17px" fill="#b33a2b" lang="ja">止めて、直す</text>
+      <path d="M 745 233 V 253 H 369 V 153" fill="none" stroke="#78716c" stroke-width="2" marker-end="url(#software-check-arrow)" />
+      <text x="543" y="281" text-anchor="middle" style="font-size: 17px" fill="#5c564e">Encode what we learn / 学びをコードに</text>
+    </g>
+  </svg>
 </div>
 
-<div class="mt-2 w-full text-[12px] leading-snug [&_table]:w-full [&_th:nth-child(1)]:w-[17%] [&_th:nth-child(2)]:w-[40%] [&_th]:pb-0.5 [&_th]:pr-3 [&_th]:text-left [&_th]:font-semibold [&_td]:py-0.5 [&_td]:pr-3 [&_td]:align-top [&_tr]:border-b [&_tr]:border-stone-300 [&_tbody_tr:last-child]:border-b-0 [&_tbody_tr:last-child]:bg-[#b33a2b]/10">
-
-| Method [手法]{.ja} | Detects [検知するもの]{.ja} | Stop & Fix requires [Stop & Fixが求めること]{.ja} |
-|---|---|---|
-| **Automated tests** [**自動テスト**]{.ja} | A known scenario no longer holds [既知のシナリオが成り立たなくなった]{.ja} | The failing test is the current work, not a parked queue [失敗したテストがいまの仕事。後回しのキューではない]{.ja} |
-| **Fail-fast** [**フェイルファスト**]{.ja} | An illegal or unexpected condition in the product now [いまプロダクトで起きた不正・想定外の状態]{.ja} | Fail immediately and visibly — do not swallow it [すぐに、見える形で失敗させる——握りつぶさない]{.ja} |
-| **CI service** [**CIサービス**]{.ja} | The integrated product is not in the agreed working state [統合されたプロダクトが、合意した動作状態にない]{.ja} | Who broke it stop and fix; others stop pushing to trunk [壊した人が止めて直す。他の人はトランクへのプッシュを止める]{.ja} |
-| **Noticed anomaly / known bug** [**気づいた異常／既知のバグ**]{.ja} | A person already sees out-of-standard work [標準から外れた仕事が、すでに人の目に見えている]{.ja} | Treat it as the cord: stop and fix first, not as inventory [アンドンの紐として扱う：在庫にせず、まず止めて直す]{.ja} |
-
-</div>
-
-<div class="mt-2 w-full rounded bg-[#b33a2b]/10 px-4 py-1 text-[15px] leading-snug [&_p]:!my-0">
-
-A detector everyone continues past is only a **dashboard**. AI makes
-continuing past the signal cheaper — and the cost of doing so larger.
-[皆が素通りする検知器は、ただの**ダッシュボード**だ。AIはシグナルの素通りを安くし——その代償を大きくする。]{.ja}
-
-</div>
-
-<div class="absolute right-[3%] top-[16%] z-10 w-[18%] overflow-hidden rounded border border-stone-300 bg-white shadow-sm">
-  <img
-    src="/andon-pull.png"
-    alt="A worker pulling an overhead andon cord; a red lantern marks the stop"
-    class="block w-full"
-  />
-  <div class="px-1.5 py-1 text-[8px] leading-tight text-gray-600">
-    AI-generated illustration
-  </div>
+<div class="absolute bottom-[5%] left-[6%] right-[6%]">
+  <p class="!m-0 !text-[30px] !leading-tight font-semibold">Fix the cause. Leave a safeguard.</p>
+  <p class="!mb-0 !mt-1 !text-[18px] !leading-snug text-[#5c564e]" lang="ja">原因を直す。次を守る仕組みを残す。</p>
 </div>
 
 <!--
-Claim 19 — software methods table. First three are closed detectors;
-the last row is human-triggered jidoka: the noticed anomaly or known bug
-*is* the cord. It calls the same live, context-sensitive intelligence as
-pulled product work, in an emergent containment role.
+Claims 6, 19, 24 — the software translation of the loom's closed stop.
+Same product standard and checks for human- and AI-authored changes.
+Checks must actually run; silence without execution is not assurance.
 
-Autonomation and the cord are both jidoka. The loom already showed
-the closed stop; this slide is the cord.
+The diagram follows one change. Normal operation continues without
+someone repeatedly judging an already settled rule. When a check fails,
+the abnormality becomes current work. People contain it, diagnose and
+fix the cause; AI may help. Capture the newly understood rule in a test,
+type, invariant or simpler mechanism where appropriate. The return arrow
+is deliberate learning, not an automatic rule writer or a guarantee that
+every novel problem can be encoded.
+
+Software examples for speaking, removed from the crowded table:
+- Tests: a known scenario no longer holds; address the failing test now.
+- Fail-fast: expose an illegal state immediately rather than swallow it.
+- CI: restore the integrated product to its agreed working state.
+- A noticed anomaly or known bug is the human cord: make it current work.
+
+Stop & Fix uses the same context-sensitive judgment as building something
+new, now to contain an emergent problem. A check identifies a violation;
+it does not automatically diagnose or repair the cause.
+
+Autonomation and the cord are both jidoka. The loom showed the closed
+mechanical stop; this slide translates it into software. People may
+also signal a noticed anomaly directly, without waiting for a check.
 
 Stop & Fix is the culture of actually responding: halt, contain, fix,
 prevent recurrence. Jidoka only **shows** the problem; **culture**
@@ -862,40 +875,57 @@ Gradle has no warnings-as-errors. A new `debugger` or unused TS
 binding can print and the job stays green. The detector ran;
 everyone continues past it. Contrast `@focus` in features
 (`check_focus_tags.sh` exits 1). HEAD `e683b74615`.
+
+[Sources]
+- https://global.toyota/en/company/vision-and-philosophy/production-system/
+- https://less.works/less/technical-excellence/continuous-integration
+[/Sources]
 -->
 
 ---
+class: "[&>h1]:!mb-2"
+---
 
-# The gates do not care who authored the change
+# Jidoka frees people
 
-[ゲートは、誰が変更を書いたかを気にしない]{.ja-title}
+[自働化は、人を自由にする]{.ja-title}
 
-The product standard and stop conditions do not weaken according to
-**who or what** wrote it. Quiet is good news only when the same
-owned checks **ran**.
-[プロダクトの基準と停止条件は、**誰が・何が**書いたかで緩まない。静かさが良い知らせなのは、同じ所有されたチェックが**実行された**ときだけ。]{.ja}
+<div class="absolute left-[6%] top-[30%] w-[31%]">
+  <p class="!m-0 !text-[23px] !leading-snug font-semibold">Known rules<br>protect the product.</p>
+  <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">既知のルールが<br>プロダクトを守る。</p>
+</div>
 
-After a closed stop exposes a failure, AI may help resolve it —
-but must **not dissolve the stop**. A leftover warning is unpaid
-judgment for the next person or agent.
-[閉じた停止が失敗をあらわにした後、AIが解決を手伝ってもよい——だが**停止を消し去ってはならない**。残った警告は、次の人やエージェントへの未払いの判断だ。]{.ja}
+<div class="absolute left-[44%] top-[29%] w-[49%]">
+  <p class="!m-0 !text-[33px] !leading-tight font-semibold text-[#b33a2b]">Free to solve<br>the next real problem.</p>
+  <p class="!mb-0 !mt-2 !text-[19px] !leading-snug text-[#5c564e]" lang="ja">次の本当の課題に、力を使える。</p>
+</div>
 
-<div class="doughnut-example">
-
-A Jidoka stop binds the agent on a recall-to-note detour. The person
-decides — leave recall, return via Resume — and Cursor implements
-the detour without dissolving the stop.
-[自働化の停止が、recallからノートへの寄り道でエージェントを止める。人が決め（recallを離れ、Resumeで戻る）、Cursorは停止を消さずに寄り道を実装する。]{.ja}
-
-```
-A detour into a note is recorded separately.
-Do not guess the UX.
-```
-
+<div class="absolute bottom-[2%] left-[12%] h-[47%] w-[76%] overflow-hidden">
+  <img src="/jidoka-frees-software-team.png" class="h-full w-full object-cover" style="object-position: center 48%" alt="A healthy software workstation runs its checks unattended while developers and a user explore the next problem together." />
 </div>
 
 <!--
-Same gates for "I" and AI. Claims 6 and 24.
+Claims 3, 6 and 10 — Terry's interpretation: Jidoka frees people by
+enabling them. This formulation is not a quotation from Toyota.
+
+Speak the causal bridge: our judgment discovers a useful rule; tests and
+code preserve it; the product can protect that known condition without
+continuous watching or rediscovery. This releases attention and gives
+people a reliable basis for taking responsibility for the next problem.
+They can explore, learn and improve with the user. Freedom here includes
+the ability and authority to stop and respond when something is wrong.
+
+The illustration shows healthy checks, not a red failure being ignored.
+Safeguards are bounded by what we know, run and own. They do not promise
+that all user needs, unknown failures or design choices are automated.
+People continue to own both the checks and the product.
+
+Toyota describes abnormality detection and automatic stopping as removing
+the need to continuously watch normal operation, with people's knowledge
+incorporated into equipment and kaizen. The software extension here is
+our argument: executable knowledge enables attention for new work.
+
+Same gates for "I" and AI, now shown on the preceding slide.
 
 Quiet / leftover warning: Claim 24 — unpaid judgment; silence is
 trusted only when the check ran. Heuristic, not a TPS slogan; do
@@ -913,6 +943,16 @@ tests) without deleting or `@wip`-away the stop.
 Spoken counter: `a2060f1d70` disabled two backend tests to pass
 the pipeline (re-enable `ee9ca9aa68` / `29712022b1`) — dissolve
 the stop to green; the opposite of this episode.
+
+The former on-slide recall-to-note example is a speaking detail:
+the agent reached an unresolved UX choice and stopped rather than guess.
+Terry chose to leave recall and return via Resume; Cursor then implemented
+the choice and tests. That owned decision enabled progress. The detailed
+plan excerpt is omitted from the slide so the ending lands on freedom.
+
+[Sources]
+- https://global.toyota/en/company/vision-and-philosophy/production-system/
+[/Sources]
 -->
 
 ---

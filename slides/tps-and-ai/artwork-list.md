@@ -138,9 +138,12 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### 4. Andon cord / andon board photograph
 
-- **Status:** implemented via generated fallback — `public/andon-pull.png`
-- **Slide:** "Stop & Fix is emergent judgment-intensive work"
-- **Placement:** inset right of the software-methods table
+- **Status:** retired from the slide 2026-10-02; generated fallback retained
+  as `public/andon-pull.png`
+- **Former slide:** "Stop & Fix is emergent judgment-intensive work",
+  replaced by "Build the stop into the software"
+- **Former placement:** inset right of the software-methods table;
+  the software flow now carries this explanation directly
 - **Source/license check:** Toyota USA Newsroom's authentic
   [2018 TMMTX VC 05 andon exhibit
   photo](https://pressroom.toyota.com/album/2018-toyota-motor-manufacturing-texas-tmmtx/)
@@ -150,7 +153,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   [copyright-free for editorial purposes
   only](https://media.toyota.co.uk/toyota-auris-hybrid-production-quality-first-and-foremost/).
   No clearly reusable official photo was found, so G8 was generated and
-  identified as AI-generated on-slide.
+  identified as AI-generated on the former slide.
 
 ### 5. Own assets — do not add
 
@@ -216,6 +219,29 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   the right single part with a pull card represents Just-in-time. The beam
   and pans are level, answering G4's apparent freedom/entrustment tradeoff.
 - **Final prompt:** Use case: stylized-concept. Asset type: a low, wide spot illustration beneath a causal loop diagram in a Slidev talk. Create a NEW companion variation of the supplied antique balance-scale illustration. Reference image 1 supplies the sumi-e ink-and-watercolor style, antique scale construction, soft charcoal contours, sparse vermilion accents, and restrained visual mood. Make the scale perfectly BALANCED: its crossbeam is exactly horizontal and the two shallow pans hang at exactly the same height. Replace both original objects entirely: no feather and no key. LEFT pan: a compact mechanical loom automatic-stop/interlock device, a small bronze lever and catch with a subtle vermilion stop indicator, representing jidoka/autonomation that guards against known mistakes. RIGHT pan: exactly one simple wooden production part with a single blank cream kanban pull card tied to it, representing just-in-time response to actual need, without a pile or stockpile. Keep the objects simple and identifiable at small size; each pan holds one symbolic group of comparable visual weight. Low compact chains and modest-height central pedestal, wide horizontal composition with both pans fully visible, generous clean edges but little internal empty margin, center the subject so it can fit a short footer banner. Hand-painted Japanese brushwork, black/grey ink, sparse warm bronze, tiny vermilion accent. The output must have a genuinely TRANSPARENT background so the illustration can sit seamlessly on warm paper slide color. No paper texture background, no white rectangle, no scenery, no labels, no letters, no watermark, no other objects. The only shadows are a light painted ground shadow under the pedestal. The physical scale must be horizontal and unambiguously in equilibrium.
+
+### G21. Jidoka frees the software team
+
+- **Status:** done — `public/jidoka-frees-software-team.png`
+- **Slide:** "Jidoka frees people"
+- **Placement:** wide lower illustration; transparent ground blends into the
+  paper. The layout crops unused transparent margins, keeping the checks,
+  people's faces, hands and shared prototype visible.
+- **Generation:** built-in imagegen; G1 supplied as the sumi-e style reference.
+- **Meaning:** healthy executable checks run without a watcher; developers
+  spend their attention exploring a new need with a user. The vermilion
+  accent belongs to the prototype they are discussing, not an ignored failure.
+- **Generation prompt (complete):**
+
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+  >
+  > Create a refined, spacious teaching illustration for a presentation about Jidoka freeing software developers by preserving their knowledge in executable checks. Use the attached image only as a reference for the hand-painted ink contours, delicate warm gray washes and restrained vermilion accent. Do not include a crane.
+  >
+  > A single coherent horizontal scene, transparent surrounding background, landscape 3:2. On the far left, a small unattended software workstation is quietly doing its routine checks: a monitor with three simple abstract rows ending in black check marks, a compact laptop and a few neat connected blocks. It is calm and clearly healthy, not showing a warning, failure or alarm. This unattended workstation occupies only one quarter of the composition, with no person monitoring it.
+  >
+  > On the larger right side, two software developers and one user are leaning together around a low open worktable, actively exploring a new problem. One developer holds a pencil over a simple paper prototype; the user points to an unmet need in the sketch; the other developer operates an open laptop. Give each person a distinct readable action and engaged, relaxed body language. All three are peers, with no boss hovering. Put the ONLY small vermilion accent on a single geometric feature of the paper prototype that they are discussing, to draw attention to the new problem. No colored screens, red lines or red clothes.
+  >
+  > The developers have turned their attention away from the quiet guarded workstation toward useful discovery with the user. Preserve plenty of open ground between the left workstation and the right group so that this shift in attention is visible. Sparse environment, no office clutter, no factory, cages, shackles, shields, doors, arrows, connecting lines, fantasy robots or decorative symbols. Prioritize people, hands, laptop and the shared prototype, with readable silhouettes and credible anatomy. Background truly transparent; warm pale gray wash may remain inside the figures and furniture. Fade all ground washes gently to transparency. Illustration only, no titles or writing anywhere.
 
 ### G5. Watching the loom / watching the AI (mirrored pair, 1 of 2)
 
@@ -289,9 +315,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G8. Andon pull (fallback only)
 
-- **Status:** done — `public/andon-pull.png`; generated after the
+- **Status:** retired from the slide 2026-10-02; retained as
+  `public/andon-pull.png`; generated after the
   authoritative photo search found only editorial-use Toyota media
-- **Slide:** "Stop & Fix is emergent judgment-intensive work", only if no
+- **Former slide:** "Stop & Fix is emergent judgment-intensive work", only if no
   authoritative photo (item 4) clears licensing
 - **Prompt:** A worker's hand pulling an overhead cord above a stopped
   assembly line, nearby workers converging toward the spot; a single
@@ -583,6 +610,11 @@ Mermaid only auto-places.
 - **"The triad":** triangle of Jidoka / JIT / Respect for
   People with the frees / entrusts / grows verbs on the edges. Done —
   embedded as inline SVG; labels stay typeset text.
+- **"Build the stop into the software":** original inline SVG of one
+  human- or AI-authored change passing through the same executable checks.
+  Pass continues; fail calls Stop & Fix. A return arrow captures learning
+  in the checks. Vermilion identifies the failed branch and its response;
+  routine flow and learning use stone. Detailed examples stay in notes.
 - **"The loom's closed stop":** done —
   `public/jidoka-human-radical.svg`. Large 自働化 lettering with only
   亻, the person radical (にんべん / ninben) inside 働, in vermilion.
@@ -608,8 +640,7 @@ Mermaid only auto-places.
 ## Slides intentionally without artwork
 
 The diagnostic question ("How do you know…"), the main-message quote,
-"Jidoka preserves knowledge", "The gates do not
-care who authored the change", "Respect for People: making things
+"Jidoka preserves knowledge", "Respect for People: making things
 means making people", and "Takeaways". The stark, text-only look serves the "small
 collection of memorable points" goal; the quote slides in particular
 should not compete with their own words.
