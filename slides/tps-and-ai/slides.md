@@ -89,14 +89,14 @@ conference.
 
 But TPS has inspired and benefited me so much — before the AI era, and
 even more in it — that I cannot resist shamelessly sharing.
-[TPSには大いに学んだ。共有せずにいられない。]{.ja}
+[AI時代の前も、そしてAI時代に入ってからはなおさら、TPSは私に多くの気付きと恩恵を与えてくれました。このことを共有せずにはいられません。]{.ja}
 
 - Software is **not a factory** — it mixes discovery and production in
   one evolving product
-  [ソフトウェアは**工場ではない**：発見と生産が混在]{.ja}
+  [ソフトウェアは**工場ではありません**：ディスカバリーと実装が混ざりあい、１つのプロダクトとして進化していくのです。]{.ja}
 - So this talk takes TPS as **inspiration and reasoning**, never a recipe
   to apply directly
-  [TPSは**着想と考え方**。レシピではない]{.ja}
+  [このプレゼンテーションではTPSは**インスピレーションと考え方**であり、直接的に利用できるレシピではありません。]{.ja}
 
 <!--
 Carries the talk boundary up front so it need not repeat later:
@@ -110,7 +110,7 @@ class: text-center
 
 # One lineage of inspiration
 
-[ひとつながりの着想の系譜]{.ja-title}
+[ひとつながりのインスピレーションの系譜]{.ja-title}
 
 ```mermaid {scale: 0.9}
 %%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 20}}}%%
@@ -125,10 +125,10 @@ flowchart LR
 ```
 
 **TPS** inspired **XP** and the Agile movement,
-[**TPS**が**XP**とアジャイルムーブメントに着想を与え、]{.ja}
+[**TPS**が**XP**とアジャイルムーブメントにインスピレーションを与え、]{.ja}
 
 then **LeSS** —
-[続いて**LeSS**に——]{.ja}
+[**LeSS**にも——]{.ja}
 
 and now, **AI-augmented development**.
 [そして今、**AI拡張開発**へ。]{.ja}
@@ -140,11 +140,11 @@ class: text-center
 
 ## How do you know if the organization is using AI right?
 
-[組織がAIを正しく使えているか、どうすればわかるか？]{.ja-title}
+[組織がAIを正しく使えているか、どうすればわかる？]{.ja-title}
 
 # If the teams are more **freed** than **constrained** by what they built.
 
-[チームが自ら作ったものに**縛られる**より、**解放されて**いるなら。]{.ja-title}
+[チームが作ったものに**縛られる**より、**解放されて**いるなら。]{.ja-title}
 
 <!--
 The diagnostic question — one of the first slides (stage setting).
@@ -200,7 +200,7 @@ Contain and solve an abnormality.
 
 The problem is not spending judgment. It is leaving a demand for live judgment
 in the output, so someone downstream must **interpret, rank, and re-decide**.
-[問題は判断を使うことではない。判断の必要をアウトプットに残し、下流に**解釈・順位づけ・決め直し**をさせることだ。]{.ja}
+[問題は判断に労力を使うことではなく、その場で判断すべきことをアウトプットに残したまま、後工程に**解釈・順位づけ・決め直し**をさせることだ。]{.ja}
 
 </div>
 
@@ -220,9 +220,9 @@ backgroundSize: contain
 [自ら作ったものに縛られる]{.ja-title}
 
 - Leftover ownership
-  [残されたオーナーシップ]{.ja}
+  [オーナーシップの残骸]{.ja}
 - Judgment-loaded output presented as finished
-  [判断を抱えたまま「完成」とされるアウトプット]{.ja}
+  [必要な判断がされないままのアウトプットを「完成」としてしまう]{.ja}
 - Unable to take the next highest-value item
   [次に最も価値の高いアイテムに取りかかれない]{.ja}
 
@@ -241,15 +241,15 @@ A generated branch, test, analysis, or design is not yet capability.
 Until it is understood, owned, integrated, and judged, it is
 **judgment-loaded output** in inventory. Someone downstream must
 **interpret, rank, and re-decide** — teams **constrained** by what they built.
-[生成されたブランチ、テスト、分析、設計は、まだ能力ではない。理解・所有・統合・判断されるまでは在庫の**判断を抱えたアウトプット**だ。下流が**解釈し、優先順位をつけ、決め直す**——作ったものがチームを**縛る**。]{.ja}
+[生成されたブランチ、テスト、分析、設計だけでは十分ではない。理解・所有・統合・評価されるまでは、在庫として積まれた**　判断を抱えたアウトプット**にすぎない。下流の誰かが**解釈・順位づけ・決め直し**をしなければならず、チームは自分たちの作った在庫に**縛られる**ことになります。]{.ja}
 
 Or AI helps make the next slice smaller and known failures easier to
 prevent or stop — teams **freed** by what they built.
-[あるいはAIが次のスライスを小さくし、既知の失敗を防ぎやすく止めやすくする——作ったものがチームを**解放する**。]{.ja}
+[あるいは、AIを使って次の作業単位を小さくし、既知の失敗を防ぎやすく、止めやすくする。そうすれば、チームは自分たちが作ったものによって**解放**されます。]{.ja}
 
 ## **AI speeds whichever loop you feed.**
 
-[**AIは、あなたが回すほうのループを加速する。**]{.ja-title}
+[**AIは、好循環も悪循環も加速させます**]{.ja-title}
 
 <!--
 Sets the AI stage early: this talk is also about AI-augmented development.
@@ -273,15 +273,15 @@ Hashes: `7b61a5705c` (`/sync` pull), `fce957dd3d` (`/export` pin),
 
 # Freedom vs. entrustment?
 
-[自由か、任せることか？]{.ja-title}
+[自由　VS 任せる？]{.ja-title}
 
 To hand over the work that matters, it seems you must **constrain** people
 in advance.
-[大事な仕事を任せるには、前もって人を**縛らなければならない**ように見える。]{.ja}
+[大事な仕事を任せるには、あらかじめ人を**制約により縛る**必要があるように見える。]{.ja}
 
 To give real freedom, it seems you **cannot hand over** the work that
 matters.
-[本当の自由を与えるなら、大事な仕事は**任せられない**ように見える。]{.ja}
+[本当の自由を与えたら、大事な仕事は**任せられない**ように見える。]{.ja}
 
 **Entrust**, 任せる · **trust**, 信頼
 
@@ -307,7 +307,7 @@ layout: quote
 > that make greater freedom responsible — and use that freedom to produce
 > the next learning on which deeper entrustment, and then mutual trust,
 > can rest.**
-> [**TPSが示すのは、システムが学びを絶えず制約に変え、より大きな自由を責任あるものにし——その自由で次の学びを生み出す方法だ。その学びの上に、より深く任せることが、そしてやがて相互の信頼が成り立つ。**]{.ja}
+> [**TPSが示すのは、システムが学びを絶えず制約に変え、その制約によって、より大きな自由を責任あるものにし、その自由で次の学びを生み出す方法だ。その学びを土台に、より深く任せることができるようになり、やがて相互の信頼が成り立つ。**]{.ja}
 
 <!--
 The main message. Claim 10.
@@ -320,7 +320,7 @@ layoutClass: "!grid-rows-[auto_1fr] [&_.col-header_h1]:!mb-2 [&_p]:!leading-snug
 
 # Two houses, different layers
 
-[二つのハウス、異なる層]{.ja-title}
+[二つのハウス、異なる階層]{.ja-title}
 
 ::left::
 
@@ -459,14 +459,14 @@ layers. Do not present the left house as Toyota's official graphic. Claim 2.
       <text y="24" class="ja" style="font-size: 16px">育てる</text>
     </g>
     <text x="555" y="232" fill="#57534e" style="font-size: 16px">capability to respond</text>
-    <text x="555" y="251" class="ja" style="font-size: 14px">応える能力を</text>
+    <text x="555" y="251" class="ja" style="font-size: 14px">応える能力</text>
     <g transform="translate(450 290)">
       <rect x="-95" y="-32" width="190" height="64" rx="25" fill="#ece6dc" />
       <text y="2" fill="#b33a2b" font-weight="700" style="font-size: 28px">entrusts</text>
       <text y="24" class="ja" style="font-size: 16px">任せる</text>
     </g>
     <text x="450" y="342" fill="#57534e" style="font-size: 16px">response instead of stockpiles</text>
-    <text x="450" y="362" class="ja" style="font-size: 14px">在庫ではなく、応答を</text>
+    <text x="450" y="362" class="ja" style="font-size: 14px">在庫ではなく、応答</text>
     <g transform="translate(450 58)">
       <rect x="-112" y="-40" width="224" height="80" rx="16" fill="#292524" />
       <text y="2" fill="#fffaf3" font-weight="700" style="font-size: 31px">Jidoka</text>
@@ -488,7 +488,7 @@ layers. Do not present the left house as Toyota's official graphic. Claim 2.
 
 Technical excellence keeps the shared product and its abnormalities visible
 soon enough for teams to collaborate just in time.
-[技術的卓越性が、共有プロダクトとその異常を早く見えるようにし、チームがジャスト・イン・タイムで協働できるようにする。]{.ja}
+[技術的卓越性が、共有プロダクトの異常を早く見えるようにし、チームがジャスト・イン・タイムで協働できるようにする。]{.ja}
 
 <!--
 Claims 3, 12, 8.
@@ -501,10 +501,10 @@ class: text-center
 
 # Jidoka preserves knowledge
 
-[自働化は知識を保つ]{.ja-title}
+[自働化は知識を保存する]{.ja-title}
 
 Generation is cheap; **judgment is expensive**.
-[生成は安く、**判断は高くつく**。]{.ja}
+[生成の価値は安く、**判断の価値が高い**。]{.ja}
 
 Encode what we already know.
 Leave people able to **experience** the next problem
@@ -564,7 +564,7 @@ class: p-0
 
 <div v-click="1" class="absolute left-1/2 top-4 z-10 -translate-x-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Called by the stop
-  <span class="ja">停止に呼ばれる</span>
+  <span class="ja">停止したら呼ばれる</span>
 </div>
 
 <!--
@@ -587,25 +587,25 @@ class: "[&>h1]:!mb-2"
 <div class="w-[60%] space-y-0.5 text-[15px] leading-snug [&_p]:my-0 [&_ol]:my-0 [&_li]:my-0 [&_.slidev-code-wrapper]:!my-0 [&_pre]:!my-0 [&_pre]:!py-0.5 [&_pre]:!text-[13px] [&_pre]:!leading-tight">
 
 Move learned judgment downhill:
-[学んだ判断を、坂の下へと移していく：]{.ja}
+[学んだ判断を、下へと移していく：]{.ja}
 
 1. **Smart — judgment-loaded:** use requires live judgment
-   [**賢い——判断を抱える：** 使うたびにその場の判断が要る]{.ja}
+   [**賢い——判断を抱えている：** 使うたびにその場の判断が要る]{.ja}
 2. **Dumb — judgment-preserved:** a closed stop or check carries earlier judgment
-   [**単純——判断を保存：** 閉じた停止やチェックが、過去の判断を運ぶ]{.ja}
+   [**単純——判断が保存されている：** 閉じた停止やチェックが、以前に下された判断を担っている]{.ja}
 3. **Gone — judgment-removed:** prevention — the recurring failure cannot occur
-   [**消える——判断が不要：** 予防——繰り返す失敗がそもそも起こらない]{.ja}
+   [**消える——判断が取り除かれている：** 予防。繰り返し起きていた問題が、そもそも起こり得ない]{.ja}
 
 Do not make every user or maintainer **interpret, rank, and re-decide**.
-[利用者や保守者のたびに**解釈・順位づけ・決め直し**をさせない。]{.ja}
+[利用者やメンテナンス担当に**解釈・順位づけ・決め直し**をさせてはいけない。]{.ja}
 
 <div class="doughnut-example">
 
 **Dumb:** a recall-stats timeout is encoded as a query-count stop.
-[**単純：** recall統計のタイムアウトを、クエリ回数で止める仕組みに組み込む。]{.ja}
+[**単純：** recall-statsのタイムアウト対策として、クエリ数が上限に達すると自動で止まるようになっている。]{.ja}
 
 **Gone:** OS-invalid titles are unrepresentable (`@Pattern`).
-[**消える：** OSで使えないタイトルは、そもそも表現できない（`@Pattern`）。]{.ja}
+[**消える：** OSで使えないタイトルは、そもそも生成できない（`@Pattern`）。]{.ja}
 
 ```java
 assertThat(prepareStatementCount, lessThan(10L));
@@ -690,18 +690,18 @@ class: "[&>h1]:!mb-2 [&_p]:!my-1.5"
 Pulling the andon cord makes the abnormality current work. People spend live
 judgment first to **stop and contain**, then to diagnose, fix, and learn —
 before more output inherits it.
-[アンドンの紐を引くと、異常が「いまの仕事」になる。その場の判断をまず**止めて封じ込める**ことに使い、次に診断し、直し、学ぶ——後続のアウトプットが引き継ぐ前に。]{.ja}
+[「アンドンの紐を引く」というのは、異常の検知をその場で対応すべき仕事にする事を意味しています。その場で判断し、**止めて影響を封じ込める**。その後、診断し、修正し、そこから学びます。そうすることで、異常を抱えたまま後続のアウトプットが作られ続けるのを防ぎます。]{.ja}
 
 </div>
 
 <div class="mt-2 w-full text-[12px] leading-snug [&_table]:w-full [&_th:nth-child(1)]:w-[17%] [&_th:nth-child(2)]:w-[40%] [&_th]:pb-0.5 [&_th]:pr-3 [&_th]:text-left [&_th]:font-semibold [&_td]:py-0.5 [&_td]:pr-3 [&_td]:align-top [&_tr]:border-b [&_tr]:border-stone-300 [&_tbody_tr:last-child]:border-b-0 [&_tbody_tr:last-child]:bg-[#b33a2b]/10">
 
-| Method [手法]{.ja} | Detects [検知するもの]{.ja} | Stop & Fix requires [Stop & Fixが求めること]{.ja} |
+| Method [手法]{.ja} | Detects [検知]{.ja} | Stop & Fix requires [「止めて直す」が求めること]{.ja} |
 |---|---|---|
-| **Automated tests** [**自動テスト**]{.ja} | A known scenario no longer holds [既知のシナリオが成り立たなくなった]{.ja} | The failing test is the current work, not a parked queue [失敗したテストがいまの仕事。後回しのキューではない]{.ja} |
+| **Automated tests** [**自動テスト**]{.ja} | A known scenario no longer holds [既知のシナリオが成り立たなくなった]{.ja} | The failing test is the current work, not a parked queue [失敗したテストはすぐに取り組むべき仕事であり、後回しにしてキューに積んでおくものではない]{.ja} |
 | **Fail-fast** [**フェイルファスト**]{.ja} | An illegal or unexpected condition in the product now [いまプロダクトで起きた不正・想定外の状態]{.ja} | Fail immediately and visibly — do not swallow it [すぐに、見える形で失敗させる——握りつぶさない]{.ja} |
 | **CI service** [**CIサービス**]{.ja} | The integrated product is not in the agreed working state [統合されたプロダクトが、合意した動作状態にない]{.ja} | Who broke it stop and fix; others stop pushing to trunk [壊した人が止めて直す。他の人はトランクへのプッシュを止める]{.ja} |
-| **Noticed anomaly / known bug** [**気づいた異常／既知のバグ**]{.ja} | A person already sees out-of-standard work [標準から外れた仕事が、すでに人の目に見えている]{.ja} | Treat it as the cord: stop and fix first, not as inventory [アンドンの紐として扱う：在庫にせず、まず止めて直す]{.ja} |
+| **Noticed anomaly / known bug** [**気づいた異常／既知のバグ**]{.ja} | A person already sees out-of-standard work [標準から外れた仕事が、すでに目に見えている]{.ja} | Treat it as the cord: stop and fix first, not as inventory [アンドンの紐として扱う：在庫にせず、まず止めて直す]{.ja} |
 
 </div>
 
@@ -709,7 +709,7 @@ before more output inherits it.
 
 A detector everyone continues past is only a **dashboard**. AI makes
 continuing past the signal cheaper — and the cost of doing so larger.
-[皆が素通りする検知器は、ただの**ダッシュボード**だ。AIはシグナルの素通りを安くし——その代償を大きくする。]{.ja}
+[誰もが警告を無視して作業を続けるなら、その警告装置はただの**ダッシュボード**でしかない。AIは、警告を無視して進むことを容易にすると同時に、そのせいで抱える負債も大きくする。]{.ja}
 
 </div>
 
@@ -761,17 +761,17 @@ everyone continues past it. Contrast `@focus` in features
 
 # The gates do not care who authored the change
 
-[ゲートは、誰が変更を書いたかを気にしない]{.ja-title}
+[ゲートは、誰が変更を書いたかは気にしない]{.ja-title}
 
 The product standard and stop conditions do not weaken according to
 **who or what** wrote it. Quiet is good news only when the same
 owned checks **ran**.
-[プロダクトの基準と停止条件は、**誰が・何が**書いたかで緩まない。静かさが良い知らせなのは、同じ所有されたチェックが**実行された**ときだけ。]{.ja}
+[プロダクトの基準化と停止条件は、**誰が・何を**書いたかによって緩くなることはない。警告が出ないことを良い知らせと受け取ってよいのは、今までと同等のチェックが、実際に**実行された**ときだけ。]{.ja}
 
 After a closed stop exposes a failure, AI may help resolve it —
 but must **not dissolve the stop**. A leftover warning is unpaid
 judgment for the next person or agent.
-[閉じた停止が失敗をあらわにした後、AIが解決を手伝ってもよい——だが**停止を消し去ってはならない**。残った警告は、次の人やエージェントへの未払いの判断だ。]{.ja}
+[解釈の余地のない停止によって失敗が明らかになったら、その解決にAIの力を借りてもよい。しかし、**停止の仕組みそのものを消し去ってはならない**。放置された警告は、次の人やエージェントに先送りされた、未払いの判断だ。]{.ja}
 
 <div class="doughnut-example">
 
@@ -821,12 +821,12 @@ class: "[&>h1]:!mb-2 [&_p]:!my-2 [&_.slidev-code-wrapper]:!my-2 [&_pre]:!text-[1
 
 Genchi genbutsu when the work happens inside an agent loop:
 go to where the work is actually done.
-[仕事がエージェントループの中で起きるときの現地現物：実際に仕事が行われている場所へ行く。]{.ja}
+[仕事がエージェントループの中で完結している際の現地現物：実際に仕事が行われている場所へ行く。]{.ja}
 
 <div class="doughnut-example">
 
 `git commit` reports success. The pre-commit hook records the **main** tree.
-[`git commit` は成功と報告する。だがpre-commitフックが記録するのは**main**のツリーだ。]{.ja}
+[`git commit` は成功を報告する。だがpre-commitフックが記録しているのは**main**のツリーだ。]{.ja}
 
 ```bash
 REPO_ROOT="$HOOK_DIR/../.."
@@ -852,7 +852,7 @@ what later landed once the tree was true — `0bd1dd2995`.
 
 # Five judgments stay human
 
-[五つの判断は人間に残る]{.ja-title}
+[この五つの判断は引き続き人間がする]{.ja-title}
 
 <div class="mt-14 grid grid-cols-5 divide-x divide-stone-300 text-center text-stone-800 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:gap-4 [&>div]:px-3 [&_svg]:text-[56px] [&_svg]:text-[#b33a2b] [&_strong]:text-lg [&_strong]:leading-tight">
   <div>
@@ -895,11 +895,11 @@ Start from **one current customer need** →
 cut a **thin vertical slice** →
 integrate it → confirm quality and usefulness →
 take the **next bite**.
-[**いまの顧客ニーズひとつ**から始め → **薄い垂直スライス**を切り → 統合し → 品質と有用性を確かめ → **次のひと口**へ。]{.ja}
+[**１つの顧客ニーズ**から始め → **薄い縦斬りスライス**を切り出し → 統合し → 品質と有用性を確かめ → **次の一口**へ。]{.ja}
 
 **Continuous integration is a practice, not a system:** a CI server that
 integrates unowned branches is a stockpile with a green light on it.
-[**継続的インテグレーションはシステムではなく、プラクティスだ：** 誰も所有しないブランチを統合するCIサーバーは、緑のランプがついた在庫にすぎない。]{.ja}
+[**継続的インテグレーションはシステムではなく、プラクティスだ：** 誰も所有しないブランチを統合するCIサーバーは、緑のランプがついた溜め込んだ在庫にすぎない。]{.ja}
 
 <!--
 Opens JIT flow in LeSS.
@@ -923,9 +923,9 @@ class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5 [&_li]:!leading-snug"
   [共有プロダクトが、必要な人を必要なときに引き寄せる]{.ja}
 - A justified **stop is productive** — make the abnormality current work before
   more output inherits it
-  [正当な**停止は生産的**——異常をいまの仕事にする]{.ja}
+  [正当性のある**停止は生産的である**——後続のアウトプットが異常を抱えたまま生み出されるのを防ぐため、いますぐ異常に対処する。]{.ja}
 - Slowing down means **not overproducing** — do not create debt faster
-  [**作りすぎない**——負債を速く作らない]{.ja}
+  [スローダウンするとは**作りすぎない**ことである——負債を速く作ってはならない]{.ja}
 
 <div class="doughnut-example w-[46%] [&_p]:!leading-snug">
 
@@ -933,7 +933,7 @@ Cursor, January 2026: extract a child note from a checklist point.
 The shared recall screen (`Assimilation.vue`) records a conflict leftover;
 lint stops an unused import; the user sees a loading modal while the child
 is created.
-[Cursor、2026年1月：子ノートの切り出しで、残骸の記録・lintの停止・ローディング表示が起きる。]{.ja}
+[Cursor、2026年1月：チェックリストの項目から子ノートの切り出す。共有の復習画面 (`Assimilation.vue`) に、競合した残骸が記録される。未使用のインポートがあるため、リントが作業を止める。子ノートの作成中、ユーザーにはローディングモーダルが表示される。]{.ja}
 
 </div>
 
@@ -975,8 +975,8 @@ properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
 %%{init: {'flowchart': {'rankSpacing': 30, 'nodeSpacing': 25}}}%%
 flowchart LR
   EJ(Encoded<br>jidoka<br><small>組み込まれた<br>自働化</small>)
-  AA(Adaptive<br>attention<br><small>適応的な注意</small>)
-  CAP(Capability<br>to respond<br><small>応える能力</small>)
+  AA(Adaptive<br>attention<br><small>適応的な<br>注意</small>)
+  CAP(Capability<br>to respond<br><small>応える<br>能力</small>)
   WT(Warranted<br>trust<br><small>裏づけのある<br>信頼</small>)
   CC(Coercive<br>control<br><small>強制的な<br>管理</small>)
   PULL(Pull from<br>actual need<br><small>実需からの<br>プル</small>)
@@ -1024,7 +1024,7 @@ flowchart LR
 ```
 
 AI **raises the gain** on the loop you are already running.
-[AIは、すでに回しているループの**ゲインを上げる**。]{.ja}
+[AIは、あなたがすでに回している**循環を増幅**する。]{.ja}
 
 <!--
 Figure 2 of Claim 22's companion CLD (R5), overlaying the engine's R1.
@@ -1061,10 +1061,10 @@ Claims 12 and 3.
 [完璧に向けた継続的改善]{.ja-title}
 
 - TPS: **SMED** — changeover so cheap that small batches become rational
-  [TPS：**SMED**（シングル段取り）——段取り替えが安くなり、小ロットが合理的になる]{.ja}
+  [TPS：**SMED**（シングル段取り）——段取り替えが容易になり、合理的に少量生産が可能となる]{.ja}
 - LeSS: an expanding **Definition of Done** as the measure of the same
   improvement
-  [LeSS：拡大し続ける**完成の定義**（Definition of Done）が、同じ改善の尺度になる]{.ja}
+  [LeSS：**完成の定義**の拡張も、同じ改善の尺度となる]{.ja}
 
 <img
   src="/pit-stop-changeover.png"
@@ -1086,13 +1086,13 @@ env setup → fast deterministic e2e.
 
 # Tensions and honest limits
 
-[緊張関係と、正直な限界]{.ja-title}
+[緊張と正直の限界]{.ja-title}
 
 - Honest CI **versus** disposable prototypes — a real tension pair
-  [誠実なCI **対** 使い捨てのプロトタイプ——本当の緊張関係]{.ja}
+  [正直なCI **対** 使い捨てのプロトタイプ——本当の緊張関係]{.ja}
 - The Algorithm resembles TPS — a family resemblance, not a proven
   extension
-  [The AlgorithmはTPSに似ている——家族的類似であって、実証された発展形ではない]{.ja}
+  [アルゴリズムはTPSに似ている——家族的類似であって、実証された発展形ではない]{.ja}
 
 <img
   src="/tension-loop.png"
@@ -1121,7 +1121,7 @@ resembles TPS and lean; direct derivation from TPS is unproven.
    [**プルせよ、溜め込むな**——薄いスライス、統合、確認、次のひと口]{.ja}
 3. **Smart → dumb → gone** — judgment-loaded → judgment-preserved →
    judgment-removed; a justified stop halts propagation
-   [**賢い → 単純 → 消える**——判断を抱える → 保存 → 不要に。正当な停止が波及を止める]{.ja}
+   [**賢い → 単純 → 消える**——判断を抱える → 判断を保存 → 判断が取り除かれる。正当な停止が波及を止める]{.ja}
 4. **Same gates for "I" and AI** — five judgments stay human
    [**「私」にもAIにも同じゲート**——五つの判断は人間に残る]{.ja}
 5. **Integrate continuously; collaborate just in time** — do not create
@@ -1148,7 +1148,7 @@ layout: quote
 > **Encode the known. Stop the abnormal. Free people to learn.
 > Entrust a capable response to real need.
 > Let visible capability earn mutual trust.**
-> [**既知を仕組みに組み込む。異常で止める。人を学びへと解放する。本当のニーズには、力ある応答を任せる。目に見える能力で、相互の信頼を得る。**]{.ja}
+> [**既知を組み込む。異常で止める。人を学びへと解放する。本当のニーズに応える力を信頼して任せる。目に見える能力で、相互の信頼を得る。**]{.ja}
 
 </div>
 
