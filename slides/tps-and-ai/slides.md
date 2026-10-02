@@ -145,6 +145,26 @@ Claim 10.
 -->
 
 ---
+layout: image-right
+image: /constrained-by-what-they-built.png
+backgroundSize: contain
+---
+
+# Constrained by what they built
+
+[自ら作ったものに縛られる]{.ja-title}
+
+- Leftover ownership
+  [残されたオーナーシップ]{.ja}
+- Judgment-loaded output presented as finished
+  [判断を抱えたまま「完成」とされるアウトプット]{.ja}
+- Unable to take the next highest-value item
+  [次に最も価値の高いアイテムに取りかかれない]{.ja}
+
+Being **constrained** ≠ taking **responsibility**
+[**縛られる** ≠ **責任を引き受ける**]{.ja}
+
+---
 class: "[&>h2]:!mt-0 [&_p]:!my-2"
 ---
 
@@ -201,26 +221,6 @@ in the output, so someone downstream must **interpret, rank, and re-decide**.
 Claim 00. Pulled product work is often anticipated or planned; Stop & Fix is
 triggered by an abnormality. Same cognitive kind, different role in the flow.
 -->
-
----
-layout: image-right
-image: /constrained-by-what-they-built.png
-backgroundSize: contain
----
-
-# Constrained by what they built
-
-[自ら作ったものに縛られる]{.ja-title}
-
-- Leftover ownership
-  [残されたオーナーシップ]{.ja}
-- Judgment-loaded output presented as finished
-  [判断を抱えたまま「完成」とされるアウトプット]{.ja}
-- Unable to take the next highest-value item
-  [次に最も価値の高いアイテムに取りかかれない]{.ja}
-
-Being **constrained** ≠ taking **responsibility**
-[**縛られる** ≠ **責任を引き受ける**]{.ja}
 
 ---
 layout: statement
