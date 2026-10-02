@@ -4,6 +4,13 @@
 import { reportedMaintenance } from "./execution-start-maintenance.mjs";
 import { remoteOf } from "./workspace-publication-ownership.mjs";
 
+// Initial publication and an existing claim forward the same observed fact.
+// Absence stays omitted; explicit false clears a retained change indication.
+export function reviewChangeReceipt(source) {
+  const changedSinceReview = source.preparation?.assessment.changedSinceReview;
+  return changedSinceReview === undefined ? {} : { changedSinceReview };
+}
+
 export function acceptedReceipt(
   request,
   selected,
@@ -25,6 +32,7 @@ export function acceptedReceipt(
       : {}),
     ...(request.remote ? {} : { remote: remoteOf(request) }),
     ...(request.plan || !source.planTarget ? {} : { plan: source.planTarget }),
+    ...reviewChangeReceipt(source),
     // The drafted canonical files this admission published from the
     // originating checkout, whose own copies stay as they were.
     ...(source.admission
@@ -46,5 +54,19 @@ export function preparedReceipt(request, selected, maintained) {
     ...(request.remote ? {} : { remote: remoteOf(request) }),
     created: selected.created,
     ...reportedMaintenance(maintained),
+  };
+}
+
+// A prepared one-shot start in the default checkout: the selected checkout's
+// role, path, target branch, and actual HEAD as `startingRevision` (which may
+// hold local commits and sits beside any uncommitted content), and the
+// fetched trunk it was checked against. Nothing was created, refreshed, or
+// published.
+export function defaultCheckoutReceipt(request, selected, fetched) {
+  return {
+    ...selected,
+    status: "prepared",
+    fetched,
+    ...(request.remote ? {} : { remote: remoteOf(request) }),
   };
 }

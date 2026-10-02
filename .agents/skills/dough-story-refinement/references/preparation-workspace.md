@@ -26,6 +26,10 @@ or confirm the workspace immediately before making it.
 
 ## Select or reuse the workspace
 
+When your instruction carries an established preparation, use its workspace and
+skip this selection, as [established preparation](established-preparation.md)
+says.
+
 Apply [own a temporary exploration workspace](../../dough-manual-testing/references/exploration-workspace.md)
 "Select the checkout", "Record local checkout role and target selection",
 and "Use and resume it" as this preparation's Git lifecycle; do not duplicate
@@ -75,7 +79,9 @@ For an existing queued story, announce it as **Preparing** before its first
 record write, either after selecting the workspace or as the step that creates
 a new one, and keep that assignment through pauses, under
 [Publish the preparation assignment](preparation-assignment.md). An explicit
-instruction not to publish or commit means announcing nothing.
+instruction not to publish or commit means announcing nothing. An explicitly
+selected [one-shot refinement](one-shot-refinement.md) establishes the
+workspace with its own start instead and announces nothing.
 
 ## Continue related preparation
 

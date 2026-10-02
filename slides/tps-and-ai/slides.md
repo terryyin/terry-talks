@@ -1,36 +1,29 @@
 ---
 theme: ../../themes/odd-e
-layout: cover
+layout: tps-cover
 title: Freedom and Entrustment
 info: |
   ## Freedom and Entrustment
   What AI-Augmented Development Can Learn from the Toyota Production System
   Terry Yin, Odd-e — Tokyo LeSS Conference
-class: text-center
 transition: slide-left
 mdc: true
 colorSchema: light
 ---
 
-<img
-  src="/cover-crane-released.png"
-  alt=""
-  class="absolute inset-0 h-full w-full object-cover"
-/>
+<div class="cover-heading">
+  <h1>Freedom <span class="cover-and">and</span><br>Entrustment</h1>
+  <p class="cover-japanese-title" lang="ja">自由と、任せること</p>
+</div>
 
-<div class="relative z-10 w-[47%] text-left">
+<div class="cover-subtitle">
+  <p>What AI-Augmented Development<br>Can Learn from the<br>Toyota Production System</p>
+  <p class="cover-japanese-subtitle" lang="ja">AI拡張開発がトヨタ生産方式から学べること</p>
+</div>
 
-# Freedom and Entrustment
-
-[自由と、任せること]{.ja-title}
-
-What AI-Augmented Development Can Learn from the Toyota Production System
-[AI拡張開発がトヨタ生産方式から学べること]{.ja}
-
-Terry Yin · Odd-e
-
-Tokyo LeSS Conference · 2026
-
+<div class="cover-footer">
+  <p class="cover-speaker">Terry Yin <span>· Odd-e</span></p>
+  <p class="cover-event">Tokyo LeSS Conference · 2026</p>
 </div>
 
 <!--
