@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Sola-chan",
+  "email": "sola-chan@example.org",
+  "identity": "problem-decomposition-film#explain-problem-decomposition",
+  "mode": "story-branch",
+  "branch": "codex/problem-decomposition-film",
+  "host": "codex"
+}
