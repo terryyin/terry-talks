@@ -19,19 +19,10 @@ export type FilmScene = {
 	start: number;
 	end: number;
 	label: string;
-	narration: string;
-	captions: string[];
 	captionRanges: CaptionRange[];
 };
 
-export const filmScript = {
-	...script,
-	scenes: script.scenes.map((scene) => ({
-		...scene,
-		narration: scene.captionRanges.map((caption) => caption.spoken).join(' '),
-		captions: scene.captionRanges.map((caption) => caption.text),
-	})),
-} as {
+export const filmScript = script as {
 	title: string;
 	subtitle: string;
 	fps: number;
@@ -53,10 +44,8 @@ export const sceneAt = (seconds: number): FilmScene =>
 	filmScript.scenes.find((scene) => seconds >= scene.start && seconds < scene.end) ??
 	(seconds < 0 ? filmScript.scenes[0] : filmScript.scenes[filmScript.scenes.length - 1]);
 
-export const captionRanges = (scene: FilmScene): CaptionRange[] => scene.captionRanges;
-
 export const captionAt = (seconds: number): CaptionRange | undefined =>
-	captionRanges(sceneAt(seconds)).find((caption) => seconds >= caption.start && seconds < caption.end);
+	sceneAt(seconds).captionRanges.find((caption) => seconds >= caption.start && seconds < caption.end);
 
 /** A deliberate ease with no rebound, used for the film's physical paper objects. */
 export const reveal = (seconds: number, start: number, duration = 0.7): number => {

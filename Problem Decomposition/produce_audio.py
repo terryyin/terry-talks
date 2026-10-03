@@ -14,6 +14,8 @@ import subprocess
 import sys
 import wave
 
+from cedar_narration import MODEL, VOICE, align, narration_text, performance
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "Problem Decomposition" / "film-script.json"
@@ -65,7 +67,6 @@ def master(source, destination, loudness):
 
 
 def build_narration(script):
-    from cedar_narration import align, performance
     prepared, report = performance(ROOT, script, run, SAMPLE_RATE, "--new-take" in sys.argv)
     timeline = align(script, read_pcm(prepared), report, SAMPLE_RATE)
     raw = WORK / "narration-unmastered.wav"
@@ -128,9 +129,15 @@ def treatment(script):
             f"Runtime: **{script['duration']:.2f} seconds**. Narration is OpenAI’s Cedar synthetic voice,",
             "not a recording or imitation of Terry. The full article remains the argument's source;",
             "this script is its shorter film presentation. Just in time is embedded in the goals.", "",
-            "The recurring example is three friends splitting a restaurant bill. The hook asks",
-            "what would remain useful if development stopped tomorrow. Component plans give way",
-            "to one working equal split, feedback, and the freedom to leave later capabilities unstarted.", "",
+            "This is part two of Story Impact. Its familiar Structure / Behavior / Time stage",
+            "persists through the explanation: a wish becomes smaller customer-outcome balls,",
+            "each useful impact splashes across the product and is assimilated into its design.",
+            "The bill-sharing example gives those balls concrete meaning. Neat solution parts",
+            "give way to smaller customer problems, a useful equal split, feedback and affordable stopping.", "",
+            "A four-part chapter rail makes the argument explicit: Distinction → Premises → Goals → Principles.",
+            "Two premises establish the planning philosophy. Two goals explain value with feedback",
+            "and affordable stopping. Four principles cover the three Vs, one-piece flow, the same",
+            "reasoning at smaller scales (including commits), and care for the whole product.", "",
             "| Time | Scene | Spoken narration |", "| --- | --- | --- |"]
     for scene in script["scenes"]:
         narration = " ".join(caption["spoken"] for caption in scene["captionRanges"])
@@ -138,6 +145,7 @@ def treatment(script):
     rows += ["", "## Production", "",
              "Run `python3 'Problem Decomposition/produce_audio.py'` from the repository checkout.",
              "The source is `film-script.json`. One continuous Cedar take retains natural breaths and pauses.",
+             f"Its {len(narration_text(script).split())} spoken words keep just in time inside the goals and option value secondary and speculative.",
              "Captions follow measured word boundaries; scene and caption boundaries are frame-aligned.",
              "Each caption range owns both its spoken clause and displayed text. No narration is cut to meet the runtime.",
              "Use `--refresh-docs` to reformat the script and refresh this treatment without synthesizing audio.", "",
@@ -146,8 +154,9 @@ def treatment(script):
              "the score to −40 LUFS; both should play at volume 1 in the composition.", "",
              "The chosen `cedar-take.wav`, its exact-script audit and Whisper word alignment in",
              "`cedar-performance.json` reproduce narration, timing and score without another API request.",
-             "Use `--new-take` only to generate a new performance with `gpt-audio-1.5` / `cedar` and",
+             f"Use `--new-take` only to generate a new performance with `{MODEL}` / `{VOICE}` and",
              "measure words with `whisper-1`. This needs the OpenAI Python SDK and `OPENAI_API_KEY`.",
+             "The speech endpoint returns audio only; the saved transcript comes from measuring that actual audio.",
              "Whisper word boundaries are automated estimates, not a claim of human listening.",
              "Python, ffmpeg and ffprobe build committed runtime WAVs. Playback and rendering need no API."]
     (ROOT / "Problem Decomposition" / "film-treatment.md").write_text("\n".join(rows) + "\n")

@@ -1,13 +1,12 @@
 """One connected Cedar performance, with measured word alignment and exact-script audit."""
 
-import base64
 import hashlib
 import json
 import math
 import re
 
 
-MODEL = "gpt-audio-1.5"
+MODEL = "gpt-4o-mini-tts"
 VOICE = "cedar"
 DIRECTION = """You are a voice actor, not a writer. Read the entire user message EXACTLY,
 word for word. Do not paraphrase, rewrite, substitute pronouns, drop words, or add
@@ -17,19 +16,21 @@ annotations, or spoken performance instructions. Your transcript contains only
 the exact spoken script. Preserve ALL supplied words and their order.
 Perform ONE connected sophisticated short educational film for adults, retaining
 natural breaths and flow rather than isolated clauses. Warm, intimate,
-intelligent, understated storytelling. Pace around 155 words per minute, aiming
-for 100–112 seconds including natural pauses; do not rush or flatten delivery.
-Emotional arc: genuinely curious opening question with understated stakes and a
-brief pause to let it land. Then warm observation of a restaurant scenario.
+intelligent, understated storytelling. Pace around 150–160 words per minute,
+aiming for 85–95 seconds including natural pauses; do not rush or flatten delivery.
+Emotional arc: a warm wish for a better world, then a genuinely curious opening
+question with a brief pause to let it land. Observe the three friends with care.
 The technical-component list has slight dry irony. The explanation is lucid and
 practical; the useful result brings a little relief. Customer reaction feels
-like discovery. Stopping gives confident reassurance. The principles are
-conversational rather than a lectured list. The commit slogan is memorable but
+like discovery. Make the distinction and transitions to two premises, two goals
+and four principles easy to follow without sounding like a list. Stopping gives
+confident reassurance. The principles are conversational. The commit slogan is memorable but
 not theatrical. The discussion of product health and future potential is
 thoughtful and clearly phrased. End with quiet assurance and possibility.
 Vary phrasing with the changing situation. No cartoon acting, sales-announcer
 delivery, exaggerated drama, vocal fry, or constant upward inflection. None of
 these directions are spoken. Only the user script may be spoken, verbatim."""
+DIRECTION += "\nArticulate assimilate clearly, with a clean initial vowel and no added consonant."
 
 
 def tokens(text):
@@ -55,34 +56,30 @@ def performance(root, script, run, sample_rate, new_take=False):
     take = assets / "cedar-take.wav"
     evidence = root / "Problem Decomposition" / "cedar-performance.json"
     prepared = work / "cedar-prepared.wav"
+    selected_take = work / "cedar-candidate.wav" if new_take else take
     text = narration_text(script)
     if new_take:
         from openai import OpenAI
         client = OpenAI(timeout=600, max_retries=0)
         print("Generating one connected Cedar performance…", flush=True)
-        result = client.chat.completions.create(
-            model=MODEL, modalities=["text", "audio"],
-            audio={"voice": VOICE, "format": "wav"}, store=False,
-            max_completion_tokens=12000,
-            messages=[{"role": "system", "content": DIRECTION},
-                      {"role": "user", "content": text}],
-        )
-        audio = result.choices[0].message.audio
-        exact_script(text, audio.transcript, "Generated transcript")
-        take.write_bytes(base64.b64decode(audio.data))
+        with client.audio.speech.with_streaming_response.create(
+            model=MODEL, voice=VOICE, input=text, instructions=DIRECTION,
+            response_format="wav",
+        ) as response:
+            response.stream_to_file(selected_take)
         report = {"model": MODEL, "voice": VOICE, "direction": DIRECTION,
-                  "script": text, "transcript": audio.transcript,
-                  "takeSha256": hashlib.sha256(take.read_bytes()).hexdigest()}
+                  "script": text,
+                  "takeSha256": hashlib.sha256(selected_take.read_bytes()).hexdigest()}
     else:
         report = json.loads(evidence.read_text())
         assert report["takeSha256"] == hashlib.sha256(take.read_bytes()).hexdigest()
         exact_script(text, report["script"], "Saved performance")
-        exact_script(text, report["transcript"], "Generated transcript")
+        exact_script(text, report["transcript"], "Saved transcript")
     # Boundaries only: every internal breath and pause remains in the performance.
     trim = ("silenceremove=start_periods=1:start_duration=0.01:start_threshold=-50dB,"
             "areverse,silenceremove=start_periods=1:start_duration=0.01:start_threshold=-50dB,"
             "areverse")
-    run(["ffmpeg", "-y", "-v", "error", "-i", str(take), "-af", trim,
+    run(["ffmpeg", "-y", "-v", "error", "-i", str(selected_take), "-af", trim,
          "-ar", str(sample_rate), "-ac", "1", "-c:a", "pcm_s16le", str(prepared)])
     if new_take:
         print("Measuring the actual performance's word boundaries…", flush=True)
@@ -94,14 +91,16 @@ def performance(root, script, run, sample_rate, new_take=False):
             )
         exact_script(text, measured.text, "Measured transcription")
         report["alignmentModel"] = "whisper-1"
-        report["measuredTranscript"] = measured.text
+        report["transcript"] = measured.text
+        report["transcriptSource"] = "whisper-1 transcription of the actual audio"
         report["words"] = [{"word": w.word, "start": w.start, "end": w.end} for w in measured.words]
     if not new_take:
         assert report["preparedSha256"] == hashlib.sha256(prepared.read_bytes()).hexdigest()
     report["preparedSha256"] = hashlib.sha256(prepared.read_bytes()).hexdigest()
-    if new_take:
-        write_performance(evidence, report)
     exact_script(text, " ".join(word["word"] for word in report["words"]), "Timed words")
+    if new_take:
+        take.write_bytes(selected_take.read_bytes())
+        write_performance(evidence, report)
     return prepared, report
 
 
@@ -165,7 +164,7 @@ def align(script, pcm, report, sample_rate):
         print(f"{scene['id']:10s} {scene['start']:7.3f}–{scene['end']:7.3f}s", flush=True)
     script.update(duration=duration_frames / fps, durationInFrames=duration_frames,
                   voice="Cedar (OpenAI synthetic narration; not Terry's recorded voice)",
-                  voiceCredit="CEDAR · AI-GENERATED NARRATION", narrationModel=MODEL)
+                  voiceCredit="CEDAR · AI-GENERATED NARRATION", narrationModel=report["model"])
     script.pop("narrationWordsPerMinute", None)
     timeline = array("h", [0] * round(lead * rate))
     timeline.extend(pcm)

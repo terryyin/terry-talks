@@ -1,21 +1,21 @@
-import { captionAt, captionRanges, durationInFrames, filmScript, FPS, sceneAt } from '../../src/problemDecomposition/film';
+import { captionAt, durationInFrames, filmScript, FPS, sceneAt } from '../../src/problemDecomposition/film';
 
 describe('problem decomposition film timeline', () => {
-	it('opens with the stopped-development question, then distinguishes parts from a useful problem', () => {
+	it('opens in the Story Impact world, then distinguishes solution parts from customer problems', () => {
 		expect(sceneAt(0).id).toBe('hook');
-		expect(captionAt(0.2)?.text).toContain('stopped tomorrow');
+		expect(captionAt(0.5)?.spoken).toContain('wish for a better world');
 		const parts = filmScript.scenes.find((scene) => scene.id === 'parts')!;
 		const problem = filmScript.scenes.find((scene) => scene.id === 'problem')!;
 		expect(sceneAt(parts.start).id).toBe('parts');
 		expect(sceneAt(parts.end).id).toBe('problem');
-		expect(problem.narration).toContain('split one bill equally');
+		expect(problem.captionRanges[0].spoken).toContain('splits customer problems');
 	});
 
 	it('keeps scene and caption boundaries aligned with the narration timeline', () => {
 		filmScript.scenes.forEach((scene, index) => {
 			expect(scene.end).toBeGreaterThan(scene.start);
 			if (index > 0) expect(scene.start).toBeCloseTo(filmScript.scenes[index - 1].end, 4);
-			const captions = captionRanges(scene);
+			const captions = scene.captionRanges;
 			expect(captions[0].start).toBeCloseTo(scene.start, 4);
 			expect(captions[captions.length - 1].end).toBeCloseTo(scene.end, 4);
 			captions.forEach((caption, captionIndex) => {

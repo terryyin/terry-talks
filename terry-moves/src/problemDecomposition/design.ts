@@ -12,3 +12,4 @@ export const palette = {
 export const headlineFont = 'Georgia, "Times New Roman", serif';
 export const bodyFont = '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif';
 export const captionTop = 900;
+export const productStageTransform = 'translate(35 160) scale(.88)';

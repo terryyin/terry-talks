@@ -2,32 +2,40 @@
 
 The freedom to change your mind. English, 1080 × 1080, 30 fps.
 
-Runtime: **104.90 seconds**. Narration is OpenAI’s Cedar synthetic voice,
+Runtime: **90.67 seconds**. Narration is OpenAI’s Cedar synthetic voice,
 not a recording or imitation of Terry. The full article remains the argument's source;
 this script is its shorter film presentation. Just in time is embedded in the goals.
 
-The recurring example is three friends splitting a restaurant bill. The hook asks
-what would remain useful if development stopped tomorrow. Component plans give way
-to one working equal split, feedback, and the freedom to leave later capabilities unstarted.
+This is part two of Story Impact. Its familiar Structure / Behavior / Time stage
+persists through the explanation: a wish becomes smaller customer-outcome balls,
+each useful impact splashes across the product and is assimilated into its design.
+The bill-sharing example gives those balls concrete meaning. Neat solution parts
+give way to smaller customer problems, a useful equal split, feedback and affordable stopping.
+
+A four-part chapter rail makes the argument explicit: Distinction → Premises → Goals → Principles.
+Two premises establish the planning philosophy. Two goals explain value with feedback
+and affordable stopping. Four principles cover the three Vs, one-piece flow, the same
+reasoning at smaller scales (including commits), and care for the whole product.
 
 | Time | Scene | Spoken narration |
 | --- | --- | --- |
-| 0.00–7.67s | A useful question | If development stopped tomorrow, what could your customer use? Three friends finish dinner. They need to split the bill. |
-| 7.67–15.13s | The distinction | You could plan a database, an API, and a screen. That's solution decomposition: arranging the answer's parts. |
-| 15.13–25.77s | The distinction | Problem decomposition asks: what's the smallest useful customer problem we can solve? First, split one bill equally. Later, handle unequal shares. Later, track payments. |
-| 25.77–33.87s | Two premises | Two premises: we can seek smaller customer problems. For an uncertain problem, a plan is an attempt, not a guarantee. |
-| 33.87–45.90s | Goal 01 · Value + feedback | So optimize for two things. First, deliver value and learn from it. Three people see what they owe. Their reaction can change the next step. Deliver just enough, just in time, to learn. |
-| 45.90–54.73s | Goal 02 · Freedom to change | Second, make stopping affordable. If priorities change, equal splitting still works. Leave later work unstarted, without making today depend on it. |
-| 54.73–65.43s | Principles · The three Vs | Use three Vs: valuable to a customer, visible in their world, and vertical, working end to end. Finish one customer outcome at a time. That's one-piece flow. |
-| 65.43–70.73s | Principles · The same logic | Repeat this logic at smaller scales: stories, scenarios, implementation slices. |
-| 70.73–83.90s | Principles · Current purpose | Every commit is your last commit. Strive for useful value now. Each change must serve today's purpose or an already documented need, including product health, not merely prepare the next commit. |
-| 83.90–96.93s | Principles · Whole-product health | Care for the whole product. Healthy design preserves the potential to deliver future value affordably. That speculative potential is option value. Unused features can add complexity and close alternatives. |
-| 96.93–104.90s | Choose again | Feedback matters when you can act on it. Decompose to deliver, learn, and choose again. |
+| 0.00–7.57s | Distinction | A story is a wish for a better world. How do we split that wish? Three friends need to know what to pay. |
+| 7.57–14.03s | Distinction | Many teams split the solution: database, API, screen. Those are parts of an answer. |
+| 14.03–20.17s | Distinction | Problem decomposition splits customer problems: split equally; unequal shares; track payments. |
+| 20.17–27.53s | Two premises | Two premises: seek smaller customer problems before choosing solutions. A plan is an attempt, not a guarantee. |
+| 27.53–39.40s | Goals · Value + feedback | Two goals. First: deliver value and feedback. One small story crosses the product. Now each friend knows what they owe. Their reaction changes the next step. Just enough, just in time to learn. |
+| 39.40–47.00s | Goals · Affordable stopping | Second: make stopping affordable. Completed value keeps working. Leave later stories unstarted, so you can change direction. |
+| 47.00–57.20s | Principles · Three Vs / One-piece flow | Four principles. Three Vs: valuable to customers, visible in their world, vertical through the product. One-piece flow: finish one customer outcome together. |
+| 57.20–61.93s | Principles · Same reasoning at every scale | Repeat at smaller scales: stories, scenarios, implementation slices. |
+| 61.93–72.60s | Principles · Same reasoning at every scale | Every commit is your last commit. Strive for useful value now; serve today's purpose or an already documented need, including product health, not merely prepare the next commit. |
+| 72.60–84.90s | Principles · Whole product focus | Care for the whole product. Assimilate each splash into a coherent design. Healthy design preserves speculative future potential: option value. Unused features can add complexity and close alternatives. |
+| 84.90–90.67s | Choose again | Smaller problems. Useful impacts. Freedom to choose again. |
 
 ## Production
 
 Run `python3 'Problem Decomposition/produce_audio.py'` from the repository checkout.
 The source is `film-script.json`. One continuous Cedar take retains natural breaths and pauses.
+Its 209 spoken words keep just in time inside the goals and option value secondary and speculative.
 Captions follow measured word boundaries; scene and caption boundaries are frame-aligned.
 Each caption range owns both its spoken clause and displayed text. No narration is cut to meet the runtime.
 Use `--refresh-docs` to reformat the script and refresh this treatment without synthesizing audio.
@@ -38,7 +46,8 @@ the score to −40 LUFS; both should play at volume 1 in the composition.
 
 The chosen `cedar-take.wav`, its exact-script audit and Whisper word alignment in
 `cedar-performance.json` reproduce narration, timing and score without another API request.
-Use `--new-take` only to generate a new performance with `gpt-audio-1.5` / `cedar` and
+Use `--new-take` only to generate a new performance with `gpt-4o-mini-tts` / `cedar` and
 measure words with `whisper-1`. This needs the OpenAI Python SDK and `OPENAI_API_KEY`.
+The speech endpoint returns audio only; the saved transcript comes from measuring that actual audio.
 Whisper word boundaries are automated estimates, not a claim of human listening.
 Python, ffmpeg and ffprobe build committed runtime WAVs. Playback and rendering need no API.

@@ -1,115 +1,87 @@
 1
-00:00:00,000 --> 00:00:02,100
-If development stopped tomorrow,
+00:00:00,000 --> 00:00:05,033
+A story is a wish for a better world. How do we split that wish?
 
 2
-00:00:02,100 --> 00:00:04,067
-what could your customer use?
+00:00:05,033 --> 00:00:07,567
+Three friends need to know what to pay.
 
 3
-00:00:04,067 --> 00:00:07,667
-Three friends finish dinner. They need to split the bill.
+00:00:07,567 --> 00:00:12,033
+Many teams split the solution: database, API, screen.
 
 4
-00:00:07,667 --> 00:00:10,833
-You could plan a database, an API, and a screen.
+00:00:12,033 --> 00:00:14,033
+Those are parts of an answer.
 
 5
-00:00:10,833 --> 00:00:15,133
-That's solution decomposition: arranging the answer's parts.
+00:00:14,033 --> 00:00:20,167
+Problem decomposition splits customer problems: split equally; unequal shares; track payments.
 
 6
-00:00:15,133 --> 00:00:20,400
-Problem decomposition asks: what's the smallest useful customer problem we can solve?
+00:00:20,167 --> 00:00:24,667
+Two premises: seek smaller customer problems before choosing solutions.
 
 7
-00:00:20,400 --> 00:00:22,433
-First, split one bill equally.
+00:00:24,667 --> 00:00:27,533
+A plan is an attempt, not a guarantee.
 
 8
-00:00:22,433 --> 00:00:25,767
-Later, handle unequal shares. Later, track payments.
+00:00:27,533 --> 00:00:30,933
+Two goals. First: deliver value and feedback.
 
 9
-00:00:25,767 --> 00:00:29,767
-Two premises: we can seek smaller customer problems.
+00:00:30,933 --> 00:00:34,900
+One small story crosses the product. Now each friend knows what they owe.
 
 10
-00:00:29,767 --> 00:00:33,867
-For an uncertain problem, a plan is an attempt, not a guarantee.
+00:00:34,900 --> 00:00:37,000
+Their reaction changes the next step.
 
 11
-00:00:33,867 --> 00:00:38,567
-So optimize for two things. First, deliver value and learn from it.
+00:00:37,000 --> 00:00:39,400
+Just enough, just in time to learn.
 
 12
-00:00:38,567 --> 00:00:40,333
-Three people see what they owe.
+00:00:39,400 --> 00:00:41,600
+Second: make stopping affordable.
 
 13
-00:00:40,333 --> 00:00:42,567
-Their reaction can change the next step.
+00:00:41,600 --> 00:00:47,000
+Completed value keeps working. Leave later stories unstarted, so you can change direction.
 
 14
-00:00:42,567 --> 00:00:45,900
-Deliver just enough, just in time, to learn.
+00:00:47,000 --> 00:00:53,467
+Four principles. Three Vs: valuable to customers, visible in their world, vertical through the product.
 
 15
-00:00:45,900 --> 00:00:48,267
-Second, make stopping affordable.
+00:00:53,467 --> 00:00:57,200
+One-piece flow: finish one customer outcome together.
 
 16
-00:00:48,267 --> 00:00:51,233
-If priorities change, equal splitting still works.
+00:00:57,200 --> 00:01:01,933
+Repeat at smaller scales: stories, scenarios, implementation slices.
 
 17
-00:00:51,233 --> 00:00:54,733
-Leave later work unstarted, without making today depend on it.
-
-18
-00:00:54,733 --> 00:00:59,200
-Use three Vs: valuable to a customer, visible in their world,
-
-19
-00:00:59,200 --> 00:01:01,667
-and vertical, working end to end.
-
-20
-00:01:01,667 --> 00:01:05,433
-Finish one customer outcome at a time. That's one-piece flow.
-
-21
-00:01:05,433 --> 00:01:10,733
-Repeat this logic at smaller scales: stories, scenarios, implementation slices.
-
-22
-00:01:10,733 --> 00:01:13,333
+00:01:01,933 --> 00:01:04,167
 Every commit is your last commit.
 
-23
-00:01:13,333 --> 00:01:15,400
-Strive for useful value now.
+18
+00:01:04,167 --> 00:01:12,600
+Strive for useful value now; serve today's purpose or an already documented need, including product health, not merely prepare the next commit.
 
-24
-00:01:15,400 --> 00:01:20,100
-Each change must serve today's purpose or an already documented need,
+19
+00:01:12,600 --> 00:01:17,333
+Care for the whole product. Assimilate each splash into a coherent design.
 
-25
-00:01:20,100 --> 00:01:23,900
-including product health, not merely prepare the next commit.
+20
+00:01:17,333 --> 00:01:21,467
+Healthy design preserves speculative future potential: option value.
 
-26
-00:01:23,900 --> 00:01:25,500
-Care for the whole product.
-
-27
-00:01:25,500 --> 00:01:33,133
-Healthy design preserves the potential to deliver future value affordably. That speculative potential is option value.
-
-28
-00:01:33,133 --> 00:01:36,933
+21
+00:01:21,467 --> 00:01:24,900
 Unused features can add complexity and close alternatives.
 
-29
-00:01:36,933 --> 00:01:44,900
-Feedback matters when you can act on it. Decompose to deliver, learn, and choose again.
+22
+00:01:24,900 --> 00:01:30,667
+Smaller problems. Useful impacts. Freedom to choose again.
