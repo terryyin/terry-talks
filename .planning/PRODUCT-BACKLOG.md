@@ -6,8 +6,6 @@ Make educational short videos.
 
 ## Taken
 
-- [Viewers understand problem decomposition through a two-minute follow-up to Story Impact](../Problem%20Decomposition/seed.md#explain-problem-decomposition) — problem-decomposition-film#explain-problem-decomposition ([plan](quick/012-problem-decomposition-film/PLAN.md))
-
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready

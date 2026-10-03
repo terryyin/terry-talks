@@ -1,7 +1,7 @@
 # Problem decomposition: complete raw draft
 
 Captured from Terry's message on **2026-10-03** for
-[the film story](seed.md#explain-problem-decomposition).
+[the problem decomposition film](README.md).
 
 Preserve this draft in full during later polishing. Only paragraph formatting
 has been normalized; repetitions, fillers, wording, and transcription slips

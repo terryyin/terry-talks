@@ -1,8 +1,9 @@
 # Problem decomposition film: source notes
 
 Captured on **2026-10-03** as authoring inputs for
-[the story](seed.md#explain-problem-decomposition). These notes preserve relevant
-findings for later polishing; they do not settle the questions in the seed.
+[the consolidated article](problem-decomposition.md). These notes preserve the
+original source findings; the article records confirmed meanings and fact checks,
+and the [production guide](README.md) describes the finished film.
 
 ## Terry's supplied material
 
