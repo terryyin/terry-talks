@@ -1,32 +1,28 @@
 import React from 'react';
-import { AbsoluteFill, Img, staticFile } from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { bodyFont, captionTop, headlineFont, palette } from './design';
-import { captionAt, captionRanges, DINNER, FilmScene, mix, reveal, sceneAt } from './film';
+import { captionAt, captionRanges, FilmScene, mix, reveal, sceneAt } from './film';
+import { DinnerWorld, Headline } from './elements';
+import { Premises } from './premises';
+import { Stop, Value } from './goals';
+import { Commit, Fractal, Vertical } from './principles';
+import { Ending, Health } from './health';
 import { PartIcon, Receipt, SplitPhone } from './objects';
-
-const Headline: React.FC<{ children: React.ReactNode; top?: number; size?: number; opacity?: number }> = ({ children, top = 78, size = 66, opacity = 1 }) => (
-	<div style={{ position: 'absolute', left: 64, top, right: 64, fontFamily: headlineFont, fontSize: size, lineHeight: 1.06, letterSpacing: -1.9, color: palette.ink, opacity }}>{children}</div>
-);
-
-/** Preserve the complete 3:2 illustration and all three adult faces. */
-export const DinnerWorld: React.FC<{ zoom?: number; y?: number; opacity?: number }> = ({ zoom = 1, y = 170, opacity = 1 }) => (
-	<div style={{ position: 'absolute', left: 0, top: y, width: 1080, height: 720, overflow: 'hidden', opacity }}>
-		<Img src={staticFile(DINNER)} style={{ width: 1080, height: 720, transform: `scale(${zoom})`, transformOrigin: '50% 62%' }} />
-	</div>
-);
 
 export const CaptionBar: React.FC<{ seconds: number }> = ({ seconds }) => {
 	const caption = captionAt(seconds);
 	const opacity = caption ? Math.min(reveal(seconds, caption.start, 0.12), reveal(caption.end - seconds, 0, 0.1)) : 0;
+	const finalCredit = sceneAt(seconds).id === 'end' && caption && seconds >= caption.speechEnd;
 	return (
 		<div style={{ position: 'absolute', left: 0, right: 0, top: captionTop, bottom: 0, background: palette.paper, borderTop: `1px solid ${palette.rule}`, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '18px 68px 29px', boxSizing: 'border-box' }}>
 			<div style={{ fontFamily: bodyFont, fontSize: 43, fontWeight: 450, color: palette.ink, lineHeight: 1.2, textAlign: 'center', opacity }}>{caption?.text}</div>
+			{finalCredit && <div style={{ position: 'absolute', bottom: 11, left: 0, right: 0, textAlign: 'center', fontFamily: bodyFont, fontSize: 13, color: palette.muted, letterSpacing: 1.2 }}>DANIEL · SYNTHETIC NARRATION</div>}
 		</div>
 	);
 };
 
 const Eyebrow: React.FC<{ scene: FilmScene }> = ({ scene }) => (
-	<div style={{ position: 'absolute', top: 31, left: 67, right: 67, display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: palette.muted, fontFamily: bodyFont, fontSize: 18, letterSpacing: 2.4, textTransform: 'uppercase' }}>
+	<div style={{ position: 'absolute', top: 31, left: 67, right: 67, display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: scene.id === 'stop' ? palette.paperLight : palette.muted, fontFamily: bodyFont, fontSize: 18, letterSpacing: 2.4, textTransform: 'uppercase' }}>
 		<span>Problem decomposition</span><span>{scene.id === 'hook' ? '02' : scene.label}</span>
 	</div>
 );
@@ -96,23 +92,23 @@ const Problem: React.FC<{ time: number; length: number }> = ({ time, length }) =
 	);
 };
 
-/** Slice one deliberately holds its useful finished outcome for later scenes. */
-const UsefulOutcome: React.FC = () => (
-	<>
-		<DinnerWorld />
-		<Headline>One useful outcome.<br /><em style={{ color: palette.cobalt }}>Equal splitting works.</em></Headline>
-		<div style={{ position: 'absolute', left: 445, top: 613, transform: 'rotate(-6deg)' }}><Receipt width={196} /></div>
-		<div style={{ position: 'absolute', left: 685, top: 520, transform: 'rotate(2deg)' }}><SplitPhone width={253} /></div>
-	</>
-);
-
 export const ProblemDecompositionScene: React.FC<{ seconds: number }> = ({ seconds }) => {
 	const scene = sceneAt(seconds);
 	const time = seconds - scene.start;
 	const length = scene.end - scene.start;
 	return (
 		<AbsoluteFill style={{ background: palette.paper, overflow: 'hidden' }}>
-			{scene.id === 'hook' ? <Hook time={time} scene={scene} /> : scene.id === 'parts' ? <Parts time={time} length={length} /> : scene.id === 'problem' ? <Problem time={time} length={length} /> : <UsefulOutcome />}
+			{scene.id === 'hook' && <Hook time={time} scene={scene} />}
+			{scene.id === 'parts' && <Parts time={time} length={length} />}
+			{scene.id === 'problem' && <Problem time={time} length={length} />}
+			{scene.id === 'premises' && <Premises time={time} scene={scene} />}
+			{scene.id === 'value' && <Value time={time} scene={scene} />}
+			{scene.id === 'stop' && <Stop time={time} scene={scene} />}
+			{scene.id === 'vertical' && <Vertical time={time} scene={scene} />}
+			{scene.id === 'fractal' && <Fractal time={time} scene={scene} />}
+			{scene.id === 'commit' && <Commit time={time} scene={scene} />}
+			{scene.id === 'health' && <Health time={time} scene={scene} />}
+			{scene.id === 'end' && <Ending time={time} scene={scene} />}
 			<Eyebrow scene={scene} />
 			<CaptionBar seconds={seconds} />
 		</AbsoluteFill>

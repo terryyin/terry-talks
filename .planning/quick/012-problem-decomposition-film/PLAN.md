@@ -58,7 +58,7 @@ Run focused tests and type checking.
 
 ### 2. Behavior — feedback becomes freedom to change
 
-Status: pending
+Status: done
 
 Complete the same film with two premises, two goals, feedback visibly reordering
 later possibilities, a safe completed stopping point, three Vs, one-piece flow,
@@ -87,3 +87,15 @@ spoken/caption pairs in JSON; documents-only regeneration is deterministic,
 all audio hashes/timing unchanged; focused tests+tsc passed after refactoring.
 Publisher:19b9f8b7-4459-4e0d-9a94-d8c0eaa9171f. Taken claim:41f1b7cfc1ea3d7301b5da9c963baaef07a0c6b3.
 No CI workflow exists. No observation is claimed.
+
+Slice 2: complete film rendered and visually reviewed, including feedback
+reordering, useful stopped product, all principles and the ending at small
+display size. A feedback-card collision was corrected with separate motion
+lanes and verified throughout the exchange. Full project check: 27 suites,
+299 tests, lint and TypeScript all passed. Independent refactor makes the
+poster follow the final frame; its actual still render passed. Full movie:
+3397 frames, 1080×1080, 30fps, H.264, AAC stereo48kHz, 113.280s container,
+25,690,470 bytes. Narration and original music are unchanged; full spoken
+subtitles retained. Movie, final poster and subtitles copied to the default
+checkout's ignored output directory. Article, raw transcript and reproduction
+sources remain maintained. No subjective listening or audience study is claimed.

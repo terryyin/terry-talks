@@ -1,0 +1,115 @@
+1
+00:00:00,000 --> 00:00:02,333
+If development stopped tomorrow,
+
+2
+00:00:02,333 --> 00:00:04,533
+what could your customer use?
+
+3
+00:00:04,533 --> 00:00:08,000
+Three friends finish dinner. They need to split the bill.
+
+4
+00:00:08,000 --> 00:00:11,800
+You could plan a database, an API, and a screen.
+
+5
+00:00:11,800 --> 00:00:16,067
+That's solution decomposition: arranging the answer's parts.
+
+6
+00:00:16,067 --> 00:00:21,600
+Problem decomposition asks: what's the smallest useful customer problem we can solve?
+
+7
+00:00:21,600 --> 00:00:24,100
+First, split one bill equally.
+
+8
+00:00:24,100 --> 00:00:28,567
+Later, handle unequal shares. Later, track payments.
+
+9
+00:00:28,567 --> 00:00:32,367
+Two premises: we can seek smaller customer problems.
+
+10
+00:00:32,367 --> 00:00:36,967
+For an uncertain problem, a plan is an attempt, not a guarantee.
+
+11
+00:00:36,967 --> 00:00:41,767
+So optimize for two things. First, deliver value and learn from it.
+
+12
+00:00:41,767 --> 00:00:43,967
+Three people see what they owe.
+
+13
+00:00:43,967 --> 00:00:46,467
+Their reaction can change the next step.
+
+14
+00:00:46,467 --> 00:00:50,233
+Deliver just enough, just in time, to learn.
+
+15
+00:00:50,233 --> 00:00:52,700
+Second, make stopping affordable.
+
+16
+00:00:52,700 --> 00:00:56,633
+If priorities change, equal splitting still works.
+
+17
+00:00:56,633 --> 00:01:00,833
+Leave later work unstarted, without making today depend on it.
+
+18
+00:01:00,833 --> 00:01:05,433
+Use three Vs: valuable to a customer, visible in their world,
+
+19
+00:01:05,433 --> 00:01:07,833
+and vertical, working end to end.
+
+20
+00:01:07,833 --> 00:01:12,267
+Finish one customer outcome at a time. That's one-piece flow.
+
+21
+00:01:12,267 --> 00:01:18,900
+Repeat this logic at smaller scales: stories, scenarios, implementation slices.
+
+22
+00:01:18,900 --> 00:01:21,100
+Every commit is your last commit.
+
+23
+00:01:21,100 --> 00:01:23,300
+Strive for useful value now.
+
+24
+00:01:23,300 --> 00:01:27,533
+Each change must serve today's purpose or an already documented need,
+
+25
+00:01:27,533 --> 00:01:31,800
+including product health, not merely prepare the next commit.
+
+26
+00:01:31,800 --> 00:01:34,000
+Care for the whole product.
+
+27
+00:01:34,000 --> 00:01:41,233
+Healthy design preserves the potential to deliver future value affordably. That speculative potential is option value.
+
+28
+00:01:41,233 --> 00:01:45,333
+Unused features can add complexity and close alternatives.
+
+29
+00:01:45,333 --> 00:01:53,233
+Feedback matters when you can act on it. Decompose to deliver, learn, and choose again.

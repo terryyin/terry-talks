@@ -13,7 +13,7 @@ export type SceneId =
 	| 'health'
 	| 'end';
 
-export type CaptionRange = { text: string; spoken: string; start: number; end: number };
+export type CaptionRange = { text: string; spoken: string; start: number; end: number; speechStart: number; speechEnd: number };
 export type FilmScene = {
 	id: SceneId;
 	start: number;
@@ -45,6 +45,8 @@ export const STAGE = { width: 1080, height: 1080 };
 export const NARRATION = 'assets/problem-decomposition/narration.wav';
 export const SCORE = 'assets/problem-decomposition/score.wav';
 export const DINNER = 'assets/problem-decomposition/dinner.png';
+export const DINNER_RELIEF = 'assets/problem-decomposition/dinner-relief.png';
+export const ENGINEERS = 'assets/problem-decomposition/engineers.png';
 
 export const sceneAt = (seconds: number): FilmScene =>
 	filmScript.scenes.find((scene) => seconds >= scene.start && seconds < scene.end) ??
