@@ -132,12 +132,18 @@ def treatment(script):
             "This is part two of Story Impact. Its familiar Structure / Behavior / Time stage",
             "persists through the explanation: a wish becomes smaller customer-outcome balls,",
             "each useful impact splashes across the product and is assimilated into its design.",
-            "The bill-sharing example gives those balls concrete meaning. Neat solution parts",
-            "give way to smaller customer problems, a useful equal split, feedback and affordable stopping.", "",
+            "Three friends getting home after dinner give those balls concrete meaning: find the next",
+            "train, check the fare, find a step-free route. A conceived answer's database, API and screen",
+            "layers give way to customer problems, a useful train result, feedback and freedom to change",
+            "without waste or damage at completed boundaries. The train board is illustrative, not live travel information.", "",
             "A four-part chapter rail makes the argument explicit: Distinction → Premises → Goals → Principles.",
             "Two premises establish the planning philosophy. Two goals explain value with feedback",
             "and affordable stopping. Four principles cover the three Vs, one-piece flow, the same",
-            "reasoning at smaller scales (including commits), and care for the whole product.", "",
+            "reasoning at smaller scales (including commits), and care for the whole product.",
+            "The three Vs animate value, visibility and the story's impact across required layers.",
+            "One-piece flow leaves its splash through the last-commit principle; Whole Product Focus",
+            "then assimilates that same impact into a coherent product, supporting customer and option value.",
+            f"The closing frame is also the opening cover, held silently for {script.get('coverDuration', 0):.2f} seconds before the voice lead.", "",
             "| Time | Scene | Spoken narration |", "| --- | --- | --- |"]
     for scene in script["scenes"]:
         narration = " ".join(caption["spoken"] for caption in scene["captionRanges"])

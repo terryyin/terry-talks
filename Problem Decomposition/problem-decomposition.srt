@@ -1,87 +1,91 @@
 1
-00:00:00,000 --> 00:00:05,033
+00:00:00,000 --> 00:00:05,400
 A story is a wish for a better world. How do we split that wish?
 
 2
-00:00:05,033 --> 00:00:07,567
-Three friends need to know what to pay.
+00:00:05,400 --> 00:00:07,767
+Three friends want to get home after dinner.
 
 3
-00:00:07,567 --> 00:00:12,033
-Many teams split the solution: database, API, screen.
+00:00:07,767 --> 00:00:12,900
+If we already know the answer, divide its structure: database, API, screen.
 
 4
-00:00:12,033 --> 00:00:14,033
-Those are parts of an answer.
+00:00:12,900 --> 00:00:16,167
+But software development is also about discovering the answer.
 
 5
-00:00:14,033 --> 00:00:20,167
-Problem decomposition splits customer problems: split equally; unequal shares; track payments.
+00:00:16,167 --> 00:00:22,200
+Problem decomposition splits customer problems: find the next train; check the fare; find a step-free route.
 
 6
-00:00:20,167 --> 00:00:24,667
+00:00:22,200 --> 00:00:26,033
 Two premises: seek smaller customer problems before choosing solutions.
 
 7
-00:00:24,667 --> 00:00:27,533
+00:00:26,033 --> 00:00:28,633
 A plan is an attempt, not a guarantee.
 
 8
-00:00:27,533 --> 00:00:30,933
+00:00:28,633 --> 00:00:32,067
 Two goals. First: deliver value and feedback.
 
 9
-00:00:30,933 --> 00:00:34,900
-One small story crosses the product. Now each friend knows what they owe.
+00:00:32,067 --> 00:00:35,867
+One small story crosses the product. Now they know when the next train leaves.
 
 10
-00:00:34,900 --> 00:00:37,000
+00:00:35,867 --> 00:00:37,933
 Their reaction changes the next step.
 
 11
-00:00:37,000 --> 00:00:39,400
+00:00:37,933 --> 00:00:40,167
 Just enough, just in time to learn.
 
 12
-00:00:39,400 --> 00:00:41,600
-Second: make stopping affordable.
+00:00:40,167 --> 00:00:43,067
+Second: change direction without waste or damage.
 
 13
-00:00:41,600 --> 00:00:47,000
-Completed value keeps working. Leave later stories unstarted, so you can change direction.
+00:00:43,067 --> 00:00:46,333
+Keep completed value; leave later stories unstarted.
 
 14
-00:00:47,000 --> 00:00:53,467
-Four principles. Three Vs: valuable to customers, visible in their world, vertical through the product.
+00:00:46,333 --> 00:00:49,133
+Nothing half-built to abandon. Nothing broken to repair.
 
 15
-00:00:53,467 --> 00:00:57,200
-One-piece flow: finish one customer outcome together.
+00:00:49,133 --> 00:00:55,533
+Four principles. Three Vs: valuable to customers, visible in their world, vertical through the product.
 
 16
-00:00:57,200 --> 00:01:01,933
-Repeat at smaller scales: stories, scenarios, implementation slices.
+00:00:55,533 --> 00:00:58,733
+One-piece flow: finish one customer outcome together.
 
 17
-00:01:01,933 --> 00:01:04,167
-Every commit is your last commit.
+00:00:58,733 --> 00:01:03,367
+Repeat at smaller scales: stories, scenarios, implementation slices.
 
 18
-00:01:04,167 --> 00:01:12,600
-Strive for useful value now; serve today's purpose or an already documented need, including product health, not merely prepare the next commit.
+00:01:03,367 --> 00:01:05,300
+Every commit is your last commit.
 
 19
-00:01:12,600 --> 00:01:17,333
-Care for the whole product. Assimilate each splash into a coherent design.
+00:01:05,300 --> 00:01:13,367
+Strive for useful value now; serve today's purpose or an already documented need, including product health, not merely prepare the next commit.
 
 20
-00:01:17,333 --> 00:01:21,467
-Healthy design preserves speculative future potential: option value.
+00:01:13,367 --> 00:01:17,767
+Care for the whole product. Assimilate each splash into a coherent design.
 
 21
-00:01:21,467 --> 00:01:24,900
-Unused features can add complexity and close alternatives.
+00:01:17,767 --> 00:01:22,467
+Customer value now; speculative future potential at a cost: option value.
 
 22
-00:01:24,900 --> 00:01:30,667
+00:01:22,467 --> 00:01:25,733
+Unused features can add complexity and close alternatives.
+
+23
+00:01:25,733 --> 00:01:31,567
 Smaller problems. Useful impacts. Freedom to choose again.

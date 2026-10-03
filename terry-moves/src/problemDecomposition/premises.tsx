@@ -14,7 +14,8 @@ export const Premises: React.FC<{ seconds: number }> = ({ seconds }) => {
 			<WishBall at={{ x: 48, y: 52 }} radius={35} />
 			<WishBall at={{ x: 180, y: 52 }} radius={25} color={palette.gold} />
 			<WishBall at={{ x: 340, y: 52 }} radius={16} color={palette.cobalt} />
-			<StageText x={340} y={100} size={22} opacity={smaller}>$90 / 3 friends</StageText>
+			<StageText x={48} y={100} size={22} opacity={smaller}>Get home</StageText>
+			<StageText x={340} y={100} size={22} opacity={smaller}>Next train</StageText>
 		</svg>
 		<div style={{ position: 'absolute', left: 586, top: 448, width: 430, opacity: attempt, fontFamily: headlineFont, fontSize: 32, color: palette.ink }}>2 · A plan is an attempt.</div>
 	</>;

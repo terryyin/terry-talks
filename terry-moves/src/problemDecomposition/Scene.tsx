@@ -1,7 +1,7 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { bodyFont, captionTop, headlineFont, palette } from './design';
-import { captionAt, FilmScene, filmScript, reveal, sceneAt } from './film';
+import { captionAt, FilmScene, filmScript, finalFrameSeconds, reveal, sceneAt } from './film';
 import { chapterOf, chapters } from './series';
 import { ProductStage } from './stage';
 import { Premises } from './premises';
@@ -31,15 +31,15 @@ const titles: Record<FilmScene['id'], [string, string]> = {
 	problem: ['Problem decomposition', 'Which smaller customer problem can we solve?'],
 	premises: ['Two premises', 'Smaller problems. Uncertain plans.'],
 	value: ['Two goals', '1 · Deliver useful value and feedback'],
-	stop: ['Two goals', '2 · Make stopping affordable'],
+	stop: ['Two goals', '2 · Change direction without waste or damage'],
 	vertical: ['Four principles', 'How to keep each impact useful'],
 	fractal: ['Four principles', 'The same pattern, at smaller scales'],
 	commit: ['Four principles', 'Useful now, even if this is the last commit'],
 	health: ['Four principles', 'Protect the health of the whole product'],
-	end: ['Smaller problems.', 'Useful impacts. Freedom to choose again.'],
+	end: ['Problem decomposition', 'Smaller problems. Useful impacts.'],
 };
 
-export const ProblemDecompositionScene: React.FC<{ seconds: number }> = ({ seconds }) => {
+const SceneContent: React.FC<{ seconds: number }> = ({ seconds }) => {
 	const scene = sceneAt(seconds);
 	const [title, subtitle] = titles[scene.id];
 	return <AbsoluteFill style={{ background: palette.paper, overflow: 'hidden' }}>
@@ -56,5 +56,17 @@ export const ProblemDecompositionScene: React.FC<{ seconds: number }> = ({ secon
 		{scene.id === 'health' && <Health seconds={seconds} />}
 		{scene.id === 'end' && <Ending seconds={seconds} />}
 		<CaptionBar seconds={seconds} />
+	</AbsoluteFill>;
+};
+
+/** The cover is the exact final pose, then dissolves before the first spoken word. */
+export const ProblemDecompositionScene: React.FC<{ seconds: number }> = ({ seconds }) => {
+	const fadeAt = filmScript.coverDuration - 0.2;
+	if (seconds < fadeAt) return <SceneContent seconds={finalFrameSeconds} />;
+	if (seconds >= filmScript.coverDuration) return <SceneContent seconds={seconds} />;
+	const progress = reveal(seconds, fadeAt, 0.2);
+	return <AbsoluteFill>
+		<SceneContent seconds={seconds} />
+		<div style={{ position: 'absolute', inset: 0, opacity: 1 - progress }}><SceneContent seconds={finalFrameSeconds} /></div>
 	</AbsoluteFill>;
 };

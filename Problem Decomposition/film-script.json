@@ -2,132 +2,134 @@
   "title": "Problem Decomposition",
   "subtitle": "The freedom to change your mind",
   "fps": 30,
-  "duration": 90.66666666666667,
+  "duration": 91.56666666666666,
   "voice": "Cedar (OpenAI synthetic narration; not Terry's recorded voice)",
   "scenes": [
     {
       "id": "hook",
       "start": 0.0,
-      "end": 7.566666666666666,
+      "end": 7.766666666666667,
       "label": "Distinction",
       "captionRanges": [
-        {"text": "A wish for a better world.", "start": 0.0, "end": 5.033333333333333, "spoken": "A story is a wish for a better world. How do we split that wish?", "speechStart": 0.25, "speechEnd": 4.570000171661377, "wordCues": {"a": 0.25, "story": 0.4699999988079071, "is": 0.8100000023841858, "wish": 1.5099999904632568, "for": 1.5099999904632568, "better": 2.090000033378601, "world": 2.2100000381469727, "how": 3.490000009536743, "do": 3.5299999713897705, "we": 3.6500000953674316, "split": 3.869999885559082, "that": 4.009999990463257}},
-        {"text": "Three friends. One bill.", "start": 5.033333333333333, "end": 7.566666666666666, "spoken": "Three friends need to know what to pay.", "speechStart": 5.510000228881836, "speechEnd": 7.110000133514404, "wordCues": {"three": 5.510000228881836, "friends": 5.690000057220459, "need": 6.050000190734863, "to": 6.289999961853027, "know": 6.429999828338623, "what": 6.570000171661377, "pay": 7.03000020980835}}
+        {"text": "A wish for a better world.", "spoken": "A story is a wish for a better world. How do we split that wish?", "speechStart": 1.45, "speechEnd": 5.029999923706055, "wordCues": {"a": 1.45, "story": 1.6099999964237213, "is": 1.8899999976158142, "wish": 2.4300000190734865, "for": 2.4300000190734865, "better": 2.869999957084656, "world": 2.910000038146973, "how": 3.9899999618530275, "do": 4.0499999046325685, "we": 4.190000009536743, "split": 4.390000057220459, "that": 4.529999923706055}, "start": 0.0, "end": 5.4},
+        {"text": "Three friends want to get home.", "spoken": "Three friends want to get home after dinner.", "speechStart": 5.7500001907348635, "speechEnd": 7.410000038146973, "wordCues": {"three": 5.7500001907348635, "friends": 6.009999942779541, "want": 6.290000152587891, "to": 6.4899999618530275, "get": 6.5499999046325685, "home": 6.790000152587891, "after": 6.95, "dinner": 7.189999771118164}, "start": 5.4, "end": 7.766666666666667}
       ],
-      "duration": 7.566666666666666
+      "duration": 7.766666666666667
     },
     {
       "id": "parts",
-      "start": 7.566666666666666,
-      "end": 14.033333333333333,
+      "start": 7.766666666666667,
+      "end": 16.166666666666668,
       "label": "Distinction",
       "captionRanges": [
-        {"text": "Database. API. Screen.", "start": 7.566666666666666, "end": 12.033333333333333, "spoken": "Many teams split the solution: database, API, screen.", "speechStart": 8.010000228881836, "speechEnd": 11.569999694824219, "wordCues": {"many": 8.010000228881836, "teams": 8.09000015258789, "split": 8.470000267028809, "the": 8.729999542236328, "solution": 9.350000381469727, "database": 9.90999984741211, "api": 11.029999732971191, "screen": 11.569999694824219}},
-        {"text": "Solution parts.", "start": 12.033333333333333, "end": 14.033333333333333, "spoken": "Those are parts of an answer.", "speechStart": 12.470000267028809, "speechEnd": 13.569999694824219, "wordCues": {"those": 12.470000267028809, "are": 12.569999694824219, "parts": 12.829999923706055, "of": 12.970000267028809, "an": 13.09000015258789, "answer": 13.569999694824219}}
+        {"text": "A conceived answer: database, API, screen.", "spoken": "If we already know the answer, divide its structure: database, API, screen.", "speechStart": 8.129999828338622, "speechEnd": 12.609999847412109, "wordCues": {"if": 8.129999828338622, "we": 8.210000228881835, "already": 8.370000076293945, "know": 8.629999828338622, "the": 8.750000190734863, "answer": 9.189999771118163, "divide": 9.649999809265136, "its": 9.849999618530273, "structure": 10.069999885559081, "database": 11.250000190734863, "api": 12.029999923706054, "screen": 12.609999847412109}, "start": 7.766666666666667, "end": 12.9},
+        {"text": "Development discovers the answer.", "spoken": "But software development is also about discovering the answer.", "speechStart": 13.210000228881835, "speechEnd": 15.809999656677245, "wordCues": {"but": 13.210000228881835, "software": 13.410000038146972, "development": 13.649999809265136, "is": 13.989999961853027, "also": 14.189999771118163, "about": 14.45, "discovering": 14.710000228881835, "the": 15.189999771118163, "answer": 15.809999656677245}, "start": 12.9, "end": 16.166666666666668}
       ],
-      "duration": 6.466666666666667
+      "duration": 8.400000000000002
     },
     {
       "id": "problem",
-      "start": 14.033333333333333,
-      "end": 20.166666666666668,
+      "start": 16.166666666666668,
+      "end": 22.2,
       "label": "Distinction",
       "captionRanges": [
-        {"text": "Smaller customer problems.", "start": 14.033333333333333, "end": 20.166666666666668, "spoken": "Problem decomposition splits customer problems: split equally; unequal shares; track payments.", "speechStart": 14.470000267028809, "speechEnd": 19.75, "wordCues": {"problem": 14.470000267028809, "decomposition": 14.529999732971191, "splits": 15.1899995803833, "customer": 15.649999618530273, "problems": 16.06999969482422, "split": 17.209999084472656, "equally": 17.209999084472656, "unequal": 18.049999237060547, "shares": 18.329999923706055, "track": 19.329999923706055, "payments": 19.350000381469727}}
+        {"text": "Smaller customer problems.", "spoken": "Problem decomposition splits customer problems: find the next train; check the fare; find a step-free route.", "speechStart": 16.550000381469726, "speechEnd": 21.890000534057616, "wordCues": {"problem": 16.550000381469726, "decomposition": 16.550000381469726, "splits": 17.149999809265136, "customer": 17.60999984741211, "problems": 18.029999923706054, "find": 19.070000839233398, "the": 19.070000839233398, "next": 19.269999694824218, "train": 19.409999084472656, "check": 20.089999389648437, "fare": 20.490000915527343, "a": 21.10999984741211, "step": 21.3299991607666, "free": 21.45, "route": 21.650000762939452}, "start": 16.166666666666668, "end": 22.2}
       ],
-      "duration": 6.133333333333335
+      "duration": 6.033333333333331
     },
     {
       "id": "premises",
-      "start": 20.166666666666668,
-      "end": 27.533333333333335,
+      "start": 22.2,
+      "end": 28.633333333333333,
       "label": "Two premises",
       "captionRanges": [
-        {"text": "1 · Smaller customer problems.", "start": 20.166666666666668, "end": 24.666666666666668, "spoken": "Two premises: seek smaller customer problems before choosing solutions.", "speechStart": 20.56999969482422, "speechEnd": 24.329999923706055, "wordCues": {"two": 20.56999969482422, "premises": 20.670000076293945, "seek": 21.8700008392334, "smaller": 21.93000030517578, "customer": 22.3700008392334, "problems": 22.770000457763672, "before": 23.170000076293945, "choosing": 23.530000686645508, "solutions": 23.850000381469727}},
-        {"text": "2 · An attempt, not a guarantee.", "start": 24.666666666666668, "end": 27.533333333333335, "spoken": "A plan is an attempt, not a guarantee.", "speechStart": 25.030000686645508, "speechEnd": 27.09000015258789, "wordCues": {"a": 25.030000686645508, "plan": 25.1299991607666, "is": 25.3700008392334, "an": 25.530000686645508, "attempt": 25.950000762939453, "not": 26.469999313354492, "guarantee": 27.09000015258789}}
+        {"text": "1 · Smaller customer problems.", "spoken": "Two premises: seek smaller customer problems before choosing solutions.", "speechStart": 22.529999923706054, "speechEnd": 25.929999542236327, "wordCues": {"two": 22.529999923706054, "premises": 22.730000686645507, "seek": 23.60999984741211, "smaller": 23.63000030517578, "customer": 23.990000915527343, "problems": 24.370000076293945, "before": 24.730000686645507, "choosing": 25.13000030517578, "solutions": 25.45}, "start": 22.2, "end": 26.033333333333335},
+        {"text": "2 · An attempt, not a guarantee.", "spoken": "A plan is an attempt, not a guarantee.", "speechStart": 26.16999931335449, "speechEnd": 28.370000076293945, "wordCues": {"a": 26.16999931335449, "plan": 26.689999771118163, "is": 26.8299991607666, "an": 26.97000045776367, "attempt": 27.390000534057616, "not": 27.8299991607666, "guarantee": 28.370000076293945}, "start": 26.033333333333335, "end": 28.633333333333333}
       ],
-      "duration": 7.366666666666667
+      "duration": 6.433333333333334
     },
     {
       "id": "value",
-      "start": 27.533333333333335,
-      "end": 39.4,
+      "start": 28.633333333333333,
+      "end": 40.166666666666664,
       "label": "Goals · Value + feedback",
       "captionRanges": [
-        {"text": "Goal 1 · Value and feedback.", "start": 27.533333333333335, "end": 30.933333333333334, "spoken": "Two goals. First: deliver value and feedback.", "speechStart": 27.950000762939453, "speechEnd": 30.6299991607666, "wordCues": {"two": 27.950000762939453, "goals": 27.950000762939453, "first": 29.1299991607666, "deliver": 29.389999389648438, "value": 29.6299991607666, "and": 30.049999237060547, "feedback": 30.25}},
-        {"text": "A useful result, end to end.", "start": 30.933333333333334, "end": 34.9, "spoken": "One small story crosses the product. Now each friend knows what they owe.", "speechStart": 31.209999084472656, "speechEnd": 34.650001525878906, "wordCues": {"one": 31.209999084472656, "small": 31.3700008392334, "story": 31.690000534057617, "crosses": 31.989999771118164, "the": 32.310001373291016, "product": 32.54999923706055, "now": 33.290000915527344, "each": 33.470001220703125, "friend": 33.709999084472656, "knows": 33.90999984741211, "what": 34.130001068115234, "they": 34.290000915527344, "owe": 34.4900016784668}},
-        {"text": "Feedback changes the next step.", "start": 34.9, "end": 37.0, "spoken": "Their reaction changes the next step.", "speechStart": 35.16999816894531, "speechEnd": 36.75, "wordCues": {"their": 35.16999816894531, "reaction": 35.369998931884766, "changes": 35.790000915527344, "the": 36.150001525878906, "next": 36.290000915527344, "step": 36.529998779296875}},
-        {"text": "Just enough. Just in time.", "start": 37.0, "end": 39.4, "spoken": "Just enough, just in time to learn.", "speechStart": 37.27000045776367, "speechEnd": 38.970001220703125, "wordCues": {"just": 37.27000045776367, "enough": 37.45000076293945, "in": 38.27000045776367, "time": 38.470001220703125, "to": 38.56999969482422, "learn": 38.810001373291016}}
+        {"text": "Goal 1 · Value and feedback.", "spoken": "Two goals. First: deliver value and feedback.", "speechStart": 28.870000076293945, "speechEnd": 31.79000015258789, "wordCues": {"two": 28.870000076293945, "goals": 29.150000762939452, "first": 30.210000228881835, "deliver": 30.550000381469726, "value": 30.769999694824218, "and": 31.150000762939452, "feedback": 31.390000534057616}, "start": 28.633333333333333, "end": 32.06666666666667},
+        {"text": "A useful result, end to end.", "spoken": "One small story crosses the product. Now they know when the next train leaves.", "speechStart": 32.329999160766604, "speechEnd": 35.630000305175784, "wordCues": {"one": 32.329999160766604, "small": 32.45, "story": 32.74999923706055, "crosses": 32.99000091552735, "the": 33.310000610351565, "product": 33.5499984741211, "now": 34.29000015258789, "they": 34.40999908447266, "know": 34.56999893188477, "when": 34.6900016784668, "next": 34.90999908447266, "train": 35.130000305175784, "leaves": 35.310000610351565}, "start": 32.06666666666667, "end": 35.86666666666667},
+        {"text": "Feedback changes the next step.", "spoken": "Their reaction changes the next step.", "speechStart": 36.130000305175784, "speechEnd": 37.67000122070313, "wordCues": {"their": 36.130000305175784, "reaction": 36.26999969482422, "changes": 36.67000122070313, "the": 37.03000183105469, "next": 37.1900016784668, "step": 37.42999954223633}, "start": 35.86666666666667, "end": 37.93333333333333},
+        {"text": "Just enough. Just in time.", "spoken": "Just enough, just in time to learn.", "speechStart": 38.209998321533206, "speechEnd": 39.810000610351565, "wordCues": {"just": 38.209998321533206, "enough": 38.369998168945315, "in": 39.17000122070313, "time": 39.45, "to": 39.45, "learn": 39.67000122070313}, "start": 37.93333333333333, "end": 40.166666666666664}
       ],
-      "duration": 11.866666666666664
+      "duration": 11.533333333333331
     },
     {
       "id": "stop",
-      "start": 39.4,
-      "end": 47.0,
-      "label": "Goals · Affordable stopping",
+      "start": 40.166666666666664,
+      "end": 49.13333333333333,
+      "label": "Goals · No waste, no damage",
       "captionRanges": [
-        {"text": "Goal 2 · Freedom to change.", "start": 39.4, "end": 41.6, "spoken": "Second: make stopping affordable.", "speechStart": 39.810001373291016, "speechEnd": 41.209999084472656, "wordCues": {"second": 39.810001373291016, "make": 40.189998626708984, "stopping": 40.43000030517578, "affordable": 40.77000045776367}},
-        {"text": "Keep what works. Leave later work unstarted.", "start": 41.6, "end": 47.0, "spoken": "Completed value keeps working. Leave later stories unstarted, so you can change direction.", "speechStart": 41.970001220703125, "speechEnd": 46.689998626708984, "wordCues": {"completed": 41.970001220703125, "value": 42.22999954223633, "keeps": 42.630001068115234, "working": 42.93000030517578, "leave": 44.09000015258789, "later": 44.11000061035156, "stories": 44.43000030517578, "unstarted": 44.72999954223633, "so": 45.4900016784668, "you": 45.689998626708984, "can": 45.810001373291016, "change": 45.9900016784668, "direction": 46.25}}
+        {"text": "Goal 2 · No waste. No damage.", "spoken": "Second: change direction without waste or damage.", "speechStart": 40.53000183105469, "speechEnd": 42.72999877929688, "wordCues": {"second": 40.53000183105469, "change": 41.03000183105469, "direction": 41.29000015258789, "without": 41.67000122070313, "waste": 41.92999954223633, "or": 42.22999877929688, "damage": 42.45}, "start": 40.166666666666664, "end": 43.06666666666667},
+        {"text": "Completed value stays. Later stories wait.", "spoken": "Keep completed value; leave later stories unstarted.", "speechStart": 43.38999862670899, "speechEnd": 45.970000457763675, "wordCues": {"keep": 43.38999862670899, "completed": 43.42999954223633, "value": 43.85000152587891, "leave": 44.76999969482422, "later": 44.85000152587891, "stories": 45.1900016784668, "unstarted": 45.49000091552735}, "start": 43.06666666666667, "end": 46.333333333333336},
+        {"text": "Nothing half-built. Nothing broken.", "spoken": "Nothing half-built to abandon. Nothing broken to repair.", "speechStart": 46.67000122070313, "speechEnd": 49.130000305175784, "wordCues": {"nothing": 46.67000122070313, "half": 46.6900016784668, "built": 46.99000091552735, "to": 47.10999984741211, "abandon": 47.38999862670899, "broken": 48.33000106811524, "repair": 48.88999862670899}, "start": 46.333333333333336, "end": 49.13333333333333}
       ],
-      "duration": 7.600000000000001
+      "duration": 8.966666666666669
     },
     {
       "id": "vertical",
-      "start": 47.0,
-      "end": 57.2,
+      "start": 49.13333333333333,
+      "end": 58.733333333333334,
       "label": "Principles · Three Vs / One-piece flow",
       "captionRanges": [
-        {"text": "1 · Valuable. Visible. Vertical.", "start": 47.0, "end": 53.46666666666667, "spoken": "Four principles. Three Vs: valuable to customers, visible in their world, vertical through the product.", "speechStart": 47.310001373291016, "speechEnd": 53.150001525878906, "wordCues": {"four": 47.310001373291016, "principles": 47.66999816894531, "three": 48.66999816894531, "vs": 48.88999938964844, "valuable": 49.72999954223633, "to": 49.72999954223633, "customers": 50.029998779296875, "visible": 50.90999984741211, "in": 51.09000015258789, "their": 51.290000915527344, "world": 51.470001220703125, "vertical": 52.310001373291016, "through": 52.45000076293945, "the": 52.66999816894531, "product": 52.970001220703125}},
-        {"text": "2 · Finish one outcome. Together.", "start": 53.46666666666667, "end": 57.2, "spoken": "One-piece flow: finish one customer outcome together.", "speechStart": 53.77000045776367, "speechEnd": 56.77000045776367, "wordCues": {"one": 53.77000045776367, "piece": 53.9900016784668, "flow": 54.25, "finish": 55.290000915527344, "customer": 55.630001068115234, "outcome": 55.9900016784668, "together": 56.33000183105469}}
+        {"text": "1 · Valuable. Visible. Vertical.", "spoken": "Four principles. Three Vs: valuable to customers, visible in their world, vertical through the product.", "speechStart": 49.130000305175784, "speechEnd": 55.22999877929688, "wordCues": {"four": 49.130000305175784, "principles": 49.92999954223633, "three": 51.08999938964844, "vs": 51.08999938964844, "valuable": 52.150000762939456, "to": 52.150000762939456, "customers": 52.38999862670899, "visible": 53.310000610351565, "in": 53.310000610351565, "their": 53.51000137329102, "world": 53.6900016784668, "vertical": 54.49000091552735, "through": 54.56999893188477, "the": 54.76999969482422, "product": 55.22999877929688}, "start": 49.13333333333333, "end": 55.53333333333333},
+        {"text": "2 · Finish one outcome. Together.", "spoken": "One-piece flow: finish one customer outcome together.", "speechStart": 55.869998168945315, "speechEnd": 58.33000106811524, "wordCues": {"one": 55.869998168945315, "piece": 55.92999954223633, "flow": 56.1900016784668, "finish": 57.0499984741211, "customer": 57.369998168945315, "outcome": 57.67000122070313, "together": 57.970000457763675}, "start": 55.53333333333333, "end": 58.733333333333334}
       ],
-      "duration": 10.200000000000003
+      "duration": 9.600000000000001
     },
     {
       "id": "fractal",
-      "start": 57.2,
-      "end": 61.93333333333333,
+      "start": 58.733333333333334,
+      "end": 63.36666666666667,
       "label": "Principles · Same reasoning at every scale",
       "captionRanges": [
-        {"text": "3 · The same logic at every scale.", "start": 57.2, "end": 61.93333333333333, "spoken": "Repeat at smaller scales: stories, scenarios, implementation slices.", "speechStart": 57.61000061035156, "speechEnd": 61.529998779296875, "wordCues": {"repeat": 57.61000061035156, "at": 57.61000061035156, "smaller": 57.83000183105469, "scales": 58.130001068115234, "stories": 59.33000183105469, "scenarios": 60.150001525878906, "implementation": 60.61000061035156, "slices": 61.029998779296875}}
+        {"text": "3 · The same logic at every scale.", "spoken": "Repeat at smaller scales: stories, scenarios, implementation slices.", "speechStart": 59.130000305175784, "speechEnd": 63.01000137329102, "wordCues": {"repeat": 59.130000305175784, "at": 59.130000305175784, "smaller": 59.35000152587891, "scales": 59.650000762939456, "stories": 60.83000106811524, "scenarios": 61.650000762939456, "implementation": 62.310000610351565, "slices": 62.53000183105469}, "start": 58.733333333333334, "end": 63.36666666666667}
       ],
-      "duration": 4.733333333333327
+      "duration": 4.633333333333333
     },
     {
       "id": "commit",
-      "start": 61.93333333333333,
-      "end": 72.6,
+      "start": 63.36666666666667,
+      "end": 73.36666666666666,
       "label": "Principles · Same reasoning at every scale",
       "captionRanges": [
-        {"text": "Every commit is your last commit.", "start": 61.93333333333333, "end": 64.16666666666667, "spoken": "Every commit is your last commit.", "speechStart": 62.349998474121094, "speechEnd": 63.790000915527344, "wordCues": {"every": 62.349998474121094, "commit": 62.529998779296875, "is": 62.810001373291016, "your": 62.9900016784668, "last": 63.150001525878906}},
-        {"text": "Current purpose. Documented need. Product health.", "start": 64.16666666666667, "end": 72.6, "spoken": "Strive for useful value now; serve today's purpose or an already documented need, including product health, not merely prepare the next commit.", "speechStart": 64.56999969482422, "speechEnd": 72.19000244140625, "wordCues": {"strive": 64.56999969482422, "for": 64.56999969482422, "useful": 64.83000183105469, "value": 65.1500015258789, "now": 65.47000122070312, "serve": 66.51000213623047, "todays": 66.51000213623047, "purpose": 66.94999694824219, "or": 67.2300033569336, "an": 67.61000061035156, "already": 67.88999938964844, "documented": 68.1500015258789, "need": 68.56999969482422, "including": 69.37000274658203, "product": 69.6500015258789, "health": 70.05000305175781, "not": 70.7300033569336, "merely": 70.97000122070312, "prepare": 71.25, "the": 71.51000213623047, "next": 71.7300033569336, "commit": 71.94999694824219}}
+        {"text": "Every commit is your last commit.", "spoken": "Every commit is your last commit.", "speechStart": 63.6900016784668, "speechEnd": 64.90999908447266, "wordCues": {"every": 63.6900016784668, "commit": 63.88999862670899, "is": 64.06999893188477, "your": 64.24999923706055, "last": 64.38999862670899}, "start": 63.36666666666667, "end": 65.3},
+        {"text": "Current purpose. Documented need. Product health.", "spoken": "Strive for useful value now; serve today's purpose or an already documented need, including product health, not merely prepare the next commit.", "speechStart": 65.67000122070313, "speechEnd": 72.99000091552735, "wordCues": {"strive": 65.67000122070313, "for": 65.67000122070313, "useful": 65.90999908447266, "value": 66.18999786376953, "now": 66.46999664306641, "serve": 67.40999908447266, "todays": 67.4300033569336, "purpose": 67.85000152587891, "or": 68.13000030517578, "an": 68.58999938964844, "already": 68.82999725341797, "documented": 69.07000274658203, "need": 69.46999664306641, "including": 70.25000305175782, "product": 70.50999755859375, "health": 70.85000152587891, "not": 71.13000030517578, "merely": 71.71000213623047, "prepare": 72.00999755859375, "the": 72.35000152587891, "next": 72.53000183105469, "commit": 72.75000305175782}, "start": 65.3, "end": 73.36666666666666}
       ],
-      "duration": 10.666666666666664
+      "duration": 9.999999999999993
     },
     {
       "id": "health",
-      "start": 72.6,
-      "end": 84.9,
+      "start": 73.36666666666666,
+      "end": 85.73333333333333,
       "label": "Principles · Whole product focus",
       "captionRanges": [
-        {"text": "4 · Whole product focus.", "start": 72.6, "end": 77.33333333333333, "spoken": "Care for the whole product. Assimilate each splash into a coherent design.", "speechStart": 73.02999877929688, "speechEnd": 76.93000030517578, "wordCues": {"care": 73.02999877929688, "for": 73.05000305175781, "the": 73.2300033569336, "whole": 73.43000030517578, "product": 73.62999725341797, "assimilate": 74.80999755859375, "each": 74.93000030517578, "splash": 75.33000183105469, "into": 75.66999816894531, "a": 75.93000030517578, "coherent": 76.19000244140625, "design": 76.43000030517578}},
-        {"text": "Option value · Speculative future potential.", "start": 77.33333333333333, "end": 81.46666666666667, "spoken": "Healthy design preserves speculative future potential: option value.", "speechStart": 77.7300033569336, "speechEnd": 81.12999725341797, "wordCues": {"healthy": 77.7300033569336, "design": 77.75, "preserves": 78.19000244140625, "speculative": 78.58999633789062, "future": 79.05000305175781, "potential": 79.47000122070312, "option": 80.44999694824219, "value": 80.69000244140625}},
-        {"text": "Unused features can close alternatives.", "start": 81.46666666666667, "end": 84.9, "spoken": "Unused features can add complexity and close alternatives.", "speechStart": 81.79000091552734, "speechEnd": 84.48999786376953, "wordCues": {"unused": 81.79000091552734, "features": 82.05000305175781, "can": 82.37000274658203, "add": 82.58999633789062, "complexity": 82.7699966430664, "and": 83.20999908447266, "close": 83.70999908447266, "alternatives": 83.98999786376953}}
+        {"text": "4 · Whole product focus.", "spoken": "Care for the whole product. Assimilate each splash into a coherent design.", "speechStart": 73.76999969482422, "speechEnd": 77.32999725341797, "wordCues": {"care": 73.76999969482422, "for": 73.76999969482422, "the": 73.96999664306641, "whole": 74.13000030517578, "product": 74.31000061035157, "assimilate": 75.35000152587891, "each": 75.53000183105469, "splash": 75.85000152587891, "into": 76.18999786376953, "a": 76.39000244140625, "coherent": 76.63000030517578, "design": 76.89000244140625}, "start": 73.36666666666666, "end": 77.76666666666667},
+        {"text": "Customer value + option value.", "spoken": "Customer value now; speculative future potential at a cost: option value.", "speechStart": 78.18999786376953, "speechEnd": 82.07000274658203, "wordCues": {"customer": 78.18999786376953, "value": 78.21000213623047, "now": 78.46999664306641, "speculative": 79.53000183105469, "future": 79.78999633789063, "potential": 80.08999938964844, "at": 80.39000244140625, "a": 80.58999938964844, "cost": 80.75000305175782, "option": 81.57000274658203}, "start": 77.76666666666667, "end": 82.46666666666667},
+        {"text": "Unused features can close alternatives.", "spoken": "Unused features can add complexity and close alternatives.", "speechStart": 82.82999725341797, "speechEnd": 85.35000152587891, "wordCues": {"unused": 82.82999725341797, "features": 82.95, "can": 83.26999969482422, "add": 83.49000091552735, "complexity": 83.68999786376953, "and": 84.11000366210938, "close": 84.61000366210938, "alternatives": 84.90999908447266}, "start": 82.46666666666667, "end": 85.73333333333333}
       ],
-      "duration": 12.300000000000011
+      "duration": 12.366666666666674
     },
     {
       "id": "end",
-      "start": 84.9,
-      "end": 90.66666666666667,
+      "start": 85.73333333333333,
+      "end": 91.56666666666666,
       "label": "Choose again",
       "captionRanges": [
-        {"text": "Deliver. Learn. Choose again.", "start": 84.9, "end": 90.66666666666667, "spoken": "Smaller problems. Useful impacts. Freedom to choose again.", "speechStart": 85.29000091552734, "speechEnd": 88.33000183105469, "wordCues": {"smaller": 85.29000091552734, "problems": 85.83000183105469, "useful": 86.37000274658203, "impacts": 86.55000305175781, "freedom": 87.58999633789062, "to": 87.61000061035156, "choose": 87.87000274658203, "again": 88.05000305175781}}
+        {"text": "Deliver. Learn. Choose again.", "spoken": "Smaller problems. Useful impacts. Freedom to choose again.", "speechStart": 86.11000366210938, "speechEnd": 89.22999877929688, "wordCues": {"smaller": 86.11000366210938, "problems": 86.63000030517578, "useful": 87.25000305175782, "impacts": 87.4300033569336, "freedom": 88.4300033569336, "to": 88.50999755859375, "choose": 88.76999969482422, "again": 88.95}, "start": 85.73333333333333, "end": 91.56666666666666}
       ],
-      "duration": 5.766666666666666
+      "duration": 5.833333333333329
     }
   ],
-  "durationInFrames": 2720,
+  "durationInFrames": 2747,
   "voiceCredit": "CEDAR · AI-GENERATED NARRATION",
-  "narrationModel": "gpt-4o-mini-tts"
+  "narrationModel": "gpt-4o-mini-tts",
+  "coverDuration": 1.2
 }

@@ -17,10 +17,11 @@ the exact spoken script. Preserve ALL supplied words and their order.
 Perform ONE connected sophisticated short educational film for adults, retaining
 natural breaths and flow rather than isolated clauses. Warm, intimate,
 intelligent, understated storytelling. Pace around 150–160 words per minute,
-aiming for 85–95 seconds including natural pauses; do not rush or flatten delivery.
+aiming for 95–105 seconds including natural pauses; do not rush or flatten delivery.
 Emotional arc: a warm wish for a better world, then a genuinely curious opening
 question with a brief pause to let it land. Observe the three friends with care.
-The technical-component list has slight dry irony. The explanation is lucid and
+The technical-component list explains the structure of an answer already in mind.
+Bring a little curiosity to discovering the answer instead. The explanation is lucid and
 practical; the useful result brings a little relief. Customer reaction feels
 like discovery. Make the distinction and transitions to two premises, two goals
 and four principles easy to follow without sounding like a list. Stopping gives
@@ -122,7 +123,8 @@ def write_performance(path, report):
 
 def align(script, pcm, report, sample_rate):
     from array import array
-    fps, rate, lead = script["fps"], sample_rate, 0.25
+    fps, rate = script["fps"], sample_rate
+    lead = script.get("coverDuration", 0) + 0.25
     assert rate % fps == 0
     words = []
     for word in report["words"]:

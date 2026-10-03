@@ -3,7 +3,8 @@ import { captionAt, durationInFrames, filmScript, FPS, sceneAt } from '../../src
 describe('problem decomposition film timeline', () => {
 	it('opens in the Story Impact world, then distinguishes solution parts from customer problems', () => {
 		expect(sceneAt(0).id).toBe('hook');
-		expect(captionAt(0.5)?.spoken).toContain('wish for a better world');
+		expect(captionAt(filmScript.coverDuration + 0.3)?.spoken).toContain('wish for a better world');
+		expect(filmScript.scenes[0].captionRanges[0].speechStart).toBeGreaterThan(filmScript.coverDuration);
 		const parts = filmScript.scenes.find((scene) => scene.id === 'parts')!;
 		const problem = filmScript.scenes.find((scene) => scene.id === 'problem')!;
 		expect(sceneAt(parts.start).id).toBe('parts');

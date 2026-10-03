@@ -27,12 +27,14 @@ export const filmScript = script as {
 	subtitle: string;
 	fps: number;
 	duration: number;
+	coverDuration: number;
 	voiceCredit: string;
 	scenes: FilmScene[];
 };
 
 export const FPS = filmScript.fps;
 export const durationInFrames = Math.ceil(filmScript.duration * FPS);
+export const finalFrameSeconds = (durationInFrames - 1) / FPS;
 export const STAGE = { width: 1080, height: 1080 };
 export const NARRATION = 'assets/problem-decomposition/narration.wav';
 export const SCORE = 'assets/problem-decomposition/score.wav';

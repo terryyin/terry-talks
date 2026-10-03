@@ -1,9 +1,8 @@
 import React from 'react';
-import { bodyFont, headlineFont, palette, productStageTransform } from './design';
+import { bodyFont, headlineFont, palette } from './design';
 import { mix, reveal, sceneAt } from './film';
-import { firstStory, spokenCue } from './series';
+import { spokenCue } from './series';
 import { StageText, WishBall } from './stage';
-import { quad, roundedPath } from '../storyImpact/layout';
 
 const PrincipleName: React.FC<{ number: number; children: React.ReactNode; top?: number }> = ({ number, children, top = 280 }) => (
 	<div style={{ position: 'absolute', left: 571, top, width: 453, fontFamily: headlineFont, fontSize: 36, color: palette.ink, lineHeight: 1.12 }}><span style={{ color: palette.cobalt }}>{number} · </span>{children}</div>
@@ -21,9 +20,6 @@ export const Principles: React.FC<{ seconds: number }> = ({ seconds }) => {
 					<div style={{ opacity: mix(0.3, 1, reveal(seconds, spokenCue('vertical', 0, 'visible'), 0.4)) }}><strong>Visible</strong> · a useful result</div>
 					<div style={{ opacity: mix(0.3, 1, reveal(seconds, spokenCue('vertical', 0, 'vertical'), 0.4)) }}><strong>Vertical</strong> · cross what’s needed</div>
 				</div>
-				<svg width="1080" height="900" style={{ position: 'absolute', left: 0, top: 0 }}><g transform={productStageTransform} opacity={reveal(seconds, spokenCue('vertical', 0, 'vertical'), 0.7)}>
-					{[...firstStory.changed, firstStory.reorganized].map((spot) => <path key={`${spot.col}-${spot.row}`} d={roundedPath(quad(spot.col - 0.03, spot.col + 1.03, spot.row - 0.03, spot.row + 1.03), 7)} fill={palette.gold} fillOpacity={0.12} stroke={palette.gold} strokeWidth={5} strokeDasharray="8 7" />)}
-				</g></svg>
 			</div>
 			<div style={{ opacity: flow }}><PrincipleName number={2}>One-piece flow</PrincipleName><div style={{ position: 'absolute', left: 582, top: 362, width: 420, fontFamily: bodyFont, fontSize: 31, lineHeight: 1.4, color: palette.cobalt }}>Finish one customer<br />outcome together.<br /><span style={{ fontSize: 25, color: palette.muted }}>The next story waits.</span></div></div>
 		</>;
