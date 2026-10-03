@@ -102,7 +102,7 @@ const fs=await import('fs');const p=fs.readdirSync('node_modules/.pnpm').find(d=
 const {parse}=await import(process.cwd()+'/node_modules/.pnpm/'+p+'/node_modules/@slidev/parser/dist/index.mjs');
 const d=await parse(fs.readFileSync('slides/tps-and-ai/slides.md','utf8'),'slides.md');
 d.slides.forEach((s,i)=>console.log(i+1,s.title||'('+(s.frontmatter?.layout||'untitled')+')'));
-const n=d.slides.length,c=d.slides.findIndex(s=>/^AI speeds whichever loop you feed\$/.test(s.title||''))+1;
+const n=d.slides.length,c=d.slides.findIndex(s=>/^The engine of freedom and trust\$/.test(s.title||''))+1;
 console.log('total',n,'climax',c,'ratio',(c/n).toFixed(2));"
 ```
 
@@ -146,7 +146,9 @@ review is still to come, so the *Aki reviewed* column is blank.
 | The gates do not care who authored the change | ✓ | ✓ | |
 | Go-See may mean entering the AI harness | ✓ | ✓ | |
 | Five judgments stay human | ✓ | ✓ | |
-| Pull, don't stockpile | ✓ | ✓ | |
+| Pull: smaller customer problems | ✓ | | |
+| Freedom to choose again | ✓ | | |
+| Continuous integration is a practice, not a system | ✓ | | |
 | Let the shared product pull collaboration | ✓ | ✓ | |
 | The engine of freedom and trust | ✓ | | |
 | AI speeds whichever loop you feed | ✓ | ✓ | |

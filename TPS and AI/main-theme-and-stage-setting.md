@@ -209,8 +209,11 @@ to a claim.
    the AI harness
    ([Claims 6](claims/06-jidoka-embeds-routine-judgment.md) and
    [16](claims/16-go-see-ai-harness.md)).
-5. **JIT flow in LeSS** — pull thin vertical slices; integrate
-   continuously (a practice, not a service); let the shared product
+5. **JIT flow in LeSS** — use the Problem Decomposition film's customer
+   example: pull a smaller customer problem, deliver one useful outcome
+   end to end, and use feedback to choose the next unstarted story.
+   Keep completed value and avoid a stockpile of half-built future work.
+   Integrate continuously (a practice, not a service); let the shared product
    pull just-in-time collaboration
    ([Claims 4](claims/04-jit-assurance-resourcefulness-not-abundance.md),
    [17](claims/17-jit-vertical-slicing-one-piece-flow.md),
@@ -244,7 +247,7 @@ across topics.
 
 ## The storyline in the deck
 
-The [deck](../slides/tps-and-ai/slides.md) tells one arc in 30 slides for
+The [deck](../slides/tps-and-ai/slides.md) tells one arc in 34 slides for
 a 45-minute talk. It never exceeds 35.
 
 - **Opening:** Casual, with the diagnostic question by slide 5 and the
@@ -252,12 +255,13 @@ a 45-minute talk. It never exceeds 35.
 - **Build:** Freedom versus trust, then the triad. Next comes the
   jidoka descent: the loom's closed stop, smart → dumb → gone, and Stop &
   Fix. The same gates follow, with Go-See as a secondary beat and the five
-  judgments. Then JIT flow: pull, CI as a practice, and the shared product
-  pulling collaboration.
-- **Climax:** "The engine of freedom and trust" leads into **"AI
-  speeds whichever loop you feed"** at about three-quarters of the deck
-  (slide index ÷ total between 0.70 and 0.80). Its note pays off the early
-  statement.
+  judgments. Then JIT flow: smaller customer problems, useful delivery
+  and freedom to choose again, the standalone green-light stockpile
+  warning, and the shared product pulling collaboration.
+- **Climax:** "The engine of freedom and trust" contrasts with the early
+  **"AI speeds whichever loop you feed"** at about three-quarters of the
+  deck (slide index ÷ total between 0.70 and 0.80). Its note pays off the
+  early statement.
 - **Wind-down:** Respect for People, continuous improvement, one tension
   (Claim 23), the takeaways, the closing crane, and the end slide.
 

@@ -1158,31 +1158,182 @@ do not substitute a pile of generated solutions for capability.
 -->
 
 ---
-layout: image-right
-image: /thin-vertical-slice.png
-backgroundSize: contain
+class: "[&>h1]:!mb-2"
 ---
 
-# Pull, don't stockpile
+# Pull: smaller customer problems
 
-[プルせよ、溜め込むな]{.ja-title}
+[プル：顧客の問題を小さく分ける]{.ja-title}
 
-Start from **one current customer need** →
-cut a **thin vertical slice** →
-integrate it → confirm quality and usefulness →
-take the **next bite**.
-[**１つの顧客ニーズ**から始め → **薄い縦斬りスライス**を切り出し → 統合し → 品質と有用性を確かめ → **次の一口**へ。]{.ja}
+<div class="absolute left-[5.5%] top-[28%] w-[33%]">
+  <p class="!m-0 text-[23px] font-semibold">“Get home after dinner.”</p>
+  <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]" lang="ja">「食事のあと、家に帰りたい。」</p>
 
-**Continuous integration is a practice, not a system:** a CI server that
-integrates unowned branches is a stockpile with a green light on it.
-[**継続的インテグレーションはシステムではなく、プラクティスだ：** 誰も所有しないブランチを統合するCIサーバーは、緑のランプがついた在庫にすぎない。]{.ja}
+  <div class="mt-7">
+    <p class="!m-0 text-[27px] font-semibold text-[#b33a2b]">Find the next train</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]" lang="ja">次の電車を調べる</p>
+    <p class="!mb-0 !mt-5 text-[22px] text-[#78716c]">Check the fare</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#78716c]" lang="ja">運賃を調べる</p>
+    <p class="!mb-0 !mt-5 text-[22px] text-[#78716c]">Find a step-free route</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#78716c]" lang="ja">段差のない経路を探す</p>
+  </div>
+</div>
+
+<div class="absolute left-[42%] right-[3.5%] top-[26%] bottom-[18%]">
+  <img
+    src="/pull-customer-need.png"
+    alt="Three friends after dinner need a way home. Finding the next train is one smaller customer problem they can solve first."
+    class="h-full w-full object-contain"
+    style="mask-image: radial-gradient(ellipse 75% 90% at center, black 63%, transparent 100%);"
+  />
+</div>
+
+<div class="absolute bottom-[4%] left-[5.5%] right-[5.5%] text-center">
+  <p class="!m-0 text-[25px] font-semibold">One useful outcome, end to end.</p>
+  <p class="!mb-0 !mt-1 text-[17px] text-[#5c564e]" lang="ja">ひとつの役立つ結果を、エンドツーエンドで。</p>
+</div>
 
 <!--
-Opens JIT flow in LeSS.
+The software bridge from the preceding Just-in-Time slides. Distilled from
+Terry's completed Problem Decomposition film: seek smaller customer problems
+before choosing the solution. Three friends want to get home after dinner.
+Finding the next train, checking the fare, and finding a step-free route
+are smaller problems in their world, not database / API / screen tasks.
 
-Claims 4 (assurance by resourcefulness, not abundance) and
-17 (vertical slicing, one-piece flow). Claim 21 — CI is a developer
-practice; a CI service is not CI.
+Pick the next-train outcome for this illustrative sequence. Let that outcome
+pull the necessary solution work through every required part of the product.
+Finish one useful outcome together; confirm known quality in the working,
+integrated product. Valuable and visible refer to the customer's world;
+vertical means crossing the parts needed for this outcome, not every component.
+The other outcomes stay unstarted. Their order is a hypothesis, not a promise.
+
+This is Terry's software interpretation of JIT. A proposed feature is a
+hypothesis about need; it is not the same demand signal as replenishing a
+known consumed part. One-at-a-time is the policy for this example, not a
+definition of Toyota flow or a ban on parallel flows across teams.
+
+Claims 4, 11, and 17. The next slide shows why useful delivery and limited
+unfinished work let feedback change the plan.
+
+[Sources]
+- Local film: Problem Decomposition/film-script.json (problem, premises, value, vertical)
+- Local article: Problem Decomposition/problem-decomposition.md
+- Local Claim 17: 17-jit-vertical-slicing-one-piece-flow.md
+- https://global.toyota/en/company/vision-and-philosophy/production-system/
+[/Sources]
+-->
+
+---
+class: "[&>h1]:!mb-2"
+---
+
+# Freedom to choose again
+
+[次を選び直す自由]{.ja-title}
+
+<div class="absolute left-[5.5%] top-[29%] w-[33%]">
+  <p class="!m-0 text-[26px] font-semibold">“Next train: 22:45.”</p>
+  <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]" lang="ja">「次の電車は22:45。」</p>
+
+  <p class="!mb-0 !mt-7 text-[24px]">“Does that route<br>have stairs?”</p>
+  <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]" lang="ja">「その道、階段はある？」</p>
+
+  <p class="!mb-0 !mt-7 text-[22px] font-semibold text-[#b33a2b]">Next: a step-free route</p>
+  <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]" lang="ja">次は、段差のない経路</p>
+</div>
+
+<div class="absolute left-[42%] right-[3.5%] top-[26%] bottom-[18%]">
+  <img
+    src="/pull-customer-feedback.png"
+    alt="The friends have a useful train result. One friend asks the next question, changing which customer problem matters next."
+    class="h-full w-full object-contain"
+    style="mask-image: radial-gradient(ellipse 75% 90% at center, black 63%, transparent 100%);"
+  />
+</div>
+
+<div class="absolute bottom-[4%] left-[5.5%] right-[5.5%] text-center">
+  <p class="!m-0 text-[25px] font-semibold">Keep completed value. Leave later stories unstarted.</p>
+  <p class="!mb-0 !mt-1 text-[17px] text-[#5c564e]" lang="ja">届けた価値は残す。後のストーリーは未着手に。</p>
+</div>
+
+<!--
+The film's two goals: deliver useful value and feedback; change direction
+without avoidable waste or damage at a completed boundary. The train time
+is illustrative, not live travel information. The first outcome already
+works in the shared product. The customer's stairs question makes a
+step-free route more urgent than fare checking. We can revise the unstarted
+remainder, keep the train result, and avoid abandoning half-built fare work.
+
+Plan just enough for the current attempt. Let actual use inform the next
+customer problem and let that problem pull the solution work just in time.
+Small code changes alone are insufficient: the result must be useful and
+the whole product must remain coherent. Useful value enables feedback; it
+does not guarantee immediate feedback or that our hypothesis was correct.
+
+Protect current product health, including necessary refactoring and tests.
+Leaving later stories unstarted is not a prohibition on useful refinement,
+architecture, or fulfilling an already documented current need. The aim is
+low change cost, not a claim that every interruption has literally zero cost.
+
+Transition: the two slides work only when useful changes really join one
+working product. A server light cannot establish that practice. Restore
+the next slide's stockpile warning, then show integration pulling the
+people needed to resolve a concrete dependency.
+
+Claims 4, 5, 8, 11, 17, and 18.
+
+[Sources]
+- Local film: Problem Decomposition/film-script.json (value, stop, health, end)
+- Local article: Problem Decomposition/problem-decomposition.md
+- Local Claim 18: 18-continuous-improvement-towards-perfection.md
+[/Sources]
+-->
+
+---
+class: "[&>h1]:!text-[32px] [&>h1]:!mb-2"
+---
+
+# Continuous integration is a practice, not a system
+
+[継続的インテグレーションはシステムではなく、プラクティスだ]{.ja-title}
+
+<div class="absolute left-[5.5%] top-[34%] w-[38%]">
+  <p class="!m-0 !text-[26px] leading-[1.45]">
+    A CI server that integrates<br>
+    unowned branches is a stockpile<br>
+    with a <strong class="text-[#466747]">green light</strong> on it.
+  </p>
+  <p class="!mb-0 !mt-5 text-[18px] leading-[1.6] text-[#5c564e]" lang="ja">
+    誰も所有しないブランチを統合するCIサーバーは、緑のランプがついた在庫にすぎない。
+  </p>
+</div>
+
+<div class="absolute left-[47%] right-[3.5%] top-[25%] bottom-[5%]">
+  <img
+    src="/green-light-stockpile.png"
+    alt="A tiny green traffic light sits on a towering stockpile of crates while one person looks up from below."
+    class="h-full w-full object-contain"
+  />
+</div>
+
+<!--
+Original standalone title, sentence, and G12 artwork recovered from
+80dfe6a. The light was green: automated checks passing is not evidence
+that the group is integrating and owning small changes in one product.
+The irony is the huge stockpile beneath a reassuring success signal.
+
+Claim 21 distinguishes the developer practice from the CI service that
+supports it. Preserve the original stage wording here. In explanation,
+say CI service; server names the pictured tool, not the practice.
+
+Next: Let the shared product pull collaboration. Show the positive
+practice after this failure mode: integrate small changes into the shared
+mainline, make the dependency visible, stop, collaborate, integrate.
+
+[Sources]
+- Local Claim 21: 21-ci-practice-is-not-a-ci-system.md
+- https://less.works/less/technical-excellence/continuous-integration
+[/Sources]
 -->
 
 ---

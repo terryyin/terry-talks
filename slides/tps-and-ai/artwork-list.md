@@ -444,8 +444,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G11. Thin vertical slice
 
-- **Status:** implemented — `public/thin-vertical-slice.png`
-- **Slide:** "Pull, don't stockpile"
+- **Status:** retired 2026-10-04 — the pull explanation now uses the
+  Problem Decomposition film's customer example. Recover the former
+  `public/thin-vertical-slice.png` from Git at `f16450a`.
+- **Former slide:** "Pull, don't stockpile"
 - **Placement:** spot illustration beside the pull sequence
 - **Prompt:** A many-layered cake with one thin full-height slice
   lifted out on a small plate held by a hand; the rest of the cake
@@ -453,16 +455,35 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G12. Green light on a stockpile
 
-- **Status:** retired 2026-09-28 — slide cut in the storyline story;
-  image deleted (recover from Git at `6c71a23`) — was
-  `public/green-light-stockpile.png`
-- **Slide:** (cut) "Continuous integration is a practice, not a
-  system" — merged into "Pull, don't stockpile" without this art
-- **Placement:** right half; the slide's one-liner is the caption
+- **Status:** restored 2026-10-04 — `public/green-light-stockpile.png`,
+  recovered unchanged from Git at `80dfe6a`.
+- **Slide:** "Continuous integration is a practice, not a system"
+- **Placement:** right half; the original one-liner sits on the left.
+  This standalone warning follows the two pull slides and precedes
+  "Let the shared product pull collaboration".
 - **Prompt:** A towering mountain of stacked crates inside a warehouse
   with a tiny traffic light glowing on its summit; a lone figure at
   the base looks up; let the single accent color be green (the light)
   instead of vermilion; 4:3.
+
+### G25. Customer need and feedback — reused from the decomposition film
+
+- **Status:** reused unchanged from the film's existing artwork; byte-identical
+  copies in the deck's public directory make the Slidev build self-contained.
+  No new generation.
+- **Slides:** "Pull: smaller customer problems" and "Freedom to choose again"
+- **Deck assets:** `public/pull-customer-need.png` and
+  `public/pull-customer-feedback.png`.
+- **Original assets:** `terry-moves/public/assets/problem-decomposition/dinner.png`
+  and `terry-moves/public/assets/problem-decomposition/dinner-relief.png`.
+- **Placement:** right half, faces fully visible, soft edge mask; English
+  and Japanese customer problems stay editable on the left.
+- **Story:** three friends need to get home. A useful next-train result
+  makes the next question concrete: does the route have stairs? Keep that
+  result and reprioritize the unstarted remainder toward a step-free route.
+- **Source and original prompts:** [film artwork](../../Problem%20Decomposition/artwork.md).
+  These AI illustrations retain the film's recognizable characters and
+  ink/gouache treatment. They are conceptual customer scenes, not Toyota history.
 
 ### G13. Pit-stop changeover (SMED)
 
