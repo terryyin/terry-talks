@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Kirara-chan",
+  "email": "kirara-chan@example.org",
+  "identity": "problem-decomposition-expressive-revision#principles-in-motion",
+  "mode": "story-branch",
+  "branch": "codex/problem-decomposition-film",
+  "host": "codex"
+}

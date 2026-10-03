@@ -6,6 +6,8 @@ Make educational short videos.
 
 ## Taken
 
+- [Viewers see the decomposition principles through one continuous product transformation](../Problem%20Decomposition/expressive-sequel-seed.md#principles-in-motion) — problem-decomposition-expressive-revision#principles-in-motion
+
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
