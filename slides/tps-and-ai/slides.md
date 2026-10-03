@@ -996,36 +996,166 @@ what later landed once the tree was true — `0bd1dd2995`.
 -->
 
 ---
+class: "[&>h1]:!mb-2"
+---
 
-# Five judgments stay human
+# Just-in-Time
 
-[五つの判断は人間に残る]{.ja-title}
+[ジャスト・イン・タイム]{.ja-title}
 
-<div class="mt-14 grid grid-cols-5 divide-x divide-stone-300 text-center text-stone-800 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:gap-4 [&>div]:px-3 [&_svg]:text-[56px] [&_svg]:text-[#b33a2b] [&_strong]:text-lg [&_strong]:leading-tight">
+<div class="absolute left-[6%] right-[6%] top-[25%] grid grid-cols-3 gap-6 text-center">
   <div>
-    <ph-scales aria-hidden="true" />
-    <div><strong>Value</strong><span class="ja">価値</span></div>
+    <p class="!m-0 !text-[25px] !leading-tight font-semibold">Only what is needed</p>
+    <p class="!mb-0 !mt-2 !text-[18px] !leading-snug text-[#5c564e]" lang="ja">必要なものを</p>
   </div>
   <div>
-    <ph-pencil-ruler aria-hidden="true" />
-    <div><strong>Design</strong><span class="ja">設計</span></div>
+    <p class="!m-0 !text-[25px] !leading-tight font-semibold">When it is needed</p>
+    <p class="!mb-0 !mt-2 !text-[18px] !leading-snug text-[#5c564e]" lang="ja">必要なときに</p>
   </div>
   <div>
-    <ph-key aria-hidden="true" />
-    <div><strong>Credentials</strong><span class="ja">認証情報</span></div>
-  </div>
-  <div>
-    <ph-warning-circle aria-hidden="true" />
-    <div><strong>Undiagnosed failure</strong><span class="ja">未診断の失敗</span></div>
-  </div>
-  <div>
-    <ph-question aria-hidden="true" />
-    <div><strong>Ambiguity</strong><span class="ja">曖昧さ</span></div>
+    <p class="!m-0 !text-[25px] !leading-tight font-semibold">The amount needed</p>
+    <p class="!mb-0 !mt-2 !text-[18px] !leading-snug text-[#5c564e]" lang="ja">必要な量だけ</p>
   </div>
 </div>
 
+<div class="absolute left-[6%] right-[6%] top-[38%] grid grid-cols-3 gap-6 text-center">
+  <div>
+    <img src="/jit-customer-orders.png" class="h-[205px] w-full object-contain" alt="Two customers each want one car." />
+    <p class="!mb-0 !mt-3 !text-[22px] !leading-tight font-semibold">Order 2 cars</p>
+    <p class="!mb-0 !mt-1 !text-[16px] !leading-snug text-[#5c564e]" lang="ja">2台の注文</p>
+  </div>
+  <div>
+    <img src="/jit-assembly-pulls-wheels.png" class="h-[205px] w-full object-contain" alt="An assembler identifies the wheels needed for two car bodies at the wheel-fitting stage." />
+    <p class="!mb-0 !mt-3 !text-[22px] !leading-tight font-semibold">Pull 8 wheels</p>
+    <p class="!mb-0 !mt-1 !text-[16px] !leading-snug text-[#5c564e]" lang="ja">車輪8個を引き取る</p>
+  </div>
+  <div>
+    <img src="/jit-wheel-replenishment.png" class="h-[205px] w-full object-contain" alt="A wheel worker replenishes eight wheels: seven on the ready rack and one being assembled." />
+    <p class="!mb-0 !mt-3 !text-[22px] !leading-tight font-semibold">Replenish 8 wheels</p>
+    <p class="!mb-0 !mt-1 !text-[16px] !leading-snug text-[#5c564e]" lang="ja">車輪8個を補充する</p>
+  </div>
+</div>
+
+<svg viewBox="0 0 900 210" class="absolute left-[4%] top-[38%] h-[38%] w-[92%] pointer-events-none" role="img" aria-label="Customer demand pulls vehicle assembly, which pulls replenishment of the required wheels from the preceding process.">
+  <defs><marker id="jit-demand-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9" fill="none" stroke="#b33a2b" stroke-width="1.5" /></marker></defs>
+  <path d="M 288 105 H 334" fill="none" stroke="#b33a2b" stroke-width="2.5" marker-end="url(#jit-demand-arrow)" />
+  <path d="M 579 105 H 625" fill="none" stroke="#b33a2b" stroke-width="2.5" marker-end="url(#jit-demand-arrow)" />
+</svg>
+
+<div class="absolute bottom-[3%] left-[6%]">
+  <p class="!m-0 !text-[21px] !leading-tight font-semibold">Minimum stock. Steady flow.</p>
+  <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">必要最小限の在庫で、流れをつなぐ。</p>
+</div>
+
+<div class="absolute bottom-[2%] right-[5%] text-[10px] text-[#5c564e]">
+  <a href="https://global.toyota/en/company/vision-and-philosophy/production-system/">Toyota: Toyota Production System</a>
+</div>
+
 <!--
-Claim 6.
+Claims 3, 4 and 17. This slide establishes Toyota's operational definition
+before Terry's people-side interpretation and the software translation.
+
+Start with the customers: each of two customers wants one car. Assembly
+therefore needs eight road wheels for those two vehicles. The assembly
+process pulls that quantity from ready stock, and wheel preparation
+replenishes the eight used. The supplier vignette contains exactly eight:
+seven ready wheels and one being assembled. The displayed quantities are
+for a simplified example period, not a Toyota kanban container size or an
+actual production schedule. Four road wheels per car; spare wheels are
+outside this illustrative count.
+
+The red arrows carry need upstream, reading left to right: customers,
+vehicle assembly, wheel preparation. Physical parts and completed vehicles
+flow the other way. The small ready stock and replenishment loop remain
+essential: the picture does not mean that every part starts from scratch
+only after a customer's order. The second scene is the normal wheel-fitting
+stage, not a production line deliberately waiting for a shortage.
+
+These are conceptual vignettes, not a specific Toyota plant or its exact
+card system. The examples make demand and the required quantity visible;
+Toyota's actual system synchronizes timing as well as quantity.
+
+Toyota describes synchronized processes with minimum ready stocks and
+replenishment before the next withdrawal. Thus JIT does not mean making
+all 30,000 parts only after receiving a car order, nor simply removing all
+inventory. Make to actual need, at the pace of demand, and stop after the
+needed quantity. Continuous flow, pull, takt, leveling and dependable
+processes work together; the replenishment example introduces one part
+of that system, not a complete implementation recipe.
+
+Misunderstandings to demystify aloud: producing early or faster merely to
+keep everyone busy creates overproduction. The point is a dependable,
+coordinated response when needed. Low inventory is supported by capability,
+quality and reliable replenishment, not by hoping everything will go well.
+Claim 4 owns mixed-model capability and cheap changeover; keep those
+internals available in the notes rather than crowding the introduction.
+
+[Sources]
+- https://global.toyota/en/company/vision-and-philosophy/production-system/
+- https://global.toyota/en/company/plant-tours/production-system/
+[/Sources]
+-->
+
+---
+class: "[&>h1]:!mb-2"
+---
+
+# JIT entrusts people
+
+[JITは、応える仕事を人に任せる]{.ja-title}
+
+<div class="absolute left-[6%] top-[31%] w-[34%]">
+  <p class="!m-0 !text-[34px] !leading-tight font-semibold text-[#b33a2b]" lang="ja">ある物で工夫する</p>
+  <p class="!mb-0 !mt-4 !text-[27px] !leading-snug font-semibold">Be resourceful<br>with what you have.</p>
+</div>
+
+<img src="/jit-resourceful-response.png" class="absolute right-[5%] top-[26%] h-[56%] w-[56%] object-contain" alt="A customer’s loaded cart meets a raised doorway. Two craftspeople use available boards and blocks to make and check a wide ramp that meets the need." />
+
+<div class="absolute bottom-[6%] left-[6%] right-[6%]">
+  <p class="!m-0 !text-[28px] !leading-tight font-semibold">Confidence comes from the ability to respond.</p>
+  <p class="!mb-0 !mt-1 !text-[18px] !leading-snug text-[#5c564e]" lang="ja">応える力が、任せる確信になる。</p>
+</div>
+
+<div class="absolute bottom-[2%] left-[6%] text-[11px] text-[#5c564e]">Terry’s reading of JIT, inspired by Kazumasa Ebata’s teaching</div>
+
+<!--
+Claims 3, 4, 10 and 14. A self-contained, movable people-side companion
+to the operational definition of Just-in-Time. This is Terry's reading,
+not Toyota's definition or a Toyota/Ohno quotation.
+
+ある物で工夫する — aru mono de kufū suru — means be resourceful with
+what you have. Kazumasa Ebata shared this teaching with Terry. Claim 14
+records the exact line, the oral source and the limits of the published
+corroboration. The parenthetical interpretations in those notes are Terry's.
+
+Story: a customer needs to get a loaded cart through a raised doorway.
+The people close to the problem see the actual obstacle. They collaborate,
+use the materials already available, and fit and check a simple ramp.
+The illustration is an analogy for resourceful response, not a Toyota
+assembly operation. The useful response grows from firsthand facts and
+competence, rather than a stockpile of imagined answers.
+
+The JIT connection is entrusting capable people close to the work to meet
+actual need, using and improving the system's ability to respond. It is
+not a promise that scarcity automatically creates ingenuity, or permission
+to abandon standards, quality or support. Toyota's reliable processes,
+visible pull signals, jidoka, kaizen and collaboration make this response
+credible. Claim 4 names operational readiness; it does not claim all
+workers in a JIT implementation necessarily feel safe or trusted.
+
+Software bridge: the next slide pulls one current user need. The team can
+reuse existing code and tools, investigate the situation, collaborate,
+and adapt a small verified response. AI can help with that current work.
+The product standard and owned checks still apply. Entrust the response;
+do not substitute a pile of generated solutions for capability.
+
+[Sources]
+- Local Claim 3: 03-jidoka-enables-jit-trusts-respect-grows.md
+- Local Claim 4: 04-jit-assurance-resourcefulness-not-abundance.md
+- Local Claim 14: 14-ebata-jit-teaching-in-print.md
+- Kazumasa Ebata, oral teaching to Terry Yin; not a published Toyota source.
+- https://global.toyota/en/company/vision-and-philosophy/production-system/
+[/Sources]
 -->
 
 ---
@@ -1057,43 +1187,62 @@ practice; a CI service is not CI.
 -->
 
 ---
-class: "[&>h1]:!mb-2 [&_ul]:!my-1 [&_li]:!my-0.5 [&_li]:!leading-snug"
+class: "[&>h1]:!mb-2"
 ---
 
 # Let the shared product pull collaboration
 
 [共有プロダクトに、協働をプルさせる]{.ja-title}
 
-- Technical excellence exists so one product group can integrate continuously
-  [技術的卓越性は、継続的な統合のためにある]{.ja}
-- The shared product pulls the right people together, just in time
-  [共有プロダクトが、必要な人を必要なときに引き寄せる]{.ja}
-- A justified **stop is productive** — make the abnormality current work before
-  more output inherits it
-  [正当な**停止は生産的**——異常をいまの仕事にする]{.ja}
-- Slowing down means **not overproducing** — do not create debt faster
-  [**作りすぎない**——負債を速く作らない]{.ja}
-
-<div class="doughnut-example w-[46%] [&_p]:!leading-snug">
-
-Cursor, January 2026: extract a child note from a checklist point.
-The shared recall screen (`Assimilation.vue`) records a conflict leftover;
-lint stops an unused import; the user sees a loading modal while the child
-is created.
-[Cursor、2026年1月：子ノートの切り出しで、残骸の記録・lintの停止・ローディング表示が起きる。]{.ja}
-
+<div class="absolute left-[4%] top-[25%] w-[92%] aspect-[8/3]">
+  <img
+    src="/integration-coordination.png"
+    alt="One customer needs a bright, wind-resistant lantern. Two teams integrate changes into one shared product; a conflict stops a push and brings the five people together to resolve it, producing one coherent lantern."
+    class="h-full w-full object-contain"
+  />
+  <svg viewBox="0 0 2048 768" class="absolute inset-0 h-full w-full pointer-events-none" aria-hidden="true">
+    <defs>
+      <marker id="collaboration-pull-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8" fill="none" stroke="#b33a2b" stroke-width="1.6" />
+      </marker>
+      <marker id="collaboration-return-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8" fill="none" stroke="#78716c" stroke-width="1.6" />
+      </marker>
+    </defs>
+    <path d="M 982,483 C 1035,483 1030,430 1095,448" fill="none" stroke="#b33a2b" stroke-width="4" marker-end="url(#collaboration-pull-arrow)" />
+    <path d="M 1086,604 C 1010,635 1020,497 1035,430" fill="none" stroke="#78716c" stroke-width="3.5" marker-end="url(#collaboration-return-arrow)" />
+  </svg>
 </div>
 
-<img
-  src="/integration-coordination.png"
-  alt=""
-  class="absolute bottom-[2%] right-[3%] h-[38%] w-[50%] object-contain"
-/>
+<div class="absolute bottom-[4%] left-[5.5%] right-[5.5%] text-center">
+  <p class="!m-0 text-[25px] font-semibold">Integrate continuously. Collaborate just in time.</p>
+  <p class="!mb-0 !mt-1 text-[17px] text-[#5c564e]">継続的に統合し、必要なときに協働する。</p>
+</div>
 
 <!--
 Claim 8. Nemawashi (Claim 9) and the Ebata teaching (Claim 14) support
 these JIT beats. G19 (ukiyo-e panorama) is the integration–coordination
 overlap.
+
+Walk the picture left to right: one customer needs one lantern that is
+both bright and wind resistant. Two teams change one shared product.
+The upper pair integrates black A B first; the lower mob's later A C
+conflicts at A. The red stop calls the relevant five people together.
+They resolve the dependency directly and integrate one coherent result.
+The red arrow pulls collaboration; the stone return arrow closes integration.
+The customer need is the source of pull, not a manager allocating parts.
+
+Technical excellence enables the whole product group to integrate
+continuously. A meaningful stop is productive: make the abnormality
+current work before more output inherits it. Do not stockpile changes
+or create debt faster. This does not prohibit useful earlier refinement
+or design conversations; integration makes a concrete dependency visible
+and pulls the people needed to resolve it.
+
+Optional spoken example, removed from the slide: Cursor, January 2026,
+extract a child note from a checklist point. The shared recall screen
+(`Assimilation.vue`) records a conflict leftover; lint stops an unused
+import; the user sees a loading modal while the child is created.
 
 Chain: `c2d800a378` (AI-tool infra) → `6f54cc1bd1` (extract-to-child
 API) → `9eb162a918` (E2E/type; body records `# Conflicts:
@@ -1266,6 +1415,79 @@ Both are good ideas; each limits the other.
 
 Claim 7 (supporting, qualified aside): the Algorithm's operating logic
 resembles TPS and lean; direct derivation from TPS is unproven.
+-->
+
+---
+class: "text-center [&>h1]:!text-[26px] [&>h1]:!mb-2"
+---
+
+# How do you know if the organization is using AI right?
+
+[組織がAIを正しく使えているか、どうすればわかるか？]{.ja-title}
+
+<div class="absolute left-[5.5%] right-[5.5%] top-[30%]">
+  <p class="!m-0 text-[48px] font-semibold leading-[1.12]">
+    <span class="text-[#b33a2b]">Freer</span> and <span class="text-[#b33a2b]">more capable</span>
+  </p>
+  <p class="!mb-0 !mt-4 text-[37px] font-semibold leading-tight">to solve the next real problem.</p>
+  <p class="!mb-0 !mt-4 text-[19px] text-[#5c564e]">次の本当の問題を解く自由と力が、増えている。</p>
+</div>
+
+<div class="absolute left-[5.5%] right-[5.5%] top-[69%] grid grid-cols-3 gap-8">
+  <div>
+    <p class="!m-0 text-[22px] font-semibold">Jidoka</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">自働化</p>
+    <p class="!mb-0 !mt-4 text-[21px] leading-snug">Less judgment to repeat.</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">同じ判断を繰り返さずに済む。</p>
+  </div>
+  <div>
+    <p class="!m-0 text-[22px] font-semibold">Just-in-Time</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">ジャスト・イン・タイム</p>
+    <p class="!mb-0 !mt-4 text-[21px] leading-snug">Real need pulls work.</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">本当のニーズから仕事が始まる。</p>
+  </div>
+  <div>
+    <p class="!m-0 text-[22px] font-semibold">Respect for People</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">人間性尊重</p>
+    <p class="!mb-0 !mt-4 text-[21px] leading-snug">Better able to respond.</p>
+    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">人が育ち、応える力が増す。</p>
+  </div>
+</div>
+
+<!--
+Return to the opening question (Claim 10) before the takeaways. The
+opening answer was teams more freed than constrained by what they built.
+Here is what that freedom lets them do: take the next highest-value
+work and acquire the knowledge it needs. Greater output is not sufficient
+evidence of that outcome.
+
+Three observable signs, interpreted through Terry's triad (Claim 3):
+
+Jidoka: learned rules become understandable tests, stops, simple mechanisms,
+or removal of unnecessary parts. Later use needs less repeated live
+judgment. People and AI can spend attention on what still needs discovery.
+People retain the authority and ability to understand, stop, and improve
+the work. A gate the team cannot act on creates another constraint.
+
+Just-in-Time: actual user need pulls small, integrated, useful changes and
+the collaboration needed for them. Teams can take the next valuable work
+instead of being trapped by leftover ownership or a stockpile of output.
+Entrusting a capable response is Terry's reading of JIT; Toyota defines
+JIT operationally by what, when, and how much is needed.
+
+Respect for People: freed attention goes into comprehension, teamwork,
+teaching, and kaizen. People become better able to handle the unfamiliar.
+Visible, responsible capability warrants entrusting the next problem.
+
+Make the diagnosis concrete in a retrospective: What known decision no
+longer needs repeating? What valuable work can we now take? What can the
+people now understand and do that they could not before? Look for the
+direction over time, with comparable work; these signs are not a scored
+checklist or a guarantee that every AI use is beneficial.
+
+Claims 3, 6, 10, 12, and 22. This conclusion is Terry's interpretation
+of TPS for AI-assisted software development, not a Toyota quotation or
+an empirical claim that TPS automatically produces this outcome.
 -->
 
 ---

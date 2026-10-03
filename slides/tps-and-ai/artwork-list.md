@@ -243,6 +243,101 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   >
   > The developers have turned their attention away from the quiet guarded workstation toward useful discovery with the user. Preserve plenty of open ground between the left workstation and the right group so that this shift in attention is visible. Sparse environment, no office clutter, no factory, cages, shackles, shields, doors, arrows, connecting lines, fantasy robots or decorative symbols. Prioritize people, hands, laptop and the shared prototype, with readable silhouettes and credible anatomy. Background truly transparent; warm pale gray wash may remain inside the figures and furniture. Fade all ground washes gently to transparency. Illustration only, no titles or writing anywhere.
 
+### G22. Just-in-Time — use pulls replenishment
+
+- **Status:** retired 2026-10-03, replaced by G24's three vignettes.
+  Former asset `public/jit-pull-replenishment.png` removed from public.
+  This uncommitted asset remains recoverable from the original built-in
+  generation at `/Users/terryyin/.codex/generated_images/01a0faef-d3e4-73e1-b082-5f5307e77aa7/exec-3193eeb2-f0ee-4ba9-81b4-385627f55b48.png`.
+- **Slide:** "Just-in-Time"
+- **Former placement:** Wide production-line illustration beneath the three parts of the JIT definition. A typeset arrow above it returned the replenishment signal upstream.
+- **Generation:** built-in imagegen; G1 supplied as the style reference. Final targeted edits used the preceding output as the edit target.
+- **Meaning:** Downstream takes a needed bracket and its kanban from a small ready stock; upstream replenishes the withdrawal. The stock is intentional and limited. The scene is a simplified conceptual illustration, not a Toyota plant photograph or a copy of Toyota artwork.
+
+- **Initial generation prompt (complete):**
+
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+  >
+  > Create an original conceptual illustration for teaching Toyota's Just-in-Time pull and replenishment system. The supplied crane image is a style reference only; no crane in this image. Use a truly transparent surrounding background and retain pale warm washes inside the figures and equipment.
+  >
+  > A wide, low horizontal production-line scene, about 2.7:1. Make all important subjects fill the canvas with little unused margin above and below. LEFT: a worker at a compact guarded machine is making ONE small metal mounting bracket, with one completed replacement bracket on the workbench. CENTER: a small neat three-position parts rack is the intentionally limited buffer. Two positions each contain one identical finished bracket; the third position is visibly vacant because a bracket has just been withdrawn. No stockpiles, no huge bins or piles of raw parts. RIGHT: a second worker has just taken ONE of those same brackets for the next assembly process, holding it in one hand and the removed blank vermilion kanban card in the other. Immediately behind this worker, a faint simple car chassis at an assembly station makes the downstream purpose recognizable. The card is the only red accent and clearly belongs to the withdrawn bracket's rack position.
+  >
+  > Show these connected stages at a consistent scale: upstream making a replacement, a small ready stock, downstream taking a needed part. Emphasize that the downstream withdrawal authorizes replenishment upstream. Calm, capable people working at a sustainable pace. Hands and all individual brackets must be readable. Credible protected machinery, normal workwear, no toy robots, no heroic scrambling, no overseer. No Toyota logos or historical claims. No arrows or connecting lines: these will be added as precise editable graphics in the slide. No writing, labels or numerals on the card, machines or clothing. Keep all objects fully visible, and fade the light ground wash gently into transparency.
+
+- **Targeted edit prompt 1 (complete):**
+
+  > Edit this sumi-e production-line illustration, preserving the three-stage composition, the people, identical brackets, two filled rack positions and one empty position, downstream car chassis, scale, brushwork, and transparent background.
+  >
+  > Make two precise corrections. FIRST: leave only ONE vermilion kanban card, the one held by the downstream worker on the right. Recolor the extra card clipped above the empty rack position to pale neutral gray. Do not introduce any other red accents. SECOND: the upstream worker's hands must be clearly outside the machine's cutting zone. Add a closed, simple clear safety guard around the drill spindle and clamped bracket. Move the worker's hands away from the spindle: one hand operates the external side control while the other rests outside on the bench near the single completed replacement bracket. The metal part under the spindle is held by a proper clamp, not by fingers. Do not alter the two finished brackets on the rack or the one held by the downstream worker. No text, letters, numerals, logos, arrows or captions. Keep all important subjects fully visible.
+
+### G23. Entrust a resourceful response
+
+- **Status:** done — `public/jit-resourceful-response.png`
+- **Slide:** "JIT entrusts people"
+- **Placement:** Right-side spot illustration beside ある物で工夫する and its English gloss. The words remain editable slide text.
+- **Generation:** built-in imagegen; G1 supplied as the style reference. Final targeted edits used the preceding output as the edit target.
+- **Meaning:** A real customer's cart is blocked by a raised doorway. Capable people use available boards and supports to create and check a useful ramp. This is an analogy for Terry's reading of JIT and Ebata's teaching, not a literal Toyota production practice or permission to bypass standards.
+
+- **Initial generation prompt (complete):**
+
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+  >
+  > Create an original conceptual illustration of the Japanese teaching "be resourceful with what you have": capable people observe a real user's need, collaborate and respond using available materials. The supplied crane image is a style reference only; do not include a crane. This is an explanatory analogy for a presentation, not a picture of an actual Toyota event or a claim about Toyota's assembly process. Transparent surrounding background, 4:3 composition, subjects large and readable with little unused border.
+  >
+  > A small doorway has a modest raised threshold. On the LEFT, a customer stands with a small wheeled cart carrying one ordinary crate. The cart has stopped at the threshold; the customer's calm gesture makes the practical difficulty obvious. On the RIGHT and CENTER, two capable craftspeople have responded by making a short, solid wooden ramp from a few boards and simple support blocks already available beside their workbench. The ramp connects the floor smoothly to the threshold. One craftsperson kneels and carefully checks the ramp's fit and support with a small measuring square. The other sets the final board into place and indicates the usable route to the customer. The customer and craftspeople look at the same concrete problem and solution, as peers. Give everyone distinct credible hands and clear actions.
+  >
+  > A few remaining boards and the measuring tool show what they had available, not an abundance of supplies. The ramp must be mechanically plausible, supported, simple and safe looking, with no gaps or unstable balance. Put the only small vermilion accent on the final board being fitted, drawing attention to the team's useful adaptation. Sparse background: only the low doorway, cart, workbench, a few materials and people. No warehouse, stockpile, supervisor, desperate emergency, magic, arrows, text, writing or logos. Keep the customer's cart, the threshold and the whole finished route visible so the need and response are understandable without words. Fade the ground wash to transparency.
+
+- **Targeted edit prompt 1 (complete):**
+
+  > Edit this sumi-e resourcefulness illustration to make the customer's usable route through the doorway completely unambiguous. Preserve the customer with the loaded cart on the left, the two craftspeople, the spare boards and simple measuring tool on the right, the ink-and-wash style, and the transparent background.
+  >
+  > The short vermilion wooden ramp must run from the customer's floor immediately ahead of the cart UP to the center of the raised doorway opening. Its high end must visibly rest on the sill BETWEEN the two upright doorposts, with the open passage behind it. It must not terminate at a solid wall or doorpost. Adjust its orientation and shorten it if necessary so the customer could roll the cart straight up and through the doorway. Keep the whole route clearly visible, with the ramp supported by simple blocks and no gaps. Adjust the standing craftsperson's hand to touch the correctly placed upper end; the kneeling craftsperson checks the lower fit and support. Keep the route, cart, ramp surface and both endpoints unobstructed by people. The vermilion accent stays only on the ramp. No text, arrows, captions or new objects.
+
+- **Targeted edit prompt 2 (complete):**
+
+  > Make one final precise correction to this resourcefulness illustration. Preserve the people, cart, doorway, tool and spare materials, ink-and-wash style, transparent background, and all other proportions. Replace the narrow plank ramp with a SHORT WIDE RAMP PLATFORM made from three adjacent boards. It must be wider than the distance between the cart's two wheels, so BOTH wheels can roll safely up it. Its upper edge spans the center of the open doorway between the posts, securely resting on the sill; its lower edge is on the floor directly ahead of the cart. Align this simple platform with the cart's path through the OPEN passage, with no doorpost blocking either wheel. Show the whole platform and its clearly supported edges. The center board keeps the existing vermilion accent; the two adjoining boards are neutral wood wash. Adjust only the craftsperson's hand as needed to meet the new upper edge. No text, symbols or additional objects.
+
+### G24. Customer need pulls assembly and wheel replenishment
+
+- **Status:** done — three transparent assets:
+  - Customer orders: `public/jit-customer-orders.png`
+  - Assembly pulls wheels: `public/jit-assembly-pulls-wheels.png`
+  - Wheel replenishment: `public/jit-wheel-replenishment.png`
+- **Slide:** "Just-in-Time"
+- **Placement:** three equal columns below the unchanged JIT definition,
+  with editable quantity labels and vermilion demand arrows between them.
+- **Generation:** built-in imagegen; G1 supplied as a style reference.
+- **Meaning:** two customer orders call for two cars and eight road wheels.
+  Assembly pulls eight; the preceding wheel process replenishes eight.
+  The final vignette contains seven finished wheels plus one being assembled.
+  This is a simplified quantity example, not a Toyota schedule or container size.
+  Minimum ready stock and replenishment remain explicit on the slide and in notes.
+
+- **Customer orders — complete generation prompt:**
+
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+  >
+  > Create one of three matching, abstract teaching vignettes for a Just-in-Time presentation. The supplied crane is a STYLE reference only, not a subject. Transparent surrounding background. Square canvas, clean readable silhouettes, sparse detail, simplified objects, no factory panorama or clutter. The main subjects should fill most of the square with all figures and essential objects visible. Ground washes fade to transparency. All counting and arrows will be editable slide text outside the image. Do not paint numbers, labels, logos, connecting arrows or words.
+  >
+  > Show exactly TWO distinct adult customers, one woman and one man, side by side in ordinary modern clothing. Each wants ONE car. Above each person's head, show one simple outlined thought bubble containing the silhouette of ONE small passenger car, a total of TWO separate car symbols. Their relaxed gestures indicate an actual wish or order, not distress or a sales pitch. Give each bubble a tiny vermilion underline or dot as the demand accent. No dealer or factory, no extra people, no actual cars on the ground, no wheels as loose objects. Keep the two customers and their two car wishes clearly separated and readable.
+
+- **Assembly pulls wheels — complete generation prompt:**
+
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+  >
+  > Create one of three matching, abstract teaching vignettes for a Just-in-Time presentation. The supplied crane is a STYLE reference only, not a subject. Transparent surrounding background. Square canvas, clean readable silhouettes, sparse detail, simplified objects, no factory panorama or clutter. The main subjects should fill most of the square with all figures and essential objects visible. Ground washes fade to transparency. All counting and arrows will be editable slide text outside the image. Do not paint numbers, labels, logos, connecting arrows or words.
+  >
+  > Show ONE modern factory assembler at a simplified vehicle assembly station with exactly TWO passenger-car bodies, one in the foreground and one immediately behind it in the same short production sequence. Both are at the normal stage BEFORE their road wheels are installed. Clear open wheel arches and visible hubs, no tires attached yet. This is scheduled assembly, not a broken car or repair shop. The worker points calmly to the near car's exposed hub, indicating the need for road-wheel assemblies. A small blank vermilion kanban card in the other hand represents the pull signal. The two car bodies need only enough ink contours to be unmistakably cars; keep machinery to a simple support stand. No stacks of components, no loose wheels, no extra cars or workers, no tools blocking the hub. Make the assembler and two bodies readable at thumbnail size.
+
+- **Wheel replenishment — complete generation prompt:**
+
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+  >
+  > Create one of three matching, abstract teaching vignettes for a Just-in-Time presentation. The supplied crane is a STYLE reference only, not a subject. Transparent surrounding background. Square canvas, clean readable silhouettes, sparse detail, simplified objects, no factory panorama or clutter. The main subjects should fill most of the square with all figures and essential objects visible. Ground washes fade to transparency. All counting and arrows will be editable slide text outside the image. Do not paint numbers, labels, logos, connecting arrows or words.
+  >
+  > Show ONE worker at a simple wheel-assembly bench preparing the demanded road wheels. Depict exactly EIGHT identical road-wheel assemblies in total in this vignette: ONE wheel is held upright in a simple secure assembly jig at the bench, with the worker fitting its rim and tire; the other SEVEN completed wheels stand separately and visibly on a small low ready rack, FOUR in a back row and THREE in the front row. The wheel in the jig plus the seven on the rack totals eight. All are the same size and design, black tires with simple gray rims. No loose spare tires, duplicate rims, extra wheels, piles or large inventory. A small blank vermilion pull card clipped to the bench is the only red accent. The worker responds to the signal, with readable hands outside any hazardous machinery. Keep the eight wheels easy to count, separated enough to see every circle. The drawing is a simplified conceptual quantity example, not a specific Toyota plant.
+
 ### G5. Watching the loom / watching the AI (mirrored pair, 1 of 2)
 
 - **Status:** done — `public/watching-the-loom-watching-the-ai.png`
@@ -462,29 +557,32 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G19. Shared product pulls collaboration (ukiyo-e panorama)
 
-- **Status:** done — generated at `public/integration-coordination.png`
+- **Status:** retouched 2026-10-03 with the built-in image tool —
+  transparent artwork at `public/integration-coordination.png`
 - **Slide:** "Let the shared product pull collaboration"
-- **Placement:** 3:1 wide strip under the three bullets (same
-  bottom-strip footprint as G13 / G16 / G17). Doughnut example stays
-  typeset, not in the picture.
+- **Placement:** dominant wide panorama under the title; true alpha
+  background. The example and fuller explanation are in speaker notes.
+  One short bilingual footer carries the message: "Integrate continuously.
+  Collaborate just in time." Two small native SVG arrows connect the
+  conflict and collaboration, leaving the artwork free of long labels.
 - **Exception (medium):** the common prefix is sumi-e ink-wash. The
   owner asked for **浮世絵** (ukiyo-e woodblock). This item **replaces**
   the medium: bold black outlines, flat color fields, a limited
   palette, on off-white paper. Keep the deck's vermilion accent. Do
   **not** prepend the sumi-e prefix. Do **not** pass G1 as a style
   reference — it would pull the scene back into wash.
-- **Exception (text):** the common prefix says “No text, no letters, no
-  captions.” The owner asked for **A B C** on the trunk, two
-  customer-need callouts, and two English labels on the hinge arrows
-  **in the picture**. This item overrides that rule. If a generation
-  garbles the long phrases, keep A B C in the image and typeset those
-  phrases on-slide.
+- **Exception (text):** retain only **A B** and **A C** on the shared
+  trunk. The original customer callouts and long arrow captions were
+  removed in the 2026-10-03 simplification. One lantern with light rays
+  and wind curls represents the customer's two needs for the same product.
 - **Why generated:** Claim 8's overlap — continuous integration pulls
   the right people; their coordination results in integration — is a
   spatial story the bullets cannot show. Two small feature teams pull
   from one customer, collide on one trunk, then coordinate by
   themselves into one cohesive product. No manager in the picture.
-- **Prompt:** A single panoramic 浮世絵 (ukiyo-e woodblock print),
+- **Original generation prompt (archived; the retouch prompts below
+  supersede the background, framing, captions and arrows):** A single
+  panoramic 浮世絵 (ukiyo-e woodblock print),
   three times as wide as it is tall (3:1), on off-white paper. One
   continuous Edo-style workshop scene reading left to right — not
   four boxed comic panels, not a flowchart, not a git graph with many
@@ -546,7 +644,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   (lens): narrow at both ends, widest in the middle. English,
   sentence case as given. No other slogans, no kanji, no logos, no
   CI-server boxes.
-- **Accuracy notes for the worker (must survive generation):** when
+- **Original generation accuracy notes (archived):** when
   regenerating, do **not** prepend the sumi-e prefix. Keep Prompt's
   labels large, Latin, readable, and spelled exactly. The customer's
   two needs belong to the same lantern, never separate components or
@@ -569,6 +667,46 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   silhouette. If the tool cannot emit 3:1, generate 16:9 with the
   diamond as a wide strip and empty paper above and below, then crop
   to 3:1.
+
+---
+
++
+- **2026-10-03 retouch prompt — background extraction and simplification:**
+
+  Retouch the supplied ukiyo-e panorama for an elegant presentation slide. Preserve its distinctive Edo workshop woodblock style, characters, black outlines, muted indigo and warm natural wood colors, and one vermilion conflict accent. Make the background genuinely transparent (alpha), including the empty spaces around and between subjects: no paper texture, no beige rectangle, no backdrop, no opaque white ground. Keep the objects filled; don't make faces or clothes transparent.
+
+  This is the main illustration on a slide titled "Let the shared product pull collaboration". Tell one clear visual story, reading left to right: a customer wants one bright, wind-resistant lantern; two small teams change one shared product; their integrations expose a conflict; the relevant people meet directly to resolve it; one coherent lantern emerges. No manager.
+
+  Keep a wide continuous composition approximately 2.6:1, with generous empty transparent space, no boxes or panels. Simplify distracting fine details, decorative hatching and paper grain, while preserving the beautiful woodblock craft and clear silhouettes.
+
+  Left tip: one customer with one small thought bubble. In that bubble show ONLY ONE lantern, rays of light and wind curls around its enclosure, to show both needs belong to the same lantern. Remove all words from the bubble.
+
+  Middle left: above one horizontal wooden shared-mainline beam, exactly two people working at one laptop with one small friendly AI companion. Below the beam, exactly three people working at one shared screen. Include the varied ages and one or two women from the reference. Show the two integrations in temporal order along the same beam: earlier 'A B' in ink-black; later 'A C' with ONLY the later conflicting A in vermilion, C black. One short black arrow from the upper team to the earlier A B. One short black arrow from the lower team toward later A C, clearly stopped by a strong small vermilion X. These are the ONLY letters in the whole image. No detailed computer text.
+
+  Middle right: exactly the same five humans, gathered informally around one simple shared lantern drawing, with the AI companion. Correct the extra sixth human in the supplied gathering. Make faces and hands distinct enough to understand that the relevant teams are now talking directly. The drawing shows one lamp combining brightness and protection from wind. No manager, no supervisor, no extra person.
+
+  Right tip: one elegant single cohesive lantern with protective enclosure, bright light rays and a few wind curls around the outside. It is a completed whole product, not separate components bolted together. Give it a little breathing room.
+
+  Replace the reference's huge outer oval arrows and all long arrow labels with two much smaller clean curved arrows confined to the center of the composition: one curves from the red integration conflict toward the five-person gathering; one curves back from that gathering to the shared beam, showing collaboration leads to integration. Their endpoints must visibly connect these two locations, not the customer. Keep arrows ink-black and secondary to the people and product. The wooden mainline still continues toward the finished lantern.
+
+  No long text, no slogans, no captions, no kanji, no logos. Absolutely remove 'integration pulls collaboration', 'coordination results in immediate integration', and all customer-need words. Crop close enough that the workshop scene occupies the canvas well, with a modest transparent safety margin. True transparent PNG.
+
+- **2026-10-03 final refinement prompt — precise object edit:**
+
+  Refine this transparent ukiyo-e workshop panorama with two precise corrections. Keep the same aspect ratio, canvas, customer with one lantern bubble, upper two-person team and AI, lower three-person team, wooden beam with black A B then red A and black C, red X on the lower push, final glowing wind-resistant lantern, colors and beautiful woodblock illustration. Preserve genuine alpha transparency everywhere outside subjects.
+
+  1. At the RIGHT-HAND GATHERING ONLY there are six humans. Remove the extra seated person seen from behind in the bottom-left foreground of that gathering: the black head and gray/brown striped robe immediately in front of the woman in a white floral kimono. Remove that person's body completely and leave that space transparent. Keep exactly these five humans gathered around the single shared lantern sketch: two people from the upper team (indigo woman at upper left, older man at upper right), and the three from the lower team (white floral woman on the left, dark indigo man on the lower right, gray-haired older man on the far right). Move the lantern sketch gently left/down as necessary so all five can reach it. No new humans.
+
+  2. Remove ONLY the two long curved loop arrows around the gathering/conflict. Remove the thin upper arc above the AI, and the thin lower arc from the gathering back to the beam. We will typeset clear loop arrows separately on the slide. Keep both short arrows from each team to the wooden beam, and the red X. Keep the broad wooden beam arrow continuing left to right.
+
+  Do not add text or labels. No letters apart from the existing A B and A C. Do not add a paper background, gradient, vignette, shadow rectangle or white matte. True transparent PNG.
+
+- **Selected generated file:**
+  `/Users/terryyin/.codex/generated_images/01a0faef-d3e4-73e1-b082-5f5307e77aa7/exec-2c41e45a-bcaf-42e8-b5b0-fbb125e277b6.png`.
+  Copied into the existing project asset. RGBA, 2022 × 778; alpha spans
+  0–255. The gathering contains exactly the same five humans as the two
+  teams; the AI is their companion. The loop arrows are native slide SVG:
+  red from conflict to collaboration, stone from collaboration to the beam.
 
 ---
 
@@ -630,12 +768,7 @@ Mermaid only auto-places.
   [The Birth of Jidoka](https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html)
   connects the stopping devices to jidoka. The photograph remains
   the real Type G artifact from item 3 above.
-- **"Five judgments stay human":** five icons (value,
-  design, credentials, undiagnosed failure, ambiguity) from the
-  Iconify sets already available in Slidev — consistent with each
-  other, unlike generated icons. Done — embedded as Phosphor
-  `scales`, `pencil-ruler`, `key`, `warning-circle`, and `question`;
-  labels stay typeset text.
+
 
 ## Slides intentionally without artwork
 
