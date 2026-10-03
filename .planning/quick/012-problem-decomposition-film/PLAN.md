@@ -99,3 +99,13 @@ poster follow the final frame; its actual still render passed. Full movie:
 subtitles retained. Movie, final poster and subtitles copied to the default
 checkout's ignored output directory. Article, raw transcript and reproduction
 sources remain maintained. No subjective listening or audience study is claimed.
+
+## Execution complete
+
+Product advice: no backlog change. This film advances the educational short
+video direction. Show the completed cut to Terry for artistic and explanatory
+feedback before adding production work. Preserve the full article/transcript;
+update its former film-choice notes to point at current production sources.
+Retrospective found no correction requiring implementation. CI observation is
+unavailable because this project has no push workflow or configured adapter;
+no observer was armed and no CI or shutdown receipt is claimed.
