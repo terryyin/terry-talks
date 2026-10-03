@@ -26,3 +26,6 @@ export const Check: React.FC<{ x: number; y: number; size?: number }> = ({ x, y,
 
 /** Bound scene changes to their spoken clauses, including deliberate reading holds. */
 export const cue = (scene: FilmScene, index: number): number => scene.captionRanges[index].speechStart - scene.start;
+
+/** A visual detail appears when its word is heard in the continuous performance. */
+export const wordCue = (scene: FilmScene, index: number, word: string): number => scene.captionRanges[index].wordCues[word] - scene.start;

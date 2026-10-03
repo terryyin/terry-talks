@@ -1,115 +1,115 @@
 1
-00:00:00,000 --> 00:00:02,333
+00:00:00,000 --> 00:00:02,100
 If development stopped tomorrow,
 
 2
-00:00:02,333 --> 00:00:04,533
+00:00:02,100 --> 00:00:04,067
 what could your customer use?
 
 3
-00:00:04,533 --> 00:00:08,000
+00:00:04,067 --> 00:00:07,667
 Three friends finish dinner. They need to split the bill.
 
 4
-00:00:08,000 --> 00:00:11,800
+00:00:07,667 --> 00:00:10,833
 You could plan a database, an API, and a screen.
 
 5
-00:00:11,800 --> 00:00:16,067
+00:00:10,833 --> 00:00:15,133
 That's solution decomposition: arranging the answer's parts.
 
 6
-00:00:16,067 --> 00:00:21,600
+00:00:15,133 --> 00:00:20,400
 Problem decomposition asks: what's the smallest useful customer problem we can solve?
 
 7
-00:00:21,600 --> 00:00:24,100
+00:00:20,400 --> 00:00:22,433
 First, split one bill equally.
 
 8
-00:00:24,100 --> 00:00:28,567
+00:00:22,433 --> 00:00:25,767
 Later, handle unequal shares. Later, track payments.
 
 9
-00:00:28,567 --> 00:00:32,367
+00:00:25,767 --> 00:00:29,767
 Two premises: we can seek smaller customer problems.
 
 10
-00:00:32,367 --> 00:00:36,967
+00:00:29,767 --> 00:00:33,867
 For an uncertain problem, a plan is an attempt, not a guarantee.
 
 11
-00:00:36,967 --> 00:00:41,767
+00:00:33,867 --> 00:00:38,567
 So optimize for two things. First, deliver value and learn from it.
 
 12
-00:00:41,767 --> 00:00:43,967
+00:00:38,567 --> 00:00:40,333
 Three people see what they owe.
 
 13
-00:00:43,967 --> 00:00:46,467
+00:00:40,333 --> 00:00:42,567
 Their reaction can change the next step.
 
 14
-00:00:46,467 --> 00:00:50,233
+00:00:42,567 --> 00:00:45,900
 Deliver just enough, just in time, to learn.
 
 15
-00:00:50,233 --> 00:00:52,700
+00:00:45,900 --> 00:00:48,267
 Second, make stopping affordable.
 
 16
-00:00:52,700 --> 00:00:56,633
+00:00:48,267 --> 00:00:51,233
 If priorities change, equal splitting still works.
 
 17
-00:00:56,633 --> 00:01:00,833
+00:00:51,233 --> 00:00:54,733
 Leave later work unstarted, without making today depend on it.
 
 18
-00:01:00,833 --> 00:01:05,433
+00:00:54,733 --> 00:00:59,200
 Use three Vs: valuable to a customer, visible in their world,
 
 19
-00:01:05,433 --> 00:01:07,833
+00:00:59,200 --> 00:01:01,667
 and vertical, working end to end.
 
 20
-00:01:07,833 --> 00:01:12,267
+00:01:01,667 --> 00:01:05,433
 Finish one customer outcome at a time. That's one-piece flow.
 
 21
-00:01:12,267 --> 00:01:18,900
+00:01:05,433 --> 00:01:10,733
 Repeat this logic at smaller scales: stories, scenarios, implementation slices.
 
 22
-00:01:18,900 --> 00:01:21,100
+00:01:10,733 --> 00:01:13,333
 Every commit is your last commit.
 
 23
-00:01:21,100 --> 00:01:23,300
+00:01:13,333 --> 00:01:15,400
 Strive for useful value now.
 
 24
-00:01:23,300 --> 00:01:27,533
+00:01:15,400 --> 00:01:20,100
 Each change must serve today's purpose or an already documented need,
 
 25
-00:01:27,533 --> 00:01:31,800
+00:01:20,100 --> 00:01:23,900
 including product health, not merely prepare the next commit.
 
 26
-00:01:31,800 --> 00:01:34,000
+00:01:23,900 --> 00:01:25,500
 Care for the whole product.
 
 27
-00:01:34,000 --> 00:01:41,233
+00:01:25,500 --> 00:01:33,133
 Healthy design preserves the potential to deliver future value affordably. That speculative potential is option value.
 
 28
-00:01:41,233 --> 00:01:45,333
+00:01:33,133 --> 00:01:36,933
 Unused features can add complexity and close alternatives.
 
 29
-00:01:45,333 --> 00:01:53,233
+00:01:36,933 --> 00:01:44,900
 Feedback matters when you can act on it. Decompose to deliver, learn, and choose again.

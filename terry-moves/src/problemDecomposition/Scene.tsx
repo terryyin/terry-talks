@@ -1,8 +1,8 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { bodyFont, captionTop, headlineFont, palette } from './design';
-import { captionAt, captionRanges, FilmScene, mix, reveal, sceneAt } from './film';
-import { DinnerWorld, Headline } from './elements';
+import { captionAt, captionRanges, FilmScene, filmScript, mix, reveal, sceneAt } from './film';
+import { cue, DinnerWorld, Headline, SceneProps, wordCue } from './elements';
 import { Premises } from './premises';
 import { Stop, Value } from './goals';
 import { Commit, Fractal, Vertical } from './principles';
@@ -16,7 +16,7 @@ export const CaptionBar: React.FC<{ seconds: number }> = ({ seconds }) => {
 	return (
 		<div style={{ position: 'absolute', left: 0, right: 0, top: captionTop, bottom: 0, background: palette.paper, borderTop: `1px solid ${palette.rule}`, display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '18px 68px 29px', boxSizing: 'border-box' }}>
 			<div style={{ fontFamily: bodyFont, fontSize: 43, fontWeight: 450, color: palette.ink, lineHeight: 1.2, textAlign: 'center', opacity }}>{caption?.text}</div>
-			{finalCredit && <div style={{ position: 'absolute', bottom: 11, left: 0, right: 0, textAlign: 'center', fontFamily: bodyFont, fontSize: 13, color: palette.muted, letterSpacing: 1.2 }}>DANIEL · SYNTHETIC NARRATION</div>}
+			{finalCredit && <div style={{ position: 'absolute', bottom: 11, left: 0, right: 0, textAlign: 'center', fontFamily: bodyFont, fontSize: 13, color: palette.muted, letterSpacing: 1.2 }}>{filmScript.voiceCredit}</div>}
 		</div>
 	);
 };
@@ -46,7 +46,7 @@ const Hook: React.FC<{ time: number; scene: FilmScene }> = ({ time, scene }) => 
 	);
 };
 
-const Parts: React.FC<{ time: number; length: number }> = ({ time, length }) => {
+const Parts: React.FC<SceneProps> = ({ time, scene }) => {
 	const words = reveal(time, 0.2, 0.7);
 	return (
 		<>
@@ -56,7 +56,7 @@ const Parts: React.FC<{ time: number; length: number }> = ({ time, length }) => 
 				<path d="M218 637 L218 618 L540 618 L540 637 M540 618 L862 618 L862 637" fill="none" stroke={palette.paperLight} strokeWidth="3" strokeDasharray="5 7" opacity={words} />
 			</svg>
 			{(['database', 'api', 'screen'] as const).map((part, index) => {
-				const shown = reveal(time, length * (0.06 + index * 0.12), 0.72);
+				const shown = reveal(time, wordCue(scene, 0, part), 0.72);
 				return (
 					<div key={part} style={{ position: 'absolute', left: 70 + index * 322, top: mix(890, 646, shown), width: 296, height: 190, opacity: shown, transform: `rotate(${mix(index === 0 ? -8 : 8, 0, shown)}deg)`, background: palette.cobalt, border: `1px solid ${palette.ink}`, boxShadow: '8px 12px 0 #172c4227', color: palette.paperLight, boxSizing: 'border-box', padding: '25px 26px' }}>
 						<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><PartIcon part={part} /><span style={{ fontFamily: headlineFont, fontSize: 27, opacity: 0.58 }}>0{index + 1}</span></div>
@@ -75,10 +75,10 @@ const PossibilityCard: React.FC<{ index: number; title: string; subtitle: string
 	</div>
 );
 
-const Problem: React.FC<{ time: number; length: number }> = ({ time, length }) => {
-	const advance = reveal(time, length * 0.27, 1.2);
-	const phone = reveal(time, length * 0.35, 0.8);
-	const shares = reveal(time, length * 0.46, 1.45);
+const Problem: React.FC<SceneProps> = ({ time, scene }) => {
+	const advance = reveal(time, cue(scene, 1), 1.2);
+	const phone = reveal(time, cue(scene, 1), 0.8);
+	const shares = reveal(time, wordCue(scene, 1, 'equally'), 1.45);
 	return (
 		<>
 			<DinnerWorld y={150} />
@@ -95,12 +95,11 @@ const Problem: React.FC<{ time: number; length: number }> = ({ time, length }) =
 export const ProblemDecompositionScene: React.FC<{ seconds: number }> = ({ seconds }) => {
 	const scene = sceneAt(seconds);
 	const time = seconds - scene.start;
-	const length = scene.end - scene.start;
 	return (
 		<AbsoluteFill style={{ background: palette.paper, overflow: 'hidden' }}>
 			{scene.id === 'hook' && <Hook time={time} scene={scene} />}
-			{scene.id === 'parts' && <Parts time={time} length={length} />}
-			{scene.id === 'problem' && <Problem time={time} length={length} />}
+			{scene.id === 'parts' && <Parts time={time} scene={scene} />}
+			{scene.id === 'problem' && <Problem time={time} scene={scene} />}
 			{scene.id === 'premises' && <Premises time={time} scene={scene} />}
 			{scene.id === 'value' && <Value time={time} scene={scene} />}
 			{scene.id === 'stop' && <Stop time={time} scene={scene} />}

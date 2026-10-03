@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { ProblemDecompositionScene } from '../../src/problemDecomposition/Scene';
+import { filmScript } from '../../src/problemDecomposition/film';
 import { feedbackCue, queueLayout } from '../../src/problemDecomposition/goals';
 
 // Image loading belongs to the real render proof; this test observes scene content.
@@ -25,17 +26,19 @@ describe('the customer outcome survives feedback and changes of direction', () =
 	});
 
 	it('keeps a working equal split when future work is left unstarted', () => {
-		const stopped = frame(59);
+		const stopped = frame(filmScript.scenes.find((scene) => scene.id === 'stop')!.captionRanges[2].speechStart + 1.3);
 		expect(stopped).toContain('Completed · still useful');
 		expect(stopped).toContain('Unstarted');
 		expect(stopped).toContain('three friends each owe thirty dollars');
 	});
 
 	it('shows end-to-end work and the shared customer outcome before returning to the diners', () => {
-		const vertical = frame(66.5);
+		const scene = filmScript.scenes.find((entry) => entry.id === 'vertical')!;
+		const vertical = frame(scene.captionRanges[1].speechStart + 1.85);
 		['Valuable', 'Visible', 'Vertical', 'Screen', 'Service', 'Data'].forEach((word) => expect(vertical).toContain(word));
-		expect(frame(70)).toContain('One-piece flow · one shared customer outcome');
-		expect(frame(111)).toContain('Choose again.');
-		expect(frame(111)).toContain('An idea by Terry Yin');
+		expect(frame(scene.captionRanges[2].speechStart + 1)).toContain('One-piece flow · one shared customer outcome');
+		expect(frame(filmScript.duration - 1)).toContain('Choose again.');
+		expect(frame(filmScript.duration - 1)).toContain('An idea by Terry Yin');
+		expect(frame(filmScript.duration - 1)).toContain('CEDAR · AI-GENERATED NARRATION');
 	});
 });

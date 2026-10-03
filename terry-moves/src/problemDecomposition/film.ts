@@ -13,7 +13,7 @@ export type SceneId =
 	| 'health'
 	| 'end';
 
-export type CaptionRange = { text: string; spoken: string; start: number; end: number; speechStart: number; speechEnd: number };
+export type CaptionRange = { text: string; spoken: string; start: number; end: number; speechStart: number; speechEnd: number; wordCues: Record<string, number> };
 export type FilmScene = {
 	id: SceneId;
 	start: number;
@@ -36,6 +36,7 @@ export const filmScript = {
 	subtitle: string;
 	fps: number;
 	duration: number;
+	voiceCredit: string;
 	scenes: FilmScene[];
 };
 

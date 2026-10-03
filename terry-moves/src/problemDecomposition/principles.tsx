@@ -1,7 +1,7 @@
 import React from 'react';
 import { Img, staticFile } from 'remotion';
 import { bodyFont, headlineFont, palette } from './design';
-import { Check, cue, Headline, Label, SceneProps } from './elements';
+import { Check, cue, Headline, Label, SceneProps, wordCue } from './elements';
 import { ENGINEERS, mix, reveal } from './film';
 import { SplitPhone } from './objects';
 
@@ -17,7 +17,7 @@ export const Vertical: React.FC<SceneProps> = ({ time, scene }) => {
 			<Headline opacity={flow}>Finish one outcome.<br /><em style={{ color: palette.cobalt }}>Together.</em></Headline>
 			<div style={{ opacity: 1 - flow }}>
 				{vs.map((word, index) => (
-					<div key={word} style={{ position: 'absolute', left: 66 + index * 325, top: 286, width: 298, color: palette.cobalt, opacity: reveal(time, cue(scene, 0) + index * 0.65, 0.5) }}>
+					<div key={word} style={{ position: 'absolute', left: 66 + index * 325, top: 286, width: 298, color: palette.cobalt, opacity: reveal(time, wordCue(scene, index === 2 ? 1 : 0, word.toLowerCase()), 0.5) }}>
 						<div style={{ fontFamily: headlineFont, fontSize: 103, fontStyle: 'italic', lineHeight: 0.8, color: index === 2 ? palette.terracotta : palette.cobalt }}>V</div>
 						<div style={{ fontFamily: headlineFont, fontSize: 43, marginTop: 17 }}>{word}</div>
 						<div style={{ fontFamily: bodyFont, fontSize: 24, color: palette.muted, marginTop: 9 }}>{['A useful result', 'The customer can judge', 'Working end to end'][index]}</div>

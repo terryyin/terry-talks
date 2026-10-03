@@ -1,6 +1,6 @@
 import React from 'react';
 import { bodyFont, headlineFont, palette } from './design';
-import { cue, DinnerWorld, Headline, Label, SceneProps } from './elements';
+import { cue, DinnerWorld, Headline, Label, SceneProps, wordCue } from './elements';
 import { DINNER_RELIEF, mix, reveal } from './film';
 
 export const Health: React.FC<SceneProps> = ({ time, scene }) => {
@@ -41,9 +41,9 @@ export const Health: React.FC<SceneProps> = ({ time, scene }) => {
 };
 
 export const Ending: React.FC<SceneProps> = ({ time, scene }) => {
-	const deliver = reveal(time, cue(scene, 0), 0.6);
-	const learn = reveal(time, cue(scene, 0) + 2.2, 0.6);
-	const choose = reveal(time, cue(scene, 0) + 3.9, 0.6);
+	const deliver = reveal(time, wordCue(scene, 0, 'deliver'), 0.6);
+	const learn = reveal(time, wordCue(scene, 0, 'learn'), 0.6);
+	const choose = reveal(time, wordCue(scene, 0, 'choose'), 0.6);
 	return (
 		<>
 			<DinnerWorld asset={DINNER_RELIEF} y={170} zoom={mix(1.016, 1, Math.min(time / 5.5, 1))} />

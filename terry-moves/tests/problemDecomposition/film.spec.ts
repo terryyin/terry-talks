@@ -21,6 +21,12 @@ describe('problem decomposition film timeline', () => {
 			captions.forEach((caption, captionIndex) => {
 				if (captionIndex > 0) expect(caption.start).toBeCloseTo(captions[captionIndex - 1].end, 4);
 				expect(caption.end).toBeGreaterThan(caption.start);
+				expect(caption.speechStart).toBeGreaterThanOrEqual(caption.start - 1 / FPS);
+				expect(caption.speechEnd).toBeLessThanOrEqual(caption.end + 1 / FPS);
+				Object.values(caption.wordCues).forEach((time) => {
+					expect(time).toBeGreaterThanOrEqual(caption.speechStart);
+					expect(time).toBeLessThanOrEqual(caption.speechEnd);
+				});
 				expect(captionAt((caption.start + caption.end) / 2)?.text).toBe(caption.text);
 			});
 		});

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Build the film's original audio and measured, frame-aligned caption timeline.
 
-Requires macOS's installed Daniel voice, ffmpeg and ffprobe. No network service,
-temporary input or third-party Python package is required. Each caption range in
-film-script.json owns its spoken clause, displayed text and measured timing.
+Requires Python, ffmpeg and ffprobe. The chosen continuous Cedar performance and
+measured alignment are committed. Only --new-take uses the OpenAI SDK and API.
+Each caption range owns its spoken clause, displayed text and measured timing.
 """
 
 from array import array
@@ -20,8 +20,6 @@ SOURCE = ROOT / "Problem Decomposition" / "film-script.json"
 WORK = ROOT / "terry-moves" / "out" / "problem-decomposition-audio"
 ASSETS = ROOT / "terry-moves" / "public" / "assets" / "problem-decomposition"
 SAMPLE_RATE = 48000
-VOICE = "Daniel"
-WORDS_PER_MINUTE = 160
 
 
 def run(command):
@@ -67,59 +65,12 @@ def master(source, destination, loudness):
 
 
 def build_narration(script):
-    fps = script["fps"]
-    assert SAMPLE_RATE % fps == 0
-    samples_per_frame = SAMPLE_RATE // fps
-    timeline = array("h")
-    for scene in script["scenes"]:
-        scene_start_frame = len(timeline) // samples_per_frame
-        scene["start"] = scene_start_frame / fps
-        captions = scene["captionRanges"]
-        for index, caption in enumerate(captions):
-            phrase = caption["spoken"]
-            phrase_start_frame = len(timeline) // samples_per_frame
-            original = WORK / f"{scene['id']}-{index}.aiff"
-            trimmed = WORK / f"{scene['id']}-{index}.wav"
-            run(["say", "-v", VOICE, "-r", str(WORDS_PER_MINUTE), "-o", str(original), phrase])
-            # Trim boundaries only. Reversing twice preserves every internal
-            # pause and avoids cutting speech at the first sentence break.
-            trim = ("silenceremove=start_periods=1:start_duration=0.01:start_threshold=-48dB,"
-                    "areverse,silenceremove=start_periods=1:start_duration=0.01:start_threshold=-48dB,"
-                    "areverse")
-            run(["ffmpeg", "-y", "-v", "error", "-i", str(original), "-af", trim,
-                 "-ar", str(SAMPLE_RATE), "-ac", "1", "-c:a", "pcm_s16le", str(trimmed)])
-            pcm = read_pcm(trimmed)
-            # Short captions get at least 2.2 seconds. Longer ones are limited
-            # to 2.8 printed words/second; voice duration normally dominates.
-            lead = 0.35 if scene_start_frame == 0 and index == 0 else 0.12
-            tail = 2.3 if scene["id"] == "end" else (0.38 if index == len(captions) - 1 else 0.16)
-            speech_samples = round(lead * SAMPLE_RATE)
-            requested = max(lead + len(pcm) / SAMPLE_RATE + tail,
-                            2.2, len(caption["text"].split()) / 2.8)
-            frames = math.ceil(requested * fps)
-            timeline.extend([0] * speech_samples)
-            timeline.extend(pcm)
-            remainder = frames * samples_per_frame - speech_samples - len(pcm)
-            assert remainder >= 0
-            timeline.extend([0] * remainder)
-            caption.update({
-                "start": phrase_start_frame / fps,
-                "end": len(timeline) / SAMPLE_RATE,
-                "speechStart": (phrase_start_frame * samples_per_frame + speech_samples) / SAMPLE_RATE,
-                "speechEnd": (phrase_start_frame * samples_per_frame + speech_samples + len(pcm)) / SAMPLE_RATE,
-            })
-        scene["end"] = len(timeline) / SAMPLE_RATE
-        scene["duration"] = scene["end"] - scene["start"]
-        print(f"{scene['id']:10s} {scene['start']:7.3f}–{scene['end']:7.3f}s", flush=True)
-    script["duration"] = len(timeline) / SAMPLE_RATE
-    script["durationInFrames"] = len(timeline) // samples_per_frame
-    script["voice"] = "Daniel (macOS synthetic narration; not Terry's recorded voice)"
-    script["narrationWordsPerMinute"] = WORDS_PER_MINUTE
-    assert script["duration"] <= 120, "Compress the chosen script rather than truncate narration."
+    from cedar_narration import align, performance
+    prepared, report = performance(ROOT, script, run, SAMPLE_RATE, "--new-take" in sys.argv)
+    timeline = align(script, read_pcm(prepared), report, SAMPLE_RATE)
     raw = WORK / "narration-unmastered.wav"
     write_pcm(raw, timeline)
-    report = master(raw, ASSETS / "narration.wav", -18)
-    return report
+    return master(raw, ASSETS / "narration.wav", -18)
 
 
 def note(midi):
@@ -174,7 +125,7 @@ def build_score(script):
 def treatment(script):
     rows = ["# Problem Decomposition — film treatment", "",
             "The freedom to change your mind. English, 1080 × 1080, 30 fps.", "",
-            f"Runtime: **{script['duration']:.2f} seconds**. Narration is the installed macOS Daniel synthetic voice,",
+            f"Runtime: **{script['duration']:.2f} seconds**. Narration is OpenAI’s Cedar synthetic voice,",
             "not a recording or imitation of Terry. The full article remains the argument's source;",
             "this script is its shorter film presentation. Just in time is embedded in the goals.", "",
             "The recurring example is three friends splitting a restaurant bill. The hook asks",
@@ -186,17 +137,19 @@ def treatment(script):
         rows.append(f"| {scene['start']:.2f}–{scene['end']:.2f}s | {scene['label']} | {narration} |")
     rows += ["", "## Production", "",
              "Run `python3 'Problem Decomposition/produce_audio.py'` from the repository checkout.",
-             "The source is `film-script.json`. Each caption is timed against its own synthesized",
-             "spoken clause, with short reading holds. All boundaries are aligned to video frames.",
+             "The source is `film-script.json`. One continuous Cedar take retains natural breaths and pauses.",
+             "Captions follow measured word boundaries; scene and caption boundaries are frame-aligned.",
              "Each caption range owns both its spoken clause and displayed text. No narration is cut to meet the runtime.",
              "Use `--refresh-docs` to reformat the script and refresh this treatment without synthesizing audio.", "",
              "The score is an original programmatic composition: restrained open chords and sparse chime",
-             "accents. It begins after the opening question. Narration is mastered to −18 LUFS and",
+             "accents. It enters gradually beneath the opening question. Narration is mastered to −18 LUFS and",
              "the score to −40 LUFS; both should play at volume 1 in the composition.", "",
-             "Generated files are `terry-moves/public/assets/problem-decomposition/narration.wav` and",
-             "`score.wav`. Intermediate phrases and loudness reports are under ignored `terry-moves/out/`.",
-             "The audio builder requires macOS Daniel, ffmpeg, and ffprobe, plus Python's standard library.",
-             "Playback and Remotion rendering use the committed WAVs and do not require macOS speech."]
+             "The chosen `cedar-take.wav`, its exact-script audit and Whisper word alignment in",
+             "`cedar-performance.json` reproduce narration, timing and score without another API request.",
+             "Use `--new-take` only to generate a new performance with `gpt-audio-1.5` / `cedar` and",
+             "measure words with `whisper-1`. This needs the OpenAI Python SDK and `OPENAI_API_KEY`.",
+             "Whisper word boundaries are automated estimates, not a claim of human listening.",
+             "Python, ffmpeg and ffprobe build committed runtime WAVs. Playback and rendering need no API."]
     (ROOT / "Problem Decomposition" / "film-treatment.md").write_text("\n".join(rows) + "\n")
 
 
