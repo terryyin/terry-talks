@@ -374,12 +374,15 @@ Terry confirmed and clarified the following on 3 October 2026:
   principles. Embed just in time within that argument, particularly the goals,
   instead of giving it a separate structural section.
 
-## Remaining film choices and source gap
+## Film adaptation and source gap
 
 The terminology and structure questions raised during article consolidation
-are resolved. The bill-sharing example remains the proposed link to part one.
-The two-minute film still needs decisions about condensation, scenes, language,
-narration, and whether to name TPS. Those choices belong to film refinement.
+are resolved. The 113-second English film uses one bill-sharing example,
+mature editorial illustration, Daniel synthetic narration, and an original
+score. Just in time appears within the goals without naming TPS in the film.
+The [production guide](README.md) and [timed treatment](film-treatment.md)
+record the adaptation and reproduction commands. This article retains the
+full argument beyond the short film's condensation.
 
 The exact recalled three-Vs ADR remains a source gap, although the definitions
 themselves are verified in Open Dough's decomposition reference. The article
