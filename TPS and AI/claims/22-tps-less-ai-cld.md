@@ -105,7 +105,7 @@ table trimmed to presentation scale, at most six variables each. The
 full map lives in the table, not in any figure, and the loop arguments
 live in the Loop catalog, not in the captions.
 
-### Figure 1 — Freedom and entrustment — the engine
+### Figure 1 — Freedom and trust — the engine
 
 [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)'s theme
 drawn as two coupled reinforcing loops: jidoka frees (R1), JIT
@@ -191,21 +191,20 @@ gone** is this loop, not a one-time cleanup.
 Runs backward when detectors stay judgment-loaded: every check still needs a
 thinker, so encoded jidoka never rises and attention never returns.
 
-### R2 — Freedom and entrustment
+### R2 — Freedom and trust
 
 **Adaptive attention → Capability to respond → Warranted trust → (−)
 Coercive control → Pull from actual need → Capability to respond**
 
 [Claim 10](10-freedom-and-trust-reinforce-through-jidoka.md)'s proposed
-loop, drawn as a cycle. The theme is **freedom and entrustment**
-(jidoka frees, JIT entrusts). Mutual
-**warranted trust** sits under
-Respect for People; in this diagram it is the evidence that makes
-entrustment social. Jidoka and technical excellence create room so a
-team can take the next highest-value item. Demonstrated capability
-warrants that *entrustment*. Coercive control falls. The Product Owner
-can pull from actual user value instead of leftover WIP. That action is
-further evidence of capability.
+loop, drawn as a cycle. The theme is **freedom and trust**:
+trust expressed by entrusting capable people with real work, alongside
+freedom to respond. Mutual **warranted trust** grows under Respect for
+People; in this diagram it supports the act of entrusting responsibility.
+Jidoka and technical excellence create room so a team can take the next
+highest-value item. Demonstrated capability warrants that *entrustment*.
+Coercive control falls. The Product Owner can pull from actual user value
+instead of leftover WIP. That action is further evidence of capability.
 
 Two **−** links (warranted trust reduces coercive control; coercive
 control reduces pull) keep the loop reinforcing: more warranted trust →

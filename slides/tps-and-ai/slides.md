@@ -1,9 +1,9 @@
 ---
 theme: ../../themes/odd-e
 layout: tps-cover
-title: Freedom and Entrustment
+title: Freedom and Trust
 info: |
-  ## Freedom and Entrustment
+  ## Freedom and Trust
   What AI-Augmented Development Can Learn from the Toyota Production System
   Terry Yin, Odd-e — Tokyo LeSS Conference
 transition: slide-left
@@ -12,8 +12,8 @@ colorSchema: light
 ---
 
 <div class="cover-heading">
-  <h1>Freedom <span class="cover-and">and</span><br>Entrustment</h1>
-  <p class="cover-japanese-title" lang="ja">自由と、任せること</p>
+  <h1>Freedom <span class="cover-and">and</span><br>Trust</h1>
+  <p class="cover-japanese-title" lang="ja">自由と信頼</p>
 </div>
 
 <div class="cover-subtitle">
@@ -297,9 +297,9 @@ Hashes: `7b61a5705c` (`/sync` pull), `fce957dd3d` (`/export` pin),
 
 ---
 
-# Freedom vs. entrustment?
+# Freedom vs. trust?
 
-[自由 VS 任せる？]{.ja-title}
+[自由 VS 信頼？]{.ja-title}
 
 To hand over the work that matters, it seems you must **constrain** people
 in advance.
@@ -309,7 +309,7 @@ To give real freedom, it seems you **cannot hand over** the work that
 matters.
 [本当の自由を与えたら、大事な仕事は**任せられない**ように見える。]{.ja}
 
-**Entrust**, 任せる · **trust**, 信頼
+**Trust people with real work.** · **信頼して任せる**
 
 <img
   src="/freedom-entrustment-balance.png"
@@ -318,11 +318,14 @@ matters.
 />
 
 <!--
-Main message setup — the apparent tradeoff: freedom and entrustment
+Main message setup — the apparent tradeoff: freedom and trust
 mistakenly treated as a tradeoff.
 
-Language contrast for the mixed international / Japanese audience.
-TPS shows they reinforce each other instead — next slide. Claim 10.
+Trust here means trusting people with real problems and giving them freedom
+and support to respond. Entrusting work expresses that trust; mutual trust
+also grows through capable responses. Keep entrust as the precise verb for
+giving responsibility. TPS shows how freedom and trust can reinforce each
+other — next slide. Claim 10.
 -->
 
 ---
@@ -1263,9 +1266,9 @@ properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
 
 ---
 
-# The engine of freedom and entrustment
+# The engine of freedom and trust
 
-[自由と、任せることのエンジン]{.ja-title}
+[自由と信頼のエンジン]{.ja-title}
 
 <div class="absolute left-[5.5%] right-[5.5%] top-[25%]">
 

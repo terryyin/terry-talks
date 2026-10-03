@@ -1,4 +1,4 @@
-# Artwork list — Freedom and Entrustment
+# Artwork list — Freedom and Trust
 
 Art needed for `slides.md`, oriented by
 `TPS and AI/main-theme-and-stage-setting.md`. Slides are referenced by
@@ -169,10 +169,10 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G1. Cover — crane released from an open hand
 
 - **Status:** done — `public/cover-crane-released.png`
-- **Slide:** cover, "Freedom and Entrustment"
+- **Slide:** cover, "Freedom and Trust"
 - **Placement:** full-bleed background, art weighted right, title text
   sits in the empty left space
-- **Why generated:** the title pair (freedom + entrustment) has no
+- **Why generated:** the title pair (freedom + trust) has no
   single authoritative artifact; a released crane carries both
 - **Style reference:** this file *is* the style reference for later
   generates (G14 must use it)
@@ -202,22 +202,22 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G4. The apparent tradeoff — tilted balance
 
 - **Status:** done — `public/freedom-entrustment-balance.png`
-- **Slide:** "Freedom vs. entrustment?"
-- **Placement:** lower half; the kanji pair 任せる / 信頼 stays typeset
-  in the slide above the art, never generated
+- **Slide:** "Freedom vs. trust?"
+- **Placement:** lower half; “Trust people with real work” / 信頼して任せる
+  stays typeset in the slide above the art, never generated
 - **Prompt:** An antique two-pan balance scale, one pan holding a
   single feather high in the air, the other sunk low under a heavy
   iron key; centered, ample empty margin above; 16:9 lower band.
 
-### G20. Freedom and entrustment — level balance
+### G20. Freedom and trust — level balance
 
 - **Status:** done — `public/jidoka-jit-balanced-scale.png`
-- **Slide:** "The engine of freedom and entrustment"
+- **Slide:** "The engine of freedom and trust"
 - **Placement:** centered beneath the CLD, on a transparent background
 - **Generation:** built-in imagegen; G4 supplied as the style/composition reference
 - **Meaning:** the left automatic stop represents Jidoka/autonomation;
   the right single part with a pull card represents Just-in-time. The beam
-  and pans are level, answering G4's apparent freedom/entrustment tradeoff.
+  and pans are level, answering G4's apparent freedom/trust tradeoff.
 - **Final prompt:** Use case: stylized-concept. Asset type: a low, wide spot illustration beneath a causal loop diagram in a Slidev talk. Create a NEW companion variation of the supplied antique balance-scale illustration. Reference image 1 supplies the sumi-e ink-and-watercolor style, antique scale construction, soft charcoal contours, sparse vermilion accents, and restrained visual mood. Make the scale perfectly BALANCED: its crossbeam is exactly horizontal and the two shallow pans hang at exactly the same height. Replace both original objects entirely: no feather and no key. LEFT pan: a compact mechanical loom automatic-stop/interlock device, a small bronze lever and catch with a subtle vermilion stop indicator, representing jidoka/autonomation that guards against known mistakes. RIGHT pan: exactly one simple wooden production part with a single blank cream kanban pull card tied to it, representing just-in-time response to actual need, without a pile or stockpile. Keep the objects simple and identifiable at small size; each pan holds one symbolic group of comparable visual weight. Low compact chains and modest-height central pedestal, wide horizontal composition with both pans fully visible, generous clean edges but little internal empty margin, center the subject so it can fit a short footer banner. Hand-painted Japanese brushwork, black/grey ink, sparse warm bronze, tiny vermilion accent. The output must have a genuinely TRANSPARENT background so the illustration can sit seamlessly on warm paper slide color. No paper texture background, no white rectangle, no scenery, no labels, no letters, no watermark, no other objects. The only shadows are a light painted ground shadow under the pedestal. The physical scale must be horizontal and unambiguously in equilibrium.
 
 ### G21. Jidoka frees the software team
@@ -731,7 +731,7 @@ Mermaid only auto-places.
   TPS → XP / Agile → LeSS → AI-augmented development. Mermaid or SVG;
   needs crisp text. Done — embedded as Mermaid; labels stay typeset
   text. Vermilion accent on the last node (where we are now).
-- **"The engine of freedom and entrustment"** (after the JIT-flow beat):
+- **"The engine of freedom and trust"** (after the JIT-flow beat):
   Figure 1 of the Claim 22 companion CLD — loops R1+R2, five
   plain-language variables. Done — embedded as mermaid; labels stay
   typeset text. Room to learn and freedom to follow real need use the
@@ -882,7 +882,7 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   question is how such a stop is built. A1 answers by making the
   physical cause of the stop legible. The takeaway is **earlier human
   judgment becomes an enforced stop, freeing attention for the next
-  problem**. This supports the talk's freedom-and-entrustment theme.
+  problem**. This supports the talk's freedom-and-trust theme.
 - **Story boundary:** this demonstrates **dumb / judgment-preserved**.
   The break still happens; the mechanism stops work without asking
   someone to interpret a warning. Diagnosis, repair, and improvement
@@ -893,7 +893,7 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   with the loom; the presenter makes that connection.
 - **Context anchors:** [main theme](../../TPS%20and%20AI/main-theme-and-stage-setting.md),
   [Claim 6 — learned judgment](../../TPS%20and%20AI/claims/06-jidoka-embeds-routine-judgment.md),
-  and [Claim 10 — freedom and entrustment](../../TPS%20and%20AI/claims/10-freedom-and-trust-reinforce-through-jidoka.md).
+  and [Claim 10 — freedom and trust](../../TPS%20and%20AI/claims/10-freedom-and-trust-reinforce-through-jidoka.md).
 - **References:** use G1 (`public/cover-crane-released.png`) for
   style and item 6 (`public/type-g-dropper-mechanism.jpg`) for physical
   orientation. G15 is a continuity reference, not authority for the

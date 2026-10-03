@@ -1,4 +1,4 @@
-# Japanese review — Freedom and Entrustment
+# Japanese review — Freedom and Trust
 
 Every slide of `slides.md` carries its audience-facing text in Japanese,
 directly under the English, for the Japanese-speaking attendees at the
@@ -37,7 +37,7 @@ TPS terms use Toyota's own Japanese wording.
 | Andon | アンドン | |
 | Genchi genbutsu / Go-See | 現地現物 | First use: 現地現物 (Go-See) |
 | Respect for People | 人間性尊重 | |
-| Entrust / trust | 任せる / 信頼 | Kept as the deck already shows them |
+| Entrust / trust | 任せる / 信頼 | Trust people with work: 信頼して任せる |
 | Preaching to the Buddha | 釈迦に説法 | Kept as is; not re-translated |
 
 Deck terms, kept consistent across slides. The table gives the base
@@ -49,7 +49,7 @@ slide).
 | English | Japanese |
 | --- | --- |
 | TPS (Toyota Production System) | TPS / トヨタ生産方式 |
-| Freedom and entrustment | 自由と、任せること |
+| Freedom and trust | 自由と信頼 |
 | AI-augmented development | AI拡張開発 |
 | Judgment-intensive work | 判断集約型の仕事 |
 | Live judgment | その場の判断 |
@@ -126,7 +126,7 @@ review is still to come, so the *Aki reviewed* column is blank.
 
 | Slide | Translated | Terry checked | Aki reviewed |
 | --- | --- | --- | --- |
-| Freedom and Entrustment (cover) | ✓ | ✓ | |
+| Freedom and Trust (cover) | ✓ | | |
 | About Me | ✓ | ✓ | |
 | 釈迦に説法 | ✓ | ✓ | |
 | One lineage of inspiration | ✓ | ✓ | |
@@ -134,7 +134,7 @@ review is still to come, so the *Aki reviewed* column is blank.
 | Judgment-intensive work | ✓ | ✓ | |
 | Constrained by what they built | ✓ | ✓ | |
 | AI can produce plausible software faster than a product group can absorb it | ✓ | ✓ | |
-| Freedom vs. entrustment? | ✓ | ✓ | |
+| Freedom vs. trust? | ✓ | | |
 | The main-message quote ("TPS shows how a system…") | ✓ | ✓ | |
 | Two houses, different layers | ✓ | ✓ | |
 | The triad | ✓ | ✓ | |
@@ -148,7 +148,7 @@ review is still to come, so the *Aki reviewed* column is blank.
 | Five judgments stay human | ✓ | ✓ | |
 | Pull, don't stockpile | ✓ | ✓ | |
 | Let the shared product pull collaboration | ✓ | ✓ | |
-| The engine of freedom and entrustment | ✓ | ✓ | |
+| The engine of freedom and trust | ✓ | | |
 | AI speeds whichever loop you feed | ✓ | ✓ | |
 | Respect for People: making things means making people | ✓ | ✓ | |
 | Continuous improvement towards perfection | ✓ | ✓ | |

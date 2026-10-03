@@ -1,11 +1,11 @@
-# Claim 10: Freedom and entrustment can reinforce one another through jidoka
+# Claim 10: Freedom and trust can reinforce one another through jidoka
 
-**Status: Provisional — theme is Freedom and Entrustment; early-talk
+**Status: Provisional — theme is Freedom and Trust; early-talk
 slogan recorded; matching story still open**
 
 ## Claim
 
-> **The polarity is freedom and entrustment.** They are not literal
+> **The theme is freedom and trust.** They are not literal
 > opposites, but organizations mistakenly treat them as a tradeoff: to
 > hand over important work, it seems you must constrain people in
 > advance; to give real freedom, it seems you cannot hand over the work
@@ -15,13 +15,15 @@ slogan recorded; matching story still open**
 > Mutual trust sits under Respect for People.
 
 [Claim 3](03-jidoka-enables-jit-trusts-respect-grows.md) already has the
-triad: jidoka **frees**, JIT **entrusts**. Mutual trust is the
-relationship that grows when that polarity is held, not the other pole.
-Coercive control is the false resolution when the organization cannot
-hold both. [Claim
+triad: jidoka **frees**, JIT **entrusts**. The title names the broader
+relationship: trust people with real problems, and give them freedom and
+support to respond. **Entrust** names the act of giving responsibility.
+Mutual trust grows through capable responses and reciprocal support under
+Respect for People. Coercive control is the false resolution when the
+organization cannot hold freedom and trust together. [Claim
 8](08-technical-excellence-enables-jit-coordination-in-less.md) already
 has bounded self-management and the technical precondition. This claim
-is the **talk theme**: how freedom and entrustment can live together,
+is the **talk theme**: how freedom and trust can live together,
 and how that earns mutual trust.
 
 The loop is **R2** in the causal loop diagram of how TPS reasoning
@@ -115,7 +117,7 @@ warrant *entrusting* the next highest-value item.
 The loop can also run backward. If every failure produces more
 approvals, or if freedom is used to accumulate invisible work and local
 optimization, the system creates evidence against further entrustment.
-Freedom and entrustment reinforce each other only when problems can be
+Freedom and trust reinforce each other only when problems can be
 made visible without making honesty dangerous. Mutual trust is that
 relationship under Respect for People.
 
@@ -207,11 +209,11 @@ Memorable close:
 > capable response to real need. Let visible capability earn mutual
 > trust.**
 
-The theme is **Freedom and Entrustment**. Close with that triad: free,
+The theme is **Freedom and Trust**. Close with that triad: free,
 **entrust**, earn mutual trust.
 
 The strongest version of the theme is not that TPS resolves freedom and
-entrustment once and for all:
+trust once and for all:
 
 > **TPS shows how a system can continually convert learning into
 > constraints that make greater freedom responsible—and use that freedom

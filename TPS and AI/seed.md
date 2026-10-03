@@ -14,7 +14,7 @@ scope: three candidate stories; S/M/L bands unassigned (no project definitions)
 For **Terry**, presenting to a mixed Japanese and international audience at
 the LeSS Conference in Tokyo (with TPS, lean, and LeSS experts, some from
 Toyota, in the room), the current
-[Freedom and Entrustment deck](../slides/tps-and-ai/slides.md) should change
+[Freedom and Trust deck](../slides/tps-and-ai/slides.md) should change
 from a comprehensive working draft into a presentation he can deliver with
 confidence. It should be built on the claims he stands behind, fit in about 33 slides (never more than 35) with Japanese embedded, and follow a deliberate arc: a casual opening
 that puts the key message first, a streamlined narrative, a climax at about the
@@ -33,7 +33,7 @@ fixes these facts:
 - **When:** 2026 Global LeSS Conference Tokyo, **8 October 2026, 15:45**.
 - **Slot:** a one-hour talk. That is about ten days after this decomposition.
 - **Listed title:** *What AI-Augmented Development Can Learn from the Toyota
-  Production System*. The deck's title is *Freedom and Entrustment*, and its
+  Production System*. The deck's title is *Freedom and Trust*, and its
   subtitle is this listed title.
 - **Abstract promises:** TPS's influence on Agile thinking; lessons drawn from
   hands-on project experience; and "patterns, tensions, and practical lessons
@@ -99,7 +99,7 @@ noted as a hypothesis.
 #### Goal
 
 For **Terry**, presenting at 15:45 on 8 October 2026 at the Tokyo LeSS
-Conference, the finished bilingual *Freedom and Entrustment* deck becomes a
+Conference, the finished bilingual *Freedom and Trust* deck becomes a
 performance he can count on. Terry fits the 45-minute talk with 15 minutes
 left for Q&A, and the climax falls near the three-quarter mark. Speaker notes
 are cues he can glance at while speaking. If the network or the venue fails,
@@ -259,8 +259,10 @@ review silently: if it is late, say so.
 
 ## Open decisions
 
-- ~~**Title alignment.**~~ Decided 2026-09-28: keep *Freedom and
-  Entrustment*, with the listed session title as the subtitle.
+- ~~**Title alignment.**~~ Reassessed and decided 2026-10-04: use
+  *Freedom and Trust*, with the listed session title as the subtitle.
+  Keep *entrust* for giving responsibility; the title names the broader
+  relationship that enables responsible freedom.
 - ~~**Q&A share of the hour.**~~ Decided 2026-09-28: a 45-minute talk with
   a 15-minute Q&A bank; slide limit about 33, never more than 35.
 - ~~**What "confirmed" means.**~~ Decided 2026-09-28: a talk role (Confirmed,

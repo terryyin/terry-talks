@@ -6,7 +6,7 @@ future discussion, not a set of conclusions.
 ## Talk framing
 
 - What is the exact title for the Tokyo LeSS Conference talk? Working
-  answer: **Freedom and Entrustment**, subtitle **What AI-Augmented
+  answer: **Freedom and Trust**, subtitle **What AI-Augmented
   Development and LeSS Can Learn from the TPS**. The theme matches
   [Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md).
   The early-talk slogan (*How do you know if the organization is using
@@ -19,7 +19,7 @@ future discussion, not a set of conclusions.
 - What is the promised audience takeaway? Working answer: drafted as
   the four-point takeaway list in
   [Main theme and stage setting](main-theme-and-stage-setting.md),
-  closed by the Freedom and Entrustment triad.
+  closed by the Freedom and Trust triad.
 - Is the talk primarily about applying TPS philosophy to AI-augmented software,
   or about using the contrast with TPS to expose what is newly difficult?
   Working answer: as in the subtitle. Not applying TPS to software, but
@@ -49,7 +49,7 @@ future discussion, not a set of conclusions.
   Working answer: a **supporting argument**, not the thesis. Use it on
   the jidoka / preserve-knowledge slide. [Claim
   6](claims/06-jidoka-embeds-routine-judgment.md) owns the beat. The
-  thesis remains Freedom and Entrustment
+  thesis remains Freedom and Trust
   ([Claim 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)).
 - Does AI replace the LeSS contest for a developer’s focus (the
   solution, or customer value)? Working answer: **no — same war, higher

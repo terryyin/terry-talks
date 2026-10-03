@@ -20,9 +20,15 @@ easy to remember.
 
 ## Title
 
-> **Freedom and Entrustment**
+> **Freedom and Trust**
 >
 > *What AI-Augmented Development Can Learn from the Toyota Production System*
+
+The title uses **trust** for the relationship: trust people with real
+problems, and give them the freedom and support to respond. **Entrust**
+remains the precise verb for giving responsibility; mutual trust grows
+through capable responses and reciprocal support. The title does not
+redefine Just-in-Time as trust.
 
 The subtitle is the session title listed on the conference page. It
 carries the boundary. The talk does not apply a factory
@@ -58,7 +64,7 @@ interpret, rank, and re-decide before safely using or changing it.
 
 ## The main message
 
-Freedom and entrustment are not literal opposites, but organizations
+Freedom and trust are not literal opposites, but organizations
 mistakenly treat them as a tradeoff: to hand over the work that
 matters, it seems you must constrain people in advance; to give real
 freedom, it seems you cannot hand over the work that matters. The
@@ -176,7 +182,7 @@ Priority and separation show importance only. They do not dictate the
 order or the grouping of slides, and a topic does not map one-to-one
 to a claim.
 
-1. **Freedom and Entrustment** — the diagnostic slogan, the polarity,
+1. **Freedom and Trust** — the diagnostic slogan, the polarity,
    and the reinforcing loop: encoded learning makes freedom
    responsible; visible capability earns entrustment and mutual trust
    ([Claims 10](claims/10-freedom-and-trust-reinforce-through-jidoka.md)
@@ -243,12 +249,12 @@ a 45-minute talk. It never exceeds 35.
 
 - **Opening:** Casual, with the diagnostic question by slide 5 and the
   statement "AI speeds whichever loop you feed" set up early.
-- **Build:** Freedom versus entrustment, then the triad. Next comes the
+- **Build:** Freedom versus trust, then the triad. Next comes the
   jidoka descent: the loom's closed stop, smart → dumb → gone, and Stop &
   Fix. The same gates follow, with Go-See as a secondary beat and the five
   judgments. Then JIT flow: pull, CI as a practice, and the shared product
   pulling collaboration.
-- **Climax:** "The engine of freedom and entrustment" leads into **"AI
+- **Climax:** "The engine of freedom and trust" leads into **"AI
   speeds whichever loop you feed"** at about three-quarters of the deck
   (slide index ÷ total between 0.70 and 0.80). Its note pays off the early
   statement.

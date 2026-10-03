@@ -15,7 +15,7 @@ continuously**
 > orient that capability toward user value.**
 
 Jidoka's people-side—empowerment, encoded judgment, freedom and
-entrustment—is [Claims
+trust—is [Claims
 3](03-jidoka-enables-jit-trusts-respect-grows.md),
 [6](06-jidoka-embeds-routine-judgment.md), and
 [10](10-freedom-and-trust-reinforce-through-jidoka.md). This claim is
