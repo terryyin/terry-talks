@@ -6,6 +6,8 @@ Make educational short videos.
 
 ## Taken
 
+- [Viewers hear a natural Cedar performance of the problem decomposition film](../Problem%20Decomposition/cedar-narration-seed.md#expressive-narration) — problem-decomposition-cedar#expressive-narration
+
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
