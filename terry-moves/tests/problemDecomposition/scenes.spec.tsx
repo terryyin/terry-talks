@@ -144,7 +144,10 @@ describe('a recognizable sequel with useful stopping boundaries', () => {
 		expect(coherent.complete).toBe(true);
 		expect(coherent.paint).toBeUndefined();
 		expect(coherent.cells.every((cell) => cell.dx === 0 && cell.dy === 0 && cell.rot === 0 && !cell.smear)).toBe(true);
-		blueStory.changed.forEach((spot) => expect(coherent.cells.find((cell) => cell.col === spot.col && cell.row === spot.row)?.color).toBe('#334c9b'));
+		const blueCells = coherent.cells.filter((cell) => cell.color === '#334c9b' || cell.split === '#334c9b');
+		expect(blueCells).toHaveLength(3);
+		expect(new Set(blueCells.map((cell) => cell.col)).size).toBe(3);
+		expect(new Set(blueCells.map((cell) => cell.row)).size).toBeGreaterThan(1);
 		expect(blueCoherentAt()).toBeLessThan(spokenCue('health', 1));
 	});
 

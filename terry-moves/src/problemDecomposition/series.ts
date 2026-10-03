@@ -92,6 +92,10 @@ export const blueStory: StorySpec = {
 	seed: 17,
 	splash: 1.25,
 };
+const assimilatedBlueStory: StorySpec = {
+	...blueStory,
+	changed: [{ col: 1, row: 1 }, { col: 3, row: 2 }],
+};
 export const BLUE_WAITING: Point = { x: 820, y: 490 };
 const blueBefore = (): StoryBefore => ({ ...before, cells: coherentProductOf(firstStory, before).cells });
 export const verticalFlightAt = (): number => spokenCue('vertical', 0, 'vertical');
@@ -129,14 +133,14 @@ export const productAt = (seconds: number): ReturnType<typeof deliveryAt> => {
 		return { cells: messy.cells, paint: { ...messy.splat!, radius: mix(0.12, 1.25, firstGrowth) + replay * 0.18 }, complete: false };
 	}
 	if (seconds < assimilationAt() + 1.85) {
-		const pose = assimilateBeatOf(blueStory, preceding)((seconds - assimilationAt()) / 1.85 * 3.7);
+		const pose = assimilateBeatOf(assimilatedBlueStory, preceding)((seconds - assimilationAt()) / 1.85 * 3.7);
 		return { cells: pose.cells, paint: pose.splat, complete: false };
 	}
 	if (seconds < blueCoherentAt()) {
-		const pose = coherentBeatOf(blueStory, preceding)((seconds - assimilationAt() - 1.85) / 0.85 * 1.4);
+		const pose = coherentBeatOf(assimilatedBlueStory, preceding)((seconds - assimilationAt() - 1.85) / 0.85 * 1.4);
 		return { cells: pose.cells, paint: pose.splat, complete: false };
 	}
-	return { cells: coherentProductOf(blueStory, preceding).cells, complete: true };
+	return { cells: coherentProductOf(assimilatedBlueStory, preceding).cells, complete: true };
 };
 
 export const verticalFlashAt = (seconds: number): number => {
