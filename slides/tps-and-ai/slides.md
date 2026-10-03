@@ -82,14 +82,14 @@ conference.
 
 But TPS has inspired and benefited me so much — before the AI era, and
 even more in it — that I cannot resist shamelessly sharing.
-[TPSには大いに学んだ。共有せずにいられない。]{.ja}
+[TPSから多くの気付きと恩恵を得た。共有せずにはいられない。]{.ja}
 
 - Software is **not a factory** — it mixes discovery and production in
   one evolving product
-  [ソフトウェアは**工場ではない**：発見と生産が混在]{.ja}
+  [ソフトウェアは**工場ではない**：ディスカバリーと実装が混ざり合う]{.ja}
 - So this talk takes TPS as **inspiration and reasoning**, never a recipe
   to apply directly
-  [TPSは**着想と考え方**。レシピではない]{.ja}
+  [TPSは**インスピレーションと考え方**。直接使うレシピではない]{.ja}
 
 <!--
 Carries the talk boundary up front so it need not repeat later:
@@ -103,7 +103,7 @@ class: text-center
 
 # One lineage of inspiration
 
-[ひとつながりの着想の系譜]{.ja-title}
+[ひとつながりのインスピレーションの系譜]{.ja-title}
 
 ```mermaid {scale: 0.9}
 %%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 20}}}%%
@@ -118,10 +118,10 @@ flowchart LR
 ```
 
 **TPS** inspired **XP** and the Agile movement,
-[**TPS**が**XP**とアジャイルムーブメントに着想を与え、]{.ja}
+[**TPS**が**XP**とアジャイルムーブメントにインスピレーションを与え、]{.ja}
 
 then **LeSS** —
-[続いて**LeSS**に——]{.ja}
+[**LeSS**にも——]{.ja}
 
 and now, **AI-augmented development**.
 [そして今、**AI拡張開発**へ。]{.ja}
@@ -133,11 +133,11 @@ class: text-center
 
 ## How do you know if the organization is using AI right?
 
-[組織がAIを正しく使えているか、どうすればわかるか？]{.ja-title}
+[組織がAIを正しく使えているか、どうすればわかる？]{.ja-title}
 
 # If the teams are more **freed** than **constrained** by what they built.
 
-[チームが自ら作ったものに**縛られる**より、**解放されて**いるなら。]{.ja-title}
+[チームが作ったものに**縛られる**より、**解放されて**いるなら。]{.ja-title}
 
 <!--
 The diagnostic question — one of the first slides (stage setting).
@@ -155,9 +155,9 @@ backgroundSize: contain
 [自ら作ったものに縛られる]{.ja-title}
 
 - Leftover ownership
-  [残されたオーナーシップ]{.ja}
+  [オーナーシップの残骸]{.ja}
 - Judgment-loaded output presented as finished
-  [判断を抱えたまま「完成」とされるアウトプット]{.ja}
+  [必要な判断がされないままのアウトプットを「完成」としてしまう]{.ja}
 - Unable to take the next highest-value item
   [次に最も価値の高いアイテムに取りかかれない]{.ja}
 
@@ -227,13 +227,13 @@ again whether an empty list is allowed.
 
 # AI speeds whichever loop you feed
 
-[AIは、あなたが回すほうのループを加速する]{.ja-title}
+[AIは、好循環も悪循環も加速させる]{.ja-title}
 
 ```mermaid {scale: 1.1}
 %%{init: {'flowchart': {'rankSpacing': 35, 'nodeSpacing': 28}}}%%
 flowchart LR
   AI(Pressure to ask AI<br>for more solutions<br><small>AIにもっと<br>解決策を求める圧力</small>)
-  INV(Artifacts still<br>requiring judgment<br><small>判断がまだ必要な<br>成果物</small>)
+  INV(Artifacts still<br>requiring judgment<br><small>必要な判断が<br>残る成果物</small>)
   EFF(Effort per change<br>for people + AI<br><small>人もAIも<br>変更にかかる手間</small>)
   DONE(Problems solved<br>per day<br><small>一日に解決する<br>問題の数</small>)
 
@@ -299,15 +299,15 @@ Hashes: `7b61a5705c` (`/sync` pull), `fce957dd3d` (`/export` pin),
 
 # Freedom vs. entrustment?
 
-[自由か、任せることか？]{.ja-title}
+[自由 VS 任せる？]{.ja-title}
 
 To hand over the work that matters, it seems you must **constrain** people
 in advance.
-[大事な仕事を任せるには、前もって人を**縛らなければならない**ように見える。]{.ja}
+[大事な仕事を任せるには、あらかじめ人を**制約で縛る**必要があるように見える。]{.ja}
 
 To give real freedom, it seems you **cannot hand over** the work that
 matters.
-[本当の自由を与えるなら、大事な仕事は**任せられない**ように見える。]{.ja}
+[本当の自由を与えたら、大事な仕事は**任せられない**ように見える。]{.ja}
 
 **Entrust**, 任せる · **trust**, 信頼
 
@@ -350,10 +350,10 @@ class: p-0
 
 <div class="border-l border-[#78716c]/30 pl-7 text-[19px] leading-[1.8] text-[#5c564e]" lang="ja">
   <p class="!m-0">
-    TPSが示すのは、システムが学びを絶えず制約に変え、より大きな自由を責任あるものにし——その自由で次の学びを生み出す方法だ。
+    TPSは、学びを制約に変え、その制約によってより大きな自由を責任あるものにする。その自由で次の学びを生み出す。
   </p>
   <p class="!mb-0 !mt-5">
-    その学びの上に、より深く任せることが、そしてやがて相互の信頼が成り立つ。
+    その学びを土台に、より深く任せられるようになり、やがて相互の信頼が成り立つ。
   </p>
 </div>
 
@@ -370,7 +370,7 @@ layoutClass: "!grid-rows-[auto_1fr] [&_.col-header_h1]:!mb-2 [&_p]:!leading-snug
 
 # Two houses, different layers
 
-[二つのハウス、異なる層]{.ja-title}
+[二つのハウス、異なる階層]{.ja-title}
 
 ::left::
 
@@ -509,14 +509,14 @@ layers. Do not present the left house as Toyota's official graphic. Claim 2.
       <text y="24" class="ja" style="font-size: 16px">育てる</text>
     </g>
     <text x="555" y="232" fill="#57534e" style="font-size: 16px">capability to respond</text>
-    <text x="555" y="251" class="ja" style="font-size: 14px">応える能力を</text>
+    <text x="555" y="251" class="ja" style="font-size: 14px">応える能力</text>
     <g transform="translate(450 290)">
       <rect x="-95" y="-32" width="190" height="64" rx="25" fill="#ece6dc" />
       <text y="2" fill="#b33a2b" font-weight="700" style="font-size: 28px">entrusts</text>
       <text y="24" class="ja" style="font-size: 16px">任せる</text>
     </g>
     <text x="450" y="342" fill="#57534e" style="font-size: 16px">response instead of stockpiles</text>
-    <text x="450" y="362" class="ja" style="font-size: 14px">在庫ではなく、応答を</text>
+    <text x="450" y="362" class="ja" style="font-size: 14px">在庫ではなく、応答</text>
     <g transform="translate(450 58)">
       <rect x="-112" y="-40" width="224" height="80" rx="16" fill="#292524" />
       <text y="2" fill="#fffaf3" font-weight="700" style="font-size: 31px">Jidoka</text>
@@ -538,7 +538,7 @@ layers. Do not present the left house as Toyota's official graphic. Claim 2.
 
 Technical excellence keeps the shared product and its abnormalities visible
 soon enough for teams to collaborate just in time.
-[技術的卓越性が、共有プロダクトとその異常を早く見えるようにし、チームがジャスト・イン・タイムで協働できるようにする。]{.ja}
+[技術的卓越性が、共有プロダクトの異常を早く見えるようにし、チームがジャスト・イン・タイムで協働できるようにする。]{.ja}
 
 <!--
 Claims 3, 12, 8.
@@ -551,10 +551,10 @@ class: text-center
 
 # Jidoka preserves knowledge
 
-[自働化は知識を保つ]{.ja-title}
+[自働化は知識を保存する]{.ja-title}
 
 Generation is cheap; **judgment is expensive**.
-[生成は安く、**判断は高くつく**。]{.ja}
+[生成は安く、**判断には多くの労力がかかる**。]{.ja}
 
 Encode what we already know.
 Leave people able to **experience** the next problem
@@ -651,7 +651,7 @@ class: p-0
 
 <div v-click="1" class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Called by the stop
-  <span class="ja">停止に呼ばれる</span>
+  <span class="ja">停止したら呼ばれる</span>
 </div>
 
 <!--
@@ -973,7 +973,7 @@ go to where the work is actually done.
 <div class="doughnut-example">
 
 `git commit` reports success. The pre-commit hook records the **main** tree.
-[`git commit` は成功と報告する。だがpre-commitフックが記録するのは**main**のツリーだ。]{.ja}
+[`git commit` は成功を報告する。だがpre-commitフックが記録しているのは**main**のツリーだ。]{.ja}
 
 ```bash
 REPO_ROOT="$HOOK_DIR/../.."
@@ -1172,7 +1172,7 @@ Start from **one current customer need** →
 cut a **thin vertical slice** →
 integrate it → confirm quality and usefulness →
 take the **next bite**.
-[**いまの顧客ニーズひとつ**から始め → **薄い垂直スライス**を切り → 統合し → 品質と有用性を確かめ → **次のひと口**へ。]{.ja}
+[**１つの顧客ニーズ**から始め → **薄い縦斬りスライス**を切り出し → 統合し → 品質と有用性を確かめ → **次の一口**へ。]{.ja}
 
 **Continuous integration is a practice, not a system:** a CI server that
 integrates unowned branches is a stockpile with a green light on it.
@@ -1369,10 +1369,10 @@ Claims 12 and 3.
 [完璧に向けた継続的改善]{.ja-title}
 
 - TPS: **SMED** — changeover so cheap that small batches become rational
-  [TPS：**SMED**（シングル段取り）——段取り替えが安くなり、小ロットが合理的になる]{.ja}
+  [TPS：**SMED**（シングル段取り）——段取り替えの負担を減らし、少量生産を合理的にする]{.ja}
 - LeSS: an expanding **Definition of Done** as the measure of the same
   improvement
-  [LeSS：拡大し続ける**完成の定義**（Definition of Done）が、同じ改善の尺度になる]{.ja}
+  [LeSS：**完成の定義**の拡張も、同じ改善の尺度となる]{.ja}
 
 <img
   src="/pit-stop-changeover.png"
@@ -1397,10 +1397,10 @@ env setup → fast deterministic e2e.
 [緊張関係と、正直な限界]{.ja-title}
 
 - Honest CI **versus** disposable prototypes — a real tension pair
-  [誠実なCI **対** 使い捨てのプロトタイプ——本当の緊張関係]{.ja}
+  [正直なCI **対** 使い捨てのプロトタイプ——本当の緊張関係]{.ja}
 - The Algorithm resembles TPS — a family resemblance, not a proven
   extension
-  [The AlgorithmはTPSに似ている——家族的類似であって、実証された発展形ではない]{.ja}
+  [「アルゴリズム」はTPSに似ている——家族的類似であって、実証された発展形ではない]{.ja}
 
 <img
   src="/tension-loop.png"
@@ -1423,7 +1423,7 @@ class: "text-center [&>h1]:!text-[26px] [&>h1]:!mb-2"
 
 # How do you know if the organization is using AI right?
 
-[組織がAIを正しく使えているか、どうすればわかるか？]{.ja-title}
+[組織がAIを正しく使えているか、どうすればわかる？]{.ja-title}
 
 <div class="absolute left-[5.5%] right-[5.5%] top-[30%]">
   <p class="!m-0 text-[48px] font-semibold leading-[1.12]">
@@ -1499,10 +1499,10 @@ an empirical claim that TPS automatically produces this outcome.
 1. **Judge AI use by freedom** — teams more freed than constrained
    [**AI活用は自由で判断する**——チームが縛られるより解放されているか]{.ja}
 2. **Pull, don't stockpile** — thin slices, integrate, confirm, next bite
-   [**プルせよ、溜め込むな**——薄いスライス、統合、確認、次のひと口]{.ja}
+   [**プルせよ、溜め込むな**——縦斬りスライス、統合、確認、次の一口]{.ja}
 3. **Smart → dumb → gone** — judgment-loaded → judgment-preserved →
    judgment-removed; a justified stop halts propagation
-   [**賢い → 単純 → 消える**——判断を抱える → 保存 → 不要に。正当な停止が波及を止める]{.ja}
+   [**賢い → 単純 → 消える**——判断を抱える → 保存する → 取り除く。正当な停止が波及を止める]{.ja}
 4. **Same gates for "I" and AI** — five judgments stay human
    [**「私」にもAIにも同じゲート**——五つの判断は人間に残る]{.ja}
 5. **Integrate continuously; collaborate just in time** — do not create
@@ -1529,7 +1529,7 @@ layout: quote
 > **Encode the known. Stop the abnormal. Free people to learn.
 > Entrust a capable response to real need.
 > Let visible capability earn mutual trust.**
-> [**既知を仕組みに組み込む。異常で止める。人を学びへと解放する。本当のニーズには、力ある応答を任せる。目に見える能力で、相互の信頼を得る。**]{.ja}
+> [**既知を組み込む。異常で止める。人を学びへと解放する。本当のニーズに応える力を信頼して任せる。目に見える能力で、相互の信頼を得る。**]{.ja}
 
 </div>
 
