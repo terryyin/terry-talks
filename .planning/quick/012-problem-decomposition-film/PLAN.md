@@ -45,7 +45,7 @@ End with “Deliver. Learn. Choose again.” Identify synthetic narration in not
 
 ### 1. Behavior — a complete opening makes the distinction tangible
 
-Status: pending
+Status: done
 
 Create the registered composition and a watchable opening connecting waiting
 adult diners to solution parts versus a smaller useful customer problem.
@@ -76,4 +76,14 @@ before retiring this worktree so the user can watch them.
 
 ## Learnings and delivery evidence
 
-Awaiting execution.
+Slice 1: registered composition and 28.57-second opening render accepted.
+`pnpm exec tsc` passed; focused timeline suite passed 3 tests. Actual H.264
+render frames0–856 loaded artwork and both audio tracks. Coordinator inspected
+question, parts and finished equal-split frames; card collisions and early
+headline transition corrected. ffprobe:1080×1080,30fps,H.264+AAC,28.629s container.
+Audio:113.233s,3397frames,246spokenwords,29contiguous captions. Daniel synthetic
+narration −18.02LUFS; original score −40.01LUFS. Independent refactor centralizes
+spoken/caption pairs in JSON; documents-only regeneration is deterministic,
+all audio hashes/timing unchanged; focused tests+tsc passed after refactoring.
+Publisher:19b9f8b7-4459-4e0d-9a94-d8c0eaa9171f. Taken claim:41f1b7cfc1ea3d7301b5da9c963baaef07a0c6b3.
+No CI workflow exists. No observation is claimed.

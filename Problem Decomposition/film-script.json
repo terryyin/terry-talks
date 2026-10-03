@@ -1,0 +1,139 @@
+{
+  "title": "Problem Decomposition",
+  "subtitle": "The freedom to change your mind",
+  "fps": 30,
+  "duration": 113.23333333333333,
+  "voice": "Daniel (macOS synthetic narration; not Terry's recorded voice)",
+  "scenes": [
+    {
+      "id": "hook",
+      "start": 0.0,
+      "end": 8.0,
+      "label": "A useful question",
+      "captionRanges": [
+        {"text": "If development stopped tomorrow,", "start": 0.0, "end": 2.3333333333333335, "speechStart": 0.35, "speechEnd": 2.1435208333333335, "spoken": "If development stopped tomorrow,"},
+        {"text": "what could your customer use?", "start": 2.3333333333333335, "end": 4.533333333333333, "speechStart": 2.453333333333333, "speechEnd": 4.0524375, "spoken": "what could your customer use?"},
+        {"text": "Three friends. One dinner bill.", "start": 4.533333333333333, "end": 8.0, "speechStart": 4.653333333333333, "speechEnd": 7.609854166666667, "spoken": "Three friends finish dinner. They need to split the bill."}
+      ],
+      "duration": 8.0
+    },
+    {
+      "id": "parts",
+      "start": 8.0,
+      "end": 16.066666666666666,
+      "label": "The distinction",
+      "captionRanges": [
+        {"text": "A database. An API. A screen.", "start": 8.0, "end": 11.8, "speechStart": 8.12, "speechEnd": 11.609770833333334, "spoken": "You could plan a database, an API, and a screen."},
+        {"text": "Solution decomposition arranges the answer’s parts.", "start": 11.8, "end": 16.066666666666666, "speechStart": 11.92, "speechEnd": 15.675791666666667, "spoken": "That's solution decomposition: arranging the answer's parts."}
+      ],
+      "duration": 8.066666666666666
+    },
+    {
+      "id": "problem",
+      "start": 16.066666666666666,
+      "end": 28.566666666666666,
+      "label": "The distinction",
+      "captionRanges": [
+        {"text": "What’s the smallest useful customer problem?", "start": 16.066666666666666, "end": 21.6, "speechStart": 16.186666666666667, "speechEnd": 21.4314375, "spoken": "Problem decomposition asks: what's the smallest useful customer problem we can solve?"},
+        {"text": "First: split one bill equally.", "start": 21.6, "end": 24.1, "speechStart": 21.72, "speechEnd": 23.9255, "spoken": "First, split one bill equally."},
+        {"text": "Later? Unequal shares. Payment tracking.", "start": 24.1, "end": 28.566666666666666, "speechStart": 24.22, "speechEnd": 28.1631875, "spoken": "Later, handle unequal shares. Later, track payments."}
+      ],
+      "duration": 12.5
+    },
+    {
+      "id": "premises",
+      "start": 28.566666666666666,
+      "end": 36.96666666666667,
+      "label": "Two premises",
+      "captionRanges": [
+        {"text": "Seek smaller customer problems.", "start": 28.566666666666666, "end": 32.36666666666667, "speechStart": 28.686666666666667, "speechEnd": 32.193979166666665, "spoken": "Two premises: we can seek smaller customer problems."},
+        {"text": "A plan is an attempt, not a guarantee.", "start": 32.36666666666667, "end": 36.96666666666667, "speechStart": 32.486666666666665, "speechEnd": 36.58133333333333, "spoken": "For an uncertain problem, a plan is an attempt, not a guarantee."}
+      ],
+      "duration": 8.400000000000002
+    },
+    {
+      "id": "value",
+      "start": 36.96666666666667,
+      "end": 50.233333333333334,
+      "label": "Goal 01 · Value + feedback",
+      "captionRanges": [
+        {"text": "Deliver value. Learn from it.", "start": 36.96666666666667, "end": 41.766666666666666, "speechStart": 37.086666666666666, "speechEnd": 41.58722916666667, "spoken": "So optimize for two things. First, deliver value and learn from it."},
+        {"text": "Three people see what they owe.", "start": 41.766666666666666, "end": 43.96666666666667, "speechStart": 41.88666666666666, "speechEnd": 43.48558333333333, "spoken": "Three people see what they owe."},
+        {"text": "Feedback can change the next step.", "start": 43.96666666666667, "end": 46.46666666666667, "speechStart": 44.086666666666666, "speechEnd": 46.29964583333334, "spoken": "Their reaction can change the next step."},
+        {"text": "Just enough. Just in time. To learn.", "start": 46.46666666666667, "end": 50.233333333333334, "speechStart": 46.586666666666666, "speechEnd": 49.82927083333333, "spoken": "Deliver just enough, just in time, to learn."}
+      ],
+      "duration": 13.266666666666666
+    },
+    {
+      "id": "stop",
+      "start": 50.233333333333334,
+      "end": 60.833333333333336,
+      "label": "Goal 02 · Freedom to change",
+      "captionRanges": [
+        {"text": "Make stopping affordable.", "start": 50.233333333333334, "end": 52.7, "speechStart": 50.35333333333333, "speechEnd": 52.52427083333333, "spoken": "Second, make stopping affordable."},
+        {"text": "Equal splitting still works.", "start": 52.7, "end": 56.63333333333333, "speechStart": 52.82, "speechEnd": 56.46816666666667, "spoken": "If priorities change, equal splitting still works."},
+        {"text": "Leave later work unstarted.", "start": 56.63333333333333, "end": 60.833333333333336, "speechStart": 56.75333333333333, "speechEnd": 60.423458333333336, "spoken": "Leave later work unstarted, without making today depend on it."}
+      ],
+      "duration": 10.600000000000001
+    },
+    {
+      "id": "vertical",
+      "start": 60.833333333333336,
+      "end": 72.26666666666667,
+      "label": "Principles · The three Vs",
+      "captionRanges": [
+        {"text": "Valuable. Visible. Vertical.", "start": 60.833333333333336, "end": 65.43333333333334, "speechStart": 60.95333333333333, "speechEnd": 65.25652083333334, "spoken": "Use three Vs: valuable to a customer, visible in their world,"},
+        {"text": "Working end to end.", "start": 65.43333333333334, "end": 67.83333333333333, "speechStart": 65.55333333333333, "speechEnd": 67.650625, "spoken": "and vertical, working end to end."},
+        {"text": "Finish one customer outcome at a time.", "start": 67.83333333333333, "end": 72.26666666666667, "speechStart": 67.95333333333333, "speechEnd": 71.86947916666666, "spoken": "Finish one customer outcome at a time. That's one-piece flow."}
+      ],
+      "duration": 11.43333333333333
+    },
+    {
+      "id": "fractal",
+      "start": 72.26666666666667,
+      "end": 78.9,
+      "label": "Principles · The same logic",
+      "captionRanges": [
+        {"text": "Stories → scenarios → implementation slices.", "start": 72.26666666666667, "end": 78.9, "speechStart": 72.38666666666667, "speechEnd": 78.51829166666667, "spoken": "Repeat this logic at smaller scales: stories, scenarios, implementation slices."}
+      ],
+      "duration": 6.63333333333334
+    },
+    {
+      "id": "commit",
+      "start": 78.9,
+      "end": 91.8,
+      "label": "Principles · Current purpose",
+      "captionRanges": [
+        {"text": "Every commit is your last commit.", "start": 78.9, "end": 81.1, "speechStart": 79.02, "speechEnd": 80.77279166666666, "spoken": "Every commit is your last commit."},
+        {"text": "Strive for useful value now.", "start": 81.1, "end": 83.3, "speechStart": 81.22, "speechEnd": 83.045, "spoken": "Strive for useful value now."},
+        {"text": "Serve today’s purpose or a documented need.", "start": 83.3, "end": 87.53333333333333, "speechStart": 83.42, "speechEnd": 87.34064583333334, "spoken": "Each change must serve today's purpose or an already documented need,"},
+        {"text": "Product health counts.", "start": 87.53333333333333, "end": 91.8, "speechStart": 87.65333333333334, "speechEnd": 91.40577083333334, "spoken": "including product health, not merely prepare the next commit."}
+      ],
+      "duration": 12.899999999999991
+    },
+    {
+      "id": "health",
+      "start": 91.8,
+      "end": 105.33333333333333,
+      "label": "Principles · Whole-product health",
+      "captionRanges": [
+        {"text": "Care for the whole product.", "start": 91.8, "end": 94.0, "speechStart": 91.92, "speechEnd": 93.223, "spoken": "Care for the whole product."},
+        {"text": "Option value: speculative future potential.", "start": 94.0, "end": 101.23333333333333, "speechStart": 94.12, "speechEnd": 101.0493125, "spoken": "Healthy design preserves the potential to deliver future value affordably. That speculative potential is option value."},
+        {"text": "Unused features can close alternatives.", "start": 101.23333333333333, "end": 105.33333333333333, "speechStart": 101.35333333333334, "speechEnd": 104.93922916666666, "spoken": "Unused features can add complexity and close alternatives."}
+      ],
+      "duration": 13.533333333333331
+    },
+    {
+      "id": "end",
+      "start": 105.33333333333333,
+      "end": 113.23333333333333,
+      "label": "Choose again",
+      "captionRanges": [
+        {"text": "Deliver. Learn. Choose again.", "start": 105.33333333333333, "end": 113.23333333333333, "speechStart": 105.45333333333333, "speechEnd": 110.91208333333333, "spoken": "Feedback matters when you can act on it. Decompose to deliver, learn, and choose again."}
+      ],
+      "duration": 7.900000000000006
+    }
+  ],
+  "durationInFrames": 3397,
+  "narrationWordsPerMinute": 160
+}

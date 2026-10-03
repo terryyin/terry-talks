@@ -12,6 +12,7 @@
 		"noEmit": true,
 		"lib": ["ES2018", "DOM"],
 		"esModuleInterop": true,
+		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"noUnusedLocals": true
