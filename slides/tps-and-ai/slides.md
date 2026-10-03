@@ -76,20 +76,16 @@ class: "[&_li]:!leading-snug"
 
 # 釈迦に説法
 
-*Preaching to the Buddha* — sharing about TPS, in Tokyo, at a LeSS
-conference.
-[東京のLeSSカンファレンスでTPSを語る。]{.ja}
+*Preaching to the Buddha* — TPS in Tokyo.
+[TPSを東京で語る。]{.ja}
 
-But TPS has inspired and benefited me so much — before the AI era, and
-even more in it — that I cannot resist shamelessly sharing.
-[TPSから多くの気付きと恩恵を得た。共有せずにはいられない。]{.ja}
+TPS has helped me. Even more with AI.
+[TPSは役立ってきた。AI時代には、なおさら。]{.ja}
 
-- Software is **not a factory** — it mixes discovery and production in
-  one evolving product
-  [ソフトウェアは**工場ではない**：ディスカバリーと実装が混ざり合う]{.ja}
-- So this talk takes TPS as **inspiration and reasoning**, never a recipe
-  to apply directly
-  [TPSは**インスピレーションと考え方**。直接使うレシピではない]{.ja}
+- Software combines **discovery and building**.
+  [ソフトウェアは、**発見しながら作る**。]{.ja}
+- Adapt **TPS thinking** to software.
+  [**TPSの考え方**を、ソフトウェアに合わせて活かす。]{.ja}
 
 <!--
 Carries the talk boundary up front so it need not repeat later:

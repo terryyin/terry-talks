@@ -128,7 +128,7 @@ review is still to come, so the *Aki reviewed* column is blank.
 | --- | --- | --- | --- |
 | Freedom and Trust (cover) | ✓ | | |
 | About Me | ✓ | ✓ | |
-| 釈迦に説法 | ✓ | ✓ | |
+| 釈迦に説法 | ✓ | | |
 | One lineage of inspiration | ✓ | ✓ | |
 | How do you know if the organization is using AI right? | ✓ | ✓ | |
 | Judgment-intensive work | ✓ | ✓ | |
