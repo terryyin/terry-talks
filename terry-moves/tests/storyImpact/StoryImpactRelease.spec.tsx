@@ -56,10 +56,10 @@ const spentBalls = (pose: Pose): Circle[] => {
 	});
 	return pose.spent ? [...resting, { at: pose.spent.at, r: reach(pose.spent.ball.size) }] : resting;
 };
-// A spent ball is wider than tall: its box, generous enough for its squash.
+// A spent story is an upright ghost: its box, generous enough for its squash.
 const spentBoxes = (pose: Pose): Box[] =>
 	spentBalls(pose).map(({ at, r }) => {
-		const ry = (r - 3) * (0.84 / 1.14) + 3;
+		const ry = (r - 3) * (1.08 / 0.94) + 3;
 		return { left: at.x - r, right: at.x + r, top: at.y - ry, bottom: at.y + ry };
 	});
 const overlaps = (a: Box, b: Box) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;

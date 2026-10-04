@@ -203,12 +203,12 @@ export type TitlePose = {
 	leave: number; // 0 = standing, 1 = shrunk away
 };
 
-// The spent story's pale, emptied skin, peeling off the product and drifting
-// to History. Drawn like a history ball, but free on the stage.
+// The spent story's translucent ghost, rising from the product and drifting
+// to History. Drawn like a History ghost, but free on the stage.
 export type SpentPose = {
 	ball: BallPose;
-	at: { x: number; y: number }; // center of the skin
-	peel?: number; // 0 = lying flat on the wall, 1 (left out) = puffed up and free
+	at: { x: number; y: number }; // center of the ghost
+	peel?: number; // 0 = flat remnant, 1 (left out) = fully risen ghost
 	squash?: number; // width over height, around its center
 };
 

@@ -10,12 +10,11 @@ import { ballColors, ideaBall, laterStories, leftTrayOf, pinkAfterIdea, pinkStor
 import { between, clamp01, FPS } from './motion';
 import { pills, withValues } from './valueBeats';
 import { afterStory } from './assimilation';
-import { beat, Beat, COHERENT_SECONDS, SPLAT_SECONDS, squeezed, WOBBLE_SECONDS } from './film';
+import { Beat, COHERENT_SECONDS, SPLAT_SECONDS, squeezed, WOBBLE_SECONDS } from './film';
 import { launchBeatOf, LAUNCH_SECONDS, QUICK_FLIGHT_SECONDS, quickFlightBeatOf } from './launchBeats';
 import { splatBeatOf } from './storyBeats';
 import { ASSIMILATE_SECONDS, assimilateBeatOf, coherentBeatOf, wobbleBeatOf } from './productBeats';
 import { HISTORY_SECONDS, historyBeatOf } from './historyBeats';
-import { afterABreath } from './readingPace';
 
 const [sun] = laterStories;
 
@@ -60,13 +59,13 @@ const ideaBefore = afterStory(sunStory, sunBefore);
 // The last story, and the stage once it has left the tray (with its refill).
 export const lastStory = { spec: ideaStory, stage: leftTrayOf(ideaStory, ideaBefore) };
 
-type Captions = { launch: string; wobble?: string; assimilate?: string; history?: string; breath?: boolean };
+type Captions = { launch: string; wobble?: string; assimilate?: string; history?: string };
 
 // How long the product's work on a story takes, in seconds.
-type Pace = { splat: number; wobble: number; assimilate: number; coherent: number };
-const USUAL: Pace = { splat: 1.8, wobble: 2, assimilate: 2.5, coherent: 1.8 };
+type Pace = { launch: number; flight: number; splat: number; wobble: number; assimilate: number; coherent: number; history: number };
+const USUAL: Pace = { launch: 1.4, flight: 1.1, splat: 1.1, wobble: 1.3, assimilate: 2.1, coherent: 1.4, history: 2 };
 // A story that exercises an option: the domain is ready for it.
-const CHEAP: Pace = { splat: 1.4, wobble: 1.2, assimilate: 1.8, coherent: 1.3 };
+const CHEAP: Pace = { launch: 2.2, flight: 1.8, splat: 1.4, wobble: 0.9, assimilate: 1.5, coherent: 0.9, history: 2.6 };
 
 // What a beat shows beside the story itself, by the beat's part name and
 // seconds into it.
@@ -78,10 +77,6 @@ const nothing: Extra = (_part, _sec, pose) => pose;
 const laterStoryBeats = (spec: StorySpec, before: StoryBefore, captions: Captions, eager: boolean, pace = USUAL, extra = nothing): Beat[] => {
 	const stage = leftTrayOf(spec, before);
 	const name = (part: string) => `${spec.ball.id}-${part}`;
-	const withExtra =
-		(part: string, bySeconds: (sec: number) => Pose) =>
-		(sec: number): Pose =>
-			extra(part, sec, bySeconds(sec));
 	// A beat played faster than the one-story film's, with the extra shown
 	// by seconds into this shorter beat.
 	const squeezedBeat = (part: string, seconds: number, caption: string | undefined, bySeconds: (sec: number) => Pose, fromSeconds: number): Beat => {
@@ -89,15 +84,14 @@ const laterStoryBeats = (spec: StorySpec, before: StoryBefore, captions: Caption
 		const last = Math.round(seconds * FPS) - 1;
 		return { ...plain, pose: (t) => extra(part, (clamp01(t) * last) / FPS, plain.pose(t)) };
 	};
-	const launch = beat(name('launch'), LAUNCH_SECONDS, captions.launch, withExtra('launch', launchBeatOf(spec, before, eager)));
 	return [
-		captions.breath ? afterABreath(launch) : launch,
-		beat(name('flight'), QUICK_FLIGHT_SECONDS, undefined, withExtra('flight', quickFlightBeatOf(spec, stage))),
+		squeezedBeat('launch', pace.launch, captions.launch, launchBeatOf(spec, before, eager), LAUNCH_SECONDS),
+		squeezedBeat('flight', pace.flight, undefined, quickFlightBeatOf(spec, stage), QUICK_FLIGHT_SECONDS),
 		squeezedBeat('splat', pace.splat, undefined, splatBeatOf(spec, stage), SPLAT_SECONDS),
 		squeezedBeat('wobble', pace.wobble, captions.wobble, wobbleBeatOf(spec, stage), WOBBLE_SECONDS),
 		squeezedBeat('assimilate', pace.assimilate, captions.assimilate, assimilateBeatOf(spec, stage), ASSIMILATE_SECONDS),
 		squeezedBeat('coherent', pace.coherent, undefined, coherentBeatOf(spec, stage), COHERENT_SECONDS),
-		squeezedBeat('history', 2.6, captions.history, historyBeatOf(spec, stage), HISTORY_SECONDS),
+		squeezedBeat('history', pace.history, captions.history, historyBeatOf(spec, stage), HISTORY_SECONDS),
 	];
 };
 
@@ -114,14 +108,14 @@ export const laterStoryBeatList: Beat[] = [
 	...laterStoryBeats(
 		sunStory,
 		sunBefore,
-		{ launch: 'More stories come and go…', assimilate: '…and the product stays coherent. No scars.', breath: true },
+		{ launch: 'More stories come and go…', assimilate: '…and the product stays coherent. No scars.' },
 		true,
 	),
 	...laterStoryBeats(
 		ideaStory,
 		ideaBefore,
 		{
-			launch: 'The idea fits the same domain…',
+			launch: 'If a new idea fits the same domain…',
 			wobble: '…so it comes cheap: the option pays off.',
 			history: 'The product shows what is, not what was.',
 		},

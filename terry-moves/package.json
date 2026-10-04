@@ -15,7 +15,7 @@
 		"test": "jest && pnpm lint && tsc",
 		"srt": "tsx ./src/srt.ts",
 		"render:problem-decomposition": "node ../scripts/problem-decomposition-subtitles.mjs && remotion render src/index.ts ProblemDecompositionFilm out/problem-decomposition.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 && remotion still src/index.ts ProblemDecompositionFilm out/problem-decomposition-poster.png --frame=-1",
-		"render:story-impact": "remotion render src/index.ts StoryImpactFilm out/story-impact-animation.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 && remotion still src/index.ts StoryImpactFilm out/story-impact-animation-poster.png --frame=-1",
+		"render:story-impact": "remotion render src/index.ts StoryImpactFilm out/story-impact-animation.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 && remotion still src/index.ts StoryImpactFilm out/story-impact-animation-poster.png --frame=0",
 		"render:story-impact:zh-hant": "remotion render src/index.ts StoryImpactFilmZhHant out/story-impact-animation-zh-hant.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709",
 		"render:feature-teams": "remotion render src/index.ts FeatureTeamsFilm out/feature-teams-engineering-practices.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 && remotion still src/index.ts FeatureTeamsFilm out/feature-teams-engineering-practices-cover.png --frame=3366",
 		"render:ai-test-automation": "node ../scripts/ai-test-automation-subtitles.mjs && remotion render src/index.ts AITestAutomationFilm out/ai-test-automation.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts AITestAutomationFilm out/ai-test-automation-poster.png --frame=45"

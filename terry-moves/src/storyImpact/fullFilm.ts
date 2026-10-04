@@ -13,7 +13,7 @@ export const fullFilmBeats: Beat[] = [
 	beat('title', TITLE_SECONDS, '', titleBeat),
 	beat('space', SPACE_SECONDS, boards[0].caption, spaceBeat),
 	beat('time', TIME_SECONDS, boards[1].caption, timeBeat),
-	...oneStoryBeats,
+	...oneStoryBeats.map((b) => b.name === 'next' ? { ...b, seconds: 2.2 } : b),
 	...laterStoryBeatList,
 	...endingBeatList,
 ];

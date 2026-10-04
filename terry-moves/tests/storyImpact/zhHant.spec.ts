@@ -20,6 +20,10 @@ describe('Traditional Chinese subtitles', () => {
 		expect(zhHantCaption('')).toBe('');
 	});
 
+	test('the new-idea condition stays conditional in Traditional Chinese', () => {
+		expect(zhHantCaption('If a new idea fits the same domain…')).toBe('如果新點子屬於同一個領域……');
+	});
+
 	test('each subtitle fits the caption bar in at most two lines, never starting a line with punctuation', () => {
 		Object.values(ZH_HANT_CAPTIONS).forEach((zh) => {
 			const lines = captionLines(zh);

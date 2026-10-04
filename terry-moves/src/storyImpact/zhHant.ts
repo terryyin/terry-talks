@@ -25,7 +25,7 @@ export const ZH_HANT_CAPTIONS: Record<string, string> = {
 	'Ready for the next story.': '準備好迎接下一個故事。',
 	'More stories come and go…': '更多故事來來去去……',
 	'…and the product stays coherent. No scars.': '……產品始終保持一致。沒有傷疤。',
-	'The idea fits the same domain…': '這個點子屬於同一個領域……',
+	'If a new idea fits the same domain…': '如果新點子屬於同一個領域……',
 	'…so it comes cheap: the option pays off.': '……所以成本很低：選擇權兌現了。',
 	'The product shows what is, not what was.': '產品呈現的是現在，而不是過去。',
 	'One story touches many features…': '一個故事會觸及許多功能……',

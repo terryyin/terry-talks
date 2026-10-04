@@ -1,14 +1,10 @@
 import React from 'react';
 import { BallPose, palette, SpentPose } from './scene';
-import { Face, Mood } from './face';
-import { BEHAVIOR_STEP, FONT_FAMILY, HISTORY_BOX, HISTORY_LABEL, historyLabelAt, HISTORY_LIP_TOP, historySpot, historyWidth, OUTLINE, SHADOW, spentShape, squashAround } from './layout';
+import { FONT_FAMILY, HISTORY_BOX, HISTORY_LABEL, historyLabelAt, HISTORY_LIP_TOP, historySpot, historyWidth, OUTLINE, SHADOW, spentShape, squashAround } from './layout';
 
 // The History box behind the product, top-left: spent stories rest here,
-// pale and content. Pure function of the spent balls. On its way there, a
-// spent story is drawn by SpentSkin.
-
-// A skin lying on the product wall slants along the Behavior axis.
-const WALL_SLOPE = BEHAVIOR_STEP.y / BEHAVIOR_STEP.x;
+// translucent ghosts. Pure function of the spent balls. On its way there,
+// the same ghost is drawn by SpentGhost.
 
 const crate = { back: '#EADFC8', front: '#C9B08A' } as const;
 
@@ -22,33 +18,39 @@ const mix = (hex: string, toward: string, t: number): string => {
 		.join('')}`;
 };
 
-// A spent ball's pale, emptied body around its center, squashed around
-// `base` when given. `flat` (0–1) presses it flat onto a wall, face hidden.
-const PaleBody: React.FC<{
+// A Western sheet ghost: a rounded head, dark eyes and a scalloped hem.
+// Its old color survives in the outline and cheeks; the sheet is white.
+// `rise` grows the ghost upright out of the story's flattened remnant.
+const GhostBody: React.FC<{
 	ball: BallPose;
 	x: number;
 	y: number;
 	squash?: number;
 	base?: { x: number; y: number };
-	flat?: number;
-	mood: Mood;
-}> = ({ ball, x, y, squash, base, flat = 0, mood }) => {
-	const { r, rx: restRx, ry: restRy } = spentShape(ball.size);
-	const rx = restRx * (1 + 0.1 * flat);
-	const ry = restRy * (1 - 0.2 * flat);
-	const face = Math.max(0, 1 - flat * 2);
-	// Lying on the wall, it slants along the Behavior axis like a decal.
-	const onWall = flat === 0 ? undefined : `translate(${x} ${y}) matrix(1 ${WALL_SLOPE * flat} 0 1 0 0) translate(${-x} ${-y})`;
+	rise?: number;
+}> = ({ ball, x, y, squash, base, rise = 1 }) => {
+	const { r, rx, ry } = spentShape(ball.size);
+	const upright = Math.max(0, Math.min(1, rise));
+	const sheet = `M${-rx},${ry * 0.78} L${-rx},${-ry * 0.14}
+		C${-rx},${-ry * 1.28} ${rx},${-ry * 1.28} ${rx},${-ry * 0.14}
+		L${rx},${ry * 0.78}
+		Q${rx * 0.74},${ry * 0.52} ${rx * 0.55},${ry * 0.94}
+		Q${rx * 0.27},${ry * 0.63} 0,${ry}
+		Q${-rx * 0.27},${ry * 0.63} ${-rx * 0.55},${ry * 0.94}
+		Q${-rx * 0.74},${ry * 0.52} ${-rx},${ry * 0.78} Z`;
 	return (
-		<g transform={squashAround(base ?? { x, y }, squash)} opacity={flat > 0 ? 1 - 0.4 * flat : undefined}>
-			<g transform={onWall}>
-				<ellipse cx={x} cy={y} rx={rx} ry={ry} fill={mix(ball.color, '#E6DED3', 0.62)} stroke={palette.ink} strokeWidth={6} />
-				<ellipse cx={x - rx * 0.42} cy={y - ry * 0.45} rx={r * 0.2} ry={r * 0.11} transform={`rotate(-25 ${x - rx * 0.42} ${y - ry * 0.45})`} fill={palette.white} opacity={0.6} />
-				{face > 0 ? (
-					<g opacity={face < 1 ? face : undefined}>
-						<Face x={x} y={y + ry * 0.05} r={r} mood={mood} />
-					</g>
-				) : null}
+		<g transform={squashAround(base ?? { x, y }, squash)}>
+			<g data-testid="story-ghost" data-color={ball.color} opacity={0.5 + 0.34 * upright} transform={`translate(${x} ${y}) scale(1 ${0.16 + 0.84 * upright})`}>
+				<path data-testid="ghost-sheet" d={sheet} fill={palette.white} stroke={mix(ball.color, palette.ink, 0.45)} strokeWidth={5} strokeLinejoin="round" />
+				<g opacity={upright}>
+					{[-1, 1].map((side) => (
+						<g key={side}>
+							<ellipse data-testid="ghost-eye" cx={side * r * 0.29} cy={-r * 0.18} rx={r * 0.12} ry={r * 0.19} fill={palette.ink} />
+							<ellipse cx={side * r * 0.56} cy={r * 0.2} rx={r * 0.15} ry={r * 0.08} fill={ball.color} opacity={0.55} />
+						</g>
+					))}
+					<ellipse cx={0} cy={r * 0.32} rx={r * 0.1} ry={r * 0.13} fill={palette.ink} />
+				</g>
 			</g>
 		</g>
 	);
@@ -60,22 +62,20 @@ const SpentBall: React.FC<{ ball: BallPose; x: number; y: number }> = ({ ball, x
 	const floor = { x, y: y + spentShape(ball.size).ry };
 	return (
 		<g data-testid="history-ball" data-id={ball.id}>
-			<PaleBody ball={ball} x={x} y={lifted} squash={ball.squash} base={floor} mood="sleepy" />
+			<GhostBody ball={ball} x={x} y={lifted} squash={ball.squash} base={floor} />
 		</g>
 	);
 };
 
-// The spent story on its way: its pale skin peels off the product and
-// drifts, content, toward History.
-export const SpentSkin: React.FC<{ spent: SpentPose }> = ({ spent }) => (
+// The spent story's ghost rises from the product, then floats to History.
+export const SpentGhost: React.FC<{ spent: SpentPose }> = ({ spent }) => (
 	<g data-testid="spent-story" data-id={spent.ball.id}>
-		<PaleBody
+		<GhostBody
 			ball={spent.ball}
 			x={spent.at.x}
 			y={spent.at.y}
 			squash={spent.squash}
-			flat={1 - (spent.peel ?? 1)}
-			mood="smile"
+			rise={spent.peel}
 		/>
 	</g>
 );

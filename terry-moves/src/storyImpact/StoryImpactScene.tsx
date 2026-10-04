@@ -11,7 +11,7 @@ import { StoryBall, storyCenter } from './storyBall';
 import { StoryTag } from './storyTag';
 import { Judgment } from './judgment';
 import { CaptionBar } from './caption';
-import { HistoryBox, SpentSkin } from './history';
+import { HistoryBox, SpentGhost } from './history';
 import { TidyMarks } from './tidyMarks';
 import { Title } from './title';
 import { Dim, Outlines } from './outline';
@@ -69,7 +69,7 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => {
 		{pose.backlog.some((b) => b.flying) ? <FlyingBalls balls={pose.backlog} /> : null}
 		{pose.tag && pose.story ? <StoryTag tag={pose.tag} ball={storyCenter(pose.story)} r={pose.story.ball.size} /> : null}
 		{pose.story ? <StoryBall story={pose.story} /> : null}
-		{pose.spent ? <SpentSkin spent={pose.spent} /> : null}
+		{pose.spent ? <SpentGhost spent={pose.spent} /> : null}
 	</>
 	);
 };

@@ -132,20 +132,37 @@ npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splas
 ```
 
 Render the final, shareable animation and its poster (H.264, yuv420p,
-1080×1080, about 133 seconds, with Terry's English narration
-`public/assets/audios/impact_en.m4a`, recorded against this timeline and
-playing from frame 0):
+1080×1080, about 128 seconds, with OpenAI's Cedar English narration
+`public/assets/story-impact/narration-en.mp3`). A complete title frame is held
+silently for 1.2 seconds at the front; that first frame is also the poster.
+The voice is synthetic and credited on the end card. Each clause is aligned
+to its caption span using measured word boundaries:
 
 ```bash
 pnpm -C terry-moves render:story-impact
 # writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
 ```
 
+Rebuild the narration after changing captions or beat timing:
+
+```bash
+python3 'Story Driven/produce_audio.py'
+# --new-take calls the OpenAI speech API if the spoken script changed.
+# Requires OPENAI_API_KEY for a new take, the OpenAI Python SDK, pnpm and ffmpeg.
+```
+
+The source spans are exported from the actual film by
+`scripts/story-impact-narration.ts`; the saved take and transcript audit are
+in `public/assets/story-impact/cedar-take-en.wav` and
+`Story Driven/cedar-performance-en.json`. The generator retains complete clauses,
+fits them into their caption spans, and masters the narration to −18 LUFS.
+
 The same film with Traditional Chinese subtitles and Terry's Chinese
 narration (`StoryImpactFilmZhHant`; only the captions are translated, the
 picture stays in English). The narration, `public/assets/audios/impact_zh.m4a`
-(AAC, 48 kHz stereo), was recorded against this timeline and plays from frame
-0; its silent tail past the film's end is cut:
+(AAC, 48 kHz stereo), retains Terry's recorded voice. Its original beat timings
+are preserved in `src/storyImpact/zhHantRecording.json`; the audio segments
+follow the shared picture's revised pace and begin after the opening cover:
 
 ```bash
 pnpm -C terry-moves render:story-impact:zh-hant
@@ -155,14 +172,16 @@ pnpm -C terry-moves render:story-impact:zh-hant
 The subtitles live in `src/storyImpact/zhHant.ts`, keyed by the English
 caption; a spec fails when a caption changes without its translation.
 
-Or render the full film (`StoryImpactFilm`, about 133 seconds) directly: title, product
+Or render the full film (`StoryImpactFilm`, about 128 seconds) directly: cover, title, product
 space, backlog, the pink story and its two values, the sun story and the
 customer's idea (the cheap story), story versus feature (one story touches
 many features; one feature takes many layers working together), "value builds
 up, not debt", and the end card: the stage shrinks away and "Stories should be
 romantic. Products should not." lands in the title's styles (`endCard.tsx`,
 reusing `title.tsx`'s lines), with the credit "An idea and film by Terry
-Yin". The poster is the last frame.
+Yin" and a Cedar narration credit. Spent stories rise as sheet ghosts and
+remain ghosts in History. The next-story and sun-story passage is about 28%
+faster than the earlier cut. The poster is the first frame.
 
 ```bash
 cd terry-moves

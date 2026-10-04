@@ -1,5 +1,5 @@
-// The last beats of the one-story film: the spent story's pale, emptied skin
-// peels off the product and drifts, bouncy and content, into History; then
+// The last beats of the one-story film: the spent story's translucent ghost
+// rises from the product and drifts, bouncy and content, into History; then
 // the next ball hops eagerly at the front of the queue. The product's changed
 // cells stay: the story's effect remains, only the used-up story leaves.
 // Each beat is built from a story and the stage before it; the plain beats
@@ -19,9 +19,9 @@ const PEEL_FROM = 0.6;
 const PEEL_UNTIL = 1.3;
 const DRIFT = { from: 1.4, to: 3.3 };
 const FALL_UNTIL = 3.6;
-const DROP = 60; // px above its resting spot where it starts to drop in, just under the History label
+const DROP = 16; // a small float down into the box, clear of the History label
 
-const LIFT: Point = { x: 12, y: -44 };
+const LIFT: Point = { x: 0, y: -72 };
 // It drifts down and round the wall's "Product" label, then up to the box,
 // under the History label.
 const BENDS: [Point, Point] = [
@@ -29,10 +29,10 @@ const BENDS: [Point, Point] = [
 	{ x: 100, y: 330 },
 ];
 
-// The skin, from lying flat on the wall to drifting above its spot in
+// The ghost, from a flat remnant on the wall to floating above its spot in
 // History, next to the stories spent before it.
-const skinAt = (spec: StorySpec, before: StoryBefore, sec: number): SpentPose => {
-	// It peels off the middle of the cell the story hit hardest.
+const ghostAt = (spec: StorySpec, before: StoryBefore, sec: number): SpentPose => {
+	// It rises out of the middle of the cell the story hit hardest.
 	const peelSpot: Point = wallPoint(spec.impact.col + 0.5, spec.impact.row + 0.5);
 	const spent = before.history.length;
 	const rest = historySpot(spent + 1, spent, spec.ball.size);
@@ -44,7 +44,7 @@ const skinAt = (spec: StorySpec, before: StoryBefore, sec: number): SpentPose =>
 		const at = (k: 'x' | 'y') => v * v * v * from[k] + 3 * v * v * u * a[k] + 3 * v * u * u * b[k] + u * u * u * aboveRest[k];
 		return { x: at('x'), y: at('y') };
 	};
-	// It loosens slowly, then pops free with a little overshoot.
+	// It grows into a ghost and rises straight up before drifting away.
 	const peel = between(sec, PEEL_FROM, PEEL_UNTIL, Easing.out(Easing.back(2.2)));
 	const ball = spec.ball;
 	if (sec < DRIFT.from) {
@@ -73,7 +73,7 @@ export const historyBeatOf: StoryBeat = (spec, before) => (sec) => {
 	let history: BallPose[] = before.history;
 	let spent: SpentPose | undefined;
 	if (sec < DRIFT.to) {
-		spent = skinAt(spec, before, sec);
+		spent = ghostAt(spec, before, sec);
 	} else {
 		// It drops into the box, squashes on landing, wobbles and dozes off.
 		const fall = between(sec, DRIFT.to, FALL_UNTIL, Easing.in(Easing.quad));
@@ -81,7 +81,7 @@ export const historyBeatOf: StoryBeat = (spec, before) => (sec) => {
 		history = [...before.history, withoutUndefined({ ...spec.ball, hop: unless(DROP * (1 - fall), 0), squash: unless(squash, 1) })];
 	}
 	// Earlier spent stories shuffle aside, and the box grows if it must, to
-	// make room while the skin drifts over.
+	// make room while the ghost drifts over.
 	const earlier = before.history.length;
 	const room = earlier === 0 ? undefined : earlier + between(sec, DRIFT.from, DRIFT.to, Easing.inOut(Easing.cubic));
 	return withoutUndefined({

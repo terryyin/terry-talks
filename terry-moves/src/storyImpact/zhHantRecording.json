@@ -1,0 +1,187 @@
+[
+  {
+    "name": "title",
+    "from": 0,
+    "durationInFrames": 96
+  },
+  {
+    "name": "space",
+    "from": 96,
+    "durationInFrames": 159
+  },
+  {
+    "name": "time",
+    "from": 255,
+    "durationInFrames": 150
+  },
+  {
+    "name": "backlog",
+    "from": 405,
+    "durationInFrames": 60
+  },
+  {
+    "name": "wish",
+    "from": 465,
+    "durationInFrames": 105
+  },
+  {
+    "name": "focus",
+    "from": 570,
+    "durationInFrames": 108
+  },
+  {
+    "name": "fuzzy",
+    "from": 678,
+    "durationInFrames": 142
+  },
+  {
+    "name": "flight",
+    "from": 820,
+    "durationInFrames": 125
+  },
+  {
+    "name": "splat",
+    "from": 945,
+    "durationInFrames": 125
+  },
+  {
+    "name": "wobble",
+    "from": 1070,
+    "durationInFrames": 146
+  },
+  {
+    "name": "assimilate",
+    "from": 1216,
+    "durationInFrames": 120
+  },
+  {
+    "name": "coherent",
+    "from": 1336,
+    "durationInFrames": 142
+  },
+  {
+    "name": "impact",
+    "from": 1478,
+    "durationInFrames": 163
+  },
+  {
+    "name": "customer",
+    "from": 1641,
+    "durationInFrames": 142
+  },
+  {
+    "name": "new-idea",
+    "from": 1783,
+    "durationInFrames": 142
+  },
+  {
+    "name": "tests",
+    "from": 1925,
+    "durationInFrames": 180
+  },
+  {
+    "name": "domain",
+    "from": 2105,
+    "durationInFrames": 116
+  },
+  {
+    "name": "history",
+    "from": 2221,
+    "durationInFrames": 185
+  },
+  {
+    "name": "next",
+    "from": 2406,
+    "durationInFrames": 120
+  },
+  {
+    "name": "sun-launch",
+    "from": 2526,
+    "durationInFrames": 66
+  },
+  {
+    "name": "sun-flight",
+    "from": 2592,
+    "durationInFrames": 54
+  },
+  {
+    "name": "sun-splat",
+    "from": 2646,
+    "durationInFrames": 54
+  },
+  {
+    "name": "sun-wobble",
+    "from": 2700,
+    "durationInFrames": 60
+  },
+  {
+    "name": "sun-assimilate",
+    "from": 2760,
+    "durationInFrames": 75
+  },
+  {
+    "name": "sun-coherent",
+    "from": 2835,
+    "durationInFrames": 54
+  },
+  {
+    "name": "sun-history",
+    "from": 2889,
+    "durationInFrames": 78
+  },
+  {
+    "name": "idea-launch",
+    "from": 2967,
+    "durationInFrames": 66
+  },
+  {
+    "name": "idea-flight",
+    "from": 3033,
+    "durationInFrames": 54
+  },
+  {
+    "name": "idea-splat",
+    "from": 3087,
+    "durationInFrames": 42
+  },
+  {
+    "name": "idea-wobble",
+    "from": 3129,
+    "durationInFrames": 36
+  },
+  {
+    "name": "idea-assimilate",
+    "from": 3165,
+    "durationInFrames": 54
+  },
+  {
+    "name": "idea-coherent",
+    "from": 3219,
+    "durationInFrames": 39
+  },
+  {
+    "name": "idea-history",
+    "from": 3258,
+    "durationInFrames": 108
+  },
+  {
+    "name": "story-outline",
+    "from": 3366,
+    "durationInFrames": 138
+  },
+  {
+    "name": "feature-outline",
+    "from": 3504,
+    "durationInFrames": 142
+  },
+  {
+    "name": "closing",
+    "from": 3646,
+    "durationInFrames": 163
+  },
+  {
+    "name": "finale",
+    "from": 3809,
+    "durationInFrames": 186
+  }
+]

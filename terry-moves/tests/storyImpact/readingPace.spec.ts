@@ -1,6 +1,6 @@
 import { Beat, FPS } from '@/storyImpact/film';
 import { fullFilm, fullFilmBeats } from '@/storyImpact/fullFilm';
-import { paced, PAUSE_SECONDS, readingSeconds, syllables } from '@/storyImpact/readingPace';
+import { paced, readingSeconds, syllables } from '@/storyImpact/readingPace';
 import { productSpace } from '@/storyImpact/scene';
 
 const { beatRange, captionAt, durationInFrames, poseAt } = fullFilm;
@@ -39,8 +39,9 @@ describe('reading pace', () => {
 		expect(poseAt(from + frames - 1)).toEqual(authored.pose(1));
 	});
 
-	test('example 2: a caption whose span is already long enough keeps it, less its breath', () => {
-		expect(shownSeconds('More stories come and go…') + PAUSE_SECONDS).toBeCloseTo(7.8, 1);
+	test('example 2: the faster sun-story caption keeps its sufficient span without a breath', () => {
+		expect(shownSeconds('More stories come and go…')).toBeCloseTo(4.9, 1);
+		expect(captionAt(beatRange('sun-launch').from)).toBe('More stories come and go…');
 	});
 
 	test('every caption shows at least as long as its hand-set span did, and every beat ends on its authored pose', () => {

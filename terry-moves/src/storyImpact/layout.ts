@@ -178,13 +178,13 @@ export const HISTORY_BOX = { left: 40, right: 236, top: 118, bottom: 286 } as co
 export const HISTORY_LABEL = { size: 40, text: 'History' } as const;
 export const historyLabelAt = (room: number): Point => ({ x: HISTORY_BOX.left + historyWidth(room) / 2, y: HISTORY_BOX.top - 20 });
 
-// The History box's front lip, the floor its spent balls rest on, and the
-// shape of a spent ball: pale, emptied and slumped, wider than it is tall.
+// The History box's front lip and the height its ghosts hover above. Their
+// scalloped hems stay above the lip, so they remain visibly ghosts in History.
 export const HISTORY_LIP_TOP = HISTORY_BOX.bottom - 50;
-export const HISTORY_FLOOR = HISTORY_LIP_TOP + 14;
+export const HISTORY_FLOOR = HISTORY_LIP_TOP - 8;
 export const spentShape = (size: number) => {
 	const r = size * 0.9;
-	return { r, rx: r * 1.14, ry: r * 0.84 };
+	return { r, rx: r * 0.94, ry: r * 1.08 };
 };
 
 // The History box keeps its width while two spent balls fit side by side;
