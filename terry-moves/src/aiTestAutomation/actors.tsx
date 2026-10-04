@@ -1,15 +1,16 @@
 import React from 'react';
 import { Label, palette } from './design';
-import { Point } from './motion';
+import { articulatedArm, Point } from './motion';
 
 export type Mood = 'concerned' | 'focused' | 'pleased' | 'surprised';
-export type Pose = 'stop' | 'point' | 'work' | 'rest';
+export type Pose = 'stop' | 'rest';
 
-const Arm: React.FC<{ shoulder: Point; hand: Point; color: string; stop?: boolean; robot?: boolean }> = ({ shoulder, hand, color, stop = false, robot = false }) => {
-	const elbow = { x: shoulder.x + (hand.x - shoulder.x) * 0.52, y: Math.max(shoulder.y, hand.y) + (stop ? 18 : 24) };
-	return <g>
-		<path d={`M${shoulder.x} ${shoulder.y}Q${elbow.x} ${elbow.y} ${hand.x} ${hand.y}`} fill="none" stroke={palette.ink} strokeWidth={robot ? 28 : 36}/>
-		<path d={`M${shoulder.x} ${shoulder.y}Q${elbow.x} ${elbow.y} ${hand.x} ${hand.y}`} fill="none" stroke={color} strokeWidth={robot ? 22 : 29}/>
+const Arm: React.FC<{ shoulder: Point; hand: Point; color: string; stop?: boolean; robot?: boolean }> = ({ shoulder, hand: target, color, stop = false, robot = false }) => {
+	const { elbow, hand } = articulatedArm(shoulder, target, robot ? 48 : 67, robot ? 46 : 68, shoulder.x < 0 ? 1 : -1);
+	return <g data-testid="articulated-arm" data-shoulder={`${shoulder.x},${shoulder.y}`} data-elbow={`${elbow.x},${elbow.y}`} data-hand={`${hand.x},${hand.y}`} data-target={`${target.x},${target.y}`}>
+		<path d={`M${shoulder.x} ${shoulder.y}L${elbow.x} ${elbow.y}L${hand.x} ${hand.y}`} fill="none" stroke={palette.ink} strokeWidth={robot ? 27 : 34}/>
+		<path d={`M${shoulder.x} ${shoulder.y}L${elbow.x} ${elbow.y}L${hand.x} ${hand.y}`} fill="none" stroke={color} strokeWidth={robot ? 20 : 27}/>
+		<circle cx={elbow.x} cy={elbow.y} r={robot ? 12 : 15} fill={color} strokeWidth="3"/>
 		<g transform={`translate(${hand.x} ${hand.y})`}>
 			{robot ? <circle r="14" fill={palette.gold}/> : stop ? <path d="M-13 10L-25-15Q-30-27-22-25L-13-10L-14-33Q-13-45-6-34L-1-11L3-35Q8-46 12-34L14-10L19-24Q27-32 27-20L25 11Q9 27-13 10Z" fill={palette.skin}/> : <path d="M-13-9Q-3-22 9-15L17-4Q17 10 6 13L-10 9Z" fill={palette.skin}/>}
 		</g>
@@ -17,9 +18,9 @@ const Arm: React.FC<{ shoulder: Point; hand: Point; color: string; stop?: boolea
 };
 
 /** Anchored at the feet. Continuous hand targets keep gestures attached to props. */
-export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; pose?: Pose; gaze?: number; blink?: boolean; lean?: number; headTilt?: number; leftHand?: Point; rightHand?: Point }> = ({ x, y, scale = 1, mood = 'focused', pose = 'rest', gaze = 0, blink = false, lean = 0, headTilt = 0, leftHand, rightHand }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="engineer" data-pose={pose} data-mood={mood}>
+export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; pose?: Pose; gaze?: number; blink?: boolean; headTilt?: number; leftHand?: Point; rightHand?: Point }> = ({ x, y, scale = 1, mood = 'focused', pose = 'rest', gaze = 0, blink = false, headTilt = 0, leftHand, rightHand }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="engineer" data-pose={pose} data-mood={mood}>
 	<ellipse cy="4" rx="78" ry="16" fill={palette.shadow} opacity="0.3"/>
-	<g transform={`rotate(${lean} 0 -130)`} stroke={palette.ink} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+	<g transform="rotate(0 0 -130)" stroke={palette.ink} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
 		<path d="M-49-139L-48-19L-14-18L2-98L20-20L55-23L39-141Z" fill="#657788"/>
 		<path d="M-49-25Q-80-11-78 0H-10L-13-26Z M18-26L19-1H82Q76-21 52-29Z" fill={palette.cream}/>
 		<path d="M-62-145Q-68-196-51-239Q-18-255 30-243Q56-219 55-145Z" fill={palette.coral}/>
@@ -28,7 +29,7 @@ export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: M
 		<path d="M-18-252V-276H16V-245Q3-225-18-252" fill={palette.skin}/>
 		<path d="M-57-158Q-30-148 49-158L49-145H-57Z" fill="#B85548" stroke="none" opacity="0.4"/>
 		<Arm shoulder={{ x: -48, y: -229 }} hand={leftHand ?? { x: -74, y: -165 }} color={palette.coral}/>
-		<Arm shoulder={{ x: 42, y: -228 }} hand={rightHand ?? (pose === 'point' ? { x: 128, y: -232 } : pose === 'work' ? { x: 126, y: -166 } : pose === 'stop' ? { x: 155, y: -175 } : { x: 65, y: -164 })} color={palette.coral} stop={pose === 'stop'}/>
+		<Arm shoulder={{ x: 42, y: -228 }} hand={rightHand ?? (pose === 'stop' ? { x: 105, y: -278 } : { x: 65, y: -164 })} color={palette.coral} stop={pose === 'stop'}/>
 		<g transform={`rotate(${headTilt} 0 -312)`}>
 		<path d="M-34-253Q-65-268-61-314Q-70-370-11-382Q51-380 52-321Q58-273 20-258Q-6-243-34-253Z" fill={palette.skin}/>
 		<ellipse cx="-61" cy="-303" rx="10" ry="17" fill={palette.skin}/>
@@ -44,7 +45,7 @@ export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: M
 	</g>
 </g>;
 
-export const AI: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; pose?: Pose; gaze?: number; blink?: boolean; tilt?: number; leftHand?: Point; rightHand?: Point }> = ({ x, y, scale = 1, mood = 'focused', pose = 'rest', gaze = -1, blink = false, tilt = 0, leftHand, rightHand }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="ai-companion" data-pose={pose}>
+export const AI: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; gaze?: number; blink?: boolean; tilt?: number; leftHand?: Point; rightHand?: Point }> = ({ x, y, scale = 1, mood = 'focused', gaze = -1, blink = false, tilt = 0, leftHand, rightHand }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="ai-companion" data-pose="rest">
 	<ellipse cy="5" rx="72" ry="15" fill={palette.shadow} opacity="0.28"/>
 	<g transform={`rotate(${tilt} 0 -100)`} stroke={palette.ink} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
 		<path d="M-35-61L-40-17M34-61L39-17" strokeWidth="18"/>
@@ -52,8 +53,8 @@ export const AI: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; p
 		<path d="M-64-177Q-72-211-53-221H51Q72-211 65-177L57-69Q0-42-59-70Z" fill={palette.mint}/>
 		<path d="M-59-70Q-7-47 58-71L55-94Q0-75-57-95Z" fill="#378F87"/>
 		<path d="M0-222V-244"/><circle cy="-254" r="10" fill={palette.gold}/>
-		<Arm shoulder={{ x: -62, y: -164 }} hand={leftHand ?? (pose === 'point' ? { x: -121, y: -163 } : { x: -99, y: -104 })} color={palette.mint} robot/>
-		<Arm shoulder={{ x: 62, y: -164 }} hand={rightHand ?? (pose === 'work' ? { x: 112, y: -123 } : { x: 96, y: -102 })} color={palette.mint} robot/>
+		<Arm shoulder={{ x: -62, y: -164 }} hand={leftHand ?? { x: -99, y: -104 }} color={palette.mint} robot/>
+		<Arm shoulder={{ x: 62, y: -164 }} hand={rightHand ?? { x: 96, y: -102 }} color={palette.mint} robot/>
 		<rect x="-47" y="-191" width="94" height="66" rx="24" fill={palette.cream}/>
 		{blink ? <path d="M-30-156H-15M15-156H30"/> : <g stroke="none"><ellipse cx={-22 + gaze * 4} cy="-163" rx="6" ry={mood === 'surprised' ? 10 : 7} fill={palette.ink}/><ellipse cx={22 + gaze * 4} cy="-163" rx="6" ry={mood === 'surprised' ? 10 : 7} fill={palette.ink}/></g>}
 		<path d={mood === 'concerned' ? 'M-11-141Q0-149 11-141' : mood === 'pleased' ? 'M-13-146Q0-132 13-146' : 'M-10-141H10'} fill="none" strokeWidth="3"/>

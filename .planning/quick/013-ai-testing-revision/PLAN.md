@@ -67,7 +67,7 @@ passed. Human audition unavailable. Default score/mix and acting remain slice 2.
 
 ### 2. Viewers watch a simpler, more compelling finished revision
 Type: Behavior
-Status: planned
+Status: done
 
 Simplify scene clutter and strengthen the apparent-solution/conflict/payoff.
 Fixed-length articulated arms with reachable staging; fewer simultaneous
@@ -85,6 +85,28 @@ unavailable and is not claimed. Run meaningful arm geometry checks, existing
 film contract tests, TypeScript/lint and full `pnpm -C terry-moves test` for
 Root/runtime integration. Final H264/yuv420p/bt709 export:1080×1350/30fps with
 AAC audio; ffprobe duration and complete SRT. Show the finished video inline.
+
+Accepted: rigid articulated arms and reachable staging; root inspected all 36
+causal frames and 70 decoded final-export frames (one per second) at feed size.
+Question precedes refusal; concession precedes the upkeep conflict. SAVE's
+demonstrated mismatch repeats after reset; finding handoff precedes confirmation,
+repair and deliberate retest. Ordinary code repeats while AI stands aside;
+the distinct UNDO feature shows intent, failing test, feature, passing test.
+Duplicate deletion/local transfer retain essential end-to-end protection.
+Final export is 69.533333 seconds / 2086 frames, H264/yuv420p/bt709,
+1080×1350/30fps with AAC48k stereo; container padding is 56ms.
+MP4 SHA 8fb11842…; mix SHA b7b61491…; actual AAC is −18.00 LUFS/−4.26dBTP.
+Two offline audio builds match; zero clipped PCM samples. Actual mixed audio
+recognized without script hints in three contiguous natural-gap segments
+matches all 169 words and timed tokens. Narration, timing and SRT unchanged.
+Full pnpm -C terry-moves test passed: 29 suites / 316 tests, eslint src, tsc.
+Focused 8 tests passed after the UNDO label correction. Native final render and
+ffprobe passed. Fresh independent refactor removed obsolete private acting
+support and unified route geometry; all 2086 frame markups remain identical,
+8 focused tests, affected eslint and tsc passed. Coordinator formatting passed.
+Prior visual/export/audio evidence remains valid. V2 MP4/poster/SRT are copied
+and hash-verified in the default checkout's ignored out; V1 is preserved.
+Native human audition and real-time playback remain unconfirmed; CI unobserved.
 
 ## Design assessment
 
@@ -104,3 +126,6 @@ in this exact checkout. Lock unchanged; own Chrome headless installed. Existing
 Quillustration 404 is unchanged baseline and not used by this film.
 The original MP4, poster and SRT are preserved with -v1 filenames in the main
 checkout's ignored terry-moves/out. Main source draft remains untouched.
+Slice 1 accepted on origin/codex/ai-testing-revision at ba5bdfb6eebd26e8c17d05933108ca17d943f021.
+Managed delivery reports unobserved CI: Codex yielded-cell bridge unavailable;
+there is no observer retained. Continue production with that explicit gap.

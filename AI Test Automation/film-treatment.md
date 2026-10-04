@@ -34,9 +34,9 @@ The closing is: **Less to carry. Fewer bugs to chase.**
 
 ## Audio and captions
 
-Run `python3 'AI Test Automation/produce_audio.py' --narration-only` to rebuild the saved narration alone.
-The first revision preview uses the composition prop `narrationOnly: true`; its provisional art
-does not claim final synchronization of the previous score or effects. Animation and sound are the next pass.
+Run `python3 'AI Test Automation/produce_audio.py'` to reproduce the saved narration, original score and effects,
+and final stereo mix. Use `--narration-only` when reviewing the voice in isolation; the composition prop
+`narrationOnly: true` plays that stem. Normal playback uses the finished mix once at volume 1.
 One continuous take retains its natural internal breaths and pauses; only leading and trailing
 silence is trimmed. There is no time stretching, playback-rate change or chopped-clause assembly.
 The opening question begins after an 80 ms audio lead. The ending has approximately two seconds of breathing room.
@@ -54,9 +54,12 @@ This requires the OpenAI Python SDK and `OPENAI_API_KEY`. The key is never writt
 Use `--refresh-docs` to update this treatment from the measured script without regenerating audio.
 Narration is mastered to −18 LUFS using measured two-pass normalization. Playback and rendering need no API.
 
-The previous original workshop score and effects remain unchanged at this narration-only stage.
-Their cues must be retargeted to the revised measured speech and simpler acting before final delivery.
-The standard composition prop remains `narrationOnly: false`, which plays the final mix once at volume 1.
-Do not use that default as a finished revision until the new mix has been produced and audited.
-Ignored `terry-moves/out/ai-test-automation-audio/` holds mastering and rejected-take evidence.
+The original chamber score follows the measured scene boundaries: hopeful F major, the D-minor upkeep
+conflict, B-flat practical action, C-major progress, then an open F-major resolution. Sparse felt notes
+sit in measured speech gaps. The opening question and reply have no music bed. The quiet score ducks
+to actual narration activity; sparse paper and wood accents mark visible actions. Both characters use
+the same checking sound for the same demonstrated action. There is no decorative beeping or stock music.
+Narration and final mix target −18 LUFS; score and effects target −40 and −39 LUFS respectively.
+The deterministic producer retains separate narration, score and effects stems; all span the film's full duration.
+Ignored `terry-moves/out/ai-test-automation-audio/` holds actual mix analysis, cue timings and rejected-take evidence.
 Signal analysis and transcription support review; they do not claim human audition.

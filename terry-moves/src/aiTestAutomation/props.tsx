@@ -34,8 +34,6 @@ export const Sandbox: React.FC<{ x: number; y: number; width?: number; height?: 
 	<g transform={`translate(${width / 2} ${height - 12})`} data-testid="reset-control" stroke={palette.ink} strokeWidth="4"><rect x="-77" y="-28" width="154" height="57" rx="12" fill={palette.gold}/><path transform={`rotate(${resetting * 360} -44 0)`} d="M-34-8A14 14 0 1 0-31 7M-34-8L-34 2L-45-2" fill="none"/><Label x={24} y={8} size={20}>RESET</Label></g>
 </g>;
 
-export const Magnifier: React.FC<{ x: number; y: number; scale?: number }> = ({ x, y, scale = 1 }) => <g transform={`translate(${x} ${y}) scale(${scale})`} stroke={palette.ink} strokeWidth="6" strokeLinecap="round"><path d="M20 25L48 55" strokeWidth="13"/><circle r="33" fill="#E7F8F0" fillOpacity="0.5"/><path d="M-15-19Q-4-30 11-22" fill="none" stroke="white" strokeWidth="6"/></g>;
-
 export const Wrench: React.FC<{ x: number; y: number; rotation?: number }> = ({ x, y, rotation = 0 }) => <g transform={`translate(${x} ${y}) rotate(${rotation})`} stroke={palette.ink} strokeWidth="4" strokeLinejoin="round"><path d="M-8 46V-9Q-32-30-17-48L-10-26H9L16-48Q32-32 9-10V46Z" fill="#B6CCD2"/><circle cy="42" r="4" fill={palette.paper}/></g>;
 
 export const UnitCheck: React.FC<{ x: number; y: number; label: string; opacity?: number }> = ({ x, y, label, opacity = 1 }) => <g transform={`translate(${x} ${y})`} opacity={opacity} data-testid="focused-unit-check" stroke={palette.ink} strokeWidth="4"><rect x="-89" y="-44" width="178" height="88" rx="30" fill="#D8EFD8"/><path d="M-56-2L-44 10L-25-13" stroke={palette.green} strokeWidth="7" fill="none" strokeLinecap="round"/><Label x={23} y={7} size={18}>{label}</Label></g>;

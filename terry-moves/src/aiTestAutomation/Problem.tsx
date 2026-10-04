@@ -3,61 +3,58 @@ import { AI, Cabinet, Engineer, Shield } from './actors';
 import { Label, palette } from './design';
 import { FilmScene } from './film';
 import { appear, blinkAt, gesture, lerpPoint, mix, reach, travel } from './motion';
-import { CheckCard, CodeSpool, Ticket, Wrench } from './props';
+import { CheckCard, CodeSpool, Ticket } from './props';
 
 export const Hook: React.FC<{ seconds: number }> = ({ seconds }) => {
-	const stop = travel(seconds, 0.12, 0.68);
-	const offer = gesture(seconds, 2.25, 1.7);
-	const spoolX = 602 - 17 * stop - 12 * offer;
-	const spoolY = 837 - 8 * offer;
+	const offer = travel(seconds, 0, 0.9);
+	const stop = travel(seconds, 2.15, 0.7);
+	const spoolX = mix(677, 645, offer);
 	return <g>
-		<Cabinet x={425} y={423} scale={0.82}/><Shield x={648} y={677} scale={0.75}/>
-		<Ticket x={630} y={368} rotation={15}/><Ticket x={785} y={425} rotation={-7}/>
-		<Engineer x={280} y={1006} scale={1.38} mood={stop > 0.4 ? 'focused' : 'concerned'} pose="stop" gaze={mix(1, 0, travel(seconds, 0.7, 0.5))} headTilt={-3 * stop} blink={blinkAt(seconds, [1.93, 3.7])} rightHand={lerpPoint({ x: 110, y: -154 }, { x: 160, y: -155 }, stop)} lean={-2 * stop}/>
-		<AI x={818} y={978} scale={1.45} mood={seconds < 0.95 ? 'pleased' : 'focused'} pose="work" gaze={-1} blink={blinkAt(seconds, [1.2, 3.6])} leftHand={reach(818, 978, spoolX + 69, spoolY - 28, 1.45)} rightHand={{ x: 81, y: -117 }}/>
-		<CodeSpool x={spoolX} y={spoolY} scale={1.15} extent={0.3 + stop * 0.13 + offer * 0.55}/>
-		<g opacity={gesture(seconds, 0.7, 0.62)} stroke={palette.coral} strokeWidth="5" strokeLinecap="round"><path d="M485 749L478 732M506 746L511 727"/></g>
-		<Label x={590} y={1032} size={23} color={palette.muted}>MORE CODE. ANOTHER RESPONSIBILITY.</Label>
+		<Shield x={915} y={490} scale={0.48}/>
+		<Engineer x={300} y={1045} scale={1.35} mood={stop > 0.5 ? 'focused' : 'pleased'} pose={stop > 0 ? 'stop' : 'rest'} gaze={1} headTilt={-3 * stop} blink={blinkAt(seconds, [1.85, 3.65])} rightHand={lerpPoint({ x: 68, y: -166 }, { x: 105, y: -278 }, stop)}/>
+		<AI x={810} y={1040} scale={1.45} mood={stop > 0.65 ? 'surprised' : 'pleased'} gaze={-1} leftHand={reach(810, 1040, spoolX + 69, 804, 1.45)} blink={blinkAt(seconds, [1.3, 3.8])}/>
+		<CodeSpool x={spoolX} y={830} scale={0.95} extent={0.12}/>
+		<g opacity={stop}><path d="M515 715L530 697M533 729L554 723" stroke={palette.coral} strokeWidth="6" strokeLinecap="round"/></g>
 	</g>;
 };
 
 export const Overload: React.FC<{ seconds: number; scene: FilmScene }> = ({ seconds, scene }) => {
-	const t = seconds - scene.start;
-	const code = travel(seconds, scene.captionRanges[2].start + 0.32, 0.8);
-	const completed = travel(seconds, 8.4, 0.7);
-	const work = gesture(seconds, 7.7, 1.5) + gesture(seconds, 11.4, 1.4);
+	const closed = travel(seconds, 7.4, 0.65);
+	const blame = appear(seconds, scene.captionRanges[1].start, 0.25);
+	const nod = gesture(seconds, scene.captionRanges[2].start + 0.15, 0.6);
 	return <g>
-		<path d="M306 445L898 490" stroke={palette.ink} strokeWidth="21" strokeLinecap="round"/><path d="M308 440L896 485" stroke="#C8CFD0" strokeWidth="10"/>
-		{[0, 1, 2, 3, 4].map((i) => { const p = ((t * 0.18 + i * 0.22) % 1); return <Ticket key={i} x={mix(897, 315, p)} y={mix(443, 398, p)} rotation={-4 + i * 3} scale={0.8}/>; })}
-		<Label x={570} y={367} size={25} color={palette.red}>PROBLEMS ARRIVING</Label>
-		<Cabinet x={594} y={595} scale={1.03}/><Shield x={857} y={863} scale={0.8}/>
-		{[0, 1, 2, 3, 4, 5].map((i) => { const arrived = appear(seconds, 5.8 + i * 0.46, 0.45); return <g key={i} opacity={arrived}><Ticket x={610 + (i % 3) * 86} y={mix(449, 988 - Math.floor(i / 3) * 53, arrived)} rotation={(i % 3 - 1) * 9}/></g>; })}
-		<Engineer x={290} y={1000} scale={1.21} mood="concerned" pose="work" gaze={1} lean={3 + work * 2} headTilt={-work * 2} blink={blinkAt(seconds, [5.9, 9.6, 12.9])} rightHand={{ x: 126 + work * 6, y: -166 - work * 16 }}/>
-		<AI x={483} y={1000} scale={0.8} mood="concerned" gaze={-1} blink={blinkAt(seconds, [7.1, 11.6])}/>
-		<Ticket x={mix(450, 222, completed)} y={mix(814, 906, completed) - Math.sin(completed * Math.PI) * 75} rotation={mix(4, -9, completed)} resolved={completed > 0.7}/>
-		<g opacity={appear(seconds, 8.95, 0.4)}><Label x={240} y={957} size={18} color={palette.green}>ONE FIX</Label></g>
-		<g opacity={code} transform={`translate(${(1 - code) * 150} 0)`}><CodeSpool x={467} y={582} scale={0.85} extent={1.5}/><Label x={454} y={789} size={21}>+ UPKEEP</Label></g>
+		<Cabinet x={565} y={540} scale={0.93}/><Shield x={864} y={760} scale={0.68}/>
+		{[0, 1, 2].map((i) => {
+			const arrived = travel(seconds, scene.start + 0.2 + i * 1.0, 1.2);
+			return <Ticket key={i} x={mix(850 - i * 65, 492 + i * 85, arrived)} y={mix(370, 882 - i * 15, arrived)} rotation={mix(-15, i * 8 - 8, arrived)} scale={1.05}/>;
+		})}
+		<Engineer x={285} y={1020} scale={1.13} mood={blame > 0.5 ? 'focused' : 'concerned'} gaze={1} headTilt={4 * nod} rightHand={reach(285, 1020, 408, 816, 1.13)} blink={blinkAt(seconds, [6.2, 9.8])}/>
+		<AI x={907} y={1020} scale={0.95} mood={blame > 0.5 ? 'focused' : 'concerned'} gaze={-1} tilt={-4 * nod} blink={blinkAt(seconds, [6.9, 11.6])}/>
+		<Ticket x={mix(408, 342, closed)} y={mix(816, 877, closed)} rotation={-8 * closed} scale={0.85} resolved={closed > 0.6}/>
+		<g opacity={1 - blame}><Label x={593} y={431} size={31} color={palette.red}>3 INCOMING</Label><Label x={230} y={431} size={25} color={palette.green}>1 CLOSED</Label></g>
+		<g opacity={blame} data-testid="missing-tests-concession"><path d="M310 364H861Q893 364 893 399V509Q893 540 862 540H479L434 580L438 540H310Q278 540 278 509V399Q278 364 310 364Z" fill={palette.cream} stroke={palette.ink} strokeWidth="5"/><Label x={585} y={430} size={38}>NOT ENOUGH</Label><Label x={585} y={482} size={38}>AUTOMATED TESTS!</Label></g>
 	</g>;
 };
 
 export const Upkeep: React.FC<{ seconds: number; scene: FilmScene }> = ({ seconds, scene }) => {
-	const t = seconds - scene.start;
-	const repair = travel(seconds, 15.4, 0.85);
-	const safe = appear(seconds, 16.25, 0.45);
-	const pile = appear(seconds, scene.captionRanges[1].start + 0.2, 0.65);
-	const care = travel(seconds, scene.captionRanges[2].start + 0.15, 0.7);
-	const handX = mix(399, 467, repair);
-	const handY = 794 - Math.sin(repair * Math.PI) * 16;
+	const pile = travel(seconds, scene.start + 0.3, 3.0);
+	const intent = appear(seconds, scene.captionRanges[2].start, 0.35);
+	const targeted = appear(seconds, scene.captionRanges[3].start, 0.35);
+	const weight = gesture(seconds, 16.2, 1.0);
 	return <g>
-		<Cabinet x={494} y={508} scale={1.13} fixed={repair > 0.7}/>
-		<g transform={`translate(805 774) scale(${1.05 + gesture(seconds, 16.1, 0.9) * 0.1})`}><Shield x={0} y={0}/></g>
-		<g opacity={safe}><path d="M845 767L854 775L874 749" stroke={palette.green} strokeWidth="7" fill="none" strokeLinecap="round"/></g>
-		<Engineer x={283} y={1000} scale={1.14} mood={care > 0.5 ? 'focused' : 'pleased'} pose="work" gaze={1} headTilt={-2 * gesture(t, 1.2, 1.4)} rightHand={reach(283, 1000, handX, handY, 1.14)} blink={blinkAt(seconds, [17.2, 22.5])}/>
-		<Wrench x={handX} y={handY - 24} rotation={mix(-13, 28, repair)}/>
-		<AI x={912} y={993} scale={0.93} mood={pile > 0.5 ? 'focused' : 'pleased'} gaze={-1} blink={blinkAt(seconds, [18.1, 23.1])}/>
-		<CheckCard x={779} y={439} kind="test" title="USEFUL TEST" scale={0.82}/><path d="M775 493V580" stroke={palette.green} strokeWidth="7" strokeDasharray="9 9"/>
-		<g opacity={pile}><CodeSpool x={405} y={966} scale={0.65} extent={1.3}/><CodeSpool x={477} y={1018} scale={0.42}/></g>
-		{['DATA', 'ENVIRONMENT', 'DIAGNOSIS'].map((title, i) => { const p = appear(seconds, 21.4 + i * 0.34, 0.45); return <g key={title} opacity={p} transform={`translate(0 ${(1 - p) * 32})`}><CheckCard x={616 + i * 109} y={953} title={title} scale={0.63}/></g>; })}
-		<Ticket x={473} y={385} scale={0.8} rotation={-5}/>
+		<Shield x={911} y={488} scale={0.5}/>
+		<Engineer x={265} y={1030} scale={1.24} mood={intent > 0.5 ? 'focused' : 'concerned'} gaze={1} headTilt={-5 * weight} blink={blinkAt(seconds, [14.9, 20.8, 26.6])}/>
+		<AI x={870} y={1030} scale={1.1} mood={pile > 0.55 ? 'concerned' : 'pleased'} gaze={-1} blink={blinkAt(seconds, [15.8, 23.6])}/>
+		<g opacity={1 - intent * 0.75}>
+			<CodeSpool x={528} y={805} scale={0.96} extent={0.15 + pile * 0.3}/>
+			<path d={`M565 883H${mix(596, 798, pile)}V914H550`} fill={palette.gold} stroke={palette.ink} strokeWidth="4"/>
+			<Ticket x={mix(627, 787, pile)} y={902} rotation={mix(-4, 14, pile)} scale={0.95}/><Ticket x={mix(698, 858, pile)} y={918} rotation={-6} scale={0.83}/>
+			<g opacity={appear(seconds, 16.2, 0.4)}><Label x={528} y={570} size={42} color={palette.red}>+ COMPLEXITY</Label><Label x={528} y={626} size={42} color={palette.red}>+ UPKEEP</Label></g>
+		</g>
+		<g opacity={intent} transform={`translate(0 ${(1 - intent) * 25})`} data-testid="original-intent">
+			<rect x="359" y="468" width="402" height="177" rx="18" fill={palette.cream} stroke={palette.ink} strokeWidth="5"/>
+			<Label x={560} y={514} size={26} color={palette.muted}>ORIGINAL INTENT</Label><Label x={560} y={579} size={37}>SAVE KEEPS DATA</Label>
+			<g opacity={targeted}><CheckCard x={560} y={745} kind="test" title="TARGETED" scale={0.8}/><path d="M560 645V680" stroke={palette.green} strokeWidth="6"/><Shield x={667} y={742} scale={0.55}/></g>
+		</g>
 	</g>;
 };

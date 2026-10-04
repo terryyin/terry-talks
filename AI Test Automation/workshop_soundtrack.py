@@ -83,12 +83,13 @@ def build_score(script):
     length = round(script["duration"] * SAMPLE_RATE)
     score = np.zeros((length, 2))
     # Harmony follows the workshop's recovery rather than looping a stock music bed.
+    scenes = {scene["id"]: scene for scene in script["scenes"]}
     sections = [
-        (4.1, 13.6333333333, (41, 48, 57, 64)),       # F major 9: room for the problem.
-        (13.6333333333, 24.6, (38, 45, 53, 60)),      # D minor 7: care and responsibility.
-        (24.6, 38.1666666667, (46, 53, 57, 60)),      # B-flat major 9: practical reassurance.
-        (38.1666666667, 47.5666666667, (48, 55, 62, 64)),  # C major 9: useful progress.
-        (47.5666666667, script["duration"], (41, 48, 57, 62)),  # F major 6: calm resolution.
+        (scenes["overload"]["start"], scenes["upkeep"]["start"], (41, 48, 57, 64)),  # F major 9: a plausible hope.
+        (scenes["upkeep"]["start"], scenes["sandbox"]["start"], (38, 45, 53, 60)),  # D minor 7: the upkeep conflict.
+        (scenes["sandbox"]["start"], scenes["selective"]["start"], (46, 53, 57, 60)),  # B-flat major 9: practical action.
+        (scenes["selective"]["start"], scenes["optimize"]["start"], (48, 55, 62, 64)),  # C major 9: intent guides code.
+        (scenes["optimize"]["start"], script["duration"], (41, 48, 57, 62)),  # F major 6: lighter work.
     ]
     for first, last, chord in sections:
         duration = last - first
@@ -101,10 +102,16 @@ def build_score(script):
             tone = (np.sin(2 * np.pi * frequency * t)
                     + 0.065 * np.sin(2 * np.pi * frequency * 2 * t + 0.4))
             add_sound(score, first, tone * breath * envelope, 0.009, 0.22 + index * 0.18)
-    # An original three-note thought unfolds in the spaces between major ideas.
-    melody = [(5.98, 65), (9.38, 69), (13.25, 67), (20.26, 65),
-              (24.18, 62), (27.76, 65), (32.24, 69), (38.00, 70),
-              (42.48, 67), (46.02, 64), (54.22, 65), (58.78, 69), (59.15, 72)]
+    # Sparse felt-note entrances follow measured clause endings.
+    melody = [(scenes["overload"]["captionRanges"][0]["speechEnd"] + 0.18, 65),
+              (scenes["overload"]["captionRanges"][2]["speechEnd"] + 0.18, 69),
+              (scenes["upkeep"]["captionRanges"][1]["speechEnd"] + 0.18, 62),
+              (scenes["upkeep"]["captionRanges"][3]["speechEnd"] + 0.12, 65),
+              (scenes["sandbox"]["captionRanges"][0]["speechEnd"] + 0.18, 69),
+              (scenes["investigate"]["captionRanges"][1]["speechEnd"] + 0.12, 70),
+              (scenes["selective"]["captionRanges"][1]["speechEnd"] + 0.15, 67),
+              (scenes["optimize"]["captionRanges"][2]["speechEnd"] + 0.12, 65),
+              (scenes["end"]["captionRanges"][1]["speechEnd"] + 0.15, 69)]
     for index, (start, midi) in enumerate(melody):
         add_sound(score, start, felt(midi), 0.025, 0.38 if index % 2 else 0.62)
     # Narration stays central. A gentle duck follows actual PCM activity, never estimated timing.
@@ -115,9 +122,9 @@ def build_score(script):
     smooth = np.convolve(rms, np.ones(21) / 21, mode="same")
     activity = np.interp(np.arange(length), np.arange(len(smooth)) * block, smooth)
     score *= (1 - 0.25 * np.minimum(1, activity / 0.045))[:, None]
-    # No opening swell; leave the immediate hook and question exposed.
+    # No opening swell; leave the question and contrarian reply exposed.
     t = np.arange(length) / SAMPLE_RATE
-    score *= (np.minimum(1, np.maximum(0, (t - 4.1) / 2))
+    score *= (np.minimum(1, np.maximum(0, (t - scenes["overload"]["start"]) / 2))
               * np.minimum(1, np.maximum(0, (script["duration"] - t) / 1.35)))[:, None]
     raw = WORK / "score-unmastered.wav"
     write_stereo(raw, score)
@@ -130,28 +137,23 @@ def build_effects(script):
     rng = np.random.default_rng(20261004)
     # Each cue has a meaning; the film has no continuous beeping or decorative chatter.
     cues = [
-        (0.80, "gentle stop", "tick", 57, 0.035, 0.38),
-        (2.40, "code spool unwinds", "paper", 0, 0.060, 0.64),
-        (6.65, "ticket arrives", "paper", 0, 0.066, 0.63),
-        (7.62, "ticket arrives", "paper", 0, 0.058, 0.61),
-        (8.70, "ticket arrives", "paper", 0, 0.054, 0.59),
-        (10.80, "more code upkeep", "tick", 55, 0.028, 0.45),
-        (15.80, "useful early protection", "felt", 69, 0.027, 0.50),
-        (26.30, "environment resets", "paper", 0, 0.085, 0.55),
-        (26.58, "reset settles", "tick", 65, 0.042, 0.55),
-        (28.60, "engineer demonstrates", "tick", 65, 0.038, 0.42),
-        (30.90, "AI executes the check", "tick", 65, 0.038, 0.57),
-        (31.80, "observation card", "paper", 0, 0.063, 0.58),
-        (33.40, "finding investigated", "tick", 62, 0.040, 0.42),
-        (35.20, "confirmed repair", "felt", 69, 0.030, 0.46),
-        (40.80, "useful workflow selected", "paper", 0, 0.071, 0.52),
-        (41.70, "maintained check earned", "felt", 72, 0.024, 0.50),
-        (46.70, "duplicate removed", "paper", 0, 0.090, 0.47),
-        (49.20, "local check moves", "paper", 0, 0.050, 0.40),
-        (50.82, "fast local feedback", "tick", 72, 0.047, 0.44),
-        (51.00, "fast local feedback", "tick", 76, 0.031, 0.58),
-        (53.18, "wider protection retained", "felt", 65, 0.026, 0.52),
-        (56.50, "relief and room to work", "felt", 69, 0.024, 0.48),
+        (2.85, "engineer pauses the offer", "tick", 57, 0.030, 0.38),
+        (5.70, "first ticket arrives", "paper", 0, 0.054, 0.63),
+        (6.70, "second ticket arrives", "paper", 0, 0.049, 0.61),
+        (7.70, "third ticket arrives", "paper", 0, 0.045, 0.59),
+        (13.40, "code spool becomes upkeep", "paper", 0, 0.057, 0.62),
+        (25.70, "one targeted check protects intent", "felt", 69, 0.024, 0.50),
+        (35.80, "engineer demonstrates the manual check", "tick", 65, 0.033, 0.42),
+        (36.65, "same starting state is restored", "paper", 0, 0.055, 0.55),
+        (37.60, "AI repeats the demonstrated action", "tick", 65, 0.033, 0.57),
+        (38.95, "finding is handed to the engineer", "paper", 0, 0.044, 0.50),
+        (40.95, "repair is followed by a successful retest", "felt", 69, 0.025, 0.46),
+        (46.45, "ordinary test code runs without AI", "paper", 0, 0.048, 0.52),
+        (52.60, "feature satisfies the intent-first test", "felt", 72, 0.021, 0.50),
+        (57.10, "a duplicate check is removed", "paper", 0, 0.057, 0.47),
+        (59.20, "a suitable local check moves to a unit", "tick", 72, 0.031, 0.44),
+        (61.20, "essential end-to-end protection stays", "felt", 65, 0.022, 0.52),
+        (65.50, "a lighter queue leaves room to work", "felt", 69, 0.020, 0.48),
     ]
     for start, _, kind, midi, gain, pan in cues:
         sound = paper(rng) if kind == "paper" else wooden_tick(midi) if kind == "tick" else felt(midi, 1.4)

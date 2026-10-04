@@ -3,24 +3,25 @@ import { AbsoluteFill } from 'remotion';
 import { BODY, Definitions, HEAD, Label, palette, Workshop } from './design';
 import { captionAt, FilmScene, filmScript, reveal, sceneAt, STAGE } from './film';
 import { Hook, Overload, Upkeep } from './Problem';
-import { Investigate, SandboxShot, Selective } from './Learning';
+import { Investigate, SandboxShot } from './Learning';
+import { Selective } from './Selective';
 import { Ending, Optimize } from './Protection';
 import { mix, travel } from './motion';
 
-const Header: React.FC<{ scene: FilmScene }> = ({ scene }) => {
+const Header: React.FC<{ scene: FilmScene; seconds: number }> = ({ scene, seconds }) => {
 	const titles: Record<FilmScene['id'], [string, string]> = {
-		hook: ['Ask AI to write', 'more tests?'],
-		overload: ['Tickets arrive.', 'Faster than fixes.'],
-		upkeep: ['More tests?', 'More upkeep.'],
-		sandbox: ['AI performs', 'hands-on testing.'],
+		hook: seconds < 2.1 ? ['Ask AI to write', 'more tests?'] : ['You probably don’t', 'want to do that.'],
+		overload: seconds < 8.967 ? ['Tickets arrive.', 'Faster than fixes.'] : seconds < 10.733 ? ['Not enough', 'automated tests?'] : ['You’re probably', 'right.'],
+		upkeep: seconds < 19.633 ? ['Before protection:', 'more to maintain.'] : ['Engineering.', 'And original intent.'],
+		sandbox: ['A better use of AI?', 'Hands-on testing.'],
 		investigate: ['Investigate. Confirm.', 'Then fix.'],
-		selective: ['Useful test code.', 'New features: test first.'],
-		optimize: ['Better feedback.', 'Less to maintain.'],
+		selective: seconds < 49.033 ? ['Useful checks.', 'Ordinary test code.'] : ['New features?', 'Start with intent.'],
+		optimize: ['Simplify the suite.', 'Keep what matters.'],
 		end: ['Less to carry.', 'Fewer bugs to chase.'],
 	};
 	return <g>
 		<Label x={65} y={55} size={18} anchor="start" color={palette.muted}>TERRY MOVES / THE LEGACY WORKSHOP</Label>
-		<g fontFamily={HEAD} fontWeight="700" fontSize="66" fill={palette.ink} letterSpacing="-1.8">
+		<g fontFamily={HEAD} fontWeight="700" fontSize="64" fill={palette.ink} letterSpacing="-1.8">
 			<text x="65" y="144">{titles[scene.id][0]}</text><text x="65" y="222">{titles[scene.id][1]}</text>
 		</g>
 		<path d="M65 263H147" stroke={palette.coral} strokeWidth="8" strokeLinecap="round"/>
@@ -45,7 +46,7 @@ export const AITestAutomationScene: React.FC<{ seconds: number }> = ({ seconds }
 	const camera = `translate(540 715) scale(${zoom}) translate(-540 -715)`;
 	return <AbsoluteFill style={{ background: palette.paper }} data-scene={scene.id}>
 		<svg width={STAGE.width} height={STAGE.height} viewBox="0 0 1080 1350" role="img" aria-label={`${scene.label}: illustrated legacy workshop`}>
-			<Definitions/><Workshop quiet={scene.id === 'end'}/><Header scene={scene}/>
+			<Definitions/><Workshop quiet={scene.id === 'end'}/><Header scene={scene} seconds={seconds}/>
 			<g opacity={arrival} transform={`translate(0 ${(1 - arrival) * 9})`}><g transform={camera}>
 				{scene.id === 'hook' && <Hook seconds={seconds}/>}
 				{scene.id === 'overload' && <Overload seconds={seconds} scene={scene}/>}
