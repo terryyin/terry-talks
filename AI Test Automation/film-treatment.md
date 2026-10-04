@@ -4,18 +4,26 @@ A warm, tactile cartoon workshop turns software upkeep into visible physical wor
 English; 1080 × 1350 (4:5); 30 fps. Cream paper, ink outlines, coral engineer,
 mint AI companion and a modular sky-blue legacy product preserve Story Impact’s visual family.
 
-Runtime: **69.53 seconds**. The 169-word narration is
+Runtime: **79.93 seconds**. The roughly 200-word narration is
 OpenAI’s Cedar synthetic voice; it is not a recording or imitation of Terry.
 The confirmed article remains the idea’s authoritative source. This film distils its argument
 for large legacy systems where tickets arrive faster than the team can close them.
 
 The film follows one engineer and one eager AI helper through a connected causal story:
-a tempting promise of more tests, a plausible diagnosis, and the conflict when added code
-creates upkeep before protection. High-level software engineering must preserve original intent;
-useful targeted tests can still help while the queue is overloaded.
+a tempting promise of more tests and a plausible diagnosis. PURPOSE defines what the production
+code should do; PROOF shows whether it does in the behavior checked. The article bounds this
+proof to encoded expectations and observed examples, not a universal guarantee of no bugs.
+Only then does the conflict reveal itself: tests are more code before they provide protection.
+High-level software engineering must preserve original intent, and AI can pile on complexity.
+A prominent STOP AND FIX interrupts the accumulation and makes repair the current work.
+**Stop adding complexity. Get the system back under control.** is the explicit instruction.
+This turning point follows Terry's Stop & Fix claim: contain the problem and regain control.
 The alternative is stated first: AI performs hands-on testing. An isolated repeatable environment
-must be easy to set up. The AI repeats demonstrated manual checks; humans investigate, confirm and fix
-without adding test code to maintain. When control returns, useful checks become ordinary repeatable
+must be easy to set up. Show AI manual checks; it performs similar tests to confirm fixes, explore
+for bugs and check that known behavior still works. This is an imperfect compromise that gives
+a system already in panic relief without piling on maintained test code. Environments, checking
+and human judgment still have costs; there is no promise of perfect AI findings or coverage.
+When control returns, useful checks become ordinary repeatable
 test code that needs no AI to execute. New features express intent in tests first and let those tests
 drive development. The suite keeps evolving: faster feedback, fewer redundant tests, suitable local
 checks moved to units, with essential end-to-end protection retained. Spare AI simplifies and fixes.
@@ -23,14 +31,16 @@ The closing is: **Less to carry. Fewer bugs to chase.**
 
 | Time | Scene | Spoken narration |
 | --- | --- | --- |
-| 0.00–4.30s | The tempting shortcut | Ask AI to write more tests? You probably don’t want to do that. |
-| 4.30–12.07s | A plausible diagnosis | In a large legacy system, tickets arrive faster than your team can close them. “Not enough automated tests!” You’re probably right. |
-| 12.07–27.47s | The hidden maintenance conflict | But AI can pile on code before it provides protection. More complexity. More upkeep. A harder queue to clear. Test automation requires high-level software engineering—and must protect the original intent. Targeted tests can still help now. |
-| 27.47–38.47s | AI performs hands-on testing | A better use of AI here? Hands-on testing. First, make an isolated, repeatable environment easy to set up. Show AI your manual checks; let it repeat them. |
-| 38.47–43.07s | Confirm, fix, keep code manageable | Investigate, confirm, fix— without adding test code to maintain. |
-| 43.07–53.90s | Turn proven checks into test code | Once you regain control, turn useful checks into repeatable test code: no AI needed to run it. For new features, express your intent in tests first. Let them drive development. |
-| 53.90–62.43s | Keep simplifying the suite | Keep improving the suite: faster feedback, fewer redundant tests, suitable local checks moved to units. Keep essential end-to-end protection. |
-| 62.43–69.53s | Less to carry. Fewer bugs to chase. | Use spare AI to simplify and fix. Less to carry. Fewer bugs to chase. |
+| 0.00–4.10s | The tempting shortcut | Ask AI to write more tests? You probably don’t want to do that. |
+| 4.10–11.97s | A plausible diagnosis | In a large legacy system, tickets arrive faster than your team can close them. “Not enough automated tests!” You’re probably right. |
+| 11.97–16.60s | Purpose and proof | Tests define what your code should do: purpose. And show whether it does: proof. |
+| 16.60–27.70s | Protection has an engineering cost | But first, they’re more code. Test automation requires high-level software engineering—and must preserve the original intent. AI can pile on complexity before providing protection. |
+| 27.70–33.57s | Stop. And fix. | Stop. And fix. Stop adding complexity. Get the system back under control. |
+| 33.57–43.17s | AI performs hands-on testing | A better use of AI here? Hands-on testing. First, an isolated, repeatable environment that’s easy to set up. Show AI your manual checks. |
+| 43.17–55.70s | A compromise that creates room to repair | Have it perform similar tests: confirm fixes, explore for bugs, and check that known behavior still works. It’s a compromise. But a system already in panic needs relief— not more test code to maintain. |
+| 55.70–65.67s | Regained control, intent-first development | Once you regain control, turn useful checks into test code. No AI needed to run it. For new features, express intent in tests first. Let them drive development. |
+| 65.67–73.07s | Keep simplifying the suite | Then simplify. Delete redundant tests. Move suitable checks to fast unit tests. Keep essential end-to-end protection. |
+| 73.07–79.93s | Less to carry. Fewer bugs to chase. | Use spare AI to simplify and fix. Less to carry. Fewer bugs to chase. |
 
 ## Audio and captions
 
@@ -54,11 +64,13 @@ This requires the OpenAI Python SDK and `OPENAI_API_KEY`. The key is never writt
 Use `--refresh-docs` to update this treatment from the measured script without regenerating audio.
 Narration is mastered to −18 LUFS using measured two-pass normalization. Playback and rendering need no API.
 
-The original chamber score follows the measured scene boundaries: hopeful F major, the D-minor upkeep
-conflict, B-flat practical action, C-major progress, then an open F-major resolution. Sparse felt notes
+The original chamber score follows the measured scene boundaries: hopeful F major, bright purpose/proof,
+the D-minor upkeep conflict, a decisive stop and hush, B-flat practical action, C-major progress,
+then an open F-major resolution. Sparse felt notes
 sit in measured speech gaps. The opening question and reply have no music bed. The quiet score ducks
-to actual narration activity; sparse paper and wood accents mark visible actions. Both characters use
-the same checking sound for the same demonstrated action. There is no decorative beeping or stock music.
+to actual narration activity; sparse paper and wood accents mark visible actions. A tactile stop
+and the following quiet create emotional contrast. Checking sounds follow the observed controls
+and causal repair states. There is no decorative beeping or stock music.
 Narration and final mix target −18 LUFS; score and effects target −40 and −39 LUFS respectively.
 The deterministic producer retains separate narration, score and effects stems; all span the film's full duration.
 Ignored `terry-moves/out/ai-test-automation-audio/` holds actual mix analysis, cue timings and rejected-take evidence.

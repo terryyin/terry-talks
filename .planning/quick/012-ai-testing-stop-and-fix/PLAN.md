@@ -89,7 +89,7 @@ evidence; rerun only where the revised boundary invalidates it.
 
 ### 1. Viewers feel the cost of more code and the relief of stopping to fix
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: A viewer starts the revised vertical movie. The question precedes the
 hook; a recognizable overloaded team and valid test diagnosis lead to PURPOSE
@@ -158,6 +158,54 @@ Proof:
   frame review. Hosted CI coverage is recorded only from a real observer receipt;
   absence of a bridge remains an explicit coverage/resource-retention limitation.
 
+## Execution observations
+
+- Admission published `497256355e0958c6242bbd3d389c35500747833b` on
+  `origin/master`, carrying only this seed and plan. Execution identity:
+  Story Branch Mode, `/Users/terryyin/git/terry-talks-worktrees/ai-testing-stop-and-fix`,
+  `codex/ai-testing-stop-and-fix`, remote `origin`, integration target `master`,
+  publisher `stop-fix-coordinator`, agent `Julia-chan`. This work created its
+  execution checkout. Preparation refresh stopped `unexpected-branch`; the
+  retained prior revision checkout and unrelated main checkout remain preserved.
+- In this exact new checkout, `pnpm install --frozen-lockfile` passed with
+  pnpm 9.15.9. `pnpm -C terry-moves exec remotion compositions src/index.ts`
+  passed with native Chrome 149 and the film composition mounted. The unrelated
+  pre-existing Quillustration scene asset emitted a 404; the selected film does
+  not consume it.
+- The first paid voice candidate failed its exact-script audit and an independent
+  script-free tail check: the closing words were absent. It was rejected before
+  dependent animation. The next connected take passed the existing producer's
+  full actual-audio transcription and timed-word comparison without an ASR prompt.
+  The 199-word complete narration aligns to 79.933333 seconds / 2398 frames,
+  with speech ending at 77.880 seconds and 2.053 seconds of final hold. STOP ends
+  at 28.360 seconds; AND FIX begins at 28.920 seconds. The original take and
+  its natural internal pauses are retained without time stretching or splicing.
+  Accepted take SHA-256:
+  `d39d4c5642b6a3afd91fc5c25ae4e43d43a911e8104d781e92f1aa4f85598f67`.
+  Narration SHA-256:
+  `0ab0fbe4acf73d126dbcc266b47f17f5b95e1e2ab39d968141dd5467744e6fa0`.
+
+### Bounded exported-film observation
+
+The active slice's manual observation uses this owned checkout and the actual
+rendered MP4, not a separate mission. Allocate about 15 minutes after export:
+2 minutes preparation/probing, 5 minutes breadth across the complete argument,
+5 minutes selective depth on changed actions, and 3 minutes confirmation reserve.
+The oracle is Terry's latest feedback and the seed's examples; source drawings
+and passing tests do not substitute for observed export behavior.
+
+Cover question-before-hook and missing-tests concession; PURPOSE/PROOF before
+upkeep; large STOP AND FIX interruption and redirected current work; isolated
+setup and demonstrated check; repair confirmation, different exploration and
+known-behavior check; compromise/relief; ordinary no-AI execution, intent-first
+new feature and retained essential end-to-end protection; complete closing and
+readable captions/credit. Inspect decoded actual frames in breadth, then short
+strips around changed hand contact and causal transitions. Spend reserve on
+unexpected overlaps, abrupt arm pose changes or unclear expected/observed state.
+Use accepted audio measurement and final full-coverage script-free ASR for its
+objective coverage, without repeating proven checks or claiming human listening
+or continuous real-time audiovisual playback.
+
 ## Proof ownership
 
 All promises belong to slice 1 and the one actual audiovisual export loop:
@@ -190,3 +238,10 @@ This review found no remaining slice-boundary, cumulative-design or unmapped
 proof concern within the selected scope. Record preparation/readiness through
 the installed backlog recorder; this judgment grants no Take, execution or
 publication authority.
+
+## Accepted slice evidence
+- Focused `pnpm -C terry-moves exec jest tests/aiTestAutomation --runInBand` passed 2 suites / 10 tests; `pnpm -C terry-moves exec tsc --noEmit` passed after all spatial corrections. Coordinator selective source formatting and `pnpm -C terry-moves lint` passed. Fresh independent refactoring preserved all article content in one artifact and changed no film behavior, so accepted source/audio/export proof remains current.
+- `python3 'AI Test Automation/produce_audio.py'` and `pnpm -C terry-moves render:ai-test-automation` both completed successfully. Actual MP4: H.264/yuv420p/bt709, 1080×1350, 30 fps, 2398 frames / 79.933333 seconds; AAC 48 kHz stereo has 45 ms container padding. Movie SHA-256 `8ff09608b026fba53b5fbcb0af603a95dbf61c4136bd0d2186de0e335dd692df`.
+- Whole actual MIX was independently transcribed by GPT-4o without a prompt or script hint: all 204 normalized spoken tokens matched, including the full ending. Whisper's earlier single-contraction recognition ambiguity is preserved, not rewritten. MIX SHA-256 `8e5b5f63ad1a265b45e7bd85c3ed964b5912fb9389a20a6c881ca3f29618c886`; −18.00 LUFS / −4.13 dBTP, zero clipped PCM samples. Actual exported AAC measures −17.9 LUFS / −4.2 dBTP. The score is silent during STOP AND FIX; original tactile accents follow measured contacts.
+- Bounded manual observation: Good. Reviewed 34 decoded actual export frames across the complete argument and 24 contact frames around purpose checking, physical stop, manual demonstration, confirmation, exploration, regression, handoff and repair. `out/ai-test-automation-review/export-sheet-{1..6}.jpg` and `contact-strip-{1..2}.jpg` supply observations. STOP labels no longer cross boots, AI remains inside frame, and the tool rests before the visible relief. No human listening or continuous real-time playback is claimed.
+- The original transcript hash remains `d9b56fa15bafb0f4dddf421aa6111cafdf3b5f91e297b0761970cd71f10ffff2`. Versioned v3 movie/poster/full-speech SRT were copied to both execution and main `terry-moves/out/`, with matching hashes and previous revisions preserved; `delivered-media.json` holds the exact hashes. Current project CI configuration and a `.github/workflows` directory are absent; hosted CI observation is not claimed.

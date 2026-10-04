@@ -2,7 +2,7 @@ import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { BODY, Definitions, HEAD, Label, palette, Workshop } from './design';
 import { captionAt, FilmScene, filmScript, reveal, sceneAt, STAGE } from './film';
-import { Hook, Overload, Upkeep } from './Problem';
+import { Hook, Overload, PurposeAndProof, StopAndFix, Upkeep } from './Problem';
 import { Investigate, SandboxShot } from './Learning';
 import { Selective } from './Selective';
 import { Ending, Optimize } from './Protection';
@@ -10,12 +10,14 @@ import { mix, travel } from './motion';
 
 const Header: React.FC<{ scene: FilmScene; seconds: number }> = ({ scene, seconds }) => {
 	const titles: Record<FilmScene['id'], [string, string]> = {
-		hook: seconds < 2.1 ? ['Ask AI to write', 'more tests?'] : ['You probably don’t', 'want to do that.'],
-		overload: seconds < 8.967 ? ['Tickets arrive.', 'Faster than fixes.'] : seconds < 10.733 ? ['Not enough', 'automated tests?'] : ['You’re probably', 'right.'],
-		upkeep: seconds < 19.633 ? ['Before protection:', 'more to maintain.'] : ['Engineering.', 'And original intent.'],
+		hook: seconds < scene.captionRanges[1]?.start ? ['Ask AI to write', 'more tests?'] : ['You probably don’t', 'want to do that.'],
+		overload: seconds < scene.captionRanges[1]?.start ? ['Tickets arrive.', 'Faster than fixes.'] : seconds < scene.captionRanges[2]?.start ? ['Not enough', 'automated tests?'] : ['You’re probably', 'right.'],
+		purpose: ['Tests define purpose.', 'And provide proof.'],
+		upkeep: seconds < scene.captionRanges[1]?.start ? ['Before protection:', 'more to maintain.'] : seconds < scene.captionRanges[2]?.start ? ['High-level engineering.', 'Protect original intent.'] : ['AI piles on code.', 'Upkeep arrives first.'],
+		stopFix: ['', ''],
 		sandbox: ['A better use of AI?', 'Hands-on testing.'],
-		investigate: ['Investigate. Confirm.', 'Then fix.'],
-		selective: seconds < 49.033 ? ['Useful checks.', 'Ordinary test code.'] : ['New features?', 'Start with intent.'],
+		investigate: seconds < scene.captionRanges[3]?.start ? ['Confirm. Explore.', 'Check known behavior.'] : ['A system in panic', 'needs relief.'],
+		selective: seconds < scene.captionRanges[2]?.start ? ['Useful checks.', 'Ordinary test code.'] : ['New features?', 'Start with intent.'],
 		optimize: ['Simplify the suite.', 'Keep what matters.'],
 		end: ['Less to carry.', 'Fewer bugs to chase.'],
 	};
@@ -48,9 +50,11 @@ export const AITestAutomationScene: React.FC<{ seconds: number }> = ({ seconds }
 		<svg width={STAGE.width} height={STAGE.height} viewBox="0 0 1080 1350" role="img" aria-label={`${scene.label}: illustrated legacy workshop`}>
 			<Definitions/><Workshop quiet={scene.id === 'end'}/><Header scene={scene} seconds={seconds}/>
 			<g opacity={arrival} transform={`translate(0 ${(1 - arrival) * 9})`}><g transform={camera}>
-				{scene.id === 'hook' && <Hook seconds={seconds}/>}
+				{scene.id === 'hook' && <Hook seconds={seconds} scene={scene}/>}
 				{scene.id === 'overload' && <Overload seconds={seconds} scene={scene}/>}
+				{scene.id === 'purpose' && <PurposeAndProof seconds={seconds} scene={scene}/>}
 				{scene.id === 'upkeep' && <Upkeep seconds={seconds} scene={scene}/>}
+				{scene.id === 'stopFix' && <StopAndFix seconds={seconds} scene={scene}/>}
 				{scene.id === 'sandbox' && <SandboxShot seconds={seconds} scene={scene}/>}
 				{scene.id === 'investigate' && <Investigate seconds={seconds} scene={scene}/>}
 				{scene.id === 'selective' && <Selective seconds={seconds} scene={scene}/>}

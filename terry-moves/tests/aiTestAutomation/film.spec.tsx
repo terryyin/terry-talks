@@ -49,21 +49,26 @@ describe('AI testing film audiovisual contract', () => {
 		expect(STAGE).toEqual({ width: 1080, height: 1350 });
 	});
 
-	it('exports the whole narration to SRT, including intent, ordinary test code and test-first development', () => {
+	it('exports purpose and proof before the code objection, and the complete stop-and-fix recovery to SRT', () => {
 		const srt = fs.readFileSync(path.join(__dirname, '../../../AI Test Automation/ai-test-automation.srt'), 'utf8');
 		const lines = srt.split('\n').filter((line) => line && !/^\d+$/.test(line) && !line.includes('-->'));
 		expect(tokens(lines.join(' '))).toEqual(tokens(spoken));
-		expect(srt).toContain('Test automation requires high-level software engineering—and must protect the original intent.');
-		expect(srt).toContain('Targeted tests can still help now.');
-		expect(srt).toContain('no AI needed to run it.');
-		expect(srt).toContain('For new features, express your intent in tests first.');
+		expect(srt.indexOf('Tests define what your code should do: purpose.')).toBeLessThan(srt.indexOf('But first, they’re more code.'));
+		expect(srt.indexOf('And show whether it does: proof.')).toBeLessThan(srt.indexOf('But first, they’re more code.'));
+		expect(srt).toContain('Test automation requires high-level software engineering—and must preserve the original intent.');
+		expect(srt).toContain('Stop adding complexity.');
+		expect(srt).toContain('confirm fixes, explore for bugs,');
+		expect(srt).toContain('and check that known behavior still works.');
+		expect(srt).toContain('It’s a compromise.');
+		expect(srt).toContain('No AI needed to run it.');
+		expect(srt).toContain('For new features, express intent in tests first.');
+		expect(srt.toLowerCase()).not.toContain('targeted');
 		expect(srt).toContain('Less to carry. Fewer bugs to chase.');
 	});
 
-	it('keeps useful protection on screen throughout and distinguishes observation from maintained code', () => {
+	it('distinguishes hands-on observation from maintained code and retains essential wider protection while simplifying', () => {
 		filmScript.scenes.forEach((scene) => {
 			const markup = renderToStaticMarkup(<AITestAutomationScene seconds={(scene.start + scene.end) / 2}/>);
-			expect(markup).toContain('data-testid="useful-protection"');
 			expect(markup).toContain('data-testid="caption-bar"');
 		});
 		const sandbox = filmScript.scenes.find((scene) => scene.id === 'sandbox')!;
@@ -71,7 +76,10 @@ describe('AI testing film audiovisual contract', () => {
 		expect(markup).toContain('data-testid="isolated-repeatable-environment"');
 		expect(markup).toContain('data-testid="reset-control"');
 		const investigation = filmScript.scenes.find((scene) => scene.id === 'investigate')!;
-		expect(renderToStaticMarkup(<AITestAutomationScene seconds={investigation.start + 1}/>)).toContain('data-testid="finding-card"');
+		const repair = renderToStaticMarkup(<AITestAutomationScene seconds={investigation.end - 0.5}/>);
+		expect(repair).toContain('data-testid="finding-card"');
+		expect(repair).toContain('data-current-work="repair-reload"');
+		expect(repair).not.toContain('data-testid="test-card"');
 		const optimize = filmScript.scenes.find((scene) => scene.id === 'optimize')!;
 		const optimization = renderToStaticMarkup(<AITestAutomationScene seconds={optimize.end - 0.5}/>);
 		expect(optimization).toContain('data-testid="focused-unit-check"');

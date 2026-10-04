@@ -9,101 +9,128 @@
       "id": "hook",
       "label": "The tempting shortcut",
       "captionRanges": [
-        {"text": "Ask AI to write more tests?", "spoken": "Ask AI to write more tests?", "speechStart": 0.08, "speechEnd": 1.8599999713897706, "wordCues": {"ask": 0.08, "ai": 0.39999999284744264, "to": 0.8000000286102295, "write": 1.08, "more": 1.280000047683716, "tests": 1.8599999713897706}, "start": 0.0, "end": 2.1},
-        {"text": "You probably don’t want to do that.", "spoken": "You probably don’t want to do that.", "speechStart": 2.3200000095367432, "speechEnd": 3.9199999141693116, "wordCues": {"you": 2.3200000095367432, "probably": 2.699999885559082, "dont": 2.9800000953674317, "want": 3.2400000858306885, "to": 3.460000114440918, "do": 3.5400000381469727, "that": 3.6599999237060548}, "start": 2.1, "end": 4.3}
+        {"text": "Ask AI to write more tests?", "spoken": "Ask AI to write more tests?", "speechStart": 0.08, "speechEnd": 1.739999966621399, "wordCues": {"ask": 0.08, "ai": 0.38000001192092897, "to": 0.7600000071525573, "write": 1.0000000166893006, "more": 1.180000023841858, "tests": 1.739999966621399}, "start": 0.0, "end": 2.033333333333333},
+        {"text": "You probably don’t want to do that.", "spoken": "You probably don’t want to do that.", "speechStart": 2.3599999713897706, "speechEnd": 3.760000066757202, "wordCues": {"you": 2.3599999713897706, "probably": 2.5000000762939454, "dont": 2.8599999713897706, "want": 3.08, "to": 3.3000000286102296, "do": 3.399999933242798, "that": 3.520000057220459}, "start": 2.033333333333333, "end": 4.1}
       ],
       "start": 0.0,
-      "end": 4.3,
-      "duration": 4.3
+      "end": 4.1,
+      "duration": 4.1
     },
     {
       "id": "overload",
       "label": "A plausible diagnosis",
       "captionRanges": [
-        {"text": "Large legacy system. Tickets outpace the team.", "spoken": "In a large legacy system, tickets arrive faster than your team can close them.", "speechStart": 4.699999885559082, "speechEnd": 8.619999961853027, "wordCues": {"in": 4.699999885559082, "a": 4.699999885559082, "large": 4.880000190734863, "legacy": 5.139999942779541, "system": 5.480000095367432, "tickets": 6.480000095367432, "arrive": 6.480000095367432, "faster": 6.86000020980835, "than": 7.279999809265137, "your": 7.420000152587891, "team": 7.659999923706055, "can": 7.779999809265137, "close": 8.199999885559082, "them": 8.199999885559082}, "start": 4.3, "end": 8.966666666666667},
-        {"text": "“Not enough automated tests!”", "spoken": "“Not enough automated tests!”", "speechStart": 9.340000228881836, "speechEnd": 10.500000076293945, "wordCues": {"not": 9.340000228881836, "enough": 9.359999732971191, "automated": 9.659999923706055, "tests": 10.119999961853027}, "start": 8.966666666666667, "end": 10.733333333333333},
-        {"text": "You’re probably right.", "spoken": "You’re probably right.", "speechStart": 10.979999618530274, "speechEnd": 11.779999809265137, "wordCues": {"youre": 10.979999618530274, "probably": 11.1400004196167, "right": 11.460000114440918}, "start": 10.733333333333333, "end": 12.066666666666666}
+        {"text": "Large legacy system. Tickets outpace the team.", "spoken": "In a large legacy system, tickets arrive faster than your team can close them.", "speechStart": 4.420000152587891, "speechEnd": 8.300000267028809, "wordCues": {"in": 4.420000152587891, "a": 4.420000152587891, "large": 4.639999942779541, "legacy": 4.880000190734863, "system": 5.199999885559082, "tickets": 6.199999885559082, "arrive": 6.199999885559082, "faster": 6.560000019073486, "than": 7.000000076293945, "your": 7.159999923706055, "team": 7.400000171661377, "can": 7.520000057220459, "close": 7.940000133514404, "them": 7.960000114440918}, "start": 4.1, "end": 8.733333333333333},
+        {"text": "“Not enough automated tests!”", "spoken": "“Not enough automated tests!”", "speechStart": 9.1400004196167, "speechEnd": 10.159999923706055, "wordCues": {"not": 9.1400004196167, "enough": 9.159999923706055, "automated": 9.42000015258789, "tests": 9.819999771118164}, "start": 8.733333333333333, "end": 10.433333333333334},
+        {"text": "You’re probably right.", "spoken": "You’re probably right.", "speechStart": 10.680000381469727, "speechEnd": 11.559999542236328, "wordCues": {"youre": 10.680000381469727, "probably": 10.880000190734863, "right": 11.260000305175781}, "start": 10.433333333333334, "end": 11.966666666666667}
       ],
-      "start": 4.3,
-      "end": 12.066666666666666,
-      "duration": 7.766666666666667
+      "start": 4.1,
+      "end": 11.966666666666667,
+      "duration": 7.866666666666667
+    },
+    {
+      "id": "purpose",
+      "label": "Purpose and proof",
+      "captionRanges": [
+        {"text": "What should the code do? PURPOSE.", "spoken": "Tests define what your code should do: purpose.", "speechStart": 12.380000190734863, "speechEnd": 14.319999771118164, "wordCues": {"tests": 12.380000190734863, "define": 12.380000190734863, "what": 12.760000305175781, "your": 12.899999694824219, "code": 13.059999542236328, "should": 13.220000343322754, "do": 13.42000015258789, "purpose": 14.319999771118164}, "start": 11.966666666666667, "end": 14.566666666666666},
+        {"text": "Does it do it? PROOF.", "spoken": "And show whether it does: proof.", "speechStart": 14.800000267028809, "speechEnd": 16.44000061035156, "wordCues": {"and": 14.800000267028809, "show": 14.960000114440918, "whether": 15.1400004196167, "it": 15.340000228881836, "does": 15.479999618530274, "proof": 16.44000061035156}, "start": 14.566666666666666, "end": 16.6}
+      ],
+      "start": 11.966666666666667,
+      "end": 16.6,
+      "duration": 4.633333333333335
     },
     {
       "id": "upkeep",
-      "label": "The hidden maintenance conflict",
+      "label": "Protection has an engineering cost",
       "captionRanges": [
-        {"text": "Code arrives before protection.", "spoken": "But AI can pile on code before it provides protection.", "speechStart": 12.340000228881836, "speechEnd": 15.0199995803833, "wordCues": {"but": 12.340000228881836, "ai": 12.540000038146973, "can": 12.779999809265137, "pile": 13.119999961853027, "on": 13.279999809265137, "code": 13.779999809265137, "before": 13.779999809265137, "it": 14.119999961853027, "provides": 14.279999809265137, "protection": 14.559999542236328}, "start": 12.066666666666666, "end": 15.466666666666667},
-        {"text": "More complexity. More upkeep.", "spoken": "More complexity. More upkeep. A harder queue to clear.", "speechStart": 15.899999694824219, "speechEnd": 19.13999946594238, "wordCues": {"more": 15.899999694824219, "complexity": 15.960000114440918, "upkeep": 17.219999389648436, "a": 18.120000915527342, "harder": 18.29999931335449, "queue": 18.4599991607666, "to": 18.680000381469725, "clear": 19.13999946594238}, "start": 15.466666666666667, "end": 19.633333333333333},
-        {"text": "High-level engineering. Protect the original intent.", "spoken": "Test automation requires high-level software engineering—and must protect the original intent.", "speechStart": 20.159999923706053, "speechEnd": 24.739999847412108, "wordCues": {"test": 20.159999923706053, "automation": 20.29999931335449, "requires": 20.719999389648436, "high": 21.26000030517578, "level": 21.60000045776367, "software": 21.840000228881834, "engineering": 22.28000076293945, "and": 22.680000381469725, "must": 23.28000076293945, "protect": 23.500000076293944, "the": 23.819999771118162, "original": 24.10000045776367, "intent": 24.379999237060545}, "start": 19.633333333333333, "end": 25.2},
-        {"text": "Targeted tests can still help now.", "spoken": "Targeted tests can still help now.", "speechStart": 25.659999923706053, "speechEnd": 27.28000076293945, "wordCues": {"targeted": 25.659999923706053, "tests": 26.29999931335449, "can": 26.29999931335449, "still": 26.559999542236326, "help": 26.840000228881834, "now": 26.9599991607666}, "start": 25.2, "end": 27.466666666666665}
+        {"text": "But first, they’re more code.", "spoken": "But first, they’re more code.", "speechStart": 16.78000076293945, "speechEnd": 18.58, "wordCues": {"but": 16.78000076293945, "first": 17.239999847412108, "theyre": 17.680000381469725, "more": 18.10000045776367, "code": 18.29999931335449}, "start": 16.6, "end": 19.0},
+        {"text": "High-level engineering. Preserve the original intent.", "spoken": "Test automation requires high-level software engineering—and must preserve the original intent.", "speechStart": 19.42000015258789, "speechEnd": 23.899999694824217, "wordCues": {"test": 19.42000015258789, "automation": 19.47999961853027, "requires": 19.879999237060545, "high": 20.379999237060545, "level": 20.700000839233397, "software": 20.879999237060545, "engineering": 21.28000076293945, "and": 21.680000381469725, "must": 22.399999694824217, "preserve": 22.620000915527342, "the": 22.97999961853027, "original": 23.539999084472655, "intent": 23.539999084472655}, "start": 19.0, "end": 24.3},
+        {"text": "Complexity can arrive before protection.", "spoken": "AI can pile on complexity before providing protection.", "speechStart": 24.719999389648436, "speechEnd": 27.399999694824217, "wordCues": {"ai": 24.719999389648436, "can": 24.97999961853027, "pile": 25.29999931335449, "on": 25.4599991607666, "complexity": 26.13999946594238, "before": 26.13999946594238, "providing": 26.539999084472655, "protection": 26.94000061035156}, "start": 24.3, "end": 27.7}
       ],
-      "start": 12.066666666666666,
-      "end": 27.466666666666665,
-      "duration": 15.399999999999999
+      "start": 16.6,
+      "end": 27.7,
+      "duration": 11.099999999999998
+    },
+    {
+      "id": "stopFix",
+      "label": "Stop. And fix.",
+      "captionRanges": [
+        {"text": "STOP.", "spoken": "Stop.", "speechStart": 28.000000076293944, "speechEnd": 28.360000686645506, "wordCues": {"stop": 28.000000076293944}, "start": 27.7, "end": 28.633333333333333},
+        {"text": "AND FIX.", "spoken": "And fix.", "speechStart": 28.92000015258789, "speechEnd": 29.340000228881834, "wordCues": {"and": 28.92000015258789, "fix": 29.10000045776367}, "start": 28.633333333333333, "end": 29.666666666666668},
+        {"text": "Stop adding complexity.", "spoken": "Stop adding complexity.", "speechStart": 29.97999961853027, "speechEnd": 30.97999961853027, "wordCues": {"stop": 29.97999961853027, "adding": 30.200000839233397, "complexity": 30.4599991607666}, "start": 29.666666666666668, "end": 31.366666666666667},
+        {"text": "Get the system back under control.", "spoken": "Get the system back under control.", "speechStart": 31.78000076293945, "speechEnd": 33.140001373291014, "wordCues": {"get": 31.78000076293945, "the": 31.79999931335449, "system": 32.000000076293944, "back": 32.23999984741211, "under": 32.559999542236326, "control": 32.80000122070312}, "start": 31.366666666666667, "end": 33.56666666666667}
+      ],
+      "start": 27.7,
+      "end": 33.56666666666667,
+      "duration": 5.866666666666671
     },
     {
       "id": "sandbox",
       "label": "AI performs hands-on testing",
       "captionRanges": [
-        {"text": "A better use of AI here? Hands-on testing.", "spoken": "A better use of AI here? Hands-on testing.", "speechStart": 27.680000381469725, "speechEnd": 30.659999923706053, "wordCues": {"a": 27.680000381469725, "better": 28.000000076293944, "use": 28.28000076293945, "of": 28.500000076293944, "ai": 28.719999389648436, "here": 28.819999771118162, "hands": 30.120000915527342, "on": 30.120000915527342, "testing": 30.319999771118162}, "start": 27.466666666666665, "end": 31.1},
-        {"text": "Isolated. Repeatable. Easy to set up.", "spoken": "First, make an isolated, repeatable environment easy to set up.", "speechStart": 31.539999084472655, "speechEnd": 34.719999389648436, "wordCues": {"first": 31.539999084472655, "make": 32.020000534057615, "an": 32.08, "isolated": 32.3399983215332, "repeatable": 32.89999969482422, "environment": 33.23999984741211, "easy": 33.73999984741211, "to": 34.08, "set": 34.3399983215332, "up": 34.44000061035156}, "start": 31.1, "end": 35.13333333333333},
-        {"text": "Show your checks. AI repeats them.", "spoken": "Show AI your manual checks; let it repeat them.", "speechStart": 35.58, "speechEnd": 38.10000045776367, "wordCues": {"show": 35.58, "ai": 35.62000091552734, "your": 35.96000106811523, "manual": 36.219999389648436, "checks": 36.559999542236326, "let": 37.49999816894531, "it": 37.51999862670898, "repeat": 37.62000091552734, "them": 37.85999877929687}, "start": 35.13333333333333, "end": 38.46666666666667}
+        {"text": "A better use of AI here? Hands-on testing.", "spoken": "A better use of AI here? Hands-on testing.", "speechStart": 33.980001525878905, "speechEnd": 36.46000106811523, "wordCues": {"a": 33.980001525878905, "better": 34.059999542236326, "use": 34.30000122070312, "of": 34.51999862670898, "ai": 34.699998931884764, "here": 34.8399983215332, "hands": 35.85999877929687, "on": 35.96000106811523, "testing": 36.160001831054686}, "start": 33.56666666666667, "end": 36.96666666666667},
+        {"text": "Isolated. Repeatable. Easy to set up.", "spoken": "First, an isolated, repeatable environment that’s easy to set up.", "speechStart": 37.480001525878905, "speechEnd": 40.78000076293945, "wordCues": {"first": 37.480001525878905, "an": 37.67999847412109, "isolated": 38.10000045776367, "repeatable": 38.879999237060545, "environment": 39.28000076293945, "thats": 39.660001831054686, "easy": 39.980001525878905, "to": 40.17999847412109, "set": 40.379999237060545, "up": 40.49999816894531}, "start": 36.96666666666667, "end": 41.166666666666664},
+        {"text": "Show AI your manual checks.", "spoken": "Show AI your manual checks.", "speechStart": 41.539999084472655, "speechEnd": 42.80000122070312, "wordCues": {"show": 41.539999084472655, "ai": 41.539999084472655, "your": 41.879999237060545, "manual": 42.17999847412109, "checks": 42.480001525878905}, "start": 41.166666666666664, "end": 43.166666666666664}
       ],
-      "start": 27.466666666666665,
-      "end": 38.46666666666667,
-      "duration": 11.000000000000004
+      "start": 33.56666666666667,
+      "end": 43.166666666666664,
+      "duration": 9.599999999999994
     },
     {
       "id": "investigate",
-      "label": "Confirm, fix, keep code manageable",
+      "label": "A compromise that creates room to repair",
       "captionRanges": [
-        {"text": "Investigate. Confirm. Fix.", "spoken": "Investigate, confirm, fix—", "speechStart": 38.80000122070312, "speechEnd": 40.62000091552734, "wordCues": {"investigate": 38.80000122070312, "confirm": 39.99999816894531, "fix": 40.51999862670898}, "start": 38.46666666666667, "end": 40.86666666666667},
-        {"text": "No added test code to maintain.", "spoken": "without adding test code to maintain.", "speechStart": 41.12000091552734, "speechEnd": 42.67999847412109, "wordCues": {"without": 41.12000091552734, "adding": 41.3399983215332, "test": 41.640001373291014, "code": 41.96000106811523, "to": 42.08, "maintain": 42.67999847412109}, "start": 40.86666666666667, "end": 43.06666666666667}
+        {"text": "AI performs similar tests.", "spoken": "Have it perform similar tests:", "speechStart": 43.559999542236326, "speechEnd": 44.76000030517578, "wordCues": {"have": 43.559999542236326, "it": 43.58, "perform": 43.67999847412109, "similar": 44.01999862670898, "tests": 44.42000015258789}, "start": 43.166666666666664, "end": 45.06666666666667},
+        {"text": "Confirm fixes. Explore for bugs.", "spoken": "confirm fixes, explore for bugs,", "speechStart": 45.39999969482422, "speechEnd": 47.3399983215332, "wordCues": {"confirm": 45.39999969482422, "fixes": 45.62000091552734, "explore": 46.820001678466795, "for": 46.820001678466795, "bugs": 47.3399983215332}, "start": 45.06666666666667, "end": 47.43333333333333},
+        {"text": "Does known behavior still work?", "spoken": "and check that known behavior still works.", "speechStart": 47.539999084472655, "speechEnd": 49.44000061035156, "wordCues": {"and": 47.539999084472655, "check": 47.980001525878905, "that": 48.08, "known": 48.35999877929687, "behavior": 48.51999862670898, "still": 48.8399983215332, "works": 49.23999984741211}, "start": 47.43333333333333, "end": 49.7},
+        {"text": "It’s a compromise.", "spoken": "It’s a compromise.", "speechStart": 49.96000106811523, "speechEnd": 50.89999969482422, "wordCues": {"its": 49.96000106811523, "a": 50.3399983215332, "compromise": 50.89999969482422}, "start": 49.7, "end": 51.06666666666667},
+        {"text": "A system in panic needs relief.", "spoken": "But a system already in panic needs relief—", "speechStart": 51.219999389648436, "speechEnd": 53.46000106811523, "wordCues": {"but": 51.219999389648436, "a": 51.49999816894531, "system": 51.719999389648436, "already": 51.92000015258789, "in": 52.379999237060545, "panic": 52.820001678466795, "needs": 52.820001678466795, "relief": 53.10000045776367}, "start": 51.06666666666667, "end": 53.733333333333334},
+        {"text": "No more test code to maintain.", "spoken": "not more test code to maintain.", "speechStart": 53.99999816894531, "speechEnd": 55.379999237060545, "wordCues": {"not": 53.99999816894531, "more": 54.219999389648436, "test": 54.42000015258789, "code": 54.719999389648436, "to": 54.8399983215332, "maintain": 55.379999237060545}, "start": 53.733333333333334, "end": 55.7}
       ],
-      "start": 38.46666666666667,
-      "end": 43.06666666666667,
-      "duration": 4.600000000000001
+      "start": 43.166666666666664,
+      "end": 55.7,
+      "duration": 12.533333333333339
     },
     {
       "id": "selective",
-      "label": "Turn proven checks into test code",
+      "label": "Regained control, intent-first development",
       "captionRanges": [
-        {"text": "Regain control. Turn useful checks into test code.", "spoken": "Once you regain control, turn useful checks into repeatable test code:", "speechStart": 43.44000061035156, "speechEnd": 46.820001678466795, "wordCues": {"once": 43.44000061035156, "you": 43.559999542236326, "regain": 43.719999389648436, "control": 44.01999862670898, "turn": 44.96000106811523, "useful": 45.01999862670898, "checks": 45.379999237060545, "into": 45.660001831054686, "repeatable": 45.92000015258789, "test": 46.35999877929687, "code": 46.699998931884764}, "start": 43.06666666666667, "end": 47.1},
-        {"text": "No AI needed to run it.", "spoken": "no AI needed to run it.", "speechStart": 47.39999969482422, "speechEnd": 48.80000122070312, "wordCues": {"no": 47.39999969482422, "ai": 47.60000045776367, "needed": 47.92000015258789, "to": 48.160001831054686, "run": 48.39999969482422, "it": 48.480001525878905}, "start": 47.1, "end": 49.03333333333333},
-        {"text": "New features: express intent in tests first.", "spoken": "For new features, express your intent in tests first.", "speechStart": 49.26000030517578, "speechEnd": 52.08, "wordCues": {"for": 49.26000030517578, "new": 49.39999969482422, "features": 49.58, "express": 50.51999862670898, "your": 50.67999847412109, "intent": 51.17999847412109, "in": 51.17999847412109, "tests": 51.44000061035156, "first": 51.67999847412109}, "start": 49.03333333333333, "end": 52.333333333333336},
-        {"text": "Let tests drive development.", "spoken": "Let them drive development.", "speechStart": 52.60000045776367, "speechEnd": 53.58, "wordCues": {"let": 52.60000045776367, "them": 52.699998931884764, "drive": 52.85999877929687, "development": 53.17999847412109}, "start": 52.333333333333336, "end": 53.9}
+        {"text": "Regain control. Turn useful checks into test code.", "spoken": "Once you regain control, turn useful checks into test code.", "speechStart": 56.039999084472655, "speechEnd": 59.199998931884764, "wordCues": {"once": 56.039999084472655, "you": 56.3399983215332, "regain": 56.46000106811523, "control": 56.73999984741211, "turn": 57.76000030517578, "useful": 57.78000076293945, "checks": 58.160001831054686, "into": 58.379999237060545, "test": 58.640001373291014, "code": 58.96000106811523}, "start": 55.7, "end": 59.53333333333333},
+        {"text": "No AI needed to run it.", "spoken": "No AI needed to run it.", "speechStart": 59.89999969482422, "speechEnd": 61.219999389648436, "wordCues": {"no": 59.89999969482422, "ai": 60.059999542236326, "needed": 60.3399983215332, "to": 60.60000045776367, "run": 60.85999877929687, "it": 60.92000015258789}, "start": 59.53333333333333, "end": 61.4},
+        {"text": "New features: express intent in tests first.", "spoken": "For new features, express intent in tests first.", "speechStart": 61.58, "speechEnd": 63.80000122070312, "wordCues": {"for": 61.58, "new": 61.640001373291014, "features": 61.820001678466795, "express": 62.320001678466795, "intent": 62.559999542236326, "in": 62.879999237060545, "tests": 63.17999847412109, "first": 63.39999969482422}, "start": 61.4, "end": 64.13333333333334},
+        {"text": "Let tests drive development.", "spoken": "Let them drive development.", "speechStart": 64.44000061035156, "speechEnd": 65.31999786376953, "wordCues": {"let": 64.44000061035156, "them": 64.4800015258789, "drive": 64.62000091552734, "development": 64.89999969482422}, "start": 64.13333333333334, "end": 65.66666666666667}
       ],
-      "start": 43.06666666666667,
-      "end": 53.9,
-      "duration": 10.833333333333329
+      "start": 55.7,
+      "end": 65.66666666666667,
+      "duration": 9.966666666666669
     },
     {
       "id": "optimize",
       "label": "Keep simplifying the suite",
       "captionRanges": [
-        {"text": "Faster feedback. Fewer redundant tests.", "spoken": "Keep improving the suite: faster feedback, fewer redundant tests,", "speechStart": 54.199998931884764, "speechEnd": 57.89999969482422, "wordCues": {"keep": 54.199998931884764, "improving": 54.51999862670898, "the": 54.8399983215332, "suite": 55.23999984741211, "faster": 55.23999984741211, "feedback": 55.980001525878905, "fewer": 56.980001525878905, "redundant": 57.480001525878905, "tests": 57.480001525878905}, "start": 53.9, "end": 58.2},
-        {"text": "Suitable local checks move to units.", "spoken": "suitable local checks moved to units.", "speechStart": 58.480001525878905, "speechEnd": 59.94000061035156, "wordCues": {"suitable": 58.480001525878905, "local": 58.62000091552734, "checks": 58.96000106811523, "moved": 59.17999847412109, "to": 59.44000061035156, "units": 59.94000061035156}, "start": 58.2, "end": 60.266666666666666},
-        {"text": "Keep essential end-to-end protection.", "spoken": "Keep essential end-to-end protection.", "speechStart": 60.559999542236326, "speechEnd": 61.96000106811523, "wordCues": {"keep": 60.559999542236326, "essential": 60.660001831054686, "end": 61.08, "to": 61.320001678466795, "protection": 61.559999542236326}, "start": 60.266666666666666, "end": 62.43333333333333}
+        {"text": "Simplify. Delete redundant tests.", "spoken": "Then simplify. Delete redundant tests.", "speechStart": 66.02000244140625, "speechEnd": 68.17999847412109, "wordCues": {"then": 66.02000244140625, "simplify": 66.20000274658203, "delete": 67.38000305175781, "redundant": 67.38000305175781, "tests": 67.77999694824219}, "start": 65.66666666666667, "end": 68.53333333333333},
+        {"text": "Suitable checks become fast unit tests.", "spoken": "Move suitable checks to fast unit tests.", "speechStart": 68.88000305175781, "speechEnd": 70.58, "wordCues": {"move": 68.88000305175781, "suitable": 68.91999633789062, "checks": 69.21999938964844, "to": 69.49999816894531, "fast": 69.71999938964844, "unit": 70.02000244140625, "tests": 70.27999694824219}, "start": 68.53333333333333, "end": 70.93333333333334},
+        {"text": "Keep essential end-to-end protection.", "spoken": "Keep essential end-to-end protection.", "speechStart": 71.31999786376953, "speechEnd": 72.67999847412109, "wordCues": {"keep": 71.31999786376953, "essential": 71.35999877929687, "end": 71.76000030517578, "to": 72.08, "protection": 72.27999694824219}, "start": 70.93333333333334, "end": 73.06666666666666}
       ],
-      "start": 53.9,
-      "end": 62.43333333333333,
-      "duration": 8.533333333333331
+      "start": 65.66666666666667,
+      "end": 73.06666666666666,
+      "duration": 7.3999999999999915
     },
     {
       "id": "end",
       "label": "Less to carry. Fewer bugs to chase.",
       "captionRanges": [
-        {"text": "Use spare AI to simplify and fix.", "spoken": "Use spare AI to simplify and fix.", "speechStart": 62.879999237060545, "speechEnd": 64.70000274658203, "wordCues": {"use": 62.879999237060545, "spare": 62.96000106811523, "ai": 63.23999984741211, "to": 63.60000045776367, "simplify": 63.85999877929687, "and": 64.20000274658203, "fix": 64.56000335693359}, "start": 62.43333333333333, "end": 65.1},
-        {"text": "Less to carry. Fewer bugs to chase.", "spoken": "Less to carry. Fewer bugs to chase.", "speechStart": 65.4800015258789, "speechEnd": 67.44000061035156, "wordCues": {"less": 65.4800015258789, "to": 65.4800015258789, "carry": 65.95999725341797, "fewer": 66.66000183105469, "bugs": 66.85999877929687, "chase": 67.26000030517578}, "start": 65.1, "end": 69.53333333333333}
+        {"text": "Use spare AI to simplify and fix.", "spoken": "Use spare AI to simplify and fix.", "speechStart": 73.45999725341797, "speechEnd": 75.34000213623047, "wordCues": {"use": 73.45999725341797, "spare": 73.62000091552734, "ai": 73.89999969482422, "to": 74.21999938964844, "simplify": 74.49999816894531, "and": 74.81999786376953, "fix": 75.20000274658203}, "start": 73.06666666666666, "end": 75.73333333333333},
+        {"text": "Less to carry. Fewer bugs to chase.", "spoken": "Less to carry. Fewer bugs to chase.", "speechStart": 76.0999966430664, "speechEnd": 77.88000305175781, "wordCues": {"less": 76.0999966430664, "to": 76.0999966430664, "carry": 76.45999725341797, "fewer": 76.9800015258789, "bugs": 77.21999938964844, "chase": 77.88000305175781}, "start": 75.73333333333333, "end": 79.93333333333334}
       ],
-      "start": 62.43333333333333,
-      "end": 69.53333333333333,
-      "duration": 7.100000000000001
+      "start": 73.06666666666666,
+      "end": 79.93333333333334,
+      "duration": 6.866666666666674
     }
   ],
+  "duration": 79.93333333333334,
+  "durationInFrames": 2398,
   "voice": "Cedar (OpenAI synthetic narration; not Terry's recorded voice)",
   "voiceCredit": "CEDAR · AI-GENERATED NARRATION",
-  "narrationModel": "gpt-4o-mini-tts",
-  "duration": 69.53333333333333,
-  "durationInFrames": 2086
+  "narrationModel": "gpt-4o-mini-tts"
 }

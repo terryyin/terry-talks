@@ -2,7 +2,7 @@ import React from 'react';
 import { Label, palette } from './design';
 import { articulatedArm, Point } from './motion';
 
-export type Mood = 'concerned' | 'focused' | 'pleased' | 'surprised';
+export type Mood = 'concerned' | 'focused' | 'pleased' | 'surprised' | 'panicked' | 'determined' | 'relieved';
 export type Pose = 'stop' | 'rest';
 
 const Arm: React.FC<{ shoulder: Point; hand: Point; color: string; stop?: boolean; robot?: boolean }> = ({ shoulder, hand: target, color, stop = false, robot = false }) => {
@@ -36,10 +36,11 @@ export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: M
 		<path d="M-62-316Q-79-340-59-359Q-74-380-49-384Q-47-412-20-400Q-8-419 10-400Q35-418 47-392Q77-380 57-350L40-337L32-365Q16-352-3-363Q-25-344-47-360L-52-311Z" fill={palette.ink}/>
 		<path d="M-51-318H-12V-291Q-35-278-49-294Z M-2-318H37V-292Q20-279-1-291Z" fill="#F9F0E0" fillOpacity="0.16" strokeWidth="4"/>
 		<path d="M-12-308H-2M-51-309L-60-314" strokeWidth="4"/>
-		{blink ? <path d="M-40-305H-23M9-305H26" strokeWidth="4"/> : <g stroke="none"><ellipse cx={-31 + gaze * 4} cy="-305" rx="4.5" ry="6" fill={palette.ink}/><ellipse cx={17 + gaze * 4} cy="-305" rx="4.5" ry="6" fill={palette.ink}/><circle cx={-30 + gaze * 4} cy="-307" r="1.5" fill="white"/><circle cx={18 + gaze * 4} cy="-307" r="1.5" fill="white"/></g>}
-		<path d={mood === 'concerned' ? 'M-42-328L-23-335 M8-335L28-326' : mood === 'surprised' ? 'M-42-341Q-31-348-22-340M9-340Q20-348 30-340' : 'M-42-333L-23-332M10-331L29-333'} fill="none" strokeWidth="4"/>
+		{blink || mood === 'relieved' ? <path d={mood === 'relieved' ? 'M-40-304Q-31-310-23-304M9-304Q18-310 26-304' : 'M-40-305H-23M9-305H26'} fill="none" strokeWidth="4"/> : <g stroke="none"><ellipse cx={-31 + gaze * 4} cy="-305" rx="4.5" ry={mood === 'panicked' ? 9 : 6} fill={palette.ink}/><ellipse cx={17 + gaze * 4} cy="-305" rx="4.5" ry={mood === 'panicked' ? 9 : 6} fill={palette.ink}/><circle cx={-30 + gaze * 4} cy="-307" r="1.5" fill="white"/><circle cx={18 + gaze * 4} cy="-307" r="1.5" fill="white"/></g>}
+		<path d={mood === 'panicked' ? 'M-42-329L-23-343 M8-343L28-329' : mood === 'determined' ? 'M-42-337L-23-328 M8-328L28-337' : mood === 'concerned' ? 'M-42-328L-23-335 M8-335L28-326' : mood === 'surprised' ? 'M-42-341Q-31-348-22-340M9-340Q20-348 30-340' : 'M-42-333L-23-332M10-331L29-333'} fill="none" strokeWidth="4"/>
 		<path d="M0-303L-4-284L4-282" fill="none" stroke="#A96551" strokeWidth="3"/>
-		<path d={mood === 'pleased' ? 'M-15-271Q2-256 18-271' : mood === 'concerned' ? 'M-10-268Q1-275 12-268' : mood === 'surprised' ? 'M-7-271Q1-283 9-271Q1-258-7-271' : 'M-11-270Q0-266 13-272'} fill={mood === 'surprised' ? palette.ink : 'none'} strokeWidth="3"/>
+		<path d={mood === 'pleased' || mood === 'relieved' ? 'M-15-271Q2-256 18-271' : mood === 'panicked' ? 'M-14-264Q0-280 16-264' : mood === 'determined' ? 'M-13-269L13-271' : mood === 'concerned' ? 'M-10-268Q1-275 12-268' : mood === 'surprised' ? 'M-7-271Q1-283 9-271Q1-258-7-271' : 'M-11-270Q0-266 13-272'} fill={mood === 'surprised' ? palette.ink : 'none'} strokeWidth="3"/>
+		{mood === 'panicked' && <path d="M-79-311Q-90-293-79-289Q-68-293-79-311M69-327Q58-309 69-305Q80-309 69-327" fill={palette.sky} strokeWidth="2"/>}
 		<ellipse cx="-35" cy="-280" rx="10" ry="4" fill={palette.coral} opacity="0.45" stroke="none"/>
 		</g>
 	</g>
@@ -63,7 +64,7 @@ export const AI: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; g
 	</g>
 </g>;
 
-export const Cabinet: React.FC<{ x: number; y: number; scale?: number; fixed?: boolean; compact?: boolean; neutral?: boolean }> = ({ x, y, scale = 1, fixed = false, compact = false, neutral = false }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="legacy-cabinet" data-fixed={fixed} stroke={palette.ink} strokeWidth="5" strokeLinejoin="round">
+export const Cabinet: React.FC<{ x: number; y: number; scale?: number; fixed?: boolean; compact?: boolean; neutral?: boolean; reloadFinding?: boolean }> = ({ x, y, scale = 1, fixed = false, compact = false, neutral = false, reloadFinding = false }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="legacy-cabinet" data-fixed={fixed} data-reload-finding={reloadFinding} stroke={palette.ink} strokeWidth="5" strokeLinejoin="round">
 	<ellipse cx="130" cy="332" rx="168" ry="22" fill={palette.shadow} opacity="0.32" stroke="none"/>
 	<path d="M0 0L258 0L285 23V320L258 341H0Z" fill="#7CBBCB"/>
 	<path d="M258 0V341L285 320V23Z" fill="#56949D"/>
@@ -75,6 +76,7 @@ export const Cabinet: React.FC<{ x: number; y: number; scale?: number; fixed?: b
 	<g fill={palette.cream} strokeWidth="3"><circle cx="67" cy="161" r="9"/><circle cx="184" cy="161" r="9"/><circle cx="68" cy="255" r="9"/><circle cx="184" cy="255" r="9"/></g>
 	{!fixed && !neutral && <g strokeWidth="3"><path d="M159 227L183 277L207 227Z" fill={palette.coral}/><path d="M182 239V252M182 259V262"/></g>}
 	{fixed && <path d="M168 251L179 263L205 235" fill="none" stroke={palette.green} strokeWidth="8"/>}
+	{reloadFinding && <g strokeWidth="3"><path d="M159 135L183 185L207 135Z" fill={palette.coral}/><path d="M182 147V160M182 167V170"/></g>}
 	{!compact && <Label x={128} y={307} size={15}>LEGACY PRODUCT</Label>}
 	<path d="M-5 145C-89 149-61 279-12 267C-53 274-73 340-30 340" fill="none" stroke={palette.lavender} strokeWidth="10"/>
 	<path d="M270 190Q311 204 295 256Q300 287 339 286" fill="none" stroke={palette.gold} strokeWidth="9"/>

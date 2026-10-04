@@ -8,37 +8,35 @@ from narration_audio import exact_script, narration_text, tokens, write_performa
 
 MODEL = "gpt-4o-mini-tts"
 VOICE = "cedar"
-DIRECTION = """You are a voice actor, not a writer. Read the entire user message EXACTLY,
-word for word, preserving every supplied word and its order. Do not paraphrase,
-rewrite, add words, substitute words, or drop words. No introductions, stage
-directions, bracketed annotations, or spoken performance instructions.
-Perform ONE connected, engaging short educational film for experienced software
-professionals. Warm, intelligent, candid and lucid; the listener feels you are
-speaking directly to a capable colleague. Natural breaths and varied phrasing.
-The complete performance should take approximately 70–78 seconds, at a natural
-145–155-word-per-minute pace. Use short, meaningful pauses and varied phrasing;
-never race a list or blur a technical distinction. Include the entire final line,
-finishing with the exact words: Fewer bugs to chase. The final sentence is part
-of the script, not an instruction. Speak the full final sentence: Fewer bugs to chase.
-Do not omit them or stop after Less to carry. Keep enough time for the full ending.
-Begin immediately with the curious, slightly playful question 'Ask AI to write
-more tests?' A tiny beat, then a confident contrarian answer: 'You probably don’t
-want to do that.' The overloaded legacy situation is concrete and empathetic.
-'Not enough automated tests!' briefly channels a familiar frustrated diagnosis;
-'You’re probably right' is a sincere concession. Then let 'But' turn the argument.
-'More complexity. More upkeep' has contrast and weight, not a flat list cadence.
-High-level software engineering and original intent are serious but lucid.
-Targeted tests can still help now is an essential qualification, not an aside.
-'A better use of AI here?' opens a practical possibility. 'Hands-on testing' lands
-clearly. Environment setup and repeating manual checks sound achievable.
-Investigate, confirm, fix are connected human actions. As control returns, lighten
-the voice. Ordinary test code runs without AI; tests first for new features express
-intent and drive development. Improvements are crisp, connected and unhurried.
-Keeping essential end-to-end protection is an essential qualification.
-End with memorable, quietly hopeful confidence: 'Use spare AI to simplify and fix.
-Less to carry. Fewer bugs to chase.' No cartoon voice,
-sales-announcer style, exaggerated drama, constant upward inflection, or vocal fry.
-None of these directions may be spoken. Only the user script is spoken verbatim."""
+DIRECTION = """You are a voice actor. Speak the ENTIRE user script verbatim, in order,
+including the final sentence. Do not write, paraphrase, substitute or omit words.
+Only the user script is spoken. None of these instructions may be spoken.
+Perform one connected, emotionally vivid film for experienced software people.
+Speak candidly to a capable colleague who knows the pressure of legacy software.
+Aim for 75–80 seconds, with fluent clauses and short meaningful pauses. Complete
+words matter more than the suggested length. Do not race a list or shorten the
+ending. Keep natural breath, expressive emphasis and audible changes of feeling.
+Start immediately with the tempting question: Ask AI to write more tests? Then
+a tiny beat and the knowing, firm answer. Tickets outpacing the team sound weary.
+Not enough automated tests channels frustration. You're probably right is sincere,
+not sarcastic. Brighten for PURPOSE and PROOF: confident, generous and clear.
+But first, they’re more code turns sharply heavier. Say THEY'RE, referring to the
+tests, not THERE'S. Engineering and original intent carry responsibility. The AI
+piling on complexity increases the pressure. Firmly interrupt it with STOP.
+A real short silence. AND FIX. These are deliberate decisions, not connecting
+words, a hurried phrase or a shout. Get back under control has resolve.
+The practical hands-on testing alternative opens hope. Setup and manual checks
+sound achievable. Confirmation, exploration and checking known behavior are
+useful distinct actions. It’s a compromise acknowledges imperfection honestly.
+The system in panic needs RELIEF: empathetic and urgent. Not more test code to
+maintain has weight. Let regained control bring lighter, assured confidence.
+No AI needed to run it is clear. New-feature intent and tests first are purposeful.
+Simplify and delete are crisp and decisive. Essential end-to-end protection stays
+plainly audible. Land the close with earned relief, no announcer flourish.
+The final SEVEN words are part of the spoken script and must ALL be spoken:
+Less to carry. Fewer bugs to chase. Do not end after simplify and fix.
+Credible human drama, no cartoon voice, sales pitch, constant upward inflection
+or vocal fry. Keep a single connected natural performance through Fewer bugs to chase."""
 
 def performance(root, script, run, sample_rate, new_take=False):
     assets = root / "terry-moves" / "public" / "assets" / "ai-test-automation"

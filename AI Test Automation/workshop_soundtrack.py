@@ -79,14 +79,16 @@ def wooden_tick(midi=62, duration=0.16):
 
 
 def build_score(script):
-    """Original F-major chamber miniature: roomy felt notes and warm open harmony."""
+    """Original chamber miniature: the code conflict stops before repair can breathe."""
     length = round(script["duration"] * SAMPLE_RATE)
     score = np.zeros((length, 2))
     # Harmony follows the workshop's recovery rather than looping a stock music bed.
     scenes = {scene["id"]: scene for scene in script["scenes"]}
     sections = [
-        (scenes["overload"]["start"], scenes["upkeep"]["start"], (41, 48, 57, 64)),  # F major 9: a plausible hope.
-        (scenes["upkeep"]["start"], scenes["sandbox"]["start"], (38, 45, 53, 60)),  # D minor 7: the upkeep conflict.
+        (scenes["overload"]["start"], scenes["purpose"]["start"], (41, 48, 57, 64)),  # F major 9: a plausible hope.
+        (scenes["purpose"]["start"], scenes["upkeep"]["start"], (41, 48, 60, 65)),  # Clearer F major: purpose and proof.
+        (scenes["upkeep"]["start"], scenes["stopFix"]["start"], (38, 45, 53, 60)),  # D minor 7: the upkeep conflict.
+        # Stop & Fix has no harmony bed. The actual silence is part of the decision.
         (scenes["sandbox"]["start"], scenes["selective"]["start"], (46, 53, 57, 60)),  # B-flat major 9: practical action.
         (scenes["selective"]["start"], scenes["optimize"]["start"], (48, 55, 62, 64)),  # C major 9: intent guides code.
         (scenes["optimize"]["start"], script["duration"], (41, 48, 57, 62)),  # F major 6: lighter work.
@@ -103,17 +105,23 @@ def build_score(script):
                     + 0.065 * np.sin(2 * np.pi * frequency * 2 * t + 0.4))
             add_sound(score, first, tone * breath * envelope, 0.009, 0.22 + index * 0.18)
     # Sparse felt-note entrances follow measured clause endings.
-    melody = [(scenes["overload"]["captionRanges"][0]["speechEnd"] + 0.18, 65),
-              (scenes["overload"]["captionRanges"][2]["speechEnd"] + 0.18, 69),
-              (scenes["upkeep"]["captionRanges"][1]["speechEnd"] + 0.18, 62),
-              (scenes["upkeep"]["captionRanges"][3]["speechEnd"] + 0.12, 65),
-              (scenes["sandbox"]["captionRanges"][0]["speechEnd"] + 0.18, 69),
-              (scenes["investigate"]["captionRanges"][1]["speechEnd"] + 0.12, 70),
-              (scenes["selective"]["captionRanges"][1]["speechEnd"] + 0.15, 67),
-              (scenes["optimize"]["captionRanges"][2]["speechEnd"] + 0.12, 65),
-              (scenes["end"]["captionRanges"][1]["speechEnd"] + 0.15, 69)]
-    for index, (start, midi) in enumerate(melody):
-        add_sound(score, start, felt(midi), 0.025, 0.38 if index % 2 else 0.62)
+    melody = [("overload", 0, 0.18, 65),
+              ("overload", 2, 0.18, 69),
+              ("purpose", 0, 0.10, 72),
+              ("purpose", 1, 0.08, 77),
+              ("upkeep", 0, 0.18, 50),
+              ("upkeep", 1, 0.18, 53),
+              ("sandbox", 0, 0.18, 69),
+              ("investigate", 5, 0.12, 70),
+              ("selective", 1, 0.15, 67),
+              ("optimize", 2, 0.12, 65),
+              ("end", 1, 0.15, 69)]
+    for index, (scene_id, caption, gap, midi) in enumerate(melody):
+        scene = scenes[scene_id]
+        start = scene["captionRanges"][caption]["speechEnd"] + gap
+        duration = min(2.5, scene["end"] - start)
+        if duration > 0.03:
+            add_sound(score, start, felt(midi, duration), 0.025, 0.38 if index % 2 else 0.62)
     # Narration stays central. A gentle duck follows actual PCM activity, never estimated timing.
     voice = stereo_pcm(ASSETS / "narration.wav")[:, 0]
     block = SAMPLE_RATE // 100
@@ -121,11 +129,16 @@ def build_score(script):
     rms = np.sqrt(np.mean(frames ** 2, axis=1))
     smooth = np.convolve(rms, np.ones(21) / 21, mode="same")
     activity = np.interp(np.arange(length), np.arange(len(smooth)) * block, smooth)
-    score *= (1 - 0.25 * np.minimum(1, activity / 0.045))[:, None]
+    score *= (1 - 0.40 * np.minimum(1, activity / 0.045))[:, None]
     # No opening swell; leave the question and contrarian reply exposed.
     t = np.arange(length) / SAMPLE_RATE
     score *= (np.minimum(1, np.maximum(0, (t - scenes["overload"]["start"]) / 2))
               * np.minimum(1, np.maximum(0, (script["duration"] - t) / 1.35)))[:, None]
+    # No musical carry-over across the stop, including preceding felt-note tails.
+    stop, resume = scenes["stopFix"]["start"], scenes["sandbox"]["start"]
+    hush = np.where(t < stop, np.clip((stop - t) / 0.12, 0, 1),
+                    np.clip((t - resume) / 0.65, 0, 1))
+    score *= hush[:, None]
     raw = WORK / "score-unmastered.wav"
     write_stereo(raw, score)
     return master(raw, ASSETS / "score.wav", -40, SAMPLE_RATE)
@@ -137,23 +150,32 @@ def build_effects(script):
     rng = np.random.default_rng(20261004)
     # Each cue has a meaning; the film has no continuous beeping or decorative chatter.
     cues = [
-        (2.85, "engineer pauses the offer", "tick", 57, 0.030, 0.38),
-        (5.70, "first ticket arrives", "paper", 0, 0.054, 0.63),
-        (6.70, "second ticket arrives", "paper", 0, 0.049, 0.61),
-        (7.70, "third ticket arrives", "paper", 0, 0.045, 0.59),
-        (13.40, "code spool becomes upkeep", "paper", 0, 0.057, 0.62),
-        (25.70, "one targeted check protects intent", "felt", 69, 0.024, 0.50),
-        (35.80, "engineer demonstrates the manual check", "tick", 65, 0.033, 0.42),
-        (36.65, "same starting state is restored", "paper", 0, 0.055, 0.55),
-        (37.60, "AI repeats the demonstrated action", "tick", 65, 0.033, 0.57),
-        (38.95, "finding is handed to the engineer", "paper", 0, 0.044, 0.50),
-        (40.95, "repair is followed by a successful retest", "felt", 69, 0.025, 0.46),
-        (46.45, "ordinary test code runs without AI", "paper", 0, 0.048, 0.52),
-        (52.60, "feature satisfies the intent-first test", "felt", 72, 0.021, 0.50),
-        (57.10, "a duplicate check is removed", "paper", 0, 0.057, 0.47),
-        (59.20, "a suitable local check moves to a unit", "tick", 72, 0.031, 0.44),
-        (61.20, "essential end-to-end protection stays", "felt", 65, 0.022, 0.52),
-        (65.50, "a lighter queue leaves room to work", "felt", 69, 0.020, 0.48),
+        (2.65, "engineer pauses the offer", "tick", 57, 0.024, 0.38),
+        (6.45, "first ticket lands", "paper", 0, 0.050, 0.63),
+        (7.10, "second ticket lands", "paper", 0, 0.047, 0.61),
+        (7.75, "third ticket lands", "paper", 0, 0.044, 0.59),
+        (15.16, "purpose is checked against SAVE behavior", "tick", 65, 0.029, 0.42),
+        (17.38, "test code becomes a maintenance burden", "paper", 0, 0.051, 0.62),
+        (25.90, "AI piles additional weight onto upkeep", "paper", 0, 0.056, 0.58),
+        (28.00, "STOP palm halts the accumulating code", "tick", 45, 0.066, 0.43),
+        (30.60, "code is withdrawn instead of accumulated", "paper", 0, 0.035, 0.60),
+        (32.00, "repair becomes the current work", "tick", 58, 0.022, 0.44),
+        (39.325, "isolated environment is reset at the control", "paper", 0, 0.044, 0.55),
+        (42.00, "engineer demonstrates the manual SAVE check", "tick", 65, 0.030, 0.42),
+        (44.235, "engineer repairs the demonstrated SAVE defect", "tick", 58, 0.025, 0.46),
+        (45.40, "AI presses SAVE to confirm the repair", "tick", 65, 0.030, 0.57),
+        (46.82, "AI explores RELOAD in a second tab", "paper", 0, 0.035, 0.57),
+        (47.98, "AI checks the known SEARCH behavior", "tick", 65, 0.028, 0.57),
+        (50.225, "the new RELOAD finding reaches the engineer", "paper", 0, 0.039, 0.50),
+        (51.97, "the engineer works on the new RELOAD defect", "tick", 58, 0.022, 0.46),
+        (58.96, "learned checks settle into ordinary test code", "paper", 0, 0.044, 0.52),
+        (60.80, "the mechanical test completes without AI", "tick", 67, 0.025, 0.52),
+        (63.18, "the new-feature intent first becomes a failing test", "paper", 0, 0.032, 0.50),
+        (65.12, "implemented feature satisfies the intent-first test", "felt", 72, 0.021, 0.50),
+        (67.68, "a redundant check is physically removed", "paper", 0, 0.049, 0.47),
+        (70.02, "a suitable local check runs as a fast unit", "tick", 72, 0.028, 0.44),
+        (75.20, "spare AI works on a fix", "tick", 58, 0.023, 0.53),
+        (76.10, "a lighter burden leaves room to work", "felt", 69, 0.019, 0.48),
     ]
     for start, _, kind, midi, gain, pan in cues:
         sound = paper(rng) if kind == "paper" else wooden_tick(midi) if kind == "tick" else felt(midi, 1.4)
