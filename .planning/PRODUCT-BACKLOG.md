@@ -6,6 +6,8 @@ Make educational short videos.
 
 ## Taken
 
+- [Viewers feel why an overloaded legacy team should stop and fix](../AI%20Test%20Automation/stop-and-fix-seed.md#purpose-proof-and-control) — ai-test-automation-stop-and-fix#purpose-proof-and-control ([plan](quick/012-ai-testing-stop-and-fix/PLAN.md))
+
 ## Backlog list
 
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready

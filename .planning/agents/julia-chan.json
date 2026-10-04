@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Julia-chan",
+  "email": "julia-chan@example.org",
+  "identity": "ai-test-automation-stop-and-fix#purpose-proof-and-control",
+  "mode": "story-branch",
+  "branch": "codex/ai-testing-stop-and-fix",
+  "host": "codex"
+}
