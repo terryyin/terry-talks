@@ -30,7 +30,7 @@ and better choices rather than a magically defect-free system.
 
 ## Audio and captions
 
-Run `python3 'AI Test Automation/produce_audio.py'` to rebuild the saved performance.
+Run `python3 'AI Test Automation/produce_audio.py'` to rebuild the saved performance and complete mix.
 One continuous take retains its natural internal breaths and pauses; only leading and trailing
 silence is trimmed. There is no time stretching, playback-rate change or chopped-clause assembly.
 The hook begins after an 80 ms audio lead. The ending has approximately two seconds of breathing room.
@@ -46,4 +46,15 @@ Use `--new-take` only to request a new connected Cedar performance and fresh Whi
 This requires the OpenAI Python SDK and `OPENAI_API_KEY`. The key is never written to source or logs.
 Use `--refresh-docs` to update this treatment from the measured script without regenerating audio.
 Narration is mastered to −18 LUFS using measured two-pass normalization. Playback and rendering need no API.
-Original score and synchronized sound accents belong to the final animation pass; slice one uses narration alone.
+
+The original workshop score uses warm open F-major harmony and sparse felt-mallet notes.
+It enters after the opening question at 4.1 seconds, gently ducks around actual speech activity,
+and resolves into the final breathing room. It is composed and synthesized locally, without sampled music.
+Soft paper movements and wooden ticks mark the stop, accumulating tickets, reset, demonstrated and AI checks,
+investigation, confirmed repair, selected automation, duplicate deletion and fast local feedback.
+The score is mastered to −40 LUFS and accents to −39 LUFS; the stereo mix targets −18 LUFS with a −1.5 dBTP ceiling.
+The composition plays only `assets/ai-test-automation/mix.wav` at volume 1; no separate layers are added.
+Python with NumPy and ffmpeg reproduces the three 48 kHz PCM layers and final mix deterministically.
+Ignored `terry-moves/out/ai-test-automation-audio/` holds mastering, cue and signal-analysis evidence.
+The actual final mixed WAV is independently transcribed without supplying the script as a prompt.
+Signal analysis and transcription support the review; they do not claim human audition.

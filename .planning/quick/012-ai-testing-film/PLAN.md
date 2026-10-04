@@ -103,7 +103,7 @@ supports 61 seconds; do not pad to 70. Selective eslint formatting passed.
 
 ### 2. Viewers watch the polished expressive film through its final payoff
 Type: Behavior
-Status: planned
+Status: done
 
 Replace storyboard holds with meaningful character acting, anticipation,
 transitions and causal animation tied to measured narration. Improve depth,
@@ -123,6 +123,32 @@ registration and shared runtime load all films; verify compositions list and
 render the final H.264 yuv420p bt709 MP4. ffprobe confirms 1080×1350, 30fps,
 audible track and near-70-second duration. SRT uses the same complete spoken
 source. Final artifact is shown to Terry inline.
+
+Accepted: final 1080×1350 H.264/yuv420p/bt709 export, 30 fps, 1826 frames,
+60.866667 seconds of video with 48 kHz stereo AAC (container 60.928 seconds
+includes audio padding). Coordinator inspected every second of the final MP4,
+all eight scenes at feed size, and expected/observed, investigation/repair,
+deletion/transfer before-and-after frames. Captions, hand contact, retained
+wider protection and remaining incoming work are legible; human judgment
+precedes confirmed repair. The final source passed `pnpm -C terry-moves test`
+(28 suites, 312 tests, eslint and tsc), composition listing and
+`pnpm -C terry-moves render:ai-test-automation`, each at terminal exit 0.
+The final mixed WAV's unprompted transcription preserves every approved word;
+mix −18.01 LUFS / −4.18 dBTP, zero clipped samples, SHA-256
+`ac17520dada74e05ab74379a7c42fa1aba35575baa31d22cfb68a96cf8d72774`.
+Two saved-take builds are byte-identical and make no API call. Native human
+listening/full real-time playback was unavailable; sampled visual sequence,
+actual-audio transcription, signal analysis and encoded track metadata are the
+obtained observations. No human audition claim is made. Rendered media and
+objective evidence are in ignored `terry-moves/out`; poster and full-speech
+SRT are included in the reproducible render command.
+
+Independent refactor extracted film-local soundtrack synthesis and detailed
+usage documentation; removed the unused narration-only export. The exact
+producer CLI passed, with nine audio/timing/treatment artifacts byte-identical.
+Four focused film tests, TypeScript, affected eslint, Python compilation and
+scoped whitespace checks passed. Existing full-suite/export/visual/transcript
+proof remains applicable. Coordinator's selective eslint formatting passed.
 
 ## Proof ownership and design assessment
 
@@ -150,3 +176,7 @@ Claim `1e7c8c83002323cbf2f98cb347454d740cbe6732` is accepted on `origin/master`
 and `origin/codex/ai-testing-film`; assigned author Tsubomi-chan.
 Publisher: `ai-testing-film-coordinator-20261004`. Execution worktree was
 created for this story at the same path after preparation retirement.
+
+Slice 1 accepted publication: `a0fc3a0ae82c7f1871de6946d702a937a09ee935`
+on `origin/codex/ai-testing-film`. Managed delivery reports CI unobserved;
+no observer is retained. The repository has no checked-in hosted CI workflow.

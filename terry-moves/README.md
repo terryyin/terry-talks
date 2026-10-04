@@ -228,3 +228,8 @@ There are no bombs, missiles, or people judging (judgment shows only as "?"
 bubbles and words). Text stays legible at
 360×360 px, labels never jump or get covered, and paint stays on the product
 wall; `tests/storyImpact/StoryImpactRelease.spec.tsx` guards these.
+
+# AI test automation: The Legacy Workshop
+
+See [the film guide](../AI%20Test%20Automation/README.md) for the finished
+61-second film, content source, audio reproduction and export instructions.

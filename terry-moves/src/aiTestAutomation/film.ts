@@ -7,7 +7,7 @@ export const filmScript = script as { title: string; width: number; height: numb
 export const FPS = filmScript.fps;
 export const STAGE = { width: filmScript.width, height: filmScript.height };
 export const durationInFrames = filmScript.durationInFrames;
-export const NARRATION = 'assets/ai-test-automation/narration.wav';
+export const MIX = 'assets/ai-test-automation/mix.wav';
 export const sceneAt = (seconds: number): FilmScene => filmScript.scenes.find((scene) => seconds >= scene.start && seconds < scene.end) ?? (seconds < 0 ? filmScript.scenes[0] : filmScript.scenes[filmScript.scenes.length - 1]);
 export const captionAt = (seconds: number): CaptionRange | undefined => sceneAt(seconds).captionRanges.find((caption) => seconds >= caption.start && seconds < caption.end);
 /** Story Impact's physical paper ease: deliberate arrival without elastic rebound. */
