@@ -20,6 +20,7 @@ from workshop_soundtrack import ASSETS, SAMPLE_RATE, WORK, build_effects, build_
 
 
 SOURCE = ROOT / "AI Test Automation" / "film-script.json"
+PRESENTATION = ROOT / "AI Test Automation" / "film-presentation.json"
 
 
 def build_narration(script):
@@ -36,14 +37,19 @@ def build_narration(script):
 
 
 def treatment(script):
+    presentation = json.loads(PRESENTATION.read_text())
+    full_duration = script["duration"] + presentation["authorCardSeconds"]
     rows = ["# AI Test Automation — The Legacy Workshop", "",
             "A warm, tactile cartoon workshop turns software upkeep into visible physical work.",
             "English; 1080 × 1350 (4:5); 30 fps. Cream paper, ink outlines, coral engineer,",
             "mint AI companion and a modular sky-blue legacy product preserve Story Impact’s visual family.", "",
-            f"Runtime: **{script['duration']:.2f} seconds**. The roughly 200-word narration is",
+            f"Runtime: **{full_duration:.2f} seconds**, including a {presentation['authorCardSeconds']}-second silent author card.",
+            f"The measured narration, captions and workshop remain **{script['duration']:.2f} seconds**. The roughly 200-word narration is",
             "OpenAI’s Cedar synthetic voice; it is not a recording or imitation of Terry.",
             "The confirmed article remains the idea’s authoritative source. This film distils its argument",
-            "for large legacy systems where tickets arrive faster than the team can close them.", "",
+            "for large legacy systems where tickets arrive faster than the team can close them.",
+            "The shared Odd-e outer mark and FlipCoin inner animation appear in the upper-right corner throughout.",
+            f"A distinct warm-paper closing page reads **{presentation['authorCredit']}** and retains the synthetic voice credit.", "",
             "The film follows one engineer and one eager AI helper through a connected causal story:",
             "a tempting promise of more tests and a plausible diagnosis. PURPOSE defines what the production",
             "code should do; PROOF shows whether it does in the behavior checked. The article bounds this",
@@ -62,7 +68,7 @@ def treatment(script):
             "test code that needs no AI to execute. New features express intent in tests first and let those tests",
             "drive development. The suite keeps evolving: faster feedback, fewer redundant tests, suitable local",
             "checks moved to units, with essential end-to-end protection retained. Spare AI simplifies and fixes.",
-            "The closing is: **Less to carry. Fewer bugs to chase.**", "",
+            f"The closing is: **{' '.join(presentation['closingLines'])}**", "",
             "| Time | Scene | Spoken narration |", "| --- | --- | --- |"]
     for scene in script["scenes"]:
         narration = " ".join(c["spoken"] for c in scene["captionRanges"])
@@ -94,7 +100,8 @@ def treatment(script):
              "and the following quiet create emotional contrast. Checking sounds follow the observed controls",
              "and causal repair states. There is no decorative beeping or stock music.",
              "Narration and final mix target −18 LUFS; score and effects target −40 and −39 LUFS respectively.",
-             "The deterministic producer retains separate narration, score and effects stems; all span the film's full duration.",
+             "The deterministic producer retains separate narration, score and effects stems; all span the measured workshop duration.",
+             "The appended author hold is silent; presentation timing leaves the saved performance and its captions unchanged.",
              "Ignored `terry-moves/out/ai-test-automation-audio/` holds actual mix analysis, cue timings and rejected-take evidence.",
              "Signal analysis and transcription support review; they do not claim human audition."]
     (ROOT / "AI Test Automation" / "film-treatment.md").write_text("\n".join(rows) + "\n")

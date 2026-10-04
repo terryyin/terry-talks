@@ -4,10 +4,13 @@ A warm, tactile cartoon workshop turns software upkeep into visible physical wor
 English; 1080 × 1350 (4:5); 30 fps. Cream paper, ink outlines, coral engineer,
 mint AI companion and a modular sky-blue legacy product preserve Story Impact’s visual family.
 
-Runtime: **79.93 seconds**. The roughly 200-word narration is
+Runtime: **82.93 seconds**, including a 3-second silent author card.
+The measured narration, captions and workshop remain **79.93 seconds**. The roughly 200-word narration is
 OpenAI’s Cedar synthetic voice; it is not a recording or imitation of Terry.
 The confirmed article remains the idea’s authoritative source. This film distils its argument
 for large legacy systems where tickets arrive faster than the team can close them.
+The shared Odd-e outer mark and FlipCoin inner animation appear in the upper-right corner throughout.
+A distinct warm-paper closing page reads **An idea and film by Terry Yin** and retains the synthetic voice credit.
 
 The film follows one engineer and one eager AI helper through a connected causal story:
 a tempting promise of more tests and a plausible diagnosis. PURPOSE defines what the production
@@ -72,6 +75,7 @@ to actual narration activity; sparse paper and wood accents mark visible actions
 and the following quiet create emotional contrast. Checking sounds follow the observed controls
 and causal repair states. There is no decorative beeping or stock music.
 Narration and final mix target −18 LUFS; score and effects target −40 and −39 LUFS respectively.
-The deterministic producer retains separate narration, score and effects stems; all span the film's full duration.
+The deterministic producer retains separate narration, score and effects stems; all span the measured workshop duration.
+The appended author hold is silent; presentation timing leaves the saved performance and its captions unchanged.
 Ignored `terry-moves/out/ai-test-automation-audio/` holds actual mix analysis, cue timings and rejected-take evidence.
 Signal analysis and transcription support review; they do not claim human audition.

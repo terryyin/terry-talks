@@ -1,7 +1,7 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { BODY, Definitions, HEAD, Label, palette, Workshop } from './design';
-import { captionAt, FilmScene, filmScript, reveal, sceneAt, STAGE } from './film';
+import { captionAt, CLOSING_LINES, FilmScene, filmScript, reveal, sceneAt, STAGE } from './film';
 import { Hook, Overload, PurposeAndProof, StopAndFix, Upkeep } from './Problem';
 import { Investigate, SandboxShot } from './Learning';
 import { Selective } from './Selective';
@@ -19,7 +19,7 @@ const Header: React.FC<{ scene: FilmScene; seconds: number }> = ({ scene, second
 		investigate: seconds < scene.captionRanges[3]?.start ? ['Confirm. Explore.', 'Check known behavior.'] : ['A system in panic', 'needs relief.'],
 		selective: seconds < scene.captionRanges[2]?.start ? ['Useful checks.', 'Ordinary test code.'] : ['New features?', 'Start with intent.'],
 		optimize: ['Simplify the suite.', 'Keep what matters.'],
-		end: ['Less to carry.', 'Fewer bugs to chase.'],
+		end: CLOSING_LINES,
 	};
 	return <g>
 		<Label x={65} y={55} size={18} anchor="start" color={palette.muted}>TERRY MOVES / THE LEGACY WORKSHOP</Label>

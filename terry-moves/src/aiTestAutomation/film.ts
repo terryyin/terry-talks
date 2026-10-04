@@ -1,4 +1,5 @@
 import script from '../../../AI Test Automation/film-script.json';
+import presentation from '../../../AI Test Automation/film-presentation.json';
 
 export type SceneId = 'hook' | 'overload' | 'purpose' | 'upkeep' | 'stopFix' | 'sandbox' | 'investigate' | 'selective' | 'optimize' | 'end';
 export type CaptionRange = { text: string; spoken: string; start: number; end: number; speechStart: number; speechEnd: number; wordCues: Partial<Record<string, number>> };
@@ -7,6 +8,10 @@ export const filmScript = script as { title: string; width: number; height: numb
 export const FPS = filmScript.fps;
 export const STAGE = { width: filmScript.width, height: filmScript.height };
 export const durationInFrames = filmScript.durationInFrames;
+export const AUTHOR_CARD_FRAMES = Math.round(presentation.authorCardSeconds * FPS);
+export const AUTHOR_CREDIT = presentation.authorCredit;
+export const CLOSING_LINES = presentation.closingLines as [string, string];
+export const presentationDurationInFrames = durationInFrames + AUTHOR_CARD_FRAMES;
 export const MIX = 'assets/ai-test-automation/mix.wav';
 export const sceneAt = (seconds: number): FilmScene => filmScript.scenes.find((scene) => seconds >= scene.start && seconds < scene.end) ?? (seconds < 0 ? filmScript.scenes[0] : filmScript.scenes[filmScript.scenes.length - 1]);
 export const captionAt = (seconds: number): CaptionRange | undefined => sceneAt(seconds).captionRanges.find((caption) => seconds >= caption.start && seconds < caption.end);

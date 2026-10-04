@@ -20,7 +20,7 @@ One cohesive branding pass adds the existing Odd-e animation to the top right an
 
 ### 1. Viewers recognize Odd-e and Terry’s authorship
 Type: Behavior
-Status: planned
+Status: done
 
 Implement the existing animated logo at a readable, unobtrusive upper-right size. Add a distinct warm-paper end card after the complete spoken closing, retaining truthful synthetic voice attribution. Let the author line settle for at least two seconds without competing captions. Reuse existing typography and paper colors. Keep core workshop timing and audio unchanged; document the current presentation and total exported runtime.
 
@@ -34,6 +34,17 @@ Proof:
 
 The coordinator owns admission, setup, delivery, publication and cleanup. A fresh implementation agent returns uncommitted source and focused proof. The final movie and retained prior assets are product outputs. Story Branch Mode defaults; authorized target is origin/master, with an owned execution branch. No hosted CI success is inferred from local proof or an unavailable bridge.
 
+Admission `b4b5a5f12a80b27d80c26e7c789bff7254a9f07a` is published on origin/master and the execution branch. This work created `/Users/terryyin/git/terry-talks-worktrees/ai-testing-branding`, branch `codex/ai-testing-branding`, agent Tsukasa-chan, publisher branding-coordinator. In this exact checkout `pnpm install --frozen-lockfile` passed, followed by `pnpm -C terry-moves exec jest tests/aiTestAutomation --runInBand`: 2 suites / 10 tests pass. Prior resources and unrelated main-checkout edits remain preserved.
+
 ## Cumulative design and sizing
 
 This is one coherent externally visible branding outcome within the established film composition. The logo is an overlay and the author card is a final presentation state, not a second speech clock or general animation framework. The existing native renderer and focused regression commands provide bounded proof. No remaining implementation or architectural concern is identified; a contrary logo clarification changes only the selected mark.
+
+## Accepted slice evidence
+
+- The private composition reuses the existing Odd-e assets and FlipCoin at upper right. A separate 90-frame author card follows all 2398 measured workshop frames, reading “An idea and film by Terry Yin” with Cedar synthetic attribution. Final presentation: 2488 frames / 82.933333 seconds.
+- `pnpm -C terry-moves exec jest tests/aiTestAutomation --runInBand` passed 2 suites / 10 tests and `pnpm -C terry-moves exec tsc --noEmit` passed after independent refactoring. Coordinator selective ESLint formatting and `pnpm -C terry-moves lint` passed; `git diff --check` is clean. No new permanent tests were needed for the reversible overlay/card.
+- `python3 'AI Test Automation/produce_audio.py' --refresh-docs` and Python compilation passed. Refactoring unified the closing lockup across private visual and generated-document representations; `cmp` confirmed byte-identical treatment, and `pnpm -C terry-moves exec tsx out/branding-refactor/observe-markup.mjs --compare` confirmed exact markup for all 296 affected end/card frames. Accepted export proof remains applicable without rerender or paid audio generation.
+- `pnpm -C terry-moves render:ai-test-automation` completed with actual MP4/poster/32-clause SRT. H.264/yuv420p/bt709, 1080×1350, 30 fps; AAC 48 kHz stereo, container 82.986667 seconds. Decoded audio at 80–82.9 seconds is exact zero PCM. The measured script, complete SRT, original transcript and all saved audio assets retain their accepted hashes; the existing complete actual-MIX speech audit remains applicable.
+- Bounded actual export observation: Good. The coordinator reviewed header-clearance, logo-rotation and full-scene sheets plus the final author image, drawn from 25 decoded frames. The mark clears long headings, flips at separate rotation frames, and stays visible through the uncluttered author card; the credit is settled for 2.55 seconds after its arrival. No human listening or continuous playback is claimed.
+- Versioned v4 movie/poster/SRT were copied to main and owned `terry-moves/out/` with matching SHA-256, retaining earlier versions. Movie `294bec20d7f62b8b39d527436c1184cbf046a1f60bddfceb156f7d78bc348033`; poster `bf7ba884c4bb80422061880091f40eb56be7c3d2001a9fa58c2c5d4ab4b0579a`; SRT `b8b5b92599da75bd653b4f92c523c9b7f4a6ee537805d969ff87d1226a66efb3`. No other-film source or unrelated main-checkout changes were included.
