@@ -231,13 +231,13 @@ Terry confirmed these on 4 October 2026:
 
 ## Film brief and source roles
 
-The eventual film is for people in large software organizations whose legacy
+The film is for people in large software organizations whose legacy
 systems are already complex. It assumes some familiarity with the software
 lifecycle and technology. It now aims **around 70 seconds**, shorter if the important information remains
 clear, and begins with **“You probably don't want to do that.”** It is
 authored in **Terry Moves**. English is the starting language.
 
-The article carries the full reasoning. The film will need a smaller spoken
+The article carries the full reasoning. The film uses a smaller spoken
 presentation with visuals carrying part of the explanation. Its central
 decision is how to use AI capacity when the team's maintenance capacity is
 already stretched. The isolated environment and the final optimization and
@@ -252,9 +252,10 @@ version of Story Impact's recognizable artistic language.
 - **Primary content:** [Terry's original transcript](source-transcript.md).
   Its repetitions and speech slips are consolidated; the source remains
   unchanged.
-- **Original production request:** recorded in the
-  [queued film story](seed.md#testing-without-unmanageable-complexity).
-  The audience, hook, runtime, medium, and open style choice come from Terry.
+- **Production brief:** the audience, hook, runtime, medium, and open style
+  choice above come from Terry. The [film treatment](film-treatment.md)
+  records the presentation, measured narration and sound;
+  the [film guide](README.md) describes its production and export.
 - **Related conceptual input:**
   [Story Impact](../Story%20Driven/romantic-stories-disciplined-products.md)
   supplies tests as explicit decisions and coherent product state.
@@ -270,9 +271,9 @@ version of Story Impact's recognizable artistic language.
   [Story Impact film](../terry-moves/src/stories/StoryImpactFilm.tsx),
   [Problem Decomposition film](../terry-moves/src/stories/ProblemDecompositionFilm.tsx),
   its [film script](../Problem%20Decomposition/film-script.json), and
-  [Terry Moves](../terry-moves/README.md). They inform future presentation;
+  [Terry Moves](../terry-moves/README.md). They inform the presentation;
   they do not override the transcript's content.
 
 This article is the place to consolidate subsequent content clarifications.
-The film story refers here instead of carrying another independently edited
-version of the argument.
+The film draws from this article rather than carrying another independently
+edited version of the argument.

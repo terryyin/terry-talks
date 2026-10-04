@@ -150,6 +150,17 @@ Four focused film tests, TypeScript, affected eslint, Python compilation and
 scoped whitespace checks passed. Existing full-suite/export/visual/transcript
 proof remains applicable. Coordinator's selective eslint formatting passed.
 
+## Execution complete
+
+Product advice: no priority change or new backlog item is justified. The film
+advances "Make educational short videos"; the conference-readiness and Terry's
+recorded-voice stories retain their separate outcomes. Audience response to
+the finished film is the next useful evidence. Independent retrospective found
+no attributable correctness, architecture or supported suite-cleanup issue;
+process review was skipped because the project preference file is absent.
+Native human audition, real-time playback and audience retention remain
+unperformed observations, not claimed successes.
+
 ## Proof ownership and design assessment
 
 Slice 1 owns the complete content journey, measured timing and legible scene
@@ -180,3 +191,10 @@ created for this story at the same path after preparation retirement.
 Slice 1 accepted publication: `a0fc3a0ae82c7f1871de6946d702a937a09ee935`
 on `origin/codex/ai-testing-film`. Managed delivery reports CI unobserved;
 no observer is retained. The repository has no checked-in hosted CI workflow.
+
+Slice 2 accepted publication: `22b8f3896e9311cd3ec63e16c8deb14297c49595`
+on `origin/codex/ai-testing-film`. Managed delivery reports CI unobserved:
+"Codex yielded-cell bridge is unavailable"; no observer exists to complete or
+shut down. Local proof and the product retrospective pass independently.
+Final MP4, poster and SRT were copied byte-identically into the main checkout's
+ignored `terry-moves/out` so they remain available after resource retirement.

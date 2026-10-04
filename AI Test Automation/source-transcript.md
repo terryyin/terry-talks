@@ -3,8 +3,8 @@
 Captured from Terry's request on 2026-10-04. Original wording, including
 transcription slips, repetitions, and self-corrections, is retained below;
 paragraph breaks replace the supplied speech separators. The
-[film story](seed.md#testing-without-unmanageable-complexity) records the
-production brief and the interpreted argument.
+[confirmed article](ai-and-test-automation.md) records the interpreted argument
+and production brief; the [film treatment](film-treatment.md) describes its presentation.
 
 ## The idea
 
