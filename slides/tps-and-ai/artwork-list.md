@@ -466,24 +466,27 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   the base looks up; let the single accent color be green (the light)
   instead of vermilion; 4:3.
 
-### G25. Customer need and feedback — reused from the decomposition film
+### G25. Customer need and feedback — shared with the decomposition film
 
-- **Status:** reused unchanged from the film's existing artwork; byte-identical
-  copies in the deck's public directory make the Slidev build self-contained.
-  No new generation.
+- **Status:** regenerated with built-in imagegen on 4 October 2026 in the
+  deck's sumi-e style. The deck and film use byte-identical RGBA copies.
 - **Slides:** "Pull: smaller customer problems" and "Freedom to choose again"
 - **Deck assets:** `public/pull-customer-need.png` and
   `public/pull-customer-feedback.png`.
 - **Original assets:** `terry-moves/public/assets/problem-decomposition/dinner.png`
   and `terry-moves/public/assets/problem-decomposition/dinner-relief.png`.
-- **Placement:** right half, faces fully visible, soft edge mask; English
+- **Placement:** right half, faces fully visible, transparent surrounding
+  background and fading ground wash; English
   and Japanese customer problems stay editable on the left.
 - **Story:** three friends need to get home. A useful next-train result
   makes the next question concrete: does the route have stairs? Keep that
   result and reprioritize the unstarted remainder toward a step-free route.
-- **Source and original prompts:** [film artwork](../../Problem%20Decomposition/artwork.md).
-  These AI illustrations retain the film's recognizable characters and
-  ink/gouache treatment. They are conceptual customer scenes, not Toyota history.
+- **Source and complete replacement prompts:** [film artwork](../../Problem%20Decomposition/artwork.md#shared-tps-replacements-4-october-2026).
+  The cover crane is the style reference. The film's three adult friends keep
+  their identities. Small pictorial thoughts make the customer problems visible:
+  the train is the first red focus, then a possible accessible route is the next.
+  A train pictogram on the phone represents a delivered result. These are
+  conceptual customer scenes, not Toyota history.
 
 ### G13. Pit-stop changeover (SMED)
 

@@ -1182,9 +1182,8 @@ class: "[&>h1]:!mb-2"
 <div class="absolute left-[42%] right-[3.5%] top-[26%] bottom-[18%]">
   <img
     src="/pull-customer-need.png"
-    alt="Three friends after dinner need a way home. Finding the next train is one smaller customer problem they can solve first."
+    alt="Three friends after dinner consider smaller travel questions: a train, the fare, and an accessible route. The train is highlighted as the first useful problem to solve."
     class="h-full w-full object-contain"
-    style="mask-image: radial-gradient(ellipse 75% 90% at center, black 63%, transparent 100%);"
   />
 </div>
 
@@ -1245,9 +1244,8 @@ class: "[&>h1]:!mb-2"
 <div class="absolute left-[42%] right-[3.5%] top-[26%] bottom-[18%]">
   <img
     src="/pull-customer-feedback.png"
-    alt="The friends have a useful train result. One friend asks the next question, changing which customer problem matters next."
+    alt="A friend shares the train result on her phone. Another raises the next question: stairs or an accessible route? The route becomes the red focus."
     class="h-full w-full object-contain"
-    style="mask-image: radial-gradient(ellipse 75% 90% at center, black 63%, transparent 100%);"
   />
 </div>
 
