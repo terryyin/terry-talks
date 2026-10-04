@@ -1,0 +1,22 @@
+{
+  "voice": "Terry Yin (original recording)",
+  "source": "terry-moves/public/assets/audios/impact_en.m4a",
+  "sourceSha256": "0b0d86ea1cb184f77fc4e91ff3b61e7a249df561c920eb824d4b399c1a730915",
+  "outputSha256": "8362338877434882945003e9e67ae107feb91f6e0619cf3c95a2fd0f75228870",
+  "sourceDuration": 131.669333,
+  "outputDuration": 131.7,
+  "cleanupFilter": "highpass=f=70,asendcmd=c='0.2 afftdn sn start;1.8 afftdn sn stop',afftdn=nr=8:nf=-52:tn=1:gs=8,lowpass=f=12000",
+  "targetLufs": -18,
+  "measuredBeforeMastering": {
+    "input_i": "-39.10",
+    "input_tp": "-17.15",
+    "input_lra": "8.50",
+    "input_thresh": "-51.23",
+    "output_i": "-18.64",
+    "output_tp": "-2.00",
+    "output_lra": "6.00",
+    "output_thresh": "-30.66",
+    "normalization_type": "dynamic",
+    "target_offset": "0.64"
+  }
+}

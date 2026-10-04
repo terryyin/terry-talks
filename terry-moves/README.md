@@ -132,36 +132,36 @@ npx remotion render src/index.ts StoryImpactOneSplash out/story-impact-one-splas
 ```
 
 Render the final, shareable animation and its poster (H.264, yuv420p,
-1080×1080, about 128 seconds, with OpenAI's Cedar English narration
-`public/assets/story-impact/narration-en.mp3`). A complete title frame is held
+1080×1080, about 128 seconds, with Terry's original English narration,
+cleaned in `public/assets/story-impact/narration-en-cleaned.m4a`. A complete title frame is held
 silently for 1.2 seconds at the front; that first frame is also the poster.
-The voice is synthetic and credited on the end card. Each clause is aligned
-to its caption span using measured word boundaries:
+The recording is retimed to the revised animation while keeping Terry's
+delivery and original spoken wording:
 
 ```bash
 pnpm -C terry-moves render:story-impact
 # writes out/story-impact-animation.mp4 and out/story-impact-animation-poster.png
 ```
 
-Rebuild the narration after changing captions or beat timing:
+Rebuild the cleaned recording:
 
 ```bash
 python3 'Story Driven/produce_audio.py'
-# --new-take calls the OpenAI speech API if the spoken script changed.
-# Requires OPENAI_API_KEY for a new take, the OpenAI Python SDK, pnpm and ffmpeg.
+# Requires ffmpeg and ffprobe; no API calls.
 ```
 
-The source spans are exported from the actual film by
-`scripts/story-impact-narration.ts`; the saved take and transcript audit are
-in `public/assets/story-impact/cedar-take-en.wav` and
-`Story Driven/cedar-performance-en.json`. The generator retains complete clauses,
-fits them into their caption spans, and masters the narration to −18 LUFS.
+The source `public/assets/audios/impact_en.m4a` is kept unchanged. The generator
+uses the opening room tone to learn the background noise, applies gentle
+spectral noise reduction, removes low rumble and high hiss, and masters the
+recording to −18 LUFS. `public/assets/story-impact/cleanup-en.json` records
+the source hash, processing settings and timing checks. Noise reduction preserves
+the recording's duration; `RecordedNarration` fits its segments to the film.
 
 The same film with Traditional Chinese subtitles and Terry's Chinese
 narration (`StoryImpactFilmZhHant`; only the captions are translated, the
 picture stays in English). The narration, `public/assets/audios/impact_zh.m4a`
 (AAC, 48 kHz stereo), retains Terry's recorded voice. Its original beat timings
-are preserved in `src/storyImpact/zhHantRecording.json`; the audio segments
+are preserved in the shared `src/storyImpact/recordingTimeline.json`; the audio segments
 follow the shared picture's revised pace and begin after the opening cover:
 
 ```bash
@@ -179,7 +179,7 @@ many features; one feature takes many layers working together), "value builds
 up, not debt", and the end card: the stage shrinks away and "Stories should be
 romantic. Products should not." lands in the title's styles (`endCard.tsx`,
 reusing `title.tsx`'s lines), with the credit "An idea and film by Terry
-Yin" and a Cedar narration credit. Spent stories rise as sheet ghosts and
+Yin". Spent stories rise as sheet ghosts and
 remain ghosts in History. The next-story and sun-story passage is about 28%
 faster than the earlier cut. The poster is the first frame.
 
