@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Tsukasa-chan",
-  "email": "tsukasa-chan@example.org",
-  "identity": "ai-test-automation-branding#logo-and-author-credit",
-  "mode": "story-branch",
-  "branch": "codex/ai-testing-branding",
-  "host": "codex"
-}
