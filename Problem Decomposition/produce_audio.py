@@ -10,68 +10,27 @@ from array import array
 import json
 import math
 from pathlib import Path
-import subprocess
 import sys
-import wave
 
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from narration_audio import master, read_pcm, run, write_pcm, write_script
 from cedar_narration import MODEL, VOICE, align, narration_text, performance
 
 
-ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "Problem Decomposition" / "film-script.json"
 WORK = ROOT / "terry-moves" / "out" / "problem-decomposition-audio"
 ASSETS = ROOT / "terry-moves" / "public" / "assets" / "problem-decomposition"
 SAMPLE_RATE = 48000
 
 
-def run(command):
-    return subprocess.run(command, check=True, capture_output=True, text=True)
-
-
-def read_pcm(path):
-    with wave.open(str(path), "rb") as audio:
-        assert audio.getnchannels() == 1
-        assert audio.getframerate() == SAMPLE_RATE
-        assert audio.getsampwidth() == 2
-        data = array("h", audio.readframes(audio.getnframes()))
-        if sys.byteorder != "little":
-            data.byteswap()
-        return data
-
-
-def write_pcm(path, data, channels=1):
-    if sys.byteorder != "little":
-        data.byteswap()
-    with wave.open(str(path), "wb") as audio:
-        audio.setnchannels(channels)
-        audio.setsampwidth(2)
-        audio.setframerate(SAMPLE_RATE)
-        audio.writeframes(data.tobytes())
-    if sys.byteorder != "little":
-        data.byteswap()
-
-
-def master(source, destination, loudness):
-    first = run(["ffmpeg", "-hide_banner", "-i", str(source), "-af",
-                 f"loudnorm=I={loudness}:TP=-1.5:LRA=7:print_format=json",
-                 "-f", "null", "-"])
-    report = first.stderr[first.stderr.rfind("{"):]
-    measured, _ = json.JSONDecoder().raw_decode(report)
-    correction = (f"loudnorm=I={loudness}:TP=-1.5:LRA=7:"
-                  f"measured_I={measured['input_i']}:measured_LRA={measured['input_lra']}:"
-                  f"measured_TP={measured['input_tp']}:measured_thresh={measured['input_thresh']}:"
-                  f"offset={measured['target_offset']}:linear=true")
-    run(["ffmpeg", "-y", "-v", "error", "-i", str(source), "-af", correction,
-         "-ar", str(SAMPLE_RATE), "-c:a", "pcm_s16le", str(destination)])
-    return measured
-
-
 def build_narration(script):
     prepared, report = performance(ROOT, script, run, SAMPLE_RATE, "--new-take" in sys.argv)
-    timeline = align(script, read_pcm(prepared), report, SAMPLE_RATE)
+    timeline = align(script, read_pcm(prepared, SAMPLE_RATE), report, SAMPLE_RATE)
     raw = WORK / "narration-unmastered.wav"
-    write_pcm(raw, timeline)
-    return master(raw, ASSETS / "narration.wav", -18)
+    write_pcm(raw, timeline, SAMPLE_RATE)
+    return master(raw, ASSETS / "narration.wav", -18, SAMPLE_RATE)
 
 
 def note(midi):
@@ -119,8 +78,8 @@ def build_score(script):
         stereo.append(round(max(-1, min(1, left)) * 32767))
         stereo.append(round(max(-1, min(1, right)) * 32767))
     raw = WORK / "score-unmastered.wav"
-    write_pcm(raw, stereo, channels=2)
-    return master(raw, ASSETS / "score.wav", -40)
+    write_pcm(raw, stereo, SAMPLE_RATE, channels=2)
+    return master(raw, ASSETS / "score.wav", -40, SAMPLE_RATE)
 
 
 def treatment(script):
@@ -168,33 +127,6 @@ def treatment(script):
     (ROOT / "Problem Decomposition" / "film-treatment.md").write_text("\n".join(rows) + "\n")
 
 
-def write_script(script):
-    """Keep each measured spoken/caption pair as one readable JSON record."""
-    encode = lambda value: json.dumps(value, ensure_ascii=False)
-    rows = ["{"]
-    for key, value in script.items():
-        if key != "scenes":
-            rows.append(f"  {encode(key)}: {encode(value)},")
-            continue
-        rows.append('  "scenes": [')
-        for scene in value:
-            rows.append("    {")
-            for field, entry in scene.items():
-                if field == "captionRanges":
-                    rows.append('      "captionRanges": [')
-                    rows.extend(f"        {encode(caption)}," for caption in entry)
-                    rows[-1] = rows[-1].removesuffix(",")
-                    rows.append("      ],")
-                else:
-                    rows.append(f"      {encode(field)}: {encode(entry)},")
-            rows[-1] = rows[-1].removesuffix(",")
-            rows.append("    },")
-        rows[-1] = rows[-1].removesuffix(",")
-        rows.append("  ],")
-    rows[-1] = rows[-1].removesuffix(",")
-    SOURCE.write_text("\n".join(rows + ["}", ""]))
-
-
 def main():
     WORK.mkdir(parents=True, exist_ok=True)
     ASSETS.mkdir(parents=True, exist_ok=True)
@@ -203,7 +135,7 @@ def main():
         voice = build_narration(script)
         score = build_score(script)
         (WORK / "mastering.json").write_text(json.dumps({"voice": voice, "score": score}, indent=2) + "\n")
-    write_script(script)
+    write_script(SOURCE, script)
     treatment(script)
     print(f"Complete: {script['duration']:.3f}s / {script['durationInFrames']} frames.", flush=True)
 

@@ -9,36 +9,35 @@ from narration_audio import exact_script, narration_text, tokens, write_performa
 MODEL = "gpt-4o-mini-tts"
 VOICE = "cedar"
 DIRECTION = """You are a voice actor, not a writer. Read the entire user message EXACTLY,
-word for word. Do not paraphrase, rewrite, substitute pronouns, drop words, or add
-words. The opening question must match the user message exactly. The user message
-is the sole source of spoken words. No introductions, stage directions, bracketed
-annotations, or spoken performance instructions. Your transcript contains only
-the exact spoken script. Preserve ALL supplied words and their order.
-Perform ONE connected sophisticated short educational film for adults, retaining
-natural breaths and flow rather than isolated clauses. Warm, intimate,
-intelligent, understated storytelling. Pace around 150–160 words per minute,
-aiming for 95–105 seconds including natural pauses; do not rush or flatten delivery.
-Emotional arc: a warm wish for a better world, then a genuinely curious opening
-question with a brief pause to let it land. Observe the three friends with care.
-The technical-component list explains the structure of an answer already in mind.
-Bring a little curiosity to discovering the answer instead. The explanation is lucid and
-practical; the useful result brings a little relief. Customer reaction feels
-like discovery. Make the distinction and transitions to two premises, two goals
-and four principles easy to follow without sounding like a list. Stopping gives
-confident reassurance. The principles are conversational. The commit slogan is memorable but
-not theatrical. The discussion of product health and future potential is
-thoughtful and clearly phrased. End with quiet assurance and possibility.
-Vary phrasing with the changing situation. No cartoon acting, sales-announcer
-delivery, exaggerated drama, vocal fry, or constant upward inflection. None of
-these directions are spoken. Only the user script may be spoken, verbatim."""
-DIRECTION += "\nArticulate assimilate clearly, with a clean initial vowel and no added consonant."
-
+word for word, preserving every supplied word and its order. Do not paraphrase,
+rewrite, add words, substitute words, or drop words. No introductions, stage
+directions, bracketed annotations, or spoken performance instructions.
+Perform ONE connected, engaging short educational film for experienced software
+professionals. Warm, intelligent, candid and lucid; the listener feels you are
+speaking directly to a capable colleague. Natural breaths and varied phrasing.
+The complete performance should take approximately 65–70 seconds. Speak at a
+measured 130-word-per-minute pace, with a short pause between major ideas.
+Let each technical distinction land. The full final sentence must include every
+word, finishing with the exact words: with less to maintain. Do not stop early.
+Begin immediately with the intriguing sentence 'You probably don’t want to do that.'
+Give it quiet, slightly playful confidence; a brief beat lets the question land.
+The next question is curious. The overloaded legacy situation has empathy and
+clarity. Stress useful, targeted tests: those can help even now. A pile of generated
+code sounds like an avoidable burden. High-level engineering is serious but calm.
+The isolated environment is practical reassurance. Hands-on testing sounds like
+an action a colleague can take. Investigate findings before fixing confirmed
+problems. As control returns, the voice becomes lighter and more hopeful.
+The final improvements are crisp and connected, never a machine-gun list.
+Keep the wider protection is an essential qualification. Finish with memorable,
+quiet confidence on 'better protection, with less to maintain.' No cartoon voice,
+sales-announcer style, exaggerated drama, constant upward inflection, or vocal fry.
+None of these directions may be spoken. Only the user script is spoken verbatim."""
 
 def performance(root, script, run, sample_rate, new_take=False):
-    assets = root / "terry-moves" / "public" / "assets" / "problem-decomposition"
-    work = root / "terry-moves" / "out" / "problem-decomposition-audio"
+    assets = root / "terry-moves" / "public" / "assets" / "ai-test-automation"
+    work = root / "terry-moves" / "out" / "ai-test-automation-audio"
     take = assets / "cedar-take.wav"
-    evidence = root / "Problem Decomposition" / "cedar-performance.json"
+    evidence = root / "AI Test Automation" / "cedar-performance.json"
     prepared = work / "cedar-prepared.wav"
     selected_take = work / "cedar-candidate.wav" if new_take else take
     text = narration_text(script)
@@ -73,11 +72,12 @@ def performance(root, script, run, sample_rate, new_take=False):
                 response_format="verbose_json", timestamp_granularities=["word"],
                 prompt=text,
             )
-        exact_script(text, measured.text, "Measured transcription")
         report["alignmentModel"] = "whisper-1"
         report["transcript"] = measured.text
         report["transcriptSource"] = "whisper-1 transcription of the actual audio"
         report["words"] = [{"word": w.word, "start": w.start, "end": w.end} for w in measured.words]
+        write_performance(work / "cedar-candidate-measurement.json", report)
+        exact_script(text, measured.text, "Measured transcription")
     if not new_take:
         assert report["preparedSha256"] == hashlib.sha256(prepared.read_bytes()).hexdigest()
     report["preparedSha256"] = hashlib.sha256(prepared.read_bytes()).hexdigest()
@@ -91,7 +91,7 @@ def performance(root, script, run, sample_rate, new_take=False):
 def align(script, pcm, report, sample_rate):
     from array import array
     fps, rate = script["fps"], sample_rate
-    lead = script.get("coverDuration", 0) + 0.25
+    lead = 0.08  # The hook starts immediately, with no title-card hold.
     assert rate % fps == 0
     words = []
     for word in report["words"]:
@@ -114,8 +114,8 @@ def align(script, pcm, report, sample_rate):
             cursor += count
             captions.append(caption)
     assert cursor == len(words)
-    duration_frames = math.ceil((lead + len(pcm) / rate + 2.3) * fps)
-    assert duration_frames / fps <= 120, "Retain the script; choose a more fluent take if needed."
+    duration_frames = math.ceil((lead + len(pcm) / rate + 2.0) * fps)
+    assert duration_frames / fps <= 75, "Retain the script; choose a more fluent take if needed."
     # Change the caption at a frame in the natural gap before the next clause.
     # No artificial inter-clause silence is added to the voice.
     boundaries = [0]

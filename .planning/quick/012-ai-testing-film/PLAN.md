@@ -31,7 +31,9 @@ Posting to LinkedIn and Terry's personal voice recording are outside this work.
   and `scripts/problem-decomposition-subtitles.mjs`. These already couple
   continuous speech, real word timestamps, scenes and full-speech SRT.
   Adapt only film-specific responsibilities; do not build another animation
-  framework or alter existing films. Use Story Impact's palette, outlined
+  framework or alter existing films' observable media/content. Small shared
+  audio-production primitives may be reused across producers with existing
+  output preserved; this is not a source-path freeze. Use Story Impact's palette, outlined
   shapes and easing vocabulary as art references. New expressive SVG actors
   and workshop set serve this film's causal storytelling.
 - No architectural reversal: only Accepted ADR-0000 exists and retains human
@@ -59,7 +61,7 @@ Posting to LinkedIn and Terry's personal voice recording are outside this work.
 
 ### 1. Viewers follow the complete narrated workshop storyboard
 Type: Behavior
-Status: planned
+Status: done
 
 Produce the whole explanation as a registered composition with original
 illustrated workshop shots, readable captions, continuous expressive Cedar
@@ -80,6 +82,24 @@ words, contiguous timing, caption bounds and full-speech SRT. Rendered review
 must show isolation/reset and targeted early protection clearly. Run affected
 timing tests, TypeScript and lint after edits. Paid voice/alignment failure
 stops dependent slice 2 rather than using invented word timestamps.
+
+Accepted: continuous 143-word Cedar performance, all approved words present;
+60.8667 seconds / 1826 frames. No time stretching or clause stitching. First
+take's omitted ending was rejected. Coordinator inspected all eight rendered
+shots at feed size, accepting visible isolation/reset, useful shields, distinct
+finding and maintained-code cards, investigation/fix and retained wider route.
+Four focused timeline/transcript/SRT/smoke tests, tsc, affected lint and native
+composition listing passed. Fresh 648×810 H.264 storyboard with AAC rendered
+successfully. Full-size stills and overview are in the ignored `terry-moves/out`.
+Independent refactor extracted shared audio primitives and made JSON own output
+dimensions. Both film producers rebuilt successfully; eleven existing/new media,
+timing and treatment artifacts remained byte-identical. Python compile, focused
+tests, tsc and affected lint passed. Scene drawing and voice bytes are unchanged.
+Audio evidence is exact actual-audio transcription and −18.12 LUFS / −1.5 dBTP
+measurement; native listening is unavailable to the coordinator. Final mixed
+audio will be evaluated with full unprompted transcription, loudness and clipping
+analysis, with no claim of human audition. User's shorter-if-clear preference
+supports 61 seconds; do not pad to 70. Selective eslint formatting passed.
 
 ### 2. Viewers watch the polished expressive film through its final payoff
 Type: Behavior
@@ -124,3 +144,9 @@ Preparation assignment published `aaed564c2d4005728779d2e9a4c2a4472edefc9c`.
 Mode: Story Branch. Retain execution claim and delivery receipts here and in
 the coordinating conversation when execution starts. Main checkout's original
 untracked article draft is preserved outside publication from this worktree.
+
+Execution started from published refinement `0b3c1985d0c92935b2f04a9604533aa8e3be7422`.
+Claim `1e7c8c83002323cbf2f98cb347454d740cbe6732` is accepted on `origin/master`
+and `origin/codex/ai-testing-film`; assigned author Tsubomi-chan.
+Publisher: `ai-testing-film-coordinator-20261004`. Execution worktree was
+created for this story at the same path after preparation retirement.
