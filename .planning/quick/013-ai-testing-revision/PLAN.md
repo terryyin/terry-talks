@@ -38,7 +38,7 @@ publication. Replanning allowed within the revision; no numeric slice budget.
 
 ### 1. Viewers hear Terry's sharper, clarified argument
 Type: Behavior
-Status: planned
+Status: done
 
 Revise the article, film script, captions and continuous Cedar narration.
 Retain eight scene roles; add normal test-first development within the
@@ -53,6 +53,17 @@ no longer than 85. Reject omissions, invented timestamps or rushed speech.
 Read the complete script against all new feedback and the primary article;
 verify original transcript unchanged. Focused tests, TypeScript and affected
 lint after edits. Real voice acquisition is the early decisive probe.
+
+Accepted: 169 words, 69.533333 seconds / 2086 frames, 23 full-spoken SRT clauses.
+Script-free transcription and its actual timed-word stream match every approved
+word; take SHA a89c01d4… and mastered narration f0b4d001… reproduce identically.
+The two saved transcript fields reflect the same recognition, not independent
+recognizers. Narration-only native preview exported; focused film tests (4),
+TypeScript, affected eslint, Python compilation and subtitle CLI passed.
+Original source transcript is byte-identical to db016668. Article and complete
+script inspected against Terry's feedback. Fresh independent refactor found
+none — already clean; accepted boundaries unchanged. Coordinator formatting
+passed. Human audition unavailable. Default score/mix and acting remain slice 2.
 
 ### 2. Viewers watch a simpler, more compelling finished revision
 Type: Behavior
@@ -82,3 +93,14 @@ acting/sound/export. Natural speech timing is the early probe; no final acting
 depends on estimated voice timing. User-facing quality and content review
 own the claims automated markup tests cannot establish. No remaining plan
 design concern identified; there is no new feature scope or architectural reversal.
+
+## Execution context
+
+Admission `7002933c6bb17895a5d74485b21c063ad9dd5440` accepted on origin/master
+and origin/codex/ai-testing-revision. Execution workspace created for this work;
+author Yumi-chan, publisher `ai-testing-revision-coordinator-20261004`.
+Setup: frozen-lockfile pnpm install and native composition listing both passed
+in this exact checkout. Lock unchanged; own Chrome headless installed. Existing
+Quillustration 404 is unchanged baseline and not used by this film.
+The original MP4, poster and SRT are preserved with -v1 filenames in the main
+checkout's ignored terry-moves/out. Main source draft remains untouched.

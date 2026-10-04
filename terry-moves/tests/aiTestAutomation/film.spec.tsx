@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import performance from '../../../AI Test Automation/cedar-performance.json';
 import { AITestAutomationScene } from '../../src/aiTestAutomation/Scene';
 import { captionAt, durationInFrames, filmScript, FPS, sceneAt, STAGE } from '../../src/aiTestAutomation/film';
@@ -10,13 +11,17 @@ const captions = filmScript.scenes.flatMap((scene) => scene.captionRanges);
 const spoken = captions.map((caption) => caption.spoken).join(' ');
 
 describe('AI testing film audiovisual contract', () => {
-	it('starts the hook immediately and preserves the actually measured full spoken performance', () => {
+	it('asks the question before the hook and preserves the complete actual spoken performance', () => {
 		expect(sceneAt(0).id).toBe('hook');
-		expect(captionAt(0)?.spoken).toBe('You probably don’t want to do that.');
+		expect(captionAt(0)?.spoken).toBe('Ask AI to write more tests?');
+		expect(captions[1].spoken).toBe('You probably don’t want to do that.');
 		expect(captions[0].speechStart).toBeLessThan(0.2);
 		expect(tokens(spoken)).toEqual(tokens(performance.transcript));
+		expect(tokens(spoken)).toEqual(tokens(performance.unpromptedTranscript));
 		expect(tokens(spoken)).toEqual(performance.words.flatMap((word) => tokens(word.word)));
-		expect(captions[captions.length - 1].spoken).toContain('with less to maintain');
+		const take = fs.readFileSync(path.join(__dirname, '../../public/assets/ai-test-automation/cedar-take.wav'));
+		expect(createHash('sha256').update(take).digest('hex')).toBe(performance.takeSha256);
+		expect(captions[captions.length - 1].spoken).toBe('Less to carry. Fewer bugs to chase.');
 	});
 
 	it('contains every measured phrase in contiguous frame-aligned readable captions', () => {
@@ -39,17 +44,20 @@ describe('AI testing film audiovisual contract', () => {
 			expect(scene.captionRanges[scene.captionRanges.length - 1].end).toBe(scene.end);
 		});
 		expect(durationInFrames / FPS).toBe(filmScript.duration);
-		expect(filmScript.duration).toBeLessThanOrEqual(75);
+		expect(filmScript.duration).toBeLessThanOrEqual(85);
 		expect(filmScript.duration - captions[captions.length - 1].speechEnd).toBeGreaterThan(1.8);
 		expect(STAGE).toEqual({ width: 1080, height: 1350 });
 	});
 
-	it('exports the whole narration to SRT, including the engineering claim and ending', () => {
+	it('exports the whole narration to SRT, including intent, ordinary test code and test-first development', () => {
 		const srt = fs.readFileSync(path.join(__dirname, '../../../AI Test Automation/ai-test-automation.srt'), 'utf8');
 		const lines = srt.split('\n').filter((line) => line && !/^\d+$/.test(line) && !line.includes('-->'));
 		expect(tokens(lines.join(' '))).toEqual(tokens(spoken));
-		expect(srt).toContain('Reliable test automation requires high-level software engineering.');
-		expect(srt).toContain('with less to maintain.');
+		expect(srt).toContain('Test automation requires high-level software engineering—and must protect the original intent.');
+		expect(srt).toContain('Targeted tests can still help now.');
+		expect(srt).toContain('no AI needed to run it.');
+		expect(srt).toContain('For new features, express your intent in tests first.');
+		expect(srt).toContain('Less to carry. Fewer bugs to chase.');
 	});
 
 	it('keeps useful protection on screen throughout and distinguishes observation from maintained code', () => {

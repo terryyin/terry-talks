@@ -10,13 +10,13 @@ import { mix, travel } from './motion';
 const Header: React.FC<{ scene: FilmScene }> = ({ scene }) => {
 	const titles: Record<FilmScene['id'], [string, string]> = {
 		hook: ['Ask AI to write', 'more tests?'],
-		overload: ['Already more problems', 'than you can solve?'],
-		upkeep: ['Protection.', 'And a responsibility.'],
-		sandbox: ['Let AI do the checking.', 'First, learn the checks.'],
-		investigate: ['A finding is a lead.', 'Investigate. Then fix.'],
-		selective: ['Automate what', 'earns its place.'],
+		overload: ['Tickets arrive.', 'Faster than fixes.'],
+		upkeep: ['More tests?', 'More upkeep.'],
+		sandbox: ['AI performs', 'hands-on testing.'],
+		investigate: ['Investigate. Confirm.', 'Then fix.'],
+		selective: ['Useful test code.', 'New features: test first.'],
 		optimize: ['Better feedback.', 'Less to maintain.'],
-		end: ['Better protection.', 'Less to maintain.'],
+		end: ['Less to carry.', 'Fewer bugs to chase.'],
 	};
 	return <g>
 		<Label x={65} y={55} size={18} anchor="start" color={palette.muted}>TERRY MOVES / THE LEGACY WORKSHOP</Label>

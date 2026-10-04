@@ -1,71 +1,91 @@
 1
 00:00:00,000 --> 00:00:02,100
-You probably don’t want to do that.
-
-2
-00:00:02,100 --> 00:00:04,100
 Ask AI to write more tests?
 
+2
+00:00:02,100 --> 00:00:04,300
+You probably don’t want to do that.
+
 3
-00:00:04,100 --> 00:00:06,167
-In a large legacy project,
+00:00:04,300 --> 00:00:08,967
+In a large legacy system, tickets arrive faster than your team can close them.
 
 4
-00:00:06,167 --> 00:00:09,700
-where maintenance problems arrive faster than your team can solve them,
+00:00:08,967 --> 00:00:10,733
+“Not enough automated tests!”
 
 5
-00:00:09,700 --> 00:00:13,633
-that can mean more code to understand, run, and maintain.
+00:00:10,733 --> 00:00:12,067
+You’re probably right.
 
 6
-00:00:13,633 --> 00:00:17,900
-Useful, targeted tests can make fixes safer—even now.
+00:00:12,067 --> 00:00:15,467
+But AI can pile on code before it provides protection.
 
 7
-00:00:17,900 --> 00:00:20,700
-But generating a pile can add to your overload.
+00:00:15,467 --> 00:00:19,633
+More complexity. More upkeep. A harder queue to clear.
 
 8
-00:00:20,700 --> 00:00:24,600
-Reliable test automation requires high-level software engineering.
+00:00:19,633 --> 00:00:25,200
+Test automation requires high-level software engineering—and must protect the original intent.
 
 9
-00:00:24,600 --> 00:00:28,133
-Start with an isolated, repeatable test environment.
+00:00:25,200 --> 00:00:27,467
+Targeted tests can still help now.
 
 10
-00:00:28,133 --> 00:00:29,800
-Learn the checks yourself.
+00:00:27,467 --> 00:00:31,100
+A better use of AI here? Hands-on testing.
 
 11
-00:00:29,800 --> 00:00:32,767
-Then let AI perform hands-on testing.
+00:00:31,100 --> 00:00:35,133
+First, make an isolated, repeatable environment easy to set up.
 
 12
-00:00:32,767 --> 00:00:38,167
-Investigate its findings and fix confirmed problems—without generating a maintained suite.
+00:00:35,133 --> 00:00:38,467
+Show AI your manual checks; let it repeat them.
 
 13
-00:00:38,167 --> 00:00:42,700
-As you regain control, automate the workflows that repeatedly prove useful.
+00:00:38,467 --> 00:00:40,867
+Investigate, confirm, fix—
 
 14
-00:00:42,700 --> 00:00:46,267
-Then improve the suite: make feedback faster,
+00:00:40,867 --> 00:00:43,067
+without adding test code to maintain.
 
 15
-00:00:46,267 --> 00:00:47,567
-delete redundant tests,
+00:00:43,067 --> 00:00:47,100
+Once you regain control, turn useful checks into repeatable test code:
 
 16
-00:00:47,567 --> 00:00:51,667
-and move suitable local checks from expensive end-to-end tests into unit tests.
+00:00:47,100 --> 00:00:49,033
+no AI needed to run it.
 
 17
-00:00:51,667 --> 00:00:54,633
-Keep the wider protection you still need.
+00:00:49,033 --> 00:00:52,333
+For new features, express your intent in tests first.
 
 18
-00:00:54,633 --> 00:01:00,867
-Spend your spare AI capacity on better protection, with less to maintain.
+00:00:52,333 --> 00:00:53,900
+Let them drive development.
+
+19
+00:00:53,900 --> 00:00:58,200
+Keep improving the suite: faster feedback, fewer redundant tests,
+
+20
+00:00:58,200 --> 00:01:00,267
+suitable local checks moved to units.
+
+21
+00:01:00,267 --> 00:01:02,433
+Keep essential end-to-end protection.
+
+22
+00:01:02,433 --> 00:01:05,100
+Use spare AI to simplify and fix.
+
+23
+00:01:05,100 --> 00:01:09,533
+Less to carry. Fewer bugs to chase.
