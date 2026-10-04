@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Yumi-chan",
+  "email": "yumi-chan@example.org",
+  "identity": "ai-test-automation-revision#conflict-and-intention-first-testing",
+  "mode": "story-branch",
+  "branch": "codex/ai-testing-revision",
+  "host": "codex"
+}
