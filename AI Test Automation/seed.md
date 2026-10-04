@@ -1,11 +1,11 @@
 ---
 id: ai-test-automation-film
-status: proposed
+status: refined
 created: 2026-10-04
-scope: one queued short-film story; creative direction and production planning remain open
+scope: one short film; production delegated to the coordinator
 ---
 
-# AI and test automation: reduce complexity before adding more code
+# AI and test automation in an overloaded legacy project
 
 ## Selected film story
 
@@ -13,160 +13,73 @@ scope: one queued short-film story; creative direction and production planning r
 ### Viewers use AI for testing without adding unmanageable complexity
 
 **Identity:** ai-test-automation-film#testing-without-unmanageable-complexity
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/012-ai-testing-film/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"36a0859451a37b11f38978439781ae48ba94053a19dee180c4e4bbf651103d9b","plan":"4e21e64a08936bfbc403d0f067e230f0fb1417e6019952c61ece724bee9d0c3e"}}
+```
 
-#### Goal and audience
+#### Goal
 
-For **people working in large software organizations with complex legacy
-systems**, make an engaging short film in **Terry Moves** (`terry-moves/`)
-that challenges the instinct to ask AI to generate automated tests. Viewers
-have some understanding of software technology and the development lifecycle;
-deep technical expertise is not assumed.
+For people working in **large legacy projects where maintenance problems
+arrive faster than the team can solve them**, show an attractive short film
+that helps them choose how to use AI capacity. Viewers understand that test
+code has upkeep, AI can perform hands-on testing without producing a maintained
+suite, targeted useful tests can help early, and sustainable automation needs
+high-level software engineering, optimization, and deletion of waste.
 
-After watching, a viewer can explain why automatically generating test code
-may be the wrong first move when a team already cannot manage its system's
-complexity, and describe a more useful sequence: AI performs testing, the team
-fixes problems and reduces complexity, useful repeated checks become selected
-automated tests, and the suite is continually simplified and accelerated.
+The authoritative argument, terminology, fact checks, and confirmed decisions
+live in [the article](ai-and-test-automation.md). The
+[original transcript](source-transcript.md) remains the primary source.
 
-Terry evaluates whether the film expresses his argument and catches attention.
-Audience comprehension is evaluated by whether a viewer can explain the
-condition behind the opening and the recommended sequence.
+#### Scope
 
-#### Production brief from Terry
+Confirmed by Terry on 4 October 2026:
 
-- **Opening hook:** “You probably don't want to do that.” Put this at the
-  beginning and connect it immediately to asking AI to write automated tests.
-  The surprising answer should create curiosity and earn its explanation.
-- **Length:** between **one and two minutes** (60–120 seconds), aiming for
-  **about one and a half minutes** (90 seconds).
-- **Tone:** interesting and engaging, with enough technical substance for the
-  intended audience. This is an attention-grabbing explanation, not a long
-  tutorial.
-- **Style is open:** a style similar to the recent **Story Impact** or
-  **Problem Decomposition** films is welcome. A new genre or visual style is
-  also welcome if it serves this more technical subject better. The earlier
-  films are references, not a requirement to copy their format or metaphor.
-- **Medium:** a new short film authored with Terry Moves, the repository's
-  in-tree Remotion workspace.
-- **Source:** the complete [supplied transcript](source-transcript.md).
-  Compress its spoken repetitions into a concise film while preserving the
-  argument. Transcription slips such as “menu test,” “books,” and “unit has”
-  mean manual testing, bugs, and unit tests in the brief below; the original
-  wording remains available in the source.
-- **Priority:** Terry explicitly requested this as the **first queued item**
-  in the product backlog. This aligns with the existing direction, “Make
-  educational short videos.”
+- Open with **“You probably don't want to do that”**, clearly about asking AI
+  to write automated tests.
+- Aim **around 70 seconds**, shorter if the important explanation still works.
+  Share on LinkedIn; assume some software lifecycle knowledge, not deep expertise.
+- Structure: hook → upkeep → overload → testing and fixing → selective
+  automation → optimization and deletion.
+- Both hands-on testing and targeted early automated tests are recommendations
+  for the specified overloaded large legacy project, not every software project.
+- Show a stable repeatable environment isolated from other people's work,
+  doable checks, AI performing them, actionable findings, and people fixing
+  problems. Testing accompanies wider efforts to regain control.
+- Keep useful tests. Automate selectively; use AI to speed up and simplify
+  the suite, delete unnecessary tests, and move suitable local checks to unit
+  tests while retaining distinct integration/end-to-end protection.
+- Reliable test automation **requires high-level software engineering**.
+- Use Terry Moves. Make artistic design substantially stronger than Story
+  Impact while keeping a recognizable warm cartoon language. Use vivid
+  expressive characters and meaningful interesting animation.
+- Terry delegates the complete project to the coordinator through a finished
+  video he can watch. Creative decisions, review, and corrections are delegated.
 
-#### The complete argument to preserve
+Production choices: 1080×1350 (4:5) English film with readable captions,
+original cartoon characters, synthetic Cedar narration credited as AI narration,
+and an original restrained score and sound effects. These are coordinator
+choices under the delegated brief, not additional human decisions.
 
-1. **The surprising answer is conditional.** “Should you ask AI to write
-   automated tests for you?” The right answer might not be yes. Automated
-   tests, including unit and end-to-end tests, can protect things that matter
-   and enable the team to do more. Their value must actually be delivered.
-2. **A test is code before it delivers value.** It must run, be understood,
-   and be maintained. It can break. It adds cognitive load and complexity to
-   the system immediately, even when its promised protection has not yet
-   materialized.
-3. **Recognize the overloaded legacy system.** The team's complexity is
-   already beyond what it can handle: people cannot attend to defects fast
-   enough, and the bug-fixing backlog grows faster than developers can fix
-   it. Adding more test code in that situation can be “adding fuel to the
-   fire.” This condition is the reason behind the hook.
-4. **AI's efficiency does not erase the maintenance burden.** AI is an
-   obedient, efficient tool. Ask it for automated tests, and one immediate
-   result is more code for the team to maintain. Useful protection is a
-   separate outcome.
-5. **First establish a place where testing works.** Provide a stable,
-   repeatable testing environment, isolated from other people's work, where
-   testing and changing state do not disrupt them. Make sure manual testing
-   is possible there. Do it, learn how, and confirm that the relevant checks
-   can actually be performed.
-6. **Then spend spare AI tokens on performing testing.** Ask AI to carry out
-   those manual-style checks, find bugs, and identify places that need
-   improvement. The team fixes what it finds. Terry corrects himself in the
-   transcript: the recommendation here is to **perform manual testing**, not
-   to run an existing automated suite or generate a new one.
-7. **Separate executing checks from adding a maintained suite.** AI can do
-   repeated testing work in the background without adding test code to the
-   repository. That work can reveal improvements without itself increasing
-   the system's maintained-code burden. “Manual testing” describes the kind
-   of activity; AI performing it does not turn it into a repository of
-   automated tests. The isolated environment makes this repeated work
-   practical.
-8. **Testing is part of a wider improvement effort.** Bug discovery alone
-   is not enough. Combine it with fixes and other efforts to gradually bring
-   defects and complexity down to a level the team can handle.
-9. **Automate selectively when the team is ready.** Accumulated experience
-   from repeated checks, including checks AI can perform, gives the team a
-   basis for gradually turning useful ones into automated end-to-end tests.
-   Keep only the useful ones and take on maintenance the team can now manage.
-10. **Test automation is a programming problem.** Terry's framing is that
-    it is one of the hardest areas of programming, rather than merely a
-    testing task. Building it requires care. Its difficulty is another
-    reason to avoid piling it onto an already overwhelmed system.
-11. **Spare tokens are not a reason to make more things.** Do not generate
-    more features or more tests merely because AI capacity is available.
-    Once useful automation exists, use AI to optimize tests and make them
-    run as fast as possible.
-12. **Use experience to remove waste aggressively.** Running the end-to-end
-    suite teaches the team and AI where checks are redundant and resources
-    are wasted. Delete tests that do not earn their upkeep. Replace some
-    expensive, overlapping end-to-end checks with suitable fast unit tests
-    where they can provide the needed protection.
-13. **The payoff is a more manageable system and a useful, fast suite.**
-    The recommendation is an order of work: learn through testing, fix and
-    simplify, automate valuable checks, then optimize and prune. Use AI to
-    reduce the burden rather than treating the volume of generated code as
-    progress.
+External publication to LinkedIn remains outside this delivery. The output is
+an MP4, poster, and SRT available for Terry's review.
 
-#### Key examples and review criteria
+#### Key examples
 
-- **Opening and payoff:** “You probably don't want to do that” is heard or
-  seen at the start, with asking AI to write automated tests as its clear
-  referent. By the end, the viewer understands the overload condition and
-  when selective automation becomes useful.
-- **An overloaded team:** a growing defect backlog and limited capacity make
-  the maintenance cost concrete. Tests' potential benefits and their
-  immediate code burden both appear in the argument.
-- **A useful alternative:** a repeatable, isolated environment → confirm
-  manual checks are doable → AI performs them → find and fix bugs. The
-  viewer can distinguish this from asking AI to commit a test suite.
-- **A path to automation:** combine fixes with complexity reduction; keep
-  useful repeated checks; gradually automate them as end-to-end tests when
-  manageable. The film retains the point that automation is difficult
-  programming work.
-- **A disciplined finish:** optimize speed, aggressively delete unnecessary
-  tests, and move suitable expensive checks to fast unit tests. Having spare
-  tokens alone does not justify more tests or features.
-- **Pace and accessibility:** the finished film runs 60–120 seconds, aims
-  near 90, and gives this audience enough time to follow its words and
-  visuals. The whole argument is preserved here even if narration and
-  visuals divide the explanation between them.
+- With a large maintenance backlog growing faster than the team resolves it,
+  asking AI for more test code produces another responsibility. Existing useful
+  test protection remains visible: the film never equates every test with waste.
+- In an isolated repeatable copy of the product, AI follows a known check and
+  identifies a reproducible problem. A developer investigates and fixes it;
+  the AI's report does not magically repair the product or add a suite.
+- Experience informs selected regression tests. Some broad checks move to fast
+  local checks; wasteful duplicates are removed while useful protection stays.
+- A viewer can identify the premise, the alternative, and the final discipline
+  after one viewing. The words and visuals have time to be read on a phone.
 
-#### Creative choices still open
+#### Evaluation
 
-Choose the final title, visual metaphor, genre, aspect ratio, narration,
-sound/music, and subtitle treatment during film refinement. The supplied
-English transcript is the starting language; additional language versions
-have not been requested. The two-minute ceiling and attention-grabbing
-opening are confirmed; the precise cut and wording beyond the hook are open.
-
-Possible reference directions, without selecting one:
-
-- **Story Impact:** warm paper, rounded ink outlines, bright colors, playful
-  motion, and a visual model whose changing state carries the explanation.
-- **Problem Decomposition:** a concrete customer situation and expressive
-  motion that carries technical principles through a continuous example.
-- **A new technical genre:** an alternative that makes legacy-system
-  complexity, temporary testing work, and maintained test code easy to
-  distinguish while retaining interest and a clear narrative.
-
-#### References
-
-- [Original source transcript](source-transcript.md)
-- [Story Impact intention and film context](../Story%20Driven/seed.md)
-- [Story Impact film](../terry-moves/src/stories/StoryImpactFilm.tsx)
-- [Problem Decomposition article](../Problem%20Decomposition/problem-decomposition.md)
-- [Problem Decomposition film script](../Problem%20Decomposition/film-script.json)
-- [Problem Decomposition film](../terry-moves/src/stories/ProblemDecompositionFilm.tsx)
-- [Terry Moves authoring and rendering](../terry-moves/README.md)
+The coordinator reviews the script against the article and transcript, the
+storyboard for visual clarity and tone, and representative rendered frames for
+legibility and visual continuity. Final proof includes the completed render,
+checked narration/caption alignment, runtime/codec verification, and relevant
+Remotion tests. Terry reviews the finished video as the final evaluator.
