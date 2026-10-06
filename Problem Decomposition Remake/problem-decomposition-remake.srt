@@ -1,0 +1,103 @@
+1
+00:00:00,000 --> 00:00:07,200
+Breaking software into parts is easy. Breaking the customer's problem into useful outcomes is different.
+
+2
+00:00:07,200 --> 00:00:12,733
+A database, an API, a screen: these organize an answer we've already imagined.
+
+3
+00:00:12,733 --> 00:00:16,300
+But development also means discovering which answer works.
+
+4
+00:00:16,300 --> 00:00:19,167
+Say shoppers want to avoid wasted trips.
+
+5
+00:00:19,167 --> 00:00:23,267
+First, let them check whether one item is in stock at one store.
+
+6
+00:00:23,267 --> 00:00:25,767
+Opening hours and reservations can wait.
+
+7
+00:00:25,767 --> 00:00:28,200
+Two premises guide this approach.
+
+8
+00:00:28,200 --> 00:00:32,100
+Look for smaller customer problems before deciding the solution.
+
+9
+00:00:32,100 --> 00:00:35,700
+And treat the plan as an attempt, never a guarantee.
+
+10
+00:00:35,700 --> 00:00:37,867
+Then optimize for two things.
+
+11
+00:00:37,867 --> 00:00:42,200
+First: each completed story delivers useful value people can evaluate.
+
+12
+00:00:42,200 --> 00:00:45,167
+Show the stock result. Ask what happened.
+
+13
+00:00:45,167 --> 00:00:47,833
+Build just enough, just in time to learn.
+
+14
+00:00:47,833 --> 00:00:50,633
+Second: keep the freedom to change direction.
+
+15
+00:00:50,633 --> 00:00:54,367
+If feedback makes opening hours more important, choose that next.
+
+16
+00:00:54,367 --> 00:00:58,367
+Keep the useful stock check. Leave reservations unstarted.
+
+17
+00:00:58,367 --> 00:01:02,667
+At completed boundaries, avoid unfinished waste and damage to the product.
+
+18
+00:01:02,667 --> 00:01:04,733
+Four principles make this work.
+
+19
+00:01:04,733 --> 00:01:11,700
+Valuable, visible, vertical: a useful result, recognizable to users, working through every required part.
+
+20
+00:01:11,700 --> 00:01:15,200
+One-piece flow: finish one customer outcome together.
+
+21
+00:01:15,200 --> 00:01:19,000
+Repeat at smaller scales. Every commit is your last commit.
+
+22
+00:01:19,000 --> 00:01:24,133
+Strive for value now; serve today's purpose or an existing documented need, including product health.
+
+23
+00:01:24,133 --> 00:01:26,367
+And care for the whole product.
+
+24
+00:01:26,367 --> 00:01:30,467
+Change whichever parts the outcome requires; leave a coherent design.
+
+25
+00:01:30,467 --> 00:01:37,100
+That preserves option value: speculative future possibilities at a given cost, without building unused features now.
+
+26
+00:01:37,100 --> 00:01:42,900
+Smaller problems. Useful answers. Freedom to choose again.
