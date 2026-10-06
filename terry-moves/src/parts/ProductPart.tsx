@@ -3,7 +3,7 @@ import React from 'react';
 import {staticFile} from 'remotion';
 import {roundedRect} from '../helpers/rounded-rectangle';
 import { TextureLoader } from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { GLTFNode } from '../video_components/GLTFNode';
 import { GroupInitialState } from '../video_components/GroupInitialState';
 

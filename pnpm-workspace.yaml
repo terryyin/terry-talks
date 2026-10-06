@@ -1,9 +1,21 @@
 packages:
   - terry-moves
 allowBuilds:
+  "@parcel/watcher": true
   esbuild: true
   unrs-resolver: true
 # Solo repo: the committed lockfile is the trusted base. pnpm 11 otherwise
 # re-checks every lockfile entry against minimumReleaseAge (default 1 day),
 # so `pnpm present` fails when a pin (e.g. Remotion) is under 24h old.
 trustLockfile: true
+
+overrides:
+  # Remotion pins an older parser; these releases support TypeScript 6 and ESLint 10.
+  "@remotion/eslint-config-flat>typescript-eslint": 8.71.1
+  "@remotion/eslint-plugin>@typescript-eslint/utils": 8.71.1
+  # Update Monaco's sanitization dependency without replacing the editor.
+  "monaco-editor>dompurify": 3.4.16
+  # Twoslash uses the Floating Vue 5 tooltip directive API.
+  "@shikijs/vitepress-twoslash>floating-vue": 5.3.0
+  # UnoCSS relies on 0.x update semantics when rewriting generated CSS.
+  "@unocss/vite>magic-string": 0.30.21

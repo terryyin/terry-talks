@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill } from 'remotion';
+import {AbsoluteFill, useVideoConfig } from 'remotion';
 import useParentSize from '../hooks/useParentSize';
 import { ThreeDFrameInner } from './private/ThreeDFrameInner';
 import { ThreeCanvas } from '@remotion/three';
@@ -14,7 +14,8 @@ export const ThreeDFrame: React.FC<{
 	debug?: boolean,
   children: React.ReactNode;
 }> = ({debug, children}) => {
-	const {ref, metrics} = useParentSize();
+	const {width, height} = useVideoConfig();
+	const {ref, metrics} = useParentSize({width, height});
 
 	return (
 		<AbsoluteFill ref={ref} style={container} >

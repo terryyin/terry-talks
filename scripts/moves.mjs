@@ -18,7 +18,7 @@ const usage = `Usage: pnpm moves [studio|test|render|srt] [...args]
 const [subcommand = 'studio', ...rest] = process.argv.slice(2)
 
 function withRest(base) {
-  return rest.length ? [...base, '--', ...rest] : base
+  return [...base, ...rest]
 }
 
 const pnpmArgs = {

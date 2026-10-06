@@ -5,3 +5,4 @@
 import { Config } from '@remotion/cli/config';
 
 Config.setChromiumOpenGlRenderer("angle");
+Config.setDelayRenderTimeoutInMilliseconds(60000);

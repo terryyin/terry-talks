@@ -2,7 +2,7 @@ import { Clone } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import React, { useEffect, useRef, useState } from 'react';
 import { Box3, Box3Helper, Group } from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 export const GLTFNode: React.FC<{
   nodeName: string,

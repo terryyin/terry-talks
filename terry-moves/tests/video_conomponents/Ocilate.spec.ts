@@ -105,7 +105,8 @@ describe('AnimationContext', () => {
 					.seconds(sec)
 					.please();
 				const result = animationContext.get3DObjectStateOf('under-test');
-				expect(result.position.x).toBe(expectX);
+				// Continuous motion tolerates floating-point rounding at the last digit.
+				expect(result.position.x).toBeCloseTo(expectX, 14);
 			});
 		});
 	});

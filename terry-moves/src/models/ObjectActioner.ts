@@ -14,11 +14,8 @@ const toVector3 = (
 	if (typeof value === 'number') {
 		return [value, 0, 0];
 	}
-	if (value.length === 2) {
-		return [...value, 0];
-	}
-	if (value.length === 3) {
-		return [...value];
+	if (value.length === 2 || value.length === 3) {
+		return [value[0], value[1], value[2] ?? 0];
 	}
 	throw new Error('Unsupported input type');
 };

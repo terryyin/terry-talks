@@ -1,16 +1,15 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
-		"target": "ES2018",
+		"target": "ES2022",
 		"module": "commonjs",
 		"jsx": "react-jsx",
 		"outDir": "./dist",
 		"strict": true,
 		"noEmit": true,
-		"lib": ["ES2018", "DOM"],
+		"lib": ["ES2022", "DOM"],
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
