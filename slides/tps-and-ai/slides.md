@@ -1561,31 +1561,87 @@ Problem Solving emphasizes helping people solve their own problems.
 -->
 
 ---
+class: "[&>h1]:!text-[32px] [&>h1]:!mb-2"
+---
 
 # Continuous improvement towards perfection
 
 [完璧に向けた継続的改善]{.ja-title}
 
-- TPS: **SMED** — changeover so cheap that small batches become rational
-  [TPS：**SMED**（シングル段取り）——段取り替えの負担を減らし、少量生産を合理的にする]{.ja}
-- LeSS: an expanding **Definition of Done** as the measure of the same
-  improvement
-  [LeSS：**完成の定義**の拡張も、同じ改善の尺度となる]{.ja}
+<div class="absolute left-[9%] right-[9%] top-[23%] grid grid-cols-2 gap-10 text-center">
+  <div>
+    <p class="!m-0 text-[24px] font-semibold leading-tight"><span class="text-[#b33a2b]">SMED</span> · Prepare while running</p>
+    <p class="!mb-0 !mt-2 text-[16px] leading-snug text-[#5c564e]" lang="ja">稼働中に準備して、停止時間を短く。</p>
+  </div>
+  <div>
+    <p class="!m-0 text-[24px] font-semibold leading-tight"><span class="text-[#b33a2b]">OTED</span> · One touch to change</p>
+    <p class="!mb-0 !mt-2 text-[16px] leading-snug text-[#5c564e]" lang="ja">残る段取りを、ワンタッチに。</p>
+  </div>
+</div>
 
-<img
-  src="/pit-stop-changeover.png"
-  alt=""
-  class="absolute bottom-[2%] left-[8%] h-[48%] w-[84%] object-contain"
-/>
+<div class="absolute left-[12.5%] right-[12.5%] top-[33%] bottom-[15%] overflow-hidden">
+  <img
+    src="/smed-oted-changeover.png"
+    alt="Two changeover moments: an operator prepares the next die cassette on a separate cart while a guarded press keeps running. After stopping, the prepared cassette is seated and one external lever secures it."
+    class="h-full w-full object-cover"
+    style="object-position: center 49%;"
+  />
+</div>
+
+<div class="absolute bottom-[3%] left-[5.5%] right-[5.5%] text-center">
+  <p class="!m-0 text-[31px] font-semibold leading-tight">Keep making the next change <span class="text-[#b33a2b]">cheaper.</span></p>
+  <p class="!mb-0 !mt-2 text-[18px] leading-snug text-[#5c564e]" lang="ja">次の変更の負担を、減らし続ける。</p>
+</div>
 
 <!--
-Claims 18 and 5 (SMED, software changeover, AI-friendly context).
+Claims 18 and 5. Continuous Improvement Towards Perfection is the LeSS
+principle; kaizen is the repeated practice. Perfection gives improvement
+a direction. It is not an achieved state or a finished adoption project.
+SMED is the TPS worked example here, not the whole principle.
 
-Spoken follow-on — lower the switching cost: change direction at
-relatively low cost; leftover of that *is* switching cost (TPS:
-changeover). SMED, then OTED — single-digit minutes, then one remaining
-touch. Software stack: common repo → trunk-based development → one-touch
-env setup → fast deterministic e2e.
+Read the art left to right. The press keeps making the current part behind
+a closed safety guard while the operator prepares the next die on a
+separate cart. That is external setup. Work that requires a stopped
+machine is internal setup. Separate the two, convert internal setup to
+external where possible, and streamline what remains. Preparing while
+running is one part of SMED's method, not its complete definition.
+
+SMED means Single-Minute Exchange of Die: a target of single-digit
+minutes (less than ten), not necessarily one minute. OTED means One-Touch
+Exchange of Die: reduce the remaining setup to one step. On the right,
+the press is stopped and the cassette is already prepared and located;
+one linked lever secures it. The art is a conceptual illustration, not
+a specific Toyota machine, a historical event, or an operating procedure.
+One final locking action does not by itself make any real press OTED.
+
+Why it matters: expensive changeovers make large batches seem economical.
+Cheap changeovers let the same team follow the next customer need in
+small Done increments. Deliberate changes across components within one
+customer item are different from repeatedly interrupting unfinished work.
+
+Software translation: common repo → trunk-based development → one-touch
+remaining environment setup → fast, trustworthy verification. Reusable
+readiness can be prepared ahead of any selected item. Understanding a
+new customer problem still takes judgment. One-command remaining setup
+is the OTED analogy when the remaining setup really is one step; factory
+die exchange and software development are not identical mechanisms.
+
+Keep the original LeSS measure in the spoken explanation: an expanding
+Definition of Done brings more of the work required for a shippable
+product inside the Sprint. The gap is Undone Work. Reduce that gap through
+improvement, rather than declaring unfinished work Done or merely adding
+checklist demands. This measures progress toward perfection; it is not
+another name for SMED. More AI output does not remove setup, comprehension
+or verification cost, and more agents do not expand what is truly Done.
+
+[Sources]
+- Local Claim 5: 05-smed-software-changeover-and-ai-friendly-context.md
+- Local Claim 18: 18-continuous-improvement-towards-perfection.md
+- https://www.lean.org/lexicon-terms/single-minute-exchange-of-die/
+- https://asq.org/quality-resources/quality-glossary
+- https://less.works/less/principles/continuous-improvement-towards-perfection
+- https://less.works/less/framework/definition-of-done
+[/Sources]
 -->
 
 ---

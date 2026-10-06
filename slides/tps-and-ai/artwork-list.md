@@ -525,12 +525,73 @@ Composition required by the slide: wide horizontal group, landscape canvas rough
 
 ### G13. Pit-stop changeover (SMED)
 
-- **Status:** implemented — `public/pit-stop-changeover.png`
+- **Status:** retired 2026-10-06 — replaced by G27, which explains
+  external setup and one-touch remaining setup. Image deleted; recover
+  `public/pit-stop-changeover.png` from Git at `63421e0`.
 - **Slide:** "Continuous improvement towards perfection"
 - **Placement:** wide strip under the two bullets
 - **Prompt:** A pit-stop scene: a small race car paused while four crew
   figures swap a wheel in choreographed motion, tools laid ready on a
   cart; conveys a changeover measured in seconds; 16:9 wide.
+
+### G27. SMED to OTED — prepare, then simplify what remains
+
+- **Status:** done — `public/smed-oted-changeover.png`.
+- **Slide:** "Continuous improvement towards perfection"
+- **Placement:** the main body, a wide crop of two transparent scenes.
+  SMED and OTED labels and the bilingual takeaway stay editable.
+- **Generation:** built-in imagegen on 6 October 2026 with
+  `transparent_background=true`. G1 supplied the style reference;
+  two edits refined the composition and closed the running press's guard.
+- **Meaning:** prepare the next die on a separate cart while the current
+  work continues; after a safe stop, simplify the remaining setup to one
+  touch. SMED's complete method and target, the OTED extension, and the
+  software/Definition of Done link remain in speaker notes.
+- **Accuracy:** conceptual setup reduction, not a Toyota machine or an
+  operating procedure. The running press is guarded; the stopped press
+  has its ram raised. The quick-lock lever is outside the die space.
+  A final locking action alone does not establish OTED on a real press.
+- **Original generation:** `exec-598ea440-07c8-4530-9416-611c99d68d27.png`.
+- **Composition edit:** `exec-c52c1256-c90d-421a-bbf4-7a32737e7dd7.png`.
+- **Final output:** `exec-67a5d0c9-fbcb-4830-a05c-1f7dfe06c084.png`.
+- **Dimensions:** 1536 × 1024 RGBA, transparent surroundings.
+- **SHA-256:** `22e2e46a164a6af024ea01404ac1d111e806ef695e762c815b3a96c406a21894`.
+- **Complete generation prompt** (G1 as the only reference):
+
+```text
+Use case: illustration-story.
+Asset type: one original teaching illustration for slide 29 of a TPS and AI presentation: SMED (reducing machine changeover by preparing while production runs) and OTED (simplifying the remaining setup to one touch).
+Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+The supplied crane image is a STYLE reference only. Do not include a crane. Black and gray ink with vermilion used only on the ready-to-change die cassette and its simple locking handle. Genuinely transparent surrounding background.
+
+Show TWO clear moments from left to right, with generous clear space between them. This is a conceptual illustration of setup reduction, not a mechanical blueprint or a historical Toyota scene. Make the preparation and final simple action visually unmistakable.
+LEFT MOMENT, PREPARATION WHILE PRODUCTION CONTINUES: a modest compact industrial stamping press, with its working die visibly protected behind a transparent closed safety guard, continues forming a few small simple gray metal brackets. Beside the machine, clearly outside the guard, one adult operator in plain work clothing and safety glasses prepares a different compact die cassette on a waist-high rolling changeover cart. The operator aligns and checks the cassette on the cart, rather than touching the running machine. All necessary attachments are already assembled into this one cassette; an orderly little tool holder has only two tools. The cassette has one vermilion edge. The cart is ready beside the machine. Convey that this preparation happens without stopping the current work: the guarded press has a subtle ink motion trace and two freshly formed brackets on its output tray, while the operator's hands stay entirely on the separate preparation cart. No big pile of inventory, no factory panorama, no speed lines around the person.
+RIGHT MOMENT, SIMPLIFIED REMAINING SETUP AFTER A SAFE STOP: an enlarged closer view of the SAME press bed, now visibly still, with the prepared die cassette seated accurately on its locating rails. The same operator, recognizable by clothing and face, stands outside the working area with one hand on ONE simple external quick-lock lever. One movement of this linked lever secures the already aligned cassette instead of individually tightening many bolts. The lever is outside the die space and carries the second view of the same vermilion accent. Show the positive locating guides and captive clamp, not a person lifting a heavy die, not hands between the press platens. The open guard and raised still ram are visible; this is a stopped safe setup state. No robot, laptop, clock face, gears floating in space or racing car. The visual progression is prepared tooling, then a simple remaining changeover action, not a person working harder or faster.
+
+Composition required for the slide: landscape canvas about 3:2, 1536x1024. Put the two balanced illustrations inside a CENTRAL HORIZONTAL BAND, approximately y=280 to y=750, leaving upper and lower quarters mostly transparent. All faces, hands, machine tops, cart wheels, die cassettes and lever must fit comfortably inside that band. Left illustration occupies approximately x=70 to x=700; right x=850 to x=1460. Leave a clear center gap. Show enough detail to understand the two actions at presentation scale, without tiny complicated machinery. Natural adult proportions and credible hands. Light ground ink washes fade to transparency. No frames, panels, arrows, text, numbers, labels, logos, opaque paper rectangle or background scenery.
+```
+
+- **Complete composition edit prompt** (original generation, then G1):
+
+```text
+Use case: illustration-story. Edit the supplied two-moment SMED and OTED illustration for a wide presentation composition. The second supplied image, the crane, is a style reference only.
+Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+Keep the transparent background, the gray-and-black ink, the prepared die cassette's vermilion edge and the one simple external red lever. Preserve the story and identities: LEFT, an operator prepares a complete next die cassette on a separate rolling cart while a guarded press continues making small brackets; RIGHT, after stopping, the same operator uses one external quick-lock lever to secure the already located cassette. Hands never enter the working die area. No letters, numbers, arrows, captions, logos or machinery branding.
+
+Substantially revise the composition to be a LOW WIDE HORIZONTAL STRIP that fits a slide with large editable labels above and a takeaway below. Keep the canvas 1536x1024 but put ALL essential content, including faces, hands, complete short press frame, cart and lever, INSIDE y=290 to y=750. Upper and lower areas should be truly transparent. Fill approximately x=65 to x=1470, with a clean gap near the center.
+To achieve the wide band, replace the tall floor-standing press with a credible COMPACT BENCH-HEIGHT GUARDED DIE PRESS, wider and lower, mounted on a shallow base. The press's short frame must still clearly show a raised ram, two platens, the die cassette and a safety enclosure. On the left, show the operator as a natural waist-up figure behind the preparation cart: face, arms, hands and torso fully visible, legs out of view. On the right, show the press bed and external linked quick-lock lever larger, with the same operator as a waist-up figure to the side, face and hand visible. The cassette on the right is supported on locating rails, already seated before the locking action. Keep the little output tray with two gray brackets in the left scene. The separate cart's shallow body and wheels are visible, but no tall machine cabinet or full standing human legs. Both presses represent the same compact machine at two moments. Use an even, relaxed vertical scale across both scenes. Keep plenty of clear space between scenes.
+
+The composition must be readable at a glance and clearly distinguish preparation away from a running machine from a simple remaining setup on a stopped machine. Preserve a restrained ink-and-wash teaching illustration, natural adult proportions and credible hands. This is a conceptual setup-reduction illustration, not a specific Toyota machine or a mechanical blueprint. No opaque paper rectangle, room scenery or added visual ornament.
+```
+
+- **Complete guard correction prompt** (composition edit as the only reference):
+
+```text
+Edit the supplied transparent SMED and OTED teaching illustration.
+Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+Make one precise correction: the LEFT press is RUNNING, so its front transparent safety guard must be CLOSED, flush across the front opening. Replace its two doors swung out toward the viewer with two clear hinged panels shut together across the front, forming one closed enclosure. The left machine's die and subtle gray motion trace remain visible through the CLOSED guard. The output tray exits safely below the guard. The operator prepares the separate red-edged next die cassette on the external cart, with hands well outside the guarded machine.
+Preserve the RIGHT press as STOPPED, with its front doors open and raised still ram, the die cassette already seated, and the operator holding the one external red quick-lock lever outside the die space. Preserve the two-moment composition, recognizable operator, compact machines, cart, all other detail, transparency, image dimensions and ink style. No additional captions, logos, marks or arrows.
+```
 
 ### G14. Closing — the crane aloft
 

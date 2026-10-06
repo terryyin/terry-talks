@@ -153,7 +153,7 @@ review is still to come, so the *Aki reviewed* column is blank.
 | The engine of freedom and trust | ✓ | | |
 | AI speeds whichever loop you feed | ✓ | ✓ | |
 | Respect for People: making things means making people | ✓ | | |
-| Continuous improvement towards perfection | ✓ | ✓ | |
+| Continuous improvement towards perfection | ✓ | | |
 | Tensions and honest limits | ✓ | ✓ | |
 | Takeaways | ✓ | ✓ | |
 | The closing quote ("Encode the known…") | ✓ | ✓ | |
