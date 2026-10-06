@@ -1818,27 +1818,92 @@ an empirical claim that TPS automatically produces this outcome.
 -->
 
 ---
+class: "[&>h1]:!text-[32px] [&>h1]:!mb-2"
+---
 
 # Takeaways
 
 [持ち帰ってほしいこと]{.ja-title}
 
-1. **Judge AI use by freedom** — teams more freed than constrained
-   [**AI活用は自由で判断する**——チームが縛られるより解放されているか]{.ja}
-2. **Pull, don't stockpile** — thin slices, integrate, confirm, next bite
-   [**プルせよ、溜め込むな**——縦斬りスライス、統合、確認、次の一口]{.ja}
-3. **Smart → dumb → gone** — judgment-loaded → judgment-preserved →
-   judgment-removed; a justified stop halts propagation
-   [**賢い → 単純 → 消える**——判断を抱える → 保存する → 取り除く。正当な停止が波及を止める]{.ja}
-4. **Same gates for "I" and AI** — five judgments stay human
-   [**「私」にもAIにも同じゲート**——五つの判断は人間に残る]{.ja}
-5. **Integrate continuously; collaborate just in time** — do not create
-   debt faster
-   [**継続的に統合し、ジャスト・イン・タイムで協働する**——負債を速く作らない]{.ja}
+<ol class="absolute left-[6%] top-[24%] !m-0 grid w-[57%] list-none gap-4 !p-0">
+  <li class="flex gap-4">
+    <span class="pt-1 text-[21px] text-[#b33a2b]">1</span>
+    <div>
+      <p class="!m-0 text-[27px] font-semibold !leading-[1.15]">Judge AI by freedom and capability.</p>
+      <p class="!mb-0 !mt-1 text-[17px] !leading-[1.3] text-[#5c564e]" lang="ja">自由と、応える力が増えているか。</p>
+    </div>
+  </li>
+  <li class="flex gap-4">
+    <span class="pt-1 text-[21px] text-[#b33a2b]">2</span>
+    <div>
+      <p class="!m-0 text-[27px] font-semibold !leading-[1.15]">Pull small slices of real value.</p>
+      <p class="!mb-0 !mt-1 text-[17px] !leading-[1.3] text-[#5c564e]" lang="ja">本当のニーズから、小さく届ける。</p>
+    </div>
+  </li>
+  <li class="flex gap-4">
+    <span class="pt-1 text-[21px] text-[#b33a2b]">3</span>
+    <div>
+      <p class="!m-0 text-[27px] font-semibold !leading-[1.15]">Smart → dumb → gone.</p>
+      <p class="!mb-0 !mt-1 text-[17px] !leading-[1.3] text-[#5c564e]" lang="ja">賢い → 単純 → 消える。</p>
+    </div>
+  </li>
+  <li class="flex gap-4">
+    <span class="pt-1 text-[21px] text-[#b33a2b]">4</span>
+    <div>
+      <p class="!m-0 text-[27px] font-semibold !leading-[1.15]">Same gates for people and AI.</p>
+      <p class="!mb-0 !mt-1 text-[17px] !leading-[1.3] text-[#5c564e]" lang="ja">人にもAIにも、同じ基準。</p>
+    </div>
+  </li>
+  <li class="flex gap-4">
+    <span class="pt-1 text-[21px] text-[#b33a2b]">5</span>
+    <div>
+      <p class="!m-0 text-[27px] font-semibold !leading-[1.15]">Integrate continuously.<br>Collaborate just in time.</p>
+      <p class="!mb-0 !mt-1 text-[17px] !leading-[1.3] text-[#5c564e]" lang="ja">統合を続け、必要なときに協働する。</p>
+    </div>
+  </li>
+</ol>
+
+<img
+  src="/takeaways-useful-software.png"
+  alt="A customer uses a working train-finding result on their phone while a developer listens to what they need next."
+  class="absolute left-[65.5%] top-[21%] h-[74%] w-[30%] object-contain"
+/>
 
 <!--
-The small collection of main points to be useful the following day.
-Claims 10, 12, 4, 17, 6, 19, 20, 8.
+Five reminders to use the following day. The customer is already using
+a small working result; the developer listens for the next real need.
+The software-use scene is a conceptual illustration, not Toyota history.
+
+1. Judge AI by freedom and capability. Are people more able to understand,
+stop and improve the work, and take the next real problem? Use freed
+attention for comprehension, teaching, teamwork and kaizen. Output alone
+does not show that people are more capable or less constrained.
+
+2. Pull small slices of real value. Start with one current customer need.
+Deliver a thin vertical slice, integrate it, check its quality and
+usefulness, then choose the next bite. Limit unfinished work so the team
+can change direction without abandoning a stockpile of plans or output.
+
+3. Smart → dumb → gone. Spend judgment while creating; preserve what is
+learned in simple executable rules and closed stops; remove unnecessary
+parts or prevent the known error at its source where possible. A justified
+stop contains propagation, and people actually Stop & Fix. A detector
+everyone ignores is a dashboard. Unfinished judgment-loaded output is
+not finished knowledge.
+
+4. Same gates for people and AI. The product standards and stop conditions
+stay the same whoever authors a change. AI may repair a failure caused by
+its own change; it may not dissolve a stop or take a human decision fork.
+Value, design, credentials, undiagnosed unrelated failure and ambiguity
+still require human judgment.
+
+5. Integrate continuously; collaborate just in time. Technical excellence
+keeps one working shared product. That product exposes dependencies and
+pulls the right people together when collaboration is needed. Faster
+drafts are not useful if comprehension and integration debt grow faster.
+
+Claims 10, 12, 4, 17, 6, 19, 20 and 8. These reminders are Terry's
+application of TPS to AI-assisted software development, not Toyota slogans.
 -->
 
 ---

@@ -960,12 +960,40 @@ Mermaid only auto-places.
   the real Type G artifact from item 3 above.
 
 
+### G29. Takeaways — useful software in the customer's hands
+
+- **Status:** done — `public/takeaways-useful-software.png`.
+- **Slide:** "Takeaways"
+- **Placement:** portrait illustration on the right; five editable
+  bilingual reminders remain the main content on the left.
+- **Meaning:** a customer uses a small working train-finding result;
+  the developer listens for the next real need. The reminders share
+  this purpose: useful value now, with capability and room to respond next.
+- **Accuracy:** a conceptual software-use scene, not Toyota history.
+- **Generation:** built-in imagegen on 6 October 2026, with
+  `transparent_background=true` and G1 as the style reference.
+- **Original output:** `exec-e2b830fb-1ad3-4dc6-bec2-3913c0cc5e13.png`.
+- **Dimensions:** 1024 × 1536 RGBA, transparent surroundings.
+- **SHA-256:** `863b205ec702f840864f052d27478cd83894687bd83e89ae203af4c774994ac2`.
+- **Complete generation prompt:**
+
+```text
+Use case: illustration-story.
+Asset type: one original portrait spot illustration for the Takeaways slide of a TPS and AI software-development talk.
+Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+The supplied crane image is a STYLE reference only. Do not include a crane. Use a genuinely transparent surrounding background, black and gray ink, with the sole vermilion accent on one simple train pictogram on a smartphone screen.
+
+Show two adult peers at eye level, in a compact natural portrait grouping. An ordinary customer in a light casual coat with a small shoulder bag holds their own smartphone and looks at the useful result on its screen. The phone screen faces enough toward the viewer that one plain RED TRAIN PICTOGRAM is clearly visible, with no timetable, numbers, letters, UI labels or other symbols. It represents a small working software result: helping the person find a train home. Beside the customer, an adult software developer in a plain charcoal shirt listens attentively to what the customer needs next, with one relaxed open hand rather than grabbing the phone or dictating. The customer is actively using the result and has the other hand open in conversation. Convey useful software in use, shared understanding and room to respond to the next real need. Both people are capable adults, not superior expert and helpless recipient. Natural faces, credible hands and human proportions.
+
+Composition required by the slide: portrait 2:3 canvas, approximately 1024x1536. These two figures will occupy the RIGHT THIRD of a slide; keep them as one cohesive group, shown from heads to upper legs, with all faces, hands, phone, bag and elbows comfortably within the canvas. Essential content between about y=220 and y=1280, fading wash below. The figures face slightly toward each other and toward the left so the eye returns to the editable takeaways beside them. No table, factory, historical clothing, background station, landscape, stairs, crowd, thought bubbles, arrows, red line, crane, robot, logos, code, charts, writing or opaque paper rectangle. A light gray ground wash may fade to alpha. The scene is a conceptual software-use illustration, not a real Toyota event. Let the train screen be the only red focus; keep clothing neutral.
+```
+
 ## Slides intentionally without artwork
 
 The diagnostic question ("How do you know…"), the main-message quote,
-"Jidoka preserves knowledge", and "Takeaways". The stark, text-only look serves the "small
-collection of memorable points" goal; the quote slides in particular
-should not compete with their own words.
+and "Jidoka preserves knowledge". The stark, text-only look keeps their
+central statements prominent; the quote slides in particular should
+not compete with their own words.
 
 ---
 
