@@ -1645,30 +1645,89 @@ or verification cost, and more agents do not expand what is truly Done.
 -->
 
 ---
+class: "[&>h1]:!text-[32px] [&>h1]:!mb-2"
+---
 
 # Tensions and honest limits
 
 [緊張関係と、正直な限界]{.ja-title}
 
-- Honest CI **versus** disposable prototypes — a real tension pair
-  [正直なCI **対** 使い捨てのプロトタイプ——本当の緊張関係]{.ja}
-- The Algorithm resembles TPS — a family resemblance, not a proven
-  extension
-  [「アルゴリズム」はTPSに似ている——家族的類似であって、実証された発展形ではない]{.ja}
+<div class="absolute left-[9%] right-[9%] top-[22%] grid grid-cols-2 gap-10 text-center">
+  <div>
+    <p class="!m-0 text-[24px] font-semibold leading-tight">Throwaway prototype</p>
+    <p class="!mb-0 !mt-1 text-[17px] leading-snug">Easy to discard; limited integration feedback.</p>
+    <p class="!mb-0 !mt-1 text-[16px] leading-snug text-[#5c564e]" lang="ja">捨てやすい。統合の学びは限られる。</p>
+  </div>
+  <div>
+    <p class="!m-0 text-[24px] font-semibold leading-tight">Integrated experiment</p>
+    <p class="!mb-0 !mt-1 text-[17px] leading-snug">Shared feedback; others may build on it.</p>
+    <p class="!mb-0 !mt-1 text-[16px] leading-snug text-[#5c564e]" lang="ja">共に学べる。他の変更が依存することも。</p>
+  </div>
+</div>
 
-<img
-  src="/tension-loop.png"
-  alt=""
-  class="absolute bottom-[2%] left-[8%] h-[48%] w-[84%] object-contain"
-/>
+<div class="absolute left-[15%] right-[15%] top-[37%] bottom-[17%] overflow-hidden">
+  <img
+    src="/experiment-learning-and-removal.png"
+    alt="A developer easily discards an independent paper prototype. In a second scene, the same developer and two colleagues learn around one shared bridge model; later gray parts depend on its red experimental beam, so removal needs care."
+    class="h-full w-full object-cover"
+    style="object-position: center 43%;"
+  />
+</div>
+
+<div class="absolute bottom-[3%] left-[5.5%] right-[5.5%] text-center">
+  <p class="!m-0 text-[31px] font-semibold leading-tight">Learn together. Keep the <span class="text-[#b33a2b]">freedom to remove.</span></p>
+  <p class="!mb-0 !mt-2 text-[18px] leading-snug text-[#5c564e]" lang="ja">共に学ぶ。不要な実験を取り除く自由も守る。</p>
+</div>
 
 <!--
-Claim 23 carries the tension: honest CI seeks complete integration-cycle
-feedback; a disposable prototype seeks cheap learning outside the product.
-Both are good ideas; each limits the other.
+Claim 23. Two valuable kinds of learning create a tension between shared
+integration feedback and cheap disposal. Both matter.
 
-Claim 7 (supporting, qualified aside): the Algorithm's operating logic
-resembles TPS and lean; direct derivation from TPS is unproven.
+On the left, a throwaway spike answers a bounded question outside the
+shared product. Its code is easy to discard, but it has not met the
+current product, its tests, concurrent changes or the people building on
+them. It may still provide useful technical or customer learning.
+
+On the right, an experiment enters the working product through small,
+production-quality mainline changes. The team gets feedback from the
+integration cycle and can learn and coordinate through that shared work.
+In the bridge analogy, the red beam is the experiment; the gray planks
+and railing are later changes that have begun to depend on it.
+
+Now suppose the idea proves wrong or has served its purpose. Removing
+the red beam means understanding what still relies on it and preserving
+what the product still needs. That may require refactoring today's system.
+A recent, bounded change can often be reverted cleanly; the removal cost
+grows when dependencies cross the intended experimental boundary.
+The bridge is a conceptual software analogy, not a Toyota event.
+
+Hold both values: integrate in small reversible steps, make experimental
+dependencies explicit, and design the removal boundary as the experiment
+enters the product. A feature toggle can control exposure while the code
+meets production obligations. Test the supported states; once the decision
+is made, remove the losing path and the obsolete toggle promptly.
+Integration feedback establishes interactions and working-system health;
+customer value also needs feedback from the people using the product.
+
+AI can help produce experiments and changes faster. If the team's
+understanding and removal work fall behind, spent experiments can add
+judgment load and constrain the next change. This is an amplification
+of an existing tension, not an inevitable outcome of AI or CI. Preserve
+the freedom to remove alongside the ability to learn together.
+
+Optional aside — Claim 7: The Algorithm's question → delete → simplify →
+accelerate → automate sequence has a family resemblance to lean reasoning.
+Direct derivation from TPS remains unproven. This qualified aside is
+separate from the CI/prototype tension.
+
+[Sources]
+- Local Claim 23: 23-ci-and-disposable-prototypes-tension-pair.md
+- Local Claim 7: 07-the-algorithm-and-tps-family-resemblance.md
+- https://less.works/less/technical-excellence/continuous-integration
+- https://less.works/less/technical-excellence/architecture-design
+- https://martinfowler.com/articles/continuousIntegration.html
+- https://martinfowler.com/articles/feature-toggles.html
+[/Sources]
 -->
 
 ---

@@ -607,7 +607,9 @@ Preserve the RIGHT press as STOPPED, with its front doors open and raised still 
 
 ### G16. Tension loop — honest CI and disposable prototypes
 
-- **Status:** done — `public/tension-loop.png`
+- **Status:** retired 2026-10-06 — replaced by G28's concrete
+  experiment/removal story. Image deleted; recover
+  `public/tension-loop.png` from Git at `1c3ad0f`.
 - **Slide:** "Tensions and honest limits"
 - **Placement:** wide strip under the bullet list; the first bullet
   supplies the two labels (Honest CI / disposable prototypes) — never
@@ -622,6 +624,44 @@ Preserve the RIGHT press as STOPPED, with its front doors open and raised still 
   downward and fade. The ribbon stays one unbroken band through both
   characters; vermilion accent at the central crossing point; 16:9
   wide strip.
+
+### G28. Shared learning and the freedom to remove experiments
+
+- **Status:** done — `public/experiment-learning-and-removal.png`.
+- **Slide:** "Tensions and honest limits"
+- **Placement:** main body, two transparent scenes with editable bilingual
+  captions above and a single takeaway below.
+- **Original intent:** Claim 23 at `0b4d773`: integration lets people
+  learn and build on one another's changes, while later dependencies
+  can make discarding a spent experiment harder. The current claim
+  qualifies that risk and preserves valid throwaway spikes and clean reverts.
+- **Meaning:** a paper prototype can be discarded independently. In
+  the shared wooden bridge model, later gray parts depend on the red
+  experimental beam. Both cheap learning and shared feedback matter;
+  design removal when the experiment enters the product.
+- **Accuracy:** a conceptual software analogy, not Toyota history.
+  The integrated model is well fitted, not a disposable paper prototype
+  passed off as production quality. The depicted dependencies are a
+  possibility, not an inevitable effect of CI.
+- **Generation:** built-in imagegen on 6 October 2026, with
+  `transparent_background=true` and G1 as the style reference.
+- **Original output:** `exec-772e2c99-5aff-4a63-a417-90edad4e2ba7.png`.
+- **Dimensions:** 1536 × 1024 RGBA, transparent surroundings.
+- **SHA-256:** `d3e190cc3e5b68a65e7ed8e420074f40dd80dc83dbb2cebbc7cde1937df7ba76`.
+- **Complete generation prompt:**
+
+```text
+Use case: illustration-story.
+Asset type: one conceptual teaching illustration for the "Tensions and honest limits" slide in a TPS and AI software-development presentation.
+Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+The supplied crane is a STYLE reference only. Do not include a crane. Use a genuinely transparent background, black and gray ink, and vermilion only on the experimental part of each model.
+
+Tell a two-scene story with a generous clear gap between the scenes, left to right. The scene is an analogy for software experiments, NOT Toyota history and NOT a real engineering project.
+LEFT: one adult software developer with a short dark bob and a light plain shirt sits at a low table. She has tried a little folded-paper bridge prototype and is now putting it into a small wastepaper basket. The red accent is a single folded strip of that paper model. Her hand and the paper object are clearly visible over the basket: discarding this isolated experiment is simple. A small open laptop with a plain blank screen and one blank sketch page stay on the table. No piles, no frustration, no alarm, no text. The image should make the prototype's independence and cheap disposal obvious.
+RIGHT: the SAME developer, recognizable by her bob and shirt, is now collaborating with TWO other adult developers around one low shared worktable. They are building and inspecting ONE sturdy wooden tabletop bridge model as an analogy for a shared software product. It is production-quality in the metaphor: orderly, well fitted joinery, not paper crudely inserted into a real bridge. One red wooden crossbeam in the central bay represents an integrated experimental idea. Several gray deck planks and a short upper railing connect visibly to that red crossbeam: other work has begun to depend on it. The first developer points thoughtfully at that red beam and the joints above it while a second developer fits one gray deck plank and a third inspects a neighboring gray joint. Their hands and eye lines show real shared learning around one system. The red beam is still installed; nobody rips it out or breaks the model. Its supported gray parts make clear why simply discarding it now needs care. The bridge is an ordinary modest workbench model with only three bays, no intricate tower, cranes, landscape, vehicles or people walking across it. One small blank laptop on the far table edge links the analogy to software; the shared model remains the focus. All adults are equal peers with relaxed attentive expressions, credible hands and natural proportions.
+
+Composition required by the slide: landscape 3:2 canvas, ideally 1536x1024, two balanced scenes spanning almost all the width. Use seated or waist-up people and low tables to keep ALL faces, hands, prototype, basket, red beam and dependent gray planks within the central horizontal band, approximately y=250 to y=740. Upper and lower quarters should be mostly transparent so the slide can crop to a wide strip. Keep clear space around the important objects and a large gap at the center. Fading light gray ground wash only. No frame, divider, arrows, infinity loop, knot, symbolic gears, text, labels, checkmarks, logos, robots, opaque paper rectangle or decorative scenery. The visual contrast is EASY DISPOSAL versus SHARED LEARNING WITH DEPENDENCIES; both are worthwhile activities, not good versus evil.
+```
 
 ### G17. Switching-cost stack
 

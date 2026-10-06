@@ -154,7 +154,7 @@ review is still to come, so the *Aki reviewed* column is blank.
 | AI speeds whichever loop you feed | ✓ | ✓ | |
 | Respect for People: making things means making people | ✓ | | |
 | Continuous improvement towards perfection | ✓ | | |
-| Tensions and honest limits | ✓ | ✓ | |
+| Tensions and honest limits | ✓ | | |
 | How do you know if the organization is using AI right? (conclusion) | ✓ | | |
 | Takeaways | ✓ | ✓ | |
 | The closing quote ("Encode the known…") | ✓ | ✓ | |
