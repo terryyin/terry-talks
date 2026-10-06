@@ -1851,17 +1851,42 @@ layout: quote
   class="absolute inset-0 h-full w-full object-cover"
 />
 
-<div class="absolute inset-y-0 left-[6%] z-10 flex w-[56%] items-center">
-
-> **Encode the known. Stop the abnormal. Free people to learn.
-> Entrust a capable response to real need.
-> Let visible capability earn mutual trust.**
-> [**既知を組み込む。異常で止める。人を学びへと解放する。本当のニーズに応える力を信頼して任せる。目に見える能力で、相互の信頼を得る。**]{.ja}
-
+<div class="absolute left-[6%] top-[24%] z-10 flex w-[53%] flex-col gap-8">
+  <div>
+    <p class="!m-0 text-[43px] font-semibold !leading-[1.2]">
+      Build products<br>that <span class="text-[#b33a2b]">free people</span>.
+    </p>
+    <p class="!mb-0 !mt-3 text-[19px] !leading-[1.5] text-[#5c564e]" lang="ja">人を自由にするプロダクトをつくる。</p>
+  </div>
+  <div>
+    <p class="!m-0 text-[43px] font-semibold !leading-[1.2]">
+      <span class="text-[#b33a2b]">Trust them</span> with<br>the next real problem.
+    </p>
+    <p class="!mb-0 !mt-3 text-[19px] !leading-[1.5] text-[#5c564e]" lang="ja">次の本当の課題を、人に任せる。</p>
+  </div>
 </div>
 
 <!--
-Closing — return to the theme.
+Close with Freedom and Trust as a relationship people can act on.
+
+Build products that free people: preserve learned judgment in tests,
+stops and simple mechanisms, or remove the need for a part altogether.
+Known decisions no longer demand repeated attention from people or AI.
+The people doing the work retain the ability and authority to understand,
+stop and improve those mechanisms. Use the freed attention to learn.
+
+Trust them with the next real problem: actual customer need determines
+what matters next. Deliver useful value in small steps, and keep room to
+change direction. Entrust people with the problem and give them the time,
+support and freedom to discover a capable response. Mutual trust grows
+through visible capability and reciprocal support as people learn together.
+
+The open hand and flying crane return to the cover's image of freedom.
+The product carries what we have learned; people remain free to handle
+what we have yet to learn.
+
+Claims 3, 6, 10 and 12. This is Terry's closing synthesis, not a Toyota
+quotation or a claim that every use of AI frees people automatically.
 -->
 
 ---

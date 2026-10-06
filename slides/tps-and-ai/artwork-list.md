@@ -596,7 +596,7 @@ Preserve the RIGHT press as STOPPED, with its front doors open and raised still 
 ### G14. Closing — the crane aloft
 
 - **Status:** done — `public/closing-crane-aloft.png`
-- **Slide:** the closing quote ("Encode the known…")
+- **Slide:** the closing statement ("Build products that free people…")
 - **Placement:** full-bleed background; companion piece to G1 so the
   deck visually returns to its theme
 - **Style reference:** G1 (`public/cover-crane-released.png`) — required,
