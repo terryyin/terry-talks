@@ -201,13 +201,36 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ### G4. The apparent tradeoff — tilted balance
 
-- **Status:** done — `public/freedom-entrustment-balance.png`
+- **Status:** regenerated 2026-10-06 — `public/freedom-entrustment-balance.png`.
 - **Slide:** "Freedom vs. trust?"
-- **Placement:** lower half; “Trust people with real work” / 信頼して任せる
-  stays typeset in the slide above the art, never generated
-- **Prompt:** An antique two-pan balance scale, one pan holding a
+- **Placement:** main body, with two brief editable assumptions above
+  and "Why should we have to choose?" below. Transparent surroundings
+  let the art sit directly on the slide's warm background.
+- **Meaning:** the raised feather represents freedom; the lowered key
+  represents retained control. They show an assumed tradeoff, not a
+  definition of trust. The later level balance answers this false choice.
+- **Generation:** built-in imagegen on 6 October 2026, editing the original
+  G4 as the subject/style reference with `transparent_background=true`.
+- **Original output:** `exec-f5287095-70cc-4319-88c7-4c6bdaa23d3a.png`.
+- **Dimensions:** 1536 × 1024 RGBA, transparent surroundings.
+- **SHA-256:** `6daacb26af134feb5198cf66d0e6d97fe9eed0d27f48c7d98aa7ba5bdc04d5c1`.
+- **Previous artwork:** recover the opaque version from Git at `f830e31`.
+  That version was the reference used to generate G20.
+- **Previous prompt:** An antique two-pan balance scale, one pan holding a
   single feather high in the air, the other sunk low under a heavy
   iron key; centered, ample empty margin above; 16:9 lower band.
+- **Complete regeneration prompt:**
+
+```text
+Use case: stylized-concept.
+Asset type: a regenerated tilted balance illustration for the early "Freedom vs. trust?" slide of a TPS and AI talk.
+Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+Use the supplied balance illustration as the subject and style reference. Keep the same antique two-pan balance, with exactly ONE vermilion feather on the LEFT pan raised high, and exactly ONE heavy black iron key on the RIGHT pan sunk low. Preserve this unmistakable tilt. This is the apparent tradeoff the talk will question, not a physical demonstration or a Toyota historical object.
+
+Recompose the scale as a LOW, WIDE spot illustration to fit the main body of a slide. Its two ends should span almost the full image width. Use shorter chains, a modest-height central pedestal, a clear diagonal crossbeam and broad shallow pans, so the complete balance is readable in a shallow horizontal strip. Keep feather, iron key, both pan rims, all chains, beam ends and the base complete and comfortably away from all edges. Match the restrained hand-painted sumi-e contours and feather of the reference. Black and gray only except for that one vermilion feather. Both objects must read clearly at presentation size.
+
+Required slide composition: landscape 3:2 canvas, about 1536x1024; all essential scale, feather and key detail occupies a central wide horizontal band, approximately x=120 to x=1420 and y=290 to y=770. The upper and lower quarters are mostly transparent, so the slide can crop to a wide strip. The surrounding background MUST be genuinely transparent. Remove the reference's opaque paper texture rectangle entirely. A faint gray ground wash may fade into alpha. No people, scenery, labels, letters, symbols, text, question marks, decorative frames, extra objects, arrows, red line or second red accent. Do not level the beam.
+```
 
 ### G20. Freedom and trust — level balance
 

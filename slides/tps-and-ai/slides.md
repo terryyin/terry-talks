@@ -292,36 +292,59 @@ Hashes: `7b61a5705c` (`/sync` pull), `fce957dd3d` (`/export` pin),
 -->
 
 ---
+class: "[&>h1]:!text-[32px] [&>h1]:!mb-2"
+---
 
 # Freedom vs. trust?
 
 [自由 VS 信頼？]{.ja-title}
 
-To hand over the work that matters, it seems you must **constrain** people
-in advance.
-[大事な仕事を任せるには、あらかじめ人を**制約で縛る**必要があるように見える。]{.ja}
+<div class="absolute left-[6%] right-[6%] top-[22%] grid grid-cols-2 gap-10 text-center">
+  <div>
+    <p class="!m-0 text-[27px] font-semibold !leading-[1.2]">Give freedom.</p>
+    <p class="!mb-0 !mt-1 text-[23px] !leading-[1.2]">Withhold real work?</p>
+    <p class="!mb-0 !mt-2 text-[17px] !leading-[1.3] text-[#5c564e]" lang="ja">自由なら、大事な仕事は任せられない？</p>
+  </div>
+  <div>
+    <p class="!m-0 text-[27px] font-semibold !leading-[1.2]">Entrust real work.</p>
+    <p class="!mb-0 !mt-1 text-[23px] !leading-[1.2]">Control every step?</p>
+    <p class="!mb-0 !mt-2 text-[17px] !leading-[1.3] text-[#5c564e]" lang="ja">任せるなら、手順まで管理する？</p>
+  </div>
+</div>
 
-To give real freedom, it seems you **cannot hand over** the work that
-matters.
-[本当の自由を与えたら、大事な仕事は**任せられない**ように見える。]{.ja}
+<div class="absolute left-[18%] right-[18%] top-[36%] bottom-[16%] overflow-hidden">
+  <img
+    src="/freedom-entrustment-balance.png"
+    alt="A tilted balance with a light red feather raised on the left and a heavy iron key lowered on the right, representing the assumed choice between freedom and control."
+    class="h-full w-full object-cover"
+  />
+</div>
 
-**Trust people with real work.** · **信頼して任せる**
-
-<img
-  src="/freedom-entrustment-balance.png"
-  alt=""
-  class="absolute bottom-[2%] left-[8%] h-[34%] w-[84%] object-contain"
-/>
+<div class="absolute bottom-[3%] left-[6%] right-[6%] text-center">
+  <p class="!m-0 text-[31px] font-semibold !leading-[1.2]">Why should we have to <span class="text-[#b33a2b]">choose?</span></p>
+  <p class="!mb-0 !mt-2 text-[18px] !leading-[1.3] text-[#5c564e]" lang="ja">両立できないのだろうか。</p>
+</div>
 
 <!--
-Main message setup — the apparent tradeoff: freedom and trust
-mistakenly treated as a tradeoff.
+The apparent tradeoff, not two recommendations. Organizations may assume
+that giving people freedom means withholding important work, or that
+entrusting important work requires controlling every step. The key depicts
+retained control, not trust itself; the feather represents room to respond.
+The tilted scale makes that false choice visible. Ask why we should have
+to choose, then let the next slide introduce the relationship.
 
 Trust here means trusting people with real problems and giving them freedom
 and support to respond. Entrusting work expresses that trust; mutual trust
 also grows through capable responses. Keep entrust as the precise verb for
-giving responsibility. TPS shows how freedom and trust can reinforce each
-other — next slide. Claim 10.
+giving responsibility. Freedom means the ability and authority to take
+the next real problem, not independence from shared purpose or quality
+standards. Trust needs demonstrated capability and reciprocal support.
+
+TPS suggests a way to hold both: preserve known judgment in enabling
+constraints, free attention for the unfamiliar, and grow people's ability
+to respond. The later level balance on "The engine of freedom and trust"
+returns to this image. This is Terry's interpretation, not a Toyota
+definition of trust or JIT. Claim 10.
 -->
 
 ---
