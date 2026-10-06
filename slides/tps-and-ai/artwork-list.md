@@ -488,6 +488,41 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   A train pictogram on the phone represents a delivered result. These are
   conceptual customer scenes, not Toyota history.
 
+### G26. Respect for People — learning, then helping another learn
+
+- **Status:** done — `public/respect-people-grow-judgment.png`.
+- **Slide:** "Respect for People: making things means making people"
+- **Placement:** the main body, wide horizontal crop of the transparent
+  central scene. All faces, working hands, problem objects and the laptop
+  remain visible. The title and one short bilingual takeaway stay editable.
+- **Generation:** built-in imagegen on 6 October 2026, with
+  `transparent_background=true` and G1 as the style reference.
+- **Meaning:** two moments and three identities. A learner investigates a
+  real problem with support, then helps a colleague investigate independently.
+  The red fit problem draws attention to the learner's own reasoning.
+  The lantern is a craft analogy for software improvement, not Toyota history.
+  This is capability developed through responsibility and teaching, with
+  Claims 12, 3 and 10 supplying the argument.
+- **Original output:** `exec-699105f2-2d3f-448e-964d-76a2e8b18fa2.png`.
+- **Dimensions:** 1536 × 1024 RGBA, transparent surroundings.
+- **SHA-256:** `17758c20df25e30b49dd37547ff033e1b3113b03be3ed7f2cebdb93ebaca87c3`.
+- **Complete generation prompt:**
+
+```text
+Use case: illustration-story.
+Asset type: one original teaching illustration for slide 28 of a TPS and AI presentation, explaining Respect for People through responsibility, supported problem solving, and teaching.
+Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+The supplied crane image is a STYLE reference only. Do not include a crane. Use black and gray ink, with vermilion only on one small part of the problem being investigated. Genuinely transparent background.
+
+Show TWO related moments in one continuous horizontal spot illustration, left-to-right, with generous clear separation and no frames or connecting arrows. Four human figures total, representing three distinct adult identities because the learner appears in both moments.
+LEFT MOMENT: an older craftsperson with gray hair, glasses and a dark plain work jacket kneels alongside a younger adult woman with a dark short bob and a light work jacket at a low workbench. The younger woman actively investigates why a simple tabletop lantern's removable square wind cover does not fit its frame. She holds the cover in one hand and a simple small measuring square in the other, checking the fit herself. The little red accent marks only the misaligned corner. The older colleague listens attentively and asks through a small open-hand gesture, leaving the measuring, decisions and tool use to her. They are eye-level peers, no scolding, no manager hovering or doing the repair for her.
+RIGHT MOMENT: the SAME younger woman, recognizable by her short bob and light jacket, now helps a third adult colleague with tied-back hair and a gray work jacket at a second low workbench. The third colleague personally tests the fit of a comparable lantern cover. The first woman gestures supportively to an unlettered pencil sketch as she shares how to investigate the fit. The third colleague's hands do the actual work. One simple laptop with a blank screen sits beside the sketch, lightly linking this craft analogy to software. No code, text, check marks, UI, labels or symbols on it.
+The lanterns are ordinary small workbench objects, without glowing red alarms or unrealistic machinery. Make the hand actions, ownership of the problem and transfer of understanding unmistakable. The visual story is someone developing their own judgment through real work, then enabling another person's judgment, not merely producing two objects faster. Adults of varied ages with natural proportions and credible hands. Plain neutral clothing, no logos, no corporate stock vectors, no childish mascots, no robots, no brain/lightbulb icons, no sprouts, ladders, balloons or growth-chart symbols.
+
+Composition required by the slide: wide horizontal group, landscape canvas roughly 3:2 (1536x1024); all essential content within the CENTRAL HALF of the canvas height, from approximately y=260 to y=760, so the slide can use a wide horizontal crop. People, faces, hands, lanterns and bench legs all remain inside that central band, with no face touching its edges. Fill most of the canvas width, keeping the two scenes balanced and legible. Upper and lower quarters mostly transparent. Very light ground washes fade to alpha. No opaque paper rectangle, room panorama, captions, arrows or decorative text.
+```
+
+
 ### G13. Pit-stop changeover (SMED)
 
 - **Status:** implemented — `public/pit-stop-changeover.png`
@@ -827,8 +862,7 @@ Mermaid only auto-places.
 ## Slides intentionally without artwork
 
 The diagnostic question ("How do you know…"), the main-message quote,
-"Jidoka preserves knowledge", "Respect for People: making things
-means making people", and "Takeaways". The stark, text-only look serves the "small
+"Jidoka preserves knowledge", and "Takeaways". The stark, text-only look serves the "small
 collection of memorable points" goal; the quote slides in particular
 should not compete with their own words.
 

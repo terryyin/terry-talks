@@ -1499,21 +1499,65 @@ Claims 3, 6, 10, and 22.
 -->
 
 ---
+class: "[&>h1]:!text-[30px] [&>h1]:!mb-2"
+---
 
 # Respect for People: making things means making people
 
 [人間性尊重：モノづくりは人づくり]{.ja-title}
 
-Spend freed attention on **comprehension**, **whole-product collaboration**,
-**kaizen**, and **teaching** — grow response capability, not output.
-[解放された注意を**理解**、**プロダクト全体での協働**、**改善**、**教えること**に使う——育てるのはアウトプットではなく、応える能力だ。]{.ja}
+<div class="absolute left-[5.5%] right-[5.5%] top-[24%] bottom-[14%] overflow-hidden">
+  <img
+    src="/respect-people-grow-judgment.png"
+    alt="Two moments: a learner investigates a lantern's fit herself with support from an experienced colleague. Later, the same learner helps another colleague investigate, passing on the ability to think and improve the work."
+    class="h-full w-full object-cover"
+    style="object-position: center 50%;"
+  />
+</div>
 
-The deskilling risk is real: encode the known without losing the ability
-to judge the unknown.
-[スキル低下のリスクは現実にある：既知を仕組みに組み込みつつ、未知を判断する力を失わないこと。]{.ja}
+<div class="absolute bottom-[4%] left-[5.5%] right-[5.5%] text-center">
+  <p class="!m-0 text-[31px] font-semibold leading-tight">Grow people who can <span class="text-[#b33a2b]">think for themselves.</span></p>
+  <p class="!mb-0 !mt-2 text-[19px] leading-snug text-[#5c564e]" lang="ja">自ら考える人を育てる。</p>
+</div>
 
 <!--
-Claims 12 and 3.
+Claims 12, 3 and 10. The preceding engine needs people who can judge,
+respond and improve. Respect for People sustains that capability through
+real responsibility, challenge, teamwork and support. Freed attention
+must become time to understand, experiment, collaborate, teach and do kaizen.
+More output by itself does not develop that capability.
+
+Read the illustration as two moments, not four different people. The
+short-haired learner on the left owns the investigation. The older
+colleague supports her thinking rather than taking the problem away.
+On the right she helps another colleague investigate for themselves.
+Teaching spreads capability beyond one expert. The lantern is a craft
+analogy for improving one working software product, not a Toyota event.
+
+The software translation: solve a real customer problem together, inspect
+the product and evidence, understand why a change works, improve it,
+and help someone else learn to investigate. AI may support that work and
+carry known judgments, while people retain the authority to stop and
+change the process. Learning is supported work, not extra unpaid effort.
+Challenge without support can become pressure rather than growth.
+
+The deskilling risk is conditional: bypassing the problem-solving journey
+can erode the ability to judge the unfamiliar. Encoding the known should
+leave the people more capable of handling what is not yet understood.
+This AI/software application is Terry's interpretation, not a Toyota quotation.
+
+Fujio Cho's November 2012 message connects Respect for People with
+developing people who think independently and improve the workplace,
+and explicitly links making things with making people. LeSS's Teaching
+Problem Solving emphasizes helping people solve their own problems.
+
+[Sources]
+- Local Claim 12: 12-respect-for-people-who-can-think.md
+- Local Claim 3: 03-jidoka-enables-jit-trusts-respect-grows.md
+- Local Claim 10: 10-freedom-and-trust-reinforce-through-jidoka.md
+- https://www.toyota-global.com/company/history_of_toyota/75years/message/index.html
+- https://less.works/less/management/teaching-problem-solving
+[/Sources]
 -->
 
 ---
