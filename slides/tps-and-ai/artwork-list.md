@@ -341,7 +341,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G5. Watching the loom / watching the AI (mirrored pair, 1 of 2)
 
 - **Status:** done — `public/watching-the-loom-watching-the-ai.png`
-- **Slide:** the untitled image slide after "The loom's closed stop",
+- **Slide:** the untitled image slide after "Dumb: the rule becomes a stop",
   first image (captioned "Watching the loom / watching the AI")
 - **Placement:** full-bleed on that slide before its click; G6 replaces
   it on the click, so the Type G photograph (item 3) keeps its own moment
@@ -357,7 +357,7 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 ### G6. Called by the stop (mirrored pair, 2 of 2)
 
 - **Status:** done — `public/called-by-the-stop.png`
-- **Slide:** the untitled image slide after "The loom's closed stop",
+- **Slide:** the untitled image slide after "Dumb: the rule becomes a stop",
   second image (captioned "Called by the stop")
 - **Placement:** full-bleed on that slide, replacing G5 on the click
 - **Generate from:** G5, so the pair stays consistent; G1 as style
@@ -999,8 +999,8 @@ not compete with their own words.
 
 ## Addendum — how the loom's jidoka mechanism works
 
-A follow-up slide, "Dumb: the rule becomes a stop", after G7's
-conceptual example: show the actual Type G stop mechanism, because the
+A follow-up slide, "Dumb: the rule becomes a stop", directly after
+"The loom's closed stop": show the actual Type G stop mechanism, because the
 mechanism *is* the argument — people learned which abnormality must
 stop production, then a closed physical mechanism preserved that
 judgment through gravity and a falling piece of metal. The Type G is
@@ -1094,8 +1094,7 @@ Videos)"](https://www.allaboutlean.com/toyoda-model-g/).
   Explanation belongs in the short side captions or narration, never
   inside the clip.
 - **Context and purpose:** the audience has heard "Jidoka preserves
-  knowledge," seen "The loom's closed stop," compared watching a
-  loom with watching AI, and seen "Called by the stop." The next
+  knowledge" and seen "The loom's closed stop." The next
   question is how such a stop is built. A1 answers by making the
   physical cause of the stop legible. The takeaway is **earlier human
   judgment becomes an enforced stop, freeing attention for the next

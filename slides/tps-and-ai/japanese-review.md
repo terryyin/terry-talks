@@ -140,7 +140,7 @@ review is still to come, so the *Aki reviewed* column is blank.
 | The triad | ✓ | ✓ | |
 | Jidoka preserves knowledge | ✓ | ✓ | |
 | The loom's closed stop | ✓ | ✓ | |
-| The untitled image slide after "The loom's closed stop" | ✓ | ✓ | |
+| The untitled image slide after "Dumb: the rule becomes a stop" | ✓ | ✓ | |
 | Smart → dumb → gone | ✓ | ✓ | |
 | Stop & Fix is emergent judgment-intensive work | ✓ | ✓ | |
 | The gates do not care who authored the change | ✓ | ✓ | |

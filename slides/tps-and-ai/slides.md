@@ -615,7 +615,8 @@ the person radical. Only that radical is red in the outlined SVG. Toyota
 calls this autonomation, or automation with a human touch: human wisdom
 built into the work. The radical does not mean somebody must keep watching.
 The mechanism handles the known abnormality; people respond when it stops
-and improve the process. The next slide shows that change in attention.
+and improve the process. The following slides show how the stop works and
+how it changes attention.
 
 [Sources]
 - https://global.toyota/en/company/plant-tours/production-system/
@@ -623,6 +624,53 @@ and improve the process. The next slide shows that change in attention.
 - https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html
 - https://www.toyota-industries.com/company/history/toyoda_sakichi/
 - https://www.jsme.or.jp/kikaiisan/heritage_016_en.html
+[/Sources]
+-->
+
+---
+layout: default
+---
+
+# Dumb: the rule becomes a stop
+
+[単純：判断を停止の仕組みに組み込む]{.ja-title}
+
+<div class="absolute left-[5.5%] top-[27%] aspect-video w-[67%]">
+  <img v-click.hide="1" src="/loom-jidoka-mechanism.png" alt="Loom warp stop: a taut thread holds a metal dropper up; a broken thread lets the dropper fall and block the detection bar." class="absolute inset-0 h-full w-full object-contain">
+  <video v-click="1" muted loop playsinline autoplay src="/loom-warp-stop.mp4" class="absolute inset-0 h-full w-full object-contain" aria-label="Animated loom warp stop: the thread breaks, the dropper falls, and the blocked bar triggers a stop."></video>
+</div>
+
+<div class="absolute right-[5.5%] top-[27%] w-[19.5%]">
+  <img src="/type-g-dropper-mechanism.jpg" alt="Actual metal droppers in the Toyoda Type G loom." class="w-full">
+  <div class="mt-1 text-[8px] leading-tight text-[#5c564e]">Photo: <a href="https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/">Christoph Roser</a><br><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div>
+  <div class="mt-7">
+    <p class="!m-0 !text-[19px] !leading-snug font-semibold">Thread intact: run</p>
+    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">糸が張ると動く</p>
+  </div>
+  <div class="mt-5">
+    <p class="!m-0 !text-[19px] !leading-snug font-semibold text-[#b33a2b]">Thread broken: stop</p>
+    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">糸が切れると止まる</p>
+  </div>
+</div>
+
+<div class="absolute bottom-[2%] left-[5.5%] text-[8px] text-[#5c564e]">Schematic illustration / 模式図</div>
+
+<!--
+One click replaces the large before/after still with the existing silent
+looping animation. The real Type G close-up anchors the schematic.
+
+The loom is powered. Thread tension holds a dropper up; a break lets it
+fall into an oscillating detection bar's path. Blocking the bar activates
+the stopping mechanism. Detection does not diagnose or repair the break.
+The prior decision is what counts as abnormal and must stop the work.
+The mechanism executes that closed decision. This demonstrates Dumb;
+the break still exists, so it does not demonstrate Gone.
+
+[Sources]
+- https://www.tcmit.org/vgt/textile/english/scene-10-iframe/target-04/
+- https://www.tcmit.org/vgt/textile/english/scene-13-iframe/target-03/
+- https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html
+- https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/
 [/Sources]
 -->
 
@@ -734,53 +782,6 @@ Gone leftover: write DTOs (`NoteUpdateTitleDTO`, `FolderCreationRequest`,
 `@Pattern(regexp = DisplayNamePathSeparators.REGEXP)` so
 `\ / : * ? " < > |` cannot be authored. Hashes: `dfbde33184` /
 `55e5e55edc` / `445656f73a`.
--->
-
----
-layout: default
----
-
-# Dumb: the rule becomes a stop
-
-[単純：判断を停止の仕組みに組み込む]{.ja-title}
-
-<div class="absolute left-[5.5%] top-[27%] aspect-video w-[67%]">
-  <img v-click.hide="1" src="/loom-jidoka-mechanism.png" alt="Loom warp stop: a taut thread holds a metal dropper up; a broken thread lets the dropper fall and block the detection bar." class="absolute inset-0 h-full w-full object-contain">
-  <video v-click="1" muted loop playsinline autoplay src="/loom-warp-stop.mp4" class="absolute inset-0 h-full w-full object-contain" aria-label="Animated loom warp stop: the thread breaks, the dropper falls, and the blocked bar triggers a stop."></video>
-</div>
-
-<div class="absolute right-[5.5%] top-[27%] w-[19.5%]">
-  <img src="/type-g-dropper-mechanism.jpg" alt="Actual metal droppers in the Toyoda Type G loom." class="w-full">
-  <div class="mt-1 text-[8px] leading-tight text-[#5c564e]">Photo: <a href="https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/">Christoph Roser</a><br><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div>
-  <div class="mt-7">
-    <p class="!m-0 !text-[19px] !leading-snug font-semibold">Thread intact: run</p>
-    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">糸が張ると動く</p>
-  </div>
-  <div class="mt-5">
-    <p class="!m-0 !text-[19px] !leading-snug font-semibold text-[#b33a2b]">Thread broken: stop</p>
-    <p class="!mb-0 !mt-1 !text-[15px] !leading-snug text-[#5c564e]" lang="ja">糸が切れると止まる</p>
-  </div>
-</div>
-
-<div class="absolute bottom-[2%] left-[5.5%] text-[8px] text-[#5c564e]">Schematic illustration / 模式図</div>
-
-<!--
-One click replaces the large before/after still with the existing silent
-looping animation. The real Type G close-up anchors the schematic.
-
-The loom is powered. Thread tension holds a dropper up; a break lets it
-fall into an oscillating detection bar's path. Blocking the bar activates
-the stopping mechanism. Detection does not diagnose or repair the break.
-The prior decision is what counts as abnormal and must stop the work.
-The mechanism executes that closed decision. This demonstrates Dumb;
-the break still exists, so it does not demonstrate Gone.
-
-[Sources]
-- https://www.tcmit.org/vgt/textile/english/scene-10-iframe/target-04/
-- https://www.tcmit.org/vgt/textile/english/scene-13-iframe/target-03/
-- https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html
-- https://www.allaboutlean.com/jidoka-3/model-g-warp-break-stop/
-[/Sources]
 -->
 
 ---
