@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Kaoru-chan",
-  "email": "kaoru-chan@example.org",
-  "identity": "problem-decomposition-remake#simple-film",
-  "mode": "story-branch",
-  "branch": "codex/problem-decomposition-remake",
-  "host": "codex"
-}
