@@ -1680,31 +1680,31 @@ class: "text-center [&>h1]:!text-[26px] [&>h1]:!mb-2"
 [組織がAIを正しく使えているか、どうすればわかる？]{.ja-title}
 
 <div class="absolute left-[5.5%] right-[5.5%] top-[30%]">
-  <p class="!m-0 text-[48px] font-semibold leading-[1.12]">
-    <span class="text-[#b33a2b]">Freer</span> and <span class="text-[#b33a2b]">more capable</span>
+  <p class="!m-0 text-[43px] font-semibold !leading-[1.2]">
+    Can we <span class="text-[#b33a2b]">trust the team</span><br>
+    with the next real problem?
   </p>
-  <p class="!mb-0 !mt-4 text-[37px] font-semibold leading-tight">to solve the next real problem.</p>
-  <p class="!mb-0 !mt-4 text-[19px] text-[#5c564e]">次の本当の問題を解く自由と力が、増えている。</p>
+  <p class="!mb-0 !mt-4 text-[19px] text-[#5c564e]" lang="ja">次の本当の課題を、チームに任せられるか。</p>
 </div>
 
-<div class="absolute left-[5.5%] right-[5.5%] top-[69%] grid grid-cols-3 gap-8">
+<div class="absolute left-[5.5%] right-[5.5%] top-[66%] grid grid-cols-3 gap-8">
   <div>
     <p class="!m-0 text-[22px] font-semibold">Jidoka</p>
     <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">自働化</p>
-    <p class="!mb-0 !mt-4 text-[21px] leading-snug">Less judgment to repeat.</p>
-    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">同じ判断を繰り返さずに済む。</p>
+    <p class="!mb-0 !mt-4 text-[21px] !leading-[1.35]">Learning stays<br>in the product.</p>
+    <p class="!mb-0 !mt-2 text-[16px] text-[#5c564e]" lang="ja">学びが仕組みとして残る。</p>
   </div>
   <div>
     <p class="!m-0 text-[22px] font-semibold">Just-in-Time</p>
     <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">ジャスト・イン・タイム</p>
-    <p class="!mb-0 !mt-4 text-[21px] leading-snug">Real need pulls work.</p>
-    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">本当のニーズから仕事が始まる。</p>
+    <p class="!mb-0 !mt-4 text-[21px] !leading-[1.35]">Useful value now.<br>Free to choose what’s next.</p>
+    <p class="!mb-0 !mt-2 text-[16px] text-[#5c564e]" lang="ja">価値を届け、次を選び直せる。</p>
   </div>
   <div>
     <p class="!m-0 text-[22px] font-semibold">Respect for People</p>
     <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">人間性尊重</p>
-    <p class="!mb-0 !mt-4 text-[21px] leading-snug">Better able to respond.</p>
-    <p class="!mb-0 !mt-1 text-[16px] text-[#5c564e]">人が育ち、応える力が増す。</p>
+    <p class="!mb-0 !mt-4 text-[21px] !leading-[1.35]">People grow the ability<br>to think for themselves.</p>
+    <p class="!mb-0 !mt-2 text-[16px] text-[#5c564e]" lang="ja">自ら考える力が育つ。</p>
   </div>
 </div>
 
@@ -1715,21 +1715,35 @@ Here is what that freedom lets them do: take the next highest-value
 work and acquire the knowledge it needs. Greater output is not sufficient
 evidence of that outcome.
 
+The closing test makes Freedom and Trust concrete: can we trust the team
+with the next real customer problem? Look for increasing freedom to take
+that work and demonstrated capability to understand, solve and improve it.
+Trust is warranted by that evidence, reliable shared safeguards, and
+reciprocal support. The team still needs time and support to investigate
+unfamiliar problems. Entrusting the problem leaves room to discover its answer.
+
 Three observable signs, interpreted through Terry's triad (Claim 3):
 
-Jidoka: learned rules become understandable tests, stops, simple mechanisms,
+Jidoka — learning stays in the product: learned rules become
+understandable tests, stops, simple mechanisms,
 or removal of unnecessary parts. Later use needs less repeated live
 judgment. People and AI can spend attention on what still needs discovery.
 People retain the authority and ability to understand, stop, and improve
 the work. A gate the team cannot act on creates another constraint.
 
-Just-in-Time: actual user need pulls small, integrated, useful changes and
+Just-in-Time — useful value now, free to choose what's next: actual user
+need pulls small, integrated, useful changes and
 the collaboration needed for them. Teams can take the next valuable work
 instead of being trapped by leftover ownership or a stockpile of output.
 Entrusting a capable response is Terry's reading of JIT; Toyota defines
 JIT operationally by what, when, and how much is needed.
+The three friends' next-train result lets the stairs question change the
+next priority. Keep completed value; leave later stories unstarted. Cheap
+changeovers make changing direction practical. Continuous integration keeps
+one working product and pulls the collaboration needed for the next change.
 
-Respect for People: freed attention goes into comprehension, teamwork,
+Respect for People — people grow the ability to think for themselves:
+freed attention goes into comprehension, teamwork,
 teaching, and kaizen. People become better able to handle the unfamiliar.
 Visible, responsible capability warrants entrusting the next problem.
 
