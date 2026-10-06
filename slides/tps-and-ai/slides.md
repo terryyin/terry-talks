@@ -958,40 +958,40 @@ plan excerpt is omitted from the slide so the ending lands on freedom.
 layout: image-right
 image: /entering-ai-harness.png
 backgroundSize: contain
-class: "[&>h1]:!mb-2 [&_p]:!my-2 [&_.slidev-code-wrapper]:!my-2 [&_pre]:!text-[13px] [&_pre]:!leading-snug [&_pre]:!py-1"
+class: "[&>h1]:!mb-2"
 ---
 
 # Go-See may mean entering the AI harness
 
 [現地現物 (Go-See) とは、AIハーネスの中に入ることかもしれない]{.ja-title}
 
-Genchi genbutsu when the work happens inside an agent loop:
-go to where the work is actually done.
-[仕事がエージェントループの中で起きるときの現地現物：実際に仕事が行われている場所へ行く。]{.ja}
-
-<div class="doughnut-example">
-
-`git commit` reports success. The pre-commit hook records the **main** tree.
-[`git commit` は成功を報告する。だがpre-commitフックが記録しているのは**main**のツリーだ。]{.ja}
-
-```bash
-REPO_ROOT="$HOOK_DIR/../.."
-REPO_ROOT="$(git rev-parse --show-toplevel)"
-```
-
+<div class="mt-8 space-y-6">
+  <div>
+    <p class="!m-0 !text-[27px] !leading-tight font-semibold">Do it yourself<br>a thousand times.</p>
+    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">まず、自分で千回やる。</p>
+  </div>
+  <div>
+    <p class="!m-0 !text-[25px] !leading-tight font-semibold">Know the consequences<br>of locking it in.</p>
+    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">何を固定するのか、その影響を知る。</p>
+  </div>
+  <div>
+    <p class="!m-0 !text-[27px] !leading-tight font-semibold text-[#b33a2b]">Then entrust it to AI.</p>
+    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">そのうえで、AIに任せる。</p>
+  </div>
 </div>
 
 <!--
-Claim 16 (supporting) — a secondary, qualified beat after the same gates:
-Go-See means firsthand facts; for AI work it *may* mean entering the
-harness. One example, not a general rule.
+Claim 16 (supporting). Terry's firsthand-experience heuristic for
+hardening a process into an AI harness: understand the actual work yourself.
 
-Leftover: doughnut `scripts/git-hooks/pre-commit`. `$HOOK_DIR/../..`
-resolves to the **main** checkout — the hook lives in shared
-`.git/hooks`. Hash: `1c696d455d` (`git rev-parse --show-toplevel`).
+"A thousand times" expresses deep personal experience, not a measured
+threshold or a Toyota rule. Before encoding a repeatable process, know
+the decisions, constraints and consequences that the harness will
+preserve. Understand what happens when that process is applied in the
+wrong context, and which judgment must remain open to people.
 
-Spoken callback: the P1 N+1 leftover on *Smart → dumb → gone* is
-what later landed once the tree was true — `0bd1dd2995`.
+This slogan concerns committing a process to the harness. It does not
+require a thousand repetitions before exploratory AI assistance.
 -->
 
 ---

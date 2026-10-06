@@ -144,7 +144,7 @@ review is still to come, so the *Aki reviewed* column is blank.
 | Smart → dumb → gone | ✓ | ✓ | |
 | Stop & Fix is emergent judgment-intensive work | ✓ | ✓ | |
 | The gates do not care who authored the change | ✓ | ✓ | |
-| Go-See may mean entering the AI harness | ✓ | ✓ | |
+| Go-See may mean entering the AI harness | ✓ | | |
 | Five judgments stay human | ✓ | ✓ | |
 | Pull: smaller customer problems | ✓ | | |
 | Freedom to choose again | ✓ | | |
