@@ -6,7 +6,7 @@ Make educational short videos.
 
 ## Taken
 
-- [Viewers understand problem decomposition through a simple short film](../Problem%20Decomposition%20Remake/seed.md#simple-film) — problem-decomposition-remake#simple-film
+- [Viewers understand problem decomposition through a simple short film](../Problem%20Decomposition%20Remake/seed.md#simple-film) — problem-decomposition-remake#simple-film ([plan](quick/012-problem-decomposition-remake/PLAN.md))
 
 ## Backlog list
 

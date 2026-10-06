@@ -5,7 +5,7 @@
 
 **Identity:** problem-decomposition-remake#simple-film
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/012-problem-decomposition-remake/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"760c2605c2b6c5a2aa80b4052be801cf00776ecd4e0d835fd8cc7c3ba5e69014","plan":"8a454571be5ae4c1e77a4522f88ca08971b9352d77a777a152740b1525f7edf7"}}
 ```
 
 **Goal:** Viewers understand external problem decomposition, why it preserves useful value and freedom to change, and how to practise it, in a simple film shorter than two minutes.
