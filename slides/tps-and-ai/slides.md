@@ -1345,10 +1345,10 @@ class: "[&>h1]:!mb-2"
 <div class="absolute left-[4%] top-[25%] w-[92%] aspect-[8/3]">
   <img
     src="/integration-coordination.png"
-    alt="One customer needs a bright, wind-resistant lantern. Two teams integrate changes into one shared product; a conflict stops a push and brings the five people together to resolve it, producing one coherent lantern."
+    alt="One customer needs a bright, wind-resistant lantern. Two teams integrate changes into one shared product; a conflict stops a push and brings the five people together to resolve it, producing one coherent lantern. A return arrow leads from that result back to the customer need, continuing the cycle."
     class="h-full w-full object-contain"
   />
-  <svg viewBox="0 0 2048 768" class="absolute inset-0 h-full w-full pointer-events-none" aria-hidden="true">
+  <svg viewBox="0 0 2048 768" class="absolute inset-0 h-full w-full pointer-events-none" style="overflow: visible" aria-hidden="true">
     <defs>
       <marker id="collaboration-pull-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
         <path d="M0,0 L8,4 L0,8" fill="none" stroke="#b33a2b" stroke-width="1.6" />
@@ -1356,9 +1356,13 @@ class: "[&>h1]:!mb-2"
       <marker id="collaboration-return-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
         <path d="M0,0 L8,4 L0,8" fill="none" stroke="#78716c" stroke-width="1.6" />
       </marker>
+      <marker id="collaboration-cycle-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+        <path d="M1,1 L7,4.5 L1,8" fill="none" stroke="#78716c" stroke-width="1.5" />
+      </marker>
     </defs>
     <path d="M 982,483 C 1035,483 1030,430 1095,448" fill="none" stroke="#b33a2b" stroke-width="4" marker-end="url(#collaboration-pull-arrow)" />
     <path d="M 1086,604 C 1010,635 1020,497 1035,430" fill="none" stroke="#78716c" stroke-width="3.5" marker-end="url(#collaboration-return-arrow)" />
+    <path d="M 1880,175 C 1845,-10 1440,-10 1130,-10 H 460 C 300,-10 245,14 260,106" fill="none" stroke="#78716c" stroke-width="4.5" stroke-linecap="round" marker-end="url(#collaboration-cycle-arrow)" />
   </svg>
 </div>
 
@@ -1369,7 +1373,7 @@ class: "[&>h1]:!mb-2"
 
 <!--
 Claim 8. Nemawashi (Claim 9) and the Ebata teaching (Claim 14) support
-these JIT beats. G19 (ukiyo-e panorama) is the integration–coordination
+these JIT beats. G19 (sumi-e panorama) is the integration–coordination
 overlap.
 
 Walk the picture left to right: one customer needs one lantern that is
@@ -1378,6 +1382,8 @@ The upper pair integrates black A B first; the lower mob's later A C
 conflicts at A. The red stop calls the relevant five people together.
 They resolve the dependency directly and integrate one coherent result.
 The red arrow pulls collaboration; the stone return arrow closes integration.
+The outer return leads from the useful result to the customer: use and the
+next need begin another cycle. It does not automatically invent a new demand.
 The customer need is the source of pull, not a manager allocating parts.
 
 Technical excellence enables the whole product group to integrate

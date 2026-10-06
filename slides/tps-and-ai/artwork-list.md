@@ -579,22 +579,24 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
   one key piece withdrawn a little as the vermilion accent so remaining
   judgment is visible; no text; 4:3
 
-### G19. Shared product pulls collaboration (ukiyo-e panorama)
+### G19. Shared product pulls collaboration (sumi-e panorama)
 
-- **Status:** retouched 2026-10-03 with the built-in image tool —
+- **Status:** restyled 2026-10-06 with built-in imagegen —
   transparent artwork at `public/integration-coordination.png`
 - **Slide:** "Let the shared product pull collaboration"
 - **Placement:** dominant wide panorama under the title; true alpha
   background. The example and fuller explanation are in speaker notes.
   One short bilingual footer carries the message: "Integrate continuously.
   Collaborate just in time." Two small native SVG arrows connect the
-  conflict and collaboration, leaving the artwork free of long labels.
-- **Exception (medium):** the common prefix is sumi-e ink-wash. The
-  owner asked for **浮世絵** (ukiyo-e woodblock). This item **replaces**
-  the medium: bold black outlines, flat color fields, a limited
-  palette, on off-white paper. Keep the deck's vermilion accent. Do
-  **not** prepend the sumi-e prefix. Do **not** pass G1 as a style
-  reference — it would pull the scene back into wash.
+  conflict and collaboration. A third returns from the finished product
+  to the customer's need above the panorama, making the full cycle explicit.
+- **Current medium:** the common sumi-e prefix applies. G1 is the style
+  reference; the existing scene supplies the content and composition.
+  Monochrome ink and gray washes replace the colored woodblock treatment.
+  Vermilion remains on the conflicting later A and X.
+- **Previous medium (superseded):** the owner previously requested
+  **浮世絵** (ukiyo-e woodblock). Its original prompts below remain as
+  history; the 2026-10-06 style-transfer prompt governs regeneration.
 - **Exception (text):** retain only **A B** and **A C** on the shared
   trunk. The original customer callouts and long arrow captions were
   removed in the 2026-10-03 simplification. One lantern with light rays
@@ -694,7 +696,6 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
 ---
 
-+
 - **2026-10-03 retouch prompt — background extraction and simplification:**
 
   Retouch the supplied ukiyo-e panorama for an elegant presentation slide. Preserve its distinctive Edo workshop woodblock style, characters, black outlines, muted indigo and warm natural wood colors, and one vermilion conflict accent. Make the background genuinely transparent (alpha), including the empty spaces around and between subjects: no paper texture, no beige rectangle, no backdrop, no opaque white ground. Keep the objects filled; don't make faces or clothes transparent.
@@ -725,12 +726,41 @@ Do not add extra Odd-e logos on cover or Thank you. The Lizard asset on
 
   Do not add text or labels. No letters apart from the existing A B and A C. Do not add a paper background, gradient, vignette, shadow rectangle or white matte. True transparent PNG.
 
-- **Selected generated file:**
+- **Previous generated file (superseded):**
   `/Users/terryyin/.codex/generated_images/01a0faef-d3e4-73e1-b082-5f5307e77aa7/exec-2c41e45a-bcaf-42e8-b5b0-fbb125e277b6.png`.
   Copied into the existing project asset. RGBA, 2022 × 778; alpha spans
   0–255. The gathering contains exactly the same five humans as the two
   teams; the AI is their companion. The loop arrows are native slide SVG:
   red from conflict to collaboration, stone from collaboration to the beam.
+
+- **2026-10-06 style-transfer prompt (complete):**
+
+  > Use case: style-transfer.
+  > Asset type: dominant panoramic illustration on slide 26, "Let the shared product pull collaboration".
+  > Input image 1 is the EDIT TARGET. Its content, meaning, sequence, characters, objects, layout and relative positions are already correct and must remain unchanged.
+  > Input image 2, the crane, is a STYLE REFERENCE ONLY. Do not add a crane.
+  > Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No captions or new text.
+  > Completely redraw image 1's ukiyo-e woodblock rendering into the soft, expressive, brush-painted ink medium of image 2: monochrome black contours, gray washes, paper-like pigment within subjects, fading organic edges and generous transparent negative space. This is a real change in drawing medium, not merely desaturation. Remove the indigo, ochre, gold and wood-brown colored fills. Neutral gray washes give faces, robes, wood and lanterns volume. Vermilion is reserved for the same conflicting later A and X; all other objects and light rays use ink/gray.
+  >
+  > Lock this exact continuous wide composition, approximately 2.6:1, matching the existing 2022x778 canvas:
+  > Far left: one seated customer and a small pictorial thought containing ONE lantern, light rays and wind curls. The customer seeks one bright, wind-resistant product, not separate products.
+  > Upper center-left: exactly two humans at one laptop, woman on left and older man on right, with one small friendly AI companion to their right.
+  > Lower center-left: exactly three humans at a shared computer, woman in patterned pale robe on left, younger man in middle, gray-haired older man on right.
+  > Between the two teams: the same single horizontal shared-mainline wooden beam continues left to right. Earlier A B in black, later A C with only the later A red and C black. Preserve these FOUR existing Latin capitals, large and clear. Preserve the short upper integration arrow landing at earlier A B and the short lower arrow stopped at the red X before later A C. No other letters or symbols.
+  > Center-right: exactly those same FIVE humans gathered informally around one shared lantern sketch, plus the same AI companion. No sixth human or manager. Preserve their identities, robes and distinct ages across both appearances. Hands and eye lines show direct collaboration.
+  > Far right: ONE completed cohesive lantern with light rays and exterior wind curls, on the same simple low stand, indicating both needs met.
+  > Keep all silhouettes, faces, computers, beam letters, X and lanterns fully visible, with essentially the SAME POSITIONS and SCALE as image 1. Do not introduce extra elements, different metaphor, boxed panels, callouts, background scenery, words or logos.
+  >
+  > IMPORTANT: do not paint any outer cycle/return arrow or the two small conflict-to-gathering loop arrows. Those arrows will be precisely overlaid as editable paths on the slide, including a clear return from finished lantern to the original customer need. Keep the upper rim/margin clear for that cycle. Preserve only the existing short team-to-mainline arrows and the mainline beam arrow. Genuine transparent background and alpha everywhere around/between subjects; no opaque paper rectangle, white matte, solid backdrop, halo, or new color.
+
+- **Current selected generated file:**
+  `exec-9027b49c-4fca-462a-a148-986bd459864d.png`, copied to
+  `public/integration-coordination.png`. RGBA, 2022 × 778, alpha 0–255.
+  SHA-256: `64adf5af2d5d926554c8ca86bf0812a63f96c7dd1340b83f06d95d4c81c1cc09`.
+  The previous woodblock asset is recoverable at revision `3fff539`.
+  All five team members, the AI companion, integration sequence and lantern
+  meanings are retained. The outer cycle is an editable slide SVG, so its
+  endpoint and direction stay crisp and distinct from the conflict stop.
 
 ---
 
