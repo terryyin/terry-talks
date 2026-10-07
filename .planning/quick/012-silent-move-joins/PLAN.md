@@ -36,6 +36,7 @@ frame without captions, offsets or manual repair. The authoring path is primary.
   Slice 1 accepted: `69065414d758130aebdc10632fa36757fab333fd` (CI unobserved).
   Slice 2 accepted: `ce49a406c371f7b2fa787aa73d0f3c6ec83cfc2f` (CI unobserved).
   Slice 3 accepted: `a40c14fe5b20222c0c214c1924b8b409ccb949fa` (CI unobserved).
+  Slice 4 accepted: `5d3db3af22f4f06e73aa6932d31f82d1be194b42` (CI unobserved).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile && NODE_ENV=test pnpm -C terry-moves exec tsc'`
   passed in this exact workspace with the current lockfile. No active Git hooks;
   the affected component's formatter is `pnpm terry-moves:format`.
@@ -165,14 +166,6 @@ door on the cut's frame with no travel across, the last travel runs
 door→desk, and the scene is one frame longer (story example 2). The wrench
 follows across the cut.
 
-Proof:
-- `joins.spec.ts`: the frame before the cut is at the window, the cut frame
-  is at the door, the next frame begins the door→desk travel;
-  `durationInFrames` is 124.
-- `scene.spec.tsx`: the wrench is at the hand on the cut frame and its
-  neighbors.
-- `remotion compositions` lists `SilentScene` at 124 frames.
-
 Accepted proof (same worktree, commands from `terry-moves/`):
 - `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/silentScene'`: 2 suites/14 tests passed, including after refactoring. `joins.spec.ts` compiles the authored cut sequence, observing ranges 60/18/1/45, frame 77 at window, 78/79 at door and 123 at desk; independent original/reordered fixtures still prove 123 frames. `scene.spec.tsx` derives real world hand vs wrench at cut/neighbors and sampled beats, no text.
 - `nix develop -c sh -c 'NODE_ENV=test pnpm exec tsc'`: pass before/after refactor.
@@ -189,16 +182,6 @@ the 1-based move, the move itself, and the problem, in the form recorded
 under decisions. Studio and the CLI show that message instead of a picture
 (story example 4). Replaces the interim behavior.
 
-Proof:
-- `tests/silentScene/validation.spec.ts`: travel to `kitchen` reports
-  `move 3 (travel to kitchen): unknown place "kitchen"; places are door, desk, window`;
-  duration 0, unknown actor, and unknown move kind each report their move
-  and problem; the valid script compiles.
-- With the script temporarily set to travel to `kitchen`,
-  `npx remotion compositions src/index.ts` prints the message; the edit is
-  reverted. Record whether `calculateMetadata` isolated the failure to
-  `SilentScene`.
-
 Accepted proof (same worktree, commands from `terry-moves/`):
 - `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/silentScene'`: 3 suites/39 tests passed before/after refactor. `validation.spec.ts` drives public compileScene with independent story fixtures, exact move 3 kitchen error, unknown actor/kind/start/cut, own-place names, first-error order and finite positive durations; actual valid script remains 124 frames. Join/render consumers all passed.
 - `nix develop -c sh -c 'NODE_ENV=test pnpm exec tsc'`: pass before/after refactor.
@@ -207,7 +190,7 @@ Accepted proof (same worktree, commands from `terry-moves/`):
 
 ### 5. Terry renders and revises the scene through the documented path
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: `terry-moves/package.json` gains `render:silent-scene` (H.264,
 yuv420p, like the other films, plus a poster still). `terry-moves/README.md`
@@ -215,11 +198,12 @@ gains a short "Silent scene" section: where the script is, the supported
 moves and the cut, the join rule, the feedback, and the preview and render
 commands. A revision is a script edit and the same render.
 
-Proof:
-- `pnpm render:silent-scene` writes `out/silent-scene.mp4`; `ffprobe` (or
-  Remotion's output) reports 124 frames at 30 fps.
-- The whole gate (`pnpm test` in the dev shell) is green.
-- Terry reorders two moves, re-renders, and watches the joins (evaluation).
+Accepted proof (same worktree, commands from `terry-moves/`):
+- `nix develop -c sh -c 'NODE_ENV=test pnpm render:silent-scene'`: three terminal passes on default script, actual swapped first/final travel entries (hop/cut retained), and exactly restored script. Both revised outputs retained; final default MP4/poster match restored source.
+- `/opt/homebrew/bin/ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,pix_fmt,r_frame_rate,avg_frame_rate,nb_frames,color_space,color_transfer,color_primaries -show_entries format=duration -of json out/silent-scene.mp4` and `/opt/homebrew/bin/ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,pix_fmt,r_frame_rate,avg_frame_rate,nb_frames,color_space,color_transfer,color_primaries -show_entries format=duration -of json out/silent-scene-reordered.mp4`: both 124 frames, 30/1 fps, 1080 square, H.264/yuv420p/BT.709, 4.133333 seconds, only video/no audio. Both PNG posters are 1080 square; inspected default desk vs revised window, wrench attached/no captions.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm test'`: 36 suites/368 tests, eslint/tsc passed. Public joins/render/validation observations and existing film consumers retained. One worker teardown warning appeared, absent in slice 1; cause unclassified. `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/silentScene --detectOpenHandles'`: 3 suites/39 tests passed with no open-handle diagnostics; does not explain the full-gate warning.
+- Script restored byte-for-byte (SHA256 `926ff00266d0938822544c3e2a6b8f84ccdeacf37d0f345b712ff45aaa0ea25c`); owned temporary backups removed. Terry's subjective evaluation remains unobserved.
+- Independent refactor extracted preserved Story Impact guidance to `Story Driven/README.md` with qualified paths/commands and a link; documentation-only, all accepted runtime proof unchanged. Read-only link/path checks and whitespace passed.
 
 ## Current decisions
 
