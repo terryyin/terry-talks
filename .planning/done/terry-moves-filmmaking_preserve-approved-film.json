@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#preserve-approved-film",
+  "title": "I can correct one visual moment without disturbing the approved film",
+  "completedAt": "2026-10-07T11:47:54.296Z",
+  "developer": "Terry Yin",
+  "agent": "Rio-chan",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}

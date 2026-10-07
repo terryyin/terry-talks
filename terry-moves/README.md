@@ -16,6 +16,53 @@ pnpm moves srt      # product-developer subtitles as SRT
 
 Or from this folder: `pnpm start` (Studio), `pnpm test`, `pnpm run build`, `pnpm srt`.
 
+## Compare a visual correction with an approved film
+
+From the repository root:
+
+```bash
+pnpm moves compare ProblemDecompositionFilm --change 0-1.2 --change 76-end
+pnpm moves compare ProblemDecompositionFilm --baseline '1334426^' --correction 1334426 --change 0-1.2 --change 76-end
+```
+
+The baseline defaults to committed `HEAD` and the correction to the working
+tree, including uncommitted changes. Either side can name a Git revision.
+Repeat `--change` for each intended picture change. Seconds use a half-open
+range (`76-80` includes 76 s and excludes 80 s); frame ranges include both
+endpoints (`2280f-2399f`). Either may run to `end` (`76-end`, `2280f-end`).
+Ranges are measured against the baseline. With no declarations, every changed
+frame is undeclared. A declaration with no changed frames is reported as such.
+
+The command compares every PNG frame and the mixed WAV samples without encoding
+the film. It also checks composition duration and fps. For
+`ProblemDecompositionFilm`, it reads
+[`Problem Decomposition/film-script.json`](../Problem%20Decomposition/film-script.json)
+on both sides and compares script duration, fps, cover duration, every scene's
+order/id/start/end, and every caption's order/text/start/end/speechStart/speechEnd.
+Picture differences name intersecting scenes; the opening cover owns its
+interval. Other script fields are outside this timeline check. Compositions
+without a timeline entry still get picture, audio and composition duration/fps
+evidence, but their scene and caption timings are **not checked**. The report
+states this limit explicitly.
+
+`terry-moves/out/revisions/<composition>-<timestamp>/report.md` contains the
+evidence, declared and undeclared picture changes, and links to before/after
+PNG pairs (baseline left, correction right). Each changed run has first,
+middle and last frames; an unchanged declaration has its midpoint. Temporary
+render-input worktrees and full frame sequences are deleted after comparison;
+the report, previews and render log remain.
+
+**Preserved** means the checked timeline and composition duration/fps agree,
+mixed audio samples are identical, and every changed frame falls in a declared
+range. **Not preserved** names the differences and exits with status 1; a
+declaration cannot approve changed audio or timing. For compositions without
+a timeline entry, **Preserved** applies only to the evidence described above.
+
+Install workspace dependencies first and have the host `ffmpeg` available on
+`PATH` for side-by-side previews. The installed Remotion CLI reports single-frame
+Stills without fps; the command stops with an explicit missing-evidence error
+for these compositions and produces no preservation verdict.
+
 ## Step 1: Add a new story
 
 Under the /src/stories folder, add a new story file. 
