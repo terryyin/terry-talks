@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Shunka-chan",
-  "email": "shunka-chan@example.org",
-  "activity": "preparation",
-  "identity": "terry-moves-filmmaking#choose-visual-treatment",
-  "host": "codex",
-  "model": "gpt-6.1-sol"
-}
