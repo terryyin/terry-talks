@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "agent": "Rio-chan",
+  "email": "rio-chan@example.org",
+  "identity": "terry-moves-filmmaking#preserve-approved-film",
+  "mode": "story-branch",
+  "branch": "codex/i-can-correct-one-visual-moment-without-disturbi",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}

@@ -6,9 +6,10 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
+- [I can correct one visual moment without disturbing the approved film](../terry-moves/seed.md#preserve-approved-film) — terry-moves-filmmaking#preserve-approved-film ([plan](quick/013-preserve-approved-film/PLAN.md))
+
 ## Backlog list
 
-- [I can correct one visual moment without disturbing the approved film](../terry-moves/seed.md#preserve-approved-film) — terry-moves-filmmaking#preserve-approved-film
 - [I can restage an animated diagram without repairing its relationships](../terry-moves/seed.md#restage-diagrams) — terry-moves-filmmaking#restage-diagrams
 - [I can choose a visual treatment that expresses my idea before producing the whole film](../terry-moves/seed.md#choose-visual-treatment) — terry-moves-filmmaking#choose-visual-treatment
 - [I can bring an existing character into a new scene and direct a believable interaction](../terry-moves/seed.md#character-prop-interaction) — terry-moves-filmmaking#character-prop-interaction
