@@ -35,6 +35,7 @@ frame without captions, offsets or manual repair. The authoring path is primary.
   and the remote execution branch. Increments publish to that execution branch.
   Slice 1 accepted: `69065414d758130aebdc10632fa36757fab333fd` (CI unobserved).
   Slice 2 accepted: `ce49a406c371f7b2fa787aa73d0f3c6ec83cfc2f` (CI unobserved).
+  Slice 3 accepted: `a40c14fe5b20222c0c214c1924b8b409ccb949fa` (CI unobserved).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile && NODE_ENV=test pnpm -C terry-moves exec tsc'`
   passed in this exact workspace with the current lockfile. No active Git hooks;
   the affected component's formatter is `pnpm terry-moves:format`.
@@ -180,7 +181,7 @@ Accepted proof (same worktree, commands from `terry-moves/`):
 
 ### 4. An invalid script reports the move and the problem before rendering
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: compiling a script whose move names an unknown place, an unknown
 actor, an unknown move kind, or a duration ≤ 0 fails with one message naming
@@ -197,6 +198,12 @@ Proof:
   `npx remotion compositions src/index.ts` prints the message; the edit is
   reverted. Record whether `calculateMetadata` isolated the failure to
   `SilentScene`.
+
+Accepted proof (same worktree, commands from `terry-moves/`):
+- `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/silentScene'`: 3 suites/39 tests passed before/after refactor. `validation.spec.ts` drives public compileScene with independent story fixtures, exact move 3 kitchen error, unknown actor/kind/start/cut, own-place names, first-error order and finite positive durations; actual valid script remains 124 frames. Join/render consumers all passed.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm exec tsc'`: pass before/after refactor.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm exec remotion compositions src/index.ts'`: temporarily changing actual final travel to kitchen gives expected exit 1, move 4 kitchen error at calculateMetadata; exact restoration gives exit 0 and SilentScene 124 frames. Repeated after compiler refactor. Studio showed the error before any scene picture with disabled playback; StoryImpactOneSplash remained usable (frame 0→1). CLI aggregate listing fails globally. Only the temporary tab was closed.
+- Refactor gave destination classification, move descriptions and supported-kind names one compiler definition; inspected unchanged test assertions and rerun metadata signals preserve behavior.
 
 ### 5. Terry renders and revises the scene through the documented path
 Type: Behavior
