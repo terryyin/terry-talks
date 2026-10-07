@@ -5,28 +5,16 @@ Identity: `terry-moves-filmmaking#preserve-approved-film`
 
 ## Goal and scope
 
-- **Goal:** Terry asks for a small visual correction to an approved film. He
-  sees the corrected moments before and after. He also gets one report showing
-  that the audio, the timeline and every frame outside the declared moments are
-  unchanged, so he does not rewatch the whole film.
-- **Included:**
-  - One command that compares two versions of a film. The baseline defaults to
-    the committed state (`HEAD`) and the correction to the uncommitted working
-    tree. Either side can name a Git revision instead.
-  - Declared change ranges, given in seconds or frames, with `end` allowed.
-  - Picture, audio and timeline evidence.
-  - Side-by-side before/after stills.
-  - Usage notes in the terry-moves README.
-- **Excluded:**
-  - Retiming, re-voicing and reordering (story 6 and others).
-  - Any editor UI or Studio round trip.
-  - A second film or a new diagram correction.
-  - Release reproduction (R19): the encoded film, poster and SRT.
-  - Approving or committing the correction on Terry's behalf.
-- **Preserved:**
-  - Existing renders and their `render:*` scripts.
-  - `pnpm moves` with its current subcommands.
-  - The film's source and its assets. The tool only reads them.
+- **Goal:** Terry sees a visual correction before and after, plus one report
+  proving that audio, timeline and undeclared frames remain approved.
+- **Included:** a comparison command (default `HEAD` versus working tree;
+  either side can name a revision); declared seconds/frame ranges with `end`;
+  picture/audio/timeline evidence; side-by-side stills; README usage notes.
+- **Excluded:** retiming, re-voicing, reordering, editor UI/Studio round trip,
+  a second film/new correction, release reproduction (encoded film/poster/SRT),
+  and approving or committing the correction for Terry.
+- **Preserved:** existing renders and `render:*` scripts, current `pnpm moves`
+  subcommands, film source and assets (read-only).
 - **Key examples:** see the story (1–4). Each maps to a slice under
   [proof ownership](#proof-ownership).
 
@@ -89,9 +77,25 @@ Identity: `terry-moves-filmmaking#preserve-approved-film`
   project's `pnpm moves test` (jest, lint and `tsc`). Hosted CI runs whatever
   it runs. Slices run focused jest specs and then `pnpm moves test`, because
   the new tool is compiled by `tsc` and linted by the package's eslint.
-- **Workspace prerequisite:** this preparation worktree has no
-  `terry-moves/node_modules`. Execution runs `pnpm install --offline`, or
-  symlinks the integration checkout's `node_modules`, before the first render.
+- **Workspace prerequisite:** execution installs its own checkout-local
+  dependencies with `pnpm install --frozen-lockfile --offline`. Only disposable
+  render-input worktrees reuse these dependencies via a symlink; the execution
+  checkout never borrows another checkout's installation.
+- **Established execution:** Story Branch Mode, Rio-chan, publisher
+  `dashboard-territory.local-terry-talks`; checkout and branch suffix
+  `i-can-correct-one-visual-moment-without-disturbi` under this repository's
+  `.worktrees/` and `codex/`. Integration checkout: `/Users/terryyin/git/terry-talks`.
+  Claim `f8d47e57728acff78bacde76ac68c4e83eccd199` is on origin/master and the
+  execution branch; start `d6a09eb2f8392b6d05d3af2648fc40c3a115f3cd`. Publish
+  increments only to that execution branch; accepted SHAs remain in the conversation.
+- **Setup:** locked offline install and checkout-bound `tsc` passed (Node 24.21.0).
+  Verification prefix: `nix develop --command env NODE_ENV=test`. Inherited
+  production mode disables React's test API; overriding it made the baseline
+  `pnpm moves test` pass (36 suites/368 tests, lint, tsc), without product edits.
+- **Delivery:** no active hook; existing ESLint formatter selects owned revision
+  files. Use agent-commit. No numeric slice limit/new replanning restriction.
+- **CI:** no project adapter config or GitHub workflows (`gh workflow list` empty;
+  `ci.yml` selector 404). No observer is armed; hosted coverage is unavailable.
 
 ## Decisive premises observed (2026-10-07, at `8f3b6b9`)
 
@@ -115,7 +119,7 @@ under the job tmp directory, using the integration checkout's
 
 ### 1. A correction is checked frame by frame and by audio against the approved film
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: Terry, or the agent acting for him, runs
 `pnpm moves compare ProblemDecompositionFilm --baseline 1334426^ --correction 1334426 --change 0-1.2 --change 76-end`.
@@ -136,21 +140,16 @@ with the working tree. With an unchanged tree, every declared range reports no
 change and the verdict is **Preserved** (story example 4). Temporary worktrees
 and frame sequences are removed even when rendering fails.
 
-Proof:
-- Jest unit specs cover:
-  - range parsing: seconds, frames, `end`, and rejection of a reversed or
-    malformed range with a useful message;
-  - grouping changed frame indexes into runs and classifying them as declared
-    or undeclared;
-  - the WAV comparison: identical, and differing with the first and last
-    differing second.
-- Demonstration: the replay command above prints **Preserved**, with the
-  declared changes at frames 0–35 and 2285–2746. The `--change 76-80` run
-  prints **Not preserved**, naming 0–1.17 s and about 80.0–91.53 s.
-  `pnpm moves compare ProblemDecompositionFilm` on a clean tree prints
-  **Preserved**. Record the literal commands and verdicts in this plan.
-- `git worktree list` after each run shows no leftover temporary worktree.
-- `pnpm moves test` passes.
+Accepted proof (2026-10-07):
+
+- `nix develop --command env NODE_ENV=test pnpm -C terry-moves exec node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand tests/revision`: 5 suites/28 tests passed. Range/WAV fixtures observe parsing, runs, exact samples and differing seconds; report assertions observe verdicts/no-change; isolated Git repositories observe defaults and cleanup after failure; CLI fixtures observe actual fps or explicit missing evidence.
+- `nix develop --command env NODE_ENV=test pnpm moves compare ProblemDecompositionFilm --baseline '1334426^' --correction 1334426 --change 0-1.2 --change 76-end`: exit 0, **Preserved**, intended frames 0–35 and 2285–2746, identical audio, 2747 frames/30 fps. Report: `out/revisions/ProblemDecompositionFilm-2026-10-07T07-12-04-379Z/report.md`.
+- `nix develop --command env NODE_ENV=test pnpm moves compare ProblemDecompositionFilm --baseline '1334426^' --correction 1334426 --change 76-80`: expected exit 1, **Not preserved**, undeclared 0–35 (0–1.17 s) and 2400–2746 (80–91.53 s). Report: `out/revisions/ProblemDecompositionFilm-2026-10-07T07-14-08-127Z/report.md`.
+- `nix develop --command env NODE_ENV=test pnpm moves compare ProblemDecompositionFilm --change 0-1.2 --change 76-end`: exit 0, **Preserved**, HEAD versus working tree, 0 changed frames, no change per declaration. Film source/assets/timeline clean; tool/plan dirty. Report: `out/revisions/ProblemDecompositionFilm-2026-10-07T07-15-37-113Z/report.md`.
+- `git worktree list` after all three demonstrations: no temporary compare worktrees; snapshots `/tmp/preserve-approved-film-slice1-worktrees-{positive,negative,nochange}.txt`.
+- `nix develop --command env NODE_ENV=test pnpm moves test`: exit 0, 41 suites/396 tests, lint and tsc; `/tmp/preserve-approved-film-slice1-tests.log`. One forced-worker-exit advisory; focused `--runInBand --detectOpenHandles tests/revision` passed without reported handles. Advisory cause unassigned.
+- Independent refactor consolidated inclusive containment and timing summaries; `nix develop --command env NODE_ENV=test pnpm -C terry-moves exec node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand tests/revision/ranges.spec.ts tests/revision/report.spec.ts`: 2 suites/20 tests passed. Other accepted boundaries unchanged.
+- Installed CLI omits fps for single-frame Stills and has no JSON mode. Such inputs fail explicitly before a verdict; multiframe scripted-film proof is unchanged. Dimensions are picture evidence, not an added preservation veto.
 
 ### 2. Terry sees the corrected moments before and after
 Type: Behavior

@@ -6,13 +6,14 @@ import { fileURLToPath } from 'node:url'
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)))
 const movesDir = join(rootDir, 'terry-moves')
 
-const usage = `Usage: pnpm moves [studio|test|render|srt] [...args]
+const usage = `Usage: pnpm moves [studio|test|render|srt|compare] [...args]
 
   (default)  Remotion Studio for terry-moves
   studio     same as default
   test       terry-moves test script
   render     remotion render (composition picker / extra args)
   srt        generate SRT from product-developer subtitles
+  compare    compare a film's frames and audio against a Git revision
 `
 
 const [subcommand = 'studio', ...rest] = process.argv.slice(2)
@@ -26,6 +27,7 @@ const pnpmArgs = {
   test: withRest(['test']),
   render: withRest(['run', 'build']),
   srt: withRest(['srt']),
+  compare: withRest(['compare']),
 }[subcommand]
 
 if (!pnpmArgs) {
