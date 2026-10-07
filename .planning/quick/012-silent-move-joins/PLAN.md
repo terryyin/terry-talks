@@ -37,6 +37,7 @@ frame without captions, offsets or manual repair. The authoring path is primary.
   Slice 2 accepted: `ce49a406c371f7b2fa787aa73d0f3c6ec83cfc2f` (CI unobserved).
   Slice 3 accepted: `a40c14fe5b20222c0c214c1924b8b409ccb949fa` (CI unobserved).
   Slice 4 accepted: `5d3db3af22f4f06e73aa6932d31f82d1be194b42` (CI unobserved).
+  Slice 5 accepted: `8db6c61a4f5be498d18d4c5d0d29d830a42058f9` (CI unobserved).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile && NODE_ENV=test pnpm -C terry-moves exec tsc'`
   passed in this exact workspace with the current lockfile. No active Git hooks;
   the affected component's formatter is `pnpm terry-moves:format`.
@@ -204,6 +205,26 @@ Accepted proof (same worktree, commands from `terry-moves/`):
 - `nix develop -c sh -c 'NODE_ENV=test pnpm test'`: 36 suites/368 tests, eslint/tsc passed. Public joins/render/validation observations and existing film consumers retained. One worker teardown warning appeared, absent in slice 1; cause unclassified. `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/silentScene --detectOpenHandles'`: 3 suites/39 tests passed with no open-handle diagnostics; does not explain the full-gate warning.
 - Script restored byte-for-byte (SHA256 `926ff00266d0938822544c3e2a6b8f84ccdeacf37d0f345b712ff45aaa0ea25c`); owned temporary backups removed. Terry's subjective evaluation remains unobserved.
 - Independent refactor extracted preserved Story Impact guidance to `Story Driven/README.md` with qualified paths/commands and a link; documentation-only, all accepted runtime proof unchanged. Read-only link/path checks and whitespace passed.
+
+## Execution complete
+
+Product advice: keep the queue unchanged. Numeric continuation meets this
+bounded one-actor story; the next queued story, preserving an approved film
+during a focused revision, remains relevant. Broader motion or staging promises
+need their own examples and Terry's evaluation of this authoring path.
+
+Retrospective: all five planned slices delivered, reviewed as the uncontaminated
+aggregate from the claim through the five accepted revisions listed above.
+No correction or refactoring residue established; existing Story Impact pacing
+and other film contracts remain covered. No new automated E2E tests drove
+development; proof combines public compiler/render tests with actual
+Studio/CLI/export observations. The suite retains distinct old subtitle, motion and film
+contracts; no evidence supports consolidation here. Process review skipped by
+project default. Plan unchanged apart from evidence/completion records.
+Limits: full-gate worker teardown warning unclassified; focused open-handle
+diagnostic found none. Terry's subjective evaluation remains unobserved.
+CI unavailable: no workflow/adapter or observer armed, so no observer shutdown
+is required. Local accepted proof is retained; no CI success is claimed.
 
 ## Current decisions
 
