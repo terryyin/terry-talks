@@ -6,9 +6,10 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
+- [I can assemble and rearrange a silent animated scene, and its movements connect automatically](../terry-moves/seed.md#silent-move-joins) — terry-moves-filmmaking#silent-move-joins ([plan](quick/012-silent-move-joins/PLAN.md))
+
 ## Backlog list
 
-- [I can assemble and rearrange a silent animated scene, and its movements connect automatically](../terry-moves/seed.md#silent-move-joins) — terry-moves-filmmaking#silent-move-joins
 - [I can correct one visual moment without disturbing the approved film](../terry-moves/seed.md#preserve-approved-film) — terry-moves-filmmaking#preserve-approved-film
 - [I can restage an animated diagram without repairing its relationships](../terry-moves/seed.md#restage-diagrams) — terry-moves-filmmaking#restage-diagrams
 - [I can choose a visual treatment that expresses my idea before producing the whole film](../terry-moves/seed.md#choose-visual-treatment) — terry-moves-filmmaking#choose-visual-treatment
