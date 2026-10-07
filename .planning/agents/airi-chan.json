@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "agent": "Airi-chan",
+  "email": "airi-chan@example.org",
+  "identity": "terry-moves-filmmaking#restage-diagrams",
+  "mode": "story-branch",
+  "branch": "codex/i-can-restage-an-animated-diagram-without-repair",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}

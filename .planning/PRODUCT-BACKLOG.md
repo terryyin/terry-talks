@@ -6,9 +6,10 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
+- [I can restage an animated diagram without repairing its relationships](../terry-moves/seed.md#restage-diagrams) — terry-moves-filmmaking#restage-diagrams ([plan](quick/013-restage-diagrams/PLAN.md))
+
 ## Backlog list
 
-- [I can restage an animated diagram without repairing its relationships](../terry-moves/seed.md#restage-diagrams) — terry-moves-filmmaking#restage-diagrams
 - [I can choose a visual treatment that expresses my idea before producing the whole film](../terry-moves/seed.md#choose-visual-treatment) — terry-moves-filmmaking#choose-visual-treatment
 - [I can bring an existing character into a new scene and direct a believable interaction](../terry-moves/seed.md#character-prop-interaction) — terry-moves-filmmaking#character-prop-interaction
 - [I can replace one narration performance without repairing unrelated scenes](../terry-moves/seed.md#replace-narration-performance) — terry-moves-filmmaking#replace-narration-performance
