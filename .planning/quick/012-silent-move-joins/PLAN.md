@@ -33,6 +33,7 @@ frame without captions, offsets or manual repair. The authoring path is primary.
   Starting revision `fe5919a1cfce79b3112e8d9f764a7ff7b4cb1492`; claim
   `5cb4dd4de4470e5dca8994e7e4ec77269a9aaf32` confirmed on origin/master
   and the remote execution branch. Increments publish to that execution branch.
+  Slice 1 accepted: `69065414d758130aebdc10632fa36757fab333fd` (CI unobserved).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile && NODE_ENV=test pnpm -C terry-moves exec tsc'`
   passed in this exact workspace with the current lockfile. No active Git hooks;
   the affected component's formatter is `pnpm terry-moves:format`.
@@ -78,8 +79,9 @@ frame without captions, offsets or manual repair. The authoring path is primary.
   place: each move's start state is the previous move's end state; it
   yields shared `Beat`s (travel: smoothstep from start to place; hop: lift
   by `gesture`; hold: constant; cut: a one-frame beat at the place) and the
-  shared `timeline()` over them. Seconds round to whole frames as `beat()`
-  already does.
+  shared `timeline()` over them. Seconds round to whole frames, with at least
+  two frames for travel, three for hop (visible lift and settled endpoints),
+  and one for hold/cut.
 - **Feedback form:** one `Error` per first problem, naming the 1-based move
   index and the move, e.g.
   `move 3 (travel to kitchen): unknown place "kitchen"; places are door, desk, window`.
@@ -137,7 +139,7 @@ Accepted proof (execution worktree, commands from `terry-moves/`):
 
 ### 2. Terry previews a silent scene whose reordered moves connect
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: `src/silentScene/script.ts` holds the authored scene (Engineer
 with wrench, starts at `door`; places `door`, `desk`, `window`; moves:
@@ -164,6 +166,12 @@ Proof:
 - `npx remotion compositions src/index.ts` lists
   `SilentScene 30 1080x1080 123 (4.10 sec)`.
 - Terry opens `SilentScene` in Studio and scrubs it (evaluation).
+
+Accepted proof (same worktree, commands from `terry-moves/`):
+- `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/silentScene'`: 2 suites/11 tests passed. `joins.spec.ts` uses actual authored/reordered entries and observes contiguous ranges, adjacent poses, travel targets, hop lift/settling, all hold frames, silence and finite tiny-positive moves (travel 2/hop 3/hold 1 frames). `scene.spec.tsx` samples first/middle/last poses and derives actual world hand vs wrench translation, lifted feet and absence of text; setup compiles those scripts.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm exec tsc'`: pass.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm exec remotion compositions src/index.ts'`: 23 compositions, SilentScene 30 fps/1080×1080/123 frames; real Root/metadata wiring. Chrome Studio loaded and rendered frame 7 without captions at `http://localhost:3000/SilentScene`; Terry's subjective evaluation remains pending.
+- Independent refactor: none; all accepted boundaries unchanged.
 
 ### 3. An explicit cut relocates the actor without travel
 Type: Behavior
