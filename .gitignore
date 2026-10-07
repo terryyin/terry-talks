@@ -64,3 +64,6 @@ components.d.ts
 result
 .direnv/
 .envrc.local
+
+# Local git worktrees
+.worktrees/
