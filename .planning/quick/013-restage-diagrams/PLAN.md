@@ -114,7 +114,9 @@ frame-rejection gates to encode this temporary delivery boundary.
 
 ### 3. Resized sheets and collaborators keep the split and reunion readable
 Type: Behavior
-Status: planned
+Status: done
+
+Accepted evidence: [slice 3](proof.md#slice-3-accepted-proof).
 
 Behavior: given the restaged circle, Terry changes a sheet's and a participant's
 size. The integrated fork/merge and five collaborators use identified node and

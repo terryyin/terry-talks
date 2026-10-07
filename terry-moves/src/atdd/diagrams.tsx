@@ -7,7 +7,8 @@ import { backlogEntry, backlogPose, BacklogPose, circleArc, circlePose, localLoo
 import { ATDDStaging, staging as authoredStaging } from './staging';
 import { roundedLine } from './geometry';
 import { scenes } from './film';
-import { CollaborationDiamond, diamondPerson } from './CollaborationDiamond';
+import { CollaborationDiamond } from './CollaborationDiamond';
+import { collaborationPose } from './collaborationLayout';
 import { Box, Flow, LocalCycle, Person, RED, SheetArrow, StepState, Text, Tick, WAIT } from './pieces';
 
 const ease = Easing.inOut(Easing.cubic);
@@ -104,6 +105,7 @@ const Backlog: React.FC<{ seconds: number; selected: boolean; next: boolean; com
 
 export const ScenarioCircle: React.FC<{ seconds?: number; phase?: number; staticBoard?: boolean; miniature?: boolean; staging?: ATDDStaging }> = ({ seconds = 126, phase = 11, staticBoard = false, miniature = false, staging = authoredStaging }) => {
 	const pose = circlePose(staging);
+	const collaboration = collaborationPose(pose);
 	const { circle, checkpoints, localCycle } = pose;
 	const localRoutes = localLoopRoutes(pose);
 	const waiting: StepState[] = ['waiting', 'waiting', 'waiting', 'waiting'];
@@ -121,6 +123,9 @@ export const ScenarioCircle: React.FC<{ seconds?: number; phase?: number; static
 	const merge = phase === 10 ? move(seconds, cue(10, 0, 'reunite'), 1.5) : phase > 10 ? 1 : 0;
 	const frontEndTddPhase = Math.floor(Math.max(0, seconds - cue(9, 0, 'loop')) / 1.1) % 3;
 	const focus = miniature || staticBoard ? 0 : phase === 9 ? move(seconds, scenes[9].start, 0.7) : phase === 10 ? 1 : phase === 11 ? 1 - move(seconds, scenes[11].start, 0.7) : 0;
+	// Clear the surrounding sheets before zooming; restore the camera before
+	// revealing them again. Both use the existing single authored focus beat.
+	const surroundings = 1 - Math.min(1, focus * 2);
 	const compact = phase === 2 ? 0 : staticBoard ? 1 : move(seconds, cue(3, 0, 'take'), 1.2);
 	const backlog = backlogPose(staging.backlog, compact);
 	const current = phase <= 3 ? 0 : phase === 4 ? 1 : phase <= 7 ? 2 : phase === 8 ? 3 : phase === 9 ? 4 : 5;
@@ -140,15 +145,14 @@ export const ScenarioCircle: React.FC<{ seconds?: number; phase?: number; static
 		states[5] = ['pass', 'pass', 'pass', 'pass'];
 	}
 	const show = (from: number) => staticBoard || phase > from ? 1 : phase === from ? move(seconds, scenes[from].start + 0.25, 0.9) : 0;
-	const teamSpots = [{ x: 40, y: -125 }, { x: 35, y: -45 }, { x: -10, y: 0 }, { x: -10, y: 85 }, { x: -10, y: 85 }, { x: 0, y: -165 }].map((p) => ({ x: circle.x + p.x, y: circle.y + p.y }));
 	const previousCurrent = phase === 4 ? 0 : phase === 5 ? 1 : phase === 8 ? 2 : phase === 10 ? 4 : current;
 	const travel = move(seconds, scenes[Math.min(phase, 13)].start + 0.2, 1.6);
-	const team = { x: lerp(teamSpots[previousCurrent].x, teamSpots[current].x, travel), y: lerp(teamSpots[previousCurrent].y, teamSpots[current].y, travel) };
-	const camera = `translate(${circle.x - 10} ${circle.y}) scale(${lerp(1, 1.18, focus)}) translate(${-lerp(circle.x - 10, circle.x - 120, focus)} ${-lerp(circle.y, circle.y + 40, focus)})`;
+	const team = collaboration.teamPosition(previousCurrent, current, travel);
+	const camera = collaboration.camera(Math.max(0, focus * 2 - 1));
 	const localShown = staticBoard ? 1 : phase >= 9 ? move(seconds, cue(9, 0, 'loop')) : 0;
 	const finishingShown = staticBoard || phase > 9 ? 1 : phase === 9 ? move(seconds, cue(9, 1, 'two'), 1.2) : 0;
 	return <g transform={camera}>
-		<g opacity={1 - focus}>
+		<g opacity={surroundings}>
 			<Backlog seconds={seconds} selected={phase >= 3 || staticBoard} next={next} compact={compact} pose={backlog} />
 			{phase === 2 ? <g opacity={1 - move(seconds, scenes[3].start - 0.6, 0.6)}>
 				<Box x={348} y={270} width={642} height={358} fill={palette.panel} stroke={palette.structure}>
@@ -171,22 +175,22 @@ export const ScenarioCircle: React.FC<{ seconds?: number; phase?: number; static
 		{checkpoints.map((p, i) => {
 			const origin = p.origin;
 			const visible = i === 4 ? finishingShown : show(p.from);
-			return <g key={i} opacity={visible * (i < 3 ? 1 - focus : 1)} transform={`translate(${origin.x} ${origin.y}) scale(${p.scale})`}>
+			return <g key={i} opacity={visible * (i < 3 ? surroundings : 1)} transform={`translate(${origin.x} ${origin.y}) scale(${p.scale})`}>
 				<SheetArrow x={0} y={0} direction={p.direction} states={states[i]} number={i + 1} numberSide={p.numberSide} active={!staticBoard && i === current} seconds={seconds} temporary={i === 2 && !cleanup && !staticBoard} />
 			</g>;
 		})}
-		{phase >= 9 || staticBoard ? <CollaborationDiamond pose={pose} seconds={seconds} split={staticBoard ? 1 : split} merge={staticBoard ? 1 : merge} loopPhase={phase === 9 ? frontEndTddPhase : 2} localShown={localShown} passed={integrated || staticBoard} staticBoard={staticBoard} /> : null}
+		{phase >= 9 || staticBoard ? <CollaborationDiamond pose={pose} collaboration={collaboration} seconds={seconds} split={staticBoard ? 1 : split} merge={staticBoard ? 1 : merge} loopPhase={phase === 9 ? frontEndTddPhase : 2} localShown={localShown} passed={integrated || staticBoard} staticBoard={staticBoard} /> : null}
 		{phase === 5 && !miniature ? <g><Text x={checkpoints[2].x - 302} y={checkpoints[2].y + 95} size={31} color={WAIT}>* Temporary option</Text><Text x={checkpoints[2].x - 302} y={checkpoints[2].y + 131} size={29} color={WAIT}>Proper now also works.</Text></g> : null}
 		{phase === 6 && !miniature ? <Text x={checkpoints[2].x - 312} y={checkpoints[2].y + 105} size={31} color={RED}>If Update fails…</Text> : null}
 		{phase >= 3 && !miniature && !staticBoard ? <g>
 			{[0, 1, 2, 3, 4].map((id) => {
-				const target = diamondPerson(id, split, merge);
+				const target = collaboration.person(id, split, merge);
 				const collaborating = phase === 9 || phase === 10;
-				return <Person key={id} id={id} x={collaborating ? target.x : team.x + (id - 2) * 43} y={(collaborating ? target.y : team.y) - Math.sin(seconds * 3 + id) * 2} seconds={seconds} working={phase === 9 && split > 0.5} scale={0.78} />;
+				return <Person key={id} id={id} x={collaborating ? target.x : team.x + collaboration.all.people[id].offset} y={(collaborating ? target.y : team.y) - Math.sin(seconds * 3 + id) * 2} seconds={seconds} working={phase === 9 && split > 0.5} scale={staging.participants.scales[id]} />;
 			})}
-			{phase <= 8 ? <Text x={team.x - 25} y={team.y + 80} size={25}>Working together</Text> : null}
+			{phase <= 8 ? <Text {...collaboration.teamLabel(team)} /> : null}
 		</g> : null}
-		{phase === 11 && !miniature && !staticBoard ? <g opacity={1 - focus}>
+		{phase === 11 && !miniature && !staticBoard ? <g opacity={surroundings}>
 			<Text x={circle.x + 80} y={circle.y - 15} size={30} color={palette.behavior} anchor="start">{cleanup ? 'DONE ✓' : seconds >= cue(11, 1, 'replace') ? 'Fake → real' : 'Cohesion'}</Text>
 			<Text x={circle.x + 80} y={circle.y + 19} size={22} color={palette.behavior} anchor="start">{cleanup ? 'Ready for next' : seconds >= cue(11, 1, 'replace') ? 'Under checks' : 'Related concepts'}</Text>
 		</g> : null}

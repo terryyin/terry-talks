@@ -2,6 +2,7 @@ import { LOCAL_CYCLE_RADIUS, SHEET_BADGE, SHEET_BODY, SheetDirection, sheetPoint
 import { clearOf, pointOnOutline, Point, ROUTE_CLEARANCE } from './geometry';
 import { lerp } from '../storyImpact/motion';
 import { ATDDStaging, CircleStep } from './staging';
+import { crew } from './crew';
 
 type Checkpoint = Point & { id: CircleStep; direction: SheetDirection; numberSide: 'left' | 'right'; angle: number; from: number; scale: number; origin: Point; outline: Point[]; badge: Point };
 export type CirclePose = ReturnType<typeof circlePose>;
@@ -33,9 +34,15 @@ export const circlePose = (staging: ATDDStaging) => {
 		const badge = { x: origin.x + (SHEET_BADGE.x + (numberSide === 'right' ? SHEET_BADGE.rightOffset : 0)) * scale, y: origin.y + SHEET_BADGE.y * scale };
 		return { ...step, ...center, numberSide, angle, scale, origin, outline, badge };
 	});
+	const finishers = crew(staging.participants.scales, [3, 4]);
+	// Both the local cycle and the returning crew reserve this same sheet gap.
+	const finisherReturnLane = {
+		crew: finishers,
+		y: (Math.max(...checkpoints[5].outline.map(({ y }) => y)) + Math.min(...checkpoints[4].outline.map(({ y }) => y)) - finishers.top - finishers.bottom) / 2,
+	};
 	return {
-		circle, checkpoints,
-		frontEndCycle: { x: circle.x, y: circle.y, size: 0.82 },
+		circle, checkpoints, participants: staging.participants, finisherReturnLane,
+		frontEndCycle: { x: circle.x, y: Math.max(circle.y, finisherReturnLane.y + finishers.bottom + ROUTE_CLEARANCE + LOCAL_CYCLE_RADIUS * 0.82), size: 0.82 },
 		localCycle: { x: circle.x + staging.localLoop.offset.x, y: circle.y + staging.localLoop.offset.y, size: staging.localLoop.size },
 	};
 };

@@ -83,7 +83,7 @@ describe('the source-linked ATDD baseline on the current runtime', () => {
 		expect(text(split, '3 · Front-end TDD')).toBeDefined();
 		expect(text(split, '2 · Finish Scenario A')).toBeDefined();
 		const locations = people.map((person) => person.getAttribute('transform')!.match(/translate\(([-\d.]+) ([-\d.]+)\)/)!.slice(1).map(Number));
-		expect(locations.slice(0, 3).every(([, y]) => y < 400)).toBe(true);
+		expect(locations.slice(0, 3).every(([x, y]) => x > Math.max(...locations.slice(3).map(([finishX]) => finishX)) && y < Math.min(...locations.slice(3).map(([, finishY]) => finishY)))).toBe(true);
 		expect(locations.slice(3).every(([x, y]) => x < 250 && y > 580)).toBe(true);
 		const reunited = participants(sceneAt(cue(10, 0, 'reunite') + 1.6));
 		expect(reunited.map((person) => person.querySelector('text')!.textContent)).toEqual(['1', '2', '3', '4', '5']);

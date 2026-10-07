@@ -15,6 +15,7 @@ export const baselineStaging: ATDDStaging = {
 	},
 	backlog: { x: 49, y: 231 },
 	localLoop: { offset: { x: 385, y: 300 }, size: 0.75 },
+	participants: { scales: [0.78, 0.78, 0.78, 0.78, 0.78] },
 };
 
 export const revisedStaging: ATDDStaging = {
@@ -31,4 +32,10 @@ export const revisedStaging: ATDDStaging = {
 	},
 	backlog: { x: 65, y: 236 },
 	localLoop: { offset: { x: 390, y: 295 }, size: 0.75 },
+};
+
+export const resizedStaging: ATDDStaging = {
+	...revisedStaging,
+	circle: { ...revisedStaging.circle, sheets: { ...revisedStaging.circle.sheets, finished: { angle: 210, scale: 1.12 } } },
+	participants: { scales: [0.78, 0.78, 0.98, 0.78, 0.78] },
 };

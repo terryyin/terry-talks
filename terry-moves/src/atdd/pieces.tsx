@@ -43,6 +43,9 @@ export const Flow: React.FC<{ d: string; color?: string; progress?: number; widt
 	</g>;
 };
 
+// Includes hair, moving hands, stroked feet and the ground shadow.
+export const PERSON_FOOTPRINT = { left: -31.5, right: 31.5, top: -26, bottom: 65 } as const;
+
 // The same five colors and badges persist through every move and the 3/2 fork.
 export const Person: React.FC<{ x: number; y: number; id: number; seconds?: number; working?: boolean; scale?: number }> = ({ x, y, id, seconds = 0, working = false, scale = 1 }) => {
 	const hand = working ? Math.sin(seconds * 8 + id) * 6 : 0;
@@ -67,7 +70,7 @@ export const MiniAI: React.FC<{ x: number; y: number }> = ({ x, y }) => <g trans
 
 export type SheetDirection = 'right' | 'down' | 'left' | 'up';
 export const SHEET_BODY = { width: 180, height: 156 } as const;
-export const SHEET_BADGE = { x: -15, y: -17, radius: 17, rightOffset: 210 } as const;
+export const SHEET_BADGE = { x: -15, y: -17, radius: 17, rightOffset: 210, labelSize: 24, labelBaseline: 8 } as const;
 export const LOCAL_CYCLE_RADIUS = 52;
 type SheetProps = { x: number; y: number; direction: SheetDirection; states: StepState[]; active?: boolean; seconds?: number; number?: number; numberSide?: 'left' | 'right'; opacity?: number; temporary?: boolean };
 export const sheetPoints = (direction: SheetDirection): { x: number; y: number }[] => {
@@ -90,7 +93,7 @@ export const SheetArrow: React.FC<SheetProps> = ({ x, y, direction, states, acti
 		<Text x={12} y={58 + i * 29} size={28} anchor="start" weight={700}>{row}{temporary && i === 1 ? '*' : ''}</Text>
 		<Status x={155} y={49 + i * 29} state={states[i]} seconds={seconds} />
 	</g>)}
-	{number ? <g transform={numberSide === 'right' ? `translate(${SHEET_BADGE.rightOffset} 0)` : undefined}><circle cx={SHEET_BADGE.x} cy={SHEET_BADGE.y} r={SHEET_BADGE.radius} fill={palette.cellSky} stroke={palette.ink} strokeWidth={3} /><Text x={SHEET_BADGE.x} y={SHEET_BADGE.y + 8} size={24}>{number}</Text></g> : null}
+	{number ? <g transform={numberSide === 'right' ? `translate(${SHEET_BADGE.rightOffset} 0)` : undefined}><circle cx={SHEET_BADGE.x} cy={SHEET_BADGE.y} r={SHEET_BADGE.radius} fill={palette.cellSky} stroke={palette.ink} strokeWidth={3} /><Text x={SHEET_BADGE.x} y={SHEET_BADGE.y + SHEET_BADGE.labelBaseline} size={SHEET_BADGE.labelSize}>{number}</Text></g> : null}
 </g>;
 
 export const LocalCycle: React.FC<{ x: number; y: number; seconds?: number; began?: number; size?: number; title?: boolean; phase?: number }> = ({ x, y, seconds = 0, began = 0, size = 1, title = true, phase }) => {

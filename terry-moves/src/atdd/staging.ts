@@ -10,6 +10,7 @@ export type ATDDStaging = {
 	};
 	backlog: { x: number; y: number };
 	localLoop: { offset: { x: number; y: number }; size: number };
+	participants: { scales: number[] };
 };
 
 // Edit this scene data, then preview/render the existing ATDD compositions.
@@ -17,16 +18,17 @@ export type ATDDStaging = {
 // belong to the scenario, independently of their angle and drawn size.
 export const staging: ATDDStaging = {
 	circle: {
-		x: 610, y: 485, radius: 280, sheetScale: 0.9,
+		x: 575, y: 495, radius: 290, sheetScale: 0.94,
 		sheets: {
-			given: { angle: -90, scale: 1 },
-			selection: { angle: -30, scale: 1 },
-			update: { angle: 30, scale: 1 },
+			given: { angle: -95, scale: 1 },
+			selection: { angle: -28, scale: 1 },
+			update: { angle: 31, scale: 1 },
 			then: { angle: 90, scale: 1 },
 			finishing: { angle: 150, scale: 1 },
-			finished: { angle: 210, scale: 1 },
+			finished: { angle: 210, scale: 1.12 },
 		},
 	},
-	backlog: { x: 49, y: 231 },
-	localLoop: { offset: { x: 385, y: 300 }, size: 0.75 },
+	backlog: { x: 65, y: 236 },
+	localLoop: { offset: { x: 390, y: 295 }, size: 0.75 },
+	participants: { scales: [0.78, 0.78, 0.98, 0.78, 0.78] },
 };

@@ -140,3 +140,37 @@ not assertions that an output already exists in this preparation workspace.
   corrected native proof remained valid. Selective ESLint and whitespace checks
   passed. Studio now runs from this checkout (session 47683); corrected native
   observation used Chrome tab 137231888. No full-film or remote-CI claim here.
+
+
+## Slice 3 accepted proof
+
+- The coherent revised circle is selected through maintained staging: Finished
+  scale 1.12 and identity 3 scale .98. Crew footprints/spacing, current badges,
+  identified sheet outlines and one shared return lane drive main-team approach,
+  3/2 departure, staged reunion, labels and camera. No fixed collaborator list
+  remains. The original focus beat fades surroundings before camera movement
+  and restores the camera before revealing them, within its existing duration.
+- `tests/atdd/collaboration.spec.tsx` observes actual source/resized scene shapes
+  through every 30fps frame of split/reunion/restoration and the Then approach;
+  independent rendered shape/label helpers apply inherited camera transforms.
+  Assertions cover identities, failure → 3/2 work → unfinished Finishing →
+  pre-pass reunion → all-green Finished, current fork/merge outline ports and
+  tangent markers, actor/label/badge/furniture clearance and direct seeking.
+  Source geometry assertions now express subgroup relationships rather than an
+  obsolete fixed front-end height. Source script, captions, state cues and media
+  remain unchanged. Focused ATDD passed 24 tests/3 suites, TypeScript passed.
+- Native actual 1080/360px playback confirmed both cohorts, enlarged actor,
+  unfinished Finishing, all-five/all-green reunion and restored circle. Seeking
+  frame 3219 showed five reunited identities before Finished runs. A native
+  approach discrepancy involving Working together and badge 4 was corrected
+  through shared crew/label/badge reservations. At frame 2770 its clearance is
+  20.891px at full size and 6.964px at 360px. Full playback 87.5–107.3s and
+  small playback 92.33–102.03s confirmed affected approach/departure. Manual: Good.
+- Complete diagram producer passed; coordinator inspected the circle PNG's
+  enlarged Finished, clear fork/merge/local loop and legends. Circle SVG has
+  17 unique markers and 17 resolved references; tree outputs unchanged.
+- Independent refactor consolidated return-lane and measured/rendered label
+  ownership. Focused 24-test suite (30.056s), typecheck and generator passed;
+  both SVGs/PNGs stayed byte-identical across refactoring, retaining native proof.
+  Selective ESLint and whitespace checks passed. Full encode/audio fidelity is
+  still owned by slice 5; no remote-CI claim.
