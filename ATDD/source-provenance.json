@@ -1,0 +1,16 @@
+{
+  "fileName": "IMG_6988-compressed.mp4",
+  "localSource": "/Users/terryyin/Downloads/IMG_6988-compressed.mp4",
+  "sha256": "ec0d35a04359515b64fd0336d9b6784d5438df9f4412158b6423c98a468fd4be",
+  "durationSeconds": 1732,
+  "language": "Chinese with English technical vocabulary",
+  "transcriptionModel": "whisper-1",
+  "transcriptionNote": "Automatic transcript; speaker attribution and technical names are not manually certified.",
+  "videoReview": "Time-sampled whiteboard/contact sheet, in addition to whole-audio transcription.",
+  "relatedSources": [
+    "Story Driven/romantic-stories-disciplined-products.md",
+    "Problem Decomposition/problem-decomposition.md",
+    "AI Test Automation/ai-and-test-automation.md",
+    "TPS and AI/claims/06-jidoka-embeds-routine-judgment.md"
+  ]
+}

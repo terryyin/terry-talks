@@ -1,0 +1,242 @@
+{
+  "title": "ATDD — Work through one scenario",
+  "subtitle": "Acceptance Test Driven Development",
+  "language": "en",
+  "fps": 30,
+  "coverDuration": 1.2,
+  "duration": 149.03333333333333,
+  "durationInFrames": 4471,
+  "timingStatus": "Measured from the actual continuous performance; frame aligned.",
+  "narrationStatus": "English editorial adaptation; Cedar synthetic performance.",
+  "exampleCredit": "Settings, override selection, Update and displayed result summarize Terry’s source scenario. Uncertain account and legacy implementation names are omitted. The example is a small annotation of the diagram-led process.",
+  "diagramCredit": "Topologies and progression reconstructed from the supplied recording; clear labels and five moving collaborators are presentation clarifications grounded in its speech.",
+  "scenes": [
+    {
+      "id": "tree",
+      "label": "The imagined solution tree",
+      "visual": "Recreate the first whiteboard diagram: one blue solution node forks into front-end and back-end nodes, then several nested component boxes. A broad red arrow climbs beside the tree. Illuminate lower boxes in the assumed bottom-up order, then question marks and unneeded branches appear.",
+      "sourceEvidence": "00:17–01:55",
+      "diagram": "tree",
+      "captionRanges": [
+        {"spoken": "Picture software as a tree: front end, back end, and smaller parts. It seems we must build from the bottom, then integrate upward.",
+         "text": "The imagined solution tree",
+         "start": 0.0, "end": 8.766666666666667, "speechStart": 1.45, "speechEnd": 8.529999923706054, "wordCues": {"picture": 1.45, "software": 1.7099999904632568, "as": 2.1499999880790712, "a": 2.4300000190734865, "tree": 2.8499999761581423, "front": 3.650000047683716, "end": 3.650000047683716, "back": 4.069999885559082, "and": 4.529999923706055, "smaller": 5.0499999046325685, "parts": 5.0499999046325685, "it": 5.95, "seems": 6.029999923706055, "we": 6.189999771118164, "must": 6.390000057220459, "build": 6.589999866485596, "from": 6.790000152587891, "the": 6.95, "bottom": 7.3700000762939455, "then": 7.669999790191651, "integrate": 7.8700000762939455, "upward": 8.189999771118163}},
+        {"spoken": "But assumptions about those parts can be wrong. We build things the result never needed.",
+         "text": "Bottom-up assumptions can waste work.",
+         "start": 8.766666666666667, "end": 14.0, "speechStart": 9.029999923706054, "speechEnd": 13.590000343322753, "wordCues": {"but": 9.029999923706054, "assumptions": 9.330000114440917, "about": 9.63000030517578, "those": 9.910000038146972, "parts": 10.410000038146972, "can": 10.410000038146972, "be": 10.830000114440917, "wrong": 10.970000457763671, "we": 12.010000419616699, "build": 12.149999809265136, "things": 12.349999618530273, "the": 12.63000030517578, "result": 12.830000114440917, "never": 13.050000381469726, "needed": 13.330000114440917}}
+      ],
+      "start": 0.0, "end": 14.0, "duration": 14.0
+    },
+    {
+      "id": "grow",
+      "label": "A narrow result grows the structure",
+      "visual": "Keep the same tree. Add the green end-to-end probe beside the user-result node. Trace one continuous scenario down into front-end detail, back up to the front end, horizontally to the back end, and down into back-end detail, following Terry’s diagram review. Other branches stay sketchy. Add the separate internal test probe at a useful high boundary spanning several descendants.",
+      "sourceEvidence": "02:03–03:07",
+      "diagram": "tree",
+      "captionRanges": [
+        {"spoken": "Instead, define one small end-to-end scenario with an automated test. Build enough to pass it; let the structure grow as needed.",
+         "text": "One narrow scenario. Growing structure.",
+         "start": 14.0, "end": 21.8, "speechStart": 14.410000038146972, "speechEnd": 21.490000915527343, "wordCues": {"instead": 14.410000038146972, "define": 15.050000381469726, "one": 15.069999885559081, "small": 15.45, "end": 15.809999656677245, "to": 16.050000381469726, "scenario": 16.330000114440917, "with": 16.63000030517578, "an": 17.13000030517578, "automated": 17.410000038146972, "test": 17.63000030517578, "build": 18.890000534057616, "enough": 18.909999084472656, "pass": 19.509999465942382, "it": 19.509999465942382, "let": 20.310000610351562, "the": 20.3299991607666, "structure": 20.550000381469726, "grow": 20.769999694824218, "as": 21.029999923706054, "needed": 21.269999694824218}},
+        {"spoken": "As it forms, useful internal tests can cover several lower parts together.",
+         "text": "Test inside at a useful boundary.",
+         "start": 21.8, "end": 26.6, "speechStart": 22.13000030517578, "speechEnd": 26.29000015258789, "wordCues": {"as": 22.13000030517578, "it": 22.47000045776367, "forms": 22.650000762939452, "useful": 23.490000915527343, "internal": 23.730000686645507, "tests": 24.10999984741211, "can": 24.45, "cover": 24.8299991607666, "several": 24.990000915527343, "lower": 25.370000076293945, "parts": 25.689999771118163, "together": 25.890000534057616}}
+      ],
+      "start": 14.0, "end": 26.6, "duration": 12.600000000000001
+    },
+    {
+      "id": "scenarios",
+      "label": "A sprint item becomes meaningful scenarios",
+      "visual": "Reveal the source second diagram: a tall blue backlog/item column with several lined scenario sheets. A selected sheet pulls out at the top; waiting sheets remain in the column. Brief small annotation only: Given existing settings / When select an override and update / Then the expected setting is displayed. These settings words clarify the source scenario; the diagram remains dominant.",
+      "sourceEvidence": "03:16–04:39",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "Break a sprint item into small Given, When, Then scenarios. Each should satisfy a user need on its own.",
+         "text": "Small scenarios with their own value.",
+         "start": 26.6, "end": 32.733333333333334, "speechStart": 26.909999084472656, "speechEnd": 32.39000053405762, "wordCues": {"break": 26.909999084472656, "a": 27.10999984741211, "sprint": 27.29000015258789, "item": 27.490000915527343, "into": 27.730000686645507, "small": 27.97000045776367, "given": 28.409999084472656, "when": 28.749999237060546, "then": 29.050000381469726, "scenarios": 29.269999694824218, "each": 30.349999618530273, "should": 30.529999923706054, "satisfy": 30.749999237060546, "user": 31.409999084472656, "need": 31.589999389648437, "on": 31.810000610351562, "its": 32.0700008392334, "own": 32.150000762939456}},
+        {"spoken": "Here, we change a setting and check the displayed result.",
+         "text": "Given settings · When update · Then expected setting",
+         "start": 32.733333333333334, "end": 35.7, "speechStart": 33.0700008392334, "speechEnd": 35.310000610351565, "wordCues": {"here": 33.0700008392334, "we": 33.18999977111817, "change": 33.39000053405762, "a": 33.60999984741211, "setting": 33.99000091552735, "and": 33.99000091552735, "check": 34.24999923706055, "the": 34.40999908447266, "displayed": 34.58999938964844, "result": 34.92999954223633}}
+      ],
+      "start": 26.6, "end": 35.7, "duration": 9.100000000000001
+    },
+    {
+      "id": "given",
+      "label": "Automate a step and observe it",
+      "visual": "Draw the first broad blue-outlined sheet-arrow at the upper-left of a clockwise route from the backlog. Its tail is the same selected scenario with lined steps; Given turns green after an animated actual run, while later unfinished steps remain red outlined/pale and labeled not automated. Five collaborators gather at the current work. Save a small checkpoint above the sheet; it is not a person.",
+      "sourceEvidence": "04:44–06:41",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "Take one scenario. Automate its first step using what already exists. Run it, and see it pass.",
+         "text": "Run the first automated step.",
+         "start": 35.7, "end": 41.833333333333336, "speechStart": 36.10999984741211, "speechEnd": 41.49000091552735, "wordCues": {"take": 36.10999984741211, "one": 36.150000762939456, "scenario": 36.42999954223633, "automate": 37.650000762939456, "its": 37.74999923706055, "first": 37.90999908447266, "step": 38.17000122070313, "using": 38.38999862670899, "what": 38.630000305175784, "already": 38.869998168945315, "exists": 39.24999923706055, "run": 40.33000106811524, "it": 40.35000152587891, "and": 40.72999877929688, "see": 40.90999908447266, "pass": 41.150000762939456}},
+        {"spoken": "Keep that executable evidence. The rest of the scenario is still unfinished.",
+         "text": "A verified step. An unfinished scenario.",
+         "start": 41.833333333333336, "end": 46.4, "speechStart": 42.209998321533206, "speechEnd": 45.99000091552735, "wordCues": {"keep": 42.209998321533206, "that": 42.310000610351565, "executable": 42.58999938964844, "evidence": 43.0499984741211, "the": 44.08999938964844, "rest": 44.26999969482422, "of": 44.470000457763675, "scenario": 45.0499984741211, "is": 45.0499984741211, "still": 45.35000152587891, "unfinished": 45.630000305175784}}
+      ],
+      "start": 35.7, "end": 46.4, "duration": 10.699999999999996
+    },
+    {
+      "id": "selection",
+      "label": "The next step really fails",
+      "visual": "Advance clockwise to the upper-right broad sheet-arrow. Copy the same scenario rows, retaining the green prefix. Add the selection step; animate the attempted click finding no dropdown, then its row becomes red. Its checkpoint preserves observed missing work. Keep five people together at this current snapshot.",
+      "sourceEvidence": "06:48–08:04",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "Add selection. Run it: the test fails because the dropdown is missing. We have evidence of the missing work.",
+         "text": "Run the next step. See the real failure.",
+         "start": 46.4, "end": 52.833333333333336, "speechStart": 46.83000106811524, "speechEnd": 52.6900016784668, "wordCues": {"add": 46.83000106811524, "selection": 46.90999908447266, "run": 48.08999938964844, "it": 48.08999938964844, "the": 48.74999923706055, "test": 48.970000457763675, "fails": 49.150000762939456, "because": 49.40999908447266, "dropdown": 50.0499984741211, "is": 50.17000122070313, "missing": 50.42999954223633, "we": 51.24999923706055, "have": 51.45, "evidence": 51.630000305175784, "of": 51.95, "work": 52.40999908447266}},
+        {"spoken": "The earlier green step stays on the sheet.",
+         "text": "Keep the green prefix.",
+         "start": 52.833333333333336, "end": 55.4, "speechStart": 52.95, "speechEnd": 55.0499984741211, "wordCues": {"the": 52.95, "earlier": 53.40999908447266, "green": 53.6900016784668, "step": 54.01000137329102, "stays": 54.29000015258789, "on": 54.56999893188477, "sheet": 55.0499984741211}}
+      ],
+      "start": 46.4, "end": 55.4, "duration": 9.0
+    },
+    {
+      "id": "shortcut",
+      "label": "A temporary implementation reaches feedback",
+      "visual": "The selection row changes from red to green only after a temporary dropdown is introduced and the same acceptance automation reruns. Place a small dashed temporary label beside the dropdown. Its later replacement is remembered near completion. Advance along the clockwise sheet route; never stamp the whole scenario done.",
+      "sourceEvidence": "08:14–10:04",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "A temporary hard-coded dropdown gets us through sooner. Implementing it properly now is another choice.",
+         "text": "A temporary dropdown can move us forward.",
+         "start": 55.4, "end": 61.233333333333334, "speechStart": 55.72999877929688, "speechEnd": 60.90999908447266, "wordCues": {"a": 55.72999877929688, "temporary": 56.03000183105469, "hard": 56.38999862670899, "coded": 56.79000015258789, "dropdown": 56.85000152587891, "gets": 57.33000106811524, "us": 57.60999984741211, "through": 57.79000015258789, "sooner": 57.99000091552735, "implementing": 59.150000762939456, "it": 59.369998168945315, "properly": 59.51000137329102, "now": 59.79000015258789, "is": 60.150000762939456, "another": 60.310000610351565, "choice": 60.5499984741211}},
+        {"spoken": "Either way, run the test again. The important result is still ahead.",
+         "text": "More green. The result is still ahead.",
+         "start": 61.233333333333334, "end": 65.4, "speechStart": 61.56999893188477, "speechEnd": 65.03000183105469, "wordCues": {"either": 61.56999893188477, "way": 61.74999923706055, "run": 62.310000610351565, "the": 62.35000152587891, "test": 62.67000122070313, "again": 62.67000122070313, "important": 63.6900016784668, "result": 63.970000457763675, "is": 64.31000061035157, "still": 64.53000183105469, "ahead": 64.81000061035157}}
+      ],
+      "start": 55.4, "end": 65.4, "duration": 10.000000000000007
+    },
+    {
+      "id": "update",
+      "label": "Update pulls implementation work",
+      "visual": "Draw the downward-facing sheet-arrow on the right side. Its same scenario retains earlier green rows. Append the update action and show the failure exposing needed implementation. Small connector leaves this acceptance sheet toward an implementation detail, making the dependency visible instead of replacing the outer sheet.",
+      "sourceEvidence": "10:09–12:42",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "Add Update. If running it exposes a missing implementation, that failure tells us the next work.",
+         "text": "Update exposes the next work.",
+         "start": 65.4, "end": 71.16666666666667, "speechStart": 65.75000305175782, "speechEnd": 70.81000061035157, "wordCues": {"add": 65.75000305175782, "update": 65.90999908447266, "if": 66.86999816894532, "running": 67.03000183105469, "it": 67.22999877929688, "exposes": 67.50999755859375, "a": 67.76999969482422, "missing": 68.13000030517578, "implementation": 68.21000213623047, "that": 69.18999786376953, "failure": 69.49000091552735, "tells": 69.76999969482422, "us": 70.03000183105469, "the": 70.17000122070313, "next": 70.35000152587891, "work": 70.53000183105469}},
+        {"spoken": "Follow it into the relevant logic.",
+         "text": "The scenario pulls the implementation.",
+         "start": 71.16666666666667, "end": 73.13333333333334, "speechStart": 71.49000091552735, "speechEnd": 72.68999786376953, "wordCues": {"follow": 71.49000091552735, "it": 71.58999938964844, "into": 71.76999969482422, "the": 71.89000244140625, "relevant": 72.11000366210938, "logic": 72.32999725341797}}
+      ],
+      "start": 65.4, "end": 73.13333333333334, "duration": 7.733333333333334
+    },
+    {
+      "id": "local",
+      "label": "A local red, green, refactor loop",
+      "visual": "Draw the source small red/green/blue cycle beneath the right-side update sheet. A relevant existing behavior check remains green beside it. The current local test turns red, the relevant logic is implemented, then green, then blue refactor; repeat briefly. The local loop returns to the unchanged acceptance sheet, whose first three steps turn green after an outer rerun.",
+      "sourceEvidence": "12:47–14:36; 20:53–21:33",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "Protect the existing behavior we touch. Then use a local test: red, green, refactor. Repeat for the details this scenario needs.",
+         "text": "Protect old behavior. Red. Green. Refactor.",
+         "start": 73.13333333333334, "end": 80.93333333333334, "speechStart": 73.58999938964844, "speechEnd": 80.61000366210938, "wordCues": {"protect": 73.58999938964844, "the": 73.58999938964844, "existing": 73.82999725341797, "behavior": 74.17000122070313, "we": 74.46999664306641, "touch": 74.75000305175782, "then": 75.49000091552735, "use": 75.81000061035157, "a": 75.95, "local": 76.13000030517578, "test": 76.28999633789063, "red": 77.11000366210938, "green": 77.39000244140625, "refactor": 77.67000122070313, "repeat": 79.07000274658203, "for": 79.07000274658203, "details": 79.49000091552735, "this": 79.71000213623047, "scenario": 79.99000091552735, "needs": 80.31000061035157}},
+        {"spoken": "Return to the acceptance test. Now those earlier steps pass.",
+         "text": "Return to the same acceptance test.",
+         "start": 80.93333333333334, "end": 84.73333333333333, "speechStart": 81.26999969482422, "speechEnd": 84.45, "wordCues": {"return": 81.26999969482422, "to": 81.45, "the": 81.58999938964844, "acceptance": 81.78999633789063, "test": 82.11000366210938, "now": 82.75000305175782, "those": 83.22999877929688, "earlier": 83.46999664306641, "steps": 83.85000152587891, "pass": 84.0499984741211}}
+      ],
+      "start": 73.13333333333334, "end": 84.73333333333333, "duration": 11.599999999999994
+    },
+    {
+      "id": "then",
+      "label": "Passing actions are not the result",
+      "visual": "Move clockwise to the lower sheet-arrow. First three rows are green; add a real result assertion at its tail. Run the full path and turn only the displayed-result assertion red. Emphasize the green action prefix and red Then together. The full acceptance scenario is visibly unfinished despite passing local work.",
+      "sourceEvidence": "14:42–15:04",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "But we still need Then. Add the result check and run it. The displayed result is wrong.",
+         "text": "Then checks the actual displayed result.",
+         "start": 84.73333333333333, "end": 90.1, "speechStart": 84.99000091552735, "speechEnd": 89.68999786376953, "wordCues": {"but": 84.99000091552735, "we": 85.07000274658203, "still": 85.21000213623047, "need": 85.45, "then": 85.61000366210938, "add": 86.53000183105469, "the": 86.64999694824219, "result": 86.81000061035157, "check": 87.03000183105469, "and": 87.28999633789063, "run": 87.53000183105469, "it": 87.67000122070313, "displayed": 88.4300033569336, "is": 89.14999694824219, "wrong": 89.39000244140625}},
+        {"spoken": "Passing the actions did not finish the scenario.",
+         "text": "Green actions are not a green result.",
+         "start": 90.1, "end": 92.56666666666666, "speechStart": 90.49000091552735, "speechEnd": 92.21000213623047, "wordCues": {"passing": 90.49000091552735, "the": 90.61000366210938, "actions": 90.85000152587891, "did": 91.07000274658203, "not": 91.32999725341797, "finish": 91.57000274658203, "scenario": 91.96999664306641}}
+      ],
+      "start": 84.73333333333333, "end": 92.56666666666666, "duration": 7.833333333333329
+    },
+    {
+      "id": "split",
+      "label": "Five people briefly split into three and two",
+      "visual": "Keep the same five collaborators. Expand a diamond over the faint circle: three move horizontally left and slightly lower to implement the front end through TDD; two move right to finish acceptance automation. Two directed arrows fork from Scenario A, and both work branches progress simultaneously. The avatars clarify the spoken example, separately from checkpoint glyphs.",
+      "sourceEvidence": "15:07–16:02",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "Five people have been working together. Once the next work is clear, three can implement the returned result, using a local test loop.",
+         "text": "Five together → three implementing",
+         "start": 92.56666666666666, "end": 99.73333333333333, "speechStart": 92.95, "speechEnd": 99.35000152587891, "wordCues": {"five": 92.95, "people": 93.07000274658203, "have": 93.32999725341797, "been": 93.49000091552735, "working": 93.64999694824219, "together": 93.86999816894532, "once": 94.85000152587891, "the": 94.96999664306641, "next": 95.11000366210938, "work": 95.32999725341797, "is": 95.49000091552735, "clear": 95.71000213623047, "three": 96.49000091552735, "can": 96.58999938964844, "implement": 96.76999969482422, "returned": 97.28999633789063, "result": 97.5499984741211, "using": 98.49000091552735, "a": 98.49000091552735, "local": 98.67000122070313, "test": 98.86999816894532, "loop": 99.14999694824219}},
+        {"spoken": "Two can finish the acceptance automation at the same time. Both groups serve the same scenario.",
+         "text": "Two automating · One shared scenario",
+         "start": 99.73333333333333, "end": 105.16666666666667, "speechStart": 100.13000030517578, "speechEnd": 104.86999816894532, "wordCues": {"two": 100.13000030517578, "can": 100.26999969482422, "finish": 100.50999755859375, "the": 100.72999877929688, "acceptance": 101.00999755859375, "automation": 101.31000061035157, "at": 101.68999786376953, "same": 102.17000122070313, "time": 102.36999816894532, "both": 103.35000152587891, "groups": 103.57000274658203, "serve": 103.85000152587891, "scenario": 104.5499984741211}}
+      ],
+      "start": 92.56666666666666, "end": 105.16666666666667, "duration": 12.600000000000009
+    },
+    {
+      "id": "rejoin",
+      "label": "Reunite around the complete result",
+      "visual": "Draw two explicit converging return arrows from the left and right work branches into the same Scenario A. Physically reunite all five beside its sheet. Run integrated acceptance automation; every row including Then turns green. Hold the complete diamond, then return to the main circle for cleanup.",
+      "sourceEvidence": "16:04–16:42",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "Then reunite, integrate, and run the complete acceptance test. All its steps pass together.",
+         "text": "Reunite. Run the complete scenario.",
+         "start": 105.16666666666667, "end": 111.1, "speechStart": 105.49000091552735, "speechEnd": 110.64999694824219, "wordCues": {"then": 105.49000091552735, "reunite": 105.72999877929688, "integrate": 106.99000091552735, "and": 107.32999725341797, "run": 107.5499984741211, "the": 107.63000030517578, "complete": 107.82999725341797, "acceptance": 108.07000274658203, "test": 108.53000183105469, "all": 109.49000091552735, "its": 109.57000274658203, "steps": 109.78999633789063, "pass": 109.96999664306641, "together": 110.32999725341797}},
+        {"spoken": "Split for brief parallel exploration, and come back quickly.",
+         "text": "Together → split → together",
+         "start": 111.1, "end": 114.73333333333333, "speechStart": 111.5499984741211, "speechEnd": 114.28999633789063, "wordCues": {"split": 111.5499984741211, "for": 111.5499984741211, "brief": 111.76999969482422, "parallel": 112.0499984741211, "exploration": 112.4300033569336, "and": 113.50999755859375, "come": 113.61000366210938, "back": 113.78999633789063, "quickly": 113.95}}
+      ],
+      "start": 105.16666666666667, "end": 114.73333333333333, "duration": 9.566666666666663
+    },
+    {
+      "id": "done",
+      "label": "Finish all the work, then take the next scenario",
+      "visual": "Place the source Cohesion heading above the full circle. Recall that domain cohesion matters from the beginning; unite conceptually related pieces, clear the dashed temporary shortcut as required, and leave relevant checks green. Stamp this single scenario done only after required implementation and cleanup. After that stamp, and only then, one waiting scenario leaves the backlog; the team gathers around it.",
+      "sourceEvidence": "16:44–20:15; 23:19–24:16; 26:47–27:16",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "Done includes the required implementation and cleanup. Keep related domain concepts together from the beginning; make the structure coherent.",
+         "text": "Cohesion and cleanup belong in done.",
+         "start": 114.73333333333333, "end": 122.33333333333333, "speechStart": 115.21000213623047, "speechEnd": 121.85000152587891, "wordCues": {"done": 115.21000213623047, "includes": 115.22999877929688, "the": 115.71000213623047, "required": 115.9300033569336, "implementation": 116.25000305175782, "and": 116.78999633789063, "cleanup": 117.11000366210938, "keep": 118.21000213623047, "related": 118.22999877929688, "domain": 118.61000366210938, "concepts": 118.9300033569336, "together": 119.32999725341797, "from": 119.68999786376953, "beginning": 120.28999633789063, "make": 120.86999816894532, "structure": 121.11000366210938, "coherent": 121.36999816894532}},
+        {"spoken": "Replace needed shortcuts under the checks. Finish the scenario completely. Only then take the next.",
+         "text": "Finish one. Then take the next.",
+         "start": 122.33333333333333, "end": 127.86666666666666, "speechStart": 122.82999725341797, "speechEnd": 127.63000030517578, "wordCues": {"replace": 122.82999725341797, "needed": 122.82999725341797, "shortcuts": 123.13000030517578, "under": 123.53000183105469, "the": 123.78999633789063, "checks": 124.21000213623047, "finish": 124.85000152587891, "scenario": 125.57000274658203, "completely": 125.57000274658203, "only": 126.61000366210938, "then": 126.82999725341797, "take": 127.07000274658203, "next": 127.4300033569336}}
+      ],
+      "start": 114.73333333333333, "end": 127.86666666666666, "duration": 13.133333333333326
+    },
+    {
+      "id": "then-first",
+      "label": "An advanced option starts at Then",
+      "visual": "Briefly retain the completed circle as context and highlight Then on a new selected scenario sheet. Label Advanced option. Make the result observation solid before earlier Given/When internals; show pale temporary earlier steps becoming real gradually under the same observation. This is a late refinement, not a rewrite of the preceding original-order walkthrough.",
+      "sourceEvidence": "25:05–25:52",
+      "diagram": "circle",
+      "captionRanges": [
+        {"spoken": "There's also an advanced option: make Then real first, so the result is already observable.",
+         "text": "Advanced option: make Then real first.",
+         "start": 127.86666666666666, "end": 133.33333333333334, "speechStart": 128.08999938964843, "speechEnd": 132.97000427246093, "wordCues": {"theres": 128.08999938964843, "also": 128.3500015258789, "an": 128.58999938964843, "advanced": 128.7500030517578, "option": 129.03000183105468, "make": 129.9899932861328, "then": 130.12999267578124, "real": 130.41000671386718, "first": 130.62999267578124, "so": 131.3300048828125, "the": 131.45, "result": 131.69000549316405, "is": 131.8699981689453, "already": 132.1700012207031, "observable": 132.5500061035156}},
+        {"spoken": "Earlier steps can begin as fakes and become real gradually.",
+         "text": "Replace the earlier fakes gradually.",
+         "start": 133.33333333333334, "end": 136.8, "speechStart": 133.69000549316405, "speechEnd": 136.47000427246093, "wordCues": {"earlier": 133.69000549316405, "steps": 133.8699981689453, "can": 134.1700012207031, "begin": 134.41000671386718, "as": 134.5699951171875, "fakes": 134.89000244140624, "and": 135.42999572753905, "become": 135.53000183105468, "real": 135.77000732421874, "gradually": 136.0500061035156}}
+      ],
+      "start": 127.86666666666666, "end": 136.8, "duration": 8.933333333333351
+    },
+    {
+      "id": "scope",
+      "label": "AI helps inside the protected work",
+      "visual": "Return to a clear complete replica of both diagrams. A modest AI helper joins the humans inside the selected scenario and its checks. Keep the source late protected-scope circle as a small annotation, not a third main diagram. Close with ATDD / Work through one scenario; no universal safety seal.",
+      "sourceEvidence": "17:22–17:27; 27:27–28:09",
+      "diagram": "both",
+      "captionRanges": [
+        {"spoken": "AI can help throughout this work, inside the scenario and its protective checks. Grow that scope deliberately.",
+         "text": "AI helps inside the protected scope.",
+         "start": 136.8, "end": 143.46666666666667, "speechStart": 137.14999694824218, "speechEnd": 142.97000427246093, "wordCues": {"ai": 137.14999694824218, "can": 137.39000244140624, "help": 137.61000366210936, "throughout": 137.8300048828125, "this": 138.0699951171875, "work": 138.3300048828125, "inside": 139.03000183105468, "the": 139.31000061035155, "scenario": 139.50999755859374, "and": 139.7899963378906, "its": 140.2899963378906, "protective": 140.47000427246093, "checks": 140.8300048828125, "grow": 141.97000427246093, "that": 141.97000427246093, "scope": 142.27000732421874, "deliberately": 142.47000427246093}},
+        {"spoken": "Acceptance Test Driven Development: work through one scenario.",
+         "text": "ATDD — Work through one scenario",
+         "start": 143.46666666666667, "end": 149.03333333333333, "speechStart": 143.95, "speechEnd": 146.61000366210936, "wordCues": {"acceptance": 143.95, "test": 144.19000549316405, "driven": 144.45, "development": 144.64999694824218, "work": 145.8300048828125, "through": 145.8300048828125, "one": 145.9899932861328, "scenario": 146.27000732421874}}
+      ],
+      "start": 136.8, "end": 149.03333333333333, "duration": 12.23333333333332
+    }
+  ],
+  "voice": "Cedar (OpenAI synthetic narration; not Terry's recorded voice)",
+  "voiceCredit": "CEDAR · AI-GENERATED NARRATION",
+  "narrationModel": "gpt-4o-mini-tts"
+}
