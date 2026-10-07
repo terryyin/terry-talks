@@ -6,7 +6,8 @@
 
 import { Pose } from './scene';
 import { afterABreath, paced } from './readingPace';
-import { clamp01, FPS } from './motion';
+import { FPS } from './motion';
+import { beat as sharedBeat, Beat as SharedBeat, timeline as sharedTimeline, Timeline as SharedTimeline } from '../beatTimeline';
 import { backlogBeat, FLIGHT_SECONDS, splatBeat } from './storyBeats';
 import { ASSIMILATE_SECONDS, WOBBLE_SECONDS } from './productBeats';
 import { FOCUS_SECONDS, productAssimilateBeat, productCoherentBeat, productWobbleBeat, valueFlightBeat, valueFocusBeat, valueFuzzyBeat, valueWishBeat } from './focus';
@@ -17,26 +18,14 @@ import { customerValueBeat, IMPACT_SECONDS, impactBeat, newIdeaValueBeat, option
 
 export { FPS, WOBBLE_SECONDS };
 
-export type Beat = {
-	name: string;
-	seconds: number;
-	caption?: string; // shown from this beat until the next captioned beat
-	pause?: number; // seconds the caption line stays empty first, a breath
-	pose: (t: number) => Pose;
-};
+export type Beat = SharedBeat<Pose>;
+export type Timeline = SharedTimeline<Pose>;
 
 // --- timeline ------------------------------------------------------------
 
 // A beat whose pose is given by seconds into the beat.
-export const beat = (name: string, seconds: number, caption: string | undefined, bySeconds: (sec: number) => Pose): Beat => {
-	const frames = Math.round(seconds * FPS);
-	return {
-		name,
-		seconds,
-		caption,
-		pose: (t) => bySeconds((clamp01(t) * (frames - 1)) / FPS),
-	};
-};
+export const beat = (name: string, seconds: number, caption: string | undefined, bySeconds: (sec: number) => Pose): Beat =>
+	sharedBeat(name, seconds, caption, bySeconds, FPS);
 
 // A beat that plays a longer beat's motion faster, so it still ends where
 // that beat ends.
@@ -51,61 +40,9 @@ export const squeezed = (
 	return beat(name, seconds, caption, (sec) => bySeconds(sec * speed));
 };
 
-export type Timeline = {
-	beats: Beat[];
-	durationInFrames: number;
-	// Where a beat sits on the film's timeline, in frames.
-	beatRange: (name: string) => { from: number; durationInFrames: number };
-	poseAt: (frame: number) => Pose;
-	captionAt: (frame: number) => string;
-};
-
-const framesOf = (b: Beat) => Math.round(b.seconds * FPS);
-
 // The arithmetic of a film made of the given beats, in order, each caption
 // paced for reading.
-export const timeline = (authored: Beat[]): Timeline => {
-	const beats = paced(authored);
-	const durationInFrames = beats.reduce((sum, b) => sum + framesOf(b), 0);
-
-	const beatRange = (name: string): { from: number; durationInFrames: number } => {
-		let from = 0;
-		for (const b of beats) {
-			if (b.name === name) return { from, durationInFrames: framesOf(b) };
-			from += framesOf(b);
-		}
-		throw new Error(`No beat named ${name}`);
-	};
-
-	const beatAt = (frame: number): { index: number; t: number } => {
-		const f = Math.max(0, Math.min(durationInFrames - 1, Math.floor(frame)));
-		let from = 0;
-		for (let index = 0; index < beats.length; index++) {
-			const frames = framesOf(beats[index]);
-			if (f < from + frames) return { index, t: frames > 1 ? (f - from) / (frames - 1) : 1 };
-			from += frames;
-		}
-		return { index: beats.length - 1, t: 1 };
-	};
-
-	const poseAt = (frame: number): Pose => {
-		const { index, t } = beatAt(frame);
-		return beats[index].pose(t);
-	};
-
-	const captionAt = (frame: number): string => {
-		const { index } = beatAt(frame);
-		for (let i = index; i >= 0; i--) {
-			const { caption, name, pause } = beats[i];
-			if (caption === undefined) continue;
-			const breathing = pause !== undefined && Math.floor(frame) < beatRange(name).from + Math.round(pause * FPS);
-			return breathing ? '' : caption;
-		}
-		return '';
-	};
-
-	return { beats, durationInFrames, beatRange, poseAt, captionAt };
-};
+export const timeline = (authored: Beat[]): Timeline => sharedTimeline(paced(authored), FPS);
 
 // The one-story film.
 export const SPLAT_SECONDS = 3;
