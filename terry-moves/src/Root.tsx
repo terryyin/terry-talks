@@ -20,6 +20,7 @@ import { ProblemDecompositionFilm } from './stories/ProblemDecompositionFilm';
 import { ProblemDecompositionRemakeFilm } from './stories/ProblemDecompositionRemakeFilm';
 import { AITestAutomationFilm } from './stories/AITestAutomationFilm';
 import { SilentSceneFilm } from './stories/SilentSceneFilm';
+import { ATDDFilm } from './stories/ATDDFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -47,6 +48,7 @@ export const RemotionRoot: React.FC = () => {
 			<AITestAutomationFilm />
 			<ProblemDecompositionRemakeFilm />
 			<SilentSceneFilm />
+			<ATDDFilm />
 		</>
 	);
 };

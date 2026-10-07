@@ -185,3 +185,9 @@ instructions.
 
 See [the film guide](../AI%20Test%20Automation/README.md) for the finished
 61-second film, content source, audio reproduction and export instructions.
+
+# ATDD: Work through one scenario
+
+See [the film guide](../ATDD/README.md) for the source references, saved
+narration, `render:atdd` film export and `diagrams:atdd` SVG/PNG exports.
+Select `ATDDFilm`, `ATDDSolutionTree` or `ATDDScenarioCycle` in Studio.

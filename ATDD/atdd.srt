@@ -1,0 +1,145 @@
+1
+00:00:01,200 --> 00:00:08,767
+Picture software as a tree: front end, back end, and
+smaller parts. It seems we must build from the
+bottom, then integrate upward.
+
+2
+00:00:08,767 --> 00:00:14,000
+But assumptions about those parts can be wrong. We
+build things the result never needed.
+
+3
+00:00:14,000 --> 00:00:21,800
+Instead, define one small end-to-end scenario with
+an automated test. Build enough to pass it; let the
+structure grow as needed.
+
+4
+00:00:21,800 --> 00:00:26,600
+As it forms, useful internal tests can cover several
+lower parts together.
+
+5
+00:00:26,600 --> 00:00:32,733
+Break a sprint item into small Given, When, Then
+scenarios. Each should satisfy a user need on its
+own.
+
+6
+00:00:32,733 --> 00:00:35,700
+Here, we change a setting and check the displayed
+result.
+
+7
+00:00:35,700 --> 00:00:41,833
+Take one scenario. Automate its first step using
+what already exists. Run it, and see it pass.
+
+8
+00:00:41,833 --> 00:00:46,400
+Keep that executable evidence. The rest of the
+scenario is still unfinished.
+
+9
+00:00:46,400 --> 00:00:52,833
+Add selection. Run it: the test fails because the
+dropdown is missing. We have evidence of the missing
+work.
+
+10
+00:00:52,833 --> 00:00:55,400
+The earlier green step stays on the sheet.
+
+11
+00:00:55,400 --> 00:01:01,233
+A temporary hard-coded dropdown gets us through
+sooner. Implementing it properly now is another
+choice.
+
+12
+00:01:01,233 --> 00:01:05,400
+Either way, run the test again. The important result
+is still ahead.
+
+13
+00:01:05,400 --> 00:01:11,167
+Add Update. If running it exposes a missing
+implementation, that failure tells us the next work.
+
+14
+00:01:11,167 --> 00:01:13,133
+Follow it into the relevant logic.
+
+15
+00:01:13,133 --> 00:01:20,933
+Protect the existing behavior we touch. Then use a
+local test: red, green, refactor. Repeat for the
+details this scenario needs.
+
+16
+00:01:20,933 --> 00:01:24,733
+Return to the acceptance test. Now those earlier
+steps pass.
+
+17
+00:01:24,733 --> 00:01:30,100
+But we still need Then. Add the result check and run
+it. The displayed result is wrong.
+
+18
+00:01:30,100 --> 00:01:32,567
+Passing the actions did not finish the scenario.
+
+19
+00:01:32,567 --> 00:01:39,733
+Five people have been working together. Once the
+next work is clear, three can implement the returned
+result, using a local test loop.
+
+20
+00:01:39,733 --> 00:01:45,167
+Two can finish the acceptance automation at the same
+time. Both groups serve the same scenario.
+
+21
+00:01:45,167 --> 00:01:51,100
+Then reunite, integrate, and run the complete
+acceptance test. All its steps pass together.
+
+22
+00:01:51,100 --> 00:01:54,733
+Split for brief parallel exploration, and come back
+quickly.
+
+23
+00:01:54,733 --> 00:02:02,333
+Done includes the required implementation and
+cleanup. Keep related domain concepts together from
+the beginning; make the structure coherent.
+
+24
+00:02:02,333 --> 00:02:07,867
+Replace needed shortcuts under the checks. Finish
+the scenario completely. Only then take the next.
+
+25
+00:02:07,867 --> 00:02:13,333
+There's also an advanced option: make Then real
+first, so the result is already observable.
+
+26
+00:02:13,333 --> 00:02:16,800
+Earlier steps can begin as fakes and become real
+gradually.
+
+27
+00:02:16,800 --> 00:02:23,467
+AI can help throughout this work, inside the
+scenario and its protective checks. Grow that scope
+deliberately.
+
+28
+00:02:23,467 --> 00:02:29,033
+Acceptance Test Driven Development: work through one
+scenario.
