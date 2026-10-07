@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#restage-diagrams",
+  "title": "I can restage an animated diagram without repairing its relationships",
+  "completedAt": "2026-10-07T21:15:48.168Z",
+  "developer": "Terry Yin",
+  "agent": "Airi-chan",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}
