@@ -22,7 +22,7 @@ export const visible = (element: Element) => {
 };
 
 // Read the drawn commands. No pose, footprint or route implementation is used.
-const pathPoints = (path: Element) => {
+export const pathPoints = (path: Element) => {
 	const points: Point[] = [];
 	let cursor: Point = { x: 0, y: 0 };
 	for (const [, command, args] of path.getAttribute('d')!.matchAll(/([MLQmlq])([^MLQmlqZz]+)/g)) {

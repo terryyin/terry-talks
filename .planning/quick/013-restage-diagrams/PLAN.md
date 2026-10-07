@@ -143,7 +143,9 @@ circle through the same maintained staging input.
 
 ### 4. Terry restages the solution tree while its scenario and probes follow
 Type: Behavior
-Status: planned
+Status: done
+
+Accepted evidence: [slice 4](proof.md#slice-4-accepted-proof).
 
 Behavior: given the existing solution tree, Terry widens the front-end box and
 moves the back-end branch and descendants through the same staging-authoring

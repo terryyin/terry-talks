@@ -22,7 +22,7 @@ const Cover: React.FC<{ closing?: boolean; staging: ATDDStaging }> = ({ closing 
 	<Text x={540} y={299} size={94}>Work through</Text>
 	<Text x={540} y={407} size={94}>one scenario</Text>
 	<Text x={540} y={476} size={37}>Acceptance Test Driven Development</Text>
-	<g transform="translate(-16 434) scale(.47)"><SolutionTree miniature /></g>
+	<g transform="translate(-16 434) scale(.47)"><SolutionTree staging={staging} miniature /></g>
 	<g transform="translate(506 431) scale(.46)"><ScenarioCircle staging={staging} staticBoard miniature /></g>
 	<Text x={540} y={945} size={42}>Terry Yin</Text>
 	{closing ? <Text x={540} y={1007} size={30} weight={700}>CEDAR · AI-GENERATED NARRATION</Text> : <Text x={540} y={1007} size={30} weight={700}>From the original whiteboard presentation</Text>}
@@ -49,7 +49,7 @@ const AdvancedOption: React.FC<{ seconds: number }> = ({ seconds }) => {
 export const DiagramBoard: React.FC<{ diagram: 'tree' | 'circle'; staging?: ATDDStaging }> = ({ diagram, staging = authoredStaging }) => <svg width={STAGE.width} height={STAGE.height} viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
 	<Paper />
 	<Text x={540} y={84} size={56}>{diagram === 'tree' ? 'The solution tree' : 'One scenario, changing sheets'}</Text>
-	{diagram === 'tree' ? <SolutionTree /> : <ScenarioCircle staging={staging} staticBoard />}
+	{diagram === 'tree' ? <SolutionTree staging={staging} /> : <ScenarioCircle staging={staging} staticBoard />}
 	{diagram === 'circle' ? <g>
 		<Text x={264} y={950} size={28} color={palette.behavior}>✓ Observed pass</Text><Text x={551} y={950} size={28} color={WAIT}>… Unfinished</Text><Text x={849} y={950} size={28} color={RED}>× Observed failure</Text>
 		<Text x={540} y={1007} size={30}>Five together → brief 3 / 2 exploration → reunite</Text>
@@ -64,7 +64,7 @@ export const ATDDScene: React.FC<{ seconds: number; staging?: ATDDStaging }> = (
 		<Paper />
 		<g opacity={entering * (1 - closing)}>
 			<Text x={500} y={80} size={50}>{headings[index]}</Text>
-			{index < 2 ? <SolutionTree seconds={seconds} phase={index === 0 ? 'assumed' : 'growing'} /> : <g opacity={index >= 12 ? 0.2 : 1}><ScenarioCircle staging={staging} seconds={seconds} phase={index} /></g>}
+			{index < 2 ? <SolutionTree staging={staging} seconds={seconds} phase={index === 0 ? 'assumed' : 'growing'} /> : <g opacity={index >= 12 ? 0.2 : 1}><ScenarioCircle staging={staging} seconds={seconds} phase={index} /></g>}
 			{index === 12 ? <AdvancedOption seconds={seconds} /> : null}
 			{index === 13 ? <g>
 				<rect x={283} y={180} width={710} height={667} rx={130} fill="none" stroke={palette.behavior} strokeWidth={9} strokeDasharray="18 13" />

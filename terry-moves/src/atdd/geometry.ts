@@ -38,10 +38,13 @@ export const pointOnOutline = (outline: Point[], origin: Point, direction: Point
 	return { x: origin.x + ray.x * (distance + gap), y: origin.y + ray.y * (distance + gap) };
 };
 
-// Round the bends of an open line while keeping its two endpoints exact.
-export const roundedLine = (points: Point[], radius = 12): string => {
-	const [first] = points;
-	const parts = [`M${first.x} ${first.y}`];
+export type RoundedSegment = { from: Point; to: Point; control?: Point; landmark: number };
+
+// Drawing and a moving cursor share these endpoint-preserving rounded bends.
+export const roundedSegments = (points: Point[], radius = 12): RoundedSegment[] => {
+	const parts: RoundedSegment[] = [];
+	let from = points[0];
+	const line = (to: Point, landmark: number) => { parts.push({ from, to, landmark }); from = to; };
 	for (let i = 1; i < points.length - 1; i++) {
 		const previous = points[i - 1];
 		const corner = points[i];
@@ -50,14 +53,22 @@ export const roundedLine = (points: Point[], radius = 12): string => {
 		const after = Math.hypot(next.x - corner.x, next.y - corner.y);
 		const turn = (previous.x - corner.x) * (next.y - corner.y) - (previous.y - corner.y) * (next.x - corner.x);
 		if (before === 0 || after === 0 || turn === 0) {
-			parts.push(`L${corner.x} ${corner.y}`);
+			line(corner, i);
 			continue;
 		}
 		const r = Math.min(radius, before / 2, after / 2);
 		const approach = { x: corner.x + (previous.x - corner.x) * r / before, y: corner.y + (previous.y - corner.y) * r / before };
 		const leave = { x: corner.x + (next.x - corner.x) * r / after, y: corner.y + (next.y - corner.y) * r / after };
-		parts.push(`L${approach.x} ${approach.y} Q${corner.x} ${corner.y} ${leave.x} ${leave.y}`);
+		line(approach, i);
+		parts.push({ from: approach, to: leave, control: corner, landmark: i });
+		from = leave;
 	}
 	const last = points[points.length - 1];
-	return `${parts.join(' ')} L${last.x} ${last.y}`;
+	line(last, points.length - 1);
+	return parts;
 };
+
+export const segmentCommand = (segment: RoundedSegment) => segment.control
+	? `Q${segment.control.x} ${segment.control.y} ${segment.to.x} ${segment.to.y}`
+	: `L${segment.to.x} ${segment.to.y}`;
+export const roundedLine = (points: Point[], radius = 12): string => `M${points[0].x} ${points[0].y} ${roundedSegments(points, radius).map(segmentCommand).join(' ')}`;

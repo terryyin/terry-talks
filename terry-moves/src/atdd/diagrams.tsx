@@ -1,94 +1,17 @@
 import React from 'react';
-import { Easing } from 'remotion';
-import { between, lerp } from '../storyImpact/motion';
+import { lerp } from '../storyImpact/motion';
 import { ballColors } from '../storyImpact/scene';
-import { palette, STROKE } from './art';
+import { palette } from './art';
 import { backlogEntry, backlogPose, BacklogPose, circleArc, circlePose, localLoopRoutes } from './circleLayout';
 import { ATDDStaging, staging as authoredStaging } from './staging';
-import { roundedLine } from './geometry';
 import { scenes } from './film';
 import { CollaborationDiamond } from './CollaborationDiamond';
 import { collaborationPose } from './collaborationLayout';
 import { Box, Flow, LocalCycle, Person, RED, SheetArrow, StepState, Text, Tick, WAIT } from './pieces';
 
-const ease = Easing.inOut(Easing.cubic);
-export const move = (seconds: number, from: number, duration = 0.7) => between(seconds, from, from + duration, ease);
-export const cue = (scene: number, caption: number, word: string) => scenes[scene].captions[caption].wordCues[word] ?? scenes[scene].captions[caption].speechStart;
-
-const nodes = [
-	{ x: 540, y: 245, w: 240, h: 88, label: 'User result', parent: -1 },
-	{ x: 345, y: 410, w: 210, h: 80, label: 'Front end', parent: 0 },
-	{ x: 735, y: 410, w: 210, h: 80, label: 'Back end', parent: 0 },
-	{ x: 265, y: 568, w: 110, h: 68, label: '', parent: 1 },
-	{ x: 440, y: 568, w: 110, h: 68, label: '', parent: 1 },
-	{ x: 635, y: 568, w: 110, h: 68, label: '', parent: 2 },
-	{ x: 810, y: 568, w: 110, h: 68, label: '', parent: 2 },
-	{ x: 720, y: 738, w: 105, h: 68, label: '', parent: 6 },
-	{ x: 900, y: 738, w: 105, h: 68, label: '', parent: 6 },
-];
-
-const scenarioRoute = [[460, 289], [460, 328], [255, 328], [255, 445], [255, 503], [230, 503], [230, 568], [230, 503], [255, 503], [255, 445], [825, 445], [825, 650], [900, 650], [900, 738]];
-const routeSegments = scenarioRoute.slice(1).map((to, i) => ({ from: scenarioRoute[i], to, length: Math.hypot(to[0] - scenarioRoute[i][0], to[1] - scenarioRoute[i][1]) }));
-const routeLength = routeSegments.reduce((total, segment) => total + segment.length, 0);
-const routeStages = [
-	{ end: 3, delay: 0, duration: 0.9 },
-	{ end: 6, delay: 0.9, duration: 1.05 },
-	{ end: 9, delay: 2.25, duration: 1 },
-	{ end: 10, delay: 3.25, duration: 1.2 },
-	{ end: 13, delay: 4.45, duration: 1.3 },
-].map((stage, i, stages) => ({ ...stage, length: routeSegments.slice(i === 0 ? 0 : stages[i - 1].end, stage.end).reduce((total, segment) => total + segment.length, 0) }));
-const routePoint = (progress: number) => {
-	let remaining = progress * routeLength;
-	const points = [{ x: scenarioRoute[0][0], y: scenarioRoute[0][1] }];
-	for (const { from, to, length } of routeSegments) {
-		if (remaining <= length) {
-			const point = { x: lerp(from[0], to[0], remaining / length), y: lerp(from[1], to[1], remaining / length) };
-			return { ...point, trail: roundedLine([...points, point]) };
-		}
-		points.push({ x: to[0], y: to[1] });
-		remaining -= length;
-	}
-	const [x, y] = scenarioRoute[scenarioRoute.length - 1];
-	return { x, y, trail: roundedLine(points) };
-};
-
-// This is the first whiteboard topology, including its uneven depth.
-export const SolutionTree: React.FC<{ seconds?: number; phase?: 'assumed' | 'growing' | 'complete'; miniature?: boolean }> = ({ seconds = 27, phase = 'complete', miniature = false }) => {
-	const growing = phase !== 'assumed';
-	const began = cue(1, 0, 'scenario');
-	const path = growing ? routeStages.reduce((distance, stage) => distance + stage.length * move(seconds, began + stage.delay, stage.duration), 0) / routeLength : 0;
-	const cursor = routePoint(path);
-	const internal = growing ? move(seconds, cue(1, 1, 'internal')) : 0;
-	const wrong = phase === 'assumed' ? move(seconds, cue(0, 1, 'wrong')) : 0;
-	return <g>
-		<g opacity={growing ? 0.72 : 1}>
-			<path d="M90 764 H157 V358 H203 L126 254 L49 358 H90Z" fill="#F6E4DE" stroke={RED} strokeWidth={STROKE.panel} strokeLinejoin="round" />
-			{!miniature ? <><Text x={127} y={816} size={31} color={RED}>Build parts</Text><Text x={127} y={851} size={31} color={RED}>then integrate</Text></> : null}
-		</g>
-		{nodes.slice(1).map((n, i) => {
-			const p = nodes[n.parent];
-			const y = (p.y + n.y) / 2;
-			return <Flow key={i} d={roundedLine([{ x: p.x, y: p.y + p.h / 2 }, { x: p.x, y }, { x: n.x, y }, { x: n.x, y: n.y - n.h / 2 }])} width={STROKE.detail} />;
-		})}
-		{nodes.map((n, i) => <g key={i} opacity={growing && ![0, 1, 3, 2, 6, 7, 8].includes(i) ? 0.34 : 1}>
-			<Box x={n.x - n.w / 2} y={n.y - n.h / 2} width={n.w} height={n.h} fill={palette.panel} stroke={palette.structure} radius={17}><Text x={n.x} y={n.y + (i === 0 ? 12 : 4)} size={i === 0 ? 37 : 33}>{n.label}</Text></Box>
-			{wrong > 0 && [4, 8].includes(i) ? <g opacity={wrong}><Tick x={n.x} y={n.y} cross size={23} color={RED} /></g> : null}
-		</g>)}
-		<Flow d={cursor.trail} color={palette.behavior} width={STROKE.emphasis} progress={path > 0 ? 1 : 0} />
-		{path > 0 ? <g opacity={move(seconds, began, 0.45)}>
-			<circle cx={cursor.x} cy={cursor.y} r={12} fill={palette.behavior} stroke={palette.ink} strokeWidth={3} />
-			<Flow d="M660 245 H810" color={palette.behavior} progress={move(seconds, began)} />
-			<circle cx={843} cy={245} r={29} fill={palette.cellMint} stroke={palette.behavior} strokeWidth={6} /><Text x={843} y={257} size={34} color={palette.behavior}>T</Text>
-			{!miniature ? <><Text x={843} y={181} size={31} color={palette.behavior}>End-to-end</Text><Text x={843} y={216} size={31} color={palette.behavior}>test</Text></> : null}
-		</g> : null}
-		{internal > 0 ? <g opacity={internal}>
-			<Flow d="M840 410 H920 M800 450 V520 M800 602 V660 Q800 672 788 672 H732 Q720 672 720 684 V704 M800 672 H888 Q900 672 900 684 V704" color={palette.behavior} width={STROKE.panel} />
-			<circle cx={956} cy={410} r={27} fill={palette.cellMint} stroke={palette.behavior} strokeWidth={6} /><Text x={956} y={422} size={33} color={palette.behavior}>T</Text>
-			{!miniature ? <><Text x={960} y={483} size={30} color={palette.behavior}>Internal</Text><Text x={960} y={515} size={30} color={palette.behavior}>test</Text></> : null}
-		</g> : null}
-		{growing && !miniature ? <Text x={530} y={840} size={33} color={palette.behavior}>One result pulls its needed path.</Text> : null}
-	</g>;
-};
+import { cue, move } from './timing';
+export { cue, move } from './timing';
+export { SolutionTree } from './SolutionTree';
 
 const WaitingSheet: React.FC<{ x: number; y: number; width: number; height: number; letter: string; opacity?: number; compact: number }> = ({ x, y, width, height, letter, opacity = 1, compact }) => <g opacity={opacity} transform={`translate(${x} ${y})`}>
 	<rect width={width} height={height} rx={10} fill={palette.panel} stroke={palette.structure} strokeWidth={4} />

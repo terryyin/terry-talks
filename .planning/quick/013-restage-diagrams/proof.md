@@ -174,3 +174,35 @@ not assertions that an output already exists in this preparation workspace.
   both SVGs/PNGs stayed byte-identical across refactoring, retaining native proof.
   Selective ESLint and whitespace checks passed. Full encode/audio fidelity is
   still owned by slice 5; no remote-CI claim.
+
+
+## Slice 4 accepted proof
+
+- Maintained tree staging places/sizes the identified nodes and authored lanes;
+  the nine-node uneven hierarchy stays with the argument. Wider/moved Front end
+  and moved back branch/descendants drive current outline edges, owner labels,
+  scenario route and two distinct probes. Scene, board, cover and closing share
+  staging. Circle outputs stayed byte-identical.
+- `tests/atdd/treeRestaging.spec.tsx` observes actual source/edited consumers:
+  eight hierarchy edges on current boxes, timed front/detail/return/back/deep
+  arrivals, every 30fps cursor on the visible trace endpoint and full rounded
+  route, current probe owner/descendant ports, label/body/furniture/side
+  reservations, transformed miniatures and out-of-order requests. The five
+  stage delays/durations are unchanged. A boundary bend is shared between its
+  arriving/departing stages so the arrival remains inside the narrated owner.
+- Full focused command above passed 34 tests/4 suites (59.654s); TypeScript and
+  complete diagram producer passed. Subsequent side-containment assertions
+  passed with `nix develop -c sh -c 'cd terry-moves && NODE_ENV=test node
+  --experimental-vm-modules node_modules/jest/bin/jest.js
+  tests/atdd/treeRestaging.spec.tsx --runInBand'` (10 tests, 3.017s).
+  No production change invalidated the other accepted observations.
+- Native actual 1080px playback 16–21.97s and 360px playback 19–24.5s covered complete
+  front/detail/return/back traversal; frame 548 showed front detail and 750 both
+  probes. Cover 0/closing 4470 and exported PNG were clear. At 360px the stage spans
+  x8–368; Internal glyphs span 303.762–342.238, leaving a 25.762px margin.
+  Coordinator inspected the actual PNG's hierarchy, two probes and typography.
+  Manual: Good; playback paused, temporary viewport reset.
+- Fresh independent refactor found no remaining candidate; no edits or test
+  reruns. Selective source ESLint and whitespace checks passed. Saved script,
+  audio and authored caption/state cues stay unchanged; final encode comparison
+  remains slice 5. No remote-CI claim.
