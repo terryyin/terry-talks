@@ -1447,7 +1447,7 @@ properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
 
 <div class="absolute left-[5.5%] right-[5.5%] top-[25%]">
 
-```mermaid {scale: 0.9}
+```mermaid
 %%{init: {'flowchart': {'rankSpacing': 28, 'nodeSpacing': 25}}}%%
 flowchart LR
   EJ(<b>Jidoka · 自働化</b><br><small>Autonomation</small><br>Rules captured<br>in tests & code<br><small>テストやコードに<br>組み込んだルール</small>)
