@@ -79,27 +79,103 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#silent-move-joins
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/012-silent-move-joins/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"a13944e91bf0258c472b69c5e59a4b663a453099293a297248d4487c427ef221","plan":"cedfb732d4c9fd0b639295067d780d90d5f0f55358c1e422d4d81b9cb1374a96"}}
 ```
 
-- **For / why:** Terry can direct action without inventing subtitle placeholders
-  or manually reconnecting movement after changing the order.
-- **Outcome and scope:** Assemble a silent scene from supported actor moves,
-  reorder them, and retain natural position and timing joins. Include a prop
-  permanently attached to the actor and an explicit authored cut. Captions are
-  optional; acquiring or releasing the prop belongs to story 5.
-- **Evaluation example:** Given three compatible moves of one actor, Terry
-  changes their order in the script and exports the scene. The next move begins
-  from the previous move's resulting state without manual boundary repair; the
-  attached prop follows. An explicit cut produces the intended discontinuity.
+- **Goal:** Terry directs a short silent scene as an ordered list of supported
+  moves for one actor, reorders the list, and exports the scene; the next move
+  always starts where and when the previous one ended, without subtitle
+  placeholders, offset arithmetic, or manual boundary repair. This is the first
+  test of the product promise that rearrangeable actions connect naturally. The
+  scene's artistic merit is secondary to the usable, reusable authoring path and
+  the evidence it gives about where numeric continuation suffices.
+- **Scope — required behavior:**
+  - A scene script lists one actor, its starting placement, the named places it
+    can go, and an ordered list of moves. Supported moves are at least: travel
+    to a named place over a duration; a hop, an in-place gesture that returns
+    to the settled state; a hold for a duration; and a cut to a named place.
+    Adding another move kind later is naturally general, not promised here.
+  - Timing joins: moves play strictly in list order, each beginning on the frame
+    after the previous one ends. The scene's duration follows from the moves.
+    Reordering never requires editing start times.
+  - Position joins: a travel starts from the actor's position at the end of the
+    previous move, whatever that move was. A hop and a hold keep the actor at
+    that position. The first move starts from the starting placement.
+  - Cut: a cut places the actor at the named place on its first frame with no
+    travel; the following move starts from there. Nothing interpolates across a
+    cut.
+  - Attached prop: the actor carries one prop drawn relative to the actor (the
+    Engineer's wrench in hand); it follows through every move and cut without
+    its own script entries.
+  - Silence: the script carries no caption text and no placeholder, and the
+    exported film has no caption line. A beat may still carry an optional
+    caption through the reused beat model; this story does not verify caption
+    pacing.
+  - Feedback: an unknown actor, unknown move kind, unknown place name, or
+    non-positive duration produces a message naming the offending move and the
+    problem before any frame is rendered, rather than a silently wrong picture.
+    Justified by this seed's boundary that invalid supported-script inputs yield
+    useful feedback (R06).
+  - Export: Terry previews the scene in Remotion Studio and renders it to a
+    video file with the existing render path; a revision is a script edit
+    followed by the same render.
+- **Scope — assumptions and deferred promises:**
+  - First scene: a new silent scene, not a cut of an existing narrated film,
+    with the AI Test Automation Engineer carrying a wrench, moving between three
+    named places on an empty stage. Another actor or prop uses the same path
+    and does not change this scope.
+  - Deferred: acquiring or releasing the prop (story 5); expressive motion
+    intentions such as nervous or playful travel (R08); named regions or
+    anchors beyond named places (R04); a second actor or any interaction between
+    actors; audio of any kind; Studio visual editing that writes back to the
+    script; migrating existing films to this script. None of these is rejected,
+    none is built or verified here.
+  - Reordering supported moves of one actor is always compatible by
+    construction, so this story owns no "impossible join" feedback; semantic
+    feedback for contradictory ownership belongs to story 5.
+- **Key examples:**
+  1. *Reorder joins.* Script: Engineer starts at `door`; places `door`,
+     `desk`, `window`; moves: travel to `desk` 1.5 s, hop 0.6 s, travel to
+     `window` 2 s. Terry reorders to: travel to `window`, hop, travel to `desk`,
+     then exports. Result: the first travel runs door→window, the hop happens
+     at the window, the last travel runs window→desk; each move begins the
+     frame after the previous ends; total length is still 4.1 s; the wrench
+     stays in the Engineer's hand on every frame.
+  2. *Explicit cut.* Terry inserts `cut to door` between the hop and the last
+     travel of example 1. Result: on the cut's first frame the Engineer is at
+     the door with no travel across; the last travel runs door→desk; the scene
+     is one cut's frame longer and nothing else changes.
+  3. *Silent authoring.* The script of example 1 contains no caption text.
+     Result: Studio preview and the rendered file show the action with no
+     caption line and no placeholder text.
+  4. *Useful feedback.* Terry changes the last travel to `kitchen`, which is
+     not a named place. Result: loading the scene reports which move and which
+     name is unknown; no frame renders with the Engineer in a wrong place. A
+     move with duration 0 reports the move and the invalid duration the same
+     way.
+- **Script sketch (illustrative, not a format commitment):**
+  ```
+  actor: engineer, carrying: wrench, starts at: door
+  places: door, desk, window
+  moves:
+    travel to desk, 1.5 s
+    hop, 0.6 s
+    cut to door
+    travel to window, 2 s
+  ```
 - **Known basis and boundary:** R01 plus the useful placement, diagnosis, and
-  motion aspects of R04/R06/R08. Numeric chaining and optional-caption beats
-  already exist. Reuse them; establish the supported continuity contract rather
-  than claiming all automatic continuation is missing or inferring arbitrary
-  scene meaning. Invalid supported-script inputs should yield useful feedback.
+  motion aspects of R04/R06/R08. Numeric chaining already exists per actor
+  field (`InterpolatesOfField` feeds a previous range's end into the next
+  range); note that it treats a previous value of 0 as absent, which matters
+  for an actor returning to the origin. Story Impact's beat model already has
+  named beats, durations, optional captions, and pure pose functions, and the
+  AI workshop Engineer already keeps hand targets attached to props. Choosing
+  which of these the scene script reuses or extends is a planning decision
+  under PFE; refinement establishes the continuity contract above, not a
+  representation.
 - **Value / effort hypothesis:** A usable silent scene-authoring workflow and
   early evidence about the defining product promise. Moderate scope; high
-  confidence in value, with continuity boundaries to refine.
+  confidence in value.
 - **Depends on:** None.
 - **Safe stopping point:** Terry can make and revise supported silent scenes
   independently of dialogue, generated footage, or later semantic interactions.
@@ -625,9 +701,11 @@ the rest of this list.
 
 ## Open decisions
 
-- Which existing film and concrete source idea should the first supported
-  workflow use? The first story should reveal where numeric continuation is
-  sufficient and where an explicit authored boundary is needed.
+- Story 1's refinement settled its first scene on a new silent scene with the
+  AI Test Automation Engineer carrying a wrench, rather than an existing film;
+  that story should reveal where numeric continuation is sufficient and where
+  an explicit authored boundary is needed. Later new-style stories still choose
+  their first film and source idea when selected.
 - Which new style does Terry most want to use in an upcoming film? The accepted
   queue can be reprioritized to test that interest early.
 - For character and generated-media stories, choose the design/rig/provider,
