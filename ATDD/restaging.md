@@ -6,6 +6,13 @@ The film, opening and closing miniatures, `ATDDSolutionTree` and
 `ATDDScenarioCycle` all use this input and the same SVG drawing components.
 The script and saved narration/score supply the existing timing.
 
+Placement stays separate from the sheets' identities and the tree's hierarchy.
+Each requested frame derives outlines, attachments and motion landmarks from
+the authored staging and current pose, so seeking does not depend on earlier
+frames. Circle routes follow their clockwise circumference; tree traversal
+keeps its narrated front/detail/return/back order. The tree's visible trace and
+moving cursor share the same rounded segments.
+
 ## Inputs
 
 Coordinates are pixels in the 1080 × 1080 stage. Keep room for the film heading,
