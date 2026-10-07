@@ -5,47 +5,42 @@ Identity: `terry-moves-filmmaking#silent-move-joins`
 
 ## Goal and scope
 
-- **Goal:** Terry directs a short silent scene as an ordered list of
-  supported moves for one actor, reorders the list, and exports the scene.
-  The next move always starts where and when the previous one ended, with no
-  subtitle placeholders, offset arithmetic, or manual boundary repair. This
-  is the first test of the promise that rearrangeable actions connect
-  naturally; the authoring path matters more than the scene's art.
-- **Included:**
-  - A scene script: one actor, its starting place, named places, and an
-    ordered list of moves. Supported moves: travel to a place over a
-    duration, hop (in place, returns to the settled state), hold for a
-    duration, and cut to a place.
-  - Timing joins: moves play in list order, each starting the frame after
-    the previous one ends; the scene length follows from the moves.
-  - Position joins: a travel starts from wherever the previous move left the
-    actor; hop and hold keep that position; the first move starts at the
-    starting place.
-  - Cut: the actor is at the named place on the cut's first frame, with no
-    travel; nothing interpolates across it.
-  - Attached prop: the Engineer carries a wrench drawn at the hand on every
-    frame, with no script entries of its own.
-  - Silence: no caption text, no placeholder, no caption line in the output.
-  - Feedback: an unknown actor, move kind, or place, or a non-positive
-    duration, is reported naming the move and the problem before any frame
-    renders.
-  - Preview in Remotion Studio and export with the existing render path; a
-    revision is a script edit and the same render.
-- **Excluded (story's deferred promises):** acquiring or releasing the prop
-  (story 5); expressive motion intentions (R08); named regions or anchors
-  beyond named places (R04); a second actor or actor interaction; audio;
-  Studio visual editing that writes back to the script; migrating existing
-  films to this script; caption pacing (a captioned beat stays naturally
-  supported through the reused beat model, unverified here).
-- **Assumptions:** the first scene is new, with the AI Test Automation
-  Engineer carrying a wrench, between three named places on an empty stage,
-  1080×1080 at 30 fps like Story Impact. Another actor or prop would use
-  the same path.
-- **Key examples:** see the story (1–4). Each maps to a slice under
-  [proof ownership](#proof-ownership).
+Terry directs, reorders and exports a short silent scene through an ordered
+script of supported moves. Each move joins the previous end position and next
+frame without captions, offsets or manual repair. The authoring path is primary.
+
+- Included: one actor/start place/named places; travel over a duration, settled
+  in-place hop, constant hold, and one-frame cut without interpolation.
+  Duration follows the list. Travel starts at the previous position; hop/hold
+  retain it. The Engineer's wrench follows its hand every frame without moves.
+  No caption text, placeholders or caption line. Unknown actor/move/place or
+  non-positive duration names the move/problem before rendering. Studio preview,
+  existing render export, and script-edit revision are required.
+- Deferred: acquiring/releasing props (story 5), expressive intentions (R08),
+  regions/anchors (R04), second actor/interactions, audio, Studio write-back,
+  existing-film migration, caption pacing. Optional captions remain available
+  through the reused beat model, unverified here.
+- Assumptions: new scene, Engineer/wrench, three named places, empty stage,
+  1080×1080 at 30 fps. Another actor/prop would follow the same path.
+- Key examples: story examples 1–4; proof ownership is mapped below.
 
 ## Execution context and decisions
 
+- **Execution:** established Story Branch start, publisher
+  `dashboard-territory.local-terry-talks`, agent Mihiro-chan; workspace
+  `/Users/terryyin/git/terry-talks/.worktrees/i-can-assemble-and-rearrange-a-silent-animated-s`,
+  branch `codex/i-can-assemble-and-rearrange-a-silent-animated-s`.
+  Starting revision `fe5919a1cfce79b3112e8d9f764a7ff7b4cb1492`; claim
+  `5cb4dd4de4470e5dca8994e7e4ec77269a9aaf32` confirmed on origin/master
+  and the remote execution branch. Increments publish to that execution branch.
+- **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile && NODE_ENV=test pnpm -C terry-moves exec tsc'`
+  passed in this exact workspace with the current lockfile. No active Git hooks;
+  the affected component's formatter is `pnpm terry-moves:format`.
+- **CI:** no `.github/workflows` or configured `.planning/open-dough.json`
+  CI adapter exists. Push CI observation is unavailable; no observer armed.
+  The trunk claim is unobserved. Local planned proof remains required.
+- **Replanning:** existing planning authority retained. No numeric slice budget
+  is configured; use cohesive Behavior/Structure boundaries and safe stops.
 - **Plan location:** `.planning/quick/`. 011 was the highest allocated
   entry, so this plan is 012. Slice statuses: planned, in-progress, done.
 - **No ADR or North Star applies.** Only ADR-0000 (use ADRs) exists.
@@ -53,53 +48,25 @@ Identity: `terry-moves-filmmaking#silent-move-joins`
   and tsc (`pnpm moves test` from the repo root, as the README documents).
   Local proof per slice is the focused jest spec plus tsc; the whole gate
   runs at slice 1 (a shared type changes) and slice 5 (story complete).
-- **Toolchain (observed):** the shell's Node is 24.5, below the project's
-  `>=24.9` floor, and jest then fails to load `three` in the old-engine
-  specs. Run jest and the gate inside the flake dev shell, which has Node
-  24.21, and with `NODE_ENV=test`, because this shell exports
-  `NODE_ENV=production`, under which `@testing-library/react` renders fail
-  with `React.act is not a function`:
-
-  ```bash
-  cd terry-moves
-  nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/<spec>'
-  nix develop -c sh -c 'NODE_ENV=test pnpm test'     # the whole gate
-  npx remotion compositions src/index.ts              # bundles; lists compositions
-  ```
-
-  `pnpm install --frozen-lockfile` was run in this worktree (node_modules is
-  gitignored); Remotion downloaded its headless shell on first use.
-- **PFE (existing solutions):**
-  - **Beat timeline (reuse by modularizing):** Story Impact's
-    `src/storyImpact/film.ts` already owns named beats with seconds, an
-    optional caption, and a pure pose function, plus `timeline()` with
-    `poseAt`, `beatRange`, and `captionAt`. Its `Beat.pose` is bound to
-    Story Impact's `Pose`, and its `timeline()` applies the caption reading
-    pace `paced()`. Slice 1 lifts the pose-generic arithmetic into a shared
-    module; Story Impact keeps its exports and its pacing. The silent scene
-    uses the shared timeline without pacing, so its durations follow the
-    moves exactly (the seed keeps timing policy per film).
-  - **Original Subtitle/action engine (assessed, not used):**
-    `src/models/Subtitles.ts` requires `text` on every entry, times actions
-    by subtitle `leadingBlank`/`offset`, and chains numeric fields in
-    `InterpolatesOfField`, which treats a previous value of 0 as absent.
-    Its model is subtitle-centric; it is not changed or migrated here.
-  - **Actor and prop (reuse directly):** `src/aiTestAutomation/actors.tsx`
-    `Engineer` is anchored at the feet, takes local hand targets, and marks
-    each arm with `data-hand`; `src/aiTestAutomation/props.tsx` `Wrench`
-    draws at stage coordinates. `Protection.tsx` already draws the wrench at
-    a wrist point and gives the Engineer that point through `reach()`. The
-    scene does the same: hand point = actor position + scale × a fixed local
-    hand offset; wrench drawn there.
-  - **Motion (reuse directly):** `src/aiTestAutomation/motion.ts` `travel`
-    (smoothstep) for travel, `gesture` (anticipation and settled return) for
-    the hop's lift.
-  - **Composition wiring (reuse pattern):** `StoryImpactOneSplash.tsx` draws
-    `poseAt(useCurrentFrame())`; `Root.tsx` registers each film.
-  - **Tests (reuse pattern):** `tests/aiTestAutomation/acting.spec.tsx`
-    reads the Engineer's transform and `data-hand` to compute the world hand
-    point; `tests/storyImpact/*` sample `poseAt` at beat frames and render
-    with `@testing-library/react`.
+- **Toolchain:** shell Node 24.5 is below the `>=24.9` floor and fails
+  old-engine `three` imports. Nix supplies Node 24.21. Use `NODE_ENV=test`
+  because the shell's production React cannot run testing-library's act:
+  from `terry-moves/`, `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/<spec>'`
+  and `nix develop -c sh -c 'NODE_ENV=test pnpm test'` for the gate.
+  Bundle/list with `pnpm exec remotion compositions src/index.ts` in Nix.
+  Checkout dependencies use `pnpm install --frozen-lockfile`; Remotion downloads
+  its headless shell on first use.
+- **PFE (existing solutions):** reuse by modularizing Story Impact's
+  `src/storyImpact/film.ts` pose-bound Beat/timeline arithmetic; keep its pacing
+  and exports. Consumers: `laterStories.ts`, `endingBeats.ts`, `readingPace.ts`,
+  `fullFilm.ts`, film composition wrappers and Story Impact specs.
+  Do not use/migrate `src/models/Subtitles.ts`: it requires text and offset
+  arithmetic; `InterpolatesOfField` treats a prior zero as absent.
+  Reuse Engineer (`actors.tsx`, feet anchor/local hand targets/data-hand),
+  Wrench (`props.tsx`, stage coordinates), and `Protection.tsx`'s wrist/reach
+  pattern. Reuse `motion.ts` travel smoothstep and gesture settled return.
+  Follow `StoryImpactOneSplash.tsx` pose sampling and Root registration;
+  `tests/aiTestAutomation/acting.spec.tsx` supplies world-hand test patterns.
 - **Script form:** a TypeScript module `terry-moves/src/silentScene/script.ts`
   exporting the authored scene as a typed literal; Terry rearranges its
   `moves` array. Places are a record of stage points. Runtime validation
@@ -124,40 +91,28 @@ Identity: `terry-moves-filmmaking#silent-move-joins`
 - **Interim behavior:** until slice 4, an invalid script throws an
   unhelpful error or draws a wrong place; slice 4 replaces that.
 
-## Decisive premises observed (2026-10-07, at `8c5544d`)
+## Baseline and proof ownership
 
-| Premise | Observation | Result |
-| --- | --- | --- |
-| The beat timeline joins beats back to back | Read `film.ts` `beatAt`: `t = (f − from)/(frames − 1)`, so a beat's last frame is `pose(1)` and the next beat's first frame is `pose(0)` | Holds; continuity needs only that the next beat's start state equal the previous end state |
-| Pacing leaves captionless beats alone | Read `readingPace.ts`: `readingSeconds('') = 0`, so `needed ≤ authored` and `stretch = 1` | Holds; the shared timeline still drops pacing so a captioned silent beat cannot stretch |
-| `Beat`/`timeline` consumers are all Story Impact | grep of `storyImpact/film` imports in `src` and `tests` | `laterStories.ts`, `endingBeats.ts`, `readingPace.ts`, `fullFilm.ts`, `StoryImpactOneSplash.tsx`, `StoryImpactFilm.tsx`, and 5 specs; FPS-only imports elsewhere. Holds |
-| Story Impact and acting specs are green | `readingPace`, `StoryImpactOneSplash`, `acting` specs, `NODE_ENV=test` | 49 passed in 3.3 s. Holds |
-| The whole jest suite is green at the floor Node | Full jest inside `nix develop` (Node 24.21), `NODE_ENV=test` | 33 suites, 329 tests passed in 29 s. Holds |
-| The whole jest suite fails under the shell's Node | Full jest with Node 24.5 | 15 old-engine suites fail to load `three` (ESM). Hence the toolchain note |
-| tsc and eslint are clean | `npx tsc`, `npx eslint src` | Both exit 0, no output. Holds |
-| Remotion bundles and registers compositions | `npx remotion compositions src/index.ts` | 22 compositions listed, all 30 fps; `StoryImpactOneSplash` 2121 frames, `StoryImpactFilm` 3852 (baseline for slice 1). One pre-existing 404 for a quillustration asset, unrelated |
-| Durations round to the seed's frame counts | FPS 30: 1.5 s → 45, 0.6 s → 18, 2 s → 60 | 123 frames = 4.10 s; with a one-frame cut, 124. Holds |
-| The Engineer exposes its hand for proof | `actors.tsx`: `data-testid="engineer"` with `translate(x y) scale(s)`, arms with `data-hand`; `acting.spec.tsx` already derives the world hand | Holds |
-| An invalid script stops rendering loudly | Not yet observed; slice 4's proof runs `remotion compositions` against an invalid script | Bounded by slice 4; either isolation outcome satisfies the story |
+Preparation at `8c5544d` established back-to-back beat frames with `pose(1)`
+then `pose(0)`, captionless pacing unchanged, and Engineer hand observability.
+Story Impact owned all Beat/timeline consumers (listed in PFE). Full Jest
+passed 33 suites/329 tests at Node 24.21; eslint and tsc passed. Remotion listed
+22 compositions, OneSplash 2121 frames and Film 3852, plus the known unrelated
+quillustration 404. At 30 fps, 1.5 + 0.6 + 2 seconds yields 123 frames;
+a one-frame cut yields 124. Shell Node 24.5 failed old-engine ESM tests.
 
-## Proof ownership
-
-| Promise | Slice | Observable proof |
-| --- | --- | --- |
-| Timing joins, position joins, travel/hop/hold (example 1) | 2 | Joins spec samples first and last frames of each beat in both orders; 123 frames total |
-| Attached wrench on every frame | 2, 3 | Render spec: wrench position equals the world hand point on sampled frames, including the cut frame |
-| Silence (example 3) | 2 | Render spec: no caption element; the script type has no caption text |
-| Preview in Studio | 2 | `remotion compositions` lists `SilentScene 30 1080x1080 123 (4.10 sec)`; Terry opens it in Studio |
-| Explicit cut (example 2) | 3 | Joins spec: cut frame at the door, last travel door→desk, 124 frames |
-| Useful feedback (example 4) | 4 | Validation spec for unknown place, actor, move kind, and duration 0; `remotion compositions` with an invalid script prints the message |
-| Export and revision path | 5 | `pnpm render:silent-scene` writes `out/silent-scene.mp4` of 124 frames; README documents the path; Terry reorders and re-renders |
-| Story Impact unchanged | 1 | `tests/storyImpact` green; composition durations unchanged |
+Promises and observations are owned by the ordered slices: Story Impact
+preservation (1); reorder/timing/position, wrench, silence and Studio preview
+(2); cut and wrench neighbors (3); invalid-input tests and CLI feedback (4);
+export and script revision (5). Story examples 1/3 map to slice 2, example 2
+to slice 3, and example 4 to slice 4. Terry's preview/revision evaluation
+remains a human evaluation; automated observations are specified below.
 
 ## Ordered slices
 
 ### 1. A pose-generic beat timeline shared outside Story Impact
 Type: Structure
-Status: planned
+Status: done
 
 Internal change: move `Beat`, `beat`, and the arithmetic of `timeline()`
 (`durationInFrames`, `beatRange`, `poseAt`, `captionAt`) into a shared
@@ -172,6 +127,13 @@ Proof:
   at 2121 frames and `StoryImpactFilm` at 3852.
 - The whole gate (`pnpm test` in the dev shell) green, since a shared type
   moved.
+
+Accepted proof (execution worktree, commands from `terry-moves/`):
+- `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/storyImpact'`: 11 suites/128 tests passed. Inspected `StoryImpactOneSplash.spec.tsx` beat sums/caption order/rendering, `readingPace.spec.ts` caption spans/end poses, and `StoryImpactFilm.spec.tsx` shared poses/durations/breaths; existing authored beats are setup.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm exec tsc'`: pass.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm test'`: 33 suites/329 tests, eslint and tsc passed; all known consumers run.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm exec remotion compositions src/index.ts'`: pass, 22 compositions, OneSplash 2121 and Film 3852 frames. Existing Root/index registration is setup.
+- Independent product refactor: none; accepted boundaries unchanged.
 
 ### 2. Terry previews a silent scene whose reordered moves connect
 Type: Behavior
