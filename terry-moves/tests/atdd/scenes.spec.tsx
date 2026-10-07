@@ -5,12 +5,13 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { ATDDScene, DiagramBoard } from '../../src/atdd/Scene';
 import { cue } from '../../src/atdd/diagrams';
 import { durationInFrames, film, FPS, scenes } from '../../src/atdd/film';
+import { baselineStaging } from './stagingFixtures';
 import { palette, RED, STROKE, TEAM_COLORS, WAIT } from '../../src/atdd/art';
 
 // Baseline oracle: c379fd4's ATDD/diagram-analysis.md and film-script.json.
 // Native render/playback owns actual media decoding and typography.
 const svg = (element: React.ReactElement) => new DOMParser().parseFromString(renderToStaticMarkup(element), 'image/svg+xml');
-const sceneAt = (seconds: number) => svg(<ATDDScene seconds={seconds} />);
+const sceneAt = (seconds: number) => svg(<ATDDScene seconds={seconds} staging={baselineStaging} />);
 const text = (document: Document, label: string) => Array.from(document.querySelectorAll('text')).find((node) => node.textContent === label)!;
 const sheets = (document: Document) => Array.from(document.querySelectorAll('text')).filter((node) => node.textContent === 'Scenario A').map((node) => node.parentElement!);
 const statuses = (sheet: Element) => ['Given', 'Select', 'Update', 'Then'].map((label) => Array.from(sheet.querySelectorAll('text')).find((node) => node.textContent === label || node.textContent === `${label}*`)!.parentElement!.querySelector('circle')!.getAttribute('fill'));
@@ -28,7 +29,7 @@ describe('the source-linked ATDD baseline on the current runtime', () => {
 	});
 
 	it('reproduces the uneven tree and its two distinct test probes on the exported board', () => {
-		const board = svg(<DiagramBoard diagram="tree" />);
+		const board = svg(<DiagramBoard diagram="tree" staging={baselineStaging} />);
 		expect(board.querySelectorAll(`rect[fill="${palette.panel}"][stroke="${palette.structure}"]`)).toHaveLength(9);
 		expect(board.querySelectorAll(`path[stroke-width="${STROKE.detail}"]`)).toHaveLength(8);
 		['User result', 'Front end', 'Back end', 'End-to-end', 'Internal'].forEach((label) => expect(text(board, label)).toBeDefined());
@@ -40,7 +41,7 @@ describe('the source-linked ATDD baseline on the current runtime', () => {
 	});
 
 	it('keeps six successive sheets on the clockwise circle, with local loops and the integrated fork', () => {
-		const board = svg(<DiagramBoard diagram="circle" />);
+		const board = svg(<DiagramBoard diagram="circle" staging={baselineStaging} />);
 		const steps = sheets(board);
 		expect(steps).toHaveLength(6);
 		expect(steps.map(statuses)).toEqual([
@@ -105,7 +106,7 @@ describe('the source-linked ATDD baseline on the current runtime', () => {
 		scenes.forEach((scene) => {
 			const caption = scene.captions[0];
 			const seconds = (caption.start + caption.end) / 2;
-			const rendered = renderToStaticMarkup(<ATDDScene seconds={seconds} />);
+			const rendered = renderToStaticMarkup(<ATDDScene seconds={seconds} staging={baselineStaging} />);
 			expect(rendered).not.toMatch(/NaN|Infinity/);
 			expect(sceneAt(seconds).documentElement.textContent).toContain(caption.text);
 		});

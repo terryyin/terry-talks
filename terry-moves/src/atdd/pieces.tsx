@@ -66,12 +66,16 @@ export const MiniAI: React.FC<{ x: number; y: number }> = ({ x, y }) => <g trans
 </g>;
 
 export type SheetDirection = 'right' | 'down' | 'left' | 'up';
+export const SHEET_BODY = { width: 180, height: 156 } as const;
+export const SHEET_BADGE = { x: -15, y: -17, radius: 17, rightOffset: 210 } as const;
+export const LOCAL_CYCLE_RADIUS = 52;
 type SheetProps = { x: number; y: number; direction: SheetDirection; states: StepState[]; active?: boolean; seconds?: number; number?: number; numberSide?: 'left' | 'right'; opacity?: number; temporary?: boolean };
 export const sheetPoints = (direction: SheetDirection): { x: number; y: number }[] => {
-	const points = direction === 'right' ? [[0, 0], [180, 0], [180, 46], [224, 78], [180, 110], [180, 156], [0, 156]]
-		: direction === 'down' ? [[0, 0], [180, 0], [180, 156], [122, 156], [90, 196], [58, 156], [0, 156]]
-			: direction === 'left' ? [[0, 0], [180, 0], [180, 156], [0, 156], [0, 110], [-44, 78], [0, 46]]
-				: [[0, 0], [58, 0], [90, -40], [122, 0], [180, 0], [180, 156], [0, 156]];
+	const { width, height } = SHEET_BODY;
+	const points = direction === 'right' ? [[0, 0], [width, 0], [width, 46], [width + 44, height / 2], [width, 110], [width, height], [0, height]]
+		: direction === 'down' ? [[0, 0], [width, 0], [width, height], [122, height], [width / 2, height + 40], [58, height], [0, height]]
+			: direction === 'left' ? [[0, 0], [width, 0], [width, height], [0, height], [0, 110], [-44, height / 2], [0, 46]]
+				: [[0, 0], [58, 0], [width / 2, -40], [122, 0], [width, 0], [width, height], [0, height]];
 	return points.map(([x, y]) => ({ x, y }));
 };
 const arrowOutline = (direction: SheetDirection) => roundedPath(sheetPoints(direction), 5);
@@ -80,20 +84,20 @@ export const SheetArrow: React.FC<SheetProps> = ({ x, y, direction, states, acti
 	{active ? <path d={arrowOutline(direction)} fill="none" stroke={TEAM_COLORS[4]} strokeWidth={11} strokeLinejoin="round" /> : null}
 	<path d={arrowOutline(direction)} transform={`translate(${SHADOW.x} ${SHADOW.y})`} fill={palette.paperShadow} opacity={SHADOW.opacity} />
 	<path d={arrowOutline(direction)} fill={palette.panel} stroke={palette.structure} strokeWidth={STROKE.panel} strokeLinejoin="round" />
-	<Text x={90} y={28} size={26}>Scenario A</Text>
+	<Text x={SHEET_BODY.width / 2} y={28} size={26}>Scenario A</Text>
 	{['Given', 'Select', 'Update', 'Then'].map((row, i) => <g key={row}>
 		<path d={`M12 ${66 + i * 29} H168`} stroke={palette.paperShadow} strokeWidth={1.5} />
 		<Text x={12} y={58 + i * 29} size={28} anchor="start" weight={700}>{row}{temporary && i === 1 ? '*' : ''}</Text>
 		<Status x={155} y={49 + i * 29} state={states[i]} seconds={seconds} />
 	</g>)}
-	{number ? <g transform={numberSide === 'right' ? 'translate(210 0)' : undefined}><circle cx={-15} cy={-17} r={17} fill={palette.cellSky} stroke={palette.ink} strokeWidth={3} /><Text x={-15} y={-9} size={24}>{number}</Text></g> : null}
+	{number ? <g transform={numberSide === 'right' ? `translate(${SHEET_BADGE.rightOffset} 0)` : undefined}><circle cx={SHEET_BADGE.x} cy={SHEET_BADGE.y} r={SHEET_BADGE.radius} fill={palette.cellSky} stroke={palette.ink} strokeWidth={3} /><Text x={SHEET_BADGE.x} y={SHEET_BADGE.y + 8} size={24}>{number}</Text></g> : null}
 </g>;
 
 export const LocalCycle: React.FC<{ x: number; y: number; seconds?: number; began?: number; size?: number; title?: boolean; phase?: number }> = ({ x, y, seconds = 0, began = 0, size = 1, title = true, phase }) => {
 	const k = phase ?? Math.max(0, Math.min(2, Math.floor((seconds - began) / 0.95)));
 	return <g transform={`translate(${x} ${y}) scale(${size})`}>
 		{[RED, palette.behavior, palette.structure].map((color, i) => <g key={color} opacity={i === k ? 1 : 0.4} transform={`rotate(${i * 120})`}>
-			<Flow d="M-18 -49 A52 52 0 0 1 50 6" color={color} width={6} arrow />
+			<Flow d={`M-18 -49 A${LOCAL_CYCLE_RADIUS} ${LOCAL_CYCLE_RADIUS} 0 0 1 50 6`} color={color} width={6} arrow />
 		</g>)}
 		<Text x={0} y={8} size={k === 2 ? 20 : 25}>{['RED', 'GREEN', 'REFACTOR'][k]}</Text>
 		{title ? <Text x={0} y={90} size={28}>Local TDD</Text> : null}

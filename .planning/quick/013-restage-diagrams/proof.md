@@ -107,3 +107,36 @@ not assertions that an output already exists in this preparation workspace.
   changed. Its typecheck passed; original scene/output/native proof is reusable.
   Selective source ESLint formatting passed. Original automatic-transcript
   whitespace is preserved and excluded from the whitespace check.
+
+
+## Slice 2 accepted proof
+
+- Maintained `src/atdd/staging.ts` drives scene, board and miniatures. Current
+  sheet outlines/badges trim all six clockwise arcs; backlog entry/next and
+  directed local-loop ports follow authored placement. Independent rendered
+  outline, transform, marker, reservation and out-of-order observations in
+  `tests/atdd/restaging.spec.tsx` exercise the actual scene/board, alongside the
+  seven source regression cases. The focused ATDD command above passed 16 tests;
+  TypeScript and the complete diagram producer passed.
+- Edited example: center 575/495, radius 290, sheet scale .94, first three angles
+  -95/-28/31, backlog 65/236, local offset 390/295. Native full/360px observations
+  covered main cycle, local return/Then, complete board, cover and closing.
+  Final compaction playback at both actual display sizes covered 36–50 seconds,
+  first green result and selection failure. Mid-compaction frame 1101 at 360px
+  showed label top 463.35 below the last row's bottom 460.48 and label bottom
+  470.70 above the panel's bottom 473.56 and caption's top 535.96. Manual: Good.
+- Native acceptance exposed a clipped/overwide waiting label. Its corrected
+  reservation derives from current rows/panel; drawing shares those footprints,
+  retaining its original fade/cues. Source/edited tests observe rows, panel,
+  caption and typography reservations through compaction. The final native
+  correction confirmation took 2m41s within its three-minute allowance.
+- Adequate authored space matters: an earlier lower circle intruded on the film
+  caption; final center/radius were revised through staging only. No solver or
+  layout rejection was added. Source default remains selected until slice 3
+  replaces fixed split/reunion lanes. Revised board artifacts are retained in
+  `terry-moves/out/restaging/slice2/`; checked-in outputs use the source default.
+- Independent initial and correction refactors completed. Shape/badge/radius,
+  route clearance and backlog footprint ownership are shared with drawing;
+  corrected native proof remained valid. Selective ESLint and whitespace checks
+  passed. Studio now runs from this checkout (session 47683); corrected native
+  observation used Chrome tab 137231888. No full-film or remote-CI claim here.

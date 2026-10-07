@@ -1,7 +1,7 @@
 import React from 'react';
 import { lerp } from '../storyImpact/motion';
 import { palette } from './art';
-import { cycleToMerge, forkToCycle, frontEndCycle } from './circleLayout';
+import { CirclePose, cycleToMerge, forkToCycle } from './circleLayout';
 import { Flow, LocalCycle, Text } from './pieces';
 
 export const diamondPerson = (id: number, split: number, merge: number) => {
@@ -22,16 +22,16 @@ export const diamondPerson = (id: number, split: number, merge: number) => {
 	};
 };
 
-type Props = { seconds: number; split: number; merge: number; loopPhase: number; localShown: number; passed: boolean; staticBoard: boolean };
+type Props = { pose: CirclePose; seconds: number; split: number; merge: number; loopPhase: number; localShown: number; passed: boolean; staticBoard: boolean };
 
 // The existing failed, finishing and finished sheets are three vertices of this
 // diamond. Local TDD is the fourth; no second copy of the circle is introduced.
-export const CollaborationDiamond: React.FC<Props> = ({ seconds, split, merge, loopPhase, localShown, passed, staticBoard }) => <g>
-	<Flow d={forkToCycle()} progress={localShown} arrow />
+export const CollaborationDiamond: React.FC<Props> = ({ pose, seconds, split, merge, loopPhase, localShown, passed, staticBoard }) => <g>
+	<Flow d={forkToCycle(pose)} progress={localShown} arrow />
 	<g opacity={localShown}>
-		<LocalCycle {...frontEndCycle} seconds={seconds} title={false} phase={staticBoard ? 2 : loopPhase} />
+		<LocalCycle {...pose.frontEndCycle} seconds={seconds} title={false} phase={staticBoard ? 2 : loopPhase} />
 	</g>
-	<Flow d={cycleToMerge()} progress={merge} color={passed ? palette.behavior : palette.structure} arrow />
+	<Flow d={cycleToMerge(pose)} progress={merge} color={passed ? palette.behavior : palette.structure} arrow />
 	{!staticBoard ? <g opacity={split * Math.max(0, 1 - merge * 10)}>
 		<Text x={610} y={325} size={26}>3 · Front-end TDD</Text>
 		<Text x={220} y={510} size={24}>2 · Finish Scenario A</Text>

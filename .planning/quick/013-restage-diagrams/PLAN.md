@@ -84,7 +84,9 @@ not a substitute for this proof.
 
 ### 2. Terry moves the circle and backlog without repairing their connectors
 Type: Behavior
-Status: planned
+Status: done
+
+Accepted evidence: [slice 2](proof.md#slice-2-accepted-proof).
 
 Behavior: given the reproduced circle, Terry edits the maintained staging inputs
 for circle center/radius, sheet placement/size, and backlog placement. The circle's
