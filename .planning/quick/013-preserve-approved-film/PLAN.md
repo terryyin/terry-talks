@@ -174,12 +174,12 @@ Accepted proof (2026-10-07):
 
 ### 3. A timing change is reported as a preservation failure
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: When a film has a timeline entry (`ProblemDecompositionFilm` reads
 `Problem Decomposition/film-script.json`), the report compares the following
 between the two sides:
-- `duration` and `fps`;
+- `duration`, `fps` and the rendered cover boundary `coverDuration`;
 - every scene's `id`, `start` and `end`;
 - every caption range's `text`, `start`, `end`, `speechStart` and `speechEnd`.
 
@@ -189,19 +189,19 @@ ranges carry scene labels, for example "health 76.17–85.73 s, end
 85.73–91.53 s". That completes story example 2's naming of the health and end
 scenes. The replay still reports **Preserved**.
 
-Proof:
-- Jest specs on the timeline diff. Fixtures are two copies of the real
-  `film-script.json` structure: identical, one with a scene boundary moved,
-  and one with the duration changed. Expected messages name `health` and the
-  values. Further specs cover labelling a time range by scene.
-- Demonstration: shift one scene boundary in the working tree's
-  `film-script.json` by 0.1 s. `pnpm moves compare ProblemDecompositionFilm`
-  then prints **Not preserved** with the scene named. Revert afterwards.
-- The replay run prints **Preserved** with scene labels.
-- The README's `pnpm moves compare` section describes the defaults,
-  `--change`, the three kinds of evidence, the output location and the
-  verdict.
-- `pnpm moves test` passes.
+Execution learning: `Scene.tsx` shows its end-pose cover before `coverDuration`.
+This is approved timing too; compare it and label that interval as cover,
+clipping any underlying script scene labels until the cover ends.
+
+Accepted proof (2026-10-07):
+
+- `nix develop --command env NODE_ENV=test pnpm -C terry-moves exec node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand tests/revision`: 7 suites/64 tests passed. `timeline.spec.ts` uses full real-script copies to observe all checked fields/order/add/remove, duration/fps/cover veto under `0-end`, exact health values, cover/health/end labels and explicit unregistered coverage limits; real file reads use isolated source directories.
+- `nix develop --command env NODE_ENV=test pnpm moves test`: exit 0, 43 suites/432 tests, lint and tsc; `/tmp/preserve-approved-film-slice3-tests.log`.
+- `nix develop --command env NODE_ENV=test pnpm moves compare ProblemDecompositionFilm --baseline '1334426^' --correction 1334426 --change 0-1.2 --change 76-end`: **Preserved**, checked timeline/audio identical, cover/health/end labels; `out/revisions/ProblemDecompositionFilm-2026-10-07T07-46-14-690Z/report.md` inspected.
+- `nix develop --command env NODE_ENV=test pnpm moves compare ProblemDecompositionFilm --baseline '1334426^' --correction 1334426 --change 76-80`: expected **Not preserved**, undeclared cover 0–35 and health/end 2400–2746 named; `out/revisions/ProblemDecompositionFilm-2026-10-07T07-47-49-087Z/report.md` inspected.
+- `python3 /tmp/preserve-approved-film-slice3-timing.py` temporarily moved health.end by 0.1 and ran `nix develop --command env NODE_ENV=test pnpm moves compare ProblemDecompositionFilm --change 0-end`: compare exit 1, runner exit 0, **Not preserved** solely for timeline, end 85.73333333333333 → 85.83333333333333, audio/duration/fps unchanged, all 3 changed frames intended. Report `out/revisions/ProblemDecompositionFilm-2026-10-07T07-49-16-582Z/report.md` inspected.
+- Exact original film bytes restored (sha256 `76fb8cc78619152c93e9914b2ac15c1239d6b523bb78503914eb19c0943bdc76`); source/assets/timeline clean, no temporary compare worktrees (`/tmp/preserve-approved-film-slice3-worktrees-final.txt`). README covers defaults, ranges, evidence/verdict/output, dependencies and evidence limits.
+- Independent refactor: none — already clean; accepted proof unchanged, no extra tests.
 
 ## Proof ownership
 
