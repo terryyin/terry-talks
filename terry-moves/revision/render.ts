@@ -12,6 +12,15 @@ export type RenderedFilm = {
   audio: Buffer;
 };
 
+export const readFramePaths = async (frameDirectory: string): Promise<Map<number, string>> => {
+  const paths = new Map<number, string>();
+  for (const name of await readdir(frameDirectory)) {
+    const match = /^element-(\d+)\.png$/.exec(name);
+    if (match) paths.set(Number(match[1]), join(frameDirectory, name));
+  }
+  return paths;
+};
+
 export const readComposition = async (source: FilmSource, id: string, log: string): Promise<Composition> => {
   const output = await runCommand('pnpm', ['exec', 'remotion', 'compositions', 'src/index.ts'], source.directory, log);
   const line = output.split('\n').find((row) => row.trim().split(/\s+/)[0] === id);
@@ -46,10 +55,8 @@ export const renderFilm = async (
     'exec', 'remotion', 'render', 'src/index.ts', composition.id, audioPath, '--codec=wav',
   ], source.directory, log);
   const frames = new Map<number, string>();
-  for (const name of await readdir(frameDirectory)) {
-    const match = /^element-(\d+)\.png$/.exec(name);
-    if (!match) continue;
-    frames.set(Number(match[1]), createHash('sha256').update(await readFile(join(frameDirectory, name))).digest('hex'));
+  for (const [frame, path] of await readFramePaths(frameDirectory)) {
+    frames.set(frame, createHash('sha256').update(await readFile(path)).digest('hex'));
   }
   if (frames.size !== composition.durationInFrames ||
     Array.from({length: composition.durationInFrames}, (_, frame) => frame).some((frame) => !frames.has(frame))) {

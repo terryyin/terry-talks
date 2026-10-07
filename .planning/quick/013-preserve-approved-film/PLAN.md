@@ -153,7 +153,7 @@ Accepted proof (2026-10-07):
 
 ### 2. Terry sees the corrected moments before and after
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: The same `compare` run writes side-by-side PNGs, baseline on the
 left and correction on the right, for the first, middle and last changed
@@ -163,13 +163,14 @@ assimilation range and sees one blue column become three scattered blue cells
 (story example 1, "sees"). An unchanged declared range gets one pair from its
 midpoint, labelled as unchanged.
 
-Proof:
-- A jest spec for choosing preview frames per range (first, middle and last;
-  a single-frame range; an unchanged range).
-- Demonstration: the replay's preview of the 76.17–91.53 s range is read back
-  and shows the blue-cell difference. A preview of the cover range exists.
-  Terry's look at the replay preview is the story evaluation.
-- `pnpm moves test` passes.
+Accepted proof (2026-10-07):
+
+- `nix develop --command env NODE_ENV=test pnpm -C terry-moves exec node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand tests/revision`: 6 suites/39 tests passed; `previews.spec.ts` observes first/middle/last, short-run deduplication, unchanged midpoint and missing-side inputs; `report.spec.ts` observes link placement, unchanged labels and both absent-side failure reports.
+- `nix develop --command env NODE_ENV=test pnpm moves compare ProblemDecompositionFilm --baseline '1334426^' --correction 1334426 --change 0-1.2 --change 76-end`: **Preserved**, six 2160×1080 preview pairs in `out/revisions/ProblemDecompositionFilm-2026-10-07T07-31-09-582Z/`. Coordinator read back/shown frame 2515 (blue column becomes scattered cells) and cover frame 0; original picture retained, baseline left/correction right.
+- `nix develop --command env NODE_ENV=test pnpm moves compare ProblemDecompositionFilm --change 0-1.2 --change 76-end`: **Preserved**, zero changed frames, labelled unchanged pairs at frames 17 and 2513 in `out/revisions/ProblemDecompositionFilm-2026-10-07T07-32-57-220Z/`; report links inspected.
+- `nix develop --command env NODE_ENV=test pnpm -C terry-moves exec tsx /tmp/preserve-approved-film-slice2-fixture.ts`: real ffmpeg pass; every original pixel retained, 8×4 pair dimensions, black padding/missing panels and both absent-side failure labels. Evidence `/tmp/preserve-approved-film-slice2-fixture-YZR8hk/` and post-refactor `/tmp/preserve-approved-film-slice2-fixture-dgAd2w/`.
+- `nix develop --command env NODE_ENV=test pnpm moves test`: 42 suites/407 tests, lint and tsc passed. No temporary worktrees; `/tmp/preserve-approved-film-slice2-worktrees-final.txt`.
+- Independent refactor consolidated frame-file indexing for hashing/previews. `nix develop --command env NODE_ENV=test pnpm -C terry-moves exec node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand tests/revision/render.spec.ts tests/revision/previews.spec.ts tests/revision/report.spec.ts`: 3 suites/22 tests passed, including real indexed hashes and incomplete-sequence rejection with only external Remotion commands stubbed. Other boundaries unchanged.
 
 ### 3. A timing change is reported as a preservation failure
 Type: Behavior

@@ -1,6 +1,7 @@
 import {mkdir, writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
-import {parseChangeRange} from './ranges';
+import {classifyChanges, parseChangeRange} from './ranges';
+import {renderPreviews, requestedPreviewFrames} from './previews';
 import {changedFrames, readComposition, renderFilm} from './render';
 import {preservationVerdict, reportMarkdown} from './report';
 import {withFilmSources} from './sources';
@@ -33,8 +34,10 @@ export const compareFilm = async (options: {
       changed: changedFrames(baseline, correction),
       audio: compareWav(baseline.audio, correction.audio),
     };
+    const previews = await renderPreviews(baseline, correction,
+      requestedPreviewFrames(classifyChanges(comparison.changed, declarations)), output, log);
     const report = join(output, 'report.md');
-    await writeFile(report, reportMarkdown(comparison));
+    await writeFile(report, reportMarkdown({...comparison, previews}));
     return {verdict: preservationVerdict(comparison), report};
   });
 };
