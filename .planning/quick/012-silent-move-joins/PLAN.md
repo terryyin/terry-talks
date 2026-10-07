@@ -34,6 +34,7 @@ frame without captions, offsets or manual repair. The authoring path is primary.
   `5cb4dd4de4470e5dca8994e7e4ec77269a9aaf32` confirmed on origin/master
   and the remote execution branch. Increments publish to that execution branch.
   Slice 1 accepted: `69065414d758130aebdc10632fa36757fab333fd` (CI unobserved).
+  Slice 2 accepted: `ce49a406c371f7b2fa787aa73d0f3c6ec83cfc2f` (CI unobserved).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile && NODE_ENV=test pnpm -C terry-moves exec tsc'`
   passed in this exact workspace with the current lockfile. No active Git hooks;
   the affected component's formatter is `pnpm terry-moves:format`.
@@ -123,13 +124,6 @@ re-exports `Beat` bound to its `Pose`, keeps `squeezed`, and defines its
 `timeline(authored)` as the shared timeline over `paced(authored)`. No
 consumer import changes. Enables slice 2.
 
-Proof:
-- `tests/storyImpact` suite green; `npx tsc` and `npx eslint src` clean.
-- `npx remotion compositions src/index.ts` still lists `StoryImpactOneSplash`
-  at 2121 frames and `StoryImpactFilm` at 3852.
-- The whole gate (`pnpm test` in the dev shell) green, since a shared type
-  moved.
-
 Accepted proof (execution worktree, commands from `terry-moves/`):
 - `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/storyImpact'`: 11 suites/128 tests passed. Inspected `StoryImpactOneSplash.spec.tsx` beat sums/caption order/rendering, `readingPace.spec.ts` caption spans/end poses, and `StoryImpactFilm.spec.tsx` shared poses/durations/breaths; existing authored beats are setup.
 - `nix develop -c sh -c 'NODE_ENV=test pnpm exec tsc'`: pass.
@@ -153,20 +147,6 @@ first travel runs door→window, the hop happens at the window, the last
 travel runs window→desk, each starting the frame after the previous ends
 (story examples 1 and 3).
 
-Proof:
-- `tests/silentScene/joins.spec.ts`: for the authored order and the reordered
-  script, `poseAt` at each beat's first frame equals the previous beat's last
-  frame position; travel ends at its place; hop starts and ends at the same
-  point with `lift` 0 and a positive lift mid-beat; hold is constant;
-  `durationInFrames` is 123.
-- `tests/silentScene/scene.spec.tsx`: on sampled frames of each beat the
-  wrench's translate equals the Engineer's world hand point (as
-  `acting.spec.tsx` derives it); no element with caption text or a caption
-  test id exists.
-- `npx remotion compositions src/index.ts` lists
-  `SilentScene 30 1080x1080 123 (4.10 sec)`.
-- Terry opens `SilentScene` in Studio and scrubs it (evaluation).
-
 Accepted proof (same worktree, commands from `terry-moves/`):
 - `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/silentScene'`: 2 suites/11 tests passed. `joins.spec.ts` uses actual authored/reordered entries and observes contiguous ranges, adjacent poses, travel targets, hop lift/settling, all hold frames, silence and finite tiny-positive moves (travel 2/hop 3/hold 1 frames). `scene.spec.tsx` samples first/middle/last poses and derives actual world hand vs wrench translation, lifted feet and absence of text; setup compiles those scripts.
 - `nix develop -c sh -c 'NODE_ENV=test pnpm exec tsc'`: pass.
@@ -175,7 +155,7 @@ Accepted proof (same worktree, commands from `terry-moves/`):
 
 ### 3. An explicit cut relocates the actor without travel
 Type: Behavior
-Status: planned
+Status: done
 
 Behavior: a `cut to <place>` move becomes a one-frame beat at that place;
 the following move starts from there. With `cut to door` inserted between
@@ -191,6 +171,12 @@ Proof:
 - `scene.spec.tsx`: the wrench is at the hand on the cut frame and its
   neighbors.
 - `remotion compositions` lists `SilentScene` at 124 frames.
+
+Accepted proof (same worktree, commands from `terry-moves/`):
+- `nix develop -c sh -c 'NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/silentScene'`: 2 suites/14 tests passed, including after refactoring. `joins.spec.ts` compiles the authored cut sequence, observing ranges 60/18/1/45, frame 77 at window, 78/79 at door and 123 at desk; independent original/reordered fixtures still prove 123 frames. `scene.spec.tsx` derives real world hand vs wrench at cut/neighbors and sampled beats, no text.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm exec tsc'`: pass before/after refactor.
+- `nix develop -c sh -c 'NODE_ENV=test pnpm exec remotion compositions src/index.ts'`: 23 compositions, SilentScene 124 frames; duration/registration boundaries unchanged by refactor. Chrome Studio showed the door pose at frame 78.
+- Refactor consolidated compiler destination state; tiny expectations now use their own fixture. Inspected edits and rerun observations preserve joins and attachment.
 
 ### 4. An invalid script reports the move and the problem before rendering
 Type: Behavior

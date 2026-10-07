@@ -1,16 +1,12 @@
 import { compileScene } from '../../src/silentScene/compileScene';
 import { SceneScript, script } from '../../src/silentScene/script';
+import { original, reordered } from './fixtures';
 
-const reordered: SceneScript = {
-	...script,
-	moves: [script.moves[2], script.moves[1], script.moves[0]],
-};
-
-describe.each<[string, SceneScript]>([['authored', script], ['reordered', reordered]])('%s silent scene', (_order, authored) => {
+describe.each<[string, SceneScript]>([['original story order', original], ['reordered', reordered]])('%s silent scene', (_order, authored) => {
 	const scene = compileScene(authored);
 
 	test('starts at the named start and joins every adjacent move on the next frame', () => {
-		expect(scene.poseAt(0)).toEqual({ ...script.places.door, lift: 0 });
+		expect(scene.poseAt(0)).toEqual({ ...authored.places.door, lift: 0 });
 		let nextFrame = 0;
 		scene.beats.forEach((current, index) => {
 			const range = scene.beatRange(current.name);
@@ -51,20 +47,38 @@ describe.each<[string, SceneScript]>([['authored', script], ['reordered', reorde
 	});
 });
 
+test('the authored cut jumps from window to door for one frame, then travel begins there and ends at desk', () => {
+	const scene = compileScene(script);
+	const cut = scene.beatRange('3 cut to door');
+	expect(scene.durationInFrames).toBe(124);
+	expect(scene.beats.map((current) => scene.beatRange(current.name))).toEqual([
+		{ from: 0, durationInFrames: 60 },
+		{ from: 60, durationInFrames: 18 },
+		{ from: 78, durationInFrames: 1 },
+		{ from: 79, durationInFrames: 45 },
+	]);
+	expect(scene.poseAt(cut.from - 1)).toEqual({ ...script.places.window, lift: 0 });
+	expect(scene.poseAt(cut.from)).toEqual({ ...script.places.door, lift: 0 });
+	expect(scene.poseAt(cut.from + 1)).toEqual({ ...script.places.door, lift: 0 });
+	expect(scene.poseAt(scene.durationInFrames - 1)).toEqual({ ...script.places.desk, lift: 0 });
+	expect(script.moves[2]).not.toHaveProperty('seconds');
+	for (let frame = 0; frame < scene.durationInFrames; frame++) expect(scene.captionAt(frame)).toBe('');
+});
+
 test('a hold keeps every frame at the previous move end, including after reordering', () => {
 	const withHold: SceneScript = { ...reordered, moves: [...reordered.moves, { kind: 'hold', seconds: 0.8 }] };
 	const scene = compileScene(withHold);
 	const hold = scene.beatRange(scene.beats[3].name);
 	expect(hold).toEqual({ from: 123, durationInFrames: 24 });
 	for (let frame = hold.from; frame < scene.durationInFrames; frame++) {
-		expect(scene.poseAt(frame)).toEqual({ ...script.places.desk, lift: 0 });
+		expect(scene.poseAt(frame)).toEqual({ ...reordered.places.desk, lift: 0 });
 		expect(scene.poseAt(frame)).toEqual(scene.poseAt(hold.from - 1));
 	}
 });
 
 test.each([0.001, 1 / 30])('tiny positive moves (%s seconds) retain finite endpoints and adjacent joins', (seconds) => {
 	const tiny: SceneScript = {
-		...script,
+		...original,
 		moves: [
 			{ kind: 'travel', to: 'desk', seconds },
 			{ kind: 'hop', seconds },
@@ -83,11 +97,11 @@ test.each([0.001, 1 / 30])('tiny positive moves (%s seconds) retain finite endpo
 	for (let frame = 0; frame < scene.durationInFrames; frame++) {
 		Object.values(scene.poseAt(frame)).forEach((value) => expect(Number.isFinite(value)).toBe(true));
 	}
-	expect(scene.poseAt(0)).toEqual({ ...script.places.door, lift: 0 });
-	expect(scene.poseAt(1)).toEqual({ ...script.places.desk, lift: 0 });
+	expect(scene.poseAt(0)).toEqual({ ...tiny.places.door, lift: 0 });
+	expect(scene.poseAt(1)).toEqual({ ...tiny.places.desk, lift: 0 });
 	[2, 5, 6].forEach((from) => expect(scene.poseAt(from)).toEqual(scene.poseAt(from - 1)));
 	expect(scene.poseAt(2).lift).toBe(0);
 	expect(scene.poseAt(3).lift).toBeGreaterThan(0);
 	expect(scene.poseAt(4).lift).toBe(0);
-	expect(scene.poseAt(7)).toEqual({ ...script.places.window, lift: 0 });
+	expect(scene.poseAt(7)).toEqual({ ...tiny.places.window, lift: 0 });
 });

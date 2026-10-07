@@ -8,23 +8,25 @@ export const compileScene = (script: SceneScript, fps = 30): Timeline<ScenePose>
 	let position = script.places[script.start];
 	const beats: Beat<ScenePose>[] = script.moves.map((move, index) => {
 		const start = position;
+		const goesToPlace = move.kind === 'travel' || move.kind === 'cut';
+		const end = goesToPlace ? script.places[move.to] : start;
+		position = end;
 		// Hop needs a lifted middle sample, travel two endpoints, and hold one.
 		const minimumFrames = move.kind === 'hold' ? 1 : move.kind === 'hop' ? 3 : 2;
-		const frames = Math.max(minimumFrames, Math.round(move.seconds * fps));
+		const frames = move.kind === 'cut' ? 1 : Math.max(minimumFrames, Math.round(move.seconds * fps));
 		const seconds = frames / fps;
 		// beat() samples seconds through the last frame, so settle on that frame.
 		const lastSeconds = (frames - 1) / fps;
-		const name = `${index + 1} ${move.kind}${move.kind === 'travel' ? ` to ${move.to}` : ''}`;
+		const name = `${index + 1} ${move.kind}${goesToPlace ? ` to ${move.to}` : ''}`;
 		switch (move.kind) {
-			case 'travel': {
-				const end = script.places[move.to];
-				position = end;
+			case 'travel':
 				return beat(name, seconds, undefined, (elapsed) => ({ ...lerpPoint(start, end, travel(elapsed, 0, lastSeconds)), lift: 0 }), fps);
-			}
 			case 'hop':
 				return beat(name, seconds, undefined, (elapsed) => ({ ...start, lift: 80 * gesture(elapsed, 0, lastSeconds) }), fps);
 			case 'hold':
 				return beat(name, seconds, undefined, () => ({ ...start, lift: 0 }), fps);
+			case 'cut':
+				return beat(name, seconds, undefined, () => ({ ...end, lift: 0 }), fps);
 		}
 	});
 	return timeline(beats, fps);

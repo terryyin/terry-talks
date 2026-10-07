@@ -3,7 +3,8 @@ import type { Point } from '../aiTestAutomation/motion';
 export type Move =
 	| { kind: 'travel'; to: string; seconds: number }
 	| { kind: 'hop'; seconds: number }
-	| { kind: 'hold'; seconds: number };
+	| { kind: 'hold'; seconds: number }
+	| { kind: 'cut'; to: string };
 
 export type SceneScript = {
 	actor: 'Engineer';
@@ -22,8 +23,9 @@ export const script = {
 		window: { x: 850, y: 720 },
 	},
 	moves: [
-		{ kind: 'travel', to: 'desk', seconds: 1.5 },
-		{ kind: 'hop', seconds: 0.6 },
 		{ kind: 'travel', to: 'window', seconds: 2 },
+		{ kind: 'hop', seconds: 0.6 },
+		{ kind: 'cut', to: 'door' },
+		{ kind: 'travel', to: 'desk', seconds: 1.5 },
 	],
 } as const satisfies SceneScript;
