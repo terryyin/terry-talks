@@ -203,6 +203,12 @@ Accepted proof (2026-10-07):
 - Exact original film bytes restored (sha256 `76fb8cc78619152c93e9914b2ac15c1239d6b523bb78503914eb19c0943bdc76`); source/assets/timeline clean, no temporary compare worktrees (`/tmp/preserve-approved-film-slice3-worktrees-final.txt`). README covers defaults, ranges, evidence/verdict/output, dependencies and evidence limits.
 - Independent refactor: none — already clean; accepted proof unchanged, no extra tests.
 
+## Execution complete
+
+Product advice: keep the current backlog order. Use this comparison command
+when restaging the next diagram; no additional product work is justified by
+this execution. Retrospective findings: none. Process review skipped by default.
+
 ## Proof ownership
 
 | Promise | Slice | Observation |
