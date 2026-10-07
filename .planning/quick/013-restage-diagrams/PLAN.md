@@ -174,7 +174,9 @@ engine is justified by this second example.
 
 ### 5. Another staging edit reaches the film and every diagram output
 Type: Behavior
-Status: planned
+Status: done
+
+Accepted evidence: [slice 5](proof.md#slice-5-accepted-proof).
 
 Behavior: given both revised examples, Terry edits their maintained staging data
 again and runs the same documented preview/render/export commands. The registered

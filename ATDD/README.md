@@ -42,6 +42,9 @@ Recreated diagrams: [solution tree](diagrams/solution-tree.png) and
 [tree SVG](diagrams/solution-tree.svg) and [circle SVG](diagrams/scenario-cycle.svg).
 They render from the same drawing components as the film.
 
+See [the restaging guide](restaging.md) to edit diagram positions, sizes and
+authored lanes through the maintained input, then reproduce every output.
+
 ## Watch and reproduce
 
 ```sh

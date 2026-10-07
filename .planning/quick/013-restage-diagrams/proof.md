@@ -206,3 +206,40 @@ not assertions that an output already exists in this preparation workspace.
   reruns. Selective source ESLint and whitespace checks passed. Saved script,
   audio and authored caption/state cues stay unchanged; final encode comparison
   remains slice 5. No remote-CI claim.
+
+## Slice 5 accepted proof
+
+- Second production revision changes only `src/atdd/staging.ts` data: Given
+  angle -100/scale 1.08, Front x350/width280, Back x690/width240, and four back
+  descendants 15px left. No path, label, timing or collaborator repair changed.
+  Source/first-edit fixtures remain independent; selected-default cases in
+  `tests/atdd/restaging.spec.tsx`, `collaboration.spec.tsx` and
+  `treeRestaging.spec.tsx` observe current outlines, directed routes, every-frame
+  moving clearances, trace/probes and transformed consumers. Setup supplies
+  authored staging/time to actual scene/boards, not derived geometry stubs.
+  `scenes.spec.tsx` observes all captions and checkpoint cues at the selected
+  default. The focused ATDD command above passed 44 tests before that last case;
+  final integration includes it: `nix develop -c sh -c 'NODE_ENV=test pnpm moves
+  test'` passed 47 suites/477 tests (119.557s), package lint and TypeScript.
+- Actual `render:atdd` and complete `diagrams:atdd` commands above passed.
+  Final movie/poster are under `terry-moves/out/`; both SVGs/PNGs under
+  `ATDD/diagrams/`. Coordinator inspected the actual final PNGs and browser
+  rendered SVGs: typography, hierarchy/probes, local loops and legends clear;
+  circle has 17 unique markers/17 resolved references. SVG preview copies were
+  byte-identical to those generated outputs, not recreated drawings.
+- Final ffprobe reports 1080×1080, 4471 decoded frames/30fps, 149.035s; full
+  ffmpeg decode passed. Script/both saved MP3 hashes match source-evidence.md.
+  Baseline/final decoded mixed PCM SHA-256 both equal
+  `a3e7d6412206df561d37e48e8312480be4023edc5e633c7d7d689c4611ebca9b`.
+- Native exact encoded movie at 1080px and 360px covered tree 16–25s, main
+  36–50s, local 73.5–85s and split/reunion 92.5–115.5s. Small observations
+  102.543s unfinished Finishing, 106.793s pre-pass reunion, 110.778s all-green,
+  115.559s restored circle; covers 0/4470 and out-of-order seeks clear. Manual:
+  Good. Initial non-seekable preview was replaced by a normal Range server.
+  Restart preserved completed proof; remaining SVG inspection was recovered.
+  Owned temporary servers stopped. Inherited viewport reset could not confirm
+  after restart because the prior debugger was detached; no product gap found.
+- [ATDD/restaging.md](../../../ATDD/restaging.md) documents maintained inputs,
+  adequate authored space and the same preview/render/export path. Fresh
+  independent refactor: none — already clean; proof unchanged, no reruns.
+  Selective source ESLint and whitespace checks passed. No remote-CI claim.

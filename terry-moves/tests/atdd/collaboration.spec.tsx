@@ -4,7 +4,7 @@ import { ATDDScene, DiagramBoard } from '../../src/atdd/Scene';
 import { cue } from '../../src/atdd/diagrams';
 import { FPS, scenes } from '../../src/atdd/film';
 import { palette, RED, STROKE, TEAM_COLORS } from '../../src/atdd/art';
-import { ATDDStaging } from '../../src/atdd/staging';
+import { ATDDStaging, staging as selectedStaging } from '../../src/atdd/staging';
 import { baselineStaging, resizedStaging } from './stagingFixtures';
 import { actorBounds, bounds, gap, labelBounds, outline, shapeBounds, visible, world } from './renderedGeometry';
 
@@ -28,7 +28,7 @@ const nearestEdge = (point: { x: number; y: number }, polygon: { x: number; y: n
 }));
 
 describe('resized collaborators in the actual circle film', () => {
-	it.each([['source', baselineStaging], ['resized', resizedStaging]] as const)('%s: preserves failure, 3/2 work, unfinished finishing, pre-pass merge and all-green reunion', (_, staging) => {
+	it.each([['source', baselineStaging], ['resized', resizedStaging], ['selected second edit', selectedStaging]] as const)('%s: preserves failure, 3/2 work, unfinished finishing, pre-pass merge and all-green reunion', (_, staging) => {
 		const failed = scene(cue(8, 0, 'wrong') + 0.3, staging);
 		expect(status(sheets(failed)[3])).toEqual([palette.behavior, palette.behavior, palette.behavior, RED]);
 		const split = scene(cue(9, 1, 'two') + 1.3, staging);
@@ -50,7 +50,7 @@ describe('resized collaborators in the actual circle film', () => {
 		expect(sheets(restored).every(visible)).toBe(true);
 	});
 
-	it.each([['source', baselineStaging], ['resized', resizedStaging]] as const)('%s: actor silhouettes clear each other, visible sheet labels/badges and film furniture through the journey', (_, staging) => {
+	it.each([['source', baselineStaging], ['resized', resizedStaging], ['selected second edit', selectedStaging]] as const)('%s: actor silhouettes clear each other, visible sheet labels/badges and film furniture through the journey', (_, staging) => {
 		const times = Array.from({ length: Math.ceil((scenes[11].start + 0.8 - scenes[9].start) * FPS) }, (_, i) => scenes[9].start + i / FPS);
 		times.push(cue(10, 0, 'reunite') + 0.4, cue(10, 0, 'reunite') + 0.7, cue(10, 0, 'reunite') + 1.1);
 		times.forEach((seconds) => {
@@ -113,7 +113,7 @@ describe('resized collaborators in the actual circle film', () => {
 		[3, 0, 4, 1, 2].forEach((index) => expect(renderToStaticMarkup(<ATDDScene seconds={times[index]} staging={resizedStaging} />)).toBe(renders[index]));
 	});
 
-	it.each([['source', baselineStaging], ['resized', resizedStaging]] as const)('%s: the moving main-team label reserves its own room on the approach to Then', (_, staging) => {
+	it.each([['source', baselineStaging], ['resized', resizedStaging], ['selected second edit', selectedStaging]] as const)('%s: the moving main-team label reserves its own room on the approach to Then', (_, staging) => {
 		const count = Math.ceil((scenes[8].end - scenes[8].start) * FPS);
 		Array.from({ length: count }, (_, i) => scenes[8].start + i / FPS).forEach((seconds) => {
 			const frame = scene(seconds, staging);

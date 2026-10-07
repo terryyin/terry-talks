@@ -5,7 +5,7 @@ import { cue } from '../../src/atdd/diagrams';
 import { durationInFrames, FPS } from '../../src/atdd/film';
 import { palette, STROKE } from '../../src/atdd/art';
 import { ballColors } from '../../src/storyImpact/scene';
-import { ATDDStaging } from '../../src/atdd/staging';
+import { ATDDStaging, staging as selectedStaging } from '../../src/atdd/staging';
 import { baselineStaging, revisedStaging } from './stagingFixtures';
 
 type Point = { x: number; y: number };
@@ -76,7 +76,7 @@ const assertDirection = (document: Document, path: Element) => {
 };
 
 describe('authored circle staging through the actual ATDD drawings', () => {
-	it.each([['source', baselineStaging], ['edited', revisedStaging]] as const)('%s: trims all clockwise main routes to current outlines and badge reservations', (_, staging) => {
+	it.each([['source', baselineStaging], ['edited', revisedStaging], ['selected second edit', selectedStaging]] as const)('%s: trims all clockwise main routes to current outlines and badge reservations', (_, staging) => {
 		const board = svg(<DiagramBoard diagram="circle" staging={staging} />);
 		const nodes = sheets(board);
 		expect(nodes).toHaveLength(6);
@@ -134,7 +134,7 @@ describe('authored circle staging through the actual ATDD drawings', () => {
 		});
 	});
 
-	it.each([['source', baselineStaging], ['edited', revisedStaging]] as const)('%s: reserves the waiting label inside the current backlog, below its rows and above the caption', (_, staging) => {
+	it.each([['source', baselineStaging], ['edited', revisedStaging], ['selected second edit', selectedStaging]] as const)('%s: reserves the waiting label inside the current backlog, below its rows and above the caption', (_, staging) => {
 		const times = [36, cue(3, 0, 'take') + 0.3, cue(3, 0, 'take') + 0.6, cue(3, 0, 'take') + 0.9, cue(3, 0, 'take') + 1.3];
 		const opacity = times.map((seconds) => {
 			const frame = scene(seconds, staging);

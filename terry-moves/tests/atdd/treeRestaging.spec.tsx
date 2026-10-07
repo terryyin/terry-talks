@@ -4,7 +4,7 @@ import { ATDDScene, DiagramBoard } from '../../src/atdd/Scene';
 import { cue } from '../../src/atdd/diagrams';
 import { durationInFrames, FPS } from '../../src/atdd/film';
 import { palette, STROKE } from '../../src/atdd/art';
-import type { ATDDStaging, TreeNodeId } from '../../src/atdd/staging';
+import { ATDDStaging, TreeNodeId, staging as selectedStaging } from '../../src/atdd/staging';
 import { baselineStaging, treeStaging } from './stagingFixtures';
 import { Bounds, gap, labelBounds, pathPoints, shapeBounds, visible, world } from './renderedGeometry';
 
@@ -35,7 +35,7 @@ const hierarchy: [TreeNodeId, TreeNodeId][] = [
 	['back', 'backSibling'], ['back', 'backDetail'], ['backDetail', 'backLeft'], ['backDetail', 'backRight'],
 ];
 
-describe.each([['source', baselineStaging], ['authored tree edit', treeStaging]] as const)('%s tree relationships through the actual consumers', (_, staging) => {
+describe.each([['source', baselineStaging], ['authored tree edit', treeStaging], ['selected second edit', selectedStaging]] as const)('%s tree relationships through the actual consumers', (_, staging) => {
 	it('keeps the uneven hierarchy, labels and parent/child outline attachments when boxes move or resize', () => {
 		const drawing = board(staging);
 		expect(drawing.querySelectorAll('[data-tree-node]')).toHaveLength(9);

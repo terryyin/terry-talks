@@ -26,7 +26,7 @@ export const staging: ATDDStaging = {
 	circle: {
 		x: 575, y: 495, radius: 290, sheetScale: 0.94,
 		sheets: {
-			given: { angle: -95, scale: 1 },
+			given: { angle: -100, scale: 1.08 },
 			selection: { angle: -28, scale: 1 },
 			update: { angle: 31, scale: 1 },
 			then: { angle: 90, scale: 1 },
@@ -40,14 +40,14 @@ export const staging: ATDDStaging = {
 	tree: {
 		nodes: {
 			result: { x: 540, y: 245, width: 240, height: 88 },
-			front: { x: 360, y: 410, width: 260, height: 80 },
-			back: { x: 710, y: 400, width: 230, height: 80 },
+			front: { x: 350, y: 410, width: 280, height: 80 },
+			back: { x: 690, y: 400, width: 240, height: 80 },
 			frontDetail: { x: 265, y: 568, width: 110, height: 68 },
 			frontSibling: { x: 440, y: 568, width: 110, height: 68 },
-			backSibling: { x: 610, y: 570, width: 110, height: 68 },
-			backDetail: { x: 790, y: 575, width: 120, height: 68 },
-			backLeft: { x: 685, y: 735, width: 105, height: 68 },
-			backRight: { x: 865, y: 746, width: 105, height: 68 },
+			backSibling: { x: 595, y: 570, width: 110, height: 68 },
+			backDetail: { x: 775, y: 575, width: 120, height: 68 },
+			backLeft: { x: 670, y: 735, width: 105, height: 68 },
+			backRight: { x: 850, y: 746, width: 105, height: 68 },
 		},
 		lanes: { branchInset: 15, frontDetailInset: 20, internalDetailInset: 10, frontReturnDrop: 53 },
 	},

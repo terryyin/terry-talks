@@ -111,4 +111,18 @@ describe('the source-linked ATDD baseline on the current runtime', () => {
 			expect(sceneAt(seconds).documentElement.textContent).toContain(caption.text);
 		});
 	});
+
+	it('preserves caption and checkpoint cues at the selected production default', () => {
+		const selected = (seconds: number) => svg(<ATDDScene seconds={seconds} />);
+		scenes.forEach(({ captions }) => captions.forEach((caption) => {
+			const frame = selected((caption.start + caption.end) / 2);
+			expect(frame.documentElement.textContent).toContain(caption.text);
+		}));
+		[
+			[cue(3, 0, 'pass') + 0.3, 0, [palette.behavior, palette.paper, palette.paper, palette.paper]],
+			[cue(4, 0, 'fails') + 0.3, 1, [palette.behavior, RED, palette.paper, palette.paper]],
+			[cue(8, 0, 'wrong') + 0.3, 3, [palette.behavior, palette.behavior, palette.behavior, RED]],
+			[cue(10, 0, 'pass') + 0.3, 5, Array(4).fill(palette.behavior)],
+		].forEach(([seconds, index, expected]) => expect(statuses(sheets(selected(seconds as number))[index as number])).toEqual(expected));
+	});
 });
