@@ -456,31 +456,53 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#translated-caption-edition
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/025-jidoka-japanese-edition/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"541e22a79478de602cdec112f6fe74e4581e3016c687cdc24fdaedbc601d7bd4","plan":"7f2393d5a434f60510784557ddfac25ec45d8b429835471e39ed4e6e16502cda"}}
 ```
 
-- **For / why:** Terry can make a chosen film understandable to another
-  language audience without producing it again from scratch.
-- **Outcome and scope:** Create a translated-caption edition with suitable
-  typography, punctuation, fitting, and reading pace, plus the matching film
-  and subtitle export. Revise a translated passage through the same workflow.
-  Produce publishable files; uploading them is a separate instruction.
-- **Evaluation example:** Terry selects a language and corrects a translated
-  passage. Captions update consistently in preview and export, fit the intended
-  viewing size, and have readable timing under the edition's selected policy.
-  The approved source film remains reproducible.
-- **Known basis and boundary:** A narrowed R22. Story Impact already has
-  Traditional Chinese captions and narration; subtitle exporters and measured
-  timing are existing foundations. A new spoken-language performance,
-  translating every diagram label, and language-specific picture changes are
-  separate scope unless explicitly selected later.
-- **Value / effort hypothesis:** A reusable caption-edition workflow.
-  Moderate scope; medium confidence; language, translation review, and handling
-  of passages that need more reading time remain to decide.
-- **Depends on:** An existing selected film; none of the new stories is
-  mandatory.
-- **Safe stopping point:** Terry retains the translated edition and its
-  revision workflow independently of multilingual voice production.
+#### Goal
+
+Terry can share the approved Jidoka film in English and Japanese without
+maintaining two films. Japanese viewers can understand the entire argument
+with sound off on a phone, including the headings and explanatory graphics.
+
+#### Scope
+
+Produce a Japanese edition of the accepted 86-second square Jidoka film,
+alongside its preserved English edition. Translate all viewer-facing captions,
+headings, diagram labels, screen statuses, radical annotation and credit.
+Retain English only where useful, such as AI, TPS and the Odd-e/Terry names.
+Use 自働化 for Jidoka and トヨタ生産方式 for Toyota Production System.
+The diagnostic refers to what teams have already built; the contrast concerns
+watching a loom or a computer's work, without CI-specific language.
+
+Both editions share one scene/caption clock, choreography, geometry, artwork,
+instrumental score and scene components. Author translations as paired text,
+with language-specific typography and phrase breaks where necessary. A later
+timing, picture or layout change applies to both; no copied Japanese scene tree
+or independently maintained Japanese timeline. Preserve the approved English
+wording and behavior, including its exact English credit.
+
+Deliver both 1080-square MP4s, matching language SRTs and opening posters, plus
+editable shared inputs and a maintained brief with reproduction instructions.
+Use the existing subtitle exporter and language-edition pattern proportionately.
+There is no narration or external upload in this outcome. A universal translation
+engine, new artwork, automatic future translation and other films are deferred.
+No unfinished story is a prerequisite.
+
+#### Key examples
+
+1. Selecting Japanese renders 自働化 and Japanese question/answer at the opening;
+   every later heading, TPS-house label, monitor status and credit is Japanese
+   except the intentional useful English terms. The kanji radical stays red.
+2. Both selected language compositions consume the same 86-second clock and
+   authored scenes. A shared cue change is reflected in both rendered captions
+   and SRT intervals; an artwork change reaches both editions.
+3. The English edition keeps “what they’ve built” and “watching your computer
+   work”; Japanese communicates those same meanings. A changed translated
+   phrase comes from one wording source in its embedded and exported subtitles.
+4. At phone size, Japanese text fits without obscuring artwork or competing
+   with labels; muted viewing conveys the complete argument. Both MP4s and SRTs
+   open from stable paths in the main checkout.
 
 ## Ordering and scope reduction
 
