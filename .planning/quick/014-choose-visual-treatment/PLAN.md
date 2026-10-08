@@ -238,8 +238,26 @@ command; a mocked process call or successful exit alone does not prove export.
 
 ### 1. Watch the typography treatment of the common brief
 Type: Behavior
-Status: planned
+Status: done
 Proof: Real registered native preview and focused treatment tests.
+
+Accepted (execution, Claude/Eimi-chan, Story Branch Mode on
+`claude/i-can-choose-a-visual-treatment-that-expresses-m`): runtime is a
+job-local Node v24.21.0 prefixed on PATH (host Node 24.5 is below the engine);
+`pnpm install --frozen-lockfile` and `pnpm --dir terry-moves compositions`
+succeed in this checkout. Probe: real stills of `ProblemDecompositionRemakeFilm`
+frames 740/1380 laid out Card text correctly. Sample `TreatmentTypographyV1`
+(1080², 30 fps, 870 frames) — beats title 0–89, distinction 90–254, question
+255–389, result 390–539, feedback 540–674, next 675–869. Common brief is
+`terry-moves/src/visualTreatments/brief.ts` (beat names + shared captions);
+treatment A is `visualTreatments/typography/`. Proof: focused suite
+`tests/visualTreatments/typographyTreatment.spec.tsx` 6/6, `tsc --noEmit`, 27
+compositions listed (all 26 prior IDs kept), stills under ignored
+`terry-moves/out/treatments/TreatmentTypographyV1/` inspected; Studio served the
+composition (`pnpm moves studio --port=3517 --no-open`). Gaps: playback feel
+and Studio seeking remain Terry's to watch; 360px labels are marginal (~8px).
+Every Remotion command logs a pre-existing, harmless 404 for another
+composition's `scene.bin`.
 
 Behavior: Given the settled brief and supported execution setup, Terry opens
 the typography sample in Studio and watches the smaller customer question become
