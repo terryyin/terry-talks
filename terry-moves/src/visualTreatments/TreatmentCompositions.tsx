@@ -1,39 +1,37 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Composition, useCurrentFrame } from 'remotion';
 import { Timeline } from '../beatTimeline';
-import { TreatmentVersion } from './brief';
 import { CharacterTreatment } from './character/CharacterTreatment';
-import { characterTimeline, characterV1 } from './character/script';
 import { TypographyTreatment } from './typography/TypographyTreatment';
-import { typographyTimeline, typographyV1 } from './typography/script';
+import { TreatmentEntry, treatmentFrame, treatmentVersions } from './versions';
 
 type Picture<Pose> = React.FC<{ pose: Pose; caption: string }>;
 
-// A treatment's timed versions, each a square composition showing the
-// treatment's picture of the passage at the current frame.
-const treatment = <Pose,>(timelineOf: (version: TreatmentVersion) => Timeline<Pose>, Picture: Picture<Pose>): React.FC<{ version: TreatmentVersion }> => {
-	const Sample: React.FC<{ version: TreatmentVersion }> = ({ version }) => {
+// A version's picture of the passage at the current frame.
+const sampleOf = <Pose,>(sample: Timeline<Pose>, Picture: Picture<Pose>): React.FC => {
+	const Sample: React.FC = () => {
 		const frame = useCurrentFrame();
-		const sample = useMemo(() => timelineOf(version), [version]);
 		return <Picture pose={sample.poseAt(frame)} caption={sample.captionAt(frame)}/>;
 	};
-	const TreatmentComposition: React.FC<{ version: TreatmentVersion }> = ({ version }) => <Composition
-		id={version.id}
-		component={Sample}
-		defaultProps={{ version }}
-		durationInFrames={timelineOf(version).durationInFrames}
-		fps={version.fps}
-		width={1080}
-		height={1080}
-	/>;
-	return TreatmentComposition;
+	return Sample;
 };
 
-const Typography = treatment(typographyTimeline, TypographyTreatment);
-const Character = treatment(characterTimeline, CharacterTreatment);
+const pictureOf = (entry: TreatmentEntry): React.FC => entry.treatment === 'typography'
+	? sampleOf(entry.timeline, TypographyTreatment)
+	: sampleOf(entry.timeline, CharacterTreatment);
 
-// Named treatment samples for the Problem Decomposition comparison.
+const samples = treatmentVersions.map((entry) => ({ entry, Sample: pictureOf(entry) }));
+
+// Named treatment samples for the Problem Decomposition comparison, one square
+// composition per registered version.
 export const VisualTreatmentCompositions: React.FC = () => <>
-	<Typography version={typographyV1}/>
-	<Character version={characterV1}/>
+	{samples.map(({ entry, Sample }) => <Composition
+		key={entry.id}
+		id={entry.id}
+		component={Sample}
+		durationInFrames={entry.timeline.durationInFrames}
+		fps={entry.fps}
+		width={treatmentFrame.width}
+		height={treatmentFrame.height}
+	/>)}
 </>;

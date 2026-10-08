@@ -341,8 +341,24 @@ merely because it renders; repeatable review/version outputs follow in slice 3.
 
 ### 3. Revise a named candidate and retain the comparison
 Type: Behavior
-Status: planned
+Status: done
 Proof: The real review/export and authored revision round trip.
+
+Accepted: `pnpm --dir terry-moves render:treatments [ids…]` (wrapper
+`terry-moves/scripts/render-treatments.ts`; plan `visualTreatments/exportPlan.ts`;
+registry `visualTreatments/versions.ts`) bundles once and writes
+`out/treatments/<id>/{<id>.mp4, <beat>-{midway,settled}-<frame>.png,
+manifest.json}`; key-pose frames come from each version's `beatRange`. Manifest
+records Git revision, a working-tree/listed-input `changedFromRevision` flag,
+and input blob hashes. Versions: `TreatmentTypographyV1` (870 f),
+`TreatmentCharacterV1` (915 f), `TreatmentCharacterV2` (915 f, same timing;
+`character/v2.ts` revises result relief, feedback half-step/chin, and the hand
+resting at the hours sign's edge). Human brief/review doc: `Problem
+Decomposition Remake/visual-treatments.md`. Proof: suite 4 suites/23 tests;
+`tsc`; 29 compositions; two real export runs with A/V1 stills and clips
+byte-identical across runs and to pre-change baselines; ffprobe h264 1080²
+30 fps with matching frame counts; V1/V2 stills compared. No selection output
+exists. Gap: whether V2 is better, and motion feel, are Terry's to watch.
 
 Behavior: Given the samples and their beat references, Terry identifies the
 character sample's result/feedback performance for correction. Author the revised

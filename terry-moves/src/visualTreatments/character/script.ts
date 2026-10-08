@@ -64,8 +64,15 @@ const settledCustomer = (name: BeatName): Omit<CharacterPose, 'attention' | 'sho
 	feedback: 0,
 });
 
-// Poses by seconds into each beat.
-const poses: Record<BeatName, (s: number) => CharacterPose> = {
+// How the shopper acts each beat: poses by seconds into the beat.
+export type Performance = Record<BeatName, (s: number) => CharacterPose>;
+
+// A named take on this treatment: its timing and the performance it shows.
+export type CharacterVersion = TreatmentVersion & { performance: Performance };
+
+// The first take's performance. Later versions reuse its unchanged beats and
+// supply their own revised ones, so this take keeps its picture.
+const firstPerformance: Performance = {
 	// The shopper at home, looking toward the shop: is the trip worth it?
 	title: (s) => ({
 		...settledCustomer('title'),
@@ -153,13 +160,14 @@ const poses: Record<BeatName, (s: number) => CharacterPose> = {
 	},
 };
 
-export const characterV1: TreatmentVersion = {
+export const characterV1: CharacterVersion = {
 	id: 'TreatmentCharacterV1',
 	fps: 30,
 	seconds: { title: 3, distinction: 5.5, question: 4.5, result: 5, feedback: 6, next: 6.5 },
+	performance: firstPerformance,
 };
 
-export const characterTimeline = (version: TreatmentVersion): Timeline<CharacterPose> => timeline(
-	brief.beats.map(({ name, caption }) => beat(name, version.seconds[name], caption, poses[name], version.fps)),
+export const characterTimeline = (version: CharacterVersion): Timeline<CharacterPose> => timeline(
+	brief.beats.map(({ name, caption }) => beat(name, version.seconds[name], caption, version.performance[name], version.fps)),
 	version.fps,
 );
