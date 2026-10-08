@@ -502,8 +502,11 @@ promised workflow, not a missing input for slice planning.
   a passage. The resulting motion still guides attention and the text remains
   readable at normal playback and at the intended viewing size.
 - **Known basis and boundary:** R28. The simple decomposition remake already
-  demonstrates this visual style. The new outcome is reusable direction and
-  revision, not another bespoke copy or a general typography framework.
+  demonstrates this visual style, and `TreatmentTypographyV1` in
+  `terry-moves/src/visualTreatments/` directs one passage with type and cards
+  through the shared beat timeline ([treatment guide](../Problem%20Decomposition%20Remake/visual-treatments.md)).
+  The new outcome is reusable direction and revision, not another bespoke copy
+  or a general typography framework.
 - **Value / effort hypothesis:** A lower-asset, reusable filmmaking style.
   Moderate scope; medium confidence; choose the first idea and supported type
   vocabulary during refinement.
