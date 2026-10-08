@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Eimi-chan",
-  "email": "eimi-chan@example.org",
-  "identity": "terry-moves-filmmaking#choose-visual-treatment",
-  "mode": "story-branch",
-  "branch": "claude/i-can-choose-a-visual-treatment-that-expresses-m",
-  "host": "claude"
-}
