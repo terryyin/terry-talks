@@ -1454,7 +1454,7 @@ flowchart LR
   AA(Room to learn<br>& improve<br><small>学び、改善する<br>余裕</small>)
   CAP(Ability to solve<br>real problems<br><small>実際の問題を<br>解く力</small>)
   WT(Confidence to entrust<br>the next problem<br><small>次の問題を<br>任せられる確信</small>)
-  PULL(<b>Just-in-time</b><br>Freedom to follow<br>real user need<br><small>実際のニーズに<br>応える自由</small>)
+  PULL(<b>Just-in-time</b><br>Trust people to<br>respond to real<br>user needs<br><small>人を信頼して<br>実際のニーズへの<br>対応を任せる</small>)
 
   EJ -->|"+"| AA
   AA -->|"+ //"| EJ
@@ -1485,8 +1485,9 @@ flowchart LR
 
 <!--
 Figure 1 of Claim 22's companion CLD: R1 and R2 in five plain-language
-variables. The title is unchanged. The two red nodes show substantive
-freedom: room to learn and the ability to follow the next real user need.
+variables. The two red nodes connect room to learn with entrusting people
+to respond to actual user needs. Trust includes the freedom and support
+to discover a capable response, rather than prescribing every step.
 The endpoints explicitly name Jidoka (autonomation, 自働化) and Just-in-time.
 The level scale answers slide 9's tilted balance: the automatic stop frees
 attention; the single part and pull card represent entrusting a response to
@@ -1510,11 +1511,13 @@ this takes time. Confidence reduces advance approvals and imposed solution
 plans, giving the team freedom to respond to the next real user need. Doing
 that work with support grows capability further. That closes R2.
 
-The positive confidence-to-freedom arrow condenses two canonical negative
+The arrow from confidence to entrusting a response condenses two negative
 links: warranted trust reduces coercive control; coercive control restricts
 pull from actual need. It does not mean abandoning quality gates, necessary
-planning, or accountability. The freedom node means those constraints no
-longer force work around leftover ownership, inventory, or external control.
+planning, or accountability. Entrusting the response includes freedom from
+leftover ownership, inventory, and imposed solution plans. This is Terry's
+interpretation for software development; Toyota defines JIT by what, when,
+and how much is needed.
 
 Contrast slide 8: there, more artifacts leave more repeated judgment and
 pressure for more output. Here, learned rules carry the judgment forward,
