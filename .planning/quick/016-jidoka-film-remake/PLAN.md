@@ -53,6 +53,19 @@ without adding an observer or infrastructure to manufacture a CI success.
 
 ## Existing solutions and decisive observations
 
+Startup accepted `eac3ba568bad666d53e7790d50af149db89ffaf5` on remote trunk,
+starting from prepared `d7505b2c62e042bad044ad36463dff9ae552a635`. Execution
+workspace is `/Users/terryyin/git/terry-talks/.worktrees/jidoka-film-remake`,
+branch `codex/jidoka-film-remake`, agent Maki-chan, publisher
+`tps-jidoka-remake-01a11b61`; the prior preparation worktree was retired after
+its accepted publication. Locked offline install using the existing global
+pnpm cache with copy import exited0; the lockfile is unchanged. The real
+composition command exited0 and enumerated the existing TPS film and scene
+consumers. Studio runs at `http://localhost:3028` and was opened and verified
+in the in-app browser before composition edits. Claim CI is unobserved; no
+hosted workflow exists. Default-checkout maintenance deferred for untracked
+`output/`, which remains untouched.
+
 PFE responsibility: remake this film's authored argument and choreography,
 using the product's existing render, subtitle and asset routes.
 
@@ -86,7 +99,7 @@ repository layout, engine or durable architecture decision is proposed.
 
 ### 1. Terry can watch a complete Jidoka-only review cut
 Type: Behavior
-Status: planned
+Status: done
 Proof: Actual moving review MP4 carries the complete narrowed argument using
 the requested material, with frame0/logo/credit and source-linked timed script.
 
@@ -133,3 +146,47 @@ authorized preserve-knowledge/free-to-move-on outcome. Rendered monitor masking,
 clip-end hold and mobile text composition are deliberately inspected in the
 first full cut; slice2 owns their observed correction. No new artwork service,
 narration service or authoring infrastructure is a prerequisite.
+
+## Accepted slice 1 proof and remaining polish
+
+The review cut is86sec/2580frames with19captions/130English words. The
+coordinator inspected the actual source/Frame/scene/registration/export/score
+boundaries and all seven focused tests' setup and observing assertions.
+The export test invokes the actual subtitle wrapper, compares canonical and
+delivery output, and observes caption selection at each interval's start,
+middle and final frame. Media mocks observe consumer selection only; actual
+MP4 review owns visual proof. Source audit found no material conceptual or
+factual errors; Toyota principle and Terry's software synthesis stay distinct.
+
+With the bundled PATH prefix, these commands exited0:
+`pnpm --dir terry-moves exec node --experimental-vm-modules node_modules/jest/bin/jest.js tests/tpsAndAi/film.spec.tsx --runInBand`
+(7/7 selected), `pnpm --dir terry-moves exec tsc --noEmit`,
+`pnpm --dir terry-moves exec remotion compositions src/index.ts`, and
+`pnpm --dir terry-moves render:tps-and-ai`. The real registration command
+enumerated this film and all nine scene consumers. The route regenerated
+score/SRT, MP4 and frame0 poster. `ffmpeg -hide_banner -v error -i terry-moves/out/tps-and-ai-jidoka.mp4 -f null -`
+exited0; ffprobe showed1080square,H264,yuv420p,bt709,30fps,AAC48kstereo,
+86.016sec. Seven retained source assets and both SRTs were byte-identical.
+
+The coordinator viewed all19 actual caption midpoint frames and the last frame
+at360pixel size, plus actual frame0 and native stop/judgment frames. A single
+unpaused muted1x360x360 browser viewing reached86.016sec/ended. Native player
+controls obscured part of some screenshots; a controls-free temporary harness
+will own final uninterrupted readability in slice2. Representative opening,
+complete paintings/CI masks, visible stopped loom/radical, narrowed argument,
+logo, retained necessary behavior and exact end credit were observed.
+
+Fresh independent refactoring compacted JSON without payload change, hoisted
+fixed stop time outside the audio sample loop, and made subtitle proof
+self-contained through its real exporter. Regenerated WAV/SRT were unchanged;
+the affected seven-test suite passed. The coordinator inspected those edits
+and reused unchanged render/registration/source proof. Refactor completion
+marker received; selective
+`pnpm --dir terry-moves exec eslint src/stories/TPSAndAIFilm.tsx src/tpsAndAi tests/tpsAndAi/film.spec.tsx --fix`
+and `git diff --check` exited0. No unrelated consumer was left unrun.
+
+This is accepted interim review output. Slice2 must separate burden art from
+its heading (actual frames345/495) and the Clear evidence row from the STOP
+diagram (frame1905). Preserve the strong composed opening, working stop hold,
+matched paintings, caption clock and music. Final mobile/export proof and
+stable artifact delivery remain incomplete until that slice.

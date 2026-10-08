@@ -1,51 +1,42 @@
 {
-  "title": "Freedom and Trust",
-  "subtitle": "What AI development can learn from Toyota",
+  "title": "Jidoka: Free to Move On",
+  "subtitle": "Jidoka for AI-augmented software development",
   "fps": 30,
   "width": 1080,
   "height": 1080,
-  "duration": 94,
+  "duration": 86,
   "choreography": {
-    "ruleInputDelay": 0.4,
-    "ruleRepairDelay": 2,
-    "ruleResumeDelay": 3.2,
-    "customerReorderDuration": 1.8
+    "loomHoldAt": 9,
+    "contrastDissolve": 0.6
   },
-  "voice": "No narration; the English captions carry the complete argument.",
-  "music": "Quiet original instrumental support; retain its generator and provenance with the film.",
+  "voice": "No narration; English captions carry the complete argument.",
+  "music": "Original sparse plucked oscillator and open-fifth score, remapped to the Jidoka scene clock.",
   "sources": {
     "diagnostic": {
       "kind": "Terry's synthesis",
-      "reference": "slides/tps-and-ai/slides.md: How do you know if the organization is using AI right?; closing diagnostic; closing crane",
-      "claims": ["10-freedom-and-trust-reinforce-through-jidoka", "03-jidoka-enables-jit-trusts-respect-grows"]
+      "reference": "slides/tps-and-ai/slides.md: slides 5–6, AI-use diagnostic and burden"
     },
-    "judgment": {
-      "kind": "Terry's software example",
-      "reference": "slides/tps-and-ai/slides.md: Judgment-intensive work; Jidoka preserves knowledge",
-      "claims": ["00-judgment-intensive-work", "06-jidoka-embeds-routine-judgment"]
-    },
-    "amplifier": {
-      "kind": "Research-informed framing, not a universal causal claim",
-      "reference": "slides/tps-and-ai/slides.md: AI speeds whichever loop you feed",
-      "primarySource": "https://dora.dev/research/2025/dora-report/",
-      "claims": ["22-cld-shows-tps-reasoning-for-less-ai"]
+    "house": {
+      "kind": "TPS principle; original English reconstruction of the deck house",
+      "reference": "slides/tps-and-ai/slides.md: slide 11, Two houses, different layers",
+      "primarySource": "https://global.toyota/en/company/vision-and-philosophy/production-system/"
     },
     "jidoka": {
       "kind": "Toyota principle, followed by Terry's software application",
-      "primarySource": "https://global.toyota/en/company/vision-and-philosophy/production-system/",
-      "reference": "slides/tps-and-ai/slides.md: The loom's closed stop; Build the stop into the software; Jidoka frees people",
-      "claims": ["06-jidoka-embeds-routine-judgment", "19-stop-and-fix"]
+      "reference": "slides/tps-and-ai/slides.md: slides 14–17, loom, closed stop, watching and called",
+      "primarySources": ["https://global.toyota/en/company/vision-and-philosophy/production-system/", "https://global.toyota/en/company/plant-tours/production-system/", "https://www.toyota-global.com/company/history_of_toyota/75years/text/taking_on_the_automotive_business/chapter1/section1/item4.html"]
     },
-    "pull": {
-      "kind": "Conceptual software example; the train time is illustrative",
-      "reference": "slides/tps-and-ai/slides.md: Pull: smaller customer problems; Freedom to choose again",
-      "primarySource": "https://global.toyota/en/company/vision-and-philosophy/production-system/",
-      "claims": ["17-jit-vertical-slicing-one-piece-flow", "11-physical-production-and-software-differences"]
+    "judgment": {
+      "kind": "Terry's software synthesis",
+      "reference": "slides/tps-and-ai/slides.md: slides 13, 16 and 19, preserved knowledge and known software stops"
     },
-    "people": {
+    "minimalism": {
       "kind": "Terry's synthesis",
-      "reference": "slides/tps-and-ai/slides.md: Respect for People; closing diagnostic; closing crane",
-      "claims": ["12-respect-for-people-who-can-think", "03-jidoka-enables-jit-trusts-respect-grows"]
+      "reference": "slides/tps-and-ai/slides.md: slide 18, Smart → Dumb → Gone; retain necessary behavior"
+    },
+    "freedom": {
+      "kind": "Terry's synthesis",
+      "reference": "slides/tps-and-ai/slides.md: slide 20, Jidoka frees people; move on to the next needed problem"
     }
   },
   "scenes": [
@@ -53,106 +44,111 @@
       "id": "hook",
       "start": 0,
       "end": 9,
-      "label": "The test",
-      "assets": ["cover-crane-released.png"],
+      "label": "Jidoka: Free to Move On",
+      "assets": ["called-by-the-stop.png"],
       "captionRanges": [
-        {"start": 0.4, "end": 4.5, "spoken": "AI can generate software faster than we understand it.", "lineBreakAfter": 4, "sourceIds": ["amplifier", "judgment"]},
-        {"start": 4.5, "end": 9, "spoken": "Does what we build leave our teams more free?", "lineBreakAfter": 4, "sourceIds": ["diagnostic"]}
+        {"start": 0, "end": 4.5, "spoken": "How do you know your organization is using AI well?", "sourceIds": ["diagnostic"], "lineBreakAfter": 5},
+        {"start": 4.5, "end": 9, "spoken": "When teams are more freed than constrained by what they build.", "sourceIds": ["diagnostic"], "lineBreakAfter": 6}
       ],
-      "action": "Reveal the crane and open palm in ink. Sparse paper marks accumulate behind the hand; the question arrests that accumulation. Preserve the entire crane and palm inside a landscape art window in the square, with a separate caption space."
+      "action": "Fully composed title, matched called-by-stop painting, CI stop and question at frame zero; the answer follows on the same representative artwork."
     },
     {
       "id": "burden",
       "start": 9,
-      "end": 21,
-      "label": "A heavier burden",
+      "end": 19,
+      "label": "Bound to yesterday",
       "assets": ["constrained-by-what-they-built.png"],
       "captionRanges": [
-        {"start": 9, "end": 11.3, "spoken": "Generation is cheap.", "sourceIds": ["judgment"]},
-        {"start": 11.3, "end": 15.4, "spoken": "Understanding and owning what we build still takes judgment.", "lineBreakAfter": 3, "sourceIds": ["judgment"]},
-        {"start": 15.4, "end": 18, "spoken": "AI speeds whichever loop we feed.", "sourceIds": ["amplifier"]},
-        {"start": 18, "end": 21, "spoken": "Faster output can become a heavier burden.", "lineBreakAfter": 2, "sourceIds": ["amplifier", "diagnostic"]}
+        {"start": 9, "end": 14, "spoken": "Too often, software ties its creators down.", "sourceIds": ["diagnostic"], "lineBreakAfter": 4},
+        {"start": 14, "end": 19, "spoken": "Yesterday’s output blocks today’s higher-value work.", "sourceIds": ["diagnostic"], "lineBreakAfter": 3}
       ],
-      "action": "Paper outputs gather into the crate burden. A restrained vermilion thread follows the tether toward the next need, but stays taut as outputs accumulate. Fit the source art so the people, stack, and distant doorway remain legible together; do not crop away the consequence."
+      "action": "Fit the full burden painting, preserving the stack, tethered people and distant doorway; no new red trail over people."
     },
     {
-      "id": "rule",
-      "start": 21,
-      "end": 42,
-      "label": "Learning becomes a safeguard",
+      "id": "house",
+      "start": 19,
+      "end": 27,
+      "label": "Toyota Production System",
       "assets": [],
       "captionRanges": [
-        {"start": 21, "end": 26.5, "spoken": "A lesson from Toyota: build human learning into the work.", "lineBreakAfter": 4, "sourceIds": ["jidoka"]},
-        {"start": 26.5, "end": 30, "spoken": "\u201cThe list must not be empty.\u201d", "sourceIds": ["judgment"]},
-        {"start": 30, "end": 34, "spoken": "Turn that known rule into a check.", "sourceIds": ["judgment"]},
-        {"start": 34, "end": 37.5, "spoken": "An empty list fails. Further work stops.", "lineBreakAfter": 4, "sourceIds": ["judgment", "jidoka"]},
-        {"start": 37.5, "end": 42, "spoken": "People investigate the cause, fix it, and improve the check.", "lineBreakAfter": 4, "sourceIds": ["jidoka"]}
+        {"start": 19, "end": 23.2, "spoken": "TPS is the Toyota Production System.", "sourceIds": ["house"], "lineBreakAfter": 2},
+        {"start": 23.2, "end": 27, "spoken": "Jidoka is one of its two pillars.", "sourceIds": ["house"]}
       ],
-      "action": "Rebuild this diagram with English editable text. A handwritten rule becomes a small gate in a work path. An empty-list token reaches it; the gate closes and every downstream token visibly freezes. A human response repairs the cause while the gate remains closed. Only after repair does the path resume, with the learned check retained. The stop is an action, not a dashboard light."
+      "action": "Reconstruct the deck TPS house in English, highlighting only the Jidoka pillar in vermilion."
+    },
+    {
+      "id": "loom",
+      "start": 27,
+      "end": 39,
+      "label": "Human wisdom, built in",
+      "assets": ["loom-warp-stop.mp4", "jidoka-human-radical.svg"],
+      "captionRanges": [
+        {"start": 27, "end": 30.5, "spoken": "Jidoka: automation with a human touch.", "sourceIds": ["jidoka"], "lineBreakAfter": 3},
+        {"start": 30.5, "end": 34.5, "spoken": "A broken thread stops the loom.", "sourceIds": ["jidoka"]},
+        {"start": 34.5, "end": 39, "spoken": "Human wisdom lives in the mechanism.", "sourceIds": ["jidoka"], "lineBreakAfter": 3}
+      ],
+      "action": "Play the local loom schematic once from the beginning. The broken thread drops its plate, blocks the detector and stops the drive. Freeze the fully visible stopped pose at 9s, before the source fade. The outlined kanji sits beneath the loom; only the person radical is red."
+    },
+    {
+      "id": "contrast",
+      "start": 39,
+      "end": 51,
+      "label": "Called by the stop",
+      "assets": ["watching-the-loom-watching-the-ai.png", "called-by-the-stop.png"],
+      "captionRanges": [
+        {"start": 39, "end": 45, "spoken": "Instead of watching the loom—or CI…", "sourceIds": ["jidoka"], "lineBreakAfter": 3},
+        {"start": 45, "end": 51, "spoken": "Let the stop call you.", "sourceIds": ["jidoka"]}
+      ],
+      "action": "Fit both complete paired paintings at identical geometry and crossfade over 0.6s. Cover their embedded terminal screen planes with authored CI CHECKING and CI STOP displays."
+    },
+    {
+      "id": "judgment",
+      "start": 51,
+      "end": 66,
+      "label": "Solve. Preserve. Protect.",
+      "assets": [],
+      "captionRanges": [
+        {"start": 51, "end": 56, "spoken": "Solve the problem. Preserve the judgment.", "sourceIds": ["judgment"], "lineBreakAfter": 3},
+        {"start": 56, "end": 61, "spoken": "Build known rules into simple checks that stop the work.", "sourceIds": ["judgment"], "lineBreakAfter": 5},
+        {"start": 61, "end": 66, "spoken": "Leave clear evidence for the next person—or AI.", "sourceIds": ["judgment"], "lineBreakAfter": 4}
+      ],
+      "action": "Dry typography accumulates solved human judgment, known rules and simple checks with evidence. No toy software example or automatic diagnosis/repair."
+    },
+    {
+      "id": "minimalism",
+      "start": 66,
+      "end": 75,
+      "label": "Keep as little as possible",
+      "assets": [],
+      "captionRanges": [
+        {"start": 66, "end": 68.8, "spoken": "Keep as little as possible.", "sourceIds": ["minimalism"]},
+        {"start": 68.8, "end": 71.5, "spoken": "The best part is no part.", "sourceIds": ["minimalism"]},
+        {"start": 71.5, "end": 75, "spoken": "Remove unnecessary parts. Preserve needed behavior.", "sourceIds": ["minimalism"], "lineBreakAfter": 3}
+      ],
+      "action": "Remove redundant outlines while the necessary behavior and self-protection remain visible."
     },
     {
       "id": "freedom",
-      "start": 42,
-      "end": 54,
-      "label": "Attention returns to discovery",
+      "start": 75,
+      "end": 83,
+      "label": "Free to move on",
       "assets": ["jidoka-frees-software-team.png"],
       "captionRanges": [
-        {"start": 42, "end": 46, "spoken": "The next person need not rediscover the rule.", "lineBreakAfter": 3, "sourceIds": ["judgment"]},
-        {"start": 46, "end": 50.5, "spoken": "People keep the authority to improve that check.", "lineBreakAfter": 4, "sourceIds": ["diagnostic", "people"]},
-        {"start": 50.5, "end": 54, "spoken": "Free attention for discovery. Customer value still needs judgment.", "lineBreakAfter": 4, "sourceIds": ["judgment", "people", "pull"]}
+        {"start": 75, "end": 79, "spoken": "Build knowledge into the product.", "sourceIds": ["freedom", "judgment"]},
+        {"start": 79, "end": 83, "spoken": "Free yourself for the next problem that matters.", "sourceIds": ["freedom"], "lineBreakAfter": 5}
       ],
-      "action": "The retained gate becomes the quiet workstation at the left of the artwork. The vermilion thread slackens and draws toward the group's shared prototype. Keep both unattended checks and people's active hands in the square; do not zoom to the group and erase the mechanism."
-    },
-    {
-      "id": "need",
-      "start": 54,
-      "end": 66,
-      "label": "One useful outcome",
-      "assets": ["pull-customer-need.png"],
-      "captionRanges": [
-        {"start": 54, "end": 60, "spoken": "Start with a real customer need: get home after dinner.", "lineBreakAfter": 6, "sourceIds": ["pull"]},
-        {"start": 60, "end": 66, "spoken": "Deliver one useful result: the next train leaves at 22:45.", "lineBreakAfter": 4, "sourceIds": ["pull"]}
-      ],
-      "action": "The three friends' pictorial needs lead to three small English outcome cards. Only Find the next train enters the working-product path. Its visible result becomes a simple phone card reading Next train: 22:45. Fare and route cards remain unstarted; retain all faces and the phone in the art. The time is an illustrative example, not travel advice."
-    },
-    {
-      "id": "feedback",
-      "start": 66,
-      "end": 78,
-      "label": "Free to choose again",
-      "assets": ["pull-customer-feedback.png"],
-      "captionRanges": [
-        {"start": 66, "end": 69.8, "spoken": "\u201cDoes that route have stairs?\u201d", "sourceIds": ["pull"]},
-        {"start": 69.8, "end": 75, "spoken": "Keep the train result. A step-free route is next.", "lineBreakAfter": 4, "sourceIds": ["pull"]},
-        {"start": 75, "end": 78, "spoken": "Leave later work unstarted.", "sourceIds": ["pull"]}
-      ],
-      "action": "Carry the completed train result across the scene boundary. Fade into the same friends using it. The red focus follows the stairs question to Step-free route, which moves ahead of Check the fare. The train card stays visible and completed; the route is the next investigation, not an already-proven solution."
-    },
-    {
-      "id": "trust",
-      "start": 78,
-      "end": 84,
-      "label": "Capability and support",
-      "assets": ["takeaways-useful-software.png"],
-      "captionRanges": [
-        {"start": 78, "end": 81, "spoken": "Use that freedom to learn together.", "sourceIds": ["people"]},
-        {"start": 81, "end": 84, "spoken": "Give capable people responsibility and support.", "lineBreakAfter": 3, "sourceIds": ["people", "diagnostic"]}
-      ],
-      "action": "Use the portrait of a customer holding the useful result while a developer listens. The thread becomes a new open path rather than a tether. Keep faces, hands, and train pictogram; show responsibility as a supported conversation, with no superior assigning orders."
+      "action": "Keep the unattended checks, all faces, hands and shared prototype in the full fitted painting; attention belongs to the next valuable problem."
     },
     {
       "id": "closing",
-      "start": 84,
-      "end": 94,
-      "label": "Freedom and Trust",
-      "assets": ["closing-crane-aloft.png"],
-      "captionRanges": [
-        {"start": 84, "end": 87.3, "spoken": "Build products that free people.", "sourceIds": ["diagnostic"]},
-        {"start": 87.3, "end": 91, "spoken": "Trust them with the next real problem.", "lineBreakAfter": 3, "sourceIds": ["diagnostic"]}
-      ],
-      "creditStart": 91,
-      "creditLines": ["Freedom and Trust", "Terry Yin", "AI-assisted illustrations"],
-      "action": "The open path dissolves into the crane's flight brushstroke. Reveal the aloft crane with the small palm far below in a fitted art window. Let the two closing sentences land separately. Give the final three seconds to the title and concise credits with no competing subtitle. Settle on a still end frame rather than cutting the statement off."
+      "start": 83,
+      "end": 86,
+      "label": "Free to Move On",
+      "assets": ["jidoka-frees-software-team.png"],
+      "captionRanges": [],
+      "creditStart": 83,
+      "creditLines": ["Idea and film from Terry"],
+      "action": "Hold the settled freedom image, title, genuine logo and exact credit for three seconds while the score fades."
     }
   ]
 }

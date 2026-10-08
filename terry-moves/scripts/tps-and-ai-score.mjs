@@ -17,21 +17,21 @@ const scene = (id) => script.scenes.find((item) => item.id === id);
 for (const [id, harmony, melody] of [
   ['hook', [50, 57, 64], [74, 69, 76]],
   ['burden', [46, 53, 60], [69, 70, 65]],
-  ['rule', [50, 57, 62], [69, 74, 72, 69]],
+  ['house', [50, 57, 62], [69, 74]],
+  ['loom', [50, 57, 62], [69, 74, 72]],
+  ['contrast', [48, 55, 62], [76, 74, 79]],
+  ['judgment', [50, 57, 64], [74, 69, 76]],
+  ['minimalism', [55, 62, 69], [74, 81]],
   ['freedom', [55, 62, 69], [74, 76, 81]],
-  ['need', [46, 53, 62], [77, 74, 69]],
-  ['feedback', [48, 55, 62], [76, 74, 79]],
-  ['trust', [55, 62, 69], [74, 81]],
   ['closing', [50, 57, 66], [78, 76, 74]],
 ]) {
   const shot = scene(id);
   const duration = shot.end - shot.start;
   harmony.forEach((midi, i) => pad(shot.start, midi, i === 0 ? 0.011 : 0.008, duration + 1.5));
   melody.forEach((midi, i) => pluck(shot.start + 0.75 + i * Math.min(3.1, duration / melody.length), midi));
-  if (id !== 'rule') pluck(shot.start + duration * 0.55, harmony[1] + 12, 0.025);
+  if (id !== 'loom') pluck(shot.start + duration * 0.55, harmony[1] + 12, 0.025);
 }
-pluck(scene('rule').captionRanges[2].start + script.choreography.ruleInputDelay, 74, 0.035);
-pluck(scene('rule').captionRanges[4].start + script.choreography.ruleResumeDelay, 69, 0.035);
+pluck(scene('contrast').captionRanges[1].start, 69, 0.035);
 pluck(scene('closing').creditStart - 0.8, 74, 0.04, 4.5);
 
 for (const { at, midi, gain, length, pad: sustained } of notes) {
@@ -60,10 +60,12 @@ wav.write('RIFF', 0); wav.writeUInt32LE(wav.length - 8, 4); wav.write('WAVEfmt '
 wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
 wav.writeUInt32LE(rate, 24); wav.writeUInt32LE(rate * 2, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34);
 wav.write('data', 36); wav.writeUInt32LE(samples.length * 2, 40);
+const stopAt = scene('loom').start + 5.5;
 for (let n = 0; n < samples.length; n++) {
   const seconds = n / rate;
   const fade = Math.min(1, seconds / 0.8, Math.max(0, (script.duration - seconds) / 3));
-  wav.writeInt16LE(Math.round(Math.max(-1, Math.min(1, samples[n] * fade * masterGain)) * 32767), 44 + n * 2);
+  const stopSpace = 1 - 0.7 * Math.min(1, Math.max(0, (seconds - stopAt) / 0.08), Math.max(0, (stopAt + 1.2 - seconds) / 0.12));
+  wav.writeInt16LE(Math.round(Math.max(-1, Math.min(1, samples[n] * fade * stopSpace * masterGain)) * 32767), 44 + n * 2);
 }
 const output = new URL('../public/assets/tps-and-ai/score.wav', import.meta.url);
 writeFileSync(output, wav);

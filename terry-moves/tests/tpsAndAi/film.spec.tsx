@@ -1,26 +1,35 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
-import { captionAt, cue, customerStateAt, durationInFrames, film, ruleStateAt, sceneAt } from '../../src/tpsAndAi/film';
-import { captionLines, Captions } from '../../src/tpsAndAi/Frame';
-import { RulePicture } from '../../src/tpsAndAi/Rule';
-import { TrainResult, FutureNeeds } from '../../src/tpsAndAi/Customer';
-import { ClosingPicture } from '../../src/tpsAndAi/Closing';
+import { captionAt, cue, durationInFrames, film, loomFrameAt, sceneAt } from '../../src/tpsAndAi/film';
+import { captionLines, Captions, Shot } from '../../src/tpsAndAi/Frame';
 import { HookPicture } from '../../src/tpsAndAi/Hook';
-import { BurdenPicture } from '../../src/tpsAndAi/Burden';
-import { FreedomPicture } from '../../src/tpsAndAi/Freedom';
-import { NeedPicture } from '../../src/tpsAndAi/Need';
-import { FeedbackPicture } from '../../src/tpsAndAi/Feedback';
-import { TrustPicture } from '../../src/tpsAndAi/Trust';
+import { HousePicture } from '../../src/tpsAndAi/House';
+import { LoomPicture } from '../../src/tpsAndAi/Loom';
+import { PairedPainting, ContrastPicture } from '../../src/tpsAndAi/Contrast';
+import { JudgmentPicture } from '../../src/tpsAndAi/Judgment';
+import { MinimalismPicture } from '../../src/tpsAndAi/Minimalism';
+import { ClosingPicture } from '../../src/tpsAndAi/Closing';
 
 jest.mock('remotion', () => ({
 	...jest.requireActual('remotion'),
 	Img: (props: React.ComponentProps<'img'>) => React.createElement('img', props),
+	Freeze: ({ frame, children }: { frame: number; children: React.ReactNode }) => <div data-freeze-frame={frame}>{children}</div>,
+	OffthreadVideo: (props: React.ComponentProps<'video'>) => React.createElement('video', props),
 }));
+const picture = (node: React.ReactNode) => {
+	const element = document.createElement('div');
+	element.innerHTML = renderToStaticMarkup(node);
+	return element;
+};
 
-describe('the actual Freedom and Trust film', () => {
-	it('uses the authored contiguous clock, choosing the incoming scene/caption at every boundary', () => {
+describe('the actual Jidoka film', () => {
+	it('selects incoming scenes and captions at the authored contiguous boundaries', () => {
+		expect(durationInFrames).toBe(2580);
+		expect(film.duration).toBeGreaterThanOrEqual(60);
+		expect(film.duration).toBeLessThanOrEqual(90);
 		film.scenes.forEach((scene, index) => {
 			expect(sceneAt(scene.start).id).toBe(scene.id);
 			if (index) {
@@ -30,45 +39,33 @@ describe('the actual Freedom and Trust film', () => {
 			scene.captionRanges.forEach((caption) => {
 				expect(captionAt(caption.start)).toBe(caption);
 				expect(captionAt(caption.end)).not.toBe(caption);
+				expect(caption.start).toBeGreaterThanOrEqual(scene.start);
+				expect(caption.end).toBeLessThanOrEqual(scene.end);
 				expect(caption.sourceIds.every((id) => id in film.sources)).toBe(true);
-				const markup = renderToStaticMarkup(<Captions seconds={(caption.start + caption.end) / 2} />);
-				expect(markup.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').replace(/&quot;/g, '"').trim()).toBe(caption.spoken);
 			});
 		});
-		expect(captionAt(0)).toBeUndefined();
-		expect(captionAt(91)).toBeUndefined();
-		expect(sceneAt((durationInFrames - 1) / film.fps).id).toBe('closing');
 	});
 
-	it('keeps complete natural phrases in the embedded caption lines', () => {
-		const displayedAt = (seconds: number) => {
-			const caption = captionAt(seconds)!;
-			return captionLines(caption.spoken, caption.lineBreakAfter);
-		};
-		expect(displayedAt(62)).toBe('Deliver one useful result:\nthe next train leaves at 22:45.');
-		expect(displayedAt(72)).toBe('Keep the train result.\nA step-free route is next.');
-		expect(displayedAt(89)).toBe('Trust them with\nthe next real problem.');
+	it('keeps the authored caption wording in no more than two natural display lines', () => {
+		const displayed = picture(<Captions seconds={0} />).textContent;
+		expect(displayed).toBe('How do you know your\norganization is using AI well?');
 		for (const caption of film.scenes.flatMap((scene) => scene.captionRanges)) {
-			if (caption.lineBreakAfter !== undefined) {
-				expect(Number.isInteger(caption.lineBreakAfter)).toBe(true);
-				expect(caption.lineBreakAfter).toBeGreaterThan(0);
-				expect(caption.lineBreakAfter).toBeLessThan(caption.spoken.split(' ').length);
-			}
 			const lines = captionLines(caption.spoken, caption.lineBreakAfter).split('\n');
 			expect(lines.join(' ')).toBe(caption.spoken);
+			expect(lines.length).toBeLessThanOrEqual(2);
 			if (lines.length > 1) expect(lines[0]).not.toMatch(/\b(?:the|a|an)$/i);
 		}
 	});
 
-	it('exports the same wording and intervals selected by the real embedded-caption consumer', () => {
+	it('exports exactly the intervals and text selected by the embedded caption consumer', () => {
+		execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs')]);
 		const srt = readFileSync(path.resolve(process.cwd(), '../TPS and AI/film-en.srt'), 'utf8');
-		const toSeconds = (stamp: string) => {
-			const [hours, minutes, seconds, milliseconds] = stamp.split(/[:,]/).map(Number);
-			return hours * 3600 + minutes * 60 + seconds + milliseconds / 1000;
-		};
+		const delivery = readFileSync(path.resolve(process.cwd(), 'out/tps-and-ai-jidoka-en.srt'), 'utf8');
+		expect(delivery).toBe(srt);
+		const seconds = (stamp: string) => { const [h, m, s, ms] = stamp.split(/[:,]/).map(Number); return h * 3600 + m * 60 + s + ms / 1000; };
 		const subtitles = srt.trim().split('\n\n').map((entry) => {
 			const [index, interval, ...text] = entry.split('\n');
-			const [start, end] = interval.split(' --> ').map(toSeconds);
+			const [start, end] = interval.split(' --> ').map(seconds);
 			return { index: Number(index), start, end, text: text.join(' ') };
 		});
 		const captions = film.scenes.flatMap((scene) => scene.captionRanges);
@@ -76,101 +73,71 @@ describe('the actual Freedom and Trust film', () => {
 		subtitles.forEach((subtitle, index) => {
 			const caption = captions[index];
 			expect(subtitle).toEqual({ index: index + 1, start: caption.start, end: caption.end, text: caption.spoken });
-			for (const seconds of [subtitle.start, (subtitle.start + subtitle.end) / 2, subtitle.end - 1 / film.fps]) {
-				expect(captionAt(seconds)).toBe(caption);
-				const picture = document.createElement('div');
-				picture.innerHTML = renderToStaticMarkup(<Captions seconds={seconds} />);
-				expect(picture.textContent!.replace(/\s+/g, ' ').trim()).toBe(subtitle.text);
+			for (const at of [subtitle.start, (subtitle.start + subtitle.end) / 2, subtitle.end - 1 / film.fps]) {
+				expect(captionAt(at)).toBe(caption);
+				expect(picture(<Captions seconds={at} />).textContent!.replace(/\s+/g, ' ').trim()).toBe(subtitle.text);
 			}
 			expect(captionAt(subtitle.end)).not.toBe(caption);
 		});
 	});
 
-	it('physically blocks the failed empty input and downstream work until human response repairs its cause', () => {
-		const stop = cue('rule', 3);
-		const response = cue('rule', 4);
-		const frozen = ruleStateAt(stop);
-		const pathsAt = (seconds: number) => {
-			const picture = document.createElement('div');
-			picture.innerHTML = renderToStaticMarkup(<RulePicture seconds={seconds} />);
-			return {
-				input: picture.querySelector('[data-testid="input-token"]')!.getAttribute('transform'),
-				downstream: picture.querySelector('[data-testid="downstream-work"]')!.getAttribute('transform'),
-			};
-		};
-		const stoppedPicture = pathsAt(stop);
-		for (const seconds of [stop, stop + 2, response, response + 2.5]) {
-			const state = ruleStateAt(seconds);
-			expect(state.gate).toBe('closed');
-			expect(state.inputX).toBe(frozen.inputX);
-			expect(state.downstreamX).toBe(frozen.downstreamX);
-			const markup = renderToStaticMarkup(<RulePicture seconds={seconds} />);
-			expect(markup).toContain('data-stopped="true"');
-			expect(markup).toContain('data-gate="closed"');
-			expect(markup).toContain('Stopped');
-			expect(pathsAt(seconds)).toEqual(stoppedPicture);
+	it('composes frame zero and retains the genuine upper-right logo through every shot', () => {
+		const opening = picture(<Shot seconds={0} id="hook"><HookPicture /></Shot>);
+		expect(opening.textContent).toContain('Jidoka');
+		expect(opening.textContent).toContain('Free to Move On');
+		expect(opening.textContent).toContain('How do you know your');
+		expect(opening.querySelector('img[src$="called-by-the-stop.png"]')).not.toBeNull();
+		expect(opening.querySelector('[data-scene="hook"]')!.getAttribute('style')).not.toContain('opacity:0');
+		for (const scene of film.scenes) {
+			const logo = picture(<Shot seconds={scene.start} id={scene.id} />).querySelector<HTMLImageElement>('img[src$="odd-e-logo.png"]')!;
+			expect(logo.style.left).toBe('934px'); expect(logo.style.top).toBe('40px');
 		}
-		expect(ruleStateAt(response - 1 / film.fps).responding).toBe(false);
-		expect(ruleStateAt(response).responding).toBe(true);
-		expect(ruleStateAt(response + 2).repaired).toBe(true);
-		const resumed = ruleStateAt(41.6);
-		expect(resumed.inputX).toBeGreaterThan(frozen.inputX);
-		expect(resumed.downstreamX).toBeGreaterThan(frozen.downstreamX);
-		expect(pathsAt(41.6).input).not.toBe(stoppedPicture.input);
-		expect(pathsAt(41.6).downstream).not.toBe(stoppedPicture.downstream);
-		const markup = renderToStaticMarkup(<RulePicture seconds={41.6} />);
-		expect(markup).toContain('data-resumed="true"');
-		expect(markup).toContain('data-check-retained="true"');
-		expect(markup).toContain('data-empty="false"');
+		const asset = readFileSync(path.resolve(process.cwd(), 'public/assets/tps-and-ai/odd-e-logo.png'));
+		expect(asset.equals(readFileSync(path.resolve(process.cwd(), '../themes/odd-e/images/odd-e-logo.png')))).toBe(true);
 	});
 
-	it('retains a useful train result across feedback and reprioritizes only unstarted needs', () => {
-		const receipt = (seconds: number) => renderToStaticMarkup(<TrainResult seconds={seconds} />);
-		expect(receipt(cue('need', 1) - 1 / film.fps)).not.toContain('22:45');
-		const delivered = receipt(65.9);
-		for (const seconds of [66, 69.8, 72, 77.9]) expect(receipt(seconds)).toBe(delivered);
-		expect(delivered).toContain('data-complete="true"');
-		expect(delivered).toContain('22:45');
-		expect(customerStateAt(69).fare.x).toBeLessThan(customerStateAt(69).route.x);
-		expect(customerStateAt(72).route.x).toBeLessThan(customerStateAt(72).fare.x);
-		const next = renderToStaticMarkup(<FutureNeeds seconds={72} />);
-		expect(next).toContain('data-testid="future-route" data-started="false" data-next="true"');
-		expect(next).toContain('data-testid="future-fare" data-started="false" data-next="false"');
-		const picture = document.createElement('div');
-		picture.innerHTML = next;
-		const route = picture.querySelector<HTMLElement>('[data-testid="future-route"]')!;
-		const fare = picture.querySelector<HTMLElement>('[data-testid="future-fare"]')!;
-		expect(route.textContent).toBe('Step-free route');
-		expect(fare.textContent).toBe('Check the fare');
-		expect(parseFloat(route.style.left)).toBeLessThan(parseFloat(fare.style.left));
+	it('uses the local loom once then holds its visible stopped pose with the radical beneath it', () => {
+		expect(loomFrameAt(27, 30)).toBe(0);
+		expect(loomFrameAt(29, 30)).toBe(60);
+		for (const at of [36, 37.5, 38.9]) {
+			const clip = picture(<LoomPicture seconds={at} fps={30} />);
+			expect(clip.querySelector('[data-freeze-frame]')!.getAttribute('data-freeze-frame')).toBe('270');
+			const video = clip.querySelector('video')!;
+			expect(video.getAttribute('src')).toContain('loom-warp-stop.mp4');
+			expect(video.hasAttribute('loop')).toBe(false);
+			expect(video.hasAttribute('muted')).toBe(true);
+			expect(clip.querySelector('img[src$="jidoka-human-radical.svg"]')).not.toBeNull();
+		}
+		expect(readFileSync(path.resolve(process.cwd(), 'public/assets/tps-and-ai/jidoka-human-radical.svg')).equals(readFileSync(path.resolve(process.cwd(), '../slides/tps-and-ai/public/jidoka-human-radical.svg')))).toBe(true);
 	});
 
-	it('keeps all authored audience text in English and ends with a stable title/credit hold', () => {
-		const audienceText = [film.title, film.subtitle, ...film.scenes.flatMap((scene) => [scene.label, ...scene.captionRanges.map((caption) => caption.spoken), ...scene.creditLines ?? []])].join(' ');
+	it('matches the full paired paintings and changes their authored CI screens with the stop', () => {
+		const watching = picture(<PairedPainting state="watching" />);
+		const stopped = picture(<PairedPainting state="stopped" />);
+		expect(watching.firstElementChild!.getAttribute('style')).toBe(stopped.firstElementChild!.getAttribute('style'));
+		expect(watching.querySelector('img')!.style.objectFit).toBe('contain');
+		expect(stopped.querySelector('img')!.style.objectFit).toBe('contain');
+		expect(watching.textContent).toBe('CICHECKING'); expect(stopped.textContent).toBe('CISTOP');
+		expect(watching.querySelector('polygon')).not.toBeNull(); expect(stopped.querySelector('polygon')).not.toBeNull();
+		const before = picture(<ContrastPicture seconds={40} />), after = picture(<ContrastPicture seconds={50} />);
+		expect(before.querySelector<HTMLElement>('[data-testid="paired-watching"]')!.style.opacity).toBe('1');
+		expect(after.querySelector<HTMLElement>('[data-testid="paired-stopped"]')!.style.opacity).toBe('1');
+	});
+
+	it('preserves the closed stop and needed behavior, and ends on the exact stable credit', () => {
+		const knowledge = picture(<JudgmentPicture seconds={65} />);
+		expect(knowledge.querySelector('[data-testid="closed-software-stop"]')!.getAttribute('data-work-blocked')).toBe('true');
+		expect(knowledge.textContent).toContain('Clear evidence');
+		const necessaryBefore = picture(<MinimalismPicture seconds={67} />).querySelector('[data-testid="necessary-behavior"]')!.outerHTML;
+		const necessaryAfter = picture(<MinimalismPicture seconds={74} />).querySelector('[data-testid="necessary-behavior"]')!.outerHTML;
+		expect(necessaryAfter).toBe(necessaryBefore);
+		expect(picture(<HousePicture />).querySelector('[data-testid="jidoka-pillar"]')).not.toBeNull();
+		expect(captionAt(cue('minimalism', 2))!.spoken).toBe('Remove unnecessary parts. Preserve needed behavior.');
+		const closing = renderToStaticMarkup(<ClosingPicture />);
+		expect(closing).toContain('Idea and film from Terry');
+		expect(captionAt(83)).toBeUndefined(); expect(captionAt((durationInFrames - 1) / film.fps)).toBeUndefined();
+		const audienceText = [film.title, film.subtitle, ...film.scenes.flatMap((scene) => [scene.label, ...scene.captionRanges.map((c) => c.spoken), ...scene.creditLines ?? []])].join(' ');
 		expect(audienceText).not.toMatch(/[\u3040-\u30ff\u3400-\u9fff]/u);
-		const final = renderToStaticMarkup(<ClosingPicture seconds={(durationInFrames - 1) / film.fps} />);
-		expect(final).toBe(renderToStaticMarkup(<ClosingPicture seconds={92} />));
-		expect(final).toContain('Freedom');
-		expect(final).toContain('and Trust');
-		expect(final).toContain('Terry Yin');
-		expect(final).toContain('AI-assisted illustrations');
-		expect(final).not.toMatch(/[\u3040-\u30ff\u3400-\u9fff]/u);
-	});
-
-	it('renders the diagnostic and English learning/customer labels in the actual pictures', () => {
-		const pictures = [
-			<HookPicture seconds={5} />, <BurdenPicture seconds={18} />, <RulePicture seconds={28} />,
-			<RulePicture seconds={36} />, <FreedomPicture seconds={48} />, <NeedPicture seconds={62} />,
-			<FeedbackPicture seconds={73} />, <TrustPicture seconds={82} />, <ClosingPicture seconds={93} />,
-		].map((picture) => renderToStaticMarkup(picture));
-		pictures.forEach((picture) => expect(picture).not.toMatch(/[\u3040-\u30ff\u3400-\u9fff]/u));
-		expect(pictures[0]).toContain('More free?');
-		expect(pictures[2]).toContain('The list must not be empty.');
-		expect(pictures[3]).toContain('Empty list');
-		expect(pictures[3]).toContain('failure');
-		expect(pictures[4]).toContain('Room to think.');
-		expect(pictures[5]).toContain('Next train');
-		expect(pictures[5]).toContain('22:45');
-		expect(pictures[6]).toContain('Step-free route');
+		expect(audienceText).not.toMatch(/empty list|train leaves|customer|Freedom and Trust/i);
 	});
 });

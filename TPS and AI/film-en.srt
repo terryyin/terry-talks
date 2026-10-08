@@ -1,91 +1,75 @@
 1
-00:00:00,400 --> 00:00:04,500
-AI can generate software faster than we understand it.
+00:00:00,000 --> 00:00:04,500
+How do you know your organization is using AI well?
 
 2
 00:00:04,500 --> 00:00:09,000
-Does what we build leave our teams more free?
+When teams are more freed than constrained by what they build.
 
 3
-00:00:09,000 --> 00:00:11,300
-Generation is cheap.
+00:00:09,000 --> 00:00:14,000
+Too often, software ties its creators down.
 
 4
-00:00:11,300 --> 00:00:15,400
-Understanding and owning what we build still takes judgment.
+00:00:14,000 --> 00:00:19,000
+Yesterday’s output blocks today’s higher-value work.
 
 5
-00:00:15,400 --> 00:00:18,000
-AI speeds whichever loop we feed.
+00:00:19,000 --> 00:00:23,200
+TPS is the Toyota Production System.
 
 6
-00:00:18,000 --> 00:00:21,000
-Faster output can become a heavier burden.
+00:00:23,200 --> 00:00:27,000
+Jidoka is one of its two pillars.
 
 7
-00:00:21,000 --> 00:00:26,500
-A lesson from Toyota: build human learning into the work.
+00:00:27,000 --> 00:00:30,500
+Jidoka: automation with a human touch.
 
 8
-00:00:26,500 --> 00:00:30,000
-“The list must not be empty.”
+00:00:30,500 --> 00:00:34,500
+A broken thread stops the loom.
 
 9
-00:00:30,000 --> 00:00:34,000
-Turn that known rule into a check.
+00:00:34,500 --> 00:00:39,000
+Human wisdom lives in the mechanism.
 
 10
-00:00:34,000 --> 00:00:37,500
-An empty list fails. Further work stops.
+00:00:39,000 --> 00:00:45,000
+Instead of watching the loom—or CI…
 
 11
-00:00:37,500 --> 00:00:42,000
-People investigate the cause, fix it, and improve the check.
+00:00:45,000 --> 00:00:51,000
+Let the stop call you.
 
 12
-00:00:42,000 --> 00:00:46,000
-The next person need not rediscover the rule.
+00:00:51,000 --> 00:00:56,000
+Solve the problem. Preserve the judgment.
 
 13
-00:00:46,000 --> 00:00:50,500
-People keep the authority to improve that check.
+00:00:56,000 --> 00:01:01,000
+Build known rules into simple checks that stop the work.
 
 14
-00:00:50,500 --> 00:00:54,000
-Free attention for discovery. Customer value still needs judgment.
+00:01:01,000 --> 00:01:06,000
+Leave clear evidence for the next person—or AI.
 
 15
-00:00:54,000 --> 00:01:00,000
-Start with a real customer need: get home after dinner.
+00:01:06,000 --> 00:01:08,800
+Keep as little as possible.
 
 16
-00:01:00,000 --> 00:01:06,000
-Deliver one useful result: the next train leaves at 22:45.
+00:01:08,800 --> 00:01:11,500
+The best part is no part.
 
 17
-00:01:06,000 --> 00:01:09,800
-“Does that route have stairs?”
+00:01:11,500 --> 00:01:15,000
+Remove unnecessary parts. Preserve needed behavior.
 
 18
-00:01:09,800 --> 00:01:15,000
-Keep the train result. A step-free route is next.
+00:01:15,000 --> 00:01:19,000
+Build knowledge into the product.
 
 19
-00:01:15,000 --> 00:01:18,000
-Leave later work unstarted.
-
-20
-00:01:18,000 --> 00:01:21,000
-Use that freedom to learn together.
-
-21
-00:01:21,000 --> 00:01:24,000
-Give capable people responsibility and support.
-
-22
-00:01:24,000 --> 00:01:27,300
-Build products that free people.
-
-23
-00:01:27,300 --> 00:01:31,000
-Trust them with the next real problem.
+00:01:19,000 --> 00:01:23,000
+Free yourself for the next problem that matters.

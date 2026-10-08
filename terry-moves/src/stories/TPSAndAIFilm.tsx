@@ -3,11 +3,12 @@ import { Audio, Composition, Folder, Sequence, staticFile, useVideoConfig } from
 import { Paper } from '../tpsAndAi/Frame';
 import { Hook } from '../tpsAndAi/Hook';
 import { Burden } from '../tpsAndAi/Burden';
-import { Rule } from '../tpsAndAi/Rule';
+import { House } from '../tpsAndAi/House';
+import { Loom } from '../tpsAndAi/Loom';
+import { Contrast } from '../tpsAndAi/Contrast';
+import { Judgment } from '../tpsAndAi/Judgment';
+import { Minimalism } from '../tpsAndAi/Minimalism';
 import { Freedom } from '../tpsAndAi/Freedom';
-import { Need } from '../tpsAndAi/Need';
-import { Feedback } from '../tpsAndAi/Feedback';
-import { Trust } from '../tpsAndAi/Trust';
 import { Closing } from '../tpsAndAi/Closing';
 import { durationInFrames, film, sceneFrames, startFrame } from '../tpsAndAi/film';
 
@@ -15,14 +16,15 @@ export const TPSFilm: React.FC = () => {
 	const { fps } = useVideoConfig();
 	return <Paper>
 		<Audio src={staticFile('assets/tps-and-ai/score.wav')} volume={0.75} />
-		<Sequence name="The test: more free?" from={startFrame('hook')} durationInFrames={sceneFrames('hook')} premountFor={fps}><Hook /></Sequence>
-		<Sequence name="Output becomes a burden" from={startFrame('burden')} durationInFrames={sceneFrames('burden')} premountFor={fps}><Burden /></Sequence>
-		<Sequence name="Learning becomes a real stop" from={startFrame('rule')} durationInFrames={sceneFrames('rule')} premountFor={fps}><Rule /></Sequence>
-		<Sequence name="Attention returns to discovery" from={startFrame('freedom')} durationInFrames={sceneFrames('freedom')} premountFor={fps}><Freedom /></Sequence>
-		<Sequence name="One useful customer result" from={startFrame('need')} durationInFrames={sceneFrames('need')} premountFor={fps}><Need /></Sequence>
-		<Sequence name="Feedback changes the next need" from={startFrame('feedback')} durationInFrames={sceneFrames('feedback')} premountFor={fps}><Feedback /></Sequence>
-		<Sequence name="Responsibility and support" from={startFrame('trust')} durationInFrames={sceneFrames('trust')} premountFor={fps}><Trust /></Sequence>
-		<Sequence name="Freedom and Trust: closing" from={startFrame('closing')} durationInFrames={sceneFrames('closing')} premountFor={fps}><Closing /></Sequence>
+		<Sequence name="Jidoka: Free to Move On" from={startFrame('hook')} durationInFrames={sceneFrames('hook')} premountFor={fps}><Hook /></Sequence>
+		<Sequence name="Bound to yesterday" from={startFrame('burden')} durationInFrames={sceneFrames('burden')} premountFor={fps}><Burden /></Sequence>
+		<Sequence name="Toyota Production System" from={startFrame('house')} durationInFrames={sceneFrames('house')} premountFor={fps}><House /></Sequence>
+		<Sequence name="Human wisdom, built in" from={startFrame('loom')} durationInFrames={sceneFrames('loom')} premountFor={fps}><Loom /></Sequence>
+		<Sequence name="Called by the stop" from={startFrame('contrast')} durationInFrames={sceneFrames('contrast')} premountFor={fps}><Contrast /></Sequence>
+		<Sequence name="Solve. Preserve. Protect." from={startFrame('judgment')} durationInFrames={sceneFrames('judgment')} premountFor={fps}><Judgment /></Sequence>
+		<Sequence name="Keep as little as possible" from={startFrame('minimalism')} durationInFrames={sceneFrames('minimalism')} premountFor={fps}><Minimalism /></Sequence>
+		<Sequence name="Free to move on" from={startFrame('freedom')} durationInFrames={sceneFrames('freedom')} premountFor={fps}><Freedom /></Sequence>
+		<Sequence name="Free to Move On" from={startFrame('closing')} durationInFrames={sceneFrames('closing')} premountFor={fps}><Closing /></Sequence>
 	</Paper>;
 };
 
@@ -31,11 +33,12 @@ export const TPSAndAIFilm: React.FC = () => <>
 	<Folder name="TPS-scenes">
 		<Composition id="TPSHook" component={Hook} durationInFrames={sceneFrames('hook')} fps={film.fps} width={film.width} height={film.height} />
 		<Composition id="TPSBurden" component={Burden} durationInFrames={sceneFrames('burden')} fps={film.fps} width={film.width} height={film.height} />
-		<Composition id="TPSRule" component={Rule} durationInFrames={sceneFrames('rule')} fps={film.fps} width={film.width} height={film.height} />
+		<Composition id="TPSHouse" component={House} durationInFrames={sceneFrames('house')} fps={film.fps} width={film.width} height={film.height} />
+		<Composition id="TPSLoom" component={Loom} durationInFrames={sceneFrames('loom')} fps={film.fps} width={film.width} height={film.height} />
+		<Composition id="TPSContrast" component={Contrast} durationInFrames={sceneFrames('contrast')} fps={film.fps} width={film.width} height={film.height} />
+		<Composition id="TPSJudgment" component={Judgment} durationInFrames={sceneFrames('judgment')} fps={film.fps} width={film.width} height={film.height} />
+		<Composition id="TPSMinimalism" component={Minimalism} durationInFrames={sceneFrames('minimalism')} fps={film.fps} width={film.width} height={film.height} />
 		<Composition id="TPSFreedom" component={Freedom} durationInFrames={sceneFrames('freedom')} fps={film.fps} width={film.width} height={film.height} />
-		<Composition id="TPSNeed" component={Need} durationInFrames={sceneFrames('need')} fps={film.fps} width={film.width} height={film.height} />
-		<Composition id="TPSFeedback" component={Feedback} durationInFrames={sceneFrames('feedback')} fps={film.fps} width={film.width} height={film.height} />
-		<Composition id="TPSTrust" component={Trust} durationInFrames={sceneFrames('trust')} fps={film.fps} width={film.width} height={film.height} />
 		<Composition id="TPSClosing" component={Closing} durationInFrames={sceneFrames('closing')} fps={film.fps} width={film.width} height={film.height} />
 	</Folder>
 </>;
