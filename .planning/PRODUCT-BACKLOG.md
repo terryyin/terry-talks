@@ -8,6 +8,7 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Backlog list
 
+- [I can share the core message of my TPS and AI talk in a 90-second English film](../TPS%20and%20AI/film-seed.md#english-square-film) — tps-and-ai-film#english-square-film
 - [I can choose a visual treatment that expresses my idea before producing the whole film](../terry-moves/seed.md#choose-visual-treatment) — terry-moves-filmmaking#choose-visual-treatment
 - [I can bring an existing character into a new scene and direct a believable interaction](../terry-moves/seed.md#character-prop-interaction) — terry-moves-filmmaking#character-prop-interaction
 - [I can replace one narration performance without repairing unrelated scenes](../terry-moves/seed.md#replace-narration-performance) — terry-moves-filmmaking#replace-narration-performance
