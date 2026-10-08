@@ -1766,12 +1766,14 @@ class: "text-center [&>h1]:!text-[26px] [&>h1]:!mb-2"
 
 [組織がAIを正しく使えているか、どうすればわかる？]{.ja-title}
 
-<div class="absolute left-[5.5%] right-[5.5%] top-[30%]">
+<div class="absolute left-[5.5%] right-[5.5%] top-[26%]">
   <p class="!m-0 text-[43px] font-semibold !leading-[1.2]">
-    Can we <span class="text-[#b33a2b]">trust the team</span><br>
-    with the next real problem?
+    More <span class="text-[#b33a2b]">freed</span> than <span class="text-[#b33a2b]">constrained</span><br>
+    by what they built.
   </p>
-  <p class="!mb-0 !mt-4 text-[19px] text-[#5c564e]" lang="ja">次の本当の課題を、チームに任せられるか。</p>
+  <p class="!mb-0 !mt-3 text-[19px] text-[#5c564e]" lang="ja">チームが作ったものに、縛られるより解放されている。</p>
+  <p class="!mb-0 !mt-5 text-[23px] font-semibold !leading-tight">Can we trust the team with the next real problem?</p>
+  <p class="!mb-0 !mt-1 text-[17px] text-[#5c564e]" lang="ja">次の本当の課題を、チームに任せられるか。</p>
 </div>
 
 <div class="absolute left-[5.5%] right-[5.5%] top-[66%] grid grid-cols-3 gap-8">
@@ -1796,9 +1798,9 @@ class: "text-center [&>h1]:!text-[26px] [&>h1]:!mb-2"
 </div>
 
 <!--
-Return to the opening question (Claim 10) before the takeaways. The
-opening answer was teams more freed than constrained by what they built.
-Here is what that freedom lets them do: take the next highest-value
+Return to the opening question (Claim 10) before the takeaways. Repeat its
+answer on the slide: teams more freed than constrained by what they built.
+Then ask what that freedom lets them do: take the next highest-value
 work and acquire the knowledge it needs. Greater output is not sufficient
 evidence of that outcome.
 
