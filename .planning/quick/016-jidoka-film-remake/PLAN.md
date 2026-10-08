@@ -216,3 +216,17 @@ was queued for opening in Codex. MP4 SHA256:
 poster `532cea63a36799be9879f6be77049bb639b34e832c2e12f01d937c729ea3ccff`;
 SRT `c91f68e377d88fbb7b6a04f6d69aa24a3c81c367fa53f5cf4a957c693324d9d6`.
 The first round and unrelated untracked `output/` remain untouched.
+
+## Execution complete
+
+Product advice: no change. The independent product retrospective found no
+material outcome, architecture, residue or test-suite correction. This usable
+authored film fits the current filmmaking direction without establishing
+arbitrary scene rearrangement or changing queued priorities. Process review
+was skipped under the project's default because it was not requested.
+
+Both accepted slices remain covered by the recorded proof. The subtitle
+exporter test proves regenerated output rather than prior tracked-file
+freshness; current canonical and delivered SRT match the JSON authority.
+Hosted CI is unobserved: no workflow, project adapter or live observer was
+available. No green CI verdict or observer-shutdown receipt is claimed.
