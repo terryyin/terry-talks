@@ -74,6 +74,31 @@ where suitable; new generated media is not a prerequisite.
 
 ## Existing solutions and current decisions
 
+Execution started on 2026-10-08 under the user's instruction to coordinate and
+continue automatically through a good, accurate, attention-grabbing film.
+The refined preparation was accepted on `origin/master` at
+`cc215566f1cbcd98f61afd8fdfff32adb255cd56` and its workspace retired.
+Execution owns `/Users/terryyin/git/terry-talks/.worktrees/tps-and-ai-film`,
+branch `codex/tps-and-ai-film`, Story Branch Mode, publisher
+`tps-and-ai-film-01a11b61`, starting at that preparation SHA. Its Take was
+accepted on `origin/master` at `d62e3aeddce4bc22a8c3145c1cf34bc7f3408711`;
+Hibiki-chan is the workspace author. Delivery targets
+`origin/refs/heads/codex/tps-and-ai-film`, followed by coordinator story wrap-up
+onto `origin/master`. Main's existing untracked `output/` is preserved; refresh
+is deferred. Replanning remains authorized within this film's scope.
+
+Checkout setup used bundled Node v24.19.0 with pnpm 11.28.5:
+`PATH=/Users/terryyin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:$PATH pnpm install --frozen-lockfile --offline`.
+It installed successfully without lockfile changes. The same PATH prefix ran
+`pnpm --dir terry-moves compositions` and
+`pnpm --dir terry-moves exec remotion still src/index.ts SilentScene /private/tmp/tps-film-runtime-smoke.png --frame=0`;
+both exited 0, and the still exists. An unrelated older composition's ignored
+quillustration asset emits a 404 during Root loading; it does not block these
+observations and is outside this film's changes.
+No `.github` push workflow or configured CI adapter exists in this checkout.
+Hosted CI observation is unavailable; local focused and render proof remains
+owned. Do not invent a workflow or observer to claim coverage.
+
 PFE inspected whole-product film registrations, timelines, captions, export
 scripts, tests, film guides, and the deck's artwork and notes.
 
@@ -127,7 +152,7 @@ already supports scripted films in their own visual style.
 
 ### 1. Terry can read a source-linked, timed English film blueprint
 Type: Behavior
-Status: planned
+Status: done
 Proof: Open the brief and timed script, follow each substantive statement to its
 source, and read the caption sequence at its authored timing. The argument,
 English asset selection, approximate duration, and credit basis are explicit.
@@ -147,6 +172,19 @@ After coordinator checkout setup, run `pnpm --dir terry-moves compositions` and
 Failure stops dependent render work and updates the same plan. This probes the
 existing tool route; it is not proof of a finished TPS film. The blueprint is
 an accepted interim artifact, replaced by the moving explanation in slice 2.
+
+Accepted proof: `TPS and AI/film-brief.md` and `film-script.json` provide the
+source-linked argument, 172 words, 23 captions, eight contiguous scenes and a
+94-second cut including credits. Coordinator inspected the script's source IDs,
+claim homes, actions and the audit's actual assertions. With bundled Node on PATH,
+`node /private/tmp/tps-film-blueprint-audit.mjs` exited 0: frame-aligned,
+non-overlapping caption ranges, English audience text, known source references,
+seven byte-identical retained images, and the real generic SRT export preserving
+every caption and first/last timestamps. The implementation agent visually
+opened all seven images; none has baked lettering. `git diff --check` passed.
+Independent post-change refactoring returned `none — already clean`; no proof
+was invalidated. Formatting selected no TypeScript files in this content slice.
+Moving meaning and observed phone readability belong to the next slices.
 
 ### 2. Viewers can watch the complete argument in the presentation's ink style
 Type: Behavior
