@@ -40,6 +40,16 @@ export const brief = {
 	] as const satisfies readonly { name: BeatName; caption: string }[],
 } as const;
 
+// The beat that continues a selected treatment past this passage: the
+// opening-hours question begins. It is asked, not answered; no hours result
+// exists yet.
+export const continuationBeat = {
+	name: 'hours',
+	caption: 'The next smaller question begins: when is it open? It has no answer yet.',
+} as const;
+
+export type ContinuationBeatName = typeof continuationBeat.name;
+
 // How every treatment names an outcome's status.
 export const statusLabel: Record<OutcomeStatus, string> = {
 	open: 'CUSTOMER QUESTION',

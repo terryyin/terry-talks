@@ -5,7 +5,7 @@
 import type { Mood } from '../../aiTestAutomation/actors';
 import { blinkAt, gesture, mix, Point, travel } from '../../aiTestAutomation/motion';
 import { beat, Timeline, timeline } from '../../beatTimeline';
-import { BeatName, brief, OutcomeId, OutcomeStatus, TreatmentVersion } from '../brief';
+import { BeatName, brief, ContinuationBeatName, OutcomeId, OutcomeStatus, TreatmentVersion } from '../brief';
 
 // Where the shopper's attention is; the renderer turns it into gaze and tilt.
 export type Attention = 'trip' | 'solution' | 'customer' | 'stock' | 'result' | 'door' | 'hours';
@@ -24,7 +24,7 @@ export type ShopperPose = {
 export type OutcomeMark = { status: OutcomeStatus; shown: number };
 
 export type CharacterPose = {
-	beat: BeatName;
+	beat: BeatName | ContinuationBeatName;
 	cover: number; // 1 = large title, 0 = title settled in the header
 	need: number;
 	solution: { shown: number; muted: number };

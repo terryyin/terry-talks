@@ -1,7 +1,9 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { characterTimeline, characterV1 } from '../../src/visualTreatments/character/script';
-import { planTreatmentExport } from '../../src/visualTreatments/exportPlan';
+import { TreatmentChoice } from '../../src/visualTreatments/choice';
+import { planContinuationExport, planTreatmentExport } from '../../src/visualTreatments/exportPlan';
+import { resolveChoice } from '../../src/visualTreatments/selection';
 import { TreatmentEntry, treatmentVersions } from '../../src/visualTreatments/versions';
 
 const root = join(__dirname, '../..');
@@ -40,15 +42,54 @@ test('named versions select what is exported; an unknown name is refused with th
 	expect(() => planTreatmentExport(['TreatmentCharacterV3'])).toThrow('Unknown treatment version TreatmentCharacterV3. Registered: TreatmentTypographyV1, TreatmentCharacterV1, TreatmentCharacterV2');
 });
 
-test('exporting while no choice exists produces only the named versions, never a selected output', () => {
+test('the version exports never contain a selected output, whatever the review record says', () => {
 	const plans = planTreatmentExport();
 	const outputs = plans.flatMap((plan) => [plan.dir, plan.clip, ...plan.keyPoses.map((pose) => pose.file)]);
 	expect([...new Set(outputs.map((path) => path.split('/')[2]))]).toEqual(treatmentVersions.map((entry) => entry.id));
 	expect(JSON.stringify(plans)).not.toMatch(/select/i);
 });
 
+test('TEST FIXTURE: a pending or revise record exports no continuation', () => {
+	const pending: TreatmentChoice = { decision: 'pending', note: 'Neither yet.' };
+	const revise: TreatmentChoice = { decision: 'revise', version: 'TreatmentCharacterV1', beats: ['result'], note: 'Relief reads too weakly.' };
+	[pending, revise].forEach((choice) => {
+		expect(planContinuationExport([], resolveChoice(choice))).toBeUndefined();
+		expect(planContinuationExport(['TreatmentCharacterV1'], resolveChoice(choice))).toBeUndefined();
+	});
+});
+
+test('the selected version adds exactly its continuation: clip, key poses and appended beat, from the composed timeline', () => {
+	const plan = planContinuationExport()!;
+	const dir = 'out/treatments/selected/TreatmentCharacterV2-continued';
+	expect(plan).toMatchObject({
+		id: 'TreatmentSelectedContinued',
+		selected: 'TreatmentCharacterV2',
+		treatment: 'character',
+		dir,
+		clip: `${dir}/TreatmentCharacterV2-continued.mp4`,
+		fps: 30,
+		width: 1080,
+		height: 1080,
+		prefixFrames: 915,
+		durationInFrames: 1065,
+		appended: { name: 'hours', from: 915, to: 1064 },
+	});
+	expect(plan.beats.map((b) => b.name)).toEqual(['title', 'distinction', 'question', 'result', 'feedback', 'next', 'hours']);
+	expect(plan.beats.slice(0, -1)).toEqual(planTreatmentExport(['TreatmentCharacterV2'])[0].beats);
+	expect(plan.keyPoses.filter((pose) => pose.beat === 'hours')).toEqual([
+		{ beat: 'hours', moment: 'midway', frame: 990, file: `${dir}/hours-midway-990.png` },
+		{ beat: 'hours', moment: 'settled', frame: 1064, file: `${dir}/hours-settled-1064.png` },
+	]);
+	plan.keyPoses.forEach((pose) => expect(pose.file.startsWith(`${dir}/`)).toBe(true));
+	expect(plan.sources.script).toEqual(expect.arrayContaining(['src/visualTreatments/character/v2.ts', 'src/visualTreatments/character/continuation.ts', 'src/visualTreatments/choice.ts']));
+
+	expect(planContinuationExport(['TreatmentCharacterV2'])).toEqual(plan);
+	expect(planContinuationExport(['TreatmentCharacterV1', 'TreatmentTypographyV1'])).toBeUndefined();
+});
+
 test('each version names authored source files that exist', () => {
-	treatmentVersions.forEach((entry) => [...entry.sources.script, ...entry.sources.renderer].forEach((path) => expect(existsSync(join(root, path))).toBe(true)));
+	const continued = planContinuationExport()!;
+	[...treatmentVersions, continued].forEach((entry) => [...entry.sources.script, ...entry.sources.renderer].forEach((path) => expect(existsSync(join(root, path))).toBe(true)));
 	const v2 = treatmentVersions.find((entry) => entry.id === 'TreatmentCharacterV2')!;
 	expect(v2.sources.script).toContain('src/visualTreatments/character/v2.ts');
 	expect(treatmentVersions.find((entry) => entry.id === 'TreatmentCharacterV1')!.sources.script).not.toContain('src/visualTreatments/character/v2.ts');

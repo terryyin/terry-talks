@@ -447,8 +447,27 @@ an actual selection, the story has remaining continuation work and is not comple
 
 ### 5. Continue and reproduce the chosen version
 Type: Behavior
-Status: planned
+Status: done
 Proof: Real selected-input → appended beat → export → offline reproduction journey.
+
+Accepted: `continuation.ts` resolves the real record and composes the selected
+version's own beats with a character-authored `hours` beat
+(`character/continuation.ts`; caption in `brief.ts` `continuationBeat`). The
+shopper reads the hours sign, then raises a hand to ask; there is no answer,
+stock stays kept, and reservation stays unstarted. A typography selection gets
+an explicit "no continuation authored" error, with no fallback. Studio:
+`TreatmentSelectedContinued` (1065 frames; prefix 0–914, hours 915–1064). The
+same `render:treatments` writes
+`out/treatments/selected/TreatmentCharacterV2-continued/` (mp4, 14 key poses,
+manifest with version, choice, prefixFrames, and appended range) only when the
+record is `selected`. Proof: suite 6 suites/41 tests (all 915 prefix frames:
+pose/caption/markup equal; all 150 suffix frames: outcomes); `tsc`; 31
+compositions; native PNG sequences of V2 vs continued are byte-identical on all
+915 prefix frames, including decoded framemd5; a clean reproduction from saved
+inputs gave the same continuation PNGs, `ffmpeg -f null` decoded the whole
+movie, and ffprobe reported h264 1080² 30 fps with 1065 frames. A/V1 stills
+stay byte-identical to the pre-revision baselines. Gap: the raised-hand
+“asking” gesture and the subtle read-lean are for Terry to judge in playback.
 
 Behavior: Given Terry's exact selected version, add the following opening-hours
 beat through its authored entry and preview it with the selected sample. The
