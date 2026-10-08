@@ -7,7 +7,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 ## Taken
 
 - [I can choose a visual treatment that expresses my idea before producing the whole film](../terry-moves/seed.md#choose-visual-treatment) — terry-moves-filmmaking#choose-visual-treatment ([plan](quick/014-choose-visual-treatment/PLAN.md))
-- [I can share the core message of my TPS and AI talk in a 90-second English film](../TPS%20and%20AI/film-seed.md#english-square-film) — tps-and-ai-film#english-square-film ([plan](quick/015-tps-and-ai-film/PLAN.md))
 
 ## Backlog list
 

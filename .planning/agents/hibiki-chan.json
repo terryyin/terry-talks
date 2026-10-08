@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Hibiki-chan",
-  "email": "hibiki-chan@example.org",
-  "identity": "tps-and-ai-film#english-square-film",
-  "mode": "story-branch",
-  "branch": "codex/tps-and-ai-film",
-  "host": "codex"
-}
