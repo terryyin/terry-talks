@@ -48,7 +48,7 @@
       "assets": ["called-by-the-stop.png"],
       "captionRanges": [
         {"start": 0, "end": 4.5, "spoken": "How do you know your organization is using AI well?", "sourceIds": ["diagnostic"], "lineBreakAfter": 5},
-        {"start": 4.5, "end": 9, "spoken": "When teams are more freed than constrained by what they build.", "sourceIds": ["diagnostic"], "lineBreakAfter": 6}
+        {"start": 4.5, "end": 9, "spoken": "When teams are more freed than constrained by what they’ve built.", "sourceIds": ["diagnostic"], "lineBreakAfter": 6}
       ],
       "action": "Fully composed title, matched called-by-stop painting, generic stop display and question at frame zero; the answer follows on the same representative artwork."
     },

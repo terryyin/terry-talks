@@ -2,7 +2,7 @@
 
 A concise square film about Jidoka for AI-augmented software development.
 The diagnostic is Terry’s: teams should be more freed than constrained by what
-they build. The film explains how discovered judgment can live in simple
+they’ve built. The film explains how discovered judgment can live in simple
 mechanisms that stop known failures, preserve usable evidence, and release
 attention for the next needed problem.
 

@@ -4,7 +4,7 @@ How do you know your organization is using AI well?
 
 2
 00:00:04,500 --> 00:00:09,000
-When teams are more freed than constrained by what they build.
+When teams are more freed than constrained by what they’ve built.
 
 3
 00:00:09,000 --> 00:00:14,000
