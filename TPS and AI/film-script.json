@@ -50,7 +50,7 @@
         {"start": 0, "end": 4.5, "spoken": "How do you know your organization is using AI well?", "sourceIds": ["diagnostic"], "lineBreakAfter": 5},
         {"start": 4.5, "end": 9, "spoken": "When teams are more freed than constrained by what they build.", "sourceIds": ["diagnostic"], "lineBreakAfter": 6}
       ],
-      "action": "Fully composed title, matched called-by-stop painting, CI stop and question at frame zero; the answer follows on the same representative artwork."
+      "action": "Fully composed title, matched called-by-stop painting, generic stop display and question at frame zero; the answer follows on the same representative artwork."
     },
     {
       "id": "burden",
@@ -96,10 +96,10 @@
       "label": "Called by the stop",
       "assets": ["watching-the-loom-watching-the-ai.png", "called-by-the-stop.png"],
       "captionRanges": [
-        {"start": 39, "end": 45, "spoken": "Instead of watching the loom—or CI…", "sourceIds": ["jidoka"], "lineBreakAfter": 3},
+        {"start": 39, "end": 45, "spoken": "Instead of watching the loom—or watching your computer work…", "sourceIds": ["jidoka"], "lineBreakAfter": 5},
         {"start": 45, "end": 51, "spoken": "Let the stop call you.", "sourceIds": ["jidoka"]}
       ],
-      "action": "Fit both complete paired paintings at identical geometry and crossfade over 0.6s. Cover their embedded terminal screen planes with authored CI CHECKING and CI STOP displays."
+      "action": "Fit both complete paired paintings at identical geometry and crossfade over 0.6s. Cover their embedded terminal screen planes with generic CHECKING and STOP displays."
     },
     {
       "id": "judgment",

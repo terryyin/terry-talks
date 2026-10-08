@@ -111,13 +111,13 @@ describe('the actual Jidoka film', () => {
 		expect(readFileSync(path.resolve(process.cwd(), 'public/assets/tps-and-ai/jidoka-human-radical.svg')).equals(readFileSync(path.resolve(process.cwd(), '../slides/tps-and-ai/public/jidoka-human-radical.svg')))).toBe(true);
 	});
 
-	it('matches the full paired paintings and changes their authored CI screens with the stop', () => {
+	it('matches the full paired paintings and changes their generic screens with the stop', () => {
 		const watching = picture(<PairedPainting state="watching" />);
 		const stopped = picture(<PairedPainting state="stopped" />);
 		expect(watching.firstElementChild!.getAttribute('style')).toBe(stopped.firstElementChild!.getAttribute('style'));
 		expect(watching.querySelector('img')!.style.objectFit).toBe('contain');
 		expect(stopped.querySelector('img')!.style.objectFit).toBe('contain');
-		expect(watching.textContent).toBe('CICHECKING'); expect(stopped.textContent).toBe('CISTOP');
+		expect(watching.textContent).toBe('CHECKING'); expect(stopped.textContent).toBe('STOP');
 		expect(watching.querySelector('polygon')).not.toBeNull(); expect(stopped.querySelector('polygon')).not.toBeNull();
 		const before = picture(<ContrastPicture seconds={40} />), after = picture(<ContrastPicture seconds={50} />);
 		expect(before.querySelector<HTMLElement>('[data-testid="paired-watching"]')!.style.opacity).toBe('1');

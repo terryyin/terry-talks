@@ -8,7 +8,7 @@ export const PairedPainting: React.FC<{ state: PaintingState; style?: React.CSSP
 	<svg viewBox="0 0 1536 864" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
 		<polygon points={state === 'watching' ? '889,545 1252,483 1249,725 889,711' : '889,529 1242,488 1225,752 895,731'} fill="#242420" />
 		<g fill={state === 'watching' ? '#d8d2c8' : '#e58b72'} textAnchor="middle" fontFamily="Arial, sans-serif" transform={state === 'watching' ? 'translate(1070 595) skewY(-6)' : 'translate(1063 578) skewY(-4)'}>
-			<text y="0" fontSize="64">CI</text><text y="82" fontSize={state === 'watching' ? 44 : 76} fontWeight="600">{state === 'watching' ? 'CHECKING' : 'STOP'}</text>
+			<text y="50" fontSize={state === 'watching' ? 44 : 76} fontWeight="600">{state === 'watching' ? 'CHECKING' : 'STOP'}</text>
 		</g>
 	</svg>
 </div>;
