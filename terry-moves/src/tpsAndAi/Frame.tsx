@@ -19,23 +19,17 @@ export const InkPath: React.FC<{ d: string; amount?: number; color?: string; wid
 
 export const Art: React.FC<{ file: string; style?: React.CSSProperties }> = ({ file, style }) => <Img src={staticFile(`assets/tps-and-ai/${file}`)} style={{ position: 'absolute', objectFit: 'contain', ...style }} />;
 
-/** Phrase breaks balance the picture's two-line caption area without changing its source wording. */
-export const captionLines = (text: string): string => {
-	if (text.length < 37) return text;
+/** The script owns phrase breaks; display formatting never changes the subtitle wording. */
+export const captionLines = (text: string, lineBreakAfter?: number): string => {
+	if (lineBreakAfter === undefined) return text;
 	const words = text.split(' ');
-	let best = 1;
-	let imbalance = Infinity;
-	for (let i = 1; i < words.length; i++) {
-		const difference = Math.abs(words.slice(0, i).join(' ').length - words.slice(i).join(' ').length);
-		if (difference < imbalance) { best = i; imbalance = difference; }
-	}
-	return `${words.slice(0, best).join(' ')}\n${words.slice(best).join(' ')}`;
+	return `${words.slice(0, lineBreakAfter).join(' ')}\n${words.slice(lineBreakAfter).join(' ')}`;
 };
 
 export const Captions: React.FC<{ seconds: number }> = ({ seconds }) => {
 	const caption = captionAt(seconds);
 	return <div data-testid="film-caption" style={{ position: 'absolute', left: 64, right: 64, top: 856, height: 154, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-line', fontSize: 56, lineHeight: 1.19, fontWeight: 400, letterSpacing: -0.8, color: palette.ink }}>
-		{caption ? captionLines(caption.spoken) : ''}
+		{caption ? captionLines(caption.spoken, caption.lineBreakAfter) : ''}
 	</div>;
 };
 

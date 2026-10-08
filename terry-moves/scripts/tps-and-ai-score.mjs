@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 // A damped string/piano-like oscillator and low open-fifth pad follow the authored scene clock.
 const script = JSON.parse(readFileSync(new URL('../../TPS%20and%20AI/film-script.json', import.meta.url), 'utf8'));
 const rate = 44100;
+const masterGain = 5.5;
 const samples = new Float64Array(Math.round(script.duration * rate));
 const frequency = (midi) => 440 * 2 ** ((midi - 69) / 12);
 const notes = [];
@@ -62,7 +63,7 @@ wav.write('data', 36); wav.writeUInt32LE(samples.length * 2, 40);
 for (let n = 0; n < samples.length; n++) {
   const seconds = n / rate;
   const fade = Math.min(1, seconds / 0.8, Math.max(0, (script.duration - seconds) / 3));
-  wav.writeInt16LE(Math.round(Math.max(-1, Math.min(1, samples[n] * fade)) * 32767), 44 + n * 2);
+  wav.writeInt16LE(Math.round(Math.max(-1, Math.min(1, samples[n] * fade * masterGain)) * 32767), 44 + n * 2);
 }
 const output = new URL('../public/assets/tps-and-ai/score.wav', import.meta.url);
 writeFileSync(output, wav);

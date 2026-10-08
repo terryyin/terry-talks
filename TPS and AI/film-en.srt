@@ -1,0 +1,91 @@
+1
+00:00:00,400 --> 00:00:04,500
+AI can generate software faster than we understand it.
+
+2
+00:00:04,500 --> 00:00:09,000
+Does what we build leave our teams more free?
+
+3
+00:00:09,000 --> 00:00:11,300
+Generation is cheap.
+
+4
+00:00:11,300 --> 00:00:15,400
+Understanding and owning what we build still takes judgment.
+
+5
+00:00:15,400 --> 00:00:18,000
+AI speeds whichever loop we feed.
+
+6
+00:00:18,000 --> 00:00:21,000
+Faster output can become a heavier burden.
+
+7
+00:00:21,000 --> 00:00:26,500
+A lesson from Toyota: build human learning into the work.
+
+8
+00:00:26,500 --> 00:00:30,000
+“The list must not be empty.”
+
+9
+00:00:30,000 --> 00:00:34,000
+Turn that known rule into a check.
+
+10
+00:00:34,000 --> 00:00:37,500
+An empty list fails. Further work stops.
+
+11
+00:00:37,500 --> 00:00:42,000
+People investigate the cause, fix it, and improve the check.
+
+12
+00:00:42,000 --> 00:00:46,000
+The next person need not rediscover the rule.
+
+13
+00:00:46,000 --> 00:00:50,500
+People keep the authority to improve that check.
+
+14
+00:00:50,500 --> 00:00:54,000
+Free attention for discovery. Customer value still needs judgment.
+
+15
+00:00:54,000 --> 00:01:00,000
+Start with a real customer need: get home after dinner.
+
+16
+00:01:00,000 --> 00:01:06,000
+Deliver one useful result: the next train leaves at 22:45.
+
+17
+00:01:06,000 --> 00:01:09,800
+“Does that route have stairs?”
+
+18
+00:01:09,800 --> 00:01:15,000
+Keep the train result. A step-free route is next.
+
+19
+00:01:15,000 --> 00:01:18,000
+Leave later work unstarted.
+
+20
+00:01:18,000 --> 00:01:21,000
+Use that freedom to learn together.
+
+21
+00:01:21,000 --> 00:01:24,000
+Give capable people responsibility and support.
+
+22
+00:01:24,000 --> 00:01:27,300
+Build products that free people.
+
+23
+00:01:27,300 --> 00:01:31,000
+Trust them with the next real problem.

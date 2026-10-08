@@ -20,7 +20,7 @@ export const RulePicture: React.FC<{ seconds: number }> = ({ seconds }) => {
 					{state.repaired && <path d="M-6 -3 Q0 -8 7 -1 L3 7 L-4 5 Z" fill={palette.ink} />}
 				</g>
 				<g data-testid="downstream-work" data-x={state.downstreamX} transform={`translate(${state.downstreamX} 568)`} opacity={0.55} stroke={palette.gray} strokeWidth="3" fill={palette.paper}><path d="M-23 -27 L25 -28 L26 27 L-24 28 Z" /><path d="M6 -11 L15 -11 M-12 1 L14 1 M-12 13 L6 13" /></g>
-				<g opacity={progress(seconds, cue('rule', 4), 0.7)}>
+				<g transform="translate(0 70)" opacity={progress(seconds, cue('rule', 4), 0.7)}>
 					<g transform="translate(1120 0) scale(-1 1)"><InkPerson x={500} y={448} reach={progress(seconds, cue('rule', 4), 1.4)} /></g>
 					<InkPath d="M615 454 Q657 424 646 399 Q639 379 616 385 M646 398 L655 369" amount={progress(seconds, cue('rule', 4) + 0.8, 1.2)} width={4} />
 					<path d={`M${mix(631, 590, progress(seconds, cue('rule', 4) + 1.2, 1))} 444 L619 448`} stroke={palette.red} strokeWidth="5" strokeLinecap="round" />

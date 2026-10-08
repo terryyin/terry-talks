@@ -1,7 +1,9 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { captionAt, cue, customerStateAt, durationInFrames, film, ruleStateAt, sceneAt } from '../../src/tpsAndAi/film';
-import { Captions } from '../../src/tpsAndAi/Frame';
+import { captionLines, Captions } from '../../src/tpsAndAi/Frame';
 import { RulePicture } from '../../src/tpsAndAi/Rule';
 import { TrainResult, FutureNeeds } from '../../src/tpsAndAi/Customer';
 import { ClosingPicture } from '../../src/tpsAndAi/Closing';
@@ -36,6 +38,52 @@ describe('the actual Freedom and Trust film', () => {
 		expect(captionAt(0)).toBeUndefined();
 		expect(captionAt(91)).toBeUndefined();
 		expect(sceneAt((durationInFrames - 1) / film.fps).id).toBe('closing');
+	});
+
+	it('keeps complete natural phrases in the embedded caption lines', () => {
+		const displayedAt = (seconds: number) => {
+			const caption = captionAt(seconds)!;
+			return captionLines(caption.spoken, caption.lineBreakAfter);
+		};
+		expect(displayedAt(62)).toBe('Deliver one useful result:\nthe next train leaves at 22:45.');
+		expect(displayedAt(72)).toBe('Keep the train result.\nA step-free route is next.');
+		expect(displayedAt(89)).toBe('Trust them with\nthe next real problem.');
+		for (const caption of film.scenes.flatMap((scene) => scene.captionRanges)) {
+			if (caption.lineBreakAfter !== undefined) {
+				expect(Number.isInteger(caption.lineBreakAfter)).toBe(true);
+				expect(caption.lineBreakAfter).toBeGreaterThan(0);
+				expect(caption.lineBreakAfter).toBeLessThan(caption.spoken.split(' ').length);
+			}
+			const lines = captionLines(caption.spoken, caption.lineBreakAfter).split('\n');
+			expect(lines.join(' ')).toBe(caption.spoken);
+			if (lines.length > 1) expect(lines[0]).not.toMatch(/\b(?:the|a|an)$/i);
+		}
+	});
+
+	it('exports the same wording and intervals selected by the real embedded-caption consumer', () => {
+		const srt = readFileSync(path.resolve(process.cwd(), '../TPS and AI/film-en.srt'), 'utf8');
+		const toSeconds = (stamp: string) => {
+			const [hours, minutes, seconds, milliseconds] = stamp.split(/[:,]/).map(Number);
+			return hours * 3600 + minutes * 60 + seconds + milliseconds / 1000;
+		};
+		const subtitles = srt.trim().split('\n\n').map((entry) => {
+			const [index, interval, ...text] = entry.split('\n');
+			const [start, end] = interval.split(' --> ').map(toSeconds);
+			return { index: Number(index), start, end, text: text.join(' ') };
+		});
+		const captions = film.scenes.flatMap((scene) => scene.captionRanges);
+		expect(subtitles).toHaveLength(captions.length);
+		subtitles.forEach((subtitle, index) => {
+			const caption = captions[index];
+			expect(subtitle).toEqual({ index: index + 1, start: caption.start, end: caption.end, text: caption.spoken });
+			for (const seconds of [subtitle.start, (subtitle.start + subtitle.end) / 2, subtitle.end - 1 / film.fps]) {
+				expect(captionAt(seconds)).toBe(caption);
+				const picture = document.createElement('div');
+				picture.innerHTML = renderToStaticMarkup(<Captions seconds={seconds} />);
+				expect(picture.textContent!.replace(/\s+/g, ' ').trim()).toBe(subtitle.text);
+			}
+			expect(captionAt(subtitle.end)).not.toBe(caption);
+		});
 	});
 
 	it('physically blocks the failed empty input and downstream work until human response repairs its cause', () => {

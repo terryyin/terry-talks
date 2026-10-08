@@ -236,7 +236,7 @@ slice, with final moving/source/English review and export proof.
 
 ### 3. Terry receives a polished, mobile-readable film and translation inputs
 Type: Behavior
-Status: planned
+Status: done
 Proof: The complete final MP4 passes an unpaused sound-off 360 × 360 playback,
 English frame review, source-fidelity review, caption/SRT comparison, metadata
 inspection, and documented reproduction from retained inputs.
@@ -262,12 +262,45 @@ copies the delivered MP4 and SRT to the stable default checkout's
 `/Users/terryyin/git/terry-talks/terry-moves/out/` and verifies those copies open.
 Include final MP4/SRT paths and observed limitations in the delivery report.
 
+Accepted proof: the documented `pnpm --dir terry-moves render:tps-and-ai`
+with bundled Node on PATH regenerated the score and SRT, rendered all 2820
+frames, and exported the settled 93-second poster; exit 0 after authorized
+Chrome sandbox escalation. `ffprobe` confirmed 1080 square, 30 fps,
+H.264/yuv420p/bt709 and AAC, with a 94.016-second container. Full
+`ffmpeg -v error -i terry-moves/out/tps-and-ai.mp4 -f null -` decode passed.
+The final mix measured -23.8 LUFS and -10.2 dBFS true peak. All seven focused
+tests and TypeScript passed. Coordinator inspected the actual SRT-to-caption
+assertions at `tests/tpsAndAi/film.spec.tsx:63`, natural phrase assertions at
+line 43, retained receipt/priority and stopped/resumed SVG assertions, and
+`/private/tmp/tps-film-final-audit.mjs`; its unchanged source/timing,
+23-caption/170-word, SRT equality and decode assertions passed.
+
+Coordinator reviewed 25 actual MP4 frames covering all captions, repair and
+ending, plus one uninterrupted muted native-player viewing from 0 through
+94.016 seconds at a verified 360 by 360 CSS-pixel size. Captions were readable,
+the repair figure cleared its headline, the feedback path avoided faces, the
+train result persisted, and the complete English argument and closing hold
+were understandable. The caption shortened after the export exposed a lone
+"problem." now reads "Keep the train result. A step-free route is next."
+Toyota facts remain bounded to its source account; software examples and
+Freedom and Trust remain Terry's synthesis. No Japanese appeared in the
+authored output or inspected art. Manual review outcome: Good.
+
+Fresh independent post-change refactoring returned `none — already clean`
+without invalidating proof. Selective ESLint and whitespace checks passed.
+Final MP4 SHA-256:
+`bbe8c5d050be472fdf79211c4ea8abb52ac1ccf2ccd977886ead17d11584a110`.
+MP4, matching SRT and poster were copied to the stable default checkout's
+`terry-moves/out/`; each copy matched its source SHA-256 and the copied MP4
+opened with the same verified metadata. Hosted CI remains unobserved because
+the project has no configured workflow or observation adapter.
+
 ## Concern review and learnings
 
 Slice-plan refinement was not needed: each slice supplies one useful film
 boundary with its own proof loop, and the sequence retains one authored clock
 and caption source. This review identified no remaining slice-specific concern.
-Runtime/render viability is deliberately an early coordinator setup probe, not
-an assumption of installation success. No production or artistic acceptance
-has been observed yet. Record later consequential discoveries here and update
-remaining slices without discarding accepted proof.
+Runtime/render viability was established by the coordinator setup probe.
+Production and artistic reviews are recorded above; Terry's delegated authority
+allowed corrections through the finished film without another approval stop.
+Observed caption, framing and mix concerns were corrected in slice 3.

@@ -6,14 +6,15 @@ Faster generation establishes the stakes; **Freedom and Trust** is the argument.
 The product carries what people have learned, while people keep the ability,
 authority, time, and support to understand the unfamiliar.
 
-[film-script.json](film-script.json) owns the scene and caption clock. The initial
-cut is **94 seconds at 30 fps**, including the three-second title/credit hold.
-Its 172 English caption words are the intended embedded subtitles and matching
-SRT text. No narration is needed. A quiet original instrumental bed may support
-the images; retain its source generator and provenance when it is created.
-Audio must add no information needed to understand the argument.
+[film-script.json](film-script.json) owns the scene and caption clock. The film
+is **94 seconds at 30 fps**, including the three-second title/credit hold.
+Its 170 English caption words appear as embedded subtitles and matching
+SRT text. A caption's optional `lineBreakAfter` counts the words before its
+authored display break; the wording and interval stay the same in the SRT.
+There is no narration. The original instrumental bed supports the pictures;
+all essential meaning remains complete with sound off.
 
-The first cut's original instrumental score is retained as
+The original instrumental score is retained as
 `terry-moves/public/assets/tps-and-ai/score.wav`. Its deterministic source is
 `terry-moves/scripts/tps-and-ai-score.mjs`: authored sparse oscillator notes and
 open-fifth pads follow the film's scene clock, with a quiet pause at the stop and
@@ -57,8 +58,8 @@ do not define this cut. Research claims remain Provisional. Each caption's
 | `pull` | Deck **Pull: smaller customer problems** and **Freedom to choose again**, plus [Claim 17](claims/17-jit-vertical-slicing-one-piece-flow.md) and [Claim 11](claims/11-physical-production-and-software-differences.md). The three friends and **22:45** are conceptual illustrations, not real travel information or Toyota history. Toyota's JIT account defines what, when, and how much is needed. Entrusting software teams and changing the next unstarted story are Terry's interpretation. Useful delivery enables feedback; it does not guarantee a feature hypothesis is correct. |
 | `people` | Deck **Respect for People**, closing diagnostic, and closing notes; [Claim 12](claims/12-respect-for-people-who-can-think.md) and [Claim 3](claims/03-jidoka-enables-jit-trusts-respect-grows.md). Responsibility includes time, support, and the authority to improve. Visible capability and reciprocal support warrant trust; freedom does not remove standards or accountability. |
 
-The Toyota and DORA primary pages were checked during story refinement on
-8 October 2026. This blueprint introduces no additional historical fact or
+The Toyota and DORA primary pages were checked on 8 October 2026.
+The film introduces no additional historical fact or
 quantitative claim. The artwork depicts metaphors and conceptual software use;
 the film does not present them as documentary events at Toyota.
 
@@ -82,8 +83,8 @@ prompts, generation history, and intended meanings.
 | `takeaways-useful-software.png` / G29 | Transparent portrait; customer holds train phone while a peer listens. No lettering. Size to preserve both faces, hands, and phone rather than filling the square by cropping. |
 | `closing-crane-aloft.png` / G14 | Same red-crowned crane aloft, tiny palm below; off-white paper and empty left. No lettering. Fit a wide window so both the flight and released hand survive. |
 
-All seven chosen images were individually opened and visually inspected for this
-blueprint. No Japanese, outlined glyphs, logos, or other baked writing was found.
+The seven chosen illustrations contain no Japanese, outlined glyphs, logos,
+or other baked writing.
 The source `jidoka-human-radical.svg`, slide screenshots, historical photographs,
 and dense bilingual diagrams are omitted. The rule, stop path, outcomes, and
 phone result are newly typeset in English. No new image generation is required.
@@ -95,26 +96,52 @@ graphics or third-party historical photography. End credit: **Terry Yin ·
 AI-assisted illustrations**. Source attribution and full provenance remain here
 so the phone edition need not carry unreadable URLs or exhaustive credits.
 
-## Mobile production and remaining proof
+## Mobile edition and reproduction
 
-Default output is **1080 × 1080**, with the action above a protected caption
-area. Main captions should initially be about **54–60 px** at 1080, using natural
-two-line phrases. Meaningful diagram/phone labels should be about **50 px** or
-larger. At a 360 × 360 viewing size these become approximately 18–20 px and
-17 px. Treat these as starting proportions, then inspect actual footage.
-Longer captions must not compete with new labels or a rapid action. The longest
-current caption is 66 characters; the highest nominal rate is 2.57 words/second.
-Measured timing establishes a starting point, not proof of comfortable reading.
+Output is **1080 × 1080**, with the action above a protected caption area.
+Main captions use **56 px** text and natural phrase breaks. Important diagram
+and customer labels use **50–59 px** or larger. At 360 × 360 these become about
+18.7 px and 17–20 px. The longest caption is 66 characters; the highest nominal
+rate is 2.57 words/second. The quiet score retains its opening and closing fades
+and the pause around the stop.
 
-The initial and final moving cut still need production and observation. The
-coordinator will review source fidelity and artistic effect, then watch the
-whole film unpaused at 360 × 360 with sound off. Decisive checks are the actual
-stop and human response, the retained train value during the changed priority,
-the English-only imagery, and a clear closing. Final MP4 metadata/decode and
-embedded-caption/SRT agreement belong to final export. Preview/export commands
-will be documented here once the real composition and subtitle wrapper exist.
+Run these commands from the repository root with Node **>=24.9.0** and pnpm
+**11.28.5** on PATH. On this host, bundled Node 24.19.0 is available at
+`/Users/terryyin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin`;
+prefix a command with `PATH=/Users/terryyin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:$PATH`
+when the shell's default Node is older.
 
-Existing checkout runtime and SilentScene smoke proof were accepted by the
-coordinator before blueprint work. They establish the render route, not this
-film's outcome. There is no hosted CI workflow/adapter in this project; required
-local proof remains owned by the later production slices.
+```sh
+pnpm --dir terry-moves exec remotion studio src/index.ts --no-open --port=3028
+```
+
+Open `http://localhost:3028/TPSAndAIFilm`. The individual shots also appear in
+the **TPS-scenes** folder for focused editing.
+
+```sh
+pnpm --dir terry-moves render:tps-and-ai
+```
+
+This regenerates the original score and English subtitles, renders the complete
+H.264/yuv420p/bt709 MP4 with four rendering workers, and exports the settled title
+frame at 93 seconds as its poster. Delivery files are:
+
+- `terry-moves/out/tps-and-ai.mp4`
+- `terry-moves/out/tps-and-ai-en.srt`
+- `terry-moves/out/tps-and-ai-poster.png`
+
+For subtitle-only or score-only edits:
+
+```sh
+node scripts/tps-and-ai-subtitles.mjs
+node terry-moves/scripts/tps-and-ai-score.mjs
+```
+
+The subtitle wrapper uses the existing shared exporter and writes
+[film-en.srt](film-en.srt), then copies it to the delivery directory. Edit the
+English source in `film-script.json` and regenerate the SRT before making the
+separate Japanese translation. The source, composition, score generator and
+retained artwork are checked in; rendered delivery files live in the ignored
+`terry-moves/out/` directory. Rendering needs the locked workspace dependencies
+and Remotion's installed Chrome runtime, but no network asset, voice provider,
+or external music service.
