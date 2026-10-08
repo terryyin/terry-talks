@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Honoka-chan",
+  "email": "honoka-chan@example.org",
+  "identity": "terry-moves-filmmaking#translated-caption-edition",
+  "mode": "story-branch",
+  "branch": "codex/jidoka-film-remake",
+  "host": "codex"
+}

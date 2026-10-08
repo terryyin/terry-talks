@@ -6,6 +6,8 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
+- [I can publish a translated-caption edition of an existing film](../terry-moves/seed.md#translated-caption-edition) — terry-moves-filmmaking#translated-caption-edition ([plan](quick/025-jidoka-japanese-edition/PLAN.md))
+
 ## Backlog list
 
 - [I can bring an existing character into a new scene and direct a believable interaction](../terry-moves/seed.md#character-prop-interaction) — terry-moves-filmmaking#character-prop-interaction
@@ -21,6 +23,5 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 - [I can make a film whose rhythm follows music and sound](../terry-moves/seed.md#music-and-sound-film) — terry-moves-filmmaking#music-and-sound-film
 - [I can tell a geographical story through an animated map](../terry-moves/seed.md#geographical-map-story) — terry-moves-filmmaking#geographical-map-story
 - [I can publish a readable portrait edition of an existing film](../terry-moves/seed.md#portrait-film-edition) — terry-moves-filmmaking#portrait-film-edition
-- [I can publish a translated-caption edition of an existing film](../terry-moves/seed.md#translated-caption-edition) — terry-moves-filmmaking#translated-caption-edition
 - [Terry can deliver the talk reliably on conference day](../TPS%20and%20AI/seed.md#conference-ready) — tps-and-ai-talk#conference-ready
 - [Viewers hear Terry narrate the film in his own voice](../Story%20Driven/seed.md#terry-voice-over) — story-impact-animation#terry-voice-over
