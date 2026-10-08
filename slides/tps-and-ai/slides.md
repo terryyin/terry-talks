@@ -1680,85 +1680,81 @@ require a thousand repetitions before exploratory AI assistance.
 class: "[&>h1]:!text-[32px] [&>h1]:!mb-2"
 ---
 
-# Tensions and honest limits
+# Limits of the TPS analogy
 
-[緊張関係と、正直な限界]{.ja-title}
+[TPSから学ぶときの限界]{.ja-title}
 
-<div class="absolute left-[9%] right-[9%] top-[22%] grid grid-cols-2 gap-10 text-center">
+<div class="absolute left-[5.5%] top-[26%] w-[44%] space-y-7">
   <div>
-    <p class="!m-0 text-[24px] font-semibold leading-tight">Throwaway prototype</p>
-    <p class="!mb-0 !mt-1 text-[17px] leading-snug">Easy to discard; limited integration feedback.</p>
-    <p class="!mb-0 !mt-1 text-[16px] leading-snug text-[#5c564e]" lang="ja">捨てやすい。統合の学びは限られる。</p>
+    <p class="!m-0 text-[27px] font-semibold !leading-[1.2]">A request is still<br>a hypothesis.</p>
+    <p class="!mb-0 !mt-2 text-[17px] !leading-snug text-[#5c564e]" lang="ja">要求も、まだ仮説。</p>
   </div>
   <div>
-    <p class="!m-0 text-[24px] font-semibold leading-tight">Integrated experiment</p>
-    <p class="!mb-0 !mt-1 text-[17px] leading-snug">Shared feedback; others may build on it.</p>
-    <p class="!mb-0 !mt-1 text-[16px] leading-snug text-[#5c564e]" lang="ja">共に学べる。他の変更が依存することも。</p>
+    <p class="!m-0 text-[27px] font-semibold !leading-[1.2]">Tests cover<br>what we know.</p>
+    <p class="!mb-0 !mt-2 text-[17px] !leading-snug text-[#5c564e]" lang="ja">テストが守るのは既知のこと。</p>
+  </div>
+  <div>
+    <p class="!m-0 text-[27px] font-semibold !leading-[1.2]">Each change reshapes<br>future work.</p>
+    <p class="!mb-0 !mt-2 text-[17px] !leading-snug text-[#5c564e]" lang="ja">変更が、次の仕事も変える。</p>
   </div>
 </div>
 
-<div class="absolute left-[15%] right-[15%] top-[37%] bottom-[17%] overflow-hidden">
-  <img
-    src="/experiment-learning-and-removal.png"
-    alt="A developer easily discards an independent paper prototype. In a second scene, the same developer and two colleagues learn around one shared bridge model; later gray parts depend on its red experimental beam, so removal needs care."
-    class="h-full w-full object-cover"
-    style="object-position: center 43%;"
-  />
+<img
+  src="/tps-analogy-limits.png"
+  alt="An engineer verifies that a bridge deck fits its gauge, yet a customer with a stroller cannot use its stair entrance. Together they discover the missing need while a colleague sketches an unbuilt ramp."
+  class="absolute right-[3%] top-[25%] h-[53%] w-[49%] object-contain"
+/>
+
+<div class="absolute bottom-[5%] left-[5.5%] right-[5.5%] text-center">
+  <p class="!m-0 text-[27px] font-semibold !leading-tight">This TPS–AI connection is a <span class="text-[#b33a2b]">working hypothesis.</span></p>
+  <p class="!mb-0 !mt-2 text-[17px] !leading-snug text-[#5c564e]" lang="ja">TPSとAIのつながりは、私の仮説。</p>
 </div>
 
-<div class="absolute bottom-[3%] left-[5.5%] right-[5.5%] text-center">
-  <p class="!m-0 text-[31px] font-semibold leading-tight">Learn together. Keep the <span class="text-[#b33a2b]">freedom to remove.</span></p>
-  <p class="!mb-0 !mt-2 text-[18px] leading-snug text-[#5c564e]" lang="ja">共に学ぶ。不要な実験を取り除く自由も守る。</p>
-</div>
+<div class="absolute bottom-[1.5%] right-[5.5%] text-[8px] opacity-50">AI-generated illustration</div>
 
 <!--
-Claim 23. Two valuable kinds of learning create a tension between shared
-integration feedback and cheap disposal. Both matter.
+Claim 11 supplies the domain limits; Claim 1 supplies the research limit.
+These are limits of Terry's transfer to AI-assisted software development,
+not a claim that Toyota only repeats known designs or that TPS cannot
+support learning. Toyota's production and product-development systems
+both learn. Software also contains repeatable builds, tests, integration,
+and deployment alongside discovery. The mixture and signals differ.
 
-On the left, a throwaway spike answers a bounded question outside the
-shared product. Its code is easy to discard, but it has not met the
-current product, its tests, concurrent changes or the people building on
-them. It may still provide useful technical or customer learning.
+A request is still a hypothesis: selecting a backlog item authorizes an
+investigation and a unique change. Unlike replenishing a known part after
+actual consumption, selection does not prove user need. Use small working
+increments and actual user feedback to discover and revise that need.
+Generating more candidates with AI does not validate the demand.
 
-On the right, an experiment enters the working product through small,
-production-quality mainline changes. The team gets feedback from the
-integration cycle and can learn and coordinate through that shared work.
-In the bridge analogy, the red beam is the experiment; the gray planks
-and railing are later changes that have begun to depend on it.
+Tests cover what we know: a learned, executable condition can stop a known
+abnormality automatically. Passing checks does not prove that we chose the
+right product, encoded the right rule, or gathered enough evidence. New
+questions about value, suitability, and acceptable risk still require
+human judgment. The illustration makes this concrete: the deck fits its
+gauge, but stairs exclude a stroller. The checks remain useful; their
+scope was incomplete. The ramp is a new hypothesis to try with the user,
+not a guaranteed answer. This is a conceptual software analogy, not a
+historical Toyota scene or an account of real bridge engineering.
 
-Now suppose the idea proves wrong or has served its purpose. Removing
-the red beam means understanding what still relies on it and preserving
-what the product still needs. That may require refactoring today's system.
-A recent, bounded change can often be reverted cleanly; the removal cost
-grows when dependencies cross the intended experimental boundary.
-The bridge is a conceptual software analogy, not a Toyota event.
+Each change reshapes future work: in software, the product is also part of
+the environment for later changes. A die change restores a known mode;
+a software changeover may require understanding a system that has itself
+changed. Some context rebuilding is necessary learning. We can reduce
+avoidable setup, verification, and rework without treating all discovery
+as waste.
 
-Hold both values: integrate in small reversible steps, make experimental
-dependencies explicit, and design the removal boundary as the experiment
-enters the product. A feature toggle can control exposure while the code
-meets production obligations. Test the supported states; once the decision
-is made, remove the losing path and the obsolete toggle promptly.
-Integration feedback establishes interactions and working-system health;
-customer value also needs feedback from the people using the product.
-
-AI can help produce experiments and changes faster. If the team's
-understanding and removal work fall behind, spent experiments can add
-judgment load and constrain the next change. This is an amplification
-of an existing tension, not an inevitable outcome of AI or CI. Preserve
-the freedom to remove alongside the ability to learn together.
-
-Optional aside — Claim 7: The Algorithm's question → delete → simplify →
-accelerate → automate sequence has a family resemblance to lean reasoning.
-Direct derivation from TPS remains unproven. This qualified aside is
-separate from the CI/prototype tension.
+The complete TPS–AI connection is Terry's research-informed synthesis,
+not a directly tested result (Claim 1, Research standing). This talk offers
+a hypothesis for the team's own work: preserve learned judgment, pull
+small useful changes, and grow people's ability to respond. Observe
+whether it frees the team and helps users; revise it when evidence
+disagrees. The following slide returns to that question.
 
 [Sources]
-- Local Claim 23: 23-ci-and-disposable-prototypes-tension-pair.md
-- Local Claim 7: 07-the-algorithm-and-tps-family-resemblance.md
-- https://less.works/less/technical-excellence/continuous-integration
-- https://less.works/less/technical-excellence/architecture-design
-- https://martinfowler.com/articles/continuousIntegration.html
-- https://martinfowler.com/articles/feature-toggles.html
+- Local Claim 11: 11-physical-production-and-software-differences.md
+- Local Claim 1: 01-tps-reasoning-not-mechanisms.md
+- Local Claim 5: 05-smed-software-changeover-and-ai-friendly-context.md
+- Local Claim 6: 06-jidoka-embeds-routine-judgment.md
 [/Sources]
 -->
 

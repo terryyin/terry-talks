@@ -650,8 +650,10 @@ Preserve the RIGHT press as STOPPED, with its front doors open and raised still 
 
 ### G28. Shared learning and the freedom to remove experiments
 
-- **Status:** done — `public/experiment-learning-and-removal.png`.
-- **Slide:** "Tensions and honest limits"
+- **Status:** retired 2026-10-08 — replaced by G30 to show the broader
+  limits of the TPS-to-software analogy. Image deleted; recover
+  `public/experiment-learning-and-removal.png` from Git at `7425609`.
+- **Former slide:** "Tensions and honest limits"
 - **Placement:** main body, two transparent scenes with editable bilingual
   captions above and a single takeaway below.
 - **Original intent:** Claim 23 at `0b4d773`: integration lets people
@@ -1009,6 +1011,35 @@ The supplied crane image is a STYLE reference only. Do not include a crane. Use 
 Show two adult peers at eye level, in a compact natural portrait grouping. An ordinary customer in a light casual coat with a small shoulder bag holds their own smartphone and looks at the useful result on its screen. The phone screen faces enough toward the viewer that one plain RED TRAIN PICTOGRAM is clearly visible, with no timetable, numbers, letters, UI labels or other symbols. It represents a small working software result: helping the person find a train home. Beside the customer, an adult software developer in a plain charcoal shirt listens attentively to what the customer needs next, with one relaxed open hand rather than grabbing the phone or dictating. The customer is actively using the result and has the other hand open in conversation. Convey useful software in use, shared understanding and room to respond to the next real need. Both people are capable adults, not superior expert and helpless recipient. Natural faces, credible hands and human proportions.
 
 Composition required by the slide: portrait 2:3 canvas, approximately 1024x1536. These two figures will occupy the RIGHT THIRD of a slide; keep them as one cohesive group, shown from heads to upper legs, with all faces, hands, phone, bag and elbows comfortably within the canvas. Essential content between about y=220 and y=1280, fading wash below. The figures face slightly toward each other and toward the left so the eye returns to the editable takeaways beside them. No table, factory, historical clothing, background station, landscape, stairs, crowd, thought bubbles, arrows, red line, crane, robot, logos, code, charts, writing or opaque paper rectangle. A light gray ground wash may fade to alpha. The scene is a conceptual software-use illustration, not a real Toyota event. Let the train screen be the only red focus; keep clothing neutral.
+```
+
+### G30. Limits of the TPS analogy — checked design, unverified need
+
+- **Status:** done — `public/tps-analogy-limits.png`.
+- **Slide:** "Limits of the TPS analogy"
+- **Placement:** transparent spot illustration in the right half, beside
+  three short bilingual limitations.
+- **Meaning:** a bridge deck fits its gauge, yet its stair entrance prevents
+  a stroller from crossing. A colleague sketches a ramp: the next idea
+  still needs to be tested with the user. Known checks support learning;
+  they cannot establish an unexamined user need.
+- **Basis:** Claim 11's semantic limit and weaker demand signal; Claim 1's
+  distinction between established components and the untested TPS–AI synthesis.
+- **Accuracy:** conceptual software analogy, not Toyota history or a real
+  engineering project. The scene illustrates incomplete knowledge, not a
+  defect that a width gauge should have caught.
+- **Generation:** built-in imagegen on 8 October 2026, with
+  `transparent_background=true` and G1 as the style reference.
+- **Original output:** `exec-befc80ed-c501-462f-9bb9-a0dac6bb0296.png`.
+- **Complete generation prompt:**
+
+```text
+Japanese ink-and-wash (sumi-e) illustration on off-white paper, with a single vermilion-red accent. No text, no letters, no captions.
+Use case: illustration-story.
+Asset type: transparent spot illustration for an existing TPS and AI software-development presentation, teaching the limitations of automatic checks and the need to discover actual user needs.
+Reference image: the supplied crane illustration is a style reference only, not a subject to include.
+Scene: a small team working on one tabletop bridge model. On the left, a seated engineer has carefully verified a straight bridge deck with a simple mechanical width gauge: it fits correctly. On the right, a customer tests the model with a clearly recognizable baby stroller, but the bridge's stair entrance prevents the stroller from reaching the otherwise sound deck. The engineer and customer notice this specific mismatch together. In the foreground another engineer is sketching a ramp on a single sheet beside the existing bridge; the ramp is an unbuilt design idea, indicated by a few vermilion strokes. The existing bridge and its gauge remain black and gray. This should clearly convey "the checked design can still miss what the person needs", with no written labels or symbols. A conceptual analogy for software, not a historical Toyota event.
+Keep this one coherent scene, a simple clearly visible bridge with a short staircase and a stroller wheel stopped before the first step. People are observant and resourceful. No robots, no screens filled with fake code, no factory skyline, no badges, no border, no extra figures or decorative clutter. The transparent surroundings allow the scene to blend into the existing warm paper slide; preserve light paper wash only inside the drawing. Wide landscape spot illustration, all faces and objects fully visible.
 ```
 
 ## Slides intentionally without artwork
