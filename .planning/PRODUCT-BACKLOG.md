@@ -6,9 +6,10 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
+- [I can share how Jidoka frees AI-augmented software teams in a short film](../TPS%20and%20AI/film-seed.md#english-square-film) — tps-and-ai-film#english-square-film ([plan](quick/016-jidoka-film-remake/PLAN.md))
+
 ## Backlog list
 
-- [I can share how Jidoka frees AI-augmented software teams in a short film](../TPS%20and%20AI/film-seed.md#english-square-film) — tps-and-ai-film#english-square-film
 - [I can bring an existing character into a new scene and direct a believable interaction](../terry-moves/seed.md#character-prop-interaction) — terry-moves-filmmaking#character-prop-interaction
 - [I can replace one narration performance without repairing unrelated scenes](../terry-moves/seed.md#replace-narration-performance) — terry-moves-filmmaking#replace-narration-performance
 - [I can replace a filmed shot while preserving its intended presentation](../terry-moves/seed.md#replace-filmed-shot) — terry-moves-filmmaking#replace-filmed-shot

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Maki-chan",
+  "email": "maki-chan@example.org",
+  "identity": "tps-and-ai-film#english-square-film",
+  "mode": "story-branch",
+  "branch": "codex/jidoka-film-remake",
+  "host": "codex"
+}
