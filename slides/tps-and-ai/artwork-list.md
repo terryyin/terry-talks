@@ -1031,6 +1031,8 @@ Composition required by the slide: portrait 2:3 canvas, approximately 1024x1536.
 - **Generation:** built-in imagegen on 8 October 2026, with
   `transparent_background=true` and G1 as the style reference.
 - **Original output:** `exec-befc80ed-c501-462f-9bb9-a0dac6bb0296.png`.
+- **Dimensions:** 1672 × 941 RGBA, transparent surroundings.
+- **SHA-256:** `9ec1957c00a3eefb783dca7f9144a1e73f6de2b651701fce7acb01c93abab7b4`.
 - **Complete generation prompt:**
 
 ```text

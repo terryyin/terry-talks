@@ -1684,7 +1684,7 @@ class: "[&>h1]:!text-[32px] [&>h1]:!mb-2"
 
 [TPSから学ぶときの限界]{.ja-title}
 
-<div class="absolute left-[5.5%] top-[26%] w-[44%] space-y-7">
+<div class="absolute left-[5.5%] top-[24%] w-[44%] space-y-3">
   <div>
     <p class="!m-0 text-[27px] font-semibold !leading-[1.2]">A request is still<br>a hypothesis.</p>
     <p class="!mb-0 !mt-2 text-[17px] !leading-snug text-[#5c564e]" lang="ja">要求も、まだ仮説。</p>
@@ -1706,7 +1706,7 @@ class: "[&>h1]:!text-[32px] [&>h1]:!mb-2"
 />
 
 <div class="absolute bottom-[5%] left-[5.5%] right-[5.5%] text-center">
-  <p class="!m-0 text-[27px] font-semibold !leading-tight">This TPS–AI connection is a <span class="text-[#b33a2b]">working hypothesis.</span></p>
+  <p class="!m-0 text-[25px] font-semibold !leading-tight">My TPS–AI connection is a <span class="text-[#b33a2b]">working hypothesis.</span></p>
   <p class="!mb-0 !mt-2 text-[17px] !leading-snug text-[#5c564e]" lang="ja">TPSとAIのつながりは、私の仮説。</p>
 </div>
 
