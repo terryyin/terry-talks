@@ -1451,7 +1451,7 @@ properties on a shared export (`c4f5098c5e` / `b03ac76f8a`).
 %%{init: {'flowchart': {'rankSpacing': 28, 'nodeSpacing': 25}}}%%
 flowchart LR
   EJ(<b>Jidoka · 自働化</b><br><small>Autonomation</small><br>Rules captured<br>in tests & code<br><small>テストやコードに<br>組み込んだルール</small>)
-  AA(Room to learn<br>& improve<br><small>学び、改善する<br>余裕</small>)
+  AA(Freedom to learn<br>& improve<br><small>学び、改善する<br>自由</small>)
   CAP(Ability to solve<br>real problems<br><small>実際の問題を<br>解く力</small>)
   WT(Confidence to entrust<br>the next problem<br><small>次の問題を<br>任せられる確信</small>)
   PULL(<b>Just-in-time</b><br>Trust people to<br>respond to real<br>user needs<br><small>人を信頼して<br>実際のニーズへの<br>対応を任せる</small>)
@@ -1485,7 +1485,7 @@ flowchart LR
 
 <!--
 Figure 1 of Claim 22's companion CLD: R1 and R2 in five plain-language
-variables. The two red nodes connect room to learn with entrusting people
+variables. The two red nodes connect freedom to learn with entrusting people
 to respond to actual user needs. Trust includes the freedom and support
 to discover a capable response, rather than prescribing every step.
 The endpoints explicitly name Jidoka (autonomation, 自働化) and Just-in-time.
