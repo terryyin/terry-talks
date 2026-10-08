@@ -75,7 +75,7 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => {
 };
 
 // An empty caption hides the caption bar.
-export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ pose, caption }) => {
+export const StoryImpactScene: React.FC<{ pose: Pose; caption: string; secondaryCaption?: string }> = ({ pose, caption, secondaryCaption }) => {
 	const leave = pose.stageLeave ?? 0;
 	return (
 		<svg
@@ -92,7 +92,7 @@ export const StoryImpactScene: React.FC<{ pose: Pose; caption: string }> = ({ po
 			)}
 			{pose.title ? <Title title={pose.title} /> : null}
 			{pose.endCard ? <EndCard card={pose.endCard} /> : null}
-			{caption === '' ? null : <CaptionBar caption={caption} />}
+			{caption === '' ? null : <CaptionBar caption={caption} secondaryCaption={secondaryCaption} />}
 		</svg>
 	);
 };

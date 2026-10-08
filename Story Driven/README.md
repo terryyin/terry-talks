@@ -56,6 +56,11 @@ pnpm -C terry-moves render:story-impact
 # writes terry-moves/out/story-impact-animation.mp4 and terry-moves/out/story-impact-animation-poster.png
 ```
 
+The English film keeps its English subtitles and adds a smaller Japanese
+translation underneath in the same caption bar. Translations live in
+`terry-moves/src/storyImpact/ja.ts`, keyed by the English caption and sharing
+its timing; a spec checks that every film caption has a translation.
+
 Rebuild the cleaned recording:
 
 ```bash

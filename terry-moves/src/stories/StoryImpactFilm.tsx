@@ -5,6 +5,7 @@ import { fullFilm } from '../storyImpact/fullFilm';
 import { STAGE } from '../storyImpact/layout';
 import { StoryImpactScene } from '../storyImpact/StoryImpactScene';
 import { zhHantCaption } from '../storyImpact/zhHant';
+import { jaCaption } from '../storyImpact/ja';
 import { RecordedNarration } from '../storyImpact/RecordedNarration';
 
 // Hold a complete title frame before the animated opening, so the first
@@ -17,10 +18,11 @@ export const releaseFrame = (frame: number): number => frame < COVER_FRAMES ? CO
 
 const FilmFrame: React.FC = () => {
 	const frame = releaseFrame(useCurrentFrame());
+	const caption = fullFilm.captionAt(frame);
 	return (
 		<AbsoluteFill>
 			<RecordedNarration src={EN_NARRATION} from={COVER_FRAMES} />
-			<StoryImpactScene pose={fullFilm.poseAt(frame)} caption={fullFilm.captionAt(frame)} />
+			<StoryImpactScene pose={fullFilm.poseAt(frame)} caption={caption} secondaryCaption={jaCaption(caption)} />
 		</AbsoluteFill>
 	);
 };

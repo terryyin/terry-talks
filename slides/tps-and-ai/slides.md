@@ -651,6 +651,26 @@ how it changes attention.
 -->
 
 ---
+class: p-0
+---
+
+<img
+  src="/watching-the-loom-watching-the-ai.png"
+  alt=""
+  class="absolute inset-0 h-full w-full object-cover"
+/>
+
+<div class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+  Watching the loom / watching the AI
+  <span class="ja">織機を見張る／AIを見張る</span>
+</div>
+
+<!--
+Jidoka frees people from watching and re-judging the known.
+Claim 6 — the same judgment-loaded trap in factory and software work.
+-->
+
+---
 layout: default
 ---
 
@@ -702,33 +722,18 @@ class: p-0
 ---
 
 <img
-  src="/watching-the-loom-watching-the-ai.png"
-  alt=""
-  class="absolute inset-0 h-full w-full object-cover"
-/>
-
-<div v-click.hide="1" class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
-  Watching the loom / watching the AI
-  <span class="ja">織機を見張る／AIを見張る</span>
-</div>
-
-<img
-  v-click="1"
   src="/called-by-the-stop.png"
   alt=""
   class="absolute inset-0 h-full w-full object-cover"
 />
 
-<div v-click="1" class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
+<div class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded bg-white/85 px-4 py-2 text-center text-2xl font-semibold">
   Called by the stop
   <span class="ja">停止したら呼ばれる</span>
 </div>
 
 <!--
-Jidoka frees people from watching and re-judging the known.
-Claim 6 — the same judgment-loaded trap in factory and software work.
-
-[click] Called by the stop: the closed stop calls human judgment only when
+Called by the stop: the closed stop calls human judgment only when
 an abnormality needs it. Claim 6 — the stop preserves freedom while
 creating an opportunity to learn.
 -->
@@ -976,46 +981,6 @@ plan excerpt is omitted from the slide so the ending lands on freedom.
 [Sources]
 - https://global.toyota/en/company/vision-and-philosophy/production-system/
 [/Sources]
--->
-
----
-layout: image-right
-image: /entering-ai-harness.png
-backgroundSize: contain
-class: "[&>h1]:!mb-2"
----
-
-# Go-See may mean entering the AI harness
-
-[現地現物 (Go-See) とは、AIハーネスの中に入ることかもしれない]{.ja-title}
-
-<div class="mt-8 space-y-6">
-  <div>
-    <p class="!m-0 !text-[27px] !leading-tight font-semibold">Do it yourself<br>a thousand times.</p>
-    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">まず、自分で千回やる。</p>
-  </div>
-  <div>
-    <p class="!m-0 !text-[25px] !leading-tight font-semibold">Know the consequences<br>of locking it in.</p>
-    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">何を固定するのか、その影響を知る。</p>
-  </div>
-  <div>
-    <p class="!m-0 !text-[27px] !leading-tight font-semibold text-[#b33a2b]">Then entrust it to AI.</p>
-    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">そのうえで、AIに任せる。</p>
-  </div>
-</div>
-
-<!--
-Claim 16 (supporting). Terry's firsthand-experience heuristic for
-hardening a process into an AI harness: understand the actual work yourself.
-
-"A thousand times" expresses deep personal experience, not a measured
-threshold or a Toyota rule. Before encoding a repeatable process, know
-the decisions, constraints and consequences that the harness will
-preserve. Understand what happens when that process is applied in the
-wrong context, and which judgment must remain open to people.
-
-This slogan concerns committing a process to the harness. It does not
-require a thousand repetitions before exploratory AI assistance.
 -->
 
 ---
@@ -1669,6 +1634,46 @@ or verification cost, and more agents do not expand what is truly Done.
 - https://less.works/less/principles/continuous-improvement-towards-perfection
 - https://less.works/less/framework/definition-of-done
 [/Sources]
+-->
+
+---
+layout: image-right
+image: /entering-ai-harness.png
+backgroundSize: contain
+class: "[&>h1]:!mb-2"
+---
+
+# Go-See may mean entering the AI harness
+
+[現地現物 (Go-See) とは、AIハーネスの中に入ることかもしれない]{.ja-title}
+
+<div class="mt-8 space-y-6">
+  <div>
+    <p class="!m-0 !text-[27px] !leading-tight font-semibold">Do it yourself<br>a thousand times.</p>
+    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">まず、自分で千回やる。</p>
+  </div>
+  <div>
+    <p class="!m-0 !text-[25px] !leading-tight font-semibold">Know the consequences<br>of locking it in.</p>
+    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">何を固定するのか、その影響を知る。</p>
+  </div>
+  <div>
+    <p class="!m-0 !text-[27px] !leading-tight font-semibold text-[#b33a2b]">Then entrust it to AI.</p>
+    <p class="!mb-0 !mt-2 !text-[17px] !leading-snug text-[#5c564e]" lang="ja">そのうえで、AIに任せる。</p>
+  </div>
+</div>
+
+<!--
+Claim 16 (supporting). Terry's firsthand-experience heuristic for
+hardening a process into an AI harness: understand the actual work yourself.
+
+"A thousand times" expresses deep personal experience, not a measured
+threshold or a Toyota rule. Before encoding a repeatable process, know
+the decisions, constraints and consequences that the harness will
+preserve. Understand what happens when that process is applied in the
+wrong context, and which judgment must remain open to people.
+
+This slogan concerns committing a process to the harness. It does not
+require a thousand repetitions before exploratory AI assistance.
 -->
 
 ---

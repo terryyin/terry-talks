@@ -2,6 +2,7 @@ import React from 'react';
 import { palette } from './scene';
 import { CAPTION_BOX, FONT_FAMILY, OUTLINE, SHADOW } from './layout';
 import { ZH_HANT_FONT_FAMILY } from './zhHant';
+import { JA_FONT_FAMILY } from './ja';
 
 const CJK = /[\u3000-\u9fff\uff00-\uffef]/;
 const CJK_BREAK_AFTER = /[，。：；！？、]/;
@@ -33,13 +34,17 @@ export const captionLines = (caption: string, maxChars = 38): string[] => {
 	return pool.reduce((best, s) => (s.width < best.width ? s : best)).lines;
 };
 
-export const CaptionBar: React.FC<{ caption: string }> = ({ caption }) => {
+export const CaptionBar: React.FC<{ caption: string; secondaryCaption?: string }> = ({ caption, secondaryCaption }) => {
 	const { left, right, top, bottom } = CAPTION_BOX;
 	const lines = captionLines(caption);
 	const size = 44;
 	const lineHeight = size * 1.25;
 	const midY = (top + bottom) / 2;
-	const firstBaseline = midY - ((lines.length - 1) * lineHeight) / 2 + size * 0.35;
+	const secondarySize = 26;
+	const languageGap = 12;
+	const primaryHeight = size + (lines.length - 1) * lineHeight;
+	const bilingualTop = midY - (primaryHeight + languageGap + secondarySize) / 2;
+	const firstBaseline = secondaryCaption ? bilingualTop + size * 0.8 : midY - ((lines.length - 1) * lineHeight) / 2 + size * 0.35;
 	return (
 		<g>
 			<rect x={left + SHADOW.x} y={top + SHADOW.y} width={right - left} height={bottom - top} rx={36} fill={palette.paperShadow} />
@@ -58,6 +63,20 @@ export const CaptionBar: React.FC<{ caption: string }> = ({ caption }) => {
 					</tspan>
 				))}
 			</text>
+			{secondaryCaption ? (
+				<text
+					data-testid="secondary-caption"
+					x={(left + right) / 2}
+					y={bilingualTop + primaryHeight + languageGap + secondarySize * 0.8}
+					textAnchor="middle"
+					fontFamily={JA_FONT_FAMILY}
+					fontWeight={500}
+					fontSize={secondarySize}
+					fill={palette.ink}
+				>
+					{secondaryCaption}
+				</text>
+			) : null}
 		</g>
 	);
 };
