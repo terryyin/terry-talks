@@ -2,8 +2,8 @@ import React from 'react';
 import { Heading, palette, serif, Shot, useSeconds } from './Frame';
 import { cue, progress } from './film';
 export const JudgmentPicture: React.FC<{ seconds: number }> = ({ seconds }) => <>
-	<Heading>Learn once.</Heading>
-	<div style={{ position: 'absolute', left: 90, right: 90, top: 333, display: 'flex', flexDirection: 'column', gap: 65 }}>
+	<Heading style={{ fontSize: 74 }}>Keep the judgment.</Heading>
+	<div style={{ position: 'absolute', left: 90, right: 90, top: 290, display: 'flex', flexDirection: 'column', gap: 38 }}>
 		<div style={{ display: 'flex', alignItems: 'baseline', gap: 45 }}><span style={{ fontFamily: serif, fontSize: 72, width: 310 }}>Solve</span><span style={{ fontSize: 49, color: palette.gray }}>Human judgment</span></div>
 		<div style={{ display: 'flex', alignItems: 'baseline', gap: 45, opacity: progress(seconds, cue('judgment', 1), 0.7) }}><span style={{ fontFamily: serif, fontSize: 72, width: 310 }}>Preserve</span><span style={{ fontSize: 49, color: palette.gray }}>Known rules</span></div>
 		<div style={{ display: 'flex', alignItems: 'baseline', gap: 45, opacity: progress(seconds, cue('judgment', 2), 0.7) }}><span style={{ fontFamily: serif, fontSize: 72, width: 310, color: palette.red }}>Protect</span><span style={{ fontSize: 47, lineHeight: 1.2 }}>Simple checks<br />Clear evidence</span></div>

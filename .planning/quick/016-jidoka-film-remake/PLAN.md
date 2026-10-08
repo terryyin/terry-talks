@@ -123,7 +123,7 @@ polish for slice2. This is accepted interim review output, not final acceptance.
 
 ### 2. Terry receives the polished Jidoka film and translation inputs
 Type: Behavior
-Status: planned
+Status: done
 Proof: Complete final MP4 passes normal-speed muted360pixel viewing, actual
 caption/frame/source review, SRT comparison and documented export route.
 
@@ -190,3 +190,29 @@ its heading (actual frames345/495) and the Clear evidence row from the STOP
 diagram (frame1905). Preserve the strong composed opening, working stop hold,
 matched paintings, caption clock and music. Final mobile/export proof and
 stable artifact delivery remain incomplete until that slice.
+
+## Accepted slice 2 proof
+
+Only Burden and Judgment changed: full4:3 art nowx140/y222/800x600 clears its
+heading; judgment rows nowy290/gap38 clear the STOP, with a74px
+**Keep the judgment.** heading. The coordinator inspected that exact diff.
+The same focused Jest command passed7/7, `tsc --noEmit` and the documented full
+render route exited0. New actual40-frame manifest and four360pixel contact
+pages cover every caption and the last frame. The coordinator viewed all four
+pages and a controls-free, muted1x360x360 normal-speed playback from0 through
+ended86.016, observing question, house, CI contrast, corrected judgment,
+freedom and credit. Both overlaps are resolved; all requested content remains.
+Metadata/full decode were clean:1080square,2580frames,H264High,yuv420p,bt709,
+30fps,AAC48kstereo,86.016sec. Audio measured-23.7LUFS/-10.2dBFS truepeak,
+last0.1secRMS-54.158dBFS. No listening claim is inferred from numeric proof.
+SRT's1432bytes remain identical to canonical caption output. Fresh independent
+refactoring returned none/alreadyclean and the completion marker, without
+edits or reruns; accepted proof remains unchanged. Selective ESLint for these
+two sources and whitespace validation passed. No found consumer remains unrun.
+
+Stable copies were hash-verified in default `terry-moves/out/` and the movie
+was queued for opening in Codex. MP4 SHA256:
+`bdb710f59e7cd6957c51eda3d64bdb6f2c0302832d2ac0ff7a3b7dc8b0c7208e`;
+poster `532cea63a36799be9879f6be77049bb639b34e832c2e12f01d937c729ea3ccff`;
+SRT `c91f68e377d88fbb7b6a04f6d69aa24a3c81c367fa53f5cf4a957c693324d9d6`.
+The first round and unrelated untracked `output/` remain untouched.
