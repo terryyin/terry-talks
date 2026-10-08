@@ -3,9 +3,7 @@
 // later beat never changes the picture of an earlier one.
 import { Beat, timeline, Timeline } from '../../beatTimeline';
 import { ease } from '../../problemDecompositionRemake/film';
-import { BeatName, brief, OutcomeId } from '../brief';
-
-export type OutcomeStatus = 'open' | 'later' | 'question' | 'done' | 'next' | 'unstarted';
+import { BeatName, brief, OutcomeId, OutcomeStatus, TreatmentVersion } from '../brief';
 
 // `from` is the status the card is leaving; `change` (0–1) is how far it has
 // become `status`.
@@ -71,15 +69,13 @@ const poses: Record<BeatName, (t: number) => TypographyPose> = {
 	}),
 };
 
-export type TypographyVersion = { id: string; fps: number; seconds: Record<BeatName, number> };
-
-export const typographyV1: TypographyVersion = {
+export const typographyV1: TreatmentVersion = {
 	id: 'TreatmentTypographyV1',
 	fps: 30,
 	seconds: { title: 3, distinction: 5.5, question: 4.5, result: 5, feedback: 4.5, next: 6.5 },
 };
 
-export const typographyTimeline = (version: TypographyVersion): Timeline<TypographyPose> => timeline(
+export const typographyTimeline = (version: TreatmentVersion): Timeline<TypographyPose> => timeline(
 	brief.beats.map(({ name, caption }): Beat<TypographyPose> => ({ name, seconds: version.seconds[name], caption, pose: poses[name] })),
 	version.fps,
 );

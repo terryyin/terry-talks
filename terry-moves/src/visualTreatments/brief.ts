@@ -9,6 +9,13 @@ export type BeatName = 'title' | 'distinction' | 'question' | 'result' | 'feedba
 
 export type OutcomeId = 'stock' | 'hours' | 'reservation';
 
+// What a customer outcome currently means in the passage, shared by every
+// treatment's staging.
+export type OutcomeStatus = 'open' | 'later' | 'question' | 'done' | 'next' | 'unstarted';
+
+// A named take on the passage: its frame rate and how long each beat lasts.
+export type TreatmentVersion = { id: string; fps: number; seconds: Record<BeatName, number> };
+
 export const brief = {
 	title: 'Problem Decomposition',
 	attribution: 'Terry Yin',
@@ -32,3 +39,19 @@ export const brief = {
 		{ name: 'next', caption: 'Opening hours become next. Reservation stays unstarted. The stock answer stays useful.' },
 	] as const satisfies readonly { name: BeatName; caption: string }[],
 } as const;
+
+// How every treatment names an outcome's status.
+export const statusLabel: Record<OutcomeStatus, string> = {
+	open: 'CUSTOMER QUESTION',
+	later: 'LATER?',
+	question: 'FIRST QUESTION',
+	done: 'USABLE RESULT · KEEP',
+	next: 'NEXT',
+	unstarted: 'UNSTARTED',
+};
+
+// What an outcome says: its result once done, otherwise its question.
+export const outcomeText = (id: OutcomeId, status: OutcomeStatus): string => {
+	const outcome = brief.outcomes[id];
+	return status === 'done' && 'result' in outcome ? `✓ ${outcome.result}` : outcome.question;
+};

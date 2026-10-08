@@ -292,8 +292,27 @@ without any assertion that a treatment has been selected.
 
 ### 2. Watch a character-led alternative of the same passage
 Type: Behavior
-Status: planned
+Status: done
 Proof: Real second preview plus the focused treatment suite comparing meaning.
+
+Accepted: `TreatmentCharacterV1` (1080², 30 fps, 915 frames) — title 0–89,
+distinction 90–254, question 255–389, result 390–539, feedback 540–719 (6 s for
+the walk to the door), next 720–914. One `Engineer` shopper (scale 0.85) on a
+home-to-shop street: concerned intent, raised-hand stock question, closed-eye
+relief then nod at “✓ In stock: 1 left”, walk to a door that shows CLOSED
+(surprised → concerned), then a glance back at the kept result and a hand on the
+NEXT “When is it open?” sign; reservation UNSTARTED in the window. Shared
+wording (captions, status labels, outcome text) and `TreatmentVersion` live in
+`visualTreatments/brief.ts`; `TreatmentCompositions.tsx` has one `treatment(...)`
+factory. Proof: `tests/visualTreatments` 12/12 (B: distinction/gaze, stable
+identity + finite markup, mood/attention arc, outcome readability, captions equal
+to A per beat, appended-beat prefix equality), `tsc`, 28 compositions; stills in
+`out/treatments/TreatmentCharacterV1/` and A comparisons inspected at full and
+360px. Actor/motion/timeline code unchanged, so their consumer suites were not
+required. Fidelity observed; artistic preference left to Terry (glide walk,
+subtle glances, modest relief; hand slightly under the hours sign at the end).
+CI: the repository has no `ci.yml` workflow; the observer reports it unavailable,
+so publications are unobserved.
 
 Behavior: Given A and the same source brief, Terry watches B convey the shopper's
 intent, modest relief at the stock answer, and response to closed-shop feedback.

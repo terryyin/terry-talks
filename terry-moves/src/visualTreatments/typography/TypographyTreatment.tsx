@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, Paper, Small, Strong } from '../../problemDecompositionRemake/Frame';
 import { C, HEAD } from '../../problemDecompositionRemake/film';
-import { brief, OutcomeId } from '../brief';
-import { OutcomePose, OutcomeStatus, TypographyPose } from './script';
+import { brief, OutcomeId, outcomeText, OutcomeStatus, statusLabel } from '../brief';
+import { OutcomePose, TypographyPose } from './script';
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
@@ -13,24 +13,23 @@ const BOXES: Record<OutcomeId, Box> = {
 	reservation: { x: 450, y: 735, w: 550, h: 135 },
 };
 
-const LABEL: Record<OutcomeStatus, { text: string; color: string; tone: 'question' | 'done' | 'later' }> = {
-	open: { text: 'CUSTOMER QUESTION', color: C.muted, tone: 'later' },
-	later: { text: 'LATER?', color: C.muted, tone: 'later' },
-	question: { text: 'FIRST QUESTION', color: C.red, tone: 'question' },
-	done: { text: 'USABLE RESULT · KEEP', color: C.teal, tone: 'done' },
-	next: { text: 'NEXT', color: C.red, tone: 'question' },
-	unstarted: { text: 'UNSTARTED', color: C.muted, tone: 'later' },
+const TONE: Record<OutcomeStatus, { color: string; card: 'question' | 'done' | 'later' }> = {
+	open: { color: C.muted, card: 'later' },
+	later: { color: C.muted, card: 'later' },
+	question: { color: C.red, card: 'question' },
+	done: { color: C.teal, card: 'done' },
+	next: { color: C.red, card: 'question' },
+	unstarted: { color: C.muted, card: 'later' },
 };
 
 const OutcomeCard: React.FC<{ id: OutcomeId; status: OutcomeStatus }> = ({ id, status }) => {
 	const box = BOXES[id];
 	const outcome = brief.outcomes[id];
-	const label = LABEL[status];
+	const tone = TONE[status];
 	const large = id === 'stock';
-	const text = status === 'done' && 'result' in outcome ? `✓ ${outcome.result}` : outcome.question;
-	return <Card {...box} tone={label.tone}>
-		<Small color={label.color}>{label.text}</Small>
-		<Strong size={large ? 50 : 36} color={status === 'done' ? C.teal : status === 'unstarted' ? C.muted : C.ink}>{text}</Strong>
+	return <Card {...box} tone={tone.card}>
+		<Small color={tone.color}>{statusLabel[status]}</Small>
+		<Strong size={large ? 50 : 36} color={status === 'done' ? C.teal : status === 'unstarted' ? C.muted : C.ink}>{outcomeText(id, status)}</Strong>
 		{large && 'scope' in outcome && <div style={{ fontSize: 27, marginTop: 12, color: C.muted }}>{outcome.scope}</div>}
 	</Card>;
 };
