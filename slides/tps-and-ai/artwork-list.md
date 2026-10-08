@@ -1015,8 +1015,9 @@ Composition required by the slide: portrait 2:3 canvas, approximately 1024x1536.
 
 ### G30. Limits of the TPS analogy — checked design, unverified need
 
-- **Status:** done — `public/tps-analogy-limits.png`.
-- **Slide:** "Limits of the TPS analogy"
+- **Status:** retired 2026-10-08 — slide removed by Terry. Image deleted;
+  recover `public/tps-analogy-limits.png` from Git at `bb03b5c`.
+- **Former slide:** "Limits of the TPS analogy"
 - **Placement:** transparent spot illustration in the right half, beside
   three short bilingual limitations.
 - **Meaning:** a bridge deck fits its gauge, yet its stair entrance prevents
