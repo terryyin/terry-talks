@@ -391,8 +391,25 @@ and correction still make no selection; slice 4 owns that lifecycle.
 
 ### 4. Record an exact artistic choice, including choosing neither
 Type: Behavior
-Status: planned
+Status: done
 Proof: A consumed file-backed choice and focused lifecycle tests.
+
+Accepted: hand-edited record `terry-moves/src/visualTreatments/choice.ts`
+(`pending` | `revise` version+beats+note | `selected` exact id), resolver
+`selection.ts` (`resolveChoice`; a missing id errors with the id, the
+registered ids, and the record location; nothing is ever substituted), and
+the Studio composition `TreatmentSelected` (selected → that version's exact
+picture/duration/fps; pending/revise → a 90-frame “No treatment selected”
+card; a missing id leaves the other compositions listed and makes this one
+fail when rendered). After watching the exports, Terry chose
+**`TreatmentCharacterV2`** (2026-10-08, answered in the execution
+conversation). The record names it exactly. Proof: suite 5 suites/32 tests
+(the real record; pending/revise/missing and later-revision fixtures, labelled;
+selected-preview markup equal to each version's renderer at every key pose);
+`tsc`; listing shows `TreatmentSelected` at 915 frames, 30 fps; real-CLI stills
+of `TreatmentSelected` vs `TreatmentCharacterV2` at frames 0/465/539/719/914 are
+byte-identical, as is the exported `next-settled-914.png`. The pending card and
+the missing-id error were also observed natively with a temporary fixture.
 
 Behavior: Given retained samples, the review record can say pending, request a
 revision of a named beat/version, or identify an explicitly selected version.
