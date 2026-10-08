@@ -188,7 +188,7 @@ Moving meaning and observed phone readability belong to the next slices.
 
 ### 2. Viewers can watch the complete argument in the presentation's ink style
 Type: Behavior
-Status: planned
+Status: done
 Proof: Render and watch the full moving first cut from the actual registered TPS
 composition. Observe the learned-check stop and response, retained customer
 value plus changed next need, the central diagnostic, and a deliberate ending.
@@ -207,6 +207,32 @@ using native Remotion, with image and captions present through the ending.
 Review actual moving output, not only markup or stills. Record source-fidelity
 and artistic concerns for correction in slice 3; the first cut is the accepted
 interim version, rather than a completion claim.
+
+Accepted proof: `TPSAndAIFilm` rendered all 2820 frames to
+`terry-moves/out/tps-and-ai-review.mp4`. With bundled Node on PATH,
+`pnpm --dir terry-moves exec node --experimental-vm-modules node_modules/jest/bin/jest.js tests/tpsAndAi --runInBand`
+passed five tests, and `pnpm --dir terry-moves exec tsc --noEmit` passed.
+Coordinator inspected the actual caption, SVG transform, persistent receipt,
+future-label position, language and ending assertions against the production
+components and JSON. The native full render used H.264/yuv420p/bt709, concurrency
+4; `ffprobe` confirmed 1080 square, 30 fps, AAC and 94.016 seconds;
+`ffmpeg -v error -i terry-moves/out/tps-and-ai-review.mp4 -f null -` decoded
+without error. Chrome required automatic sandbox escalation; the authorized
+retry exited 0. The independent refactor moved shared choreography offsets
+into the script and derived scene reveals from its starts. Exact markup at 46
+affected frame states and a byte-identical regenerated WAV preserved the cut;
+focused tests and typecheck passed after those edits. Selective ESLint passed.
+
+Manual interim review used a verified 360 × 360 CSS-pixel native video player,
+muted, autoplaying from the start through the 94.016-second ending. The browser
+viewport override did not apply, so explicit player dimensions supplied the
+phone-sized observation. Representative frames and critical stop/feedback
+windows retained the source art and readable captions. The completed train
+receipt remained while step-free route moved ahead. Slice 3 owns observed
+polish: the repair figure touches the headline, a feedback path crosses a face,
+a caption breaks after a dangling "the", and the score is too quiet
+(-36.1 LUFS before its 0.75 mix). Keep those corrections in the existing final
+slice, with final moving/source/English review and export proof.
 
 ### 3. Terry receives a polished, mobile-readable film and translation inputs
 Type: Behavior

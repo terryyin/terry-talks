@@ -5,6 +5,12 @@
   "width": 1080,
   "height": 1080,
   "duration": 94,
+  "choreography": {
+    "ruleInputDelay": 0.4,
+    "ruleRepairDelay": 2,
+    "ruleResumeDelay": 3.2,
+    "customerReorderDuration": 1.8
+  },
   "voice": "No narration; the English captions carry the complete argument.",
   "music": "Quiet original instrumental support; retain its generator and provenance with the film.",
   "sources": {

@@ -13,6 +13,14 @@ SRT text. No narration is needed. A quiet original instrumental bed may support
 the images; retain its source generator and provenance when it is created.
 Audio must add no information needed to understand the argument.
 
+The first cut's original instrumental score is retained as
+`terry-moves/public/assets/tps-and-ai/score.wav`. Its deterministic source is
+`terry-moves/scripts/tps-and-ai-score.mjs`: authored sparse oscillator notes and
+open-fifth pads follow the film's scene clock, with a quiet pause at the stop and
+an open final harmony. It contains no sampled recordings or external music.
+Regenerate it with `node terry-moves/scripts/tps-and-ai-score.mjs`; it has no
+dependencies beyond Node and the editable film script.
+
 ## The moving argument
 
 | Time | What changes on screen | What the viewer should understand |
