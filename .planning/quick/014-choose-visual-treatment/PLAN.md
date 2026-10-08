@@ -533,3 +533,13 @@ reuse premises; future samples and target-runtime consumption are not claimed
 already working. All final promises are mapped above. Readiness assessment is
 the shared preparation recorder's content-bound judgment and grants no Take,
 execution, publication, or automatic artistic selection.
+
+## Execution complete
+
+Product advice: no correction needed. Before wrap-up, Terry should watch
+`TreatmentSelectedContinued` (`terry-moves/out/treatments/selected/TreatmentCharacterV2-continued/`):
+if the hours beat's raised-hand “asking” gesture reads as celebration, record
+`revise` for that beat and add a new version. Story 14 (typography and
+restrained motion) can reuse Treatment A and this brief → sample → review →
+revise/select → continue route. The host Node 24.5 is below the ≥24.9 engine;
+this execution used a job-local Node 24.21.
