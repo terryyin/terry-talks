@@ -24,6 +24,7 @@
 		"render:ai-test-automation": "node ../scripts/ai-test-automation-subtitles.mjs && remotion render src/index.ts AITestAutomationFilm out/ai-test-automation.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts AITestAutomationFilm out/ai-test-automation-poster.png --frame=45",
 		"render:problem-decomposition-remake": "node ../scripts/problem-decomposition-remake-subtitles.mjs && remotion render src/index.ts ProblemDecompositionRemakeFilm out/problem-decomposition-remake.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts ProblemDecompositionRemakeFilm out/problem-decomposition-remake-poster.png --frame=-1",
 		"render:atdd": "remotion render src/index.ts ATDDFilm out/atdd-restaged.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 && remotion still src/index.ts ATDDFilm out/atdd-restaged-poster.png --frame=0",
+		"render:treatments": "tsx scripts/render-treatments.ts",
 		"diagrams:atdd": "sh scripts/export-atdd-diagrams.sh"
 	},
 	"repository": {},

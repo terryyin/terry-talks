@@ -2,7 +2,7 @@
 
 A separate 102.9-second film about planning around useful customer outcomes, discovering answers and preserving the freedom to change direction. The restrained typography, simple diagrams and one shopper example replace the previous interpretation's elaborate visual metaphor.
 
-The [confirmed article](../Problem%20Decomposition/problem-decomposition.md) and [verbatim transcript](../Problem%20Decomposition/raw-content.md) retain the full original idea. This project's [treatment](film-treatment.md) records the condensed argument and qualifications. [Recent Remotion/AI research](ai-remotion-research.md) explains the small adopted editing improvements and their primary sources.
+The [confirmed article](../Problem%20Decomposition/problem-decomposition.md) and [verbatim transcript](../Problem%20Decomposition/raw-content.md) retain the full original idea. This project's [treatment](film-treatment.md) records the condensed argument and qualifications. [Recent Remotion/AI research](ai-remotion-research.md) explains the small adopted editing improvements and their primary sources. Short [visual treatment samples](visual-treatments.md) compare alternative visual languages for one passage of the argument.
 
 ## Watch and edit
 

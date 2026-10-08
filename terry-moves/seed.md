@@ -74,152 +74,6 @@ and assumptions, not delivery estimates. S/M/L bands remain unassigned because
 the project has no definitions. The research references R01–R28 below are
 provenance labels; the recorded identities are the canonical work identities.
 
-<a id="choose-visual-treatment"></a>
-### 4. I can choose a visual treatment that expresses my idea before producing the whole film
-
-**Identity:** terry-moves-filmmaking#choose-visual-treatment
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/014-choose-visual-treatment/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"eb7e8821f2cd9c2a476d222a13200bd5ef1dbc6741ed1a5e300b09025de64769","plan":"9f1c434d98e3f0df51d1578bfc1957adcfe814672ddd96142e85c24dbb02db87"}}
-```
-
-#### Goal
-
-Terry can judge whether a film's metaphor, tone, and moving explanation express
-his idea before committing to whole-film production. He can compare two short
-treatments, identify a mistaken interpretation while correction is small, and
-continue the chosen direction through the script-driven authoring path. This
-reduces large artistic remakes within the accepted varied-filmmaking direction.
-
-#### Scope
-
-- Establish one source-linked brief for the comparison: the essential argument,
-  the passage to demonstrate, and the series motifs, diagram relationships, and
-  branding Terry chooses to retain. Separate these commitments from choices
-  that may vary, such as visual medium, staging, metaphor, and motion. A
-  supporting example illustrates the source rather than substituting another
-  argument. This fidelity requirement comes from the accepted story and the
-  production-history findings in R03/R20 of the filmmaking research.
-- Produce two named, short, watchable moving treatments of that same passage,
-  with inspectable key poses. Their visual direction must differ meaningfully
-  enough to judge how they communicate; two colorways alone do not establish
-  an alternative metaphor or moving explanation. Keep the explanatory content
-  comparable, without requiring identical choreography or forcing a silent
-  sample to use narration as its clock.
-- Let Terry review both samples and their key poses against the common brief.
-  He can refer to a treatment and a specific beat or pose when identifying a
-  mistaken meaning or requesting a change. Rendering successfully establishes
-  availability for review; Terry judges artistic fit and source fidelity.
-- Retain the samples, their authoring inputs and local assets, and the decision
-  identifying the selected version and essential choices to carry forward.
-  A request to revise or choose neither remains a valid review response; merely
-  generating two alternatives does not establish an approved direction.
-- Carry a chosen treatment into an authorable continuation using its actual
-  sample inputs and assets. Demonstrate a meaningful script-directed revision
-  or a following beat that retains its chosen language and source meaning,
-  rather than recreating the approved sample from a prose description.
-- Leave a reusable, documented way to prepare a brief, preview alternatives,
-  record a choice, and continue it in Terry Moves. The first comparison owns
-  the necessary preview and asset work. It need not introduce a new application
-  or a universal representation for every visual style.
-
-**Deferred promises:** producing two complete films or completing the chosen
-whole film; a universal theme system or a catalog of all styles; automatic
-artistic scoring; a visual editor; and new character rigs, voice providers, or
-generated-video capabilities solely for later stories. These are delivery
-boundaries, not rejection rules for naturally supported uses. The two samples
-are the first comparison's commitment, not a product-wide treatment-count limit.
-
-#### First comparison brief
-
-Terry selected Problem Decomposition on 2026-10-07 after the recommendation to
-compare restrained typography/diagrams with a character-led metaphor. Use the
-[confirmed article](../Problem%20Decomposition/problem-decomposition.md) as the
-argument authority. The [simple remake's treatment](../Problem%20Decomposition%20Remake/film-treatment.md)
-supplies the concrete shopper example and an existing visual reference.
-
-- **Shared meaning:** distinguish organizing an imagined screen/API/database
-  solution from discovering an answer to a smaller customer problem. A usable
-  result enables feedback; the feedback can change the next priority. Keep
-  completed value, and leave unnecessary later outcomes unstarted. A plan is
-  an attempt, and affordable stopping concerns completed useful boundaries.
-- **Comparison passage:** a shopper wants to avoid a wasted trip. First answer
-  whether one item is in stock at one store. The usable result is “In stock:
-  1 left.” Feedback, “The shop was closed when I arrived,” makes opening hours
-  the next question while reservation remains unstarted. The stock result
-  remains usable; it does not claim the whole shopping problem is solved.
-  Both samples cover this same arc and distinguish it from building screen,
-  API, and database as separate customer outcomes. The commerce details are
-  fictional, as in the existing remake.
-- **Treatment A — restrained typography and diagrams:** use the simple
-  remake's warm paper, clear type, and directed card/diagram motion as the
-  reference. The question becomes a useful result, feedback changes emphasis,
-  and completed versus unstarted outcomes remain visibly distinct.
-- **Treatment B — character-led explanation:** make the shopper's intention,
-  initial relief, and response to the closed shop carry that same sequence.
-  Keep the stock result and changing priority readable alongside the action.
-  A character's expression or an attractive metaphor cannot replace the
-  visible useful result, feedback, or distinction between problem and solution.
-  No new physical interaction or dialogue capability is required to establish
-  this treatment.
-- **Retained relationships and presentation:** screen/API/database are parts
-  of a conceived answer, not three independently delivered customer outcomes.
-  The stock outcome remains completed when opening hours becomes next;
-  reservation is still unstarted. Both samples use the Problem Decomposition
-  title and Terry Yin attribution. This is a standalone interpretation in the
-  existing simple-remake direction; recurring Story Impact motifs are optional
-  treatment choices whose meaning must be explained if used. Their absence is
-  not permission to remove the required argument or relationships.
-- **Coverage:** the brief retains the article's distinction → premises → goals
-  → principles structure and its qualifications. The short samples illustrate
-  the selected distinction and value/feedback/stopping arc; they do not claim
-  to present every principle or the whole article. Use matching explanatory
-  wording across alternatives. Saved narration can be reused where suitable;
-  new voice generation is not needed for this comparison.
-
-#### Key examples
-
-1. **Compare interpretations of one explanation.** Given the first comparison
-   brief, Terry watches Treatment A and Treatment B and inspects their key poses
-   at the question, usable stock result, and feedback/change of priority. One
-   directs attention through type and diagrams; the other through the shopper's
-   action and reaction. Both show the same useful result and changed priority.
-   Terry can choose by tone and communication of the intended meaning, rather
-   than being offered two differently colored versions of one choreography.
-2. **Correct an attractive but misleading sample.** Given a review where the
-   character celebrates as though the whole shopping problem were solved, Terry
-   names that treatment's result/feedback beat. Revise its action and emphasis
-   to show a useful stock answer followed by the opening-hours question. Keep
-   the completed stock outcome visible and reservation unstarted, and retain
-   the other sample for comparison. The revised version is identifiable; an
-   earlier selection does not silently approve its changed interpretation.
-3. **Continue the selected version.** Given Terry's selection of a particular
-   sample version, add a following script-directed beat asking “When is it
-   open?” with the chosen treatment's inputs and assets. Preview it with the
-   selected sample. The stock result stays completed, reservation remains
-   unstarted, and type/diagram language or character identity and performance
-   remain recognizable. There is no reconstruction of the approved sequence
-   into a separate bespoke film. The rest of the film may remain deferred.
-4. **Keep the decision open when neither works.** Given two rendered samples
-   whose emphasis misses Terry's intent, he can identify what to revise without
-   selecting either. Both remain available with their brief and authoring inputs;
-   continuation does not treat a render or a generated candidate as approval.
-
-The initial source and comparison directions are settled. Terry's later artistic
-selection happens by watching the samples during execution; it is part of the
-promised workflow, not a missing input for slice planning.
-
-- **Known basis:** R03 and the relevant visual-language aspects of R20 in
-  [the filmmaking research](research/2026-10-07-filmmaking-opportunities.md).
-  The decomposition remakes lost recognizable motifs and the intended argument;
-  the first ATDD adaptation omitted its source diagrams.
-- **Value / effort hypothesis:** Earlier artistic feedback and fewer large
-  remakes. The comparison, review, revision, and continuation journey needs
-  slice planning; no S/M/L band or delivery
-  date is assigned.
-- **Depends on:** None.
-- **Safe stopping point:** Terry retains the samples, decision, and usable
-  chosen treatment even if the full film is deferred.
-
 <a id="character-prop-interaction"></a>
 ### 5. I can bring an existing character into a new scene and direct a believable interaction
 
@@ -502,8 +356,11 @@ promised workflow, not a missing input for slice planning.
   a passage. The resulting motion still guides attention and the text remains
   readable at normal playback and at the intended viewing size.
 - **Known basis and boundary:** R28. The simple decomposition remake already
-  demonstrates this visual style. The new outcome is reusable direction and
-  revision, not another bespoke copy or a general typography framework.
+  demonstrates this visual style, and `TreatmentTypographyV1` in
+  `terry-moves/src/visualTreatments/` directs one passage with type and cards
+  through the shared beat timeline ([treatment guide](../Problem%20Decomposition%20Remake/visual-treatments.md)).
+  The new outcome is reusable direction and revision, not another bespoke copy
+  or a general typography framework.
 - **Value / effort hypothesis:** A lower-asset, reusable filmmaking style.
   Moderate scope; medium confidence; choose the first idea and supported type
   vocabulary during refinement.

@@ -186,6 +186,13 @@ instructions.
 See [the film guide](../AI%20Test%20Automation/README.md) for the finished
 61-second film, content source, audio reproduction and export instructions.
 
+# Visual treatments: Problem Decomposition
+
+See [the treatment guide](../Problem%20Decomposition%20Remake/visual-treatments.md)
+for the brief → sample → review → revise/select → continue route, the version
+and choice records, and the `render:treatments` clip, key-pose and continuation
+exports. Select `TreatmentSelected` or `TreatmentSelectedContinued` in Studio.
+
 # ATDD: Work through one scenario
 
 See [the film guide](../ATDD/README.md) for the source references, saved

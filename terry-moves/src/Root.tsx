@@ -22,6 +22,7 @@ import { AITestAutomationFilm } from './stories/AITestAutomationFilm';
 import { SilentSceneFilm } from './stories/SilentSceneFilm';
 import { ATDDFilm } from './stories/ATDDFilm';
 import { TPSAndAIFilm } from './stories/TPSAndAIFilm';
+import { VisualTreatmentCompositions } from './visualTreatments/TreatmentCompositions';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -51,6 +52,7 @@ export const RemotionRoot: React.FC = () => {
 			<SilentSceneFilm />
 			<ATDDFilm />
 			<TPSAndAIFilm />
+			<VisualTreatmentCompositions />
 		</>
 	);
 };
