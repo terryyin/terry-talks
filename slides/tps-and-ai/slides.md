@@ -172,7 +172,7 @@ class: "[&>h2]:!mt-0 [&_p]:!my-2"
 
 [判断して見つける。**学びを仕組みにする。**]{.ja-title}
 
-<div class="mt-10 grid grid-cols-2 gap-8 text-[22px] leading-snug">
+<div class="mt-6 grid grid-cols-2 gap-8 text-[22px] leading-snug">
 
 <div class="border-l-4 border-[#b33a2b] pl-4">
 
@@ -200,7 +200,7 @@ Otherwise, no news.
 
 </div>
 
-<div class="mt-10 rounded bg-[#b33a2b]/10 px-5 py-3 text-[22px] leading-snug">
+<div class="mt-4 rounded bg-[#b33a2b]/10 px-5 py-3 text-[22px] leading-snug">
 
 **The next person need not rediscover the rule.**
 [**次の人がルールを見つけ直さずに済む。**]{.ja}
