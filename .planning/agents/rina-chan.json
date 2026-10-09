@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Rina-chan",
+  "email": "rina-chan@example.org",
+  "identity": "terry-moves-filmmaking#just-in-time-title-and-artwork",
+  "mode": "story-branch",
+  "branch": "codex/jidoka-film-remake",
+  "host": "codex"
+}
