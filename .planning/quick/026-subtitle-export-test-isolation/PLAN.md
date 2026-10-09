@@ -7,6 +7,10 @@ Story: [subtitle exporter test isolation](../../../terry-moves/seed.md#subtitle-
 Bounded correction from the completed planned
 `terry-moves-filmmaking#translated-caption-edition` execution, whose earliest
 ready plan and story were accepted at `6e709f2c7b9aa15559661e4023e0c8b1378e14b1`.
+Completed predecessor story and proof are recoverable at before-cleanup commit
+`92872351c343201418f22c49385f9070adb9758a`, repository-relative paths
+`terry-moves/seed.md#translated-caption-edition` and
+`.planning/quick/025-jidoka-japanese-edition/PLAN.md`.
 The attributable published implementation set is
 `af16b43d69c3be0d52aee797b1499f3968841c7c` (paired languages and shared consumers)
 and `e31110190d7a6676fe14014ac708c54471392a9f` (Japanese polish and maintained brief).

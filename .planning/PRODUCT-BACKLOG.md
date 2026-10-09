@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [I can publish a translated-caption edition of an existing film](../terry-moves/seed.md#translated-caption-edition) — terry-moves-filmmaking#translated-caption-edition ([plan](quick/025-jidoka-japanese-edition/PLAN.md))
-
 ## Backlog list
 
 - [Terry can run subtitle exporter proof without changing his film artifacts](../terry-moves/seed.md#subtitle-export-test-isolation) — terry-moves-filmmaking#subtitle-export-test-isolation
