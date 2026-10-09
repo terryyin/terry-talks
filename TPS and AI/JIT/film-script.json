@@ -1,5 +1,5 @@
 {
-  "title": "JIT: Ready to Respond",
+  "title": "Just in time: Trust the Team",
   "subtitle": "Part two of TPS and AI",
   "fps": 30,
   "width": 1080,
@@ -24,12 +24,12 @@
   ],
   "scenes": [
     {
-      "id": "hook", "start": 0, "end": 10, "label": "JIT: Ready to Respond",
-      "heading": "JIT", "subheading": "Ready to Respond", "translations": {},
+      "id": "hook", "start": 0, "end": 10, "label": "Just in time: Trust the Team",
+      "heading": "Trust", "subheading": "Just in time", "translations": {},
       "asset": "green-light-stockpile.png",
       "captionRanges": [
-        {"start": 0, "end": 5.5, "spoken": "AI can produce more. But can your team respond better?", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["stockpile"]},
-        {"start": 5.5, "end": 10, "spoken": "A stockpile of generated code is still a stockpile.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["stockpile"]}
+        {"start": 0, "end": 5.5, "spoken": "AI can produce more. Can you trust your team to respond?", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["stockpile", "resourceful"]},
+        {"start": 5.5, "end": 10, "spoken": "More output alone does not earn that trust.", "lineBreakAfter": 3, "translations": {}, "sourceIds": ["stockpile", "resourceful"]}
       ],
       "action": "Fully composed title and complete stockpile painting at frame zero. Preserve the green signal, full tower and person."
     },
@@ -37,17 +37,17 @@
       "id": "house", "start": 10, "end": 27, "label": "Toyota Production System",
       "heading": "Toyota Production System", "translations": {},
       "captionRanges": [
-        {"start": 10, "end": 16, "spoken": "Just-in-Time is the other pillar of the Toyota Production System.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["house", "jit"]},
+        {"start": 10, "end": 16, "spoken": "Just in time is the other pillar of the Toyota Production System.", "lineBreakAfter": 7, "translations": {}, "sourceIds": ["house", "jit"]},
         {"start": 16, "end": 22, "spoken": "Only what is needed, when needed, in the amount needed.", "lineBreakAfter": 6, "translations": {}, "sourceIds": ["jit"]},
         {"start": 22, "end": 27, "spoken": "Minimum stock. Dependable flow. Not constant activity.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["jit"]}
       ],
       "action": "Reuse the shared TPS house, highlighting its JIT pillar. The Jidoka edition's default highlight remains unchanged."
     },
     {
-      "id": "resourceful", "start": 27, "end": 38, "label": "Capable response",
-      "heading": "Capable response.", "translations": {}, "asset": "jit-resourceful-response.png",
+      "id": "resourceful", "start": 27, "end": 38, "label": "Trust capable people",
+      "heading": "Trust capable people.", "translations": {}, "asset": "jit-resourceful-response.png",
       "captionRanges": [
-        {"start": 27, "end": 33, "spoken": "JIT entrusts capable people to respond to real need.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful"]},
+        {"start": 27, "end": 33, "spoken": "Just in time entrusts capable people to respond to real need.", "lineBreakAfter": 6, "translations": {}, "sourceIds": ["resourceful"]},
         {"start": 33, "end": 38, "spoken": "Be resourceful with what you have.", "lineBreakAfter": 2, "translations": {}, "sourceIds": ["resourceful"]}
       ],
       "action": "Show the whole original doorway, loaded cart, people and checked ramp. This is a resourcefulness analogy, not a Toyota plant."
@@ -63,10 +63,10 @@
       "action": "Fit the complete customer-need illustration. Let the highlighted train remain the first useful smaller outcome."
     },
     {
-      "id": "feedback", "start": 50, "end": 62, "label": "Choose again",
-      "heading": "Choose again.", "translations": {}, "asset": "pull-customer-feedback.png",
+      "id": "feedback", "start": 50, "end": 62, "label": "Make trust dependable",
+      "heading": "Make trust dependable.", "translations": {}, "asset": "pull-customer-feedback.png",
       "captionRanges": [
-        {"start": 50, "end": 56, "spoken": "Check known quality in the shared, working product.", "lineBreakAfter": 3, "translations": {}, "sourceIds": ["pull", "integration"]},
+        {"start": 50, "end": 56, "spoken": "Earn trust through quality in the shared, working product.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]},
         {"start": 56, "end": 62, "spoken": "Use feedback to choose again. Leave later work unstarted.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["pull"]}
       ],
       "action": "Fit the complete feedback illustration. Feedback guides the next choice while later work remains unstarted."
@@ -89,11 +89,11 @@
       "action": "Successive focused original-art views preserve actual need → teams → stop → collaboration → coherent result. Keep faces, hands and product legible; no crowded status labels or tiny panorama."
     },
     {
-      "id": "closing", "start": 78, "end": 86, "label": "Ready to respond",
-      "heading": "Ready to respond.", "translations": {}, "asset": "integration-coordination.png",
+      "id": "closing", "start": 78, "end": 86, "label": "Trust the team",
+      "heading": "Trust the team.", "translations": {}, "asset": "integration-coordination.png",
       "focusViews": [{"id": "result", "start": 78, "end": 86, "x": 1070, "y": 175, "width": 952, "height": 550}],
       "captionRanges": [
-        {"start": 78, "end": 83, "spoken": "Build capability to respond, not stockpiles of generated answers.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]}
+        {"start": 78, "end": 83, "spoken": "Build capability to respond, so you can trust the team.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]}
       ],
       "creditStart": 83, "creditLines": ["Idea and film from Terry"], "creditTranslations": {},
       "action": "Hold the collaboration and complete coherent result with all faces and product. Exact Terry credit replaces captions for the final three seconds as the approved score fades."

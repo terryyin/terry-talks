@@ -1,4 +1,4 @@
-# JIT: Ready to Respond
+# Just in time: Trust the Team
 
 ## Source
 
@@ -136,7 +136,7 @@ and publication gates still apply; source/plan cleanup belongs to wrap-up.
 
 ## Ordered slices
 
-### 1. Terry can watch and publish JIT: Ready to Respond
+### 1. Terry can watch and publish Just in time: Trust the Team
 Type: Behavior
 Status: done
 Proof: Actual Root-selected film and real exporter satisfy the mapped focused
@@ -200,7 +200,7 @@ Implementation proof and the full film outcome are complete. Hosted CI remains
 unobserved because the repository has no configured workflow or observer; no
 CI-green or observation-shutdown completion claim is made.
 
-## Execution complete
+## First-cut review (superseded by user steering)
 
 Product advice: no change. The film supports the current direction of authored
 films with connected actions. Existing correction026 remains first and separate;
@@ -214,3 +214,45 @@ Supplier discovery found no consumers and no problems. Stable MP4/poster/SRT
 copies match the execution deliveries; all14 previous Jidoka delivery hashes
 remain unchanged. Root-owned Studio and review-server sessions exited0 and their
 temporary tabs were closed; this is local resource evidence, not CI shutdown.
+
+## Accepted user steering and remaining revision
+
+Before trunk sync Terry requested Trust as the main focus and visible on the
+cover, with “Just in time” replacing the film's JIT wording. This is a revision
+of the same film/story, not a new story, Take or baseline preparation. Published
+implementation02fb605 and first-cut review9fd6e7a remain untouched in history;
+only the owned unpublished closure18ebf87 was withdrawn.
+
+Reopen the single film slice for this bounded revision. Make Trust the cover's
+primary heading, Just in time its subheading, and carry trust through the opening,
+capable response and conclusion. Keep Toyota's operational definition distinct
+from Terry's people/software reading. Retain the seven-scene clock, paintings,
+score, logo, crop repair and exact credit. Reuse accepted unchanged proof; check
+only new wording/fit through actual Root, real SRT export and affected film
+moments. One revised export is necessary. Do not rerun baseline research, whole
+playback, language renders or unchanged proof. Resume independent content,
+refactor and retrospective conclusions only for this wording/cover delta.
+
+## Accepted Trust revision proof
+
+Terry's explicit steering is satisfied by the Trust / Just in time cover and
+trust-focused opening, capable-people scene, quality scene and conclusion. All
+viewer JIT references are expanded; the existing TPS pillar already reads Just-in-Time.
+Independent content review accepted the actual revised JSON/brief as natural and
+accurate, with Toyota's definition and Terry's trust reading still distinguished.
+
+Six affected actual Root checks and TypeScript passed. Independent refactoring
+removed the newly exposed duplication between scene labels and Sequence names:
+all seven now read existing JSON labels, preserving exact editor values; the six
+Root checks and TypeScript passed again. Selective ESLint passed. No unchanged
+language, CLI contract, House, asset or research proof was repeated.
+
+One needed revised package export exited0. Actual MP4 remains1080square,30fps,
+2580frames,86.000s,H.264/yuv420p/bt709,AACstereo48kHz (86.016s audio padding).
+Complete decode exited0 without errors; poster is frame0. Actual16-caption
+source/delivery SRT parity and exact JSON intervals/text passed (143words). Root
+inspected changed actual encoded moments0,7.75,13,30,53,80.5,85.5seconds at360px:
+all fit and read cleanly, including the exact credit. Unchanged chronology,
+paintings, crop, quiet score/fade and complete playback proof are retained.
+Stable3delivery copies match final export hashes; all14Jidoka artifacts remain
+unchanged. Hosted CI stays unobserved/unconfigured.

@@ -9,6 +9,11 @@ it('selects the complete English JIT film from the real Root with the authored s
 	expect(film.scenes.map((scene) => scene.id)).toEqual(['hook', 'house', 'resourceful', 'pull', 'feedback', 'integration', 'closing']);
 	expect(film.scenes[0].start).toBe(0);
 	expect(film.scenes[film.scenes.length - 1].end).toBe(86);
+	const cover = jitAt(0).picture;
+	expect(cover.querySelector('[data-scene="hook"]')!.textContent).toContain('Trust');
+	expect(cover.querySelector('[data-scene="hook"]')!.textContent).toContain('Just in time');
+	expect(normalized(cover.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('AI can produce more. Can you trust your team to respond?');
+	expect(normalized(jitAt(5.5).picture.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('More output alone does not earn that trust.');
 	expect(jitAt(0).sequences.map(({ from, durationInFrames: frames }) => [from, frames])).toEqual(film.scenes.map((scene) => [Math.round(scene.start * film.fps), Math.round((scene.end - scene.start) * film.fps)]));
 	for (const [index, scene] of film.scenes.entries()) {
 		if (index) {
@@ -20,6 +25,7 @@ it('selects the complete English JIT film from the real Root with the authored s
 			expect(sceneAt(seconds).id).toBe(scene.id);
 			expect([...picture.querySelectorAll('[data-scene]')].map((node) => node.getAttribute('data-scene'))).toEqual([scene.id]);
 			expect(normalized(picture.querySelector('[data-scene]')!.textContent)).toContain(normalized(scene.heading));
+			expect(picture.textContent).not.toMatch(/\bJIT\b/);
 			const logo = picture.querySelector<HTMLImageElement>('img[src$="odd-e-logo.png"]')!;
 			expect(logo.style.left).toBe('934px');
 			expect(logo.style.top).toBe('40px');
@@ -37,6 +43,7 @@ it('runs the authored caption wording and natural line breaks at starts, midpoin
 				const rendered = jitAt(seconds).picture.querySelector('[data-testid="film-caption"]')!;
 				expect(rendered.getAttribute('lang')).toBe('en');
 				expect(normalized(rendered.textContent)).toBe(caption.spoken);
+				expect(rendered.textContent).not.toMatch(/\bJIT\b/);
 				const lines = rendered.textContent!.split('\n');
 				expect(lines).toHaveLength(caption.lineBreakAfter === undefined ? 1 : 2);
 				if (lines.length === 2) expect(lines[0]).not.toMatch(/\b(?:the|a|an)$/i);
@@ -88,10 +95,12 @@ it('emphasizes JIT in the selected house while the registered Jidoka house prese
 	expect(jidoka.querySelector('[data-testid="jit-pillar"]')).toBeNull();
 });
 
-it('holds the exact credit with no captions from 83 seconds through the last frame', () => {
+it('ends on Trust the team and holds the exact credit with no captions from 83 seconds through the last frame', () => {
+	expect(normalized(jitAt(78).picture.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('Build capability to respond, so you can trust the team.');
 	const creditAt = (seconds: number) => {
 		const picture = jitAt(seconds).picture;
 		expect(picture.querySelector('[data-scene="closing"]')).not.toBeNull();
+		expect(picture.querySelector('[data-scene="closing"]')!.textContent).toContain('Trust the team.');
 		expect(picture.querySelector('[data-testid="film-caption"]')!.textContent).toBe('');
 		const credit = picture.querySelector('[data-testid="film-credits"]')!;
 		expect(credit.textContent).toBe('Idea and film from Terry');

@@ -1,11 +1,12 @@
-# JIT: Ready to Respond
+# Just in time: Trust the Team
 
 The English second part of TPS and AI follows the approved Jidoka film's warm
 paper, dry typography, original talk artwork, quiet score and square format.
-Its argument is Terry's: build the ability to respond to current customer need,
-rather than stockpiling generated answers. A useful small outcome pulls work;
-feedback, continuous integration and timely collaboration keep the response
-dependable.
+Trust is the main focus, beginning with **Trust** on the cover and **Just in time**
+beneath it. Its argument is Terry's: confidence in a team comes from its ability
+to respond to current customer need. More AI output alone does not earn that
+trust. A useful small outcome pulls work; quality, feedback, continuous
+integration and timely collaboration make trust dependable.
 
 [film-script.json](film-script.json) owns **86 seconds at 30 fps, 1080 × 1080**,
 the seven scenes, timed English captions, viewer headings, focused panorama
@@ -20,17 +21,17 @@ the captions.
 
 | Time | Picture and meaning |
 | --- | --- |
-| 0–10s | Full green-signal stockpile tower and person. More AI output can still accumulate as inventory. |
-| 10–27s | Shared TPS house, now highlighting JIT. Only what is needed, when needed, in the amount needed; minimum stock and dependable flow. |
-| 27–38s | Whole resourceful-response painting. Capable people meet the actual obstacle with available materials and a checked ramp. |
+| 0–10s | Trust on the cover, with Just in time beneath it. Full green-signal stockpile tower and person. More output alone does not earn trust in a team's response. |
+| 10–27s | Shared TPS house, now highlighting Just-in-Time. Only what is needed, when needed, in the amount needed; minimum stock and dependable flow. |
+| 27–38s | Trust capable people. Whole resourceful-response painting. People meet the actual obstacle with available materials and a checked ramp. |
 | 38–50s | Whole customer-need painting. A small useful customer outcome pulls the necessary work, including any AI assistance. |
-| 50–62s | Whole feedback painting. Check known quality in the shared working product; feedback chooses the next response and later work remains unstarted. |
+| 50–62s | Make trust dependable. Whole feedback painting. Quality in the shared working product earns trust; feedback chooses the next response and later work remains unstarted. |
 | 62–78s | Original integration panorama in five successive focused views: actual need, teams, stop, collaboration, coherent result. The heading is “Integrate continuously. Collaborate just in time.” |
-| 78–86s | Hold the people collaborating and the complete resulting product. Build response capability; Terry's exact credit holds from 83 seconds as the score fades. |
+| 78–86s | Trust the team. Hold the people collaborating and the complete resulting product. Build the capability that makes a team trustworthy; Terry's exact credit holds from 83 seconds as the score fades. |
 
 ## Sources and boundaries
 
-The [JIT section of the talk](../../slides/tps-and-ai/slides.md), starting around
+The [Just-in-Time section of the talk](../../slides/tps-and-ai/slides.md), starting around
 line 990, and claims
 [3](../claims/03-jidoka-enables-jit-trusts-respect-grows.md),
 [4](../claims/04-jit-assurance-resourcefulness-not-abundance.md),
@@ -39,12 +40,12 @@ line 990, and claims
 Every caption's `sourceIds` resolves to a record in the JSON.
 
 [Toyota's TPS explanation](https://global.toyota/en/company/vision-and-philosophy/production-system/)
-supports the JIT definition and synchronized flow with minimum ready stocks.
+supports the Just-in-Time definition and synchronized flow with minimum ready stocks.
 Low inventory does not mean zero stock, eliminating support, or starting every
 part from scratch only after an order. Toyota's operational account remains
 distinct from Terry's software application.
 
-“JIT entrusts capable people” is Terry's interpretation. “Be resourceful with
+“Just in time entrusts capable people” is Terry's interpretation. “Be resourceful with
 what you have” is inspired by Kazumasa Ebata's oral teaching, as recorded in
 [claim 14](../claims/14-ebata-jit-teaching-in-print.md); it is not an authenticated
 Toyota or Ohno quotation. Resourcefulness still depends on competence, quality,
@@ -58,7 +59,7 @@ sources were checked during film preparation on 9 October 2026.
 
 ## Shared appearance and assets
 
-The five JIT paintings in the JSON's `artwork` records are byte-identical copies
+The five Just-in-Time paintings in the JSON's `artwork` records are byte-identical copies
 from `slides/tps-and-ai/public/`, held in
 [`terry-moves/public/assets/tps-and-ai/`](../../terry-moves/public/assets/tps-and-ai/).
 The first four are fitted whole. Focused integration views crop the unchanged

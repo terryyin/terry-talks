@@ -1,14 +1,14 @@
 1
 00:00:00,000 --> 00:00:05,500
-AI can produce more. But can your team respond better?
+AI can produce more. Can you trust your team to respond?
 
 2
 00:00:05,500 --> 00:00:10,000
-A stockpile of generated code is still a stockpile.
+More output alone does not earn that trust.
 
 3
 00:00:10,000 --> 00:00:16,000
-Just-in-Time is the other pillar of the Toyota Production System.
+Just in time is the other pillar of the Toyota Production System.
 
 4
 00:00:16,000 --> 00:00:22,000
@@ -20,7 +20,7 @@ Minimum stock. Dependable flow. Not constant activity.
 
 6
 00:00:27,000 --> 00:00:33,000
-JIT entrusts capable people to respond to real need.
+Just in time entrusts capable people to respond to real need.
 
 7
 00:00:33,000 --> 00:00:38,000
@@ -40,7 +40,7 @@ Use AI for what this need requires.
 
 11
 00:00:50,000 --> 00:00:56,000
-Check known quality in the shared, working product.
+Earn trust through quality in the shared, working product.
 
 12
 00:00:56,000 --> 00:01:02,000
@@ -60,4 +60,4 @@ Technical excellence makes that response dependable.
 
 16
 00:01:18,000 --> 00:01:23,000
-Build capability to respond, not stockpiles of generated answers.
+Build capability to respond, so you can trust the team.

@@ -464,6 +464,8 @@ provenance labels; the recorded identities are the canonical work identities.
 Terry can publish a concise English film showing how Just-in-Time helps
 AI-augmented software teams respond to actual need, rather than accumulate
 output. It is a distinct second part of TPS and AI in the approved Jidoka style.
+Trust is its main focus: the cover prominently says “Trust” and uses “Just in time”;
+the opening and conclusion connect trust to the team’s ability to respond.
 
 #### Scope
 
