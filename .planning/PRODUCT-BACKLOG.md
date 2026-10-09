@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [Terry can publish a Traditional Chinese edition of the Jidoka film](../terry-moves/seed.md#traditional-chinese-jidoka-edition) — terry-moves-filmmaking#traditional-chinese-jidoka-edition ([plan](quick/027-jidoka-traditional-chinese-edition/PLAN.md))
-
 ## Backlog list
 
 - [Terry can run subtitle exporter proof without changing his film artifacts](../terry-moves/seed.md#subtitle-export-test-isolation) — terry-moves-filmmaking#subtitle-export-test-isolation

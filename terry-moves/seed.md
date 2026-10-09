@@ -474,52 +474,6 @@ correction from the Japanese-edition retrospective, with no new film promise.
 
 Plan: [subtitle exporter test isolation](../.planning/quick/026-subtitle-export-test-isolation/PLAN.md).
 
-<a id="traditional-chinese-jidoka-edition"></a>
-### Terry can publish a Traditional Chinese edition of the Jidoka film
-
-**Identity:** terry-moves-filmmaking#traditional-chinese-jidoka-edition
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/027-jidoka-traditional-chinese-edition/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"d3129963c54552d978a5ad8dfbda4ddf3ed20209d00197617dec7509387b870c","plan":"af632567238a44a992238958ea2a934d6b93a88f1217d0f19f9db5e9d117829f"}}
-```
-
-#### Goal
-
-Terry can share the approved Jidoka argument with Traditional Chinese readers
-through a complete, accurate, readable edition of the existing square film.
-
-#### Scope
-
-Add natural Traditional Chinese captions and viewer-facing screen text, retaining
-English only for useful terms, names or branding. Keep the approved 86-second
-argument, nine scenes, timing, artwork, music, upper-right Odd-e logo and closing
-Terry credit. Preserve the original Japanese term 自働化 and its person radical;
-do not conflate it with ordinary 自動化. Deliver an MP4, timed SRT and opening
-poster in the existing film output directory.
-
-English, Japanese and Traditional Chinese editions share the script clock,
-scenes, artwork and choreography. Caption translations and screen wording stay
-adjacent to their existing counterparts so later common edits reach all three.
-Preserve the approved English and Japanese behavior and retained delivery files.
-Uploading, new narration, changes to the argument, other film translations and a
-general translation framework are deferred.
-
-#### Key examples
-
-- Select the Traditional Chinese composition and watch at phone size with sound
-  muted: the complete opening question, answer, TPS house, loom/stop contrast,
-  judgment, minimalism and freedom conclusion are clear without Japanese prose
-  or untranslated English sentences.
-- The loom retains the original 自働化 glyph artwork and explains the person
-  radical in Traditional Chinese. The generic computer remains independent of
-  CI terminology. The ending retains Terry's credit in localized wording.
-- Generate the Traditional Chinese SRT: all 19 captions have the same intervals
-  and wording as their embedded counterparts; source and delivery copies agree.
-- Change shared scene timing or artwork through its existing authoring home:
-  all three editions use that same representation, while established English
-  and Japanese selections keep their authored wording and layout.
-
-Plan: [Traditional Chinese Jidoka edition](../.planning/quick/027-jidoka-traditional-chinese-edition/PLAN.md).
-
 ## Ordering and scope reduction
 
 The backlog follows the accepted order above. Story 1 tests the defining silent
