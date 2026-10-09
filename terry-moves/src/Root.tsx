@@ -21,7 +21,7 @@ import { ProblemDecompositionRemakeFilm } from './stories/ProblemDecompositionRe
 import { AITestAutomationFilm } from './stories/AITestAutomationFilm';
 import { SilentSceneFilm } from './stories/SilentSceneFilm';
 import { ATDDFilm } from './stories/ATDDFilm';
-import { TPSAndAIFilm, TPSAndAIFilmJa, TPSAndAIFilmZhHant } from './stories/TPSAndAIFilm';
+import { TPSAndAIFilm, TPSAndAIFilmJa, TPSAndAIFilmZhHant, TPSAndAIFilmTh } from './stories/TPSAndAIFilm';
 import { VisualTreatmentCompositions } from './visualTreatments/TreatmentCompositions';
 
 export const RemotionRoot: React.FC = () => {
@@ -54,6 +54,7 @@ export const RemotionRoot: React.FC = () => {
 			<TPSAndAIFilm />
 			<TPSAndAIFilmJa />
 			<TPSAndAIFilmZhHant />
+			<TPSAndAIFilmTh />
 			<VisualTreatmentCompositions />
 		</>
 	);

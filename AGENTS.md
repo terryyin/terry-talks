@@ -38,3 +38,9 @@ Accepted ADRs via `dough-adr-awareness` (do not approve).
 Do not recreate project-local variants of their rules, scripts, or supporting
 documents. Do not push unless asked. No GSD (`phases/`, `PROJECT.md`,
 `STATE.md`, `/gsd-*`) unless the owner asks.
+
+**Additional film languages:** Treat another language edition of an approved film
+as a small extension. Reuse its scenes, timing, assets, score and accepted proof.
+Focus new work on translation, font shaping, text fit and the new export. Do not
+repeat baseline research, story/slice preparation, unchanged-language renders
+or broad verification unless a changed boundary or observed failure requires it.

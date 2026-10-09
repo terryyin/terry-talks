@@ -47,8 +47,8 @@
       "label": "Jidoka: Free to Move On",
       "assets": ["called-by-the-stop.png"],
       "captionRanges": [
-        {"start": 0, "end": 4.5, "spoken": "How do you know your organization is using AI well?", "translations": {"ja": "組織がAIをうまく使えているか、\nどうすればわかる？", "zh-Hant": "如何判斷組織\n有沒有善用 AI？"}, "sourceIds": ["diagnostic"], "lineBreakAfter": 5},
-        {"start": 4.5, "end": 9, "spoken": "When teams are more freed than constrained by what they’ve built.", "translations": {"ja": "チームが作ったものに\n縛られるより、解放されているなら。", "zh-Hant": "當團隊因自己打造的成果，\n獲得的自由多於受到的限制。"}, "sourceIds": ["diagnostic"], "lineBreakAfter": 6}
+        {"start": 0, "end": 4.5, "spoken": "How do you know your organization is using AI well?", "translations": {"ja": "組織がAIをうまく使えているか、\nどうすればわかる？", "zh-Hant": "如何判斷組織\n有沒有善用 AI？", "th": "จะรู้ได้อย่างไรว่าองค์กร\nใช้ AI ได้ดี?"}, "sourceIds": ["diagnostic"], "lineBreakAfter": 5},
+        {"start": 4.5, "end": 9, "spoken": "When teams are more freed than constrained by what they’ve built.", "translations": {"ja": "チームが作ったものに\n縛られるより、解放されているなら。", "zh-Hant": "當團隊因自己打造的成果，\n獲得的自由多於受到的限制。", "th": "เมื่อสิ่งที่ทีมสร้างขึ้น\nปลดปล่อยทีมมากกว่าผูกมัด"}, "sourceIds": ["diagnostic"], "lineBreakAfter": 6}
       ],
       "action": "Fully composed title, matched called-by-stop painting, generic stop display and question at frame zero; the answer follows on the same representative artwork."
     },
@@ -59,8 +59,8 @@
       "label": "Bound to yesterday",
       "assets": ["constrained-by-what-they-built.png"],
       "captionRanges": [
-        {"start": 9, "end": 14, "spoken": "Too often, software ties its creators down.", "translations": {"ja": "ソフトウェアは、しばしば\n作り手を縛りつける。", "zh-Hant": "軟體常常\n把創造它的人綁住。"}, "sourceIds": ["diagnostic"], "lineBreakAfter": 4},
-        {"start": 14, "end": 19, "spoken": "Yesterday’s output blocks today’s higher-value work.", "translations": {"ja": "昨日の成果物が、\n今日のより価値ある仕事を妨げる。", "zh-Hant": "昨天的成果，\n擋住了今天更有價值的工作。"}, "sourceIds": ["diagnostic"], "lineBreakAfter": 3}
+        {"start": 9, "end": 14, "spoken": "Too often, software ties its creators down.", "translations": {"ja": "ソフトウェアは、しばしば\n作り手を縛りつける。", "zh-Hant": "軟體常常\n把創造它的人綁住。", "th": "บ่อยครั้ง ซอฟต์แวร์\nกลับผูกมัดผู้สร้าง"}, "sourceIds": ["diagnostic"], "lineBreakAfter": 4},
+        {"start": 14, "end": 19, "spoken": "Yesterday’s output blocks today’s higher-value work.", "translations": {"ja": "昨日の成果物が、\n今日のより価値ある仕事を妨げる。", "zh-Hant": "昨天的成果，\n擋住了今天更有價值的工作。", "th": "ผลงานเมื่อวาน\nขวางงานที่มีคุณค่ากว่าในวันนี้"}, "sourceIds": ["diagnostic"], "lineBreakAfter": 3}
       ],
       "action": "Fit the full burden painting, preserving the stack, tethered people and distant doorway; no new red trail over people."
     },
@@ -71,8 +71,8 @@
       "label": "Toyota Production System",
       "assets": [],
       "captionRanges": [
-        {"start": 19, "end": 23.2, "spoken": "TPS is the Toyota Production System.", "translations": {"ja": "TPSは、トヨタ生産方式。", "zh-Hant": "TPS 就是豐田生產方式。"}, "sourceIds": ["house"], "lineBreakAfter": 2},
-        {"start": 23.2, "end": 27, "spoken": "Jidoka is one of its two pillars.", "translations": {"ja": "自働化は、その二本柱の一つ。", "zh-Hant": "自働化是兩大支柱之一。"}, "sourceIds": ["house"]}
+        {"start": 19, "end": 23.2, "spoken": "TPS is the Toyota Production System.", "translations": {"ja": "TPSは、トヨタ生産方式。", "zh-Hant": "TPS 就是豐田生產方式。", "th": "TPS คือระบบการผลิตของโตโยต้า"}, "sourceIds": ["house"], "lineBreakAfter": 2},
+        {"start": 23.2, "end": 27, "spoken": "Jidoka is one of its two pillars.", "translations": {"ja": "自働化は、その二本柱の一つ。", "zh-Hant": "自働化是兩大支柱之一。", "th": "Jidoka คือหนึ่งในสองเสาหลัก"}, "sourceIds": ["house"]}
       ],
       "action": "Reconstruct the deck TPS house in English, highlighting only the Jidoka pillar in vermilion."
     },
@@ -83,9 +83,9 @@
       "label": "Human wisdom, built in",
       "assets": ["loom-warp-stop.mp4", "jidoka-human-radical.svg"],
       "captionRanges": [
-        {"start": 27, "end": 30.5, "spoken": "Jidoka: automation with a human touch.", "translations": {"ja": "自働化とは、\n人の知恵を加えた自動化。", "zh-Hant": "自働化，\n是融入人類智慧的自動化。"}, "sourceIds": ["jidoka"], "lineBreakAfter": 3},
-        {"start": 30.5, "end": 34.5, "spoken": "A broken thread stops the loom.", "translations": {"ja": "糸が切れると、\n織機が自ら止まる。", "zh-Hant": "線斷了，\n織機就會自行停止。"}, "sourceIds": ["jidoka"]},
-        {"start": 34.5, "end": 39, "spoken": "Human wisdom lives in the mechanism.", "translations": {"ja": "人の知恵が、\n仕組みに組み込まれている。", "zh-Hant": "人的智慧，\n融入了機制之中。"}, "sourceIds": ["jidoka"], "lineBreakAfter": 3}
+        {"start": 27, "end": 30.5, "spoken": "Jidoka: automation with a human touch.", "translations": {"ja": "自働化とは、\n人の知恵を加えた自動化。", "zh-Hant": "自働化，\n是融入人類智慧的自動化。", "th": "Jidoka คือระบบอัตโนมัติ\nที่ผสานปัญญาของคน"}, "sourceIds": ["jidoka"], "lineBreakAfter": 3},
+        {"start": 30.5, "end": 34.5, "spoken": "A broken thread stops the loom.", "translations": {"ja": "糸が切れると、\n織機が自ら止まる。", "zh-Hant": "線斷了，\n織機就會自行停止。", "th": "เมื่อเส้นด้ายขาด\nเครื่องทอผ้าจะหยุดเอง"}, "sourceIds": ["jidoka"]},
+        {"start": 34.5, "end": 39, "spoken": "Human wisdom lives in the mechanism.", "translations": {"ja": "人の知恵が、\n仕組みに組み込まれている。", "zh-Hant": "人的智慧，\n融入了機制之中。", "th": "ปัญญาของคน\nฝังอยู่ในกลไก"}, "sourceIds": ["jidoka"], "lineBreakAfter": 3}
       ],
       "action": "Play the local loom schematic once from the beginning. The broken thread drops its plate, blocks the detector and stops the drive. Freeze the fully visible stopped pose at 9s, before the source fade. The outlined kanji sits beneath the loom; only the person radical is red."
     },
@@ -96,8 +96,8 @@
       "label": "Called by the stop",
       "assets": ["watching-the-loom-watching-the-ai.png", "called-by-the-stop.png"],
       "captionRanges": [
-        {"start": 39, "end": 45, "spoken": "Instead of watching the loom—or watching your computer work…", "translations": {"ja": "織機や、コンピューターの仕事を\n見張り続ける代わりに…", "zh-Hant": "不必一直盯著織機，\n或盯著電腦工作……"}, "sourceIds": ["jidoka"], "lineBreakAfter": 5},
-        {"start": 45, "end": 51, "spoken": "Let the stop call you.", "translations": {"ja": "止まったときに、呼んでもらう。", "zh-Hant": "讓停止訊號呼喚你。"}, "sourceIds": ["jidoka"]}
+        {"start": 39, "end": 45, "spoken": "Instead of watching the loom—or watching your computer work…", "translations": {"ja": "織機や、コンピューターの仕事を\n見張り続ける代わりに…", "zh-Hant": "不必一直盯著織機，\n或盯著電腦工作……", "th": "แทนที่จะเฝ้าเครื่องทอผ้า\nหรือเฝ้าคอมพิวเตอร์ทำงาน…"}, "sourceIds": ["jidoka"], "lineBreakAfter": 5},
+        {"start": 45, "end": 51, "spoken": "Let the stop call you.", "translations": {"ja": "止まったときに、呼んでもらう。", "zh-Hant": "讓停止訊號呼喚你。", "th": "ให้ระบบเรียกคุณเมื่อหยุด"}, "sourceIds": ["jidoka"]}
       ],
       "action": "Fit both complete paired paintings at identical geometry and crossfade over 0.6s. Cover their embedded terminal screen planes with generic CHECKING and STOP displays."
     },
@@ -108,9 +108,9 @@
       "label": "Solve. Preserve. Protect.",
       "assets": [],
       "captionRanges": [
-        {"start": 51, "end": 56, "spoken": "Solve the problem. Preserve the judgment.", "translations": {"ja": "問題を解く。\nその判断を、仕組みに残す。", "zh-Hant": "解決問題。\n把判斷留在機制裡。"}, "sourceIds": ["judgment"], "lineBreakAfter": 3},
-        {"start": 56, "end": 61, "spoken": "Build known rules into simple checks that stop the work.", "translations": {"ja": "既知のルールを、\n作業を止める単純なチェックにする。", "zh-Hant": "把已知規則化為\n能停止作業的簡單檢查。"}, "sourceIds": ["judgment"], "lineBreakAfter": 5},
-        {"start": 61, "end": 66, "spoken": "Leave clear evidence for the next person—or AI.", "translations": {"ja": "次の人やAIのために、\n明確な証拠を残す。", "zh-Hant": "留下清楚的證據，\n供後來的人或 AI 使用。"}, "sourceIds": ["judgment"], "lineBreakAfter": 4}
+        {"start": 51, "end": 56, "spoken": "Solve the problem. Preserve the judgment.", "translations": {"ja": "問題を解く。\nその判断を、仕組みに残す。", "zh-Hant": "解決問題。\n把判斷留在機制裡。", "th": "แก้ปัญหา\nเก็บวิจารณญาณไว้ในกลไก"}, "sourceIds": ["judgment"], "lineBreakAfter": 3},
+        {"start": 56, "end": 61, "spoken": "Build known rules into simple checks that stop the work.", "translations": {"ja": "既知のルールを、\n作業を止める単純なチェックにする。", "zh-Hant": "把已知規則化為\n能停止作業的簡單檢查。", "th": "เปลี่ยนกฎที่รู้แล้ว\nเป็นการตรวจง่าย ๆ ที่สั่งหยุดงานได้"}, "sourceIds": ["judgment"], "lineBreakAfter": 5},
+        {"start": 61, "end": 66, "spoken": "Leave clear evidence for the next person—or AI.", "translations": {"ja": "次の人やAIのために、\n明確な証拠を残す。", "zh-Hant": "留下清楚的證據，\n供後來的人或 AI 使用。", "th": "เก็บหลักฐานที่ชัดเจน\nไว้ให้คนถัดไป หรือ AI"}, "sourceIds": ["judgment"], "lineBreakAfter": 4}
       ],
       "action": "Dry typography accumulates solved human judgment, known rules and simple checks with evidence. No toy software example or automatic diagnosis/repair."
     },
@@ -121,9 +121,9 @@
       "label": "Keep as little as possible",
       "assets": [],
       "captionRanges": [
-        {"start": 66, "end": 68.8, "spoken": "Keep as little as possible.", "translations": {"ja": "残すものは、最小限に。", "zh-Hant": "留下的東西越少越好。"}, "sourceIds": ["minimalism"]},
-        {"start": 68.8, "end": 71.5, "spoken": "The best part is no part.", "translations": {"ja": "最良の部品は、存在しない部品。", "zh-Hant": "最好的零件，就是沒有零件。"}, "sourceIds": ["minimalism"]},
-        {"start": 71.5, "end": 75, "spoken": "Remove unnecessary parts. Preserve needed behavior.", "translations": {"ja": "不要な部品をなくす。\n必要な振る舞いは残す。", "zh-Hant": "移除多餘零件。\n保留必要行為。"}, "sourceIds": ["minimalism"], "lineBreakAfter": 3}
+        {"start": 66, "end": 68.8, "spoken": "Keep as little as possible.", "translations": {"ja": "残すものは、最小限に。", "zh-Hant": "留下的東西越少越好。", "th": "เก็บไว้ให้น้อยที่สุด"}, "sourceIds": ["minimalism"]},
+        {"start": 68.8, "end": 71.5, "spoken": "The best part is no part.", "translations": {"ja": "最良の部品は、存在しない部品。", "zh-Hant": "最好的零件，就是沒有零件。", "th": "ชิ้นส่วนที่ดีที่สุด\nคือชิ้นส่วนที่ไม่ต้องมี"}, "sourceIds": ["minimalism"]},
+        {"start": 71.5, "end": 75, "spoken": "Remove unnecessary parts. Preserve needed behavior.", "translations": {"ja": "不要な部品をなくす。\n必要な振る舞いは残す。", "zh-Hant": "移除多餘零件。\n保留必要行為。", "th": "ตัดชิ้นส่วนที่ไม่จำเป็น\nคงการทำงานที่จำเป็นไว้"}, "sourceIds": ["minimalism"], "lineBreakAfter": 3}
       ],
       "action": "Remove redundant outlines while the necessary behavior and self-protection remain visible."
     },
@@ -134,8 +134,8 @@
       "label": "Free to move on",
       "assets": ["jidoka-frees-software-team.png"],
       "captionRanges": [
-        {"start": 75, "end": 79, "spoken": "Build knowledge into the product.", "translations": {"ja": "知識を、プロダクトに組み込む。", "zh-Hant": "把知識融入產品。"}, "sourceIds": ["freedom", "judgment"]},
-        {"start": 79, "end": 83, "spoken": "Free yourself for the next problem that matters.", "translations": {"ja": "次の大事な問題に、\n力を使えるようにする。", "zh-Hant": "讓自己自由，\n去解決下一個重要的問題。"}, "sourceIds": ["freedom"], "lineBreakAfter": 5}
+        {"start": 75, "end": 79, "spoken": "Build knowledge into the product.", "translations": {"ja": "知識を、プロダクトに組み込む。", "zh-Hant": "把知識融入產品。", "th": "ฝังความรู้ไว้ในผลิตภัณฑ์"}, "sourceIds": ["freedom", "judgment"]},
+        {"start": 79, "end": 83, "spoken": "Free yourself for the next problem that matters.", "translations": {"ja": "次の大事な問題に、\n力を使えるようにする。", "zh-Hant": "讓自己自由，\n去解決下一個重要的問題。", "th": "ปลดปล่อยตัวเอง\nไปแก้ปัญหาสำคัญถัดไป"}, "sourceIds": ["freedom"], "lineBreakAfter": 5}
       ],
       "action": "Keep the unattended checks, all faces, hands and shared prototype in the full fitted painting; attention belongs to the next valuable problem."
     },

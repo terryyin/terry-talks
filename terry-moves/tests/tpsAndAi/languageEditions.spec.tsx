@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { RemotionRoot } from '../../src/Root';
+import { film } from '../../src/tpsAndAi/film';
 
 type Registration = {
 	id: string;
@@ -183,4 +184,19 @@ describe('the registered English, Japanese and Traditional Chinese Jidoka editio
 			}
 		}
 	});
+});
+
+// Additional locales reuse the accepted film rather than duplicating its scenes.
+it('selects the Thai edition, shared scenes and every Thai caption from the real Root', () => {
+	expect(registration('TPSAndAIFilmTh')).toMatchObject({ durationInFrames: 2580, fps: 30, width: 1080, height: 1080 });
+	for (const scene of film.scenes) {
+		const thai = editionAt('TPSAndAIFilmTh', scene.start);
+		expect(thai.sequences).toEqual(englishAt(scene.start).sequences);
+		for (const caption of scene.captionRanges) {
+			const node = editionAt('TPSAndAIFilmTh', caption.start).picture.querySelector('[data-testid="film-caption"]')!;
+			expect(node.getAttribute('lang')).toBe('th');
+			expect(node.textContent).toBe(caption.translations.th);
+		}
+	}
+	expect(editionAt('TPSAndAIFilmTh', 85).picture.querySelector('[data-testid="film-credits"]')!.textContent).toContain('Terry');
 });

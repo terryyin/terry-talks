@@ -1,6 +1,6 @@
-# Jidoka: Free to Move On — English, Japanese and Traditional Chinese films
+# Jidoka: Free to Move On — English, Japanese, Traditional Chinese and Thai films
 
-Three concise square editions about Jidoka for AI-augmented software development.
+Four concise square editions about Jidoka for AI-augmented software development.
 The diagnostic is Terry’s: teams should be more freed than constrained by what
 they’ve built. The film explains how discovered judgment can live in simple
 mechanisms that stop known failures, preserve usable evidence, and release
@@ -8,19 +8,20 @@ attention for the next needed problem.
 
 [film-script.json](film-script.json) owns the single scene and caption clock:
 **86 seconds at 30 fps, 1080 × 1080**, including a three-second ending hold.
-Its **133 English caption words in 19 timed ranges** and their Japanese and
-Traditional Chinese translations carry the complete argument with sound off.
+Its **133 English caption words in 19 timed ranges** and their Japanese,
+Traditional Chinese and Thai translations carry the complete argument with sound off.
 There is no narration. Each caption keeps English in `spoken`, Japanese in
-`translations.ja` and Traditional Chinese in `translations['zh-Hant']`, beside
+`translations.ja`, Traditional Chinese in `translations['zh-Hant']` and Thai in
+`translations.th`, beside
 the same `start`, `end` and `sourceIds`. English `lineBreakAfter` counts words
-before an authored display break; the Japanese and Chinese translations use
-authored newline breaks. All three SRTs retain their wording and the same intervals.
+before an authored display break; the translated editions use
+authored newline breaks. All four SRTs retain their wording and the same intervals.
 
 The editions share one scene tree, choreography, paintings, loom clip and music.
 [`language.tsx`](../terry-moves/src/tpsAndAi/language.tsx) keeps adjacent screen
 wording in a private catalog and selects it through the language hooks and
-provider used by those shared scene components. Maintain all three languages
-together when wording changes. Both translated editions localize headings,
+provider used by those shared scene components. Maintain all four languages
+together when wording changes. All translated editions localize headings,
 house and stop labels, evidence, the radical annotation and credits; useful
 **AI/TPS** acronyms and the **Odd-e/Terry** names remain. The Chinese edition
 retains the original **自働化** spelling and calls TPS **豐田生產方式**.
@@ -119,7 +120,7 @@ Select **TPSAndAIFilm** for English, **TPSAndAIFilmJa** for Japanese or
 **TPSAndAIFilmZhHant** for Traditional Chinese in Studio
 (`http://localhost:3028/TPSAndAIFilm` or
 `http://localhost:3028/TPSAndAIFilmJa` or
-`http://localhost:3028/TPSAndAIFilmZhHant`). All three registrations use the shared
+`http://localhost:3028/TPSAndAIFilmZhHant`). All four registrations use the shared
 full film; thin wrappers select the translated editions' language. The nine
 independent scene compositions remain registered in **TPS-scenes** and default
 to English.
@@ -144,12 +145,12 @@ node scripts/tps-and-ai-subtitles.mjs all
 node terry-moves/scripts/tps-and-ai-score.mjs
 ```
 
-The subtitle wrapper accepts `en` (the default), `ja`, `zh-Hant` or `all`. It reuses
+The subtitle wrapper accepts `en` (the default), `ja`, `zh-Hant`, `th` or `all`. It reuses
 `scripts/film-subtitles.mjs`, writes [film-en.srt](film-en.srt) and/or
 [film-ja.srt](film-ja.srt) and/or [film-zh-hant.srt](film-zh-hant.srt) from the
 shared canonical JSON, and copies each file to its corresponding delivery SRT
 above. Maintain caption wording in the JSON;
-regenerate the SRTs after edits. `all` exports all three editions.
+regenerate the SRTs after edits. `all` exports all four editions.
 
 Captions use the same protected y856–1010 area and no more than two authored
 lines: English retains 56px text and its word-count display breaks; Japanese
@@ -172,3 +173,19 @@ All other required explanation is also retained visibly without sound.
 Rendered files live in ignored `out/`; source inputs, retained media and
 deterministic score are checked in. These films need no network asset or voice
 service at render time.
+
+## Thai edition
+
+Thai captions are adjacent to the other translations in `translations.th`;
+Thai screen labels share the same `language.tsx` catalog. Select
+`TPSAndAIFilmTh` in Studio or run `pnpm --dir terry-moves render:tps-and-ai:th`.
+The export writes `terry-moves/out/tps-and-ai-jidoka-th.mp4`,
+`tps-and-ai-jidoka-th-poster.png` and `tps-and-ai-jidoka-th.srt`; the checked-in
+subtitle is [film-th.srt](film-th.srt). `node scripts/tps-and-ai-subtitles.mjs th`
+regenerates only Thai subtitles; `all` includes all four languages.
+
+Thai uses the rendering host's Thonburi body font and Sathu headings, with
+Noto Sans/Serif Thai fallbacks. Captions retain 48px text and two authored lines;
+1.35 line height gives Thai vowel and tone marks room. Jidoka, TPS, AI,
+Just-in-Time and Terry remain useful original terms. Scenes, timing, imagery,
+score and the original 自働化 glyph artwork stay shared with the other editions.
