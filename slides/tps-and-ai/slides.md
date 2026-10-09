@@ -1429,6 +1429,7 @@ flowchart LR
   WT -->|"+"| PULL
   PULL -->|"+"| CAP
   class AA,PULL accent
+  style WT fill:#d4af37,stroke:#d4af37,color:#292524
 ```
 
 </div>
