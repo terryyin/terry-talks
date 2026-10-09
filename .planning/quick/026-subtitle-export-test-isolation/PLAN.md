@@ -19,12 +19,24 @@ accepted English baseline and earlier film work is outside that set.
 
 ## Current finding and impact
 
-At the current `e311101` revision, `terry-moves/tests/tpsAndAi/film.spec.tsx`
-lines 73–92 invoke the actual English/Japanese CLI against checkout source and
-delivery SRTs without restoration. Lines 119–136 additionally regenerate three
-neighboring films' tracked SRTs. The `all` case restores its own later snapshot,
-which does not restore files changed by other cases. The older English test
-already had this weakness; `af16b43` expands it to Japanese and sibling films.
+At the reviewed Japanese revision `e311101`,
+`terry-moves/tests/tpsAndAi/film.spec.tsx` invoked the actual English/Japanese
+CLI against checkout source and delivery SRTs without restoration; the four
+wrapper-default case additionally regenerated three neighboring films' tracked
+SRTs. The older English test already had this weakness; `af16b43` expanded it
+to Japanese and sibling films.
+
+Current truth after the Traditional Chinese integration at
+`8f902863f4513c83f1689f559b2eedc64daef4c5`: per-locale cases now restore their
+own source/delivery bytes and existence, and `all` restores all six TPS outputs.
+The unchanged four-defaults case still rewrites TPS English source/delivery
+and all three neighboring source SRTs without restoration. The Chinese
+execution ran the focused suite serially inside an external nine-file
+snapshot/restore guard; that execution protection does not isolate the tests.
+The same planned disposable-repository boundary remains needed; retain the
+current three-language caption/CLI coverage when moving those invocations.
+This is updated evidence for the existing correction, not a new correction
+or authorization to execute it.
 
 Running this proof can replace pre-existing local subtitle bytes. Jest has no
 serial-worker policy in `terry-moves/jest.config.js`, and the existing
