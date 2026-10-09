@@ -8,12 +8,22 @@ export const Hook: React.FC = () => {
 	const scene = sceneById('hook');
 	return <Shot id="hook" seconds={useSeconds('hook')}>
 		<Heading>{scene.heading}</Heading>
-		<Heading style={{ top: 214, fontSize: 58 }}>{scene.subheading}</Heading>
-		<Art file={scene.asset!} style={{ left: 180, top: 298, width: 720, height: 540 }} />
+		<Heading style={{ top: 214, fontSize: 48, whiteSpace: 'pre-line' }}>{scene.subheading}</Heading>
+		<Art file={scene.asset!} style={{ left: 180, top: 340, width: 720, height: 490 }} />
 	</Shot>;
 };
 
-export const House: React.FC = () => <Shot id="house" seconds={useSeconds('house')}><HousePicture highlightJIT heading={sceneById('house').heading} /></Shot>;
+export const House: React.FC = () => {
+	const seconds = useSeconds('house');
+	const scene = sceneById('house');
+	const view = scene.definitionViews!.find((entry) => seconds >= entry.start && seconds < entry.end);
+	return <Shot id="house" seconds={seconds}>
+		{view ? <>
+			<Heading style={{ fontSize: 76 }}>{view.heading}</Heading>
+			<Art file={view.asset} style={{ left: 60, top: 230, width: 960, height: 600 }} />
+		</> : <HousePicture highlightJIT heading={scene.heading} />}
+	</Shot>;
+};
 
 /** The whole original illustration remains visible inside the shared art area. */
 const IllustratedScene: React.FC<{ id: SceneId }> = ({ id }) => {

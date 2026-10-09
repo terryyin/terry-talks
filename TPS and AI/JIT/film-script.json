@@ -1,5 +1,5 @@
 {
-  "title": "Just in time: Trust the Team",
+  "title": "Just in time",
   "subtitle": "Part two of TPS and AI",
   "fps": 30,
   "width": 1080,
@@ -17,6 +17,9 @@
   },
   "artwork": [
     {"file": "green-light-stockpile.png", "source": "slides/tps-and-ai/public/green-light-stockpile.png"},
+    {"file": "jit-customer-orders.png", "source": "slides/tps-and-ai/public/jit-customer-orders.png"},
+    {"file": "jit-assembly-pulls-wheels.png", "source": "slides/tps-and-ai/public/jit-assembly-pulls-wheels.png"},
+    {"file": "jit-wheel-replenishment.png", "source": "slides/tps-and-ai/public/jit-wheel-replenishment.png"},
     {"file": "jit-resourceful-response.png", "source": "slides/tps-and-ai/public/jit-resourceful-response.png"},
     {"file": "pull-customer-need.png", "source": "slides/tps-and-ai/public/pull-customer-need.png"},
     {"file": "pull-customer-feedback.png", "source": "slides/tps-and-ai/public/pull-customer-feedback.png"},
@@ -24,24 +27,30 @@
   ],
   "scenes": [
     {
-      "id": "hook", "start": 0, "end": 10, "label": "Just in time: Trust the Team",
-      "heading": "Trust", "subheading": "Just in time", "translations": {},
+      "id": "hook", "start": 0, "end": 10, "label": "Just in time",
+      "heading": "Just in time", "subheading": "Trust the team to meet\nreal needs, on time.", "translations": {},
       "asset": "green-light-stockpile.png",
       "captionRanges": [
-        {"start": 0, "end": 5.5, "spoken": "AI can produce more. Can you trust your team to respond?", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["stockpile", "resourceful"]},
-        {"start": 5.5, "end": 10, "spoken": "More output alone does not earn that trust.", "lineBreakAfter": 3, "translations": {}, "sourceIds": ["stockpile", "resourceful"]}
+        {"start": 0, "end": 5.5, "spoken": "Can you trust your team to meet real needs, on time?", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["stockpile", "resourceful"]},
+        {"start": 5.5, "end": 10, "spoken": "More AI output alone does not earn that trust.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["stockpile", "resourceful"]}
       ],
       "action": "Fully composed title and complete stockpile painting at frame zero. Preserve the green signal, full tower and person."
     },
     {
       "id": "house", "start": 10, "end": 27, "label": "Toyota Production System",
       "heading": "Toyota Production System", "translations": {},
-      "captionRanges": [
-        {"start": 10, "end": 16, "spoken": "Just in time is the other pillar of the Toyota Production System.", "lineBreakAfter": 7, "translations": {}, "sourceIds": ["house", "jit"]},
-        {"start": 16, "end": 22, "spoken": "Only what is needed, when needed, in the amount needed.", "lineBreakAfter": 6, "translations": {}, "sourceIds": ["jit"]},
-        {"start": 22, "end": 27, "spoken": "Minimum stock. Dependable flow. Not constant activity.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["jit"]}
+      "definitionViews": [
+        {"start": 15, "end": 19, "heading": "Only what is needed", "asset": "jit-customer-orders.png", "translations": {}},
+        {"start": 19, "end": 23, "heading": "When needed", "asset": "jit-assembly-pulls-wheels.png", "translations": {}},
+        {"start": 23, "end": 27, "heading": "In the amount needed", "asset": "jit-wheel-replenishment.png", "translations": {}}
       ],
-      "action": "Reuse the shared TPS house, highlighting its JIT pillar. The Jidoka edition's default highlight remains unchanged."
+      "captionRanges": [
+        {"start": 10, "end": 15, "spoken": "Just in time is the other pillar of the Toyota Production System.", "lineBreakAfter": 7, "translations": {}, "sourceIds": ["house", "jit"]},
+        {"start": 15, "end": 19, "spoken": "Only what is needed.", "translations": {}, "sourceIds": ["jit"]},
+        {"start": 19, "end": 23, "spoken": "When needed.", "translations": {}, "sourceIds": ["jit"]},
+        {"start": 23, "end": 27, "spoken": "In the amount needed. Minimum stock. Dependable flow.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["jit"]}
+      ],
+      "action": "Introduce the shared TPS house with its JIT pillar highlighted from 10 to 15 seconds, then show the three complete original definition illustrations in order. Preserve visible minimum ready stock and dependable flow. The Jidoka edition's default highlight remains unchanged."
     },
     {
       "id": "resourceful", "start": 27, "end": 38, "label": "Trust capable people",
@@ -93,7 +102,7 @@
       "heading": "Trust the team.", "translations": {}, "asset": "integration-coordination.png",
       "focusViews": [{"id": "result", "start": 78, "end": 86, "x": 1070, "y": 175, "width": 952, "height": 550}],
       "captionRanges": [
-        {"start": 78, "end": 83, "spoken": "Build capability to respond, so you can trust the team.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]}
+        {"start": 78, "end": 83, "spoken": "Build the capability to meet real needs, on time.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]}
       ],
       "creditStart": 83, "creditLines": ["Idea and film from Terry"], "creditTranslations": {},
       "action": "Hold the collaboration and complete coherent result with all faces and product. Exact Terry credit replaces captions for the final three seconds as the approved score fades."

@@ -9,11 +9,15 @@ it('selects the complete English JIT film from the real Root with the authored s
 	expect(film.scenes.map((scene) => scene.id)).toEqual(['hook', 'house', 'resourceful', 'pull', 'feedback', 'integration', 'closing']);
 	expect(film.scenes[0].start).toBe(0);
 	expect(film.scenes[film.scenes.length - 1].end).toBe(86);
+	expect(film.title).toBe('Just in time');
 	const cover = jitAt(0).picture;
-	expect(cover.querySelector('[data-scene="hook"]')!.textContent).toContain('Trust');
-	expect(cover.querySelector('[data-scene="hook"]')!.textContent).toContain('Just in time');
-	expect(normalized(cover.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('AI can produce more. Can you trust your team to respond?');
-	expect(normalized(jitAt(5.5).picture.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('More output alone does not earn that trust.');
+	const [title, support] = cover.querySelectorAll<HTMLElement>('[data-scene="hook"] > div');
+	expect(title.textContent).toBe('Just in time');
+	expect(normalized(support.textContent)).toBe('Trust the team to meet real needs, on time.');
+	expect(Number.parseFloat(title.style.fontSize)).toBeGreaterThan(Number.parseFloat(support.style.fontSize));
+	expect(jitAt(0).sequences[0].name).toBe('Just in time');
+	expect(normalized(cover.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('Can you trust your team to meet real needs, on time?');
+	expect(normalized(jitAt(5.5).picture.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('More AI output alone does not earn that trust.');
 	expect(jitAt(0).sequences.map(({ from, durationInFrames: frames }) => [from, frames])).toEqual(film.scenes.map((scene) => [Math.round(scene.start * film.fps), Math.round((scene.end - scene.start) * film.fps)]));
 	for (const [index, scene] of film.scenes.entries()) {
 		if (index) {
@@ -24,7 +28,8 @@ it('selects the complete English JIT film from the real Root with the authored s
 			const { picture } = jitAt(seconds);
 			expect(sceneAt(seconds).id).toBe(scene.id);
 			expect([...picture.querySelectorAll('[data-scene]')].map((node) => node.getAttribute('data-scene'))).toEqual([scene.id]);
-			expect(normalized(picture.querySelector('[data-scene]')!.textContent)).toContain(normalized(scene.heading));
+			const definition = scene.definitionViews?.find((view) => seconds >= view.start && seconds < view.end);
+			expect(normalized(picture.querySelector('[data-scene]')!.textContent)).toContain(normalized(definition?.heading ?? scene.heading));
 			expect(picture.textContent).not.toMatch(/\bJIT\b/);
 			const logo = picture.querySelector<HTMLImageElement>('img[src$="odd-e-logo.png"]')!;
 			expect(logo.style.left).toBe('934px');
@@ -54,7 +59,7 @@ it('runs the authored caption wording and natural line breaks at starts, midpoin
 	}
 });
 
-it('retains the full original illustrations for the stockpile, resourceful response, user need and feedback', () => {
+it('retains the full original illustrations and pairs each definition phrase with its artwork at the authored transitions', () => {
 	for (const [id, filename] of [
 		['hook', 'green-light-stockpile.png'],
 		['resourceful', 'jit-resourceful-response.png'],
@@ -65,6 +70,22 @@ it('retains the full original illustrations for the stockpile, resourceful respo
 		const image = jitAt((scene.start + scene.end) / 2).picture.querySelector<HTMLImageElement>(`img[src$="${filename}"]`)!;
 		expect(image).not.toBeNull();
 		expect(image.style.objectFit).toBe('contain');
+	}
+	expect(jitAt(15 - 1 / film.fps).picture.querySelector('[data-testid="jit-pillar"]')).not.toBeNull();
+	for (const [start, end, filename, heading] of [
+		[15, 19, 'jit-customer-orders.png', 'Only what is needed'],
+		[19, 23, 'jit-assembly-pulls-wheels.png', 'When needed'],
+		[23, 27, 'jit-wheel-replenishment.png', 'In the amount needed'],
+	] as const) {
+		for (const seconds of [start, (start + end) / 2, end - 1 / film.fps]) {
+			const picture = jitAt(seconds).picture;
+			expect(picture.querySelector('[data-scene="house"] > div')!.textContent).toBe(heading);
+			const image = picture.querySelector<HTMLImageElement>(`img[src$="${filename}"]`)!;
+			expect(image).not.toBeNull();
+			expect(image.style.objectFit).toBe('contain');
+			expect(picture.querySelector('[data-testid="jit-pillar"]')).toBeNull();
+		}
+		expect(jitAt(end).picture.querySelector(`img[src$="${filename}"]`)).toBeNull();
 	}
 	const integration = film.scenes.find((scene) => scene.id === 'integration')!;
 	expect(jitAt((integration.start + integration.end) / 2).picture.querySelector('img[src$="integration-coordination.png"]')).not.toBeNull();
@@ -84,8 +105,7 @@ it('selects need, teams, stop, collaboration and the coherent result in the auth
 });
 
 it('emphasizes JIT in the selected house while the registered Jidoka house preserves its default pillar', () => {
-	const jitHouse = film.scenes.find((scene) => scene.id === 'house')!;
-	const jit = jitAt((jitHouse.start + jitHouse.end) / 2).picture;
+	const jit = jitAt(12).picture;
 	const jidoka = filmAt('TPSHouse', 0).picture;
 	expect(jit.querySelector('[data-testid="jit-pillar"]')).not.toBeNull();
 	expect(jidoka.querySelector('[data-testid="jidoka-pillar"]')).not.toBeNull();
@@ -96,7 +116,7 @@ it('emphasizes JIT in the selected house while the registered Jidoka house prese
 });
 
 it('ends on Trust the team and holds the exact credit with no captions from 83 seconds through the last frame', () => {
-	expect(normalized(jitAt(78).picture.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('Build capability to respond, so you can trust the team.');
+	expect(normalized(jitAt(78).picture.querySelector('[data-testid="film-caption"]')!.textContent)).toBe('Build the capability to meet real needs, on time.');
 	const creditAt = (seconds: number) => {
 		const picture = jitAt(seconds).picture;
 		expect(picture.querySelector('[data-scene="closing"]')).not.toBeNull();

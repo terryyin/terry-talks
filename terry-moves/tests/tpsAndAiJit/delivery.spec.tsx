@@ -61,7 +61,7 @@ it('ties every caption to declared provenance and retains the original slide ill
 		expect(source.kind).toEqual(expect.any(String));
 		expect(source.reference).toContain('slides/tps-and-ai/slides.md');
 	}
-	expect(film.artwork.map((art) => art.file)).toEqual(['green-light-stockpile.png', 'jit-resourceful-response.png', 'pull-customer-need.png', 'pull-customer-feedback.png', 'integration-coordination.png']);
+	expect(film.artwork.map((art) => art.file)).toEqual(['green-light-stockpile.png', 'jit-customer-orders.png', 'jit-assembly-pulls-wheels.png', 'jit-wheel-replenishment.png', 'jit-resourceful-response.png', 'pull-customer-need.png', 'pull-customer-feedback.png', 'integration-coordination.png']);
 	for (const art of film.artwork) {
 		const retained = readFileSync(path.join(repository, 'terry-moves/public/assets/tps-and-ai', art.file));
 		expect(retained.equals(readFileSync(path.join(repository, art.source)))).toBe(true);

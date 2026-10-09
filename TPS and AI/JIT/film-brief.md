@@ -1,15 +1,15 @@
-# Just in time: Trust the Team
+# Just in time
 
 The English second part of TPS and AI follows the approved Jidoka film's warm
 paper, dry typography, original talk artwork, quiet score and square format.
-Trust is the main focus, beginning with **Trust** on the cover and **Just in time**
-beneath it. Its argument is Terry's: confidence in a team comes from its ability
-to respond to current customer need. More AI output alone does not earn that
+The cover leads with **Just in time**, supported by “Trust the team to meet
+real needs, on time.” Its argument is Terry's: confidence in a team comes from
+its ability to respond to real needs on time. More AI output alone does not earn that
 trust. A useful small outcome pulls work; quality, feedback, continuous
 integration and timely collaboration make trust dependable.
 
 [film-script.json](film-script.json) owns **86 seconds at 30 fps, 1080 × 1080**,
-the seven scenes, timed English captions, viewer headings, focused panorama
+the seven scenes, timed English captions, definition illustrations, viewer headings, focused panorama
 views and final credit. There is no narration. Captions carry the complete
 argument with sound off and occupy the approved y856–1010 area, using 56px text
 and no more than two authored lines. `lineBreakAfter` counts words before a
@@ -21,13 +21,16 @@ the captions.
 
 | Time | Picture and meaning |
 | --- | --- |
-| 0–10s | Trust on the cover, with Just in time beneath it. Full green-signal stockpile tower and person. More output alone does not earn trust in a team's response. |
-| 10–27s | Shared TPS house, now highlighting Just-in-Time. Only what is needed, when needed, in the amount needed; minimum stock and dependable flow. |
+| 0–10s | Just in time on the cover, with trust in the team's timely response to real needs beneath it. Full green-signal stockpile tower and person. More AI output alone does not earn that trust. |
+| 10–15s | Shared TPS house, highlighting Just-in-Time as its other pillar. |
+| 15–19s | Only what is needed. Complete original customer-orders illustration. |
+| 19–23s | When needed. Complete original assembly-pulls-wheels illustration. |
+| 23–27s | In the amount needed. Complete original wheel-replenishment illustration, with minimum stock and dependable flow. |
 | 27–38s | Trust capable people. Whole resourceful-response painting. People meet the actual obstacle with available materials and a checked ramp. |
 | 38–50s | Whole customer-need painting. A small useful customer outcome pulls the necessary work, including any AI assistance. |
 | 50–62s | Make trust dependable. Whole feedback painting. Quality in the shared working product earns trust; feedback chooses the next response and later work remains unstarted. |
 | 62–78s | Original integration panorama in five successive focused views: actual need, teams, stop, collaboration, coherent result. The heading is “Integrate continuously. Collaborate just in time.” |
-| 78–86s | Trust the team. Hold the people collaborating and the complete resulting product. Build the capability that makes a team trustworthy; Terry's exact credit holds from 83 seconds as the score fades. |
+| 78–86s | Trust the team. Hold the people collaborating and the complete resulting product. Build the capability to meet real needs on time; Terry's exact credit holds from 83 seconds as the score fades. |
 
 ## Sources and boundaries
 
@@ -59,10 +62,13 @@ sources were checked during film preparation on 9 October 2026.
 
 ## Shared appearance and assets
 
-The five Just-in-Time paintings in the JSON's `artwork` records are byte-identical copies
+The eight Just-in-Time paintings in the JSON's `artwork` records are byte-identical copies
 from `slides/tps-and-ai/public/`, held in
 [`terry-moves/public/assets/tps-and-ai/`](../../terry-moves/public/assets/tps-and-ai/).
-The first four are fitted whole. Focused integration views crop the unchanged
+The first seven are fitted whole. `house.definitionViews` owns the three
+definition illustrations' timings, phrases and asset references. Their captions
+state the definition without quantity arithmetic; the final illustration retains
+visible ready stock. Focused integration views crop the unchanged
 2022 × 778 panorama in source coordinates and preserve causal order. The first
 view's authored clip excludes a stray neighboring figure while preserving the
 complete customer and thought bubble. The final
