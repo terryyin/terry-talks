@@ -68,8 +68,13 @@ names `tps-and-ai-film#english-square-film`; this story must not retire it as
 newly created. Management context: `/Users/terryyin/git/terry-talks/.git`.
 Ready preparation accepted at `6e709f2c7b9aa15559661e4023e0c8b1378e14b1`;
 Take accepted at `bbff752f5708edec02326460e3a1908196cdb1f4`, assigned author
-Honoka-chan. Both are recoverable on origin/master; the Take is also the initial
-published execution-branch base. Recorded readiness is not renewed by execution.
+Honoka-chan. Both are recoverable on origin/master. Startup left the reused
+remote execution branch at170f550 instead of advancing it to the Take. The
+first delivery helper's backwards replay stopped; only that owned failed
+rebase was aborted, restoring the exact verified af16b43 candidate. Installed
+`execution-increment-resume.mjs` confirmed its fast-forward ancestry and
+published that exact SHA to the execution branch, without rewriting history.
+It is the subsequent delivery base. Recorded readiness is not renewed by execution.
 
 Checkout-bound locked installation from prior production is reused at the same
 dependency state. After accepted startup, bundled-PATH
@@ -119,7 +124,7 @@ Slice2 must enlarge the tiny Japanese radical annotation for phone viewing.
 
 ### 2. Terry receives polished Japanese and English delivery files
 Type: Behavior
-Status: planned
+Status: done
 Proof: Japanese full muted360pixel playback, every caption/label frame review,
 English comparison, fresh complete exports/decode/metadata, matching SRTs and
 hash-verified stable delivery copies.
@@ -129,6 +134,31 @@ masking in the shared design. Preserve the approved English presentation.
 Produce both MP4s, matching SRTs and frame0 posters. Update the existing brief
 with maintained bilingual authoring/reproduction facts. Copy final verified
 files into default `terry-moves/out/` without changing unrelated local files.
+
+Accepted proof: actual Japanese radical still1080/native and360px prove the
+font44SVG/33native/11mobile annotation fits below unchanged kanji and above
+captions. Both actual package render routes exited0, producing2580 frames and
+frame0 posters. Full ffmpeg decodes exited0; ffprobe counted2580 frames in each,
+H.264/yuv420p/1080square/30fps, exact86second video and AAC48k stereo with16ms
+encoder padding. Both SRTs have19 identical intervals, canonical wording and
+source/delivery byte parity. Final Japanese MP4 SHA256:
+`beac3f7cd3c28a4306bfab504f1412ec936f668bdc5fb9c7dac938d51e29a91b`.
+Fresh English MP4 equals the approved source byte for byte:
+`12d7cb91fb4c77d469b86886ca54b09b1f0e3062c63a9ce5c05c39486468fca2`;
+all21 decoded comparison frames also have zero pixel delta.
+Root watched the final Japanese MP4 in a360square browser player, muted at1x
+from0 to86.016, reaching `ended:true` without media error. Three contact pages
+of21 actual decoded frames cover all19 captions plus opening/ending; Japanese
+headings, house, monitor statuses, radical, rule/stop/evidence, minimalism and
+credit fit and convey the argument. No discrepancies remain. All six final
+MP4/SRT/poster files were copied into default `terry-moves/out/` with source and
+destination hashes verified. Main's three unrelated local files remain
+byte-identical. The maintained brief describes paired bilingual authoring and
+both render routes. Fresh refactoring found no edits; selective Loom ESLint
+passed. Existing language/exporter/type/composition proof remains unchanged.
+The new Studio94970 was stopped gracefully with exit0; root's temporary phone
+preview is owned for cleanup. Hosted CI remains unavailable, with no observer
+armed, registration or shutdown receipt claimed.
 
 ## Concern review
 

@@ -1,18 +1,27 @@
-# Jidoka: Free to Move On — English film
+# Jidoka: Free to Move On — English and Japanese films
 
-A concise square film about Jidoka for AI-augmented software development.
+Two concise square editions about Jidoka for AI-augmented software development.
 The diagnostic is Terry’s: teams should be more freed than constrained by what
 they’ve built. The film explains how discovered judgment can live in simple
 mechanisms that stop known failures, preserve usable evidence, and release
 attention for the next needed problem.
 
-[film-script.json](film-script.json) owns the scene and caption clock:
+[film-script.json](film-script.json) owns the single scene and caption clock:
 **86 seconds at 30 fps, 1080 × 1080**, including a three-second ending hold.
-Its **133 English caption words in 19 timed ranges** carry the complete argument
-with sound off. There is no narration. Optional `lineBreakAfter` counts the
-words before an authored display break; the SRT retains the same wording and
-interval. Japanese appears only in the explicitly requested outlined **自働化**
-graphic; its explanation remains English.
+Its **133 English caption words in 19 timed ranges** and their paired Japanese
+translations carry the complete argument with sound off. There is no narration.
+Each caption keeps English in `spoken` and Japanese in `translations.ja`, beside
+the same `start`, `end` and `sourceIds`. English `lineBreakAfter` counts words
+before an authored display break; Japanese uses authored newline breaks in its
+translation. Both SRTs retain their wording and the same intervals.
+
+The editions share one scene tree, choreography, paintings, loom clip and music.
+[`language.tsx`](../terry-moves/src/tpsAndAi/language.tsx) keeps paired screen
+wording in a private catalog and selects it through the language hooks and
+provider used by those shared scene components. Maintain each English/Japanese
+pair together when wording changes. The Japanese edition localizes headings,
+house and stop labels, evidence, the radical annotation and credits; useful
+**AI/TPS** acronyms and the **Odd-e/Terry** names remain.
 
 ## Moving argument
 
@@ -20,13 +29,13 @@ graphic; its explanation remains English.
 | --- | --- | --- |
 | 0–9s | Complete Jidoka title, called-by-stop painting, generic stop display, question and genuine Odd-e logo are already composed at frame zero. The answer follows on the same artwork. | Judge AI use by the freedom created for its teams. |
 | 9–19s | The complete burden painting retains its stack, tethered people and distant doorway. | Yesterday’s software can block today’s higher-value work. |
-| 19–27s | An English reconstruction of the deck TPS house highlights the Jidoka pillar. | Toyota Production System has two pillars; this film explains Jidoka. |
+| 19–27s | The deck TPS house is reconstructed in the selected language and highlights the Jidoka pillar. | Toyota Production System has two pillars; this film explains Jidoka. |
 | 27–39s | The local schematic plays once: thread breaks, dropper falls, detection bar is blocked and drive stops. A fully visible stopped pose is held from source time 9s. The outlined kanji sits beneath the loom, with only the person radical red. | Human wisdom is built into the mechanism; the known abnormality causes a stop. |
-| 39–51s | Full watching and called-by-stop paintings share one geometry and dissolve over 0.6s. Generic CHECKING and STOP displays cover only their embedded screen planes. | People can be called by a stop instead of continuously watching the loom or their computer work. |
-| 51–66s | Solve, Preserve and Protect accumulate. Known rules meet a closed STOP path; simple checks and clear evidence remain. | Solve unfamiliar problems, preserve the learned judgment and stop known conditions. Leave information the next person or AI can use. |
+| 39–51s | Full watching and called-by-stop paintings share one geometry and dissolve over 0.6s. Generic CHECKING/確認中 and STOP/停止 displays cover only their embedded screen planes. | People can be called by a stop instead of continuously watching the loom or their computer work. |
+| 51–66s | Solve/解く, Preserve/残す and Protect/守る accumulate. Known rules meet a closed STOP/停止 path; simple checks and clear evidence remain. | Solve unfamiliar problems, preserve the learned judgment and stop known conditions. Leave information the next person or AI can use. |
 | 66–75s | Redundant outlines disappear while the necessary-behavior box and self-protection remain. | Keep as little as possible. Removing unnecessary structure preserves needed behavior. |
 | 75–83s | The fitted team painting keeps unattended checks at left, all people’s faces/hands and their prototype at right. | Build knowledge into the product and be free to move to the next needed problem. |
-| 83–86s | The freedom painting and title settle with **Idea and film from Terry**. | Exact credit holds while the score fades. |
+| 83–86s | The freedom painting and title settle with **Idea and film from Terry** in English or **発案・映像制作：Terry** in Japanese. | Exact credit holds while the score fades. |
 
 ## Fidelity and sources
 
@@ -63,19 +72,23 @@ The complete mark stays at x934/y40, 72 × 74 pixels, above every shot.
   no square crop or invented trail across people.
 - `watching-the-loom-watching-the-ai.png` and `called-by-the-stop.png`: retain
   both upper loom and lower developer relationships. Their embedded Claude Code
-  terminal writing is covered with generic CHECKING and STOP vector screen-plane
-  overlays. The paintings themselves are unchanged.
+  terminal writing is covered with generic CHECKING/確認中 and STOP/停止 vector
+  screen-plane overlays. The paintings themselves are unchanged.
 - `loom-warp-stop.mp4`: existing 11-second silent local animation. Play from
   its beginning and freeze the fully visible stopped pose at 9 seconds before
   its existing 9.5–10.1-second ending fade. It never loops or restarts.
-- `jidoka-human-radical.svg`: unchanged outlined kanji and English ninben label.
+- `jidoka-human-radical.svg`: byte-identical outlined kanji and English ninben
+  label. The Japanese edition overlays the annotation area, masking the small
+  English label and connector and showing a larger **にんべん＝人** label at
+  33px in the 1080px frame. The glyph outlines and red radical stay unchanged.
 - `jidoka-frees-software-team.png`: keep unattended checks, faces, hands and
   prototype together.
 - `odd-e-logo.png`: genuine complete 165 × 169 RGBA theme logo.
 
 The paintings are Terry’s original AI-assisted presentation artwork, rather
 than Toyota documentary images. Full provenance remains in the source
-inventory. The exact terminal credit is **Idea and film from Terry**.
+inventory. The exact English terminal credit remains **Idea and film from Terry**;
+the Japanese credit is **発案・映像制作：Terry**.
 
 The quiet original instrumental score is retained as `score.wav`. Its source,
 `terry-moves/scripts/tps-and-ai-score.mjs`, synthesizes sparse damped oscillator
@@ -83,7 +96,7 @@ plucks and open-fifth pads against the same scene clock. It uses no external
 recording, sample or music service. The loom stop has a short reduction with
 smooth gain edges; the ending fades for three seconds.
 
-## Reproduction and translation inputs
+## Reproduction and bilingual authoring
 
 Use Node **>=24.9.0** and pnpm **11.28.5** with the locked workspace dependencies.
 On this host prefix node/pnpm commands with
@@ -93,29 +106,45 @@ for bundled Node 24.19.0. From the repository root:
 ```sh
 pnpm --dir terry-moves exec remotion studio src/index.ts --no-open --port=3028
 pnpm --dir terry-moves render:tps-and-ai
+pnpm --dir terry-moves render:tps-and-ai:ja
 ```
 
-Open `http://localhost:3028/TPSAndAIFilm`; the nine independent scene compositions
-are registered in **TPS-scenes**. The render command regenerates score and SRT,
+Select **TPSAndAIFilm** for English or **TPSAndAIFilmJa** for Japanese in Studio
+(`http://localhost:3028/TPSAndAIFilm` or
+`http://localhost:3028/TPSAndAIFilmJa`). Both registrations use the shared full
+film; the Japanese wrapper selects its language. The nine independent scene
+compositions remain registered in **TPS-scenes** and default to English.
+
+Each render command regenerates the shared score and its language's SRT,
 exports H.264/yuv420p/bt709 MP4 with AAC audio and four rendering workers, then
 renders **frame 0** as the poster. Stable delivery filenames are:
 
-- `terry-moves/out/tps-and-ai-jidoka.mp4`
-- `terry-moves/out/tps-and-ai-jidoka-poster.png`
-- `terry-moves/out/tps-and-ai-jidoka-en.srt`
+| File | English | Japanese |
+| --- | --- | --- |
+| MP4 | `terry-moves/out/tps-and-ai-jidoka.mp4` | `terry-moves/out/tps-and-ai-jidoka-ja.mp4` |
+| Frame 0 poster | `terry-moves/out/tps-and-ai-jidoka-poster.png` | `terry-moves/out/tps-and-ai-jidoka-ja-poster.png` |
+| SRT | `terry-moves/out/tps-and-ai-jidoka-en.srt` | `terry-moves/out/tps-and-ai-jidoka-ja.srt` |
 
 For source-only regeneration:
 
 ```sh
 node scripts/tps-and-ai-subtitles.mjs
+node scripts/tps-and-ai-subtitles.mjs ja
+node scripts/tps-and-ai-subtitles.mjs all
 node terry-moves/scripts/tps-and-ai-score.mjs
 ```
 
-The subtitle wrapper reuses `scripts/film-subtitles.mjs`, writes
-[film-en.srt](film-en.srt) and copies that same file to the distinct Jidoka
-output filename. The English JSON/SRT are translation inputs; translate their
-wording without creating another clock. Captions use a protected y856–1010 area,
-56px text and no more than two authored lines. All other required explanation
-is also retained visibly without sound. Rendered files live in ignored `out/`;
-source inputs, retained media and deterministic score are checked in. This film
-needs no network asset or voice service at render time.
+The subtitle wrapper accepts `en` (the default), `ja` or `all`. It reuses
+`scripts/film-subtitles.mjs`, writes [film-en.srt](film-en.srt) and/or
+[film-ja.srt](film-ja.srt) from the paired canonical JSON, and copies each file
+to its corresponding delivery SRT above. Maintain caption wording in the JSON;
+regenerate the SRTs after edits.
+
+Captions use the same protected y856–1010 area and no more than two authored
+lines: English retains 56px text and its word-count display breaks; Japanese
+uses 48px Hiragino Kaku Gothic text and its authored newlines. Japanese headings
+use Hiragino Mincho, with the fallback font families declared in `language.tsx`.
+All other required explanation is also retained visibly without sound.
+Rendered files live in ignored `out/`; source inputs, retained media and
+deterministic score are checked in. These films need no network asset or voice
+service at render time.

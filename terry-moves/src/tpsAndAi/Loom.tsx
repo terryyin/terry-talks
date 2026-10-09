@@ -9,6 +9,7 @@ export const LoomPicture: React.FC<{ seconds: number; fps: number }> = ({ second
 		<Freeze frame={loomFrameAt(seconds, fps)}><OffthreadVideo src={staticFile('assets/tps-and-ai/loom-warp-stop.mp4')} muted style={{ width: '100%', height: '100%' }} /></Freeze>
 	</div>
 	<Art file="jidoka-human-radical.svg" style={{ left: 315, top: 660, width: 450, height: 180 }} />
-	{japanese ? <svg data-testid="radical-translation" viewBox="0 0 600 240" style={{ position: 'absolute', left: 315, top: 660, width: 450, height: 180 }}><rect x="140" y="212" width="194" height="28" fill={palette.paper} /><text x="237" y="234" textAnchor="middle" fill="#c33b2b" fontFamily={JA_FONT_FAMILY} fontSize="21">{text('radical')}</text></svg> : null}
+	{/* Japanese replaces the small annotation and connector beneath the unchanged glyph outlines. */}
+	{japanese ? <svg data-testid="radical-translation" viewBox="0 0 600 240" style={{ position: 'absolute', left: 315, top: 660, width: 450, height: 180 }}><rect x="60" y="191" width="354" height="49" fill={palette.paper} /><text x="237" y="236" textAnchor="middle" fill="#c33b2b" fontFamily={JA_FONT_FAMILY} fontSize="44">{text('radical')}</text></svg> : null}
 </>; };
 export const Loom: React.FC = () => { const seconds = useSeconds('loom'); const { fps } = useVideoConfig(); return <Shot seconds={seconds} id="loom"><LoomPicture seconds={seconds} fps={fps} /></Shot>; };
