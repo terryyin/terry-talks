@@ -156,9 +156,22 @@ destination hashes verified. Main's three unrelated local files remain
 byte-identical. The maintained brief describes paired bilingual authoring and
 both render routes. Fresh refactoring found no edits; selective Loom ESLint
 passed. Existing language/exporter/type/composition proof remains unchanged.
-The new Studio94970 was stopped gracefully with exit0; root's temporary phone
-preview is owned for cleanup. Hosted CI remains unavailable, with no observer
+The new Studio94970 and root's temporary phone preview3031 were stopped
+gracefully with exit0; both owned browser review tabs were closed. Hosted CI remains unavailable, with no observer
 armed, registration or shutdown receipt claimed.
+
+## Execution complete
+
+Product advice: Both editions satisfy the accepted viewer outcome; no delivered
+film or architectural defect remains. Queue the bounded
+`terry-moves-filmmaking#subtitle-export-test-isolation` correction first before
+further film work: actual exporter tests currently rewrite repository artifacts,
+and the new default checks expand that risk to neighboring films. Its ready
+one-Structure-slice plan preserves real CLI and caption proof through disposable
+fixtures. Otherwise preserve existing direction and queue order. Process review
+was skipped by the absent configuration default. Hosted CI remains unavailable
+and unobserved; no observer, completion or shutdown receipt is claimed, and the
+reused worktree and execution branch remain retained.
 
 ## Concern review
 
