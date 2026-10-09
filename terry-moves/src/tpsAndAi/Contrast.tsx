@@ -1,14 +1,14 @@
 import React from 'react';
 import { Art, Heading, palette, Shot, useSeconds } from './Frame';
 import { cue, film, progress } from './film';
-import { JA_FONT_FAMILY, useFilmLanguage, useFilmText } from './language';
+import { useFilmText, useLocalizedFilmFonts } from './language';
 type PaintingState = 'watching' | 'stopped';
 /** Native painting geometry; cover only the screen plane, retaining its frame. */
-export const PairedPainting: React.FC<{ state: PaintingState; style?: React.CSSProperties }> = ({ state, style }) => { const text = useFilmText(); const japanese = useFilmLanguage() === 'ja'; return <div data-testid={`paired-${state}`} style={{ position: 'absolute', left: 60, top: 285, width: 960, height: 540, ...style }}>
+export const PairedPainting: React.FC<{ state: PaintingState; style?: React.CSSProperties }> = ({ state, style }) => { const text = useFilmText(); const fonts = useLocalizedFilmFonts(); return <div data-testid={`paired-${state}`} style={{ position: 'absolute', left: 60, top: 285, width: 960, height: 540, ...style }}>
 	<Art file={state === 'watching' ? 'watching-the-loom-watching-the-ai.png' : 'called-by-the-stop.png'} style={{ inset: 0, width: '100%', height: '100%' }} />
 	<svg viewBox="0 0 1536 864" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
 		<polygon points={state === 'watching' ? '889,545 1252,483 1249,725 889,711' : '889,529 1242,488 1225,752 895,731'} fill="#242420" />
-		<g fill={state === 'watching' ? '#d8d2c8' : '#e58b72'} textAnchor="middle" fontFamily={japanese ? JA_FONT_FAMILY : 'Arial, sans-serif'} transform={state === 'watching' ? 'translate(1070 595) skewY(-6)' : 'translate(1063 578) skewY(-4)'}>
+		<g fill={state === 'watching' ? '#d8d2c8' : '#e58b72'} textAnchor="middle" fontFamily={fonts?.sans ?? 'Arial, sans-serif'} transform={state === 'watching' ? 'translate(1070 595) skewY(-6)' : 'translate(1063 578) skewY(-4)'}>
 			<text y="50" fontSize={state === 'watching' ? 44 : 76} fontWeight="600">{text(state === 'watching' ? 'checking' : 'stop')}</text>
 		</g>
 	</svg>

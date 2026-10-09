@@ -29,6 +29,9 @@ export const TPSFilm: React.FC<{ language?: FilmLanguage }> = ({ language = 'en'
 	</Paper></FilmLanguageProvider>;
 };
 
+export const TPSFilmZhHant: React.FC = () => <TPSFilm language="zh-Hant" />;
+export const TPSAndAIFilmZhHant: React.FC = () => <Composition id="TPSAndAIFilmZhHant" component={TPSFilmZhHant} durationInFrames={durationInFrames} fps={film.fps} width={film.width} height={film.height} />;
+
 export const TPSFilmJa: React.FC = () => <TPSFilm language="ja" />;
 export const TPSAndAIFilmJa: React.FC = () => <Composition id="TPSAndAIFilmJa" component={TPSFilmJa} durationInFrames={durationInFrames} fps={film.fps} width={film.width} height={film.height} />;
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Heading, palette, sans, Shot, useSeconds } from './Frame';
-import { JA_FONT_FAMILY, useFilmLanguage, useFilmText } from './language';
-export const HousePicture: React.FC = () => { const text = useFilmText(); const japanese = useFilmLanguage() === 'ja'; return <>
+import { useFilmLanguage, useFilmText, useLocalizedFilmFonts } from './language';
+export const HousePicture: React.FC = () => { const text = useFilmText(); const fonts = useLocalizedFilmFonts(); const japanese = useFilmLanguage() === 'ja'; return <>
 	<Heading style={{ fontSize: 66 }}>{text('house')}</Heading>
-	<svg data-testid="tps-house" viewBox="0 0 1080 1080" style={{ position: 'absolute', inset: 0, fontFamily: japanese ? JA_FONT_FAMILY : sans }}>
+	<svg data-testid="tps-house" viewBox="0 0 1080 1080" style={{ position: 'absolute', inset: 0, fontFamily: fonts?.sans ?? sans }}>
 		<path d="M90 424 L540 220 L990 424 Z" fill={palette.ink} stroke={palette.ink} strokeWidth="5" strokeLinejoin="round" />
 		<g textAnchor="middle" fill={palette.paper}><text x="540" y="325" fontSize="48">{text('quality')}</text><text x="540" y="388" fontSize="34">{text('costAndLeadTime')}</text></g>
 		<rect x="138" y="424" width="804" height="314" fill="#f5efe5" stroke={palette.gray} strokeWidth="4" />

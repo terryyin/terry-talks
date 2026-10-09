@@ -49,6 +49,25 @@ consequential architectural decision.
 
 ## Existing solutions and decisive premises
 
+Execution context: Story Branch Mode, retained checkout and branch above;
+publisher `jidoka-zh-hant-01a11b61`, host `codex`, repo `terryyin/terry-talks`.
+Prepared contract accepted on origin/master at
+`ff478d4373cd0960c6c85366c8b861e9bc597a52`; Take accepted there at
+`81106ce0df2a24df73915282293b013882d24842`, assigned author Anri-chan.
+The reused execution branch was brought forward to that exact Take through
+the installed resume operation without rewriting published history. This is
+the first implementation delivery base. Worktree `created:false`; management
+context `/Users/terryyin/git/terry-talks/.git`, original creation identity retained.
+The same checkout-bound locked dependency installation is reused unchanged;
+post-Take bundled-PATH `pnpm --dir terry-moves exec tsc --noEmit` exited0.
+No Git hooks are installed; selective ESLint remains coordinator-owned.
+Scoped replanning is authorized within this film outcome; no numeric slice
+limit is supplied. No hosted workflow or live observer exists; retain the
+coverage gap rather than claiming CI or shutdown. Studio is locally owned on
+port3033 (PTY7595), IAB tab7, showing the approved shared composition before edits.
+Existing default-checkout deliveries were SHA256-snapshotted before changes
+in `/private/tmp/jidoka-zh-hant-preserved-deliveries.json`.
+
 1. PFE traced `FilmLanguage`, caption `translations`, `useFilmText`, the actual
    Root registrations, all TPS scene consumers, and all `exportFilmSubtitles`
    callers with `rg` across `terry-moves`, `scripts`, and film content. The
@@ -119,7 +138,7 @@ each slice; manual playback observation is explicitly part of this plan.
 
 ### 1. Select and preview Traditional Chinese through the shared film
 Type: Behavior
-Status: planned
+Status: done
 Proof: Real Root registration and selected shared scenes show the reviewed
 Chinese argument and screen text; all 19 embedded/exported captions agree;
 English/Japanese consumers and default callers remain green. Early actual
@@ -132,6 +151,28 @@ viewer-text catalog, locale styling, thin registration and subtitle selection
 together. Keep translated word lengths and line breaks within the existing
 clock. Record representative render probes and correct any layout discrepancy
 before accepting this preview slice; leave the usable selected preview intact.
+
+Accepted proof: the actual Root-selected three-language consumer and real CLI
+tests passed3suites/46tests under the literal focused command above. The
+external guard `/private/tmp/jidoka-zh-hant-srt-proof.py` restored all9 reached
+SRT bytes/existence after the terminal result. Root inspected the real Root
+transport setup, shared component/media observations, all19 caption intervals
+at start/midpoint/last active frame, fresh six-output all-mode observations,
+all four English defaults and explicit unknown/missing-language rejection.
+Actual composition enumeration exited0 with all three2580/30/1080 editions;
+one unrelated existing StorySimpleExample flower scene.bin404 is outside TPS.
+Independent review of all19 actual Chinese captions and the full catalog found
+no corrections. Each actual Chromium still0/202/600/1080/1260/1440/1800/1905/
+2220/2540 exited0; root inspected all ten at360px plus the IAB opening/house/
+loom. HeitiTC/SongtiTC glyphs, line breaks, labels, radical mask, closed-stop
+diagram and credit fit. The visual gate is passed. Source JSON equals the
+approved baseline after removing only the new Chinese translations.
+Fresh refactoring consolidated the five consumers' localized font selection
+in the existing language seam, preserving every font string/geometry; protected
+46-test proof and tsc were rerun successfully. Current font/layout observations
+remain valid. Coordinator selective ESLint on11changedTS/TSX paths exited0.
+Only full actual export/playback/decoded-frame review, retained EN/JA render
+comparison, stable copies and maintained authoring documentation remain.
 
 ### 2. Watch and retain the complete Traditional Chinese edition
 Type: Behavior

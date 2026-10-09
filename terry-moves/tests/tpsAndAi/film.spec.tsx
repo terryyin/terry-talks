@@ -63,39 +63,49 @@ describe('the actual Jidoka film', () => {
 			expect(lines.join(' ')).toBe(caption.spoken);
 			expect(lines.length).toBeLessThanOrEqual(2);
 			if (lines.length > 1) expect(lines[0]).not.toMatch(/\b(?:the|a|an)$/i);
-			const japanese = picture(<FilmLanguageProvider language="ja"><Captions seconds={caption.start} /></FilmLanguageProvider>);
-			expect(japanese.textContent).toBe(caption.translations.ja);
-			expect(japanese.textContent!.split('\n').length).toBeLessThanOrEqual(2);
+			for (const language of ['ja', 'zh-Hant'] as const) {
+				const localized = picture(<FilmLanguageProvider language={language}><Captions seconds={caption.start} /></FilmLanguageProvider>);
+				expect(localized.textContent).toBe(caption.translations[language]);
+				expect(localized.textContent!.split('\n').length).toBeLessThanOrEqual(2);
+			}
 		}
 		expect(picture(<FilmLanguageProvider language="ja"><Captions seconds={0} /></FilmLanguageProvider>).textContent).toBe('組織がAIをうまく使えているか、\nどうすればわかる？');
+		expect(picture(<FilmLanguageProvider language="zh-Hant"><Captions seconds={0} /></FilmLanguageProvider>).textContent).toBe('如何判斷組織\n有沒有善用 AI？');
 	});
 
-	it.each<FilmLanguage>(['en', 'ja'])('exports exactly the %s intervals and text selected by the embedded caption consumer', (language) => {
+	it.each<FilmLanguage>(['en', 'ja', 'zh-Hant'])('exports exactly the %s intervals and text selected by the embedded caption consumer', (language) => {
+		const sourceFile = path.resolve(process.cwd(), `../TPS and AI/film-${language.toLowerCase()}.srt`);
+		const deliveryFile = path.resolve(process.cwd(), `out/tps-and-ai-jidoka-${language.toLowerCase()}.srt`);
+		const before = [sourceFile, deliveryFile].map((file) => ({ file, contents: existsSync(file) ? readFileSync(file) : undefined }));
+		try {
 		execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs'), language]);
-		const srt = readFileSync(path.resolve(process.cwd(), `../TPS and AI/film-${language}.srt`), 'utf8');
-		const delivery = readFileSync(path.resolve(process.cwd(), `out/tps-and-ai-jidoka-${language}.srt`), 'utf8');
+		const srt = readFileSync(sourceFile, 'utf8');
+		const delivery = readFileSync(deliveryFile, 'utf8');
 		expect(delivery).toBe(srt);
 		const subtitles = parseSubtitles(srt);
 		const captions = film.scenes.flatMap((scene) => scene.captionRanges);
 		expect(subtitles).toHaveLength(captions.length);
 		subtitles.forEach((subtitle, index) => {
 			const caption = captions[index];
-			expect(subtitle).toEqual({ index: index + 1, start: caption.start, end: caption.end, text: language === 'ja' ? caption.translations.ja : caption.spoken });
+			expect(subtitle).toEqual({ index: index + 1, start: caption.start, end: caption.end, text: language === 'en' ? caption.spoken : caption.translations[language] });
 			for (const at of [subtitle.start, (subtitle.start + subtitle.end) / 2, subtitle.end - 1 / film.fps]) {
 				expect(captionAt(at)).toBe(caption);
 				const displayed = picture(<FilmLanguageProvider language={language}><Captions seconds={at} /></FilmLanguageProvider>).textContent!;
-				expect(language === 'ja' ? displayed : displayed.replace(/\s+/g, ' ').trim()).toBe(subtitle.text);
+				expect(language === 'en' ? displayed.replace(/\s+/g, ' ').trim() : displayed).toBe(subtitle.text);
 			}
 			expect(captionAt(subtitle.end)).not.toBe(caption);
 		});
 		for (const at of [83, 85.9]) expect(picture(<FilmLanguageProvider language={language}><Captions seconds={at} /></FilmLanguageProvider>).textContent).toBe('');
+		} finally {
+			before.forEach(({ file, contents }) => contents === undefined ? rmSync(file, { force: true }) : writeFileSync(file, contents));
+		}
 	});
 
-	it('exports fresh bilingual source and delivery subtitles when all editions are requested', () => {
-		const outputs = (['en', 'ja'] as const).map((language) => ({
+	it('exports fresh source and delivery subtitles when all editions are requested', () => {
+		const outputs = (['en', 'ja', 'zh-Hant'] as const).map((language) => ({
 			language,
-			source: path.resolve(process.cwd(), `../TPS and AI/film-${language}.srt`),
-			delivery: path.resolve(process.cwd(), `out/tps-and-ai-jidoka-${language}.srt`),
+			source: path.resolve(process.cwd(), `../TPS and AI/film-${language.toLowerCase()}.srt`),
+			delivery: path.resolve(process.cwd(), `out/tps-and-ai-jidoka-${language.toLowerCase()}.srt`),
 		}));
 		const before = outputs.flatMap(({ source, delivery }) => [source, delivery]).map((file) => ({
 			file, contents: existsSync(file) ? readFileSync(file) : undefined,
@@ -107,7 +117,7 @@ describe('the actual Jidoka film', () => {
 			for (const { language, source, delivery } of outputs) {
 				const srt = readFileSync(source, 'utf8');
 				expect(parseSubtitles(srt)).toEqual(film.scenes.flatMap((scene) => scene.captionRanges).map((caption, index) => ({
-					index: index + 1, start: caption.start, end: caption.end, text: language === 'ja' ? caption.translations.ja : caption.spoken,
+					index: index + 1, start: caption.start, end: caption.end, text: language === 'en' ? caption.spoken : caption.translations[language],
 				})));
 				expect(readFileSync(delivery, 'utf8')).toBe(srt);
 			}

@@ -1,7 +1,7 @@
 import script from '../../../TPS and AI/film-script.json';
 
 export type SceneId = 'hook' | 'burden' | 'house' | 'loom' | 'contrast' | 'judgment' | 'minimalism' | 'freedom' | 'closing';
-export type CaptionRange = { start: number; end: number; spoken: string; translations: { ja: string }; sourceIds: string[]; lineBreakAfter?: number };
+export type CaptionRange = { start: number; end: number; spoken: string; translations: { ja: string; 'zh-Hant': string }; sourceIds: string[]; lineBreakAfter?: number };
 export type FilmScene = { id: SceneId; start: number; end: number; label: string; captionRanges: CaptionRange[]; creditStart?: number; creditLines?: string[] };
 export const film = script as Omit<typeof script, 'scenes'> & { scenes: FilmScene[] };
 export const durationInFrames = Math.round(film.duration * film.fps);
