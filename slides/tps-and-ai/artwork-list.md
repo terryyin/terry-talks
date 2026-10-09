@@ -949,8 +949,10 @@ Mermaid only auto-places.
 - **"The engine of freedom and trust"** (after the JIT-flow beat):
   Figure 1 of the Claim 22 companion CLD — loops R1+R2, five
   plain-language variables. Done — embedded as mermaid; labels stay
-  typeset text. Room to learn and freedom to follow real need use the
+  typeset text. Freedom to learn and trust people with real needs use the
   vermilion accent; learning and earned-confidence links show their delays.
+  The organization's confidence in the team is the key, highlighted with
+  the metallic gold-leaf material (G31) behind its editable bilingual label.
   Jidoka/autonomation and Just-in-time label the endpoints, with a direct
   safeguards-to-confidence link and the level balance (G20) below the CLD.
   Optional polish: click-reveal walk of the loop.
@@ -1043,6 +1045,26 @@ Asset type: transparent spot illustration for an existing TPS and AI software-de
 Reference image: the supplied crane illustration is a style reference only, not a subject to include.
 Scene: a small team working on one tabletop bridge model. On the left, a seated engineer has carefully verified a straight bridge deck with a simple mechanical width gauge: it fits correctly. On the right, a customer tests the model with a clearly recognizable baby stroller, but the bridge's stair entrance prevents the stroller from reaching the otherwise sound deck. The engineer and customer notice this specific mismatch together. In the foreground another engineer is sketching a ramp on a single sheet beside the existing bridge; the ramp is an unbuilt design idea, indicated by a few vermilion strokes. The existing bridge and its gauge remain black and gray. This should clearly convey "the checked design can still miss what the person needs", with no written labels or symbols. A conceptual analogy for software, not a historical Toyota event.
 Keep this one coherent scene, a simple clearly visible bridge with a short staircase and a stroller wheel stopped before the first step. People are observant and resourceful. No robots, no screens filled with fake code, no factory skyline, no badges, no border, no extra figures or decorative clutter. The transparent surroundings allow the scene to blend into the existing warm paper slide; preserve light paper wash only inside the drawing. Wide landscape spot illustration, all faces and objects fully visible.
+```
+
+### G31. Organization's confidence — metallic gold material
+
+- **Status:** done — `public/organization-confidence-gold.png`.
+- **Slide:** "The engine of freedom and trust"
+- **Placement:** background of the organization's confidence node only.
+  The English and Japanese stay editable Mermaid text in dark ink.
+- **Meaning:** Terry identifies earned organizational confidence as the key.
+  Gold is a reflective material here, with visible foil grain and highlights.
+- **Style exception:** the requested metallic texture uses a realistic
+  material swatch rather than the deck's sumi-e illustration prefix.
+- **Generation:** built-in imagegen on 9 October 2026, opaque square surface.
+- **Original output:** `exec-d73c4291-ad87-4d24-bd3d-405f1f1cd0f9.png`.
+- **Dimensions:** 1254 × 1254.
+- **SHA-256:** `4152c3032c165734d01979d4ff54f28b72add224bafc7a7aabe4e875b4a8a254`.
+- **Complete generation prompt:**
+
+```text
+A realistic material texture swatch of warm metallic gold leaf, photographed close up. A single uninterrupted surface, with fine irregular foil grain, restrained tiny creases and softly changing directional reflections. Gentle broad highlights and warm ochre midtones make it unmistakably reflective metal, not a flat yellow fill, glitter, wood, or fabric. Keep the texture subtle enough to place small dark text over it: low contrast grain, no black cracks, no white blown-out areas, no objects or decorations. Entire square canvas is the gold surface, flat facing the viewer, lit softly from upper left with a faint reflective diagonal sheen. No text, no letters, no border, no watermark. For a background inside one small editable presentation diagram node.
 ```
 
 ## Slides intentionally without artwork
