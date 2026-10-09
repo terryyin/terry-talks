@@ -176,7 +176,7 @@ comparison, stable copies and maintained authoring documentation remain.
 
 ### 2. Watch and retain the complete Traditional Chinese edition
 Type: Behavior
-Status: planned
+Status: done
 Proof: The actual full package render produces a decodable 86-second square
 MP4, matching SRT and opening poster. Full muted phone-size playback and all
 caption-midpoint decoded frames pass; EN/JA retained delivery bytes are unchanged.
@@ -188,6 +188,33 @@ alongside the English and Japanese versions and document all three edition
 commands and shared authoring homes. Playback review owns complete-film pacing
 and readability beyond isolated stills. Keep the original score and artwork;
 any local polish must preserve EN/JA selections through the affected proof.
+
+Accepted proof: the literal bundled-PATH `pnpm --dir terry-moves
+render:tps-and-ai:zh-hant` production command exited0, including frame-zero
+poster. ffprobe exited0: H264/yuv420p/bt7091080×1080 at30fps,2580frames,
+86.000s video; AAC stereo48kHz and86.016s padded container. Full ffmpeg
+`-v error -xerror` decode exited0 without errors. All19Chinese SRT texts and
+intervals match canonical JSON; source/delivery bytes agree. Poster pixels
+match the accepted frame0probe. Literal commands and metadata are retained
+for this execution in ignored `out/zh-hant-production-proof.json`.
+Root decoded21actual MP4frames: opening, every caption midpoint and2579;
+all were reviewed at360px on three contact pages. No clipping, missing glyph,
+overlap or argument discrepancy was found. Complete normal-rate muted
+playback on the360px local player reached86.016s with `ended:true`,
+`muted:true`, `rate:1`, `error:null`; final credit is present. Manual result:
+Good. Six actual current EN/JA Chromium stills600/1080/1905 each exited0;
+root compared them at360px with decoded accepted-film references and found
+preserved wording/layout/glyphs. This is a visual comparison, not pixel
+identity across PNG and compressed MP4. All8protected default delivery hashes
+remain unchanged. Root copied the three Chinese outputs to the default
+checkout's stable ignored out paths and verified matching SHA256s, including
+MP4 `37b0a83d4db21f47c414e5b320e32e14c6005cdb5ca2b377d1b754ab1c7d28da`.
+The maintained film brief describes all3editions, shared authoring, reproduction
+routes and font policies. No implementation polish or repeated test run was
+needed after the accepted font/layout probe. Fresh independent post-change
+refactor found the three-edition brief already coherent and accurate; no edits.
+Coordinator formatting is a no-op for these Markdown-only changes; diff check
+exited0. Slice1 accepted increment is8f902863f4513c83f1689f559b2eedc64daef4c5.
 
 ## Concern review
 
