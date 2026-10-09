@@ -9,6 +9,30 @@ language choice is English first, with shared source ready for translations.
 This preparation uses the established `codex/jidoka-film-remake` worktree;
 queue, Take, execution and publication remain the coordinator's responsibility.
 
+## Execution context
+
+Mode: Story Branch; execution checkout
+`/Users/terryyin/git/terry-talks/.worktrees/jidoka-film-remake`, branch
+`codex/jidoka-film-remake`; default/integration checkout
+`/Users/terryyin/git/terry-talks`, authorized target `origin/master`, repo
+`terryyin/terry-talks`, host `codex`, publisher `jit-film-01a11b61`.
+Preparation accepted on master at0af1ca16314321990f5706e84fa1026e98ef8dfa;
+Take accepted there at1869c91c06d03ae98ef0cb2f630542f4b0451736,
+assigned author Koharu-chan. Installed resume advanced the existing remote
+execution branch to that exact Take without rewriting history; it is the
+first implementation delivery base. Worktree created:false, original creation
+identity `tps-and-ai-film#english-square-film`, management context
+`/Users/terryyin/git/terry-talks/.git`. No model identifier was guessed.
+The same checkout-bound locked dependencies are reused unchanged. Post-Take
+bundled-PATH `pnpm --dir terry-moves exec remotion studio src/index.ts --no-open
+--port=3033` started and built successfully; Studio is root-owned PTY24672,
+IABtab9, displaying the accepted shared TPS composition before new edits.
+No Git hooks are installed; selective ESLint remains coordinator-owned.
+No hosted workflow/observer is available, and hosted CI stays unobserved.
+Default human untracked `.pnpm-store/` and `output/` remain preserved.
+Scoped replanning within this movie outcome is authorized; no numeric limit
+is supplied. One complete film slice owns source, layout, export and review.
+
 ## Goal and scope
 
 Make a complete, publishable English second part of TPS and AI in the approved
@@ -114,7 +138,7 @@ and publication gates still apply; source/plan cleanup belongs to wrap-up.
 
 ### 1. Terry can watch and publish JIT: Ready to Respond
 Type: Behavior
-Status: planned
+Status: done
 Proof: Actual Root-selected film and real exporter satisfy the mapped focused
 checks; TypeScript passes; exported files have the promised format; one phone-size
 viewing verifies argument, caption fit, original art, music and closing credit.
@@ -135,3 +159,43 @@ and export slices. The original asset and source/exporter premises were observed
 new composition layout is part of the owned film proof. No remaining slice,
 ownership, proof or architectural concern was identified. There is no supplied
 numeric slice limit; no artificial time policy or S/M/L band is assigned.
+
+## Accepted slice proof
+
+The actual Root-selected JIT composition and isolated real subtitle CLI passed
+8 focused checks. The reached existing four-language consumer suite passed
+31 checks, the shared House preservation assertion passed, and TypeScript
+passed. Independent final script review accepted all 16 captions and the
+Toyota/LeSS/Terry source distinctions. No neighboring SRTs were written.
+
+Independent post-change refactoring extracted only settled caption presentation
+into the shared TPS Frame. 199 actual mounted before/after observations matched
+text, attributes, inline declarations and resolved CSS across JIT English and
+all four Jidoka editions; 38 affected checks and TypeScript passed. A subsequent
+read-only review accepted the source-owned need-view clip as cohesive. Its six
+focused JIT checks and TypeScript passed; selective ESLint passed.
+
+Coordinator review of the exported film completed one full 1x muted playback at
+360 pixels, ending at86.016 seconds with error:null. All 16 caption midpoints,
+frame zero, five panorama focus moments and the closing credit were inspected
+from the actual encoded MP4 at phone size. Captions fit, the argument and causal
+order were clear, and the exact final credit was held. One observed stray leg
+fragment in the 62–64-second crop was removed; its final encoded63-second view
+was reviewed clean. This observed issue alone justified the final export.
+
+The approved score is unchanged at volume0.75. Actual decoded export audio
+measured overall RMS−23.24dBFS, peak−7.16dBFS; its final0.2 seconds fell to
+RMS−43.96dBFS, confirming the retained quiet level, headroom and fade. This
+signal review reuses the music Terry already accepted; no new auditory judgment
+is claimed.
+
+The final named package export exited0: H.264/yuv420p/bt709,1080×1080,30fps,
+2580video frames,86.000 seconds, AAC stereo48kHz (container86.016 seconds due to
+audio padding). Complete ffmpeg decode exited0 without errors. Poster is1080
+square and corresponds to encoded frame zero. Source/delivery SRTs match byte
+for byte, all16 exact source intervals/text, and the last caption ends at83s.
+Jidoka source/artifacts are preserved; unchanged editions were not rendered.
+
+Implementation proof and the full film outcome are complete. Hosted CI remains
+unobserved because the repository has no configured workflow or observer; no
+CI-green or observation-shutdown completion claim is made.

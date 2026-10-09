@@ -22,11 +22,12 @@ const captionLines = (text: string, lineBreakAfter?: number): string => {
 	const words = text.split(' ');
 	return `${words.slice(0, lineBreakAfter).join(' ')}\n${words.slice(lineBreakAfter).join(' ')}`;
 };
+export const CaptionText: React.FC<{ text?: string; lineBreakAfter?: number; language?: string; style?: React.CSSProperties }> = ({ text = '', lineBreakAfter, language = 'en', style }) => <div data-testid="film-caption" lang={language} style={{ position: 'absolute', left: 64, right: 64, top: 856, height: 154, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-line', fontSize: 56, lineHeight: 1.19, letterSpacing: -0.8, color: palette.ink, ...style }}>{captionLines(text, lineBreakAfter)}</div>;
 export const Captions: React.FC<{ seconds: number }> = ({ seconds }) => {
 	const caption = captionAt(seconds);
 	const language = useFilmLanguage();
 	const fonts = useLocalizedFilmFonts();
-	return <div data-testid="film-caption" lang={language} style={{ position: 'absolute', left: 64, right: 64, top: 856, height: 154, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', whiteSpace: 'pre-line', fontSize: language === 'en' ? 56 : 48, lineHeight: language === 'th' ? 1.35 : 1.19, fontWeight: 400, letterSpacing: language === 'en' ? -0.8 : 0, color: palette.ink, ...(fonts ? { fontFamily: fonts.sans } : {}) }}>{caption ? language === 'en' ? captionLines(caption.spoken, caption.lineBreakAfter) : caption.translations[language] : ''}</div>;
+	return <CaptionText text={caption ? language === 'en' ? caption.spoken : caption.translations[language] : ''} lineBreakAfter={language === 'en' ? caption?.lineBreakAfter : undefined} language={language} style={{ fontSize: language === 'en' ? 56 : 48, lineHeight: language === 'th' ? 1.35 : 1.19, fontWeight: 400, letterSpacing: language === 'en' ? -0.8 : 0, ...(fonts ? { fontFamily: fonts.sans } : {}) }} />;
 };
 export const Shot: React.FC<React.PropsWithChildren<{ seconds: number; id: SceneId }>> = ({ seconds, id, children }) => <Paper>
 	<div data-scene={id} style={{ position: 'absolute', inset: 0 }}>{children}</div>

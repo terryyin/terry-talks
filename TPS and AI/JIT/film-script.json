@@ -1,0 +1,102 @@
+{
+  "title": "JIT: Ready to Respond",
+  "subtitle": "Part two of TPS and AI",
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "duration": 86,
+  "voice": "No narration; English captions carry the complete argument.",
+  "music": "Reuse the approved 86-second TPS score at volume 0.75, including its final three-second fade.",
+  "sources": {
+    "stockpile": {"kind": "Terry's software synthesis", "reference": "slides/tps-and-ai/slides.md: green-light stockpile and JIT section; claims 3 and 4"},
+    "house": {"kind": "Deck reconstruction of the TPS house", "reference": "slides/tps-and-ai/slides.md: Two houses, different layers; claim 2", "primarySource": "https://global.toyota/en/company/vision-and-philosophy/production-system/"},
+    "jit": {"kind": "Toyota operational definition", "reference": "slides/tps-and-ai/slides.md: Just-in-Time, from line 990; claims 3, 4 and 17", "primarySource": "https://global.toyota/en/company/vision-and-philosophy/production-system/", "boundary": "Synchronized flow with minimum ready stocks; not zero inventory or everything made from scratch after an order."},
+    "resourceful": {"kind": "Terry's interpretation, inspired by Kazumasa Ebata's oral teaching", "reference": "slides/tps-and-ai/slides.md: JIT entrusts people; claims 3, 4 and 14", "boundary": "Neither a Toyota definition nor an authenticated Toyota/Ohno quotation. Scarcity alone does not create capability."},
+    "pull": {"kind": "Terry's software synthesis", "reference": "slides/tps-and-ai/slides.md: Pull: smaller customer problems and feedback; claim 17", "boundary": "A small useful customer outcome pulls necessary work; standards and owned checks still apply."},
+    "integration": {"kind": "Continuous-integration practice and Terry's collaboration synthesis", "reference": "slides/tps-and-ai/slides.md: Integration and coordination; claims 8 and 21", "primarySource": "https://less.works/less/technical-excellence/continuous-integration", "boundary": "Frequent small mainline changes keep a working product; an automated green build alone is insufficient."}
+  },
+  "artwork": [
+    {"file": "green-light-stockpile.png", "source": "slides/tps-and-ai/public/green-light-stockpile.png"},
+    {"file": "jit-resourceful-response.png", "source": "slides/tps-and-ai/public/jit-resourceful-response.png"},
+    {"file": "pull-customer-need.png", "source": "slides/tps-and-ai/public/pull-customer-need.png"},
+    {"file": "pull-customer-feedback.png", "source": "slides/tps-and-ai/public/pull-customer-feedback.png"},
+    {"file": "integration-coordination.png", "source": "slides/tps-and-ai/public/integration-coordination.png"}
+  ],
+  "scenes": [
+    {
+      "id": "hook", "start": 0, "end": 10, "label": "JIT: Ready to Respond",
+      "heading": "JIT", "subheading": "Ready to Respond", "translations": {},
+      "asset": "green-light-stockpile.png",
+      "captionRanges": [
+        {"start": 0, "end": 5.5, "spoken": "AI can produce more. But can your team respond better?", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["stockpile"]},
+        {"start": 5.5, "end": 10, "spoken": "A stockpile of generated code is still a stockpile.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["stockpile"]}
+      ],
+      "action": "Fully composed title and complete stockpile painting at frame zero. Preserve the green signal, full tower and person."
+    },
+    {
+      "id": "house", "start": 10, "end": 27, "label": "Toyota Production System",
+      "heading": "Toyota Production System", "translations": {},
+      "captionRanges": [
+        {"start": 10, "end": 16, "spoken": "Just-in-Time is the other pillar of the Toyota Production System.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["house", "jit"]},
+        {"start": 16, "end": 22, "spoken": "Only what is needed, when needed, in the amount needed.", "lineBreakAfter": 6, "translations": {}, "sourceIds": ["jit"]},
+        {"start": 22, "end": 27, "spoken": "Minimum stock. Dependable flow. Not constant activity.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["jit"]}
+      ],
+      "action": "Reuse the shared TPS house, highlighting its JIT pillar. The Jidoka edition's default highlight remains unchanged."
+    },
+    {
+      "id": "resourceful", "start": 27, "end": 38, "label": "Capable response",
+      "heading": "Capable response.", "translations": {}, "asset": "jit-resourceful-response.png",
+      "captionRanges": [
+        {"start": 27, "end": 33, "spoken": "JIT entrusts capable people to respond to real need.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful"]},
+        {"start": 33, "end": 38, "spoken": "Be resourceful with what you have.", "lineBreakAfter": 2, "translations": {}, "sourceIds": ["resourceful"]}
+      ],
+      "action": "Show the whole original doorway, loaded cart, people and checked ramp. This is a resourcefulness analogy, not a Toyota plant."
+    },
+    {
+      "id": "pull", "start": 38, "end": 50, "label": "One useful outcome",
+      "heading": "One useful outcome.", "translations": {}, "asset": "pull-customer-need.png",
+      "captionRanges": [
+        {"start": 38, "end": 42.5, "spoken": "Pull a small customer problem, not a queue of technical tasks.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["pull"]},
+        {"start": 42.5, "end": 47, "spoken": "Let one useful, end-to-end outcome pull the necessary work.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["pull"]},
+        {"start": 47, "end": 50, "spoken": "Use AI for what this need requires.", "translations": {}, "sourceIds": ["pull"]}
+      ],
+      "action": "Fit the complete customer-need illustration. Let the highlighted train remain the first useful smaller outcome."
+    },
+    {
+      "id": "feedback", "start": 50, "end": 62, "label": "Choose again",
+      "heading": "Choose again.", "translations": {}, "asset": "pull-customer-feedback.png",
+      "captionRanges": [
+        {"start": 50, "end": 56, "spoken": "Check known quality in the shared, working product.", "lineBreakAfter": 3, "translations": {}, "sourceIds": ["pull", "integration"]},
+        {"start": 56, "end": 62, "spoken": "Use feedback to choose again. Leave later work unstarted.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["pull"]}
+      ],
+      "action": "Fit the complete feedback illustration. Feedback guides the next choice while later work remains unstarted."
+    },
+    {
+      "id": "integration", "start": 62, "end": 78, "label": "Integration pulls collaboration",
+      "heading": "Integrate continuously.\nCollaborate just in time.", "translations": {}, "asset": "integration-coordination.png",
+      "focusViews": [
+        {"id": "need", "start": 62, "end": 64, "x": 0, "y": 95, "width": 490, "height": 590, "clipPath": "polygon(0 0, 100% 0, 100% 60%, 72% 60%, 72% 100%, 0 100%)"},
+        {"id": "teams", "start": 64, "end": 67, "x": 400, "y": 0, "width": 690, "height": 778},
+        {"id": "stop", "start": 67, "end": 69, "x": 670, "y": 315, "width": 480, "height": 463},
+        {"id": "collaboration", "start": 69, "end": 73, "x": 1070, "y": 175, "width": 680, "height": 550},
+        {"id": "result", "start": 73, "end": 78, "x": 1070, "y": 175, "width": 952, "height": 550}
+      ],
+      "captionRanges": [
+        {"start": 62, "end": 68, "spoken": "Integrate small changes continuously. Keep one coherent product.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["integration"]},
+        {"start": 68, "end": 73, "spoken": "When a dependency becomes real, let it pull collaboration.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["integration"]},
+        {"start": 73, "end": 78, "spoken": "Technical excellence makes that response dependable.", "lineBreakAfter": 3, "translations": {}, "sourceIds": ["integration"]}
+      ],
+      "action": "Successive focused original-art views preserve actual need → teams → stop → collaboration → coherent result. Keep faces, hands and product legible; no crowded status labels or tiny panorama."
+    },
+    {
+      "id": "closing", "start": 78, "end": 86, "label": "Ready to respond",
+      "heading": "Ready to respond.", "translations": {}, "asset": "integration-coordination.png",
+      "focusViews": [{"id": "result", "start": 78, "end": 86, "x": 1070, "y": 175, "width": 952, "height": 550}],
+      "captionRanges": [
+        {"start": 78, "end": 83, "spoken": "Build capability to respond, not stockpiles of generated answers.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]}
+      ],
+      "creditStart": 83, "creditLines": ["Idea and film from Terry"], "creditTranslations": {},
+      "action": "Hold the collaboration and complete coherent result with all faces and product. Exact Terry credit replaces captions for the final three seconds as the approved score fades."
+    }
+  ]
+}

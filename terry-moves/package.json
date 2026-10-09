@@ -28,7 +28,8 @@
 		"render:atdd": "remotion render src/index.ts ATDDFilm out/atdd-restaged.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 && remotion still src/index.ts ATDDFilm out/atdd-restaged-poster.png --frame=0",
 		"render:treatments": "tsx scripts/render-treatments.ts",
 		"diagrams:atdd": "sh scripts/export-atdd-diagrams.sh",
-		"render:tps-and-ai:th": "node scripts/tps-and-ai-score.mjs && node ../scripts/tps-and-ai-subtitles.mjs th && remotion render src/index.ts TPSAndAIFilmTh out/tps-and-ai-jidoka-th.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts TPSAndAIFilmTh out/tps-and-ai-jidoka-th-poster.png --frame=0"
+		"render:tps-and-ai:th": "node scripts/tps-and-ai-score.mjs && node ../scripts/tps-and-ai-subtitles.mjs th && remotion render src/index.ts TPSAndAIFilmTh out/tps-and-ai-jidoka-th.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts TPSAndAIFilmTh out/tps-and-ai-jidoka-th-poster.png --frame=0",
+		"render:tps-and-ai:jit": "node ../scripts/tps-and-ai-jit-subtitles.mjs && remotion render src/index.ts TPSAndAIJITFilm out/tps-and-ai-jit.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts TPSAndAIJITFilm out/tps-and-ai-jit-poster.png --frame=0"
 	},
 	"repository": {},
 	"license": "UNLICENSED",

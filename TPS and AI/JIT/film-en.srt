@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:05,500
+AI can produce more. But can your team respond better?
+
+2
+00:00:05,500 --> 00:00:10,000
+A stockpile of generated code is still a stockpile.
+
+3
+00:00:10,000 --> 00:00:16,000
+Just-in-Time is the other pillar of the Toyota Production System.
+
+4
+00:00:16,000 --> 00:00:22,000
+Only what is needed, when needed, in the amount needed.
+
+5
+00:00:22,000 --> 00:00:27,000
+Minimum stock. Dependable flow. Not constant activity.
+
+6
+00:00:27,000 --> 00:00:33,000
+JIT entrusts capable people to respond to real need.
+
+7
+00:00:33,000 --> 00:00:38,000
+Be resourceful with what you have.
+
+8
+00:00:38,000 --> 00:00:42,500
+Pull a small customer problem, not a queue of technical tasks.
+
+9
+00:00:42,500 --> 00:00:47,000
+Let one useful, end-to-end outcome pull the necessary work.
+
+10
+00:00:47,000 --> 00:00:50,000
+Use AI for what this need requires.
+
+11
+00:00:50,000 --> 00:00:56,000
+Check known quality in the shared, working product.
+
+12
+00:00:56,000 --> 00:01:02,000
+Use feedback to choose again. Leave later work unstarted.
+
+13
+00:01:02,000 --> 00:01:08,000
+Integrate small changes continuously. Keep one coherent product.
+
+14
+00:01:08,000 --> 00:01:13,000
+When a dependency becomes real, let it pull collaboration.
+
+15
+00:01:13,000 --> 00:01:18,000
+Technical excellence makes that response dependable.
+
+16
+00:01:18,000 --> 00:01:23,000
+Build capability to respond, not stockpiles of generated answers.
