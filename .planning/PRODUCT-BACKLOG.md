@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [Terry can publish the JIT film as part two of TPS and AI](../terry-moves/seed.md#jit-film) — terry-moves-filmmaking#jit-film ([plan](quick/028-jit-ready-to-respond/PLAN.md))
-
 ## Backlog list
 
 - [Terry can run subtitle exporter proof without changing his film artifacts](../terry-moves/seed.md#subtitle-export-test-isolation) — terry-moves-filmmaking#subtitle-export-test-isolation

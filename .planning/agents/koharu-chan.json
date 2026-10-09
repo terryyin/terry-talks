@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Koharu-chan",
-  "email": "koharu-chan@example.org",
-  "identity": "terry-moves-filmmaking#jit-film",
-  "mode": "story-branch",
-  "branch": "codex/jidoka-film-remake",
-  "host": "codex"
-}
