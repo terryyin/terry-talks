@@ -474,36 +474,6 @@ correction from the Japanese-edition retrospective, with no new film promise.
 
 Plan: [subtitle exporter test isolation](../.planning/quick/026-subtitle-export-test-isolation/PLAN.md).
 
-<a id="just-in-time-title-and-artwork"></a>
-### Just in time clearly connects trust with timely response to real needs
-
-**Identity:** terry-moves-filmmaking#just-in-time-title-and-artwork
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/029-just-in-time-title-and-artwork/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"9dfa20b33f2df32f2da7ee9d7c3c1f16001cc03118c5be125bee575de3bdce03","plan":"5c568c2d5c2eaef93fdf34d75bb95b7d9756db8866cc2a3d5a4ec041add9f8b2"}}
-```
-
-**Goal:** Revise the delivered English film so its title is **Just in time**,
-its trust message clearly means trusting the team to meet real needs on time,
-and its definition uses Terry's three original presentation illustrations.
-
-**Scope:** One cohesive revision of the existing shared film script and its
-reached composition. Show the customer-orders, assembly-pulls-wheels, and
-wheel-replenishment artwork with “Only what is needed”, “When needed”, and
-“In the amount needed”, respectively. Deliver the revised square MP4, poster,
-and matching English SRT. Preserve the approved 86-second clock, music, logo,
-credit, other scenes and translation-ready shared source.
-
-**Key examples:** The cover's main heading is “Just in time”, with “Trust the
-team to meet real needs, on time” as the supporting message. The TPS house
-introduces the pillar, followed by large, complete original illustrations for
-each definition phrase. The final caption connects capability with responding
-to real needs on time. All new text and artwork are readable at 360-pixel
-phone width, and exported caption text and intervals match the shared script.
-
-**Authority:** Terry's current correction and continuing authorization to
-coordinate production through a delivered movie and sync with origin.
-This does not authorize modifying unrelated in-progress work.
-
 ## Ordering and scope reduction
 
 The backlog follows the accepted order above. Story 1 tests the defining silent

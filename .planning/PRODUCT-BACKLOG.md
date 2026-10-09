@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [Just in time clearly connects trust with timely response to real needs](../terry-moves/seed.md#just-in-time-title-and-artwork) — terry-moves-filmmaking#just-in-time-title-and-artwork ([plan](quick/029-just-in-time-title-and-artwork/PLAN.md))
-
 ## Backlog list
 
 - [Terry can run subtitle exporter proof without changing his film artifacts](../terry-moves/seed.md#subtitle-export-test-isolation) — terry-moves-filmmaking#subtitle-export-test-isolation
