@@ -62,6 +62,18 @@ export default () => ({
       fill: #b33a2b !important;
       stroke: #b33a2b !important;
     }
+    .node.goldMaterial foreignObject {
+      overflow: visible;
+    }
+    .node.goldMaterial .nodeLabel {
+      display: block;
+      padding: 8px;
+      margin: -8px;
+      border-radius: 4px;
+      background: #d4af37 url('/organization-confidence-gold.png') center / cover;
+      box-shadow: inset 0 1px 2px #fff8, inset 0 -2px 4px #73551066;
+      color: #292524 !important;
+    }
   `,
   flowchart: {
     htmlLabels: true,
