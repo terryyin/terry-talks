@@ -11,10 +11,11 @@ import { Minimalism } from '../tpsAndAi/Minimalism';
 import { Freedom } from '../tpsAndAi/Freedom';
 import { Closing } from '../tpsAndAi/Closing';
 import { durationInFrames, film, sceneFrames, startFrame } from '../tpsAndAi/film';
+import { FilmLanguage, FilmLanguageProvider } from '../tpsAndAi/language';
 
-export const TPSFilm: React.FC = () => {
+export const TPSFilm: React.FC<{ language?: FilmLanguage }> = ({ language = 'en' }) => {
 	const { fps } = useVideoConfig();
-	return <Paper>
+	return <FilmLanguageProvider language={language}><Paper>
 		<Audio src={staticFile('assets/tps-and-ai/score.wav')} volume={0.75} />
 		<Sequence name="Jidoka: Free to Move On" from={startFrame('hook')} durationInFrames={sceneFrames('hook')} premountFor={fps}><Hook /></Sequence>
 		<Sequence name="Bound to yesterday" from={startFrame('burden')} durationInFrames={sceneFrames('burden')} premountFor={fps}><Burden /></Sequence>
@@ -25,8 +26,11 @@ export const TPSFilm: React.FC = () => {
 		<Sequence name="Keep as little as possible" from={startFrame('minimalism')} durationInFrames={sceneFrames('minimalism')} premountFor={fps}><Minimalism /></Sequence>
 		<Sequence name="Free to move on" from={startFrame('freedom')} durationInFrames={sceneFrames('freedom')} premountFor={fps}><Freedom /></Sequence>
 		<Sequence name="Free to Move On" from={startFrame('closing')} durationInFrames={sceneFrames('closing')} premountFor={fps}><Closing /></Sequence>
-	</Paper>;
+	</Paper></FilmLanguageProvider>;
 };
+
+export const TPSFilmJa: React.FC = () => <TPSFilm language="ja" />;
+export const TPSAndAIFilmJa: React.FC = () => <Composition id="TPSAndAIFilmJa" component={TPSFilmJa} durationInFrames={durationInFrames} fps={film.fps} width={film.width} height={film.height} />;
 
 export const TPSAndAIFilm: React.FC = () => <>
 	<Composition id="TPSAndAIFilm" component={TPSFilm} durationInFrames={durationInFrames} fps={film.fps} width={film.width} height={film.height} />

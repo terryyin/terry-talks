@@ -10,11 +10,17 @@ const timestamp = (seconds) => {
 	return `${pad(Math.floor(ms / 3600000))}:${pad(Math.floor(ms / 60000) % 60)}:${pad(Math.floor(ms / 1000) % 60)},${pad(ms % 1000, 3)}`;
 };
 
-export const exportFilmSubtitles = (project, filename) => {
+export const exportFilmSubtitles = (project, filename, language = 'en') => {
 	const directory = path.join(repository, project);
 	const script = JSON.parse(fs.readFileSync(path.join(directory, 'film-script.json'), 'utf8'));
 	const captions = script.scenes.flatMap((scene) => scene.captionRanges);
+	const texts = captions.map((caption) => {
+		if (language === 'en') return caption.spoken;
+		const translation = caption.translations?.[language];
+		if (!translation) throw new Error(`Missing ${language} caption translation at ${caption.start}s in ${project}`);
+		return translation;
+	});
 	const output = path.join(directory, filename);
-	fs.writeFileSync(output, captions.map((caption, index) => `${index + 1}\n${timestamp(caption.start)} --> ${timestamp(caption.end)}\n${caption.spoken}\n`).join('\n'));
+	fs.writeFileSync(output, captions.map((caption, index) => `${index + 1}\n${timestamp(caption.start)} --> ${timestamp(caption.end)}\n${texts[index]}\n`).join('\n'));
 	process.stdout.write(`Exported ${captions.length} timed captions to ${output}\n`);
 };

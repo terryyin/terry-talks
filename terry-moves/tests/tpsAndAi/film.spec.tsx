@@ -1,10 +1,10 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { captionAt, cue, durationInFrames, film, loomFrameAt, sceneAt } from '../../src/tpsAndAi/film';
-import { captionLines, Captions, Shot } from '../../src/tpsAndAi/Frame';
+import { Captions, Shot } from '../../src/tpsAndAi/Frame';
 import { HookPicture } from '../../src/tpsAndAi/Hook';
 import { HousePicture } from '../../src/tpsAndAi/House';
 import { LoomPicture } from '../../src/tpsAndAi/Loom';
@@ -12,6 +12,7 @@ import { PairedPainting, ContrastPicture } from '../../src/tpsAndAi/Contrast';
 import { JudgmentPicture } from '../../src/tpsAndAi/Judgment';
 import { MinimalismPicture } from '../../src/tpsAndAi/Minimalism';
 import { ClosingPicture } from '../../src/tpsAndAi/Closing';
+import { FilmLanguage, FilmLanguageProvider } from '../../src/tpsAndAi/language';
 
 jest.mock('remotion', () => ({
 	...jest.requireActual('remotion'),
@@ -24,6 +25,14 @@ const picture = (node: React.ReactNode) => {
 	element.innerHTML = renderToStaticMarkup(node);
 	return element;
 };
+const parseSubtitles = (srt: string) => srt.trim().split('\n\n').map((entry) => {
+	const [index, interval, ...text] = entry.split('\n');
+	const [start, end] = interval.split(' --> ').map((stamp) => {
+		const [h, m, s, ms] = stamp.split(/[:,]/).map(Number);
+		return h * 3600 + m * 60 + s + ms / 1000;
+	});
+	return { index: Number(index), start, end, text: text.join('\n') };
+});
 
 describe('the actual Jidoka film', () => {
 	it('selects incoming scenes and captions at the authored contiguous boundaries', () => {
@@ -50,35 +59,85 @@ describe('the actual Jidoka film', () => {
 		const displayed = picture(<Captions seconds={0} />).textContent;
 		expect(displayed).toBe('How do you know your\norganization is using AI well?');
 		for (const caption of film.scenes.flatMap((scene) => scene.captionRanges)) {
-			const lines = captionLines(caption.spoken, caption.lineBreakAfter).split('\n');
+			const lines = picture(<Captions seconds={caption.start} />).textContent!.split('\n');
 			expect(lines.join(' ')).toBe(caption.spoken);
 			expect(lines.length).toBeLessThanOrEqual(2);
 			if (lines.length > 1) expect(lines[0]).not.toMatch(/\b(?:the|a|an)$/i);
+			const japanese = picture(<FilmLanguageProvider language="ja"><Captions seconds={caption.start} /></FilmLanguageProvider>);
+			expect(japanese.textContent).toBe(caption.translations.ja);
+			expect(japanese.textContent!.split('\n').length).toBeLessThanOrEqual(2);
 		}
+		expect(picture(<FilmLanguageProvider language="ja"><Captions seconds={0} /></FilmLanguageProvider>).textContent).toBe('組織がAIをうまく使えているか、\nどうすればわかる？');
 	});
 
-	it('exports exactly the intervals and text selected by the embedded caption consumer', () => {
-		execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs')]);
-		const srt = readFileSync(path.resolve(process.cwd(), '../TPS and AI/film-en.srt'), 'utf8');
-		const delivery = readFileSync(path.resolve(process.cwd(), 'out/tps-and-ai-jidoka-en.srt'), 'utf8');
+	it.each<FilmLanguage>(['en', 'ja'])('exports exactly the %s intervals and text selected by the embedded caption consumer', (language) => {
+		execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs'), language]);
+		const srt = readFileSync(path.resolve(process.cwd(), `../TPS and AI/film-${language}.srt`), 'utf8');
+		const delivery = readFileSync(path.resolve(process.cwd(), `out/tps-and-ai-jidoka-${language}.srt`), 'utf8');
 		expect(delivery).toBe(srt);
-		const seconds = (stamp: string) => { const [h, m, s, ms] = stamp.split(/[:,]/).map(Number); return h * 3600 + m * 60 + s + ms / 1000; };
-		const subtitles = srt.trim().split('\n\n').map((entry) => {
-			const [index, interval, ...text] = entry.split('\n');
-			const [start, end] = interval.split(' --> ').map(seconds);
-			return { index: Number(index), start, end, text: text.join(' ') };
-		});
+		const subtitles = parseSubtitles(srt);
 		const captions = film.scenes.flatMap((scene) => scene.captionRanges);
 		expect(subtitles).toHaveLength(captions.length);
 		subtitles.forEach((subtitle, index) => {
 			const caption = captions[index];
-			expect(subtitle).toEqual({ index: index + 1, start: caption.start, end: caption.end, text: caption.spoken });
+			expect(subtitle).toEqual({ index: index + 1, start: caption.start, end: caption.end, text: language === 'ja' ? caption.translations.ja : caption.spoken });
 			for (const at of [subtitle.start, (subtitle.start + subtitle.end) / 2, subtitle.end - 1 / film.fps]) {
 				expect(captionAt(at)).toBe(caption);
-				expect(picture(<Captions seconds={at} />).textContent!.replace(/\s+/g, ' ').trim()).toBe(subtitle.text);
+				const displayed = picture(<FilmLanguageProvider language={language}><Captions seconds={at} /></FilmLanguageProvider>).textContent!;
+				expect(language === 'ja' ? displayed : displayed.replace(/\s+/g, ' ').trim()).toBe(subtitle.text);
 			}
 			expect(captionAt(subtitle.end)).not.toBe(caption);
 		});
+		for (const at of [83, 85.9]) expect(picture(<FilmLanguageProvider language={language}><Captions seconds={at} /></FilmLanguageProvider>).textContent).toBe('');
+	});
+
+	it('exports fresh bilingual source and delivery subtitles when all editions are requested', () => {
+		const outputs = (['en', 'ja'] as const).map((language) => ({
+			language,
+			source: path.resolve(process.cwd(), `../TPS and AI/film-${language}.srt`),
+			delivery: path.resolve(process.cwd(), `out/tps-and-ai-jidoka-${language}.srt`),
+		}));
+		const before = outputs.flatMap(({ source, delivery }) => [source, delivery]).map((file) => ({
+			file, contents: existsSync(file) ? readFileSync(file) : undefined,
+		}));
+		mkdirSync(path.resolve(process.cwd(), 'out'), { recursive: true });
+		try {
+			before.forEach(({ file }) => writeFileSync(file, 'stale subtitles'));
+			execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs'), 'all']);
+			for (const { language, source, delivery } of outputs) {
+				const srt = readFileSync(source, 'utf8');
+				expect(parseSubtitles(srt)).toEqual(film.scenes.flatMap((scene) => scene.captionRanges).map((caption, index) => ({
+					index: index + 1, start: caption.start, end: caption.end, text: language === 'ja' ? caption.translations.ja : caption.spoken,
+				})));
+				expect(readFileSync(delivery, 'utf8')).toBe(srt);
+			}
+		} finally {
+			before.forEach(({ file, contents }) => contents === undefined ? rmSync(file, { force: true }) : writeFileSync(file, contents));
+		}
+	});
+
+	it('preserves all shared exporters’ English defaults', () => {
+		for (const [wrapper, directory, filename] of [
+			['tps-and-ai', 'TPS and AI', 'film-en.srt'],
+			['ai-test-automation', 'AI Test Automation', 'ai-test-automation.srt'],
+			['problem-decomposition', 'Problem Decomposition', 'problem-decomposition.srt'],
+			['problem-decomposition-remake', 'Problem Decomposition Remake', 'problem-decomposition-remake.srt'],
+		]) {
+			execFileSync(process.execPath, [path.resolve(process.cwd(), `../scripts/${wrapper}-subtitles.mjs`)]);
+			const source = JSON.parse(readFileSync(path.resolve(process.cwd(), `../${directory}/film-script.json`), 'utf8'));
+			const entries = parseSubtitles(readFileSync(path.resolve(process.cwd(), `../${directory}/${filename}`), 'utf8'));
+			const captions = source.scenes.flatMap((scene: { captionRanges: { start: number; end: number; spoken: string }[] }) => scene.captionRanges);
+			expect(entries).toHaveLength(captions.length);
+			entries.forEach(({ start, end, text }, index) => {
+				expect([start, end]).toEqual([Math.round(captions[index].start * 1000) / 1000, Math.round(captions[index].end * 1000) / 1000]);
+				expect(text).toBe(captions[index].spoken);
+			});
+		}
+	});
+
+	it('rejects unknown or unavailable subtitle languages', () => {
+		expect(() => execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs'), 'unknown'], { stdio: 'pipe' })).toThrow();
+		expect(() => execFileSync(process.execPath, ['--input-type=module', '-e', "import {exportFilmSubtitles} from '../scripts/film-subtitles.mjs'; exportFilmSubtitles('Problem Decomposition', 'untranslated-ja.srt', 'ja')"], { stdio: 'pipe' })).toThrow(/Missing ja caption translation/);
 	});
 
 	it('composes frame zero and retains the genuine upper-right logo through every shot', () => {

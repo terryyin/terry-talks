@@ -56,11 +56,35 @@ all-caption/label frames at360pixels; view the complete Japanese film muted
 at normal speed. Full render routes, metadata/decode and identical clocks/SRT
 intervals own delivery proof. No unrelated full suite is a local gate.
 
+## Execution context
+
+Mode: story-branch. Execution checkout:
+`/Users/terryyin/git/terry-talks/.worktrees/jidoka-film-remake`;
+branch `codex/jidoka-film-remake`; integration/default checkout
+`/Users/terryyin/git/terry-talks`; remote `origin`, trunk `master`, repo
+`terryyin/terry-talks`, host `codex`, publisher `jidoka-japanese-01a11b61`.
+The owned retained checkout is reused (`created:false`) and its creation record
+names `tps-and-ai-film#english-square-film`; this story must not retire it as
+newly created. Management context: `/Users/terryyin/git/terry-talks/.git`.
+Ready preparation accepted at `6e709f2c7b9aa15559661e4023e0c8b1378e14b1`;
+Take accepted at `bbff752f5708edec02326460e3a1908196cdb1f4`, assigned author
+Honoka-chan. Both are recoverable on origin/master; the Take is also the initial
+published execution-branch base. Recorded readiness is not renewed by execution.
+
+Checkout-bound locked installation from prior production is reused at the same
+dependency state. After accepted startup, bundled-PATH
+`pnpm --dir terry-moves exec node ../scripts/tps-and-ai-subtitles.mjs` exited0
+and generated19 matching English captions. No active Git hooks are installed;
+selective ESLint for changed TS/TSX stays with the coordinator.
+CI setup was checked in this checkout: no `.planning/open-dough.json` and no
+push workflow files exist. GitHub-default workflow cannot be verified, so
+observation is unavailable and no observer is armed or shutdown claimed.
+
 ## Ordered slices
 
 ### 1. Terry can select English or Japanese from the same authored film
 Type: Behavior
-Status: planned
+Status: done
 Proof: Actual registered language consumers and exporter tests observe complete
 localized text against one shared clock; representative rendered Japanese
 frames prove font/layout feasibility and preserved English behavior.
@@ -72,6 +96,26 @@ music and individual scene JSX; explicitly register the Japanese composition.
 Provide matching SRT export and a Japanese render route alongside English.
 Prove all affected consumers, and return only concrete visual/language polish
 that slice2 must resolve.
+
+Accepted proof: `film.spec.tsx` invokes the real subtitle wrapper and observes
+all19 source/delivery captions against mounted captions at start/midpoint/end
+minus one frame. Its `all` case overwrites four source/delivery files with
+sentinels, verifies complete English/Japanese outputs immediately, and restores
+prior bytes. All four shared exporter callers preserve English defaults.
+`languageEditions.spec.tsx` selects components collected from the real Root:
+the shared scene code runs through mocked Remotion transport, observing both
+languages' labels, generic screens, credits, retained media and identical
+sequence/component identity. Combined focused TPS/Root proof passed41/41;
+the AI consumer's4 tests also passed. Final type check and actual composition
+enumeration exited0; both films are2580/30fps/1080square. Root inspected actual
+Japanese stills202/600/1080/1905 and IAB opening/house/loom; glyphs and fit work.
+The lower Japanese rule label at36px clears its arrow; English stays42px.
+Accepted English script equals6adf028 after excluding only the19 translations.
+Independent language review found no corrections. Fresh refactoring removed
+unused metadata/exports and strengthened fresh-output proof; selective ESLint
+passed16 owned TS/TSX paths after mechanical media-mock repair, followed by
+30/30 registered-consumer proof. Viewer output proof remains unchanged.
+Slice2 must enlarge the tiny Japanese radical annotation for phone viewing.
 
 ### 2. Terry receives polished Japanese and English delivery files
 Type: Behavior
