@@ -1418,7 +1418,7 @@ flowchart LR
   EJ(<b>Jidoka · 自働化</b><br><small>Autonomation</small><br>Rules captured<br>in tests & code<br><small>テストやコードに<br>組み込んだルール</small>)
   AA(Freedom to learn<br>& improve<br><small>学び、改善する<br>自由</small>)
   CAP(Ability to solve<br>real problems<br><small>実際の問題を<br>解く力</small>)
-  WT(Confidence to entrust<br>the next problem<br><small>次の問題を<br>任せられる確信</small>)
+  WT(Organization's<br>confidence in<br>the team<br><small>チームに対する<br>組織の信頼</small>)
   PULL(<b>Just-in-time</b><br>Trust people to<br>respond to real<br>user needs<br><small>人を信頼して<br>実際のニーズへの<br>対応を任せる</small>)
 
   EJ -->|"+"| AA
@@ -1471,8 +1471,9 @@ That confidence complements demonstrated capability to handle new problems;
 it is not a promise that every generated test or every new rule deserves trust.
 
 That same room helps the team grow its ability to solve real problems.
-Visible, responsible results earn confidence to entrust the next problem;
-this takes time. Confidence reduces advance approvals and imposed solution
+Visible, responsible results earn the organization's confidence in the team;
+this takes time. That confidence supports trusting the team with the next
+problem and reduces advance approvals and imposed solution
 plans, giving the team freedom to respond to the next real user need. Doing
 that work with support grows capability further. That closes R2.
 
