@@ -113,3 +113,13 @@ source/delivery SRT `1da7925c287488555caf2e64461405cb2179c15ad9de326ff73e2b77fda
 The reused worktree is retained. Origin/master accepted the claim
 `27eed88995ecf0d577949c47138a6e974c3f8b9a`; the same claim was confirmed on
 the remote execution branch. No observer was available, so CI is unobserved.
+
+## Execution complete
+
+Product advice: no change. The completed revision improves the existing film
+without a new framework or a change to future priorities. Independent product
+review found no correction or backlog recommendation; correction 026 remains
+separate. Process review was skipped under the project's default. The exact
+attributable implementation is `9a0668cb1878b00d93ac9ae7b2a22eae8d9b059d`,
+accepted on origin/codex/jidoka-film-remake. CI is unobserved because no
+configured workflow or observer is available; no CI shutdown is claimed.
