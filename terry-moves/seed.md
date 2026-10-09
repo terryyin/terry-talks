@@ -451,6 +451,54 @@ provenance labels; the recorded identities are the canonical work identities.
 - **Safe stopping point:** Terry can export and revise that portrait edition
   even if no wider aspect-ratio system follows.
 
+<a id="jit-film"></a>
+### Terry can publish the JIT film as part two of TPS and AI
+
+**Identity:** terry-moves-filmmaking#jit-film
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/028-jit-ready-to-respond/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"be8274acc36dce96477cdb1b2f0da61c90d1aa15f60d337bed072c90721e2f95","plan":"954e03a3d877994d831736c000971ca831126f1f7ef70ffabc7066ebc05b9a13"}}
+```
+
+#### Goal
+
+Terry can publish a concise English film showing how Just-in-Time helps
+AI-augmented software teams respond to actual need, rather than accumulate
+output. It is a distinct second part of TPS and AI in the approved Jidoka style.
+
+#### Scope
+
+Deliver an approximately 86-second square film, readable with subtitles on a
+phone, with original talk artwork, restrained motion and the existing quiet
+score. Explain Toyota's operational definition before Terry's software reading:
+actual need pulls a small verified response; feedback guides the next choice;
+continuous integration exposes dependencies and pulls timely collaboration.
+Conclude that assurance comes from the capability to respond, rather than a
+stockpile of output. Preserve that causal order and distinguish Terry's reading
+from Toyota's definition.
+
+The representative opening frame identifies JIT; the Odd-e logo stays in the
+upper right, and the last three seconds credit “Idea and film from Terry”. Deliver
+the English MP4, opening poster and matching SRT. Keep captions, viewer text
+and scene timing in one JIT source ready for later translations; no translated
+edition is promised now. Preserve the four approved Jidoka editions. Reuse
+current helpers, assets and exporter instead of introducing an authoring or
+audio framework. Uploading is outside this instruction.
+
+#### Key examples
+
+- A viewer starts the film muted on a phone. The opening challenges whether
+  more AI-generated output means more value; the TPS house identifies JIT and
+  the captions state what is needed, when needed, in the amount needed.
+- A viewer follows one current customer need through a small response and
+  feedback, then sees integration expose a dependency and call the relevant
+  people to collaborate. The artwork and captions connect each step without
+  presenting surplus output or isolated team activity as customer value.
+- Terry exports the film and changes one caption in its canonical source.
+  The embedded wording and SRT follow that source, while the approved Jidoka
+  routes, captions and retained media continue to behave as before.
+
+Plan: [JIT: Ready to Respond](../.planning/quick/028-jit-ready-to-respond/PLAN.md).
+
 <a id="subtitle-export-test-isolation"></a>
 ### Terry can run subtitle exporter proof without changing his film artifacts
 
