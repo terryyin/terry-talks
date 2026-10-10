@@ -451,29 +451,6 @@ provenance labels; the recorded identities are the canonical work identities.
 - **Safe stopping point:** Terry can export and revise that portrait edition
   even if no wider aspect-ratio system follows.
 
-<a id="subtitle-export-test-isolation"></a>
-### Terry can run subtitle exporter proof without changing his film artifacts
-
-**Identity:** terry-moves-filmmaking#subtitle-export-test-isolation
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/026-subtitle-export-test-isolation/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"19bf545d9cd23736e96daf492307b61c283a87e31f36966b2e5cd93f59320993","plan":"24d057b1293cc4b8e179778a90cc063e29d650d497cd8ff46e33f1d4b770edd1"}}
-```
-
-#### Goal
-
-Terry can run the real subtitle exporter checks without rewriting existing
-source or delivery SRTs or interfering with another test's artifact reads.
-
-#### Scope
-
-Isolate the current Jidoka exporter tests in disposable repository fixtures,
-retaining real CLI integration, all four English defaults, English/Japanese
-wording and interval parity, fresh bilingual generation and language rejection.
-Preserve production film behavior and delivery files. This is a bounded test
-correction from the Japanese-edition retrospective, with no new film promise.
-
-Plan: [subtitle exporter test isolation](../.planning/quick/026-subtitle-export-test-isolation/PLAN.md).
-
 ## Ordering and scope reduction
 
 The backlog follows the accepted order above. Story 1 tests the defining silent

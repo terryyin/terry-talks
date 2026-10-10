@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#subtitle-export-test-isolation",
+  "title": "Terry can run subtitle exporter proof without changing his film artifacts",
+  "completedAt": "2026-10-10T10:55:01.292Z",
+  "developer": "Terry Yin",
+  "agent": "Yui-chan",
+  "host": "claude"
+}

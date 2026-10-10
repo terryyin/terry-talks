@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Yui-chan",
-  "email": "yui-chan@example.org",
-  "identity": "terry-moves-filmmaking#subtitle-export-test-isolation",
-  "mode": "story-branch",
-  "branch": "claude/terry-can-run-subtitle-exporter-proof-without-ch",
-  "host": "claude"
-}

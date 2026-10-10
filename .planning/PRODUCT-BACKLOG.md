@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [Terry can run subtitle exporter proof without changing his film artifacts](../terry-moves/seed.md#subtitle-export-test-isolation) — terry-moves-filmmaking#subtitle-export-test-isolation ([plan](quick/026-subtitle-export-test-isolation/PLAN.md))
-
 ## Backlog list
 
 - [I can bring an existing character into a new scene and direct a believable interaction](../terry-moves/seed.md#character-prop-interaction) — terry-moves-filmmaking#character-prop-interaction
