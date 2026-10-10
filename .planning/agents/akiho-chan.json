@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Akiho-chan",
+  "email": "akiho-chan@example.org",
+  "activity": "preparation",
+  "identity": "terry-moves-filmmaking#character-prop-interaction",
+  "host": "claude",
+  "model": "fable"
+}
