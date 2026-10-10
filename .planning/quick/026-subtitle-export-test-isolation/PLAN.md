@@ -139,6 +139,13 @@ planning; all four moved together. `tests/tpsAndAiJit/delivery.spec.tsx`
 already isolates its own exporter invocation and needed no change. The
 unknown-language rejection now also asserts the exporter's message.
 
+## Execution complete
+
+Product advice: no change. The correction removed the only test path that
+rewrote checkout subtitles; no product or priority learning arose. The Jidoka
+and Just in time exporter specs each keep a small inline disposable-repository
+lifecycle; sharing it was deliberately left out as a generic fixture framework.
+
 ## Concern review
 
 Slice-plan refinement is not needed: one cohesive filesystem-isolation change
