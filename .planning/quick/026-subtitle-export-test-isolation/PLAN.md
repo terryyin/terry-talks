@@ -109,7 +109,7 @@ required for a test-only filesystem correction.
 
 ### 1. Real exporter proof leaves Terry's film artifacts untouched
 Type: Structure
-Status: planned
+Status: done
 Proof: The focused two-worker TPS/AI command passes, repository SRT bytes and
 existence are unchanged, all existing CLI/caption/default/error observations
 survive, and disposable fixtures are removed on success and failure.
@@ -121,6 +121,23 @@ keep fresh-output and real-command integration assertions. Correct the earlier
 English case together with the new Japanese/default cases, so no remaining
 caller writes a shared repository artifact. This slice directly owns the
 evidenced test-suite isolation correction and preserves external film behavior.
+
+Accepted proof: every exporter subprocess in
+`terry-moves/tests/tpsAndAi/film.spec.tsx` (four per-language cases, `all`,
+four wrapper defaults, both rejections) now targets `inDisposableRepository`,
+a `mkdtemp` copy of the unmodified production scripts and four canonical
+`film-script.json` inputs removed in `finally`; sentinels are seeded only
+there. The focused two-worker command passed 5 suites / 56 tests, before and
+after the refactor pass. A sha256-and-existence snapshot of all nine tracked
+SRTs and the `terry-moves/out` delivery SRTs was identical across the run
+(`terry-moves/out` stayed absent). With two assertions deliberately broken,
+five cases failed and no `tps-subtitles-*` directory remained in the system
+temporary directory; the probe was reverted. `tsc --noEmit` passed.
+
+Learnings: the suite had grown to four TPS languages (Thai added) since
+planning; all four moved together. `tests/tpsAndAiJit/delivery.spec.tsx`
+already isolates its own exporter invocation and needed no change. The
+unknown-language rejection now also asserts the exporter's message.
 
 ## Concern review
 

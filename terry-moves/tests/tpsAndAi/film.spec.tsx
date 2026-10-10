@@ -1,7 +1,8 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import os from 'node:os';
 import path from 'node:path';
 import { captionAt, cue, durationInFrames, film, loomFrameAt, sceneAt } from '../../src/tpsAndAi/film';
 import { Captions, Shot } from '../../src/tpsAndAi/Frame';
@@ -32,6 +33,28 @@ const parseSubtitles = (srt: string) => srt.trim().split('\n\n').map((entry) => 
 		return h * 3600 + m * 60 + s + ms / 1000;
 	});
 	return { index: Number(index), start, end, text: text.join('\n') };
+});
+const exporterWrappers = [
+	['tps-and-ai', 'TPS and AI', 'film-en.srt'],
+	['ai-test-automation', 'AI Test Automation', 'ai-test-automation.srt'],
+	['problem-decomposition', 'Problem Decomposition', 'problem-decomposition.srt'],
+	['problem-decomposition-remake', 'Problem Decomposition Remake', 'problem-decomposition-remake.srt'],
+];
+const inDisposableRepository = (run: (repository: string) => void) => {
+	const checkout = path.resolve(process.cwd(), '..');
+	const repository = mkdtempSync(path.join(os.tmpdir(), 'tps-subtitles-'));
+	try {
+		for (const directory of ['scripts', 'terry-moves/out', ...exporterWrappers.map(([, directory]) => directory)]) mkdirSync(path.join(repository, directory), { recursive: true });
+		for (const script of ['film-subtitles.mjs', ...exporterWrappers.map(([wrapper]) => `${wrapper}-subtitles.mjs`)]) copyFileSync(path.join(checkout, 'scripts', script), path.join(repository, 'scripts', script));
+		for (const [, directory] of exporterWrappers) copyFileSync(path.join(checkout, directory, 'film-script.json'), path.join(repository, directory, 'film-script.json'));
+		run(repository);
+	} finally {
+		rmSync(repository, { recursive: true, force: true });
+	}
+};
+const tpsOutputs = (repository: string, language: FilmLanguage) => ({
+	source: path.join(repository, `TPS and AI/film-${language.toLowerCase()}.srt`),
+	delivery: path.join(repository, `terry-moves/out/tps-and-ai-jidoka-${language.toLowerCase()}.srt`),
 });
 
 describe('the actual Jidoka film', () => {
@@ -74,46 +97,34 @@ describe('the actual Jidoka film', () => {
 	});
 
 	it.each<FilmLanguage>(['en', 'ja', 'zh-Hant', 'th'])('exports exactly the %s intervals and text selected by the embedded caption consumer', (language) => {
-		const sourceFile = path.resolve(process.cwd(), `../TPS and AI/film-${language.toLowerCase()}.srt`);
-		const deliveryFile = path.resolve(process.cwd(), `out/tps-and-ai-jidoka-${language.toLowerCase()}.srt`);
-		const before = [sourceFile, deliveryFile].map((file) => ({ file, contents: existsSync(file) ? readFileSync(file) : undefined }));
-		try {
-		execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs'), language]);
-		const srt = readFileSync(sourceFile, 'utf8');
-		const delivery = readFileSync(deliveryFile, 'utf8');
-		expect(delivery).toBe(srt);
-		const subtitles = parseSubtitles(srt);
-		const captions = film.scenes.flatMap((scene) => scene.captionRanges);
-		expect(subtitles).toHaveLength(captions.length);
-		subtitles.forEach((subtitle, index) => {
-			const caption = captions[index];
-			expect(subtitle).toEqual({ index: index + 1, start: caption.start, end: caption.end, text: language === 'en' ? caption.spoken : caption.translations[language] });
-			for (const at of [subtitle.start, (subtitle.start + subtitle.end) / 2, subtitle.end - 1 / film.fps]) {
-				expect(captionAt(at)).toBe(caption);
-				const displayed = picture(<FilmLanguageProvider language={language}><Captions seconds={at} /></FilmLanguageProvider>).textContent!;
-				expect(language === 'en' ? displayed.replace(/\s+/g, ' ').trim() : displayed).toBe(subtitle.text);
-			}
-			expect(captionAt(subtitle.end)).not.toBe(caption);
+		inDisposableRepository((repository) => {
+			const { source, delivery } = tpsOutputs(repository, language);
+			for (const file of [source, delivery]) writeFileSync(file, 'stale subtitles');
+			execFileSync(process.execPath, [path.join(repository, 'scripts/tps-and-ai-subtitles.mjs'), language]);
+			const srt = readFileSync(source, 'utf8');
+			expect(readFileSync(delivery, 'utf8')).toBe(srt);
+			const subtitles = parseSubtitles(srt);
+			const captions = film.scenes.flatMap((scene) => scene.captionRanges);
+			expect(subtitles).toHaveLength(captions.length);
+			subtitles.forEach((subtitle, index) => {
+				const caption = captions[index];
+				expect(subtitle).toEqual({ index: index + 1, start: caption.start, end: caption.end, text: language === 'en' ? caption.spoken : caption.translations[language] });
+				for (const at of [subtitle.start, (subtitle.start + subtitle.end) / 2, subtitle.end - 1 / film.fps]) {
+					expect(captionAt(at)).toBe(caption);
+					const displayed = picture(<FilmLanguageProvider language={language}><Captions seconds={at} /></FilmLanguageProvider>).textContent!;
+					expect(language === 'en' ? displayed.replace(/\s+/g, ' ').trim() : displayed).toBe(subtitle.text);
+				}
+				expect(captionAt(subtitle.end)).not.toBe(caption);
+			});
+			for (const at of [83, 85.9]) expect(picture(<FilmLanguageProvider language={language}><Captions seconds={at} /></FilmLanguageProvider>).textContent).toBe('');
 		});
-		for (const at of [83, 85.9]) expect(picture(<FilmLanguageProvider language={language}><Captions seconds={at} /></FilmLanguageProvider>).textContent).toBe('');
-		} finally {
-			before.forEach(({ file, contents }) => contents === undefined ? rmSync(file, { force: true }) : writeFileSync(file, contents));
-		}
 	});
 
 	it('exports fresh source and delivery subtitles when all editions are requested', () => {
-		const outputs = (['en', 'ja', 'zh-Hant', 'th'] as const).map((language) => ({
-			language,
-			source: path.resolve(process.cwd(), `../TPS and AI/film-${language.toLowerCase()}.srt`),
-			delivery: path.resolve(process.cwd(), `out/tps-and-ai-jidoka-${language.toLowerCase()}.srt`),
-		}));
-		const before = outputs.flatMap(({ source, delivery }) => [source, delivery]).map((file) => ({
-			file, contents: existsSync(file) ? readFileSync(file) : undefined,
-		}));
-		mkdirSync(path.resolve(process.cwd(), 'out'), { recursive: true });
-		try {
-			before.forEach(({ file }) => writeFileSync(file, 'stale subtitles'));
-			execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs'), 'all']);
+		inDisposableRepository((repository) => {
+			const outputs = (['en', 'ja', 'zh-Hant', 'th'] as const).map((language) => ({ language, ...tpsOutputs(repository, language) }));
+			for (const file of outputs.flatMap(({ source, delivery }) => [source, delivery])) writeFileSync(file, 'stale subtitles');
+			execFileSync(process.execPath, [path.join(repository, 'scripts/tps-and-ai-subtitles.mjs'), 'all']);
 			for (const { language, source, delivery } of outputs) {
 				const srt = readFileSync(source, 'utf8');
 				expect(parseSubtitles(srt)).toEqual(film.scenes.flatMap((scene) => scene.captionRanges).map((caption, index) => ({
@@ -121,33 +132,31 @@ describe('the actual Jidoka film', () => {
 				})));
 				expect(readFileSync(delivery, 'utf8')).toBe(srt);
 			}
-		} finally {
-			before.forEach(({ file, contents }) => contents === undefined ? rmSync(file, { force: true }) : writeFileSync(file, contents));
-		}
+		});
 	});
 
 	it('preserves all shared exporters’ English defaults', () => {
-		for (const [wrapper, directory, filename] of [
-			['tps-and-ai', 'TPS and AI', 'film-en.srt'],
-			['ai-test-automation', 'AI Test Automation', 'ai-test-automation.srt'],
-			['problem-decomposition', 'Problem Decomposition', 'problem-decomposition.srt'],
-			['problem-decomposition-remake', 'Problem Decomposition Remake', 'problem-decomposition-remake.srt'],
-		]) {
-			execFileSync(process.execPath, [path.resolve(process.cwd(), `../scripts/${wrapper}-subtitles.mjs`)]);
-			const source = JSON.parse(readFileSync(path.resolve(process.cwd(), `../${directory}/film-script.json`), 'utf8'));
-			const entries = parseSubtitles(readFileSync(path.resolve(process.cwd(), `../${directory}/${filename}`), 'utf8'));
-			const captions = source.scenes.flatMap((scene: { captionRanges: { start: number; end: number; spoken: string }[] }) => scene.captionRanges);
-			expect(entries).toHaveLength(captions.length);
-			entries.forEach(({ start, end, text }, index) => {
-				expect([start, end]).toEqual([Math.round(captions[index].start * 1000) / 1000, Math.round(captions[index].end * 1000) / 1000]);
-				expect(text).toBe(captions[index].spoken);
-			});
-		}
+		inDisposableRepository((repository) => {
+			for (const [wrapper, directory, filename] of exporterWrappers) {
+				writeFileSync(path.join(repository, directory, filename), 'stale subtitles');
+				execFileSync(process.execPath, [path.join(repository, `scripts/${wrapper}-subtitles.mjs`)]);
+				const source = JSON.parse(readFileSync(path.join(repository, directory, 'film-script.json'), 'utf8'));
+				const entries = parseSubtitles(readFileSync(path.join(repository, directory, filename), 'utf8'));
+				const captions = source.scenes.flatMap((scene: { captionRanges: { start: number; end: number; spoken: string }[] }) => scene.captionRanges);
+				expect(entries).toHaveLength(captions.length);
+				entries.forEach(({ start, end, text }, index) => {
+					expect([start, end]).toEqual([Math.round(captions[index].start * 1000) / 1000, Math.round(captions[index].end * 1000) / 1000]);
+					expect(text).toBe(captions[index].spoken);
+				});
+			}
+		});
 	});
 
 	it('rejects unknown or unavailable subtitle languages', () => {
-		expect(() => execFileSync(process.execPath, [path.resolve(process.cwd(), '../scripts/tps-and-ai-subtitles.mjs'), 'unknown'], { stdio: 'pipe' })).toThrow();
-		expect(() => execFileSync(process.execPath, ['--input-type=module', '-e', "import {exportFilmSubtitles} from '../scripts/film-subtitles.mjs'; exportFilmSubtitles('Problem Decomposition', 'untranslated-ja.srt', 'ja')"], { stdio: 'pipe' })).toThrow(/Missing ja caption translation/);
+		inDisposableRepository((repository) => {
+			expect(() => execFileSync(process.execPath, [path.join(repository, 'scripts/tps-and-ai-subtitles.mjs'), 'unknown'], { stdio: 'pipe' })).toThrow(/Unknown TPS film language: unknown/);
+			expect(() => execFileSync(process.execPath, ['--input-type=module', '-e', "import {exportFilmSubtitles} from '../scripts/film-subtitles.mjs'; exportFilmSubtitles('Problem Decomposition', 'untranslated-ja.srt', 'ja')"], { cwd: path.join(repository, 'terry-moves'), stdio: 'pipe' })).toThrow(/Missing ja caption translation/);
+		});
 	});
 
 	it('composes frame zero and retains the genuine upper-right logo through every shot', () => {
