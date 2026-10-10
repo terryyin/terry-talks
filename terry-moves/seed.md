@@ -79,29 +79,153 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#character-prop-interaction
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/030-character-prop-interaction/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"02e85e1ee1360f544d2074e5e978153917c1f6aae88031fad9ff924ae12a5ac2","plan":"ec93b77e2c45f72a095425ddfc37966adee2d2b7a1573016a9e9cc02298ac703"}}
 ```
 
-- **For / why:** Terry can reuse a character and direct recognizable action
-  without new bespoke choreography or visibly stretching limbs.
-- **Outcome and scope:** Cast an existing cartoon character into another
-  scene; direct reaching for, acquiring, carrying, and releasing a prop. Keep
-  contact, reach limits, character identity, ownership, and visibility coherent
-  across the supported interaction and its compatible beats.
-- **Evaluation example:** A character picks up an object, carries it into the
-  next beat, and puts it down. Terry changes one supported action or its order
-  and exports again. The held object stays at the hand until release; a reorder
-  that contradicts ownership has useful feedback or an explicit authored cut.
-- **Known basis and boundary:** R02/R09 and useful expressive-motion aspects
-  of R08. AI-testing characters already have articulated arms, hand targets,
-  gaze, blinks, moods, and head tilt. Reuse that delivered work. This story adds
-  semantic prop interaction beyond story 1's permanently attached prop; it does
-  not infer every physical interaction.
-- **Value / effort hypothesis:** Reusable character action in a new film.
-  Moderate to substantial scope; high confidence in value, with supported
-  interaction and contact policy to refine.
-- **Depends on:** Story 1's supported movement-join contract for the agreed
-  cross-beat interaction; existing character art is available.
+- **Goal:** Terry casts the existing cartoon Engineer into a new silent scene
+  and directs one believable prop interaction through the scene script: the
+  Engineer reaches for a prop that rests somewhere on the stage, picks it up,
+  carries it through later moves, and puts it down. Terry can reorder or
+  change these moves and export again; a rearrangement that keeps ownership
+  coherent plays without repair, and one that contradicts ownership or reach
+  is reported before any frame renders. This extends story 1's delivered
+  silent-scene path from a permanently attached prop to a prop with its own
+  place, contact, and ownership, so an existing character's proven acting can
+  be reused in a new film without new bespoke choreography and without the
+  stretched-limb defect reappearing.
+- **Scope — required behavior:**
+  - Cast: the scene script names the Engineer from the AI test automation
+    film as its actor. The Engineer keeps its identity across the scene: the
+    same art, articulated fixed-length arms, hand targets, gaze, and blinks
+    that film already delivers, drawn at the scene's scale.
+  - Props at rest: the script declares at least one prop and the place it
+    rests at when the scene starts. A place that can hold a prop declares a
+    surface (for example a desk top) where a prop rests and where a held prop
+    is put down. A resting prop is drawn at that surface on every frame until
+    it is picked up.
+  - Supported interaction moves, added to story 1's travel, hop, hold, and
+    cut: pick up a named prop over a duration, and put down the held prop
+    over a duration. Pick up moves the hand from its current position to the
+    prop's grip point, takes the prop, and settles into the carry position
+    with the prop in hand, all within the move's duration. Put down brings the
+    held prop to the current place's surface, releases it there, and returns
+    the hand to rest within the move's duration. Neither move changes where
+    the Engineer stands.
+  - Ownership and carry: from contact until release the prop is drawn at the
+    Engineer's hand on every frame, through travel, hop, hold, and cut, with
+    no script entry of its own. After release the prop rests at the surface
+    it was put down on and stays visible there; a later pick up at that place
+    takes it from there. The prop is never drawn in two places and never
+    disappears.
+  - Contact and reach: on every held frame the prop's grip point coincides
+    with the drawn hand, and the arm's segment lengths are the rig's fixed
+    lengths; the compiler guarantees the hand target is reachable rather than
+    letting the rig clamp a target beyond reach. During the reach and the
+    release the Engineer's gaze turns toward the prop and returns afterwards.
+  - Timing and position joins are unchanged from story 1: each move starts
+    the frame after the previous one ends, a travel starts from where the
+    previous move left the Engineer, and the scene's duration follows from
+    the moves.
+  - Feedback: before any frame renders, loading the scene reports the
+    offending move and the problem when a pick up names a prop that is not
+    within the Engineer's reach from where it stands at that moment, when a
+    pick up happens while the Engineer already holds a prop, when a put down
+    happens while nothing is held, when a put down happens at a place with no
+    surface, and for story 1's existing cases (unknown actor, move kind,
+    place, prop, or non-positive duration). The message names the prop, where
+    it rests or who holds it, and where the Engineer is, so Terry can move
+    the move, insert a travel, or insert an explicit cut.
+    Justification: this seed's accepted boundary that automatic joins do not
+    give incompatible actions coherent meaning, and this story's evaluation
+    example that a contradictory reorder gets useful feedback or an explicit
+    authored cut. Rejecting a put down with no surface and an out-of-reach
+    pick up follows from the rig's fixed arm lengths: the alternative is a
+    stretched or detached arm, the defect Terry already had fixed and this
+    story must not reopen.
+  - Export: Terry previews the scene in Remotion Studio and renders it with
+    the existing render path; a revision is a script edit followed by the
+    same render.
+- **Scope — assumptions and deferred promises:**
+  - First scene: a new silent scene on an empty stage with the Engineer, a
+    wrench resting on a desk, and a window with a surface, as the key examples
+    below describe. It replaces story 1's permanently attached wrench with a
+    wrench the Engineer acquires. A different prop or a different surface uses
+    the same path and does not change this scope.
+  - Considered and excluded, not rejected: automatically walking the Engineer
+    to an out-of-reach prop before picking it up. It is an inferred join of the
+    kind the accepted direction disclaims; Terry resolves reach with a travel
+    or a cut and gets feedback that says so.
+  - Deferred, neither built nor verified here: casting the AI companion or
+    another character through this path; two hands or holding two props at
+    once; handing a prop between characters; expressive intentions such as a
+    nervous or playful reach (R08); moods, head tilt, or blinks directed from
+    the script beyond the gaze used for the reach; props that change state
+    when handled; a prop resting on the floor or anywhere the rig cannot reach
+    without bending; caption, speech, or audio; Studio visual editing that
+    writes back to the script; migrating the AI test automation film to this
+    script. None of these is rejected.
+- **Key examples:**
+  1. *Pick up, carry, put down.* Script: Engineer starts at `door`; places
+     `door`, `desk` (surface), `window` (surface); the wrench rests on the
+     desk. Moves: travel to `desk` 1.5 s, pick up wrench 0.8 s, travel to
+     `window` 2 s, put down wrench 0.8 s, hop 0.6 s. Result: the wrench lies
+     on the desk until the hand reaches it; it is in the Engineer's hand on
+     every frame of the travel to the window; it rests on the window surface
+     from the release on; the hop happens with empty hands and the wrench stays
+     at the window; the scene is 5.7 s long and each move begins the frame
+     after the previous one ends.
+  2. *Compatible reorder.* Terry moves the hop to sit between the pick up and
+     the travel to the window, then exports. Result: the Engineer hops at the
+     desk holding the wrench, which follows the hand through the hop; the
+     travel, the put down, and the scene length are otherwise unchanged, with
+     no edit to any other move.
+  3. *Out of reach has useful feedback.* Terry moves the pick up to after the
+     travel to the window while the wrench still rests on the desk. Result:
+     loading the scene reports the pick-up move, that the wrench rests on the
+     desk, and that the Engineer is at the window; nothing renders with a
+     stretched arm or a floating wrench. Terry inserts `cut to desk` before
+     the pick up, and the scene loads with the Engineer taking the wrench at
+     the desk on the frame after the cut.
+  4. *Ownership contradiction has useful feedback.* Terry moves the put down
+     to before the pick up. Result: loading reports the put-down move and
+     that the Engineer holds nothing. Adding a second pick up of the wrench
+     while it is held reports that move and that the wrench is already in
+     hand. Putting the wrench down at the door, which has no surface, reports
+     that move and the place.
+  5. *Believable contact.* In example 1, on a frame midway through the travel
+     to the window, the wrench's grip point is at the drawn hand and the
+     upper and lower arm are their fixed lengths; on a frame midway through
+     the pick up, the Engineer's gaze is toward the wrench and the hand is
+     between rest and the grip; on the first frame after release the hand is
+     returning to rest and the wrench is on the window surface.
+- **Script sketch (illustrative, not a format commitment):**
+  ```
+  actor: engineer, starts at: door
+  places: door, desk (surface), window (surface)
+  props: wrench, resting on desk
+  moves:
+    travel to desk, 1.5 s
+    pick up wrench, 0.8 s
+    travel to window, 2 s
+    put down wrench, 0.8 s
+    hop, 0.6 s
+  ```
+- **Known basis and boundary:** R02/R09 and the reach-and-settle aspect of
+  R08. Story 1 delivered the silent scene script, its compiler with
+  before-render feedback, and the Engineer carrying a wrench at a fixed wrist
+  offset; the AI test automation film's rig already resolves a hand target
+  through two fixed-length segments and clamps targets beyond reach, and its
+  scenes already move hands between rest and a prop with eased interpolation.
+  Whether the scene script's prop, surface, and held state extend story 1's
+  compiler or the beat model, and how reach is computed from the rig, are
+  planning decisions under PFE; refinement establishes the ownership, contact,
+  and feedback contract above, not a representation.
+- **Value / effort hypothesis:** Reusable character action in a new film and
+  the first semantic continuity beyond numeric joins. Moderate scope; high
+  confidence in value, with the contact geometry and feedback wording to
+  settle in planning.
+- **Depends on:** Story 1's delivered movement-join contract (done) and the
+  existing Engineer art and rig (present).
 - **Safe stopping point:** Terry retains a complete reusable prop scene even
   if dialogue, anime, and 3D character work never follow.
 
@@ -482,6 +606,10 @@ the rest of this list.
   that story should reveal where numeric continuation is sufficient and where
   an explicit authored boundary is needed. Later new-style stories still choose
   their first film and source idea when selected.
+- Story 5's refinement settled its first scene on the same silent-scene path:
+  the Engineer takes a wrench from a desk, carries it, and puts it down on
+  another surface. An out-of-reach pick up gets feedback rather than inferred
+  travel, matching the accepted boundary on automatic joins.
 - Which new style does Terry most want to use in an upcoming film? The accepted
   queue can be reprioritized to test that interest early.
 - For character and generated-media stories, choose the design/rig/provider,
