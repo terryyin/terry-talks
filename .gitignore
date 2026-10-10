@@ -55,6 +55,7 @@ docs/_build/
 
 # Node / Slidev
 node_modules/
+.pnpm-store/
 .slidev/
 components.d.ts
 *-export/
