@@ -5,8 +5,17 @@ import { articulatedArm, Point } from './motion';
 export type Mood = 'concerned' | 'focused' | 'pleased' | 'surprised' | 'panicked' | 'determined' | 'relieved';
 export type Pose = 'stop' | 'rest';
 
+/** The Engineer's right arm in actor-local units from the feet, shared with scenes that plan reachable targets. */
+export const engineerRig = {
+	rightShoulder: { x: 42, y: -228 },
+	upper: 67,
+	lower: 68,
+	restRightHand: { x: 65, y: -164 },
+	carryHand: { x: 90, y: -180 },
+} as const satisfies { rightShoulder: Point; upper: number; lower: number; restRightHand: Point; carryHand: Point };
+
 const Arm: React.FC<{ shoulder: Point; hand: Point; color: string; stop?: boolean; robot?: boolean }> = ({ shoulder, hand: target, color, stop = false, robot = false }) => {
-	const { elbow, hand } = articulatedArm(shoulder, target, robot ? 48 : 67, robot ? 46 : 68, shoulder.x < 0 ? 1 : -1);
+	const { elbow, hand } = articulatedArm(shoulder, target, robot ? 48 : engineerRig.upper, robot ? 46 : engineerRig.lower, shoulder.x < 0 ? 1 : -1);
 	return <g data-testid="articulated-arm" data-shoulder={`${shoulder.x},${shoulder.y}`} data-elbow={`${elbow.x},${elbow.y}`} data-hand={`${hand.x},${hand.y}`} data-target={`${target.x},${target.y}`}>
 		<path d={`M${shoulder.x} ${shoulder.y}L${elbow.x} ${elbow.y}L${hand.x} ${hand.y}`} fill="none" stroke={palette.ink} strokeWidth={robot ? 27 : 34}/>
 		<path d={`M${shoulder.x} ${shoulder.y}L${elbow.x} ${elbow.y}L${hand.x} ${hand.y}`} fill="none" stroke={color} strokeWidth={robot ? 20 : 27}/>
@@ -29,7 +38,7 @@ export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: M
 		<path d="M-18-252V-276H16V-245Q3-225-18-252" fill={palette.skin}/>
 		<path d="M-57-158Q-30-148 49-158L49-145H-57Z" fill="#B85548" stroke="none" opacity="0.4"/>
 		<Arm shoulder={{ x: -48, y: -229 }} hand={leftHand ?? { x: -74, y: -165 }} color={palette.coral}/>
-		<Arm shoulder={{ x: 42, y: -228 }} hand={rightHand ?? (pose === 'stop' ? { x: 105, y: -278 } : { x: 65, y: -164 })} color={palette.coral} stop={pose === 'stop'}/>
+		<Arm shoulder={engineerRig.rightShoulder} hand={rightHand ?? (pose === 'stop' ? { x: 105, y: -278 } : engineerRig.restRightHand)} color={palette.coral} stop={pose === 'stop'}/>
 		<g transform={`rotate(${headTilt} 0 -312)`}>
 		<path d="M-34-253Q-65-268-61-314Q-70-370-11-382Q51-380 52-321Q58-273 20-258Q-6-243-34-253Z" fill={palette.skin}/>
 		<ellipse cx="-61" cy="-303" rx="10" ry="17" fill={palette.skin}/>

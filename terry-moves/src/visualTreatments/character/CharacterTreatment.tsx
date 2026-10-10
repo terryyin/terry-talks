@@ -1,18 +1,16 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { Engineer } from '../../aiTestAutomation/actors';
+import { Engineer, engineerRig } from '../../aiTestAutomation/actors';
 import { BODY, HEAD, palette } from '../../aiTestAutomation/design';
 import { lerpPoint, mix, reach } from '../../aiTestAutomation/motion';
 import { brief, OutcomeId, outcomeText, OutcomeStatus, statusLabel } from '../brief';
 import { CharacterPose, ShopperPose, stage } from './script';
 
-const REST_HAND = { x: 65, y: -164 };
-
 // One shopper, the same person in every frame: the AI workshop's adult
 // drawing at a fixed scale, standing on the street's ground line.
 const Shopper: React.FC<{ pose: ShopperPose }> = ({ pose }) => {
 	const y = stage.ground - pose.lift;
-	const hand = lerpPoint(REST_HAND, reach(pose.x, y, pose.reach.to.x, pose.reach.to.y, stage.scale), pose.reach.amount);
+	const hand = lerpPoint(engineerRig.restRightHand, reach(pose.x, y, pose.reach.to.x, pose.reach.to.y, stage.scale), pose.reach.amount);
 	return <g data-role="shopper">
 		<Engineer x={pose.x} y={y} scale={stage.scale} mood={pose.mood} gaze={pose.gaze} headTilt={pose.headTilt} blink={pose.blink} rightHand={hand}/>
 	</g>;

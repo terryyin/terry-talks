@@ -1,4 +1,5 @@
 import { renderToStaticMarkup } from 'react-dom/server';
+import { Engineer, engineerRig } from '../../src/aiTestAutomation/actors';
 import { AITestAutomationScene } from '../../src/aiTestAutomation/Scene';
 import { cue, FilmScene, filmScript } from '../../src/aiTestAutomation/film';
 import { articulatedArm, Point } from '../../src/aiTestAutomation/motion';
@@ -25,6 +26,21 @@ describe('legacy workshop physical acting and causal sequence', () => {
 			expect(distance(solved.elbow, solved.hand)).toBeCloseTo(68, 8);
 			expect(distance(shoulder, solved.hand)).toBeLessThanOrEqual(135);
 		});
+	});
+
+	it('draws the Engineer\'s right arm from the exported rig', () => {
+		const drawn = (rightHand?: Point) => arms(renderToStaticMarkup(<svg><Engineer x={0} y={0} rightHand={rightHand}/></svg>))[1];
+		const rest = drawn();
+		const carry = drawn(engineerRig.carryHand);
+		expect(rest.target).toEqual(engineerRig.restRightHand);
+		[rest, carry, drawn({ x: 2000, y: 1000 })].forEach(({ shoulder, elbow, hand, target }) => {
+			const solved = articulatedArm(engineerRig.rightShoulder, target, engineerRig.upper, engineerRig.lower, -1);
+			expect(shoulder).toEqual(engineerRig.rightShoulder);
+			expect(distance(elbow, solved.elbow)).toBeLessThan(1e-8);
+			expect(distance(hand, solved.hand)).toBeLessThan(1e-8);
+		});
+		expect(distance(rest.hand, engineerRig.restRightHand)).toBeLessThan(1e-8);
+		expect(distance(carry.hand, engineerRig.carryHand)).toBeLessThan(1e-8);
 	});
 
 	it('stages the film within reach and preserves segment lengths through gestures', () => {

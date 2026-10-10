@@ -46,6 +46,11 @@ contact, and ownership on top of story 1's delivered joins.
   `origin`, target `master`, integration checkout
   `/Users/terryyin/git/terry-talks`. Execution identity, claim, and increment
   revisions are recorded here once execution starts.
+- **Execution:** Story Branch Mode, agent Yuma-chan, publisher
+  `dashboard-territory.local-terry-talks`; claim published on `master` and
+  the execution branch at `6888ae90ebcae3b95d354f7d5f8c14e7ea05b7cf`
+  (starting revision `6d3f24f6d9f75c2bc03668a5ae47a2bb90d4fa03`). Increments
+  publish to `refs/heads/claude/i-can-bring-an-existing-character-into-a-new-sce`.
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile'`
   passed in this workspace (2026-10-10). No Git hooks; the component's
   formatter is `pnpm terry-moves:format` from the repo root.
@@ -145,8 +150,9 @@ Story examples: 1 → slices 2 and 3; 2 → 3; 3 and 4 → 4; 5 → 2 and 3.
 Terry's believability judgment remains a human evaluation.
 
 Consumers of changed surfaces: `actors.tsx` is drawn by `Problem.tsx`,
-`Learning.tsx`, `Protection.tsx`, `Selective.tsx`, and `SilentScene.tsx`, and
-asserted by `tests/aiTestAutomation` (slice 1 runs the gate). `ScenePose` and
+`Learning.tsx`, `Protection.tsx`, `Selective.tsx`, `SilentScene.tsx`, and
+`visualTreatments/character/CharacterTreatment.tsx`, and asserted by
+`tests/aiTestAutomation` and `tests/visualTreatments` (slice 1 runs the gate). `ScenePose` and
 `SceneScript` are consumed by the three `tests/silentScene` specs and
 `fixtures.ts` (slices 2–4 run that directory). The README's silent scene
 section states 124 frames and "the wrench stays in the Engineer's hand"
@@ -156,7 +162,16 @@ section states 124 frames and "the wrench stays in the Engineer's hand"
 
 ### 1. The Engineer's reach is shared rig data
 Type: Structure
-Status: planned
+Status: done
+Accepted: `engineerRig` (`rightShoulder`, `upper`, `lower`, `restRightHand`,
+`carryHand`) exported from `actors.tsx`; `tests/aiTestAutomation/acting.spec.tsx`
+"draws the Engineer's right arm from the exported rig" observes the drawn
+shoulder, elbow, and hand against the rig and solver; whole gate 58 suites /
+606 tests, eslint, tsc; markup of 2523 renders byte-identical to the previous
+revision before the refactor pass. Terry authorized collapsing the rest-hand
+literal onto the rig in `Problem.tsx`, `Learning.tsx`, and
+`visualTreatments/character/CharacterTreatment.tsx`; focused jest (11 suites /
+91 tests, including `tests/visualTreatments`) and tsc passed after it.
 Proof: `tests/aiTestAutomation` and `tests/silentScene` stay green; one
 focused assertion that the drawn right arm's `data-shoulder` and solved hand
 match the exported rig; whole gate `pnpm test` because a shared actor module
@@ -252,6 +267,20 @@ and a revision is a script edit followed by the same render.
   before any frame renders.
 - Timing policy is the moves' own durations; no reading pace.
 
+## Story obligations
+
+### G1. Only the right arm is rig data
+Reported: slice 1 — "Only the right arm is in the rig. The left shoulder `(-48,-229)`, left rest hand, stop-pose hand `(105,-278)` and the AI companion's shoulders and 48/46 lengths remain inline."
+Story clause: "casting the AI companion or another character through this path; two hands or holding two props at once"
+Disposition: excluded "casting the AI companion or another character through this path; two hands or holding two props at once"
+
 ## Learnings
 
 - Run jest, tsc, tsx, and Remotion in the nix dev shell with `NODE_ENV=test`.
+- `engineerRig` points are actor-local from the feet at scale 1 and `as const`;
+  reachability is `articulatedArm(rig.rightShoulder, target, rig.upper,
+  rig.lower, -1).hand` coinciding with the target. `eslint` covers `src` and
+  `revision` only, so specs are checked by jest and tsc.
+- A pre-change render baseline without touching the stash or branches:
+  `git archive` the previous revision with `AI Test Automation/` alongside
+  `terry-moves/` and symlink `node_modules`.

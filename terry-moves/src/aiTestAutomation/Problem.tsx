@@ -1,5 +1,5 @@
 import React from 'react';
-import { AI, Cabinet, Engineer, Shield } from './actors';
+import { AI, Cabinet, Engineer, engineerRig, Shield } from './actors';
 import { Label, palette } from './design';
 import { cue, FilmScene } from './film';
 import { appear, blinkAt, gesture, lerpPoint, mix, reach, travel } from './motion';
@@ -47,7 +47,7 @@ export const PurposeAndProof: React.FC<{ seconds: number; scene: FilmScene }> = 
 		<Cabinet x={550} y={590} scale={0.8} fixed={checked} neutral={!checked}/>
 		<path d="M440 805H504V722H550" fill="none" stroke={palette.ink} strokeWidth="4"/>
 		<g data-testid="purpose-check-control"><circle cx="440" cy="805" r="25" fill={press > 0.5 ? '#FFE5A9' : palette.gold} stroke={palette.ink} strokeWidth="4"/><Label x={439} y={857} size={20}>SAVE</Label></g>
-		<Engineer x={300} y={1040} scale={1.15} mood={checked ? 'pleased' : 'focused'} gaze={1} headTilt={checked ? 3 : 0} rightHand={lerpPoint({ x: 65, y: -164 }, reach(300, 1040, 440, 805, 1.15), press)} blink={blinkAt(seconds, [scene.start + 0.7])}/>
+		<Engineer x={300} y={1040} scale={1.15} mood={checked ? 'pleased' : 'focused'} gaze={1} headTilt={checked ? 3 : 0} rightHand={lerpPoint(engineerRig.restRightHand, reach(300, 1040, 440, 805, 1.15), press)} blink={blinkAt(seconds, [scene.start + 0.7])}/>
 		<AI x={900} y={1040} scale={0.98} mood={checked ? 'pleased' : 'focused'} gaze={-1}/>
 		{checked && <Shield x={897} y={504} scale={0.65}/>}
 		<Label x={573} y={1080} size={27} color={palette.muted}>{checked ? 'EXPECTED = OBSERVED' : 'THE INTENT COMES FIRST'}</Label>
@@ -80,7 +80,7 @@ export const StopAndFix: React.FC<{ seconds: number; scene: FilmScene }> = ({ se
 	const aiX = mix(850, 900, withdraw);
 	const spoolX = mix(700, 750, withdraw);
 	const spoolY = mix(832, 882, withdraw);
-	const hand = lerpPoint({ x: 65, y: -164 }, reach(engineerX, 1065, 622, 805, 1.1), halt * (1 - repairWork));
+	const hand = lerpPoint(engineerRig.restRightHand, reach(engineerX, 1065, 622, 805, 1.1), halt * (1 - repairWork));
 	const fixHand = lerpPoint(hand, reach(engineerX, 1065, 679, 892, 1.1), repairWork);
 	return <g data-testid="stop-and-fix" data-code-arrivals-halted={halt >= 1} data-code-withdrawn={withdraw >= 1} data-current-work={repairWork > 0.5 ? 'repair' : 'contain'}>
 		<rect x="0" y="310" width="1080" height="815" fill={palette.coral}/>

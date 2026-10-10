@@ -1,5 +1,5 @@
 import React from 'react';
-import { AI, Cabinet, Engineer } from './actors';
+import { AI, Cabinet, Engineer, engineerRig } from './actors';
 import { Label, palette } from './design';
 import { cue, FilmScene } from './film';
 import { appear, blinkAt, gesture, lerpPoint, mix, reach, travel } from './motion';
@@ -63,7 +63,7 @@ export const Investigate: React.FC<{ seconds: number; scene: FilmScene }> = ({ s
 	const oldWrist = { x: 815 + repair * 4, y: 715 + lift * 48 + repair * 2 };
 	const nextRepair = gesture(seconds, scene.captionRanges[4].speechStart + 0.3, 1.5);
 	const nextWrist = { x: 815 + nextRepair * 3, y: 678 + nextRepair * 2 };
-	const workHand = lerpPoint(lerpPoint({ x: 65, y: -164 }, reach(650, 1000, oldWrist.x, oldWrist.y, 1.2), lift), reach(650, 1000, nextWrist.x, nextWrist.y, 1.2), newRepair * (1 - rest));
+	const workHand = lerpPoint(lerpPoint(engineerRig.restRightHand, reach(650, 1000, oldWrist.x, oldWrist.y, 1.2), lift), reach(650, 1000, nextWrist.x, nextWrist.y, 1.2), newRepair * (1 - rest));
 	const findingX = mix(810, 745, handoff);
 	const findingY = mix(885, 846, handoff);
 	const expected = checkingKnown ? 'SEARCH: SAVED RECORD' : exploring ? 'RELOAD: CURRENT DATA' : 'SAVE: DATA KEPT';
