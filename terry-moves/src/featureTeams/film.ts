@@ -35,8 +35,8 @@ const choreographyCues: ShotCue[] = Object.entries(CUE).flatMap(([name, at]) =>
 
 export const speakerChoreography = { end: SCENE_END, cues: choreographyCues };
 export const speakerSlot = compileShot(speakerShot, measurement, speakerChoreography, FPS);
-// Clip sequence length and film length follow the compiled slot; the pose clock
-// still samples through CLIP_SECONDS (choreography SCENE_END) as today.
+// Short edits close on their slot; the approved shot keeps its choreography end.
+const clipEndSeconds = Math.min(speakerSlot.sceneSeconds, CLIP_SECONDS);
 export const CLIP_FRAMES = speakerSlot.videoFrames;
 export const durationInFrames = OPEN_FRAMES + Math.round((speakerSlot.sceneSeconds + HOLD_SECONDS + END_SECONDS) * FPS);
 
@@ -78,7 +78,7 @@ const opening = (o: number): FilmPose => {
 };
 
 const ending = (e: number): FilmPose => ({
-	scene: onPlainPaper(poseAt(CLIP_SECONDS + HOLD_SECONDS), between(e, 0, 0.6)),
+	scene: onPlainPaper(poseAt(clipEndSeconds + HOLD_SECONDS), between(e, 0, 0.6)),
 	stage: 1 - settle(between(e, 0, 0.5, Easing.in(Easing.back(1.8))), 1),
 	endCard: {
 		splash: bounce(e, 0.55, POPPY),
@@ -99,11 +99,11 @@ export const filmPoseAt = (frame: number): FilmPose => {
 	const f = Math.max(0, Math.min(durationInFrames - 1, Math.floor(frame)));
 	const s = clipSecondsAt(f);
 	if (s < 0) return opening(f / FPS);
-	if (s >= CLIP_SECONDS + HOLD_SECONDS) return ending(s - CLIP_SECONDS - HOLD_SECONDS);
-	const clipOver = s >= CLIP_SECONDS;
+	if (s >= clipEndSeconds + HOLD_SECONDS) return ending(s - clipEndSeconds - HOLD_SECONDS);
+	const clipOver = s >= clipEndSeconds;
 	return {
 		scene: poseAt(s),
 		stage: 1,
-		clipShown: clipOver ? 1 - between(s, CLIP_SECONDS, CLIP_SECONDS + 0.4) : bounce(s, 0, POPPY),
+		clipShown: clipOver ? 1 - between(s, clipEndSeconds, clipEndSeconds + 0.4) : bounce(s, 0, POPPY),
 	};
 };

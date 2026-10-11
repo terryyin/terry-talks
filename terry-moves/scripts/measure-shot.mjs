@@ -6,10 +6,11 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { speakerShot } from '../src/featureTeams/shot.ts';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const shotName = 'speakerShot';
-const source = 'assets/Component teams.mp4';
+const source = speakerShot.source;
 const filePath = join(root, 'public', source);
 const recordPath = join(root, 'src/featureTeams/shot-measurement.json');
 

@@ -74,7 +74,8 @@ const cropOutsideFrame = (crop: Shot['crop']): boolean =>
 // Pure: slot length, hold, frame count and inset video placement from the
 // declaration and measured source. The approved film uses full play, edit and
 // voice; hold and ranged play compile for replacement timing choices. Refuses
-// a crop outside the frame, a play range outside the measured length, voice
+// a source that disagrees with the measurement, a crop outside the frame,
+// a play range outside the measured length, voice
 // without audio, or edit when the slot ends before a choreography cue.
 export const compileShot = (
 	shot: Shot,
@@ -82,6 +83,9 @@ export const compileShot = (
 	choreography: ShotChoreography,
 	fps: number,
 ): CompiledShot => {
+	if (shot.source !== measurement.source) {
+		throw new Error(`${shot.source}: measurement is for ${measurement.source}`);
+	}
 	if (cropOutsideFrame(shot.crop)) {
 		throw new Error(`${shot.source}: crop is outside the source frame`);
 	}

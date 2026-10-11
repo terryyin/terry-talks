@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock",
+  "title": "Terry's shot declaration owns measurement check and the edit scene clock",
+  "completedAt": "2026-10-11T12:51:19.791Z",
+  "developer": "Terry Yin",
+  "agent": "Kirara-chan",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}
