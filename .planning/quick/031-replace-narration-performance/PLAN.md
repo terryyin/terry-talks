@@ -356,7 +356,9 @@ then `--select`, render, README and the gate. The whole gate was green
 after slice 4 (59 suites, 657 tests).
 Accepted proof (2026-10-11): Terry listened and chose `candidate-1`.
 `--select investigate:4-6 candidate-1` gave 80.267 s / 2408 frames; every
-clause before "It's a compromise." identical, the three region clauses carry
+clause before "It's a compromise." keeps its speech bounds, word cues and
+audio (the clause just before it changes caption one frame later, at the new
+gap midpoint; every earlier clause is identical), the three region clauses carry
 the candidate's cues, every later clause +0.35 s with speech length, word
 spacing and gaps kept, bounds frame-aligned; composed audio sample-identical
 to the base take before 49.6175 s and after 55.632 s (the seams less the
@@ -384,6 +386,25 @@ region; the README states the new runtime and that the narration is a base
 take with the named region replaced. If Terry accepts no candidate, the
 mechanism is delivered by slice 4 and the story's observable outcome waits
 on a further audition; report that plainly rather than selecting for him.
+
+## Execution complete
+
+Product advice: Reasoned no-change to backlog order. One agreed paid audition
+produced three audited candidates (−0.21 s to +0.76 s), and Terry's chosen
+take carried through script, subtitles, score, effects, mix and treatment
+with no edit to any scene component or test, so the measured clock supports
+contained narration revision as the story hypothesised; Terry's listening to
+the rendered film remains his evaluation. The retrospective planned one
+unqueued correction (`terry-moves-filmmaking#narration-region-across-scenes`,
+plan 032, recorded not-ready): a region cannot yet cross a scene boundary
+although the story defines it so, and the region commands lack repeatable
+proof. Record at wrap-up that the retained clause before a region keeps its
+speech and cues but its caption change follows the new gap (one frame here),
+that the README runtime and region sentence are hand-synced, and that
+`--audition` usage and its paid default live only in the producer docstring.
+Restoring a region to the base take, changing a replaced region's bounds, and
+carrying the path to the other Cedar films are hypotheses to raise only if
+Terry asks; no evidence supports queuing them now.
 
 ## Story obligations
 
