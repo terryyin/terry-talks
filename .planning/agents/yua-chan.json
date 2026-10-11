@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Yua-chan",
-  "email": "yua-chan@example.org",
-  "activity": "preparation",
-  "identity": "terry-moves-filmmaking#replace-filmed-shot",
-  "host": "claude",
-  "model": "fable"
-}
