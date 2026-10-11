@@ -6,8 +6,8 @@ import tempfile
 import unittest
 from array import array
 from pathlib import Path
-from narration_audio import (FADE, compose, compose_manifest, read_manifest, read_pcm, sha256, splice, verify,
-                             write_pcm, write_performance)
+from narration_audio import (FADE, compose, compose_manifest, read_manifest, read_pcm, select_region, sha256,
+                             splice, verify, write_pcm, write_performance)
 
 RATE = 8000
 SPOKEN = "Ask first. It's a compromise, needs relief. Not more code."  # Region: tokens 2-6 of 10.
@@ -125,7 +125,7 @@ class Composition(unittest.TestCase):
         self.assertNotEqual(pcm[samples(1.5):samples(5.25)], self.base[samples(1.5):samples(5.25)])
 
 
-class Manifest(unittest.TestCase):
+class Recorded(unittest.TestCase):
     def setUp(self):
         folder = tempfile.TemporaryDirectory()
         self.addCleanup(folder.cleanup)
@@ -146,6 +146,8 @@ class Manifest(unittest.TestCase):
         write_performance(self.evidence, report)
         return composed, report
 
+
+class Manifest(Recorded):
     def replaced(self):
         words = moved(self.words[1:8], -1.0)
         return [{"id": "ask:2", "firstToken": FIRST, "tokenCount": COUNT, "takeFirstToken": 1,
@@ -187,6 +189,59 @@ class Manifest(unittest.TestCase):
         with self.assertRaises(ValueError) as stop:
             read_manifest(self.evidence, self.root, self.take)
         self.assertIn(str(self.region), str(stop.exception))
+
+
+class Selection(Recorded):
+    """Selecting a take for a region of a record: words 2-6 as `ask:2`, words 8-9 as `ask:3`."""
+
+    def entry(self, name, first, count, change):
+        """A take cut from the base at the retained word before its region, `change` seconds longer."""
+        cut = self.words[first - 1]["start"]
+        base, path = read_pcm(self.take, RATE), self.root / "regions" / f"{name}-{change}.wav"
+        at = samples(cut + 1.25)  # The midpoint of the gap after the region's first word.
+        write_pcm(path, base[samples(cut):at] + noise(change, 5) + base[at:], RATE)
+        words = moved(self.words[first - 1:], -cut)
+        return {"id": name, "firstToken": first, "tokenCount": count, "takeFirstToken": 1, "take": str(path),
+                "takeSha256": sha256(path), "words": words[:2] + moved(words[2:], change)}
+
+    def composed(self, report):
+        path, words = compose_manifest(report, self.take, [Path(region["take"]) for region in report["regions"]],
+                                       self.root / "composed.wav", RATE)
+        return read_pcm(path, RATE), words
+
+    def test_first_selection_keeps_the_base_measurement(self):
+        _, report = self.record([])
+        first = self.entry("ask:2", FIRST, COUNT, 0.5)
+        chosen = select_region(report, first)
+        self.assertEqual((chosen["baseWords"], chosen["regions"]), (self.words, [first]))
+        self.assertEqual(report["regions"], [])  # The record read is not changed.
+        self.assertEqual(len(self.composed(chosen)[0]), samples(8.0))
+
+    def test_second_region_composes_onto_the_first_and_reselection_replaces_only_its_own(self):
+        _, report = self.record([])
+        first, second = self.entry("ask:2", FIRST, COUNT, 0.5), self.entry("ask:3", 8, 2, 0.25)
+        both = select_region({**select_region(report, first), "words": "the composed timeline"}, second)
+        self.assertEqual((both["baseWords"], both["regions"]), (self.words, [first, second]))
+        pcm, words = self.composed(both)
+        self.assertEqual(len(pcm), samples(7.5 + 0.5 + 0.25))
+        self.assertAlmostEqual(words[7]["start"] - self.words[7]["start"], 0.5, 9)
+        self.assertAlmostEqual(words[9]["start"] - self.words[9]["start"], 0.75, 9)
+        again = self.entry("ask:2", FIRST, COUNT, 0.125)
+        replaced = select_region({**both, "words": words}, again)
+        self.assertEqual((replaced["baseWords"], replaced["regions"]), (self.words, [again, second]))
+        self.assertIs(replaced["regions"][1], second)
+        pcm, words = self.composed(replaced)
+        self.assertEqual(len(pcm), samples(7.5 + 0.125 + 0.25))
+        self.assertEqual(words[:2], self.words[:2])
+        self.assertAlmostEqual(words[7]["start"] - self.words[7]["start"], 0.125, 9)
+        self.assertAlmostEqual(words[9]["start"] - self.words[9]["start"], 0.375, 9)
+
+    def test_region_overlapping_another_replaced_region_is_refused_naming_it(self):
+        _, report = self.record([])
+        chosen = select_region(report, self.entry("ask:2", FIRST, COUNT, 0.5))
+        with self.assertRaises(ValueError) as refusal:
+            select_region(chosen, self.entry("ask:2-3", 6, 4, 0.25))
+        self.assertIn("ask:2-3 overlaps the replaced region ask:2", str(refusal.exception))
 
 
 if __name__ == "__main__":

@@ -161,6 +161,18 @@ reproduction keeps verifying every saved take by hash and needs no API.
   `preparedSha256` is the trimmed base file's hash; with regions it is the
   composed file's. Any `ValueError` in the producer is a one-sentence stderr
   stop with exit 1.
+- **Selection (slice 4):** `--select <region> <candidate>` checks everything
+  before writing, then writes the region take as
+  `regions/<scene>-<first>[-<last>]-<first 12 hex of its SHA-256>.wav`, the
+  record and the script, and continues as the ordinary reproduction. A
+  region entry carries `id`, `spoken`, `candidate`, `note`, `requestText`,
+  `model`, `voice`, `direction`, `alignmentModel`, `transcript`,
+  `transcriptSource`, `take`, `takeSha256`, `firstToken`, `tokenCount`,
+  `takeFirstToken` and `words`. Selecting a region that overlaps a different
+  replaced region is refused ("select that region again"); the story does
+  not describe overlap. An audition after a selection is heard against the
+  current composition. `LEAD`, `TAIL`, `CEILING` and `film_frames` in
+  `cedar_narration.py` are the one length rule for `align()` and `select()`.
 - **Interim behavior:** after slice 1 candidates can be auditioned but not
   selected; slice 4 adds selection. After slice 3 the manifest exists with
   an empty `regions` list.
@@ -284,7 +296,24 @@ every asset are unchanged. Enables slice 4.
 
 ### 4. Terry selects a candidate and the film follows it without repair
 Type: Behavior
-Status: planned
+Status: done
+Accepted proof (offline fixtures, 2026-10-11; approved state restored and
+`film-script.json` back at SHA-256 `8971…80b1`): `--select investigate:4-6
+candidate-fixture` (0.5 s inserted after "compromise") gave 80.433 s / 2413
+frames; clauses before the region identical, "It's a compromise." keeps its
+speech bounds, every later clause +0.5 s with speech length, word spacing
+and gaps kept (1e-9 s), bounds frame-aligned; composed audio sample-identical
+outside the region; record lists
+`regions/investigate-4-6-<12 hex>.wav` with its hash; cue 17 stays at
+50.225 s, cue 18 moves 51.97 → 52.47 s, cues 19–26 +0.5 s; treatment states
+the base take plus the region and 83.43 s; jest `tests/aiTestAutomation`
+green with no test edit; a second no-flag run byte-identical; a flipped byte
+in the region take stops the producer naming it; a 6 s fixture is refused at
+85.93 s, an edited transcript, unknown candidate and unknown region are
+refused, all with tracked files unchanged; `stopFix:1-2` selected second
+lists both (80.833 s / 2425 frames) and re-selecting `investigate:4-6`
+replaces only its entry and removes its old take (80.633 s / 2419 frames);
+unittest 13 tests.
 Proof: an offline fixture candidate made with ffmpeg from the base take's own
 region span with 0.5 s of silence inserted after "It's a compromise." and a
 measurement JSON derived from the base words (no API) placed in the auditions
@@ -336,6 +365,11 @@ Reported: slice 1 — "The paid request is unobserved."
 Story clause: "the producer asks the film's voice (Cedar) for one connected take of the region's words"
 Disposition: receiving slice 5
 
+### G2. A new whole take leaves replaced region take files behind
+Reported: slice 4 — "`--new-take` leaves orphans."
+Story clause: "the existing whole-take request stays as it is"
+Disposition: excluded "the existing whole-take request stays as it is"
+
 ## Current decisions
 
 - A region is one or more consecutive clauses named by scene and position;
@@ -371,3 +405,12 @@ Disposition: receiving slice 5
 - `scripts/narration_audio.py` is 230 lines; slice 4 additions there may
   need a split. `Problem Decomposition Remake/produce_audio.py` keeps its
   own identical `sha256(path)`; left alone as another film's producer.
+- Restore an applied fixture selection from saved baseline bytes, then
+  remove `regions/` and the auditions directory and run the producer; no
+  path checkout is needed. Fixtures built after a selection cut from
+  `cedar-prepared.wav` with `baseWords`.
+- Fixture candidates are the base take's own audio, so a seam between
+  genuinely different takes is proved only by the unit crossfade test until
+  a real candidate is selected (G1).
+- `scripts/narration_audio.py` (247 lines) and its test file (248) have no
+  headroom under the 250-line limit.

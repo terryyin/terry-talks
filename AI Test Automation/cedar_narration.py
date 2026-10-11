@@ -73,11 +73,35 @@ def measure(client, prepared):
             "words": [{"word": w.word, "start": w.start, "end": w.end} for w in measured.words]}
 
 
+LEAD = 0.08  # Seconds of silence before the question, which starts with no title-card hold.
+TAIL = 2.0  # Seconds of breathing room after the last word.
+CEILING = 85  # The workshop's longest acceptable length in seconds.
+
+
+def record_path(root):
+    return root / "AI Test Automation" / "cedar-performance.json"
+
+
+def region_prepared(work, regions):
+    """Where each listed region take is boundary-trimmed, in list order."""
+    return [work / f"region-{number}-prepared.wav" for number, _ in enumerate(regions, 1)]
+
+
+def composition(work, report, regions, sample_rate):
+    """A record's prepared audio file and timeline words, from the boundary-trimmed base and region takes."""
+    return compose_manifest(report, work / "cedar-prepared.wav", regions, work / "cedar-composed.wav", sample_rate)
+
+
+def film_frames(script, pcm, sample_rate):
+    """The workshop's length in whole frames: lead, prepared speech and tail."""
+    return math.ceil((LEAD + len(pcm) / sample_rate + TAIL) * script["fps"])
+
+
 def performance(root, script, run, sample_rate, new_take=False):
     assets = root / "terry-moves" / "public" / "assets" / "ai-test-automation"
     work = root / "terry-moves" / "out" / "ai-test-automation-audio"
     take = assets / "cedar-take.wav"
-    evidence = root / "AI Test Automation" / "cedar-performance.json"
+    evidence = record_path(root)
     prepared = work / "cedar-prepared.wav"
     selected_take = work / "cedar-candidate.wav" if new_take else take
     text = narration_text(script)
@@ -105,11 +129,11 @@ def performance(root, script, run, sample_rate, new_take=False):
         # A new take is measured whole, so it replaces every region.
         report.update(preparedSha256=sha256(prepared), regions=[])
     else:
-        regions = [work / f"region-{number}-prepared.wav" for number, _ in enumerate(report["regions"], 1)]
+        regions = region_prepared(work, report["regions"])
         for region, trimmed in zip(report["regions"], regions):
             prepare(root / region["take"], trimmed, run, sample_rate)
         # The recorded words and prepared hash describe the composition of every listed take.
-        prepared, words = compose_manifest(report, prepared, regions, work / "cedar-composed.wav", sample_rate)
+        prepared, words = composition(work, report, regions, sample_rate)
         verify(prepared, report["preparedSha256"])
         if words != report["words"]:
             raise ValueError(f"{evidence} words differ from the composition of its takes.")
@@ -121,8 +145,7 @@ def performance(root, script, run, sample_rate, new_take=False):
 
 
 def align(script, pcm, report, sample_rate):
-    fps, rate = script["fps"], sample_rate
-    lead = 0.08  # The question starts immediately, with no title-card hold.
+    fps, rate, lead = script["fps"], sample_rate, LEAD
     assert rate % fps == 0
     words = []
     for word in report["words"]:
@@ -145,8 +168,8 @@ def align(script, pcm, report, sample_rate):
             cursor += count
             captions.append(caption)
     assert cursor == len(words)
-    duration_frames = math.ceil((lead + len(pcm) / rate + 2.0) * fps)
-    assert duration_frames / fps <= 85, "Retain the script; choose a more fluent take if needed."
+    duration_frames = film_frames(script, pcm, rate)
+    assert duration_frames / fps <= CEILING, "Retain the script; choose a more fluent take if needed."
     # Change the caption at a frame in the natural gap before the next clause.
     # No artificial inter-clause silence is added to the voice.
     boundaries = [0]

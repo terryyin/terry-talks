@@ -183,6 +183,23 @@ def read_manifest(evidence, root, take):
     return report
 
 
+def select_region(report, entry):
+    """A record whose region `entry["id"]` uses `entry`: replaced where it is listed, or added last.
+
+    Regions are positioned in script tokens, so every other entry stays as it
+    is and the composition is rebuilt from `baseWords`, the base take's own.
+    """
+    regions = report["regions"]
+    end = entry["firstToken"] + entry["tokenCount"]
+    for other in regions:
+        if (other["id"] != entry["id"] and entry["firstToken"] < other["firstToken"] + other["tokenCount"]
+                and other["firstToken"] < end):
+            raise ValueError(f"{entry['id']} overlaps the replaced region {other['id']}; select that region again.")
+    at = next((n for n, other in enumerate(regions) if other["id"] == entry["id"]), len(regions))
+    return {**report, "baseWords": report["baseWords"] if regions else report["words"],
+            "regions": regions[:at] + [entry] + regions[at + 1:]}
+
+
 def compose_manifest(report, prepared, region_prepared, composed, sample_rate):
     """A record's prepared audio file and timeline words from its boundary-trimmed takes.
 

@@ -1,11 +1,15 @@
 """Candidate Cedar takes of one script region, auditioned between its retained neighbours."""
 
+import contextlib
+import io
 import json
 import re
 import sys
-from narration_audio import (exact_script, gap_span, read_pcm, replace_region, sha256, tokens, verify,
-                             word_range, write_pcm, write_performance)
-from cedar_narration import DIRECTION, MODEL, VOICE, cedar_client, measure, performance, prepare, speak
+from copy import deepcopy
+from narration_audio import (exact_script, gap_span, read_pcm, replace_region, select_region,
+                             sha256, tokens, verify, word_range, write_pcm, write_performance)
+from cedar_narration import (CEILING, DIRECTION, MODEL, VOICE, align, cedar_client, composition, film_frames,
+                             measure, performance, prepare, record_path, region_prepared, speak)
 
 
 EXCERPT = """This request is an excerpt of that film. Speak only the user script,
@@ -70,15 +74,20 @@ def candidate_in_context(folder, name, text, context, before, count, size, base,
     return audible, end - start, (len(pcm) - len(base)) / sample_rate, replaced[1] - replaced[0]
 
 
-def audition(root, script, run, sample_rate, region, note="", candidates=1):
-    """Request `candidates` new takes of one region and write every saved one in context."""
+def request(script, region):
+    """A region's name, the text asked of a candidate, the region's own words, and its token spans:
+    the context's first script token, the retained tokens before the region, the region's, the context's."""
     name, first, last = clauses(script, region)
     spoken = [c["spoken"] for s in script["scenes"] for c in s["captionRanges"]]
     size = lambda spoken_clauses: len(tokens(" ".join(spoken_clauses)))
     before, replaced, after = spoken[max(first - 1, 0):first], spoken[first:last], spoken[last:last + 1]
-    text = " ".join(before + replaced + after)
-    token_spans = (size(spoken[:first]) - size(before), size(before), size(replaced),
-                   size(before + replaced + after))
+    return (name, " ".join(before + replaced + after), " ".join(replaced),
+            (size(spoken[:first]) - size(before), size(before), size(replaced), size(before + replaced + after)))
+
+
+def audition(root, script, run, sample_rate, region, note="", candidates=1):
+    """Request `candidates` new takes of one region and write every saved one in context."""
+    name, text, replaced, token_spans = request(script, region)
     prepared, report = performance(root, script, run, sample_rate)
     base = read_pcm(prepared, sample_rate)
     # Auditions stay beside the prepared base take in the ignored work directory.
@@ -87,7 +96,7 @@ def audition(root, script, run, sample_rate, region, note="", candidates=1):
     numbered = (re.fullmatch(r"candidate-(\d+)", record.stem) for record in folder.glob("*.json"))
     latest = max((int(found[1]) for found in numbered if found), default=0)
     for number in range(latest + 1, latest + 1 + candidates):
-        request_candidate(folder, f"candidate-{number}", name, text, " ".join(replaced), note, run, sample_rate)
+        request_candidate(folder, f"candidate-{number}", name, text, replaced, note, run, sample_rate)
     refused = 0
     for record in sorted(folder.glob("*.json")):
         try:
@@ -99,3 +108,56 @@ def audition(root, script, run, sample_rate, region, note="", candidates=1):
             refused += 1
             print(f"{problem}. {record.stem} is not offered for selection.", file=sys.stderr, flush=True)
     return refused
+
+
+def region_entry(name, spoken, candidate, saved, first, count, take_first):
+    """The record's entry for a region whose take is the saved candidate, kept under the film's assets."""
+    take = (f"terry-moves/public/assets/ai-test-automation/regions/"
+            f"{name.replace(':', '-')}-{saved['takeSha256'][:12]}.wav")
+    return {"id": name, "spoken": spoken, "candidate": candidate,
+            **{key: saved[key] for key in ("note", "requestText", "model", "voice", "direction", "alignmentModel",
+                                           "transcript", "transcriptSource")},
+            "take": take, "takeSha256": saved["takeSha256"],
+            "firstToken": first, "tokenCount": count, "takeFirstToken": take_first, "words": saved["words"]}
+
+
+def select(root, script, run, sample_rate, region, candidate):
+    """Make a saved candidate its region's take; the measured script the composition gives. Needs no API.
+
+    Everything is checked before the region take and the record are written.
+    """
+    name, text, replaced, (context, before, count, size) = request(script, region)
+    prepared, report = performance(root, script, run, sample_rate)
+    work = prepared.parent
+    folder = work / "auditions" / name
+    if not (folder / f"{candidate}.json").exists():
+        raise ValueError(f"{name} has no saved candidate {candidate!r} in {folder}.")
+    try:
+        candidate_in_context(folder, candidate, text, context, before, count, size,
+                             read_pcm(prepared, sample_rate), report["words"], run, sample_rate)
+    except ValueError as problem:
+        raise ValueError(f"{problem}. {candidate} cannot be selected.")
+    saved = json.loads((folder / f"{candidate}.json").read_text())
+    entry = region_entry(name, replaced, candidate, saved, context + before, count, before)
+    take = entry["take"]
+    record = select_region(report, entry)
+    trimmed = [folder / f"{candidate}-prepared.wav" if listed is entry else path
+               for listed, path in zip(record["regions"], region_prepared(work, record["regions"]))]
+    composed, words = composition(work, record, trimmed, sample_rate)
+    pcm = read_pcm(composed, sample_rate)
+    seconds = film_frames(script, pcm, sample_rate) / script["fps"]
+    if seconds > CEILING:  # align() asserts the same ceiling; this refusal says what to do.
+        raise ValueError(f"Selecting {candidate} for {name} would make the workshop {seconds:.2f} s long, "
+                         f"beyond its {CEILING} s ceiling, so it is not applied; choose a shorter candidate.")
+    record.update(words=words, preparedSha256=sha256(composed))
+    measured = deepcopy(script)
+    with contextlib.redirect_stdout(io.StringIO()):  # The producer prints the scene spans when it rebuilds.
+        align(measured, pcm, record, sample_rate)
+    replaced_takes = {listed["take"] for listed in report["regions"]} - {listed["take"] for listed in record["regions"]}
+    (root / take).parent.mkdir(parents=True, exist_ok=True)
+    (root / take).write_bytes((folder / f"{candidate}.wav").read_bytes())
+    for old in replaced_takes:
+        (root / old).unlink(missing_ok=True)  # A region keeps only its current take.
+    write_performance(record_path(root), record)
+    print(f"Selected {candidate} for {name}: “{replaced}” is now {take}.", flush=True)
+    return measured
