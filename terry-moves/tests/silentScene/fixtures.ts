@@ -36,14 +36,14 @@ export const withCut = {
 	],
 } as const satisfies SceneScript;
 
-// Prop story example 1 before its put down: the wrench rests on the desk until it is picked up.
+// Prop story example 1 without its put down: the wrench rests on the desk until it is picked up, then stays in hand.
 export const pickUp = {
 	actor: 'Engineer',
 	start: 'door',
 	places: {
 		door: { x: 220, y: 820 },
-		desk: { x: 540, y: 820, surface: { x: 620, y: 690 } },
-		window: { x: 850, y: 720, surface: { x: 930, y: 590 } },
+		desk: { x: 540, y: 820, surface: { x: 660, y: 690 } },
+		window: { x: 850, y: 720, surface: { x: 970, y: 590 } },
 	},
 	props: { wrench: { at: 'desk' } },
 	moves: [
@@ -52,6 +52,20 @@ export const pickUp = {
 		{ kind: 'travel', to: 'window', seconds: 2 },
 		{ kind: 'hop', seconds: 0.6 },
 	],
+} as const satisfies SceneScript;
+
+const putDownWrench = { kind: 'put down', prop: 'wrench', seconds: 0.8 } as const;
+
+// Prop story example 1: the wrench is put down on the window surface before the hop.
+export const putDown = {
+	...pickUp,
+	moves: [pickUp.moves[0], pickUp.moves[1], pickUp.moves[2], putDownWrench, pickUp.moves[3]],
+} as const satisfies SceneScript;
+
+// Prop story example 2: the hop moved between the pick up and the travel to the window.
+export const hopWhileCarrying = {
+	...pickUp,
+	moves: [pickUp.moves[0], pickUp.moves[1], pickUp.moves[3], pickUp.moves[2], putDownWrench],
 } as const satisfies SceneScript;
 
 // The settled pose of a scene whose wrench starts in hand and is never released.

@@ -1,60 +1,13 @@
-import { renderToStaticMarkup } from 'react-dom/server';
 import { engineerRig } from '../../src/aiTestAutomation/actors';
-import { compileScene, ScenePose } from '../../src/silentScene/compileScene';
-import { SceneScript, script } from '../../src/silentScene/script';
-import { SilentScene } from '../../src/silentScene/SilentScene';
+import { compileScene } from '../../src/silentScene/compileScene';
+import { SceneScript } from '../../src/silentScene/script';
 import { original, pickUp, reordered, withCut } from './fixtures';
+import { expectCarriedWrench, expectWrenchRestingAt, firstMiddleLast, picture } from './picture';
 
 const withHold: SceneScript = {
 	...reordered,
 	moves: [...reordered.moves, { kind: 'hold', seconds: 0.8 }],
 };
-
-const numbers = (text: string) => text.match(/-?[\d.]+/g)!.map(Number);
-const point = (text: string) => { const [x, y] = text.split(',').map(Number); return { x, y }; };
-const propsAt = (document: Document, testId: string) => [...document.querySelectorAll(`[data-testid="${testId}"]`)].map((prop) => {
-	const [x, y] = numbers(prop.querySelector('g')!.getAttribute('transform')!);
-	return { name: prop.getAttribute('data-prop'), x, y };
-});
-
-// Reads the drawn picture: the world hand comes from the real articulated arm.
-const picture = (pose: ScenePose, places: SceneScript['places']) => {
-	const document = new DOMParser().parseFromString(renderToStaticMarkup(<SilentScene pose={pose} places={places}/>), 'text/html');
-	const actor = document.querySelector('[data-testid="engineer"]')!;
-	const [x, y, scale] = numbers(actor.getAttribute('transform')!);
-	const arm = actor.querySelectorAll('[data-testid="articulated-arm"]')[1];
-	const [shoulder, elbow, hand] = ['data-shoulder', 'data-elbow', 'data-hand'].map((name) => point(arm.getAttribute(name)!));
-	const pupils = [...actor.querySelectorAll('ellipse[rx="4.5"]')].map((pupil) => Number(pupil.getAttribute('cx')));
-	return {
-		document,
-		actor: { x, y },
-		hand,
-		worldHand: { x: x + hand.x * scale, y: y + hand.y * scale },
-		upper: Math.hypot(elbow.x - shoulder.x, elbow.y - shoulder.y),
-		lower: Math.hypot(hand.x - elbow.x, hand.y - elbow.y),
-		// The Engineer's pupils sit at -31 and 17 when looking straight ahead.
-		gaze: pupils[0] + 31,
-		carried: propsAt(document, 'carried-prop'),
-		resting: propsAt(document, 'resting-prop'),
-	};
-};
-
-const expectCarriedWrench = (pose: ScenePose, places: SceneScript['places']) => {
-	const drawn = picture(pose, places);
-	expect(drawn.actor).toEqual({ x: pose.x, y: pose.y - pose.lift });
-	expect(drawn.carried).toHaveLength(1);
-	expect(drawn.carried[0].name).toBe('wrench');
-	expect(drawn.carried[0].x).toBeCloseTo(drawn.worldHand.x, 8);
-	expect(drawn.carried[0].y).toBeCloseTo(drawn.worldHand.y, 8);
-	expect(drawn.upper).toBeCloseTo(engineerRig.upper, 8);
-	expect(drawn.lower).toBeCloseTo(engineerRig.lower, 8);
-	expect(drawn.resting).toEqual([]);
-	expect(drawn.document.querySelector('[data-testid="caption"], text')).toBeNull();
-	expect(drawn.document.body.textContent).toBe('');
-	return drawn;
-};
-
-const firstMiddleLast = ({ from, durationInFrames }: { from: number; durationInFrames: number }) => [from, from + Math.floor(durationInFrames / 2), from + durationInFrames - 1];
 
 describe.each([['original story order', original], ['reordered with hold', withHold], ['with cut', withCut]] as const)('%s picture with the wrench held from the start', (_order, authored) => {
 	const scene = compileScene(authored);
@@ -74,7 +27,7 @@ describe('picking up the wrench that rests on the desk', () => {
 	const scene = compileScene(pickUp);
 	const draw = (frame: number) => picture(scene.poseAt(frame), pickUp.places);
 	const pickUpRange = scene.beatRange('2 pick up wrench');
-	const contact = pickUpRange.from + Math.floor(pickUpRange.durationInFrames / 2);
+	const [, contact, last] = firstMiddleLast(pickUpRange);
 	const desk = pickUp.places.desk;
 
 	test('each move begins the frame after the previous one ends, in the same whole pose', () => {
@@ -89,13 +42,7 @@ describe('picking up the wrench that rests on the desk', () => {
 	});
 
 	test('the wrench lies on the desk surface and nothing is carried on every frame before contact', () => {
-		for (let frame = 0; frame < contact; frame++) {
-			const drawn = draw(frame);
-			expect(drawn.resting).toEqual([{ name: 'wrench', ...desk.surface }]);
-			expect(drawn.carried).toEqual([]);
-			expect(drawn.upper).toBeCloseTo(engineerRig.upper, 8);
-			expect(drawn.lower).toBeCloseTo(engineerRig.lower, 8);
-		}
+		for (let frame = 0; frame < contact; frame++) expectWrenchRestingAt(desk.surface, scene.poseAt(frame), pickUp.places);
 	});
 
 	test('the empty hand hangs at rest and looks ahead until the pick up begins', () => {
@@ -129,7 +76,7 @@ describe('picking up the wrench that rests on the desk', () => {
 	});
 
 	test('the pick up settles the hand at the carry offset, looking ahead again', () => {
-		const drawn = expectCarriedWrench(scene.poseAt(pickUpRange.from + pickUpRange.durationInFrames - 1), pickUp.places);
+		const drawn = expectCarriedWrench(scene.poseAt(last), pickUp.places);
 		expect(drawn.hand).toEqual(engineerRig.carryHand);
 		expect(drawn.gaze).toBe(0);
 	});
@@ -144,7 +91,7 @@ describe('picking up the wrench that rests on the desk', () => {
 
 	test('the carried wrench rises with the hop', () => {
 		const hop = scene.beatRange('4 hop');
-		const drawn = expectCarriedWrench(scene.poseAt(hop.from + Math.floor(hop.durationInFrames / 2)), pickUp.places);
+		const drawn = expectCarriedWrench(scene.poseAt(firstMiddleLast(hop)[1]), pickUp.places);
 		expect(drawn.carried[0].y).toBeLessThan(pickUp.places.window.y + engineerRig.carryHand.y);
 	});
 
@@ -171,6 +118,14 @@ describe('picking up the wrench that rests on the desk', () => {
 	});
 });
 
-test('the authored scene is the pick up example', () => {
-	expect(script).toEqual(pickUp);
+test('a cut while carrying a picked-up wrench keeps it at the real hand on the cut frame and both neighbors', () => {
+	const cutting: SceneScript = { ...pickUp, moves: [pickUp.moves[0], pickUp.moves[1], { kind: 'cut', to: 'window' }, { kind: 'hold', seconds: 0.2 }] };
+	const scene = compileScene(cutting);
+	const { from } = scene.beatRange('3 cut to window');
+	const [before, onCut, after] = [from - 1, from, from + 1].map((frame) => expectCarriedWrench(scene.poseAt(frame), cutting.places));
+	expect(before.actor).toEqual({ x: pickUp.places.desk.x, y: pickUp.places.desk.y });
+	[onCut, after].forEach((drawn) => {
+		expect(drawn.actor).toEqual({ x: pickUp.places.window.x, y: pickUp.places.window.y });
+		expect(drawn.hand).toEqual(engineerRig.carryHand);
+	});
 });

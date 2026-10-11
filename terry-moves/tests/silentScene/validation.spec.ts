@@ -40,7 +40,7 @@ test('an unknown actor identifies the first move and supported actor', () => {
 
 test('an unknown move kind identifies its position, name and supported kinds', () => {
 	const invalid = { ...original, moves: [original.moves[0], { kind: 'dance', seconds: 1 }] } as unknown as SceneScript;
-	expect(() => compileScene(invalid)).toThrow(new Error('move 2 (dance): unknown move kind "dance"; kinds are travel, hop, hold, cut, pick up'));
+	expect(() => compileScene(invalid)).toThrow(new Error('move 2 (dance): unknown move kind "dance"; kinds are travel, hop, hold, cut, pick up, put down'));
 });
 
 describe.each(['travel', 'hop', 'hold'] as const)('%s duration validation', (kind) => {
@@ -62,7 +62,7 @@ test('the first invalid move is reported when a later move also has a problem', 
 
 test('the actual valid script still compiles at its authored duration and final place', () => {
 	const scene = compileScene(script);
-	expect(scene.durationInFrames).toBe(147);
+	expect(scene.durationInFrames).toBe(171);
 	const { x, y, lift, held } = scene.poseAt(scene.durationInFrames - 1);
-	expect({ x, y, lift, held }).toEqual({ x: script.places.window.x, y: script.places.window.y, lift: 0, held: 'wrench' });
+	expect({ x, y, lift, held }).toEqual({ x: script.places.window.x, y: script.places.window.y, lift: 0, held: null });
 });

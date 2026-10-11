@@ -223,7 +223,21 @@ whole-pose assertions named above.
 
 ### 3. The Engineer puts the wrench down where it stays
 Type: Behavior
-Status: planned
+Status: done
+Accepted: move `{ kind: 'put down', prop, seconds }` shares the pick up's
+reach, midpoint contact, and settle; the authored scene is story example 1
+at 171 frames. `tests/silentScene/putDown.spec.tsx` "putting the wrench down
+on the window surface", "the hop moved between the pick up and the travel to
+the window", and "returning to a wrench that was put down at the window",
+plus `scene.spec.tsx` "a cut while carrying a picked-up wrench…", read the
+drawn picture through `tests/silentScene/picture.tsx`. jest `tests/silentScene`
+4 suites / 74 tests, tsc, `remotion compositions` 171 frames; whole gate 58
+suites / 641 tests with eslint and tsc before the spec split. Surfaces moved
+to local grip `(120,-130)` — desk `(660,690)`, window `(970,590)`, about 125
+of the 135 px reach — after the first stills showed the released wrench's
+head hidden behind the resting hand; stills at frames 30, 57, 141, 170 then
+showed the whole wrench clear of the hand at rest. The baseline table's
+`(80,-130)` grip is historical. Studio itself was not opened.
 Proof: `tests/silentScene` with the full story example 1 (put down 0.8 s at
 the window before the hop): the carried prop until the put down's midpoint,
 then the resting prop at the window surface with no carried prop, the hand
@@ -291,7 +305,7 @@ Disposition: excluded "casting the AI companion or another character through thi
 ### G2. The authored scene has no put down yet
 Reported: slice 2 — "The authored scene has no put down and ends with the wrench in hand."
 Story clause: "Put down brings the held prop to the current place's surface, releases it there, and returns the hand to rest within the move's duration"
-Disposition: receiving slice 3
+Disposition: proved by slice 3: `tests/silentScene/putDown.spec.tsx` "putting the wrench down on the window surface" and "the authored scene is the pick up, carry, put down example"
 
 ### G3. Contradictory pick ups and prop declarations get a generic error
 Reported: slice 2 — "A pick up that is out of reach, names an unknown or non-resting prop, or happens while a prop is held throws the generic `move N (pick up <prop>): cannot pick up <prop> here`."
@@ -307,6 +321,16 @@ Disposition: proved by slice 2: `tests/silentScene/scene.spec.tsx` "the wrench l
 Reported: slice 2 — "Every prop is drawn as a `Wrench`, whatever its name; there is no prop-name-to-art mapping."
 Story clause: "a wrench resting on a desk, and a window with a surface"
 Disposition: no user cost "directs one believable prop interaction through the scene script": the first scene's only prop is the wrench, and a second kind of prop art is not a promise of this story.
+
+### G6. Contradictory put downs get a generic error
+Reported: slice 3 — "Contradictory put downs throw the generic interim message, not the recorded ones."
+Story clause: "when a put down happens while nothing is held, when a put down happens at a place with no surface"
+Disposition: receiving slice 4
+
+### G7. The wrench's draw order flips at contact
+Reported: slice 3 — "A carried wrench is drawn in front of the Engineer and a resting one behind, so at frame 141 the wrench moves from in front of the hand to behind it."
+Story clause: "The prop is never drawn in two places and never disappears"
+Disposition: proved by slice 3: `tests/silentScene/putDown.spec.tsx` "on the middle frame the real hand is at the surface grip, the wrench is released there, and the gaze is toward it" observes one resting wrench and no carried one; the one-frame layer change while the hand is on the wrench is part of Terry's believability evaluation.
 
 ## Learnings
 
@@ -326,3 +350,6 @@ Disposition: no user cost "directs one believable prop interaction through the s
   frames.
 - Not yet observed by a spec: fps other than 30, more than one prop, a pick
   up at its three-frame minimum, and a cut while carrying a picked-up prop.
+- Pick up and put down share one `case` with a single guard; slice 4 splits
+  it by cause and needs the current place's name tracked beside `position`
+  to say where the Engineer is.

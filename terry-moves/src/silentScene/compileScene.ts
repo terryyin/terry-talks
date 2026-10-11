@@ -1,14 +1,15 @@
 import { engineerRig } from '../aiTestAutomation/actors';
 import { articulatedArm, gesture, lerpPoint, Point, reach, travel } from '../aiTestAutomation/motion';
 import { beat, Beat, timeline, Timeline } from '../beatTimeline';
-import { Move, SceneScript } from './script';
+import { Move, Place, SceneScript } from './script';
 
 /** `hand` is the Engineer's local right-hand target; `resting` maps each prop not in hand to its stage point. */
 export type ScenePose = { x: number; y: number; lift: number; hand: Point; gaze: number; held: string | null; resting: Readonly<Record<string, Point>> };
 
 const hasDestination = (move: Move): move is Extract<Move, { to: string }> => move.kind === 'travel' || move.kind === 'cut';
-const describeMove = (move: Move) => `${move.kind}${hasDestination(move) ? ` to ${move.to}` : move.kind === 'pick up' ? ` ${move.prop}` : ''}`;
-const supportedKinds: Move['kind'][] = ['travel', 'hop', 'hold', 'cut', 'pick up'];
+const handlesProp = (move: Move): move is Extract<Move, { prop: string }> => move.kind === 'pick up' || move.kind === 'put down';
+const describeMove = (move: Move) => `${move.kind}${hasDestination(move) ? ` to ${move.to}` : handlesProp(move) ? ` ${move.prop}` : ''}`;
+const supportedKinds: Move['kind'][] = ['travel', 'hop', 'hold', 'cut', 'pick up', 'put down'];
 
 const validateScene = (script: SceneScript) => {
 	const fail = (index: number, problem: string): never => {
@@ -42,7 +43,7 @@ const reachable = (target: Point) => {
 
 export const compileScene = (script: SceneScript, fps = 30): Timeline<ScenePose> => {
 	validateScene(script);
-	let position: Point = script.places[script.start];
+	let position: Place = script.places[script.start];
 	let hand: Point = engineerRig.restRightHand;
 	let held: string | null = null;
 	let resting: Readonly<Record<string, Point>> = {};
@@ -62,8 +63,8 @@ export const compileScene = (script: SceneScript, fps = 30): Timeline<ScenePose>
 		const end = hasDestination(move) ? script.places[move.to] : start;
 		position = end;
 		const before = { hand, gaze: 0, held, resting };
-		// Hop and pick up need a middle sample, travel two endpoints, and hold one.
-		const minimumFrames = move.kind === 'hold' ? 1 : move.kind === 'hop' || move.kind === 'pick up' ? 3 : 2;
+		// Hop, pick up, and put down need a middle sample, travel two endpoints, and hold one.
+		const minimumFrames = move.kind === 'hold' ? 1 : move.kind === 'hop' || handlesProp(move) ? 3 : 2;
 		const frames = move.kind === 'cut' ? 1 : Math.max(minimumFrames, Math.round(move.seconds * fps));
 		const seconds = frames / fps;
 		// beat() samples seconds through the last frame, so settle on that frame.
@@ -78,27 +79,32 @@ export const compileScene = (script: SceneScript, fps = 30): Timeline<ScenePose>
 				return beat(name, seconds, undefined, () => ({ x: start.x, y: start.y, lift: 0, ...before }), fps);
 			case 'cut':
 				return beat(name, seconds, undefined, () => ({ x: end.x, y: end.y, lift: 0, ...before }), fps);
-			case 'pick up': {
+			case 'pick up':
+			case 'put down': {
 				const { prop } = move;
-				const point = Object.hasOwn(resting, prop) ? resting[prop] : undefined;
+				const taking = move.kind === 'pick up';
+				// A pick up reaches where the prop rests; a put down reaches the surface of the place the actor stands at.
+				const point = taking ? (held === null && Object.hasOwn(resting, prop) ? resting[prop] : undefined) : held === prop ? start.surface : undefined;
 				const grip = point && reach(start.x, start.y, point.x, point.y, 1);
-				if (held !== null || !grip || !reachable(grip)) throw new Error(`move ${index + 1} (${describeMove(move)}): cannot pick up ${prop} here`);
-				const stillResting = Object.fromEntries(Object.entries(resting).filter(([name]) => name !== prop));
-				// The prop is taken on the middle frame, between the reach and the settle into carry.
+				if (!point || !grip || !reachable(grip)) throw new Error(`move ${index + 1} (${describeMove(move)}): cannot ${move.kind} ${prop} here`);
+				const settled = taking ? engineerRig.carryHand : engineerRig.restRightHand;
+				const after = taking
+					? { held: prop, resting: Object.fromEntries(Object.entries(resting).filter(([name]) => name !== prop)) }
+					: { held: null, resting: { ...resting, [prop]: point } };
+				// The prop changes hands on the middle frame, between the reach and the settle.
 				const contactFrame = Math.floor(frames / 2);
 				const contactSeconds = contactFrame / fps;
 				const gaze = Math.sign(grip.x);
-				hand = engineerRig.carryHand;
-				held = prop;
-				resting = stillResting;
+				hand = settled;
+				({ held, resting } = after);
 				return beat(name, seconds, undefined, (elapsed) => ({
 					x: start.x,
 					y: start.y,
 					lift: 0,
 					gaze: gaze * gesture(elapsed, 0, lastSeconds) || 0,
 					...(Math.round(elapsed * fps) < contactFrame
-						? { hand: lerpPoint(before.hand, grip, travel(elapsed, 0, contactSeconds)), held: null, resting: before.resting }
-						: { hand: lerpPoint(grip, engineerRig.carryHand, travel(elapsed, contactSeconds, lastSeconds - contactSeconds)), held: prop, resting: stillResting }),
+						? { hand: lerpPoint(before.hand, grip, travel(elapsed, 0, contactSeconds)), held: before.held, resting: before.resting }
+						: { hand: lerpPoint(grip, settled, travel(elapsed, contactSeconds, lastSeconds - contactSeconds)), ...after }),
 				}), fps);
 			}
 		}
