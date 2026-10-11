@@ -191,6 +191,12 @@ exist at either end, or whose end precedes its start, is refused in one
 sentence naming the scene's clause count. The producer's usage text, the
 naming refusal and the README state the form.
 
+## Execution complete
+
+Product advice: No backlog change; the bounded cross-scene correction supports the existing filmmaking direction without another film promise.
+Retrospective: no defects, residue, ADR conflict or missing required proof; process review skipped by project default.
+Reviewed implementation: `2d74e4abf9b676662cb810bd4cfb6085b7a747a5` and `7d3e47d3718789c2cdfc8a3c8c130b2fb58e0781`; claim/preparation are provenance.
+
 ## Current decisions
 
 - Execution resumes in story-branch mode in the established owned worktree
@@ -201,6 +207,7 @@ naming refusal and the README state the form.
   accepted claim/base: `b5568df9860e1f4f74dba8e22a3039f7610e081b` on
   `origin/master`; increments publish to the execution branch on `origin`.
   Slice 1 accepted there: `2d74e4abf9b676662cb810bd4cfb6085b7a747a5`, suffix base the claim.
+  Slice 2 accepted there: `7d3e47d3718789c2cdfc8a3c8c130b2fb58e0781`, suffix base slice 1.
   Checkout setup: `pnpm install --frozen-lockfile`, shared Python suite 13 tests.
   Replanning remains allowed; no numeric slice budget is supplied.
 - CI: `.github/workflows/ci.yml`, GitHub Actions push-triggered, selector `ci.yml`,
