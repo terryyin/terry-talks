@@ -79,30 +79,136 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#illustrated-conversation
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/034-illustrated-conversation/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"f92cbf2aa13c2a2e32cee2436de287548aad8d4a5412d3fc35fba9b3fbbb623c","plan":"e4c81d71b5730359166e1b99863ef0a17b9c57b62a37fe0d2004823073235f81"}}
 ```
 
-- **For / why:** Terry can tell a scene through character performance rather
-  than a narrator accompanying passive shapes.
-- **Outcome and scope:** Make a short exchange with mouth timing, gaze,
-  expression, gestures, reactions, pauses, and readable turn-taking. Start with
-  a chosen reusable illustrated rig and saved speech. Revise one turn through
-  the same authoring path and export a watchable scene.
-- **Evaluation example:** While one character speaks, the other listens and
-  reacts; their roles then change. Terry changes a line or reaction and the
-  resulting performance still feels intentional at normal playback with sound.
-- **Known basis and boundary:** R10 and existing AI-testing acting. Recorded
-  mouth cues and authored Rive/Lottie animation are candidate routes, not
-  selected designs. A validated nonlinear/state-machine rig adapter is not
-  already established. This story does not repeat the solved arm repair or
-  require prop acquisition, a universal rig, or anime art.
-- **Value / effort hypothesis:** A reusable dialogue capability and evidence
-  about performance quality. Substantial scope; medium confidence in feasibility;
-  rig, voice, and acceptable acting remain to select.
-- **Depends on:** None of the queued stories is mandatory; reuse existing
-  acting and saved speech where suitable.
-- **Safe stopping point:** Terry can make and revise illustrated exchanges
-  even if realistic, anime, or 3D characters are never added.
+**Goal.** Terry can tell a short scene through characters speaking and listening,
+and revise their performance through a reusable script. The delivery is a
+watchable exported exchange and a demonstrated revision using that same path;
+an attractive still, mouth-animation library, or bespoke film alone is insufficient.
+
+**Scope.** Preserve the selected story's promises: saved speech, a chosen reusable
+illustrated rig, mouth timing, gaze, expressions, gestures, listening reactions,
+pauses, and readable changes of speaker. A meaningful revision changes a line or
+reaction and still plays intentionally with sound. Terry judges the acting and
+usefulness of the authoring path. Automated timing checks alone cannot establish
+convincing performance.
+
+No queued story is a prerequisite. Prop acquisition, a universal rig, anime art,
+automatic emotional interpretation, and a visual rig editor are deferred
+promises, not inputs the product must reject. The two-character example below
+does not impose a cast-size limit. Existing films remain usable; this story does
+not repeat the solved arm repair. Terry retains a usable dialogue path even if
+later realistic, anime, and 3D stories are cancelled.
+
+**Selected production.** On 2026-10-12 Terry accepted the recommended new
+English Engineer–AI exchange and expressive limited animation using the existing
+rigs. Use the cue-sheet direction below. Aim for roughly 20–30 seconds; this is
+a creative target, not a runtime rejection limit. The AI celebrates passing
+tests, the Engineer questions whether the right thing was tested, and a listening
+pause lets the AI reconsider before answering. Keep this a new film so the
+approved workshop stays intact.
+
+**Key examples.** The first production makes the existing outcome concrete:
+
+1. The AI announces that all tests passed → the Engineer listens, then asks
+   whether those tests checked the customer's need → each speaker's mouth
+   follows their saved speech, while the other character's gaze and expression
+   respond to the line. The listener is not a frozen idle pose.
+2. The Engineer's question ends → the AI pauses before replying that it only
+   checked the code it wrote → the mouth rests during silence while gaze,
+   expression and a small gesture carry reconsideration into the reply. At
+   normal playback with sound, Terry can read who speaks and why the pause matters.
+3. The exchange already works → Terry revises the AI's listening reaction from
+   quick surprise to a slower thoughtful response through the same script → a
+   second export shows that change while using the same selected speech and turn
+   timing. The first version stays available for comparison; no new scene code
+   is needed for this edit. Replacing spoken words is not required for this first
+   revision proof, but is not forbidden by the authoring model.
+
+**Explore and Borrow — selected direction (2026-10-12).** Compare each route
+against the same outcome: readable acting, useful script revision, and a finished
+film that can replay from saved inputs.
+
+| Route | Benefit against the goal | Consequence / uncertainty |
+| --- | --- | --- |
+| Directly choreograph the existing SVG characters in a scene | Simplest production route; known drawings, hand targets, gaze and moods are already available | Timing and reactions remain scene code unless a small script seam is added; by itself this misses the promised reusable revision path |
+| Adapt a theatre cue sheet into scripted dialogue turns, using the existing SVG cast and saved mouth cues | Terry directs speech and the listener together; changing a reaction can leave the selected speech intact | Requires timed mouth drawings and independent performance cues; limited-animation acting quality is unproven |
+| Author performance clips in Rive/Lottie and sequence them through the script | Offers a separate animation-authoring route and potentially richer designed motion | The chosen asset must contain the needed acting; fine reaction changes may require reauthoring the asset. No suitable dialogue asset or validated state-machine adapter has been established locally |
+
+Terry accepted the recommended cue-sheet route and expressive limited animation.
+The borrowed mechanism is coordination around an actor's cue: script turn →
+spoken line and selected take; cue → a moment in that take or an explicit pause;
+performer direction → gaze, expression, and gesture for either character;
+stage manager → deterministic evaluation of those directions at film time.
+The listener may react during the other character's line, and a reaction can
+continue across a turn boundary. Unlike live performers, the renderer cannot
+interpret subtext or improvise a response. Those intentions must be authored;
+the analogy is a design candidate, not evidence of convincing acting.
+
+**Architecture — design, not an ADR proposal.** The consequential
+choice is who owns performance: editable script cues or authored animation
+assets. The selected cue-sheet route keeps performance in the script:
+
+- Keep the selected audio take and its local mouth timing together; compose
+  turns and explicit pauses into film time. Captions describe the exchange but
+  do not become the mandatory clock for silent reactions.
+- Keep mouth shape separate from emotional expression and attention. The
+  existing rigs couple mouth drawings to mood; adding speech must preserve
+  their existing expression-only use. Listening is authored performance, not
+  simply the inverse of a speaking flag.
+- Sample performance from the requested film time so seeking and rendering
+  do not depend on earlier playback. Keep one owner for each pose channel;
+  avoid stacking competing controllers for the mouth or head.
+- Reuse existing acting and audio responsibilities where their meanings fit.
+  The workshop's replacement of the same narrated words is not itself a
+  dialogue-turn or changed-line model. Do not force multi-character dialogue
+  into that narrator-specific workflow or build adapters for later styles now.
+
+The ADR index and record agree that the only current Accepted decision is
+[ADR-0000 — Use Architectural Decision Records](../docs/adrs/0000-use-adrs-accepted.md).
+It preserves human ownership of durable decisions and exceptions; it selects
+no character technology. No conflict was found for these candidates. This
+feature-local design does not approve a product-wide character architecture.
+
+**Evidence and limits.** Inspection in the established preparation workspace
+at `8143267` found gaze, mood, blink, tilt and hand-target inputs in
+[`actors.tsx`](src/aiTestAutomation/actors.tsx), with mood-based mouth paths and
+no speech-mouth input. [`motion.ts`](src/aiTestAutomation/motion.ts) supplies
+time-based gestures and articulation; the
+[character treatment](src/visualTreatments/character/CharacterTreatment.tsx)
+already reuses the Engineer outside the workshop.
+[`narration_audio.py`](../scripts/narration_audio.py) owns saved-audio primitives,
+hash verification and measured-word operations; its region splice explicitly
+requires the same words. These are code observations, not a played dialogue proof.
+
+Primary documentation checked on 2026-10-12 confirms that
+[Rhubarb](https://github.com/DanielSWolf/rhubarb-lip-sync) can derive timestamped
+mouth shapes from saved audio and export JSON. That makes it a cue-generation
+candidate; recognition quality on the chosen takes and the visual mapping
+still need observation. The documented
+[Rive wrapper](https://www.remotion.dev/docs/rive/remotionrivecanvas) exposes
+named artboards and linear animations; it does not establish a local dialogue
+state-machine solution. [Lottie](https://www.remotion.dev/docs/lottie/lottie)
+supports authored animation playback, including speed and direction controls.
+None of this verifies artistic quality or a complete local production route.
+
+**Production decisions.** Reuse the Engineer and AI SVG rigs. Begin the voice
+audition with the existing OpenAI saved-speech approach: Cedar for the Engineer
+and Marin for the AI, with distinct understated direction and credited synthetic
+voices. These are initial casting choices, not claims of a successful audition.
+Retain selected WAV takes and editable timed mouth shapes; author the first
+mouth cues directly against the recordings. Rhubarb remains optional assistance,
+not a required installation or automatic-lip-sync promise. A square 1080×1080,
+30 fps composition supplies the first export. A new rig, animation editor,
+music-led timing, dubbing and SRT export are deferred.
+
+The first execution slice owns the paid/credentialed voice audition and Terry's
+assessment of a short speaking/listening pilot. Failure there stops expansion
+and changes the remaining plan; it must not be disguised by timing tests. No
+goal or scope question remains before planning.
+
+**Plan:** [Illustrated conversation](../.planning/quick/034-illustrated-conversation/PLAN.md).
 
 <a id="cinematic-3d-shot"></a>
 ### 9. I can direct a cinematic 3D shot through the script
