@@ -316,7 +316,7 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#replace-filmed-shot
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/032-replace-filmed-shot/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"bbd56275723fe99c50640e7667f0e8cbc4fefa656feaa7c311992ee1b42fc059","plan":"fbc23bb9c00d5031cfae1a4871f4448e2335706a2d04234430183a5a2c03c6a3"}}
 ```
 
 - **Goal:** Terry swaps the saved media of one filmed shot in a mixed-media
@@ -375,11 +375,18 @@ provenance labels; the recorded identities are the canonical work identities.
     other value is muted, an illustrative shot with no sound, as the TPS and
     AI film's loom shot is; it is declared the same way but not verified in
     this delivery.
-  - Reproduction and preservation: with the approved clip declared, the film
-    renders frame-identical and sample-identical to the approved film, so
-    the compare command against the approved revision reports Preserved with
-    no declared change, and the cover is the same picture. The render
-    command produces the film and cover as it does now, with the cover at the
+  - Reproduction and preservation: with the approved clip declared, the
+    film's derived timeline is identical to the approved film's: every
+    frame's pose, the inset's placement, the clip's frames, the hold, the
+    ending, the total length and the cover frame; the mixed audio is
+    sample-identical; and the compare command against the approved revision
+    reports the duration and audio unchanged and no picture difference
+    beyond the renderer's own run-to-run noise. Observed 2026-10-11:
+    rendering the unchanged approved film twice already differs on hundreds
+    of frames by a few pixels at a few levels, so byte-identical frames are
+    not something this film can promise, and the compare command's exact
+    rule says Not preserved for it even with no change. The render command
+    produces the film and cover as it does now, with the cover at the
     derived frame instead of a typed one.
   - Review: Terry previews the shot in Studio and renders a still at a named
     shot second to judge framing; the existing compare command shows
@@ -433,12 +440,13 @@ provenance labels; the recorded identities are the canonical work identities.
 - **Key examples:**
   1. *Approved film reproduced.* The shot is declared as
      `assets/Component teams.mp4`, crop left 8.5 % and top 4 % of the frame
-     with 83 % of its width, play the whole source, voice. Running the
-     compare command for `FeatureTeamsFilm` against the approved revision
-     with no `--change` reports Preserved: every frame identical, mixed audio
-     identical, 3768 frames at 30 fps. The render command writes the same
-     film and the same cover, now at the frame derived from 108.6 s into the
-     shot.
+     with 83 % of its width, play the whole source, voice. The film's
+     derived timeline, dumped frame by frame, is byte-identical to the
+     approved film's; the compare command for `FeatureTeamsFilm` against the
+     approved revision reports 3768 frames at 30 fps on both sides, mixed
+     audio identical, and picture differences only at the renderer's noise
+     level. The render command writes the film and the cover, now at the
+     frame derived from 108.6 s into the shot.
   2. *Re-framed export, same performance.* Terry exports the clip with the
      grey margins cut away, about 896×1769, declares the new file with a crop
      of its whole frame, and renders. At 0:40 of the shot the inset shows Bas
@@ -852,7 +860,10 @@ the rest of this list.
 - Story 7's refinement settled its first film on Feature Teams' speaker
   shot, proved with same-performance replacements derived from the approved
   clip; re-aligning the animation to a differently timed performance, and an
-  illustration slot, wait for a later selection.
+  illustration slot, wait for a later selection. Planning found that the
+  unchanged Feature Teams film does not render byte-identically twice, so
+  the compare command's exact rule cannot certify it; whether Preserved
+  should tolerate renderer noise is Terry's decision, outside this story.
 - Which new style does Terry most want to use in an upcoming film? The accepted
   queue can be reprioritized to test that interest early.
 - For character and generated-media stories, choose the design/rig/provider,
