@@ -185,7 +185,21 @@ needs the same numbers to choose reachable targets.
 
 ### 2. The Engineer picks up a resting wrench and carries it through the scene
 Type: Behavior
-Status: planned
+Status: done
+Accepted: script form `Place = Point & { surface? }`, `props: { name: 'held' |
+{ at: place } }`, move `{ kind: 'pick up', prop, seconds }`; pose `{ x, y,
+lift, hand, gaze, held, resting }`; `SilentScene` takes `{ pose, places }`
+with test ids `surface`, `resting-prop`, `carried-prop`.
+`tests/silentScene/scene.spec.tsx` "picking up the wrench that rests on the
+desk" reads the drawn `data-hand`, arm segments, `Wrench` transform, and
+pupils; the held-from-start cases cover every frame of story 1's fixtures.
+jest `tests/silentScene` 3 suites / 53 tests, tsc, `remotion compositions`
+SilentScene 147 frames, whole gate 58 suites / 620 tests with eslint and tsc.
+Stills at frames 30, 50, 57, 100 inspected (wrench on the desk slab, hand on
+it at contact, then carried); Studio itself was not opened. The gaze eases in
+and out across the move (0 on its first and last frames) so the whole-pose
+join holds; contact is frame `floor(frames / 2)`. Story 1's unknown-move-kind
+message now lists `pick up` among the kinds.
 Proof: `tests/silentScene` with a story-example fixture (desk and window
 surfaces, wrench resting on the desk; travel to desk 1.5 s, pick up 0.8 s,
 travel to window 2 s, hop 0.6 s) observing: the resting prop at the desk
@@ -274,6 +288,26 @@ Reported: slice 1 — "Only the right arm is in the rig. The left shoulder `(-48
 Story clause: "casting the AI companion or another character through this path; two hands or holding two props at once"
 Disposition: excluded "casting the AI companion or another character through this path; two hands or holding two props at once"
 
+### G2. The authored scene has no put down yet
+Reported: slice 2 — "The authored scene has no put down and ends with the wrench in hand."
+Story clause: "Put down brings the held prop to the current place's surface, releases it there, and returns the hand to rest within the move's duration"
+Disposition: receiving slice 3
+
+### G3. Contradictory pick ups and prop declarations get a generic error
+Reported: slice 2 — "A pick up that is out of reach, names an unknown or non-resting prop, or happens while a prop is held throws the generic `move N (pick up <prop>): cannot pick up <prop> here`."
+Story clause: "The message names the prop, where it rests or who holds it, and where the Engineer is"
+Disposition: receiving slice 4
+
+### G4. The resting wrench stands upright on a thin slab
+Reported: slice 2 — "The wrench rests upright (standing on the slab), not lying down: the grip is the wrench's drawing origin, so the slab top is drawn 48 px below the surface point"
+Story clause: "A resting prop is drawn at that surface on every frame until it is picked up"
+Disposition: proved by slice 2: `tests/silentScene/scene.spec.tsx` "the wrench lies on the desk surface and nothing is carried on every frame before contact"; how the resting wrench reads is part of Terry's believability evaluation.
+
+### G5. Every prop is drawn as the wrench
+Reported: slice 2 — "Every prop is drawn as a `Wrench`, whatever its name; there is no prop-name-to-art mapping."
+Story clause: "a wrench resting on a desk, and a window with a surface"
+Disposition: no user cost "directs one believable prop interaction through the scene script": the first scene's only prop is the wrench, and a second kind of prop art is not a promise of this story.
+
 ## Learnings
 
 - Run jest, tsc, tsx, and Remotion in the nix dev shell with `NODE_ENV=test`.
@@ -284,3 +318,11 @@ Disposition: excluded "casting the AI companion or another character through thi
 - A pre-change render baseline without touching the stash or branches:
   `git archive` the previous revision with `AI Test Automation/` alongside
   `terry-moves/` and symlink `node_modules`.
+- Build poses from explicit `x`/`y`, never by spreading a place (places may
+  carry `surface`). Decide the contact frame by frame index, not by comparing
+  seconds; normalise an eased signed gaze with `|| 0` so `-0` does not break
+  whole-pose equality. Put down needs the same join treatment as pick up:
+  gaze 0 and the hand exactly at its settled point on the first and last
+  frames.
+- Not yet observed by a spec: fps other than 30, more than one prop, a pick
+  up at its three-frame minimum, and a cut while carrying a picked-up prop.

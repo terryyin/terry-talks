@@ -8,7 +8,7 @@ const SilentSceneFrame: React.FC = () => {
 	const frame = useCurrentFrame();
 	const { fps } = useVideoConfig();
 	const scene = useMemo(() => compileScene(script, fps), [fps]);
-	return <AbsoluteFill><SilentScene pose={scene.poseAt(frame)}/></AbsoluteFill>;
+	return <AbsoluteFill><SilentScene pose={scene.poseAt(frame)} places={script.places}/></AbsoluteFill>;
 };
 
 export const SilentSceneFilm: React.FC = () => <Composition

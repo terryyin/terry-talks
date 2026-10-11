@@ -1,6 +1,6 @@
 import { compileScene } from '../../src/silentScene/compileScene';
 import { Move, SceneScript, script } from '../../src/silentScene/script';
-import { original } from './fixtures';
+import { carrying, original } from './fixtures';
 
 test('the story\'s last travel to kitchen reports its 1-based move and the named places before a timeline is returned', () => {
 	const invalid: SceneScript = {
@@ -30,7 +30,7 @@ test('an own place may share an inherited property name', () => {
 		places: { ...original.places, toString: { x: 700, y: 650 } },
 		moves: [{ kind: 'cut', to: 'toString' }],
 	};
-	expect(compileScene(named).poseAt(0)).toEqual({ x: 700, y: 650, lift: 0 });
+	expect(compileScene(named).poseAt(0)).toEqual(carrying({ x: 700, y: 650 }));
 });
 
 test('an unknown actor identifies the first move and supported actor', () => {
@@ -40,7 +40,7 @@ test('an unknown actor identifies the first move and supported actor', () => {
 
 test('an unknown move kind identifies its position, name and supported kinds', () => {
 	const invalid = { ...original, moves: [original.moves[0], { kind: 'dance', seconds: 1 }] } as unknown as SceneScript;
-	expect(() => compileScene(invalid)).toThrow(new Error('move 2 (dance): unknown move kind "dance"; kinds are travel, hop, hold, cut'));
+	expect(() => compileScene(invalid)).toThrow(new Error('move 2 (dance): unknown move kind "dance"; kinds are travel, hop, hold, cut, pick up'));
 });
 
 describe.each(['travel', 'hop', 'hold'] as const)('%s duration validation', (kind) => {
@@ -62,6 +62,7 @@ test('the first invalid move is reported when a later move also has a problem', 
 
 test('the actual valid script still compiles at its authored duration and final place', () => {
 	const scene = compileScene(script);
-	expect(scene.durationInFrames).toBe(124);
-	expect(scene.poseAt(scene.durationInFrames - 1)).toEqual({ ...script.places.desk, lift: 0 });
+	expect(scene.durationInFrames).toBe(147);
+	const { x, y, lift, held } = scene.poseAt(scene.durationInFrames - 1);
+	expect({ x, y, lift, held }).toEqual({ x: script.places.window.x, y: script.places.window.y, lift: 0, held: 'wrench' });
 });

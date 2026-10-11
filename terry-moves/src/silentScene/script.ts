@@ -4,12 +4,18 @@ export type Move =
 	| { kind: 'travel'; to: string; seconds: number }
 	| { kind: 'hop'; seconds: number }
 	| { kind: 'hold'; seconds: number }
-	| { kind: 'cut'; to: string };
+	| { kind: 'cut'; to: string }
+	| { kind: 'pick up'; prop: string; seconds: number };
+
+// A place is where the actor stands; its surface is where a prop rests.
+export type Place = Point & { surface?: Point };
+export type PropStart = 'held' | { at: string };
 
 export type SceneScript = {
 	actor: 'Engineer';
 	start: string;
-	places: Readonly<Record<string, Point>>;
+	places: Readonly<Record<string, Place>>;
+	props: Readonly<Record<string, PropStart>>;
 	moves: readonly Move[];
 };
 
@@ -19,13 +25,14 @@ export const script = {
 	start: 'door',
 	places: {
 		door: { x: 220, y: 820 },
-		desk: { x: 540, y: 820 },
-		window: { x: 850, y: 720 },
+		desk: { x: 540, y: 820, surface: { x: 620, y: 690 } },
+		window: { x: 850, y: 720, surface: { x: 930, y: 590 } },
 	},
+	props: { wrench: { at: 'desk' } },
 	moves: [
+		{ kind: 'travel', to: 'desk', seconds: 1.5 },
+		{ kind: 'pick up', prop: 'wrench', seconds: 0.8 },
 		{ kind: 'travel', to: 'window', seconds: 2 },
 		{ kind: 'hop', seconds: 0.6 },
-		{ kind: 'cut', to: 'door' },
-		{ kind: 'travel', to: 'desk', seconds: 1.5 },
 	],
 } as const satisfies SceneScript;
