@@ -7,8 +7,10 @@ import { Easing } from 'remotion';
 import { between, bounce, BOUNCY, POPPY, settle } from '../storyImpact/motion';
 import { palette } from '../storyImpact/scene';
 import type { EndCardPose, TitlePose } from '../storyImpact/scene';
-import { CLIP_SECONDS } from './cues';
+import { CLIP_SECONDS, SCENE_END } from './cues';
 import { mixHex, Pose, poseAt } from './pose';
+import measurement from './shot-measurement.json';
+import { compileShot, speakerShot } from './shot';
 
 export { FPS } from '../storyImpact/motion';
 import { FPS } from '../storyImpact/motion';
@@ -26,9 +28,12 @@ export const OPEN_SECONDS = 3.6;
 export const HOLD_SECONDS = 1.5; // the scene's last moment, after Bas has finished
 export const END_SECONDS = 7;
 export const OPEN_FRAMES = Math.round(OPEN_SECONDS * FPS);
-// Bas's clip is 113.508 s long; it plays in full.
-export const CLIP_FRAMES = Math.ceil(113.508 * FPS);
-export const durationInFrames = OPEN_FRAMES + Math.round((CLIP_SECONDS + HOLD_SECONDS + END_SECONDS) * FPS);
+
+export const speakerSlot = compileShot(speakerShot, measurement, { end: SCENE_END }, FPS);
+// Clip sequence length and film length follow the compiled slot; the pose clock
+// still samples through CLIP_SECONDS (choreography SCENE_END) as today.
+export const CLIP_FRAMES = speakerSlot.videoFrames;
+export const durationInFrames = OPEN_FRAMES + Math.round((speakerSlot.sceneSeconds + HOLD_SECONDS + END_SECONDS) * FPS);
 
 export type BasEndCardPose = EndCardPose & { bas: number };
 

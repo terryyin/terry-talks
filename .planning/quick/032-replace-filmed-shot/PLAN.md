@@ -42,20 +42,28 @@ through the same command.
 
 ## Execution context and decisions
 
-- **Preparation:** established Story Branch preparation, agent Yua-chan,
-  assignment published at `96d3307104c6fd56b1274fa34013610d348de0a5`;
-  workspace
+- **Preparation:** established Story Branch preparation (planning agent
+  Yua-chan, assignment `96d3307104c6fd56b1274fa34013610d348de0a5`).
+  Execution established start (agent Ai-chan, publisher
+  `dashboard-territory.local-terry-talks`): workspace
   `/Users/terryyin/git/terry-talks/.worktrees/i-can-replace-a-filmed-shot-while-preserving-its`,
-  branch `claude/i-can-replace-a-filmed-shot-while-preserving-its`, remote
-  `origin`, target `master`, integration checkout
-  `/Users/terryyin/git/terry-talks`. Execution identity, claim and increment
-  revisions are recorded here once execution starts.
+  branch `cursor/i-can-replace-a-filmed-shot-while-preserving-its`, mode
+  `story-branch`, remote `origin`, target `master`, integration checkout
+  `/Users/terryyin/git/terry-talks`, `publishedSha`
+  `e69fb1c8d6f0e79806513185816f2d6454e98e24`, `startingRevision`
+  `2240cb2281279e4d61124f227aaa0b6b7f9509db`, `candidateSha`
+  `e69fb1c8d6f0e79806513185816f2d6454e98e24`. Previously published base for
+  the first increment is `publishedSha`. Replanning permission: preserved
+  (neither `--replan` nor `--no-replan`).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile'`
-  passed in this workspace (2026-10-11, 18 s). Host `ffmpeg`/`ffprobe` 7.1.1
-  are on `PATH` outside the nix shell; run them from a plain shell. Run jest
-  and remotion inside the nix shell with `NODE_ENV=test`.
+  passed in this workspace (2026-10-11, ~18 s). Host `ffmpeg`/`ffprobe` are
+  on `PATH` outside the nix shell; run them from a plain shell. Run jest
+  and remotion inside the nix shell with `NODE_ENV=test`. Applicable command
+  check: focused jest `--listTests tests/featureTeams` succeeded from
+  `terry-moves/`.
 - **CI:** no `.github/workflows` and no `.planning/open-dough.json`; push CI
   observation is unavailable. Local planned proof is required.
+  `pendingCi: unobserved` on delivery.
 - **Plan location:** `.planning/quick/`; 031 was the highest allocated entry
   in history, so this plan is 032. Slice statuses: planned, in-progress, done.
 - **No ADR or North Star applies.** Only ADR-0000 (use ADRs) exists. The
@@ -183,18 +191,33 @@ refusal, README, whole gate (4). Story examples: 1 → 1; 2 → 2; 3 → 3; 4 �
 
 Consumers of changed surfaces: `CLIP_SECONDS` and `CLIP_FRAMES`,
 `durationInFrames`, `COVER_FRAME`, `OPEN_FRAMES` are read by
-`tests/featureTeams/FeatureTeamsFilm.spec.tsx` (the suite's `frameOf`,
-`poseAt(CLIP_SECONDS)`, the sampled quality run and the cover test, which
-also asserts the render script's text); `film.ts` and `cues.ts` are read by
+`tests/featureTeams/FeatureTeamsFilm.spec.tsx` and
+`FeatureTeamsStory.spec.tsx` (timeline/shell/cover vs story cues; cover
+asserts the render script's text); `film.ts` and `cues.ts` are read by
 `pose.ts`, `Scene.tsx` and `stories/FeatureTeamsFilm.tsx`; `render:feature-teams`
 is read by the spec and by Terry. Nothing else imports the Feature Teams
 modules (`grep -rn featureTeams src tests`: only those files).
+
+## Story obligations
+
+### G1. Compare stage pixels exceed plan ≤6 sample
+Reported: slice 1 — "stage AA often max ~15–17 (up to 55) on few pixels — above the plan's ≤6 sample, same class of renderer noise"
+Story clause: "no picture difference beyond the renderer's own run-to-run noise"
+Disposition: interim until slices 4
 
 ## Ordered slices
 
 ### 1. The speaker shot is one declaration with measured facts, and the approved film is unchanged
 Type: Structure
-Status: planned
+Status: done
+Accepted proof: timeline `cmp` of `out/feature-teams-timeline-baseline.json` vs
+`out/feature-teams-timeline.json` identical; focused
+`tests/featureTeams` (2 suites / 21 tests) green after refactor split;
+`measure-shot.mjs` / `--check`; `FeatureTeamsFilm` compositions 3768;
+`render:feature-teams` film+cover at `COVER_FRAME` 3366; gate
+`NODE_ENV=test pnpm test` 59 suites / 659 tests; compare vs `f0bedba`
+duration/fps unchanged, mixed WAV identical, inset rectangle ≤6 (G1 holds
+stage ≤6 open until slice 4).
 Proof: first, with the code unchanged, `scripts/feature-teams-timeline.ts`
 is written and its dump saved as the baseline; the slice's own inset
 placement numbers (video width 300/0.83, left −0.085 × that, top
@@ -324,3 +347,8 @@ how to replace the shot.
   noise is a product decision for Terry, outside this story.
 - Run jest, remotion and the compare tool inside the nix dev shell with
   `NODE_ENV=test`; ffmpeg and ffprobe are host binaries outside it.
+- Slice 1 compare vs `f0bedba` with the declared shot: duration/audio match
+  and the inset stays within ≤6, but stage/character AA often peaks ~15–17
+  (max 55) on a few pixels — above the plan's stage sample of ≤6. Exact
+  preservation for this story remains the timeline dump `cmp`; G1 tracks
+  the compare noise reading through slice 4.

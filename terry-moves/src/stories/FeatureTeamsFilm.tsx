@@ -1,24 +1,28 @@
 import React from 'react';
-import { AbsoluteFill, Composition, OffthreadVideo, Sequence, staticFile, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, Composition, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { palette } from '../storyImpact/scene';
 import { STAGE } from '../storyImpact/layout';
 import { OddeLogo } from '../parts/OddeLogo';
 import { OddeLogoInner } from '../parts/OddeLogoInner';
 import { FlipCoin } from '../video_components/AutonomousComponents/FlipCoin';
-import { CLIP_FRAMES, durationInFrames, FPS, filmPoseAt, OPEN_FRAMES } from '../featureTeams/film';
+import { CLIP_FRAMES, durationInFrames, FPS, filmPoseAt, OPEN_FRAMES, speakerSlot } from '../featureTeams/film';
 import { INSET, LOGO } from '../featureTeams/layout';
 import { FeatureTeamsScene } from '../featureTeams/Scene';
+import type { ShotPlacement } from '../featureTeams/shot';
 
 // Bas Vodde's clip, with his audio, as a picture-in-picture in the lower
 // right; the animation follows his narration. The film adds its own short
-// opening and ending.
-export const BAS_CLIP = 'assets/Component teams.mp4';
+// opening and ending. Source, crop and play come from the compiled speaker shot.
 
-// The clip is 1080×1920 with soft grey margins; the inset crops them away.
-const CROP = { width: 0.83, left: 0.085, top: 0.04 };
-
-const ClipInset: React.FC<{ shown: number }> = ({ shown }) => {
-	const width = INSET.width / CROP.width;
+const ClipInset: React.FC<{ shown: number; placement: ShotPlacement; from: number; to: number; source: string; muted: boolean }> = ({
+	shown,
+	placement,
+	from,
+	to,
+	source,
+	muted,
+}) => {
+	const { fps } = useVideoConfig();
 	return (
 		<div
 			style={{
@@ -40,8 +44,17 @@ const ClipInset: React.FC<{ shown: number }> = ({ shown }) => {
 		>
 			<Sequence from={OPEN_FRAMES} durationInFrames={CLIP_FRAMES} layout="none">
 				<OffthreadVideo
-					src={staticFile(BAS_CLIP)}
-					style={{ position: 'absolute', width, left: -CROP.left * width, top: -CROP.top * width * (1920 / 1080) - 6, maxWidth: 'none' }}
+					src={staticFile(source)}
+					trimBefore={from * fps}
+					trimAfter={to * fps}
+					{...(muted ? { muted: true } : {})}
+					style={{
+						position: 'absolute',
+						width: placement.videoWidth,
+						left: placement.left,
+						top: placement.top,
+						maxWidth: 'none',
+					}}
 				/>
 			</Sequence>
 		</div>
@@ -63,12 +76,27 @@ const FilmFrame: React.FC = () => {
 	return (
 		<AbsoluteFill>
 			<FeatureTeamsScene film={film} />
-			<ClipInset shown={film.clipShown} />
+			<ClipInset
+				shown={film.clipShown}
+				placement={speakerSlot.placement}
+				from={speakerSlot.from}
+				to={speakerSlot.to}
+				source={speakerSlot.source}
+				muted={speakerSlot.audio === 'muted'}
+			/>
 			<OddeCorner />
 		</AbsoluteFill>
 	);
 };
 
 export const FeatureTeamsFilm: React.FC = () => (
-	<Composition id="FeatureTeamsFilm" component={FilmFrame} durationInFrames={durationInFrames} fps={FPS} width={STAGE.width} height={STAGE.height} />
+	<Composition
+		id="FeatureTeamsFilm"
+		component={FilmFrame}
+		durationInFrames={durationInFrames}
+		calculateMetadata={() => ({ durationInFrames })}
+		fps={FPS}
+		width={STAGE.width}
+		height={STAGE.height}
+	/>
 );
