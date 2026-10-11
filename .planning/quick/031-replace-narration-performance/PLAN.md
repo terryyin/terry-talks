@@ -129,6 +129,26 @@ reproduction keeps verifying every saved take by hash and needs no API.
   ceiling (lead + composed speech + 2.0 s tail, as `align()` computes), is
   reported with the would-be duration and writes nothing. Messages are
   plain sentences on stderr with a non-zero exit.
+- **Execution (2026-10-11):** established start, claim published at
+  `f6eb4d6f35eb8bc82693b25ee82af757ab65395c` on `master`, starting revision
+  `6d2681a127080ed3217b281d24710f161653c716`; increments publish to
+  `refs/heads/claude/i-can-replace-one-narration-performance-without`.
+- **Paid request held (decision):** the coordinator makes no paid request
+  without Terry's agreement in the conversation. Slices are proved offline
+  with fixture candidates; the real audition is obligation G1.
+- **Excerpt direction (decision, slice 1):** the film's `DIRECTION` tells the
+  actor to start with the opening question and speak the final seven words,
+  so a candidate request sends `DIRECTION`, then a two-line `EXCERPT`
+  instruction to speak only the user script, then the delivery note. The
+  exact string is recorded in each candidate JSON. Revisit with the request
+  shape if the first real candidates speak more than the excerpt.
+- **Region code home (slice 1):** `AI Test Automation/cedar_regions.py` holds
+  region naming, spans, splice, the candidate request and the audition;
+  `cedar_narration.py` keeps the base take (`speak`, `prepare`, `measure`,
+  `performance`, `align`). Slice 3 moves composition from `cedar_regions.py`
+  to the shared helper. The in-context file is unmastered, cut at gap
+  midpoints; `--candidates 0` re-processes saved candidates with no API; a
+  candidate also keeps `candidate-N-prepared.wav`.
 - **Interim behavior:** after slice 1 candidates can be auditioned but not
   selected; slice 4 adds selection. After slice 3 the manifest exists with
   an empty `regions` list.
@@ -169,7 +189,18 @@ by `AITestAutomationFilm.tsx`.
 
 ### 1. Terry auditions candidate takes for one region in context
 Type: Behavior
-Status: planned
+Status: done
+Accepted proof (offline, 2026-10-11): `--audition investigate:9` and
+`--audition nowhere:1` refuse as decided (exit 1, one sentence); with an
+identity fixture and a 0.5 s-silence fixture cut from the base take,
+`--audition investigate:4-6 --candidates 0` writes in-context files of
+12.11 s and 12.61 s, the identity one sample-identical to the base span
+47.36–59.47 s and the other that span plus exactly 0.5 s with retained audio
+identical; a transcript edited to "belief" is refused naming `- relief`,
+`+ belief` and its in-context file is absent; a stub SDK run showed the
+request parameters and record fields; offline reproduction unchanged
+(`Complete: 79.933s / 2398 frames`), jest `tests/aiTestAutomation` green.
+The paid request and Terry's listening are obligation G1.
 Proof: `python3 'AI Test Automation/produce_audio.py' --audition investigate:4-6 --note "more weight on relief" --candidates 3`
 (paid, run once with Terry's agreement) writes three `candidate-N.wav`,
 `candidate-N.json` with an exact audit that passed and measured words, and
@@ -270,6 +301,13 @@ take with the named region replaced. If Terry accepts no candidate, the
 mechanism is delivered by slice 4 and the story's observable outcome waits
 on a further audition; report that plainly rather than selecting for him.
 
+## Story obligations
+
+### G1. The real candidate request is unobserved
+Reported: slice 1 — "The paid request is unobserved."
+Story clause: "the producer asks the film's voice (Cedar) for one connected take of the region's words"
+Disposition: receiving slice 5
+
 ## Current decisions
 
 - A region is one or more consecutive clauses named by scene and position;
@@ -289,3 +327,10 @@ on a further audition; report that plainly rather than selecting for him.
 - Run jest and the gate in the nix dev shell with `NODE_ENV=test`; run the
   audio producers with the system `python3` so the `openai` user-site package
   is visible, and never with `-I`.
+- The base take's boundary trim is not idempotent at the take's own edges:
+  re-trimming a fixture cut at the film's start or end loses about 10 ms.
+  Keep slice 4's fixture regions interior (`investigate:4-6`, `stopFix:1-2`).
+- The seam-to-seam span of `investigate:4-6` is 6.01 s (49.62–55.63 s of the
+  prepared take); the 5.42 s in the assumptions is speech only.
+- Offline proof helpers used in slice 1 are outside the repository in
+  `/tmp/audition-proof/` and are disposable; slice 3's unittest replaces them.

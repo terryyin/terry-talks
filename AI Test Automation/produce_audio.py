@@ -2,7 +2,10 @@
 """Rebuild the saved narration, original workshop score, accents and final mix.
 
 Requires Python, ffmpeg and ffprobe. The chosen continuous Cedar performance and
-measured alignment are committed. Only --new-take uses the OpenAI SDK and API.
+measured alignment are committed. Only --new-take and --audition use the OpenAI
+SDK and API. --audition <scene>:<first>-<last> [--note …] [--candidates N] saves
+candidate takes of that region in the ignored work directory, each also between
+its retained neighbours; --candidates 0 rebuilds those from saved candidates.
 Each caption range owns its spoken clause, displayed text and measured timing.
 """
 
@@ -16,6 +19,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from narration_audio import master, read_pcm, run, write_pcm, write_script
 from cedar_narration import align, narration_text, performance
+from cedar_regions import audition
 from workshop_soundtrack import ASSETS, SAMPLE_RATE, WORK, build_effects, build_mix, build_score
 
 
@@ -107,10 +111,29 @@ def treatment(script):
     (ROOT / "AI Test Automation" / "film-treatment.md").write_text("\n".join(rows) + "\n")
 
 
+def option(name, default):
+    if name not in sys.argv:
+        return default
+    if sys.argv.index(name) + 1 == len(sys.argv):
+        raise ValueError(f"{name} needs a value.")
+    return sys.argv[sys.argv.index(name) + 1]
+
+
 def main():
     WORK.mkdir(parents=True, exist_ok=True)
     ASSETS.mkdir(parents=True, exist_ok=True)
     script = json.loads(SOURCE.read_text())
+    if "--audition" in sys.argv:
+        # Candidates stay in the work directory: the take, script and record are only read.
+        try:
+            count = option("--candidates", "1")
+            if not count.isdigit():
+                raise ValueError(f"--candidates needs a whole number, not {count!r}.")
+            refused = audition(ROOT, script, run, SAMPLE_RATE, option("--audition", None),
+                               option("--note", ""), int(count))
+        except ValueError as problem:
+            sys.exit(str(problem))
+        sys.exit(1 if refused else 0)
     if "--refresh-docs" not in sys.argv:
         voice = build_narration(script)
         if "--narration-only" in sys.argv:
