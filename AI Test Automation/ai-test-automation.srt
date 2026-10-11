@@ -75,53 +75,53 @@ Have it perform similar tests:
 confirm fixes, explore for bugs,
 
 20
-00:00:47,433 --> 00:00:49,700
+00:00:47,433 --> 00:00:49,733
 and check that known behavior still works.
 
 21
-00:00:49,700 --> 00:00:51,067
+00:00:49,733 --> 00:00:51,100
 It’s a compromise.
 
 22
-00:00:51,067 --> 00:00:53,733
+00:00:51,100 --> 00:00:54,033
 But a system already in panic needs relief—
 
 23
-00:00:53,733 --> 00:00:55,700
+00:00:54,033 --> 00:00:56,000
 not more test code to maintain.
 
 24
-00:00:55,700 --> 00:00:59,533
+00:00:56,000 --> 00:00:59,900
 Once you regain control, turn useful checks into test code.
 
 25
-00:00:59,533 --> 00:01:01,400
+00:00:59,900 --> 00:01:01,733
 No AI needed to run it.
 
 26
-00:01:01,400 --> 00:01:04,133
+00:01:01,733 --> 00:01:04,467
 For new features, express intent in tests first.
 
 27
-00:01:04,133 --> 00:01:05,667
+00:01:04,467 --> 00:01:06,033
 Let them drive development.
 
 28
-00:01:05,667 --> 00:01:08,533
+00:01:06,033 --> 00:01:08,867
 Then simplify. Delete redundant tests.
 
 29
-00:01:08,533 --> 00:01:10,933
+00:01:08,867 --> 00:01:11,300
 Move suitable checks to fast unit tests.
 
 30
-00:01:10,933 --> 00:01:13,067
+00:01:11,300 --> 00:01:13,433
 Keep essential end-to-end protection.
 
 31
-00:01:13,067 --> 00:01:15,733
+00:01:13,433 --> 00:01:16,067
 Use spare AI to simplify and fix.
 
 32
-00:01:15,733 --> 00:01:19,933
+00:01:16,067 --> 00:01:20,267
 Less to carry. Fewer bugs to chase.

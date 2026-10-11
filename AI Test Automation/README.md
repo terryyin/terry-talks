@@ -1,6 +1,6 @@
 # AI test automation: The Legacy Workshop
 
-A 82.93-second English film for large legacy projects whose tickets arrive
+A 83.27-second English film for large legacy projects whose tickets arrive
 faster than the team can close them. PURPOSE and PROOF establish the value of
 automated tests before the code offer becomes extra upkeep. A large coral
 STOP AND FIX interruption redirects the work toward repair. Its warm paper
@@ -14,12 +14,15 @@ protection stays. The content authority is
 [`AI Test Automation/ai-and-test-automation.md`](./ai-and-test-automation.md);
 measured speech and captions share `AI Test Automation/film-script.json`.
 The animated Odd-e mark occupies the upper-right corner. After the complete
-79.93-second workshop, a separate three-second paper closing card reads
+80.27-second workshop, a separate three-second paper closing card reads
 **An idea and film by Terry Yin**. `film-presentation.json` owns this silent author hold;
 it does not change the measured narration or subtitle timeline.
 
-From the repository root, rebuild the saved continuous Cedar performance and original quiet score/effects
-without making a paid API request, then export the film:
+The narration is one connected Cedar base take with the region `investigate:4-6`
+(“It’s a compromise. But a system already in panic needs relief— not more test code to maintain.”)
+replaced by a connected Cedar take of its own, joined at the natural gaps. From the repository root,
+rebuild that saved performance and the original quiet score/effects without making a paid API request,
+then export the film:
 
 ```bash
 python3 'AI Test Automation/produce_audio.py'

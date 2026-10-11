@@ -4,8 +4,8 @@ A warm, tactile cartoon workshop turns software upkeep into visible physical wor
 English; 1080 × 1350 (4:5); 30 fps. Cream paper, ink outlines, coral engineer,
 mint AI companion and a modular sky-blue legacy product preserve Story Impact’s visual family.
 
-Runtime: **82.93 seconds**, including a 3-second silent author card.
-The measured narration, captions and workshop remain **79.93 seconds**. The roughly 200-word narration is
+Runtime: **83.27 seconds**, including a 3-second silent author card.
+The measured narration, captions and workshop remain **80.27 seconds**. The roughly 200-word narration is
 OpenAI’s Cedar synthetic voice; it is not a recording or imitation of Terry.
 The confirmed article remains the idea’s authoritative source. This film distils its argument
 for large legacy systems where tickets arrive faster than the team can close them.
@@ -40,18 +40,23 @@ The closing is: **Less to carry. Fewer bugs to chase.**
 | 16.60–27.70s | Protection has an engineering cost | But first, they’re more code. Test automation requires high-level software engineering—and must preserve the original intent. AI can pile on complexity before providing protection. |
 | 27.70–33.57s | Stop. And fix. | Stop. And fix. Stop adding complexity. Get the system back under control. |
 | 33.57–43.17s | AI performs hands-on testing | A better use of AI here? Hands-on testing. First, an isolated, repeatable environment that’s easy to set up. Show AI your manual checks. |
-| 43.17–55.70s | A compromise that creates room to repair | Have it perform similar tests: confirm fixes, explore for bugs, and check that known behavior still works. It’s a compromise. But a system already in panic needs relief— not more test code to maintain. |
-| 55.70–65.67s | Regained control, intent-first development | Once you regain control, turn useful checks into test code. No AI needed to run it. For new features, express intent in tests first. Let them drive development. |
-| 65.67–73.07s | Keep simplifying the suite | Then simplify. Delete redundant tests. Move suitable checks to fast unit tests. Keep essential end-to-end protection. |
-| 73.07–79.93s | Less to carry. Fewer bugs to chase. | Use spare AI to simplify and fix. Less to carry. Fewer bugs to chase. |
+| 43.17–56.00s | A compromise that creates room to repair | Have it perform similar tests: confirm fixes, explore for bugs, and check that known behavior still works. It’s a compromise. But a system already in panic needs relief— not more test code to maintain. |
+| 56.00–66.03s | Regained control, intent-first development | Once you regain control, turn useful checks into test code. No AI needed to run it. For new features, express intent in tests first. Let them drive development. |
+| 66.03–73.43s | Keep simplifying the suite | Then simplify. Delete redundant tests. Move suitable checks to fast unit tests. Keep essential end-to-end protection. |
+| 73.43–80.27s | Less to carry. Fewer bugs to chase. | Use spare AI to simplify and fix. Less to carry. Fewer bugs to chase. |
 
 ## Audio and captions
 
 Run `python3 'AI Test Automation/produce_audio.py'` to reproduce the saved narration, original score and effects,
 and final stereo mix. Use `--narration-only` when reviewing the voice in isolation; the composition prop
 `narrationOnly: true` plays that stem. Normal playback uses the finished mix once at volume 1.
-One continuous take retains its natural internal breaths and pauses; only leading and trailing
-silence is trimmed. There is no time stretching, playback-rate change or chopped-clause assembly.
+The narration is one connected base take with these regions replaced by connected takes of their own:
+`investigate:4-6` “It’s a compromise. But a system already in panic needs relief— not more test code to maintain.”
+Each take retains its natural internal breaths and pauses; only leading and trailing silence is
+trimmed. A region take joins the base take at the midpoints of the natural gaps on either side of
+its region. There is no time stretching, playback-rate change or inserted silence, and no other
+assembly of clauses. Each region take is saved under `regions/` with its own SHA-256, measured
+words and audit in `cedar-performance.json`; `--select` replaces a region's take without an API request.
 The opening question begins after an 80 ms audio lead. The ending has approximately two seconds of breathing room.
 Every caption owns its exact spoken clause, shorter displayed text, measured speech bounds and word cues.
 Caption changes use frame-aligned midpoints in the natural gaps; scene boundaries follow those captions.

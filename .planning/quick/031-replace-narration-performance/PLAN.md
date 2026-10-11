@@ -342,7 +342,7 @@ text states the composition truthfully.
 
 ### 5. Terry's chosen take is in the rendered workshop
 Type: Behavior
-Status: in-progress
+Status: done
 Progress (2026-10-11): with Terry's agreement the paid audition ran once:
 `--audition investigate:4-6 --note "more weight on relief" --candidates 3`
 wrote `candidate-1`, `-2`, `-3` (wav, json, prepared, in-context) in the
@@ -354,6 +354,22 @@ change. The excerpt direction held: each candidate spoke only the requested
 text. Waiting for Terry to listen and name a candidate (or ask for more);
 then `--select`, render, README and the gate. The whole gate was green
 after slice 4 (59 suites, 657 tests).
+Accepted proof (2026-10-11): Terry listened and chose `candidate-1`.
+`--select investigate:4-6 candidate-1` gave 80.267 s / 2408 frames; every
+clause before "It's a compromise." identical, the three region clauses carry
+the candidate's cues, every later clause +0.35 s with speech length, word
+spacing and gaps kept, bounds frame-aligned; composed audio sample-identical
+to the base take before 49.6175 s and after 55.632 s (the seams less the
+crossfade half); the record lists
+`regions/investigate-4-6-d73e44c04926.wav`; a no-flag run reproduced script,
+record, treatment, stems, mix and region take byte-identically;
+`pnpm -C terry-moves render:ai-test-automation` produced the MP4 (ffprobe
+83.285 s for 83.267 s of film, the container's audio padding), the poster
+and an SRT whose diff is 13 timing lines with no word changed; README and
+treatment both state 83.27 s / 80.27 s and the replaced region; no scene
+component, test or subtitle script was edited; gate `pnpm test` 59 suites,
+657 tests; unittest 13 tests. Terry's listening to the rendered film remains
+his evaluation.
 Proof: Terry selects a candidate from slice 1 (or requests more) and the
 producer applies it; `pnpm -C terry-moves render:ai-test-automation`
 produces `out/ai-test-automation.mp4` whose `ffprobe` duration is the new
@@ -374,7 +390,7 @@ on a further audition; report that plainly rather than selecting for him.
 ### G1. The real candidate request is unobserved
 Reported: slice 1 — "The paid request is unobserved."
 Story clause: "the producer asks the film's voice (Cedar) for one connected take of the region's words"
-Disposition: receiving slice 5
+Disposition: proved by slice 5: the agreed paid audition wrote three audited candidates and Terry selected `candidate-1` (slice 5 accepted proof)
 
 ### G2. A new whole take leaves replaced region take files behind
 Reported: slice 4 — "`--new-take` leaves orphans."
@@ -425,3 +441,6 @@ Disposition: excluded "the existing whole-take request stays as it is"
   a real candidate is selected (G1).
 - `scripts/narration_audio.py` (247 lines) and its test file (248) have no
   headroom under the 250-line limit.
+- The render logs a 404 for `quillustration_flower_and_water-can/scene.bin`,
+  an asset of another composition; the workshop render completes and is not
+  affected.
