@@ -3,7 +3,7 @@
 ## Source
 
 Identity: terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock
-Story: [shot declaration owns measure and edit clock](../../../terry-moves/seed.md#shot-declaration-owns-measure-and-edit-clock).
+**Source:** [shot declaration owns measure and edit clock](../../../terry-moves/seed.md#shot-declaration-owns-measure-and-edit-clock).
 Bounded correction from the completed planned
 `terry-moves-filmmaking#replace-filmed-shot` execution. Predecessor story
 section and plan are recoverable from before-cleanup commit
@@ -125,7 +125,7 @@ vs `f0bedba` required unless timeline `cmp` fails.
 
 ### 1. Measurement write and check follow the declared source
 Type: Behavior
-Status: planned
+Status: done
 Proof: unit refusal when `shot.source !== measurement.source`; scratch
 retarget to a missing file makes `--check` (and therefore
 `render:feature-teams`) stop naming that file, then revert; approved
@@ -137,6 +137,12 @@ Behavior: `measure-shot` reads `speakerShot.source` (tsx entry importing
 `--check` use that path under `public/`. `compileShot` refuses a source
 mismatch before other checks. README needs no second "edit the measure
 script" step.
+
+Accepted proof (2026-10-11):
+- `nix develop --command sh -c 'cd terry-moves && NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/featureTeams --runInBand'` — 4 suites / 27 tests pass. `FeatureTeamsShot.spec.tsx` mismatch-precedence test names both sources despite invalid crop/range/audio; `FeatureTeamsMeasurement.spec.ts` runs the real CLI on matching old bytes, then a missing retarget and observes exit 1 naming it. `FeatureTeamsFilm.spec.tsx` verifies the tsx check-then-render chain.
+- `nix develop --command sh -c 'cd terry-moves && NODE_ENV=test node /tmp/shot-declaration-slice1-cli-proof.mjs > /tmp/shot-declaration-slice1-cli-proof.log 2>&1'` — terminal exit 0. Actual checkout retarget makes check and render stop at the named missing file; alternate approved-file copy is measured into a record naming its declared path/facts/hash and checks green. Original declaration/record restored; owned proof asset removed; approved check green. Driver assertions and log inspected.
+- `nix develop --command sh -c 'cd terry-moves && NODE_ENV=test pnpm exec tsx scripts/feature-teams-timeline.ts /tmp/shot-declaration-slice1-timeline.json && cmp /tmp/shot-declaration-approved-baseline.json /tmp/shot-declaration-slice1-timeline.json'` — exit 0, byte-identical timeline at approved declaration.
+- Independent refactor removed one redundant render-command substring assertion; stronger exact-chain assertion and all accepted proof boundaries remain unchanged. Selective formatter `nix develop --command sh -c 'cd terry-moves && pnpm exec eslint src/featureTeams/shot.ts --fix'` and `git diff --check` pass. No proof gaps or remaining slice 1 consumers; no generator triggered.
 
 ### 2. A shorter edit's scene clock follows `sceneSeconds` without moving the approved timeline
 Type: Behavior
@@ -160,6 +166,34 @@ valid shorter edit closes on its slot. No cue table change.
   missing path or in-memory measurement, not a committed asset.
 - Compare-tool noise / Preserved policy stays a separate product decision.
 
+## Execution context
+
+- Established start, Story Branch Mode: owned workspace
+  `/Users/terryyin/git/terry-talks/.worktrees/terry-s-shot-declaration-owns-measurement-check`,
+  branch `codex/terry-s-shot-declaration-owns-measurement-check`, agent
+  Kirara-chan, publisher `dashboard-territory.local-terry-talks`.
+  This execution reuses the dashboard-established workspace; originating
+  invocation is here. Integration checkout: `/Users/terryyin/git/terry-talks`.
+- Starting revision: `236249a314fd3d50bc04d2555e81ef9e1f8d6a7c`.
+  Accepted claim / initial candidate: `beee598b4700e3c5251cde982c2188f5cd3073ed`,
+  confirmed on `origin/master` and the remote execution branch.
+  Increments target `origin/refs/heads/codex/terry-s-shot-declaration-owns-measurement-check`;
+  eventual trunk target remains `origin/master`.
+- Recorded Ready is changed since review; current source and two-slice scope
+  remain aligned. Execution does not renew readiness. No numeric slice budget
+  or explicit overrun replanning option; preserve existing planning authority.
+- Checkout setup: `nix develop --command pnpm install --frozen-lockfile`
+  completed without lockfile changes. From this checkout, baseline
+  `nix develop --command sh -c 'cd terry-moves && NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/featureTeams --runInBand && NODE_ENV=test pnpm exec tsx scripts/feature-teams-timeline.ts /tmp/shot-declaration-approved-baseline.json'`
+  passed all 3 suites / 25 tests and saved the approved timeline at the claim
+  revision before implementation.
+- No active Git hooks. Selective formatting uses the project's ESLint formatter
+  on changed TypeScript paths only, under nix; staging/commits stay with the
+  coordinator. No generation trigger is affected.
+- CI: `.planning/open-dough.json` and push workflows are absent. GitHub default
+  has no selected push check to observe; no observer armed. Claim and later
+  publications have `pendingCi: unobserved`; local proof remains required.
+
 ## Concern review
 
 Slice-plan refinement was not needed: two slices, measure/check then edit
@@ -167,3 +201,10 @@ clock, each with discriminating proof and the second preserving the approved
 timeline. No remaining slice-specific concern. No numeric slice limit was
 supplied. This plan grants no Take, queue priority, implementation or
 publication authority.
+
+## Story obligations
+
+### G1. Full film export not repeated
+Reported: slice 1 — "A successful full-film export was not required or run."
+Story clause: "keeps the approved film's pose timeline byte-identical"
+Disposition: no user cost "keeps the approved film's pose timeline byte-identical": exact timeline cmp proves preservation; actual CLI refusal proves check-before-render, and this correction promises no new export.

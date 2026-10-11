@@ -27,6 +27,18 @@ const insetMapping = (shot: Shot, m: ShotMeasurement) => {
 };
 
 describe('FeatureTeamsShot compile and replacement', () => {
+	test('a mismatched measurement names both sources before validating crop, range or audio', () => {
+		const replacement: Shot = {
+			...speakerShot,
+			source: 'assets/feature-teams-stand-ins/replacement.mp4',
+			crop: { left: -1, top: 0, width: 1 },
+			play: { from: 0, to: 120 },
+		};
+		expect(() => compileShot(replacement, { ...measurement, hasAudio: false }, speakerChoreography, FPS)).toThrow(
+			`${replacement.source}: measurement is for ${measurement.source}`,
+		);
+	});
+
 	// Stand-in geometry is the approved crop as integer pixels (ffmpeg
 	// crop=896:1769:92:77; yuv420 encode stores height 1768). In-memory only —
 	// stand-in files are never committed.

@@ -107,8 +107,7 @@ describe('FeatureTeamsFilm opening, ending, cover and logo', () => {
 		expect(scene.devs.every((d) => d.bubble === undefined)).toBe(true);
 		const scripts = JSON.parse(fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf8')).scripts;
 		const script: string = scripts['render:feature-teams'];
-		expect(script).toContain('scripts/measure-shot.mjs --check');
-		expect(script).toContain('scripts/render-feature-teams.ts');
+		expect(script).toContain('tsx scripts/measure-shot.mjs --check && tsx scripts/render-feature-teams.ts');
 		expect(fs.existsSync(path.join(__dirname, '../../scripts/render-feature-teams.ts'))).toBe(true);
 		const renderScript = fs.readFileSync(path.join(__dirname, '../../scripts/render-feature-teams.ts'), 'utf8');
 		expect(renderScript).toContain('COVER_FRAME');
