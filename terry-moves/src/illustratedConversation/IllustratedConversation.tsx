@@ -4,7 +4,19 @@ import {AI, Engineer} from '../aiTestAutomation/actors';
 import {BODY, Definitions, palette} from '../aiTestAutomation/design';
 import {blinkAt} from '../aiTestAutomation/motion';
 import {compileConversation, Performance, verifyConversationAssets} from './performance';
-import {ConversationScript, pilotScript} from './script';
+import {ConversationScript, conversationScript, pilotScript} from './script';
+
+const compositionFps=30;
+const conversationMetadata=(defaultScript: ConversationScript)=>async ({props}: {props: {script?: ConversationScript}})=>{
+ const script=props.script ?? defaultScript;
+ const compiled=compileConversation(script,compositionFps);
+ await verifyConversationAssets(script,async file=>{
+  const response=await fetch(staticFile(file));
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return response.arrayBuffer();
+ },async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),byte=>byte.toString(16).padStart(2,'0')).join(''));
+ return {durationInFrames:compiled.durationInFrames};
+};
 
 export const ConversationPicture: React.FC<{performance: Performance; frame: number; fps: number}> = ({performance,frame,fps}) => {
  const engineer=performance.actors.engineer;
@@ -15,8 +27,8 @@ export const ConversationPicture: React.FC<{performance: Performance; frame: num
   <ellipse cx="540" cy="485" rx="495" ry="335" fill={palette.cream} opacity="0.48"/>
   <path d="M0 802H1080V1080H0Z" fill="#EBD6BE"/>
   <path d="M80 802H1000" stroke="#C5A586" strokeWidth="3"/>
-  <Engineer x={280} y={805} scale={1.55} mood={engineer.mood} gaze={engineer.gaze} headTilt={engineer.tilt} leftHand={engineer.leftHand} rightHand={engineer.rightHand} speechMouth={engineer.mouth} blink={blinkAt(frame/fps,[0.3,3.7,6.0,8.9])}/>
-  <AI x={755} y={805} scale={2.35} mood={ai.mood} gaze={ai.gaze} tilt={ai.tilt} leftHand={ai.leftHand} rightHand={ai.rightHand} speechMouth={ai.mouth} blink={blinkAt(frame/fps,[0.3,4.8,6.1,8.9])}/>
+  <Engineer x={280} y={805} scale={1.55} mood={engineer.mood} gaze={engineer.gaze} headTilt={engineer.tilt} leftHand={engineer.leftHand} rightHand={engineer.rightHand} speechMouth={engineer.mouth} blink={blinkAt(frame/fps,[0.3,3.7,6.0,8.9,12.4,16.8,18.7])}/>
+  <AI x={755} y={805} scale={2.35} mood={ai.mood} gaze={ai.gaze} tilt={ai.tilt} leftHand={ai.leftHand} rightHand={ai.rightHand} speechMouth={ai.mouth} blink={blinkAt(frame/fps,[0.3,4.8,6.1,8.9,12.7,15.4,18.2])}/>
   <text x="280" y="875" textAnchor="middle" fontFamily={BODY} fontSize="23" fill={palette.muted} letterSpacing="3">ENGINEER</text>
   <text x="755" y="875" textAnchor="middle" fontFamily={BODY} fontSize="23" fill={palette.muted} letterSpacing="3">AI</text>
   <rect width="1080" height="1080" filter="url(#paper-grain)" fill="transparent" pointerEvents="none"/>
@@ -39,18 +51,21 @@ export const IllustratedConversation: React.FC<{script?: ConversationScript}> = 
 export const IllustratedConversationComposition: React.FC = () => <Composition
  id="IllustratedConversationPilot"
  component={IllustratedConversation}
- durationInFrames={compileConversation(pilotScript,30).durationInFrames}
- calculateMetadata={async ({props}: {props: {script?: ConversationScript}})=>{
-  const script=props.script ?? pilotScript;
-  const compiled=compileConversation(script,30);
-  await verifyConversationAssets(script,async file=>{
-   const response=await fetch(staticFile(file));
-   if (!response.ok) throw new Error(`HTTP ${response.status}`);
-   return response.arrayBuffer();
-  },async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),byte=>byte.toString(16).padStart(2,'0')).join(''));
-  return {durationInFrames:compiled.durationInFrames};
- }}
- fps={30}
+ durationInFrames={compileConversation(pilotScript,compositionFps).durationInFrames}
+ calculateMetadata={conversationMetadata(pilotScript)}
+ fps={compositionFps}
+ width={1080}
+ height={1080}
+/>;
+
+export const IllustratedConversationFilm: React.FC<{script?: ConversationScript}> = ({script=conversationScript}) => <IllustratedConversation script={script}/>;
+
+export const FullIllustratedConversationComposition: React.FC = () => <Composition
+ id="IllustratedConversation"
+ component={IllustratedConversationFilm}
+ durationInFrames={compileConversation(conversationScript,compositionFps).durationInFrames}
+ calculateMetadata={conversationMetadata(conversationScript)}
+ fps={compositionFps}
  width={1080}
  height={1080}
 />;

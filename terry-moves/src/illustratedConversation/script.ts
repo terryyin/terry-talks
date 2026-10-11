@@ -63,3 +63,40 @@ export const pilotScript: ConversationScript = {
   {actor:'engineer',turn:'reconsider',offset:2.5,pose:{mood:'pleased',tilt:0}},
  ],
 };
+
+// The full film uses the accepted pilot's recordings, mouths and listening pause.
+// Common anchors contain the later authored reaction edit within question.
+export const conversationScript: ConversationScript = {
+ ...pilotScript,
+ lead: 1.2,
+ tail: 2,
+ turns: [
+  {id:'passed',speaker:'ai',take:'passed',pauseAfter:1.2,mouth:{takeSha256:recording.takes.passed.sha256,cues:[
+   {at:0,shape:'rest'}, {at:0.08,shape:'round'}, {at:0.27,shape:'wide'}, {at:0.51,shape:'rest'},
+   {at:0.63,shape:'open'}, {at:0.78,shape:'wide'}, {at:1.18,shape:'rest'},
+   {at:1.5,shape:'open'}, {at:1.67,shape:'round'}, {at:1.86,shape:'wide'},
+   {at:2.03,shape:'open'}, {at:2.21,shape:'round'}, {at:2.37,shape:'wide'}, {at:2.53,shape:'rest'},
+  ]}},
+  pilotScript.turns[0],
+  {...pilotScript.turns[1],pauseAfter:1.2},
+  {id:'next',speaker:'engineer',take:'next',pauseAfter:0,mouth:{takeSha256:recording.takes.next.sha256,cues:[
+   {at:0,shape:'rest'}, {at:0.07,shape:'open'}, {at:0.22,shape:'wide'}, {at:0.35,shape:'rest'},
+   {at:0.72,shape:'wide'}, {at:0.89,shape:'open'}, {at:1.08,shape:'wide'}, {at:1.18,shape:'rest'},
+   {at:1.27,shape:'open'}, {at:1.4,shape:'wide'}, {at:1.47,shape:'rest'},
+  ]}},
+ ],
+ acting: [
+  {actor:'ai',turn:'passed',offset:-0.35,pose:{tilt:-2,rightHand:{x:105,y:-136}}},
+  {actor:'ai',turn:'passed',offset:0.6,pose:{tilt:0,rightHand:{x:110,y:-157}}},
+  {actor:'ai',turn:'passed',offset:2.5,pose:{rightHand:{x:96,y:-102}}},
+  {actor:'ai',turn:'question',offset:0,pose:pilotScript.initial.ai},
+  ...pilotScript.acting.map(cue=>cue.actor==='ai' && cue.turn==='question' && cue.offset===4.75
+   ? {...cue,pose:{...cue.pose,mood:'concerned' as const,rightHand:pilotScript.initial.ai.rightHand}}
+   : cue),
+  {actor:'engineer',turn:'reconsider',offset:0,pose:{tilt:1,rightHand:{x:65,y:-164}}},
+  {actor:'engineer',turn:'next',offset:-0.4,pose:{gaze:1,tilt:2,rightHand:{x:110,y:-213}}},
+  {actor:'engineer',turn:'next',offset:1.4,pose:{tilt:0,rightHand:{x:65,y:-164}}},
+  {actor:'ai',turn:'next',offset:0.1,pose:{mood:'focused',gaze:-1,tilt:-2}},
+  {actor:'ai',turn:'next',offset:1.6,pose:{mood:'pleased',tilt:0}},
+ ],
+};

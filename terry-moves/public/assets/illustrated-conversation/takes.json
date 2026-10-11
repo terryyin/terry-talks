@@ -28,6 +28,34 @@
       "sampleFrames": 79200,
       "sampleWidth": 2,
       "durationSeconds": 3.3
+    },
+    "passed": {
+      "actor": "ai",
+      "voice": "marin",
+      "text": "All tests passed. I think we're ready to ship.",
+      "direction": "Speak these exact words as the same warm helpful colleague, quietly pleased and confident in completed work. A small natural pause after passed. Conversational, never a sales pitch or robot voice; gentle emphasis on ready to ship. Only speak the supplied words.",
+      "model": "gpt-4o-mini-tts",
+      "file": "assets/illustrated-conversation/passed.wav",
+      "sha256": "aafb819e6e5037d0fd3b96b74b7dadab89e7897f5568a97036a75751fb212add",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleFrames": 67200,
+      "sampleWidth": 2,
+      "durationSeconds": 2.8
+    },
+    "next": {
+      "actor": "engineer",
+      "voice": "cedar",
+      "text": "Then let's start there.",
+      "direction": "Speak these exact words as the same thoughtful engineer inviting a trusted colleague to work together. Warm, calm and constructive, a slight smile; no scolding and no dramatic finish. Natural conversational pace. Only speak the supplied words.",
+      "model": "gpt-4o-mini-tts",
+      "file": "assets/illustrated-conversation/next.wav",
+      "sha256": "d78338e90d7772bb38e4103ab33d817c168e1e1a9ef2bda26da84963bda67a55",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleFrames": 40800,
+      "sampleWidth": 2,
+      "durationSeconds": 1.7
     }
   }
 }

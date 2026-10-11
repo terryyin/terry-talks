@@ -124,7 +124,7 @@ character speak while the other reacts, a meaningful silent pause, and a clear h
 
 ### 2. Watch the complete exchange and understand the pause
 Type: Behavior
-Status: planned
+Status: done
 Proof: A complete exported scene communicates confidence → question → reconsideration → invitation at normal
 speed with sound.
 
@@ -212,12 +212,21 @@ See [preparation observations](OBSERVATIONS.md) for the pre-implementation revis
 
 Terry accepted the exported pilot with “LGTM” on 2026-10-12, resolving its sound-on review gate. Independent `dough-post-change-refactor` completed with documentation extraction only. Selective ESLint formatting/checking and `git diff --check` passed; no executable boundary changed during refactoring or formatting. Its unchanged recorded proof is accepted for delivery; no speech regeneration or baseline rerender is needed.
 
+Slice 1 delivered as `4eebdac7548d010145853906912aaa857083e34c` to `origin/refs/heads/codex/i-can-make-an-illustrated-conversation-with-conv`, suffix base `bad136dd9c5ed47a56a4ce63c5ee8dbb31cd093a`; managed delivery accepted and registered it on the resumed observer. Slice 2 reuses the accepted cast, recordings, local mouth timing and 1.2-second question/reply pause; its new opening and invitation receive their own proof.
+
 - `pnpm -C terry-moves test:unit --runInBand tests/illustratedConversation` passed 1 suite / 9 tests. Inspected `tests/illustratedConversation/pilot.spec.tsx`: actual SVG mouth geometry/rest, pre-edit omitted-input markup hashes, rendered listener hands and direct/reverse sampling, composition audio/captions, selected WAV headers/hashes, and registered metadata using a changed script. Setup uses retained WAVs/script and mocked Remotion frame/config/media wrappers; actor drawing and compilation remain real.
 - `pnpm -C terry-moves test:unit --runInBand tests/illustratedConversation tests/aiTestAutomation tests/silentScene tests/visualTreatments` passed 13 suites / 151 tests. All named affected rig consumers ran; `pnpm -C terry-moves typecheck` passed. Temporarily forcing the new Mouth to rest failed the actual SVG open-mouth assertion (1 failed / 8 passed); restored the attempt's original bytes and reran the combined passing command.
 - `pnpm -C terry-moves render:illustrated-conversation:pilot` succeeded without speech generation. `ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,sample_rate,channels:format=duration -of json terry-moves/out/illustrated-conversation-pilot.mp4` observed H.264 1080×1080 / 30 fps, AAC 48 kHz stereo, 10.603 s. `ffmpeg -hide_banner -i terry-moves/out/illustrated-conversation-pilot.mp4 -af silencedetect=noise=-35dB:d=0.09 -vn -f null -` decoded the complete audio and observed the listening silence at 4.745–6.502 s.
 - Manual setup: Studio `http://localhost:3000/IllustratedConversationPilot` and the exported MP4 in QuickTime, volume 1 / unmuted / normal playback through its end. Studio frames 30, 174 and 216 and exported frames 27, 175 and 216 show Engineer speech with resting AI, empty pause caption with concerned AI/hand near face, then rounded AI speech with resting Engineer. Corrected AI arm clearance was observed. This establishes playback/seek and drawing observations, not Terry's voice/lip-fit/acting judgment.
 - Cedar question (4.8 s) and Marin reply (3.3 s) were generated once each; direction/text/model/hash/PCM measurements remain in `takes.json`. The generation script rewrote only unknown-length WAV headers from complete received PCM. No speech/transcription requests occur during replay. No shared Python helper changed.
 - The prior CI observer `illustrated-conversation-julia`, `/tmp/dough-ci-501/watch-r3LNqI`, PID `96419`, stream `52450`, cell `9` stopped at the review gate with no unread events and confirmed process exit. On accepted-pilot resume, reuse matching proof and rearm observation for delivery. Locked dependencies are unchanged; `pnpm -C terry-moves exec remotion --version` succeeds in this checkout.
+
+## Slice 2 full exchange proof — 2026-10-12
+
+The 582-frame / 19.4-second baseline is `terry-moves/out/illustrated-conversation.mp4`; `passed` (Marin, 2.8 s) and `next` (Cedar, 1.7 s) join the accepted pilot's byte-identical recordings and local mouths. Reuse Terry's pilot acceptance for its unchanged question/reply pause, without claiming new artistic judgment of the expanded film. Studio normal playback, invitation frame 499 and reverse seek to pause 316 show fitted captions, resting listener and sustained reconsideration; actual MP4 played in QuickTime at normal speed.
+- `pnpm -C terry-moves test:unit --runInBand tests/illustratedConversation` passed 2 suites / 15 tests after independent refactoring; `pnpm -C terry-moves typecheck` passed. Inspected `fullExchange.spec.tsx`: actual registered component audio/caption/drawn mouths at four measured slots, empty caption/rest during silence, real drawn hands across boundaries/direct-reverse seeking, and all later local mouth samples unchanged after an authored pause shifts audio/captions/pose. Mocked frame/config/media wrappers supply timing preconditions only. Both metadata callbacks invoke shared validation against default/explicit scripts and saved bytes. The refactor removed repeated metadata and extended the pilot's anchor in place, preserving picture/audio. Selective ESLint format/check and whitespace check passed.
+- `pnpm -C terry-moves render:illustrated-conversation` succeeded without generation; `ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,sample_rate,channels:format=duration -of json terry-moves/out/illustrated-conversation.mp4` observed H.264 1080×1080 / 30 fps, AAC 48 kHz stereo, 19.413 s. `ffmpeg -v error -i terry-moves/out/illustrated-conversation.mp4 -f null -` decoded all streams. The retained first/last voiced 100 ms check (`python3 /tmp/illustrated-conversation-slice2-audio-check.py`, after decoding mono PCM with ffmpeg) compares all four source recordings with decoded AAC: correlations 0.999532–0.999979; five authored silence interiors have RMS 0.0000.
+- `pnpm -C terry-moves exec tsx out/illustrated-conversation-slice2-anchor-check.tsx` proved all 582 real SVG frames and media schedules unchanged after making the question's settled cue explicitly complete. Common question start/end anchors now bound slice 3's reaction edit; an Engineer reply-start anchor preserves held listening when a pause is edited. No shared rig/Python helper changed, so earlier consumer proof remains valid. The first MP4 stays the revision baseline.
 
 ## Story obligations
 
@@ -229,7 +238,7 @@ Disposition: proved by slice 1: Terry's 2026-10-12 “LGTM” response to the ex
 ### G2. Complete exchange after accepted pilot
 Reported: slice 1 — "The complete exchange is not produced; slices 2–3 remain untouched."
 Story clause: "The delivery is a watchable exported exchange and a demonstrated revision using that same path"
-Disposition: receiving slice 2
+Disposition: proved by slice 2: fullExchange.spec.tsx, decoded speech/silence checks, full exported MP4 and coordinator's normal playback/seek observations.
 
 ### G3. Meaningful reaction revision after first film
 Reported: slice 1 — "The reaction revision is not produced; slices 2–3 remain untouched."
