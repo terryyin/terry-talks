@@ -6,9 +6,10 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
+- [I can make an illustrated conversation with convincing speaking and listening](../terry-moves/seed.md#illustrated-conversation) — terry-moves-filmmaking#illustrated-conversation ([plan](quick/034-illustrated-conversation/PLAN.md))
+
 ## Backlog list
 
-- [I can make an illustrated conversation with convincing speaking and listening](../terry-moves/seed.md#illustrated-conversation) — terry-moves-filmmaking#illustrated-conversation
 - [I can direct a cinematic 3D shot through the script](../terry-moves/seed.md#cinematic-3d-shot) — terry-moves-filmmaking#cinematic-3d-shot
 - [I can direct a 3D character performing a short action](../terry-moves/seed.md#3d-character-action) — terry-moves-filmmaking#3d-character-action
 - [I can make an anime-style character perform a short scene](../terry-moves/seed.md#anime-character-scene) — terry-moves-filmmaking#anime-character-scene
