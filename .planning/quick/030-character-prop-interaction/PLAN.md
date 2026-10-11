@@ -326,6 +326,18 @@ surfaces, the pick up and put down entries, ownership and reach feedback, and
 the new frame count; the existing `render:silent-scene` script is the export
 and a revision is a script edit followed by the same render.
 
+## Execution complete
+
+Product advice: No backlog change. The retrospective found no defect,
+regression, or residue needing a correction; process review was not enabled.
+The work follows the near-future direction: reordering compatible moves needs
+no repair and contradictions are reported before rendering. What remains is
+Terry's own believability evaluation of the rendered scene (floating shelf
+surfaces, the upright resting wrench, the carried wrench drawn over the hand).
+If that staging does not convince, it is a small follow-up on the picture, not
+on the script or compiler. A second kind of prop needs prop art chosen by
+name before it can be cast; no queued story depends on that yet.
+
 ## Current decisions
 
 - One carrying hand; a prop is resting at a surface or held, never both or
