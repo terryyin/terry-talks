@@ -221,7 +221,14 @@ script and record are untouched.
 
 ### 2. Sound effects follow the measured script
 Type: Structure
-Status: planned
+Status: done
+Accepted proof (2026-10-11): `effect_cues(script)` in
+`workshop_soundtrack.py` resolves all 26 cues from scene, clause, a spoken
+word or caption bound, and an offset; the offline producer reproduced
+`effects.wav`, `mix.wav` and `sound-cues.json` byte-identically; against the
+0.9 s scratch-shifted script cues 1–18 did not move and cues 19–26 moved by
+exactly 0.9 s (43,200 samples); script restored to SHA-256 `8971…80b1`; jest
+`tests/aiTestAutomation` green.
 Proof: `python3 'AI Test Automation/produce_audio.py'` reproduces
 `effects.wav` and `mix.wav` byte-identically (`git status --short` clean for
 assets) and `sound-cues.json` lists the same 26 times; with the slice-2
@@ -334,3 +341,9 @@ Disposition: receiving slice 5
   prepared take); the 5.42 s in the assumptions is speech only.
 - Offline proof helpers used in slice 1 are outside the repository in
   `/tmp/audition-proof/` and are disposable; slice 3's unittest replaces them.
+- Effect cues are placed to the millisecond (`round(bound + offset, 3)`), so
+  after a real shift a later cue is within 0.5 ms of its anchor. A word
+  anchor missing from `wordCues` raises instead of falling back as `film.ts`
+  `cue()` does. Cues 17 and 18 sit inside `investigate:4-6` and follow the
+  candidate's own caption start and speech start; slice 4 observes that.
+- Push CI is confirmed unobserved: the observer reports no `ci.yml` workflow.
