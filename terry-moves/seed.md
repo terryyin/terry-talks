@@ -74,36 +74,6 @@ and assumptions, not delivery estimates. S/M/L bands remain unassigned because
 the project has no definitions. The research references R01–R28 below are
 provenance labels; the recorded identities are the canonical work identities.
 
-<a id="shot-declaration-owns-measure-and-edit-clock"></a>
-### Terry's shot declaration owns measurement check and the edit scene clock
-
-**Identity:** terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/033-shot-declaration-owns-measure-and-edit-clock/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"ed38274d32623f5b6fa7dc29c5e89aa9379a24b58b87617fefa34647b2a939e5","plan":"791b9a2e3bd3ff8615edf328826619dae7f6c97e17b99d45087bec6748605939"}}
-```
-
-#### Goal
-
-When Terry retargets the Feature Teams speaker shot's declared source or
-shortens it under `edit` with every cue still reached, measurement check and
-the film's last-moment / ending clock follow that declaration, so replacement
-does not require editing the measure script and a valid shorter edit does not
-leave the inset and ending on the old choreography end.
-
-#### Scope
-
-Make `measure-shot` (write and `--check`) use `speakerShot.source`, refuse a
-declaration whose `source` disagrees with the measurement record, and drive
-the film's clip-end / last-moment / ending phases from the compiled
-`sceneSeconds` in a way that keeps the approved film's pose timeline
-byte-identical. Preserve every promise of
-`terry-moves-filmmaking#replace-filmed-shot`, including trim, hold, edit
-refusal when cues are unreached, README replacement steps, and timeline-dump
-preservation for the approved declaration. No new film, second shot, cue
-re-alignment, compare-tool Preserved rule change, or Studio control.
-
-Plan: [shot declaration owns measure and edit clock](../.planning/quick/033-shot-declaration-owns-measure-and-edit-clock/PLAN.md).
-
 <a id="illustrated-conversation"></a>
 ### 8. I can make an illustrated conversation with convincing speaking and listening
 

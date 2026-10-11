@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [Terry's shot declaration owns measurement check and the edit scene clock](../terry-moves/seed.md#shot-declaration-owns-measure-and-edit-clock) — terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock ([plan](quick/033-shot-declaration-owns-measure-and-edit-clock/PLAN.md))
-
 ## Backlog list
 
 - [Terry can replace a narration region that crosses a scene boundary, with the region commands held by repeatable proof](../terry-moves/seed.md#narration-region-across-scenes) — terry-moves-filmmaking#narration-region-across-scenes

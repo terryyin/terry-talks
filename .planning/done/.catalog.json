@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_shot-declaration-owns-measure-and-edit-clock.json",
+      "identity": "terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock",
+      "completedAt": "2026-10-11T12:51:19.791Z",
+      "blob": "b1c7d8f10ddcbdf1908cc4b11d04cbd9c8659cd5"
+    },
+    {
       "fileName": "terry-moves-filmmaking_replace-filmed-shot.json",
       "identity": "terry-moves-filmmaking#replace-filmed-shot",
       "completedAt": "2026-10-11T09:26:02.717Z",
