@@ -9,6 +9,9 @@
     "build": "slidev build",
     "export": "slidev export",
     "export:pdf": "node scripts/export-pdf.mjs",
+    "test": "pnpm test:node && pnpm test:python",
+    "test:node": "pnpm moves test && pnpm typecheck",
+    "test:python": "python3 -m unittest discover -s scripts -p 'test_*.py' -v",
     "typecheck": "vue-tsc --noEmit",
     "terry-moves:format": "pnpm -C terry-moves format",
     "terry-moves:lint": "pnpm -C terry-moves lint"

@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  node:
+    name: JavaScript and TypeScript checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - uses: pnpm/action-setup@v6
+        with:
+          cache: true
+      - name: Install workspace dependencies
+        id: install
+        run: pnpm install --frozen-lockfile
+      - name: Remotion tests
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm -C terry-moves test:unit
+      - name: Remotion lint
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm terry-moves:lint
+      - name: Remotion typecheck
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm -C terry-moves typecheck
+      - name: Slidev typecheck
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm typecheck
+
+  python:
+    name: Python narration tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - name: Python tests
+        run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
