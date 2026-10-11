@@ -98,171 +98,30 @@ proof that runs offline in seconds.
 | A cross-scene region is refused today | `request(script, …)` on the approved script | `sandbox:3-4`, `sandbox:3-investigate:1` and `investigate:6-4` each raise the messages quoted above; `investigate:4-6`, `sandbox:3`, `hook:1` and `end:2` return their request text and spans | Settled: the symptom reproduces |
 | Everything after naming handles a region that crosses scenes | `audition(root, script, run, 48000, region, candidates=0)` | Scratch run outside the repository on a temporary root with three synthetic scenes (3, 2 and 1 clauses), a noise take, a record and one fixture candidate 0.5 s longer; `clauses` replaced in memory by a stand-in returning flat captions 2–4 (last clause of the first scene, first of the second). Request text "Then wait. Show the check. Have it tested. It is done.", spans (2, 2, 6, 11); output "region 5.00s (+0.50s against the base take); 8.75s in context", 8.75 s being the retained 8.25 s span plus 0.5 s; 0 refused | Settled for audition |
 | The audition is drivable offline against a temporary root | same run | The client constructor was replaced by a stop and never reached; `prepare` trimmed the synthetic take and candidate deterministically (960 samples each); the temporary root held every written file; `git status --short` in the checkout stayed empty | Settled |
-| Selection is drivable offline against a temporary root, and a cross-scene selection writes a coherent record, take and script | `select(root, script, run, sample_rate, region, candidate)`, followed by `write_script`, `performance` and `align` | Fresh 2026-10-12 observation in this preparation's named checkout, using the synthetic film and literal command below: cross-scene candidate selected; saved take/hash, record/token span and serialized script agree; offline replay reproduces them; retained PCM matches outside the join fades; no API client or tracked write | Settled: no production change is needed to drive selection on a temporary root |
+| Selection is drivable offline against a temporary root, and a cross-scene selection writes a coherent record, take and script | `select(root, script, run, sample_rate, region, candidate)`, followed by `write_script`, `performance` and `align` | Fresh 2026-10-12 observation in this preparation's named checkout, using the synthetic film and command retained below: cross-scene candidate selected; saved take/hash, record/token span and serialized script agree; offline replay reproduces them; retained PCM matches outside the join fades; no API client or tracked write | Settled: no production change is needed to drive selection on a temporary root |
 | The current proof is green | the three commands below | `python3 -m unittest discover -s scripts -p 'test_*.py'`: 13 tests OK in 1.4 s; `python3 'AI Test Automation/produce_audio.py'`: `Complete: 80.267s / 2408 frames.` with `git status --short` empty; jest `tests/aiTestAutomation`: 2 suites, 11 tests passed | Settled |
 
 ## Selection premise observation
 
-On 2026-10-12, Mana-chan ran the command below from the established owned
-workspace
-`/Users/terryyin/git/terry-talks/.worktrees/terry-can-replace-a-narration-region-that-crosse`,
-branch `codex/terry-can-replace-a-narration-region-that-crosse`, at
-`8c5dffd6ace904711721d2b09ba545678a35974c`. The approved script's cross-scene
-naming refusal reproduced first. Only `clauses()` was replaced in memory
-to supply the proposed name and flat caption range; selection, trimming,
-composition, alignment, manifest verification and script serialization were
-the checkout's existing implementations. Both client constructors failed if
-reached. All fixture writes were under a temporary root, which was removed.
-
-Inspected setup: the temporary root's
-`AI Test Automation/film-script.json`, `cedar-performance.json`, base take,
-prepared base and `auditions/sandbox:3-investigate:1/candidate-1.{wav,json}`.
-Inspected outcomes: the selected region take, saved record, serialized
-measured script, composed PCM and a fresh offline `performance()`/`align()`
-replay in that same root.
-
-Result: the command exited 0. Audition refused no candidate and produced
-8.75 s in context; selection wrote region `sandbox:3-investigate:1` with
-first token 4, token count 6 and take-first token 2. Its region is 0.50 s
-longer. The scene boundary inside the region followed the candidate's gap
-midpoint, from frame 160 to frame 167 at 30 fps; the later scene moved 15
-frames. It is the gap midpoint, rounded to a frame, rather than the full
-duration change that moves a boundary inside the changed gap. Offline replay
-matched the saved words, prepared hash and serialized script; retained samples
-matched outside the 5 ms join fades. Every tracked file's SHA-256 stayed the
-same and the checkout remained clean. No API client was reached.
-
-The command is preparation evidence, not delivery proof or completed slices.
-Slice 1 still owns the repeatable tests and refusal discrimination; slice 2
-still owns accepting the name through the real parser. The current shared
-helper suite also passed:
-`PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s scripts -p 'test_*.py'`
-(13 tests, 0.310 s).
-
-Literal command (run before this preparation record made the checkout dirty):
-
-```sh
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH='scripts:AI Test Automation' python3 - <<'PY'
-import contextlib
-import io
-import json
-import random
-import subprocess
-import tempfile
-from array import array
-from copy import deepcopy
-from pathlib import Path
-from unittest.mock import patch
-import cedar_narration as narration
-import cedar_regions as regions
-from narration_audio import (gap_span, narration_text, read_pcm, run, sha256,
-                             tokens, verify, write_pcm, write_performance, write_script)
-
-checkout = Path.cwd()
-tracked = subprocess.check_output(["git", "ls-files", "-z"]).split(b"\0")
-before = {p: sha256(checkout / p.decode()) for p in tracked if p and (checkout / p.decode()).is_file()}
-rate, name, change = 48000, "sandbox:3-investigate:1", 0.5
-approved = json.loads((checkout / "AI Test Automation/film-script.json").read_text())
-try:
-    regions.request(approved, name)
-except ValueError as refusal:
-    print(f"Current naming refusal: {refusal}")
-else:
-    raise AssertionError("The reported naming symptom no longer reproduces")
-
-with tempfile.TemporaryDirectory(prefix="narration-region-readiness-") as temporary:
-    root = Path(temporary)
-    work = root / "terry-moves/out/ai-test-automation-audio"
-    assets = root / "terry-moves/public/assets/ai-test-automation"
-    for folder in (work, assets, root / "AI Test Automation"):
-        folder.mkdir(parents=True, exist_ok=True)
-    script = {"fps": 30, "scenes": [
-        {"id": scene, "captionRanges": [{"spoken": clause, "text": clause} for clause in clauses]}
-        for scene, clauses in (
-            ("sandbox", ["Ask first.", "Then wait.", "Show the check."]),
-            ("investigate", ["Have it tested.", "It is done."]),
-            ("end", ["Finish now."]))]}
-    text = narration_text(script)
-    words = [{"word": word, "start": 0.25 + index * 0.75, "end": 0.5 + index * 0.75}
-             for index, word in enumerate(text.split())]
-    source = random.Random(32)
-    base_take, base_prepared = assets / "cedar-take.wav", work / "cedar-prepared.wav"
-    write_pcm(base_take, array("h", (source.randrange(-9000, 9000) for _ in range(round(11.25 * rate)))), rate)
-    narration.prepare(base_take, base_prepared, run, rate)
-    base = read_pcm(base_prepared, rate)
-    report = {"model": "fixture", "voice": "fixture", "direction": "synthetic PCM; no speech request",
-              "script": text, "transcript": text, "unpromptedTranscript": text,
-              "words": words, "regions": [], "takeSha256": sha256(base_take),
-              "preparedSha256": sha256(base_prepared)}
-    write_performance(narration.record_path(root), report)
-    with contextlib.redirect_stdout(io.StringIO()):
-        narration.align(script, base, report, rate)
-    original = deepcopy(script)
-    script_path = root / "AI Test Automation/film-script.json"
-    write_script(script_path, script)
-    script_before, record_before = sha256(script_path), sha256(narration.record_path(root))
-    with patch.object(regions, "clauses", return_value=(name, 2, 4)), \
-         patch.object(narration, "cedar_client", side_effect=AssertionError("API client reached")) as client, \
-         patch.object(regions, "cedar_client", side_effect=AssertionError("API client reached")):
-        _, request_text, spoken, spans = regions.request(script, name)
-        assert spans == (2, 2, 6, 11)
-        folder = work / "auditions" / name
-        folder.mkdir(parents=True)
-        candidate_take, candidate_prepared = folder / "candidate-1.wav", folder / "candidate-1-prepared.wav"
-        excerpt = base[round(1.5 * rate):round(9.75 * rate)]
-        at = round(3.75 * rate)
-        extra = array("h", (source.randrange(-9000, 9000) for _ in range(round(change * rate))))
-        write_pcm(candidate_take, excerpt[:at] + extra + excerpt[at:], rate)
-        narration.prepare(candidate_take, candidate_prepared, run, rate)
-        candidate_words = [{**word, "start": word["start"] - 1.5 + (change if index >= 7 else 0),
-                           "end": word["end"] - 1.5 + (change if index >= 7 else 0)}
-                          for index, word in enumerate(words) if 2 <= index < 13]
-        write_performance(folder / "candidate-1.json", {
-            "region": name, "note": "", "requestText": request_text, "model": "fixture", "voice": "fixture",
-            "direction": "synthetic PCM", "alignmentModel": "fixture", "transcript": request_text,
-            "transcriptSource": "synthetic measured-word fixture", "words": candidate_words,
-            "takeSha256": sha256(candidate_take), "preparedSha256": sha256(candidate_prepared)})
-        assert regions.audition(root, script, run, rate, name, candidates=0) == 0
-        assert sha256(script_path) == script_before and sha256(narration.record_path(root)) == record_before
-        selected = regions.select(root, script, run, rate, name, "candidate-1")
-        assert script == original
-        write_script(script_path, selected)  # Same serializer as produce_audio.main().
-        saved = json.loads(narration.record_path(root).read_text())
-        entry, = saved["regions"]
-        assert (entry["id"], entry["firstToken"], entry["tokenCount"], entry["takeFirstToken"]) == (name, 4, 6, 2)
-        assert entry["spoken"] == spoken and saved["baseWords"] == words
-        assert (root / entry["take"]).read_bytes() == candidate_take.read_bytes()
-        verify(root / entry["take"], entry["takeSha256"])
-        composed_path, reproduced = narration.performance(root, selected, run, rate)
-        verify(composed_path, saved["preparedSha256"])
-        assert reproduced == saved
-        composed = read_pcm(composed_path, rate)
-        assert len(composed) - len(base) == round(change * rate)
-        a, b = (round(t * rate) for t in gap_span(words, 4, 10, len(base) / rate))
-        half_fade = round(0.005 * rate) // 2
-        assert composed[:a - half_fade] == base[:a - half_fade]
-        assert composed[b + round(change * rate) + half_fade:] == base[b + half_fade:]
-        old, new = original["scenes"], selected["scenes"]
-        assert new[0]["captionRanges"][:2] == old[0]["captionRanges"][:2]
-        expected_boundary = round(((words[6]["end"] + words[7]["start"] + change) / 2 + narration.LEAD) * 30) / 30
-        assert new[0]["end"] == new[1]["start"] == expected_boundary
-        assert new[2]["start"] == old[2]["start"] + change
-        replayed = deepcopy(selected)
-        with contextlib.redirect_stdout(io.StringIO()):
-            narration.align(replayed, composed, saved, rate)
-        assert replayed == selected == json.loads(script_path.read_text())
-        client.assert_not_called()
-        print(json.dumps({"result": "PASS", "region": entry["id"],
-                          "tokenSpan": [entry["firstToken"], entry["tokenCount"]],
-                          "audioChangeSeconds": (len(composed) - len(base)) / rate,
-                          "sceneBoundaryBefore": old[1]["start"], "sceneBoundaryAfter": new[1]["start"],
-                          "replayMatchesRecordAndScript": True, "retainedSamplesMatchOutsideFades": True}))
-after = {p: sha256(checkout / p.decode()) for p in tracked if p and (checkout / p.decode()).is_file()}
-assert before == after, "A tracked file changed"
-assert not subprocess.check_output(["git", "status", "--porcelain"]).strip(), "Checkout is not clean"
-print("All tracked files unchanged; temporary film removed; no API client reached.")
-PY
-```
+On 2026-10-12, Mana-chan observed the selection premise in this established
+workspace and branch (named under Current decisions), at
+`8c5dffd6ace904711721d2b09ba545678a35974c`. The approved naming refusal
+reproduced first; only `clauses()` was replaced in memory for the cross-scene
+span. Real selection, trimming, composition, alignment, hashes and serialization
+ran against a removed temporary root; both client constructors failed if reached.
+Inspected setup: `AI Test Automation/film-script.json`, `cedar-performance.json`,
+base/prepared takes and `auditions/sandbox:3-investigate:1/candidate-1.{wav,json}`.
+Inspected outcomes: selected take, record, measured script, PCM and offline replay.
+Result: exit 0; audition 8.75 s, no refusals; token span `(4, 6)`, take-first 2;
+region +0.50 s; internal scene boundary 160 → 167 frames at 30 fps (gap midpoint),
+later scene +15 frames. Replay matched words/hash/script and retained samples
+outside 5 ms fades; all tracked hashes stayed equal, checkout clean, no API client.
+This remains preparation evidence: slice 1 owns repeatable proof and refusal
+discrimination; slice 2 owns the real parser. The helper suite passed 13 tests.
+The complete observation and literal heredoc remain in the
+[immutable preparation plan](https://github.com/terryyin/terry-talks/blob/d9f94630b4bb1cfb84de6f692af24511a3f988fa/.planning/quick/032-narration-region-across-scenes/PLAN.md#selection-premise-observation),
+under this same heading; recover locally with
+`git show d9f94630b4bb1cfb84de6f692af24511a3f988fa:.planning/quick/032-narration-region-across-scenes/PLAN.md`.
 
 ## Proof ownership
 
@@ -290,7 +149,14 @@ preservation promise, not a reason to widen the gate.
 
 ### 1. The region audition and selection commands are held by repeatable offline proof
 Type: Structure
-Status: planned
+Status: done
+Accepted: `python3 -m unittest discover -s 'AI Test Automation' -p 'test_*.py'` — 9 tests;
+`python3 -m unittest discover -s scripts -p 'test_*.py'` — 13 tests.
+Inspected `RegionCommands` assertions and `Workshop` setup: real audition/selection/replay,
+retained PCM, durable bytes, refusal diagnostics, second region and reselection/removal.
+Each ceiling/transcript/overlap disabling edit failed with `ValueError not raised`; exact source restored.
+`python3 'AI Test Automation/produce_audio.py'` — `Complete: 80.267s / 2408 frames.`;
+all 1250 tracked hashes unchanged. Independent refactor changed only historical plan prose.
 Proof: the new unittest module beside the workshop producer passes without a
 network or key; the ceiling, mismatch and overlap tests each fail under one
 scratch edit that disables the refusal; the existing 13 tests pass; the
@@ -327,6 +193,33 @@ naming refusal and the README state the form.
 
 ## Current decisions
 
+- Execution resumes in story-branch mode in the established owned worktree
+  `/Users/terryyin/git/terry-talks/.worktrees/terry-can-replace-a-narration-region-that-crosse`,
+  branch `codex/terry-can-replace-a-narration-region-that-crosse`, agent
+  Tsubomi-chan, publisher `dashboard-territory.local-terry-talks`.
+  Starting revision: `d9f94630b4bb1cfb84de6f692af24511a3f988fa`;
+  accepted claim/base: `b5568df9860e1f4f74dba8e22a3039f7610e081b` on
+  `origin/master`; increments publish to the execution branch on `origin`.
+  This continuation reused the existing clean checkout, installed locked
+  dependencies with `pnpm install --frozen-lockfile`, and ran the shared
+  Python command successfully (13 tests). Replanning within this outcome
+  remains allowed; no numeric slice budget is supplied.
+- CI now exists as `.github/workflows/ci.yml` (GitHub Actions, push-triggered,
+  verified selector `ci.yml`, name `CI`). The earlier no-CI finding describes
+  the original execution, not this checkout. The separately documented
+  workshop tests remain outside pnpm/CI wiring in this correction's scope.
+  Observer: coordinator `tsubomi-032`, directory
+  `/tmp/dough-ci-501/watch-dvCleX`, cell 9, session 13360, PID 6501, launched
+  from this checkout for `terryyin/terry-talks` and the execution branch.
+  The already-published trunk claim is unobserved by this branch observer.
+- No commit hook is installed in the shared Git hooks directory and no
+  `core.hooksPath` is configured. The project's formatter is ESLint for
+  Remotion source/revision files; it does not apply to Python or Markdown
+  changes here. Their selective formatting is a no-op; `git diff --check`
+  verifies whitespace without touching unrelated Remotion files.
+- Refusal preservation covers durable film files and candidate source WAV/JSON;
+  ignored prepared/composed/in-context audio may regenerate before a refusal.
+
 - Name form: `<scene>:<n>-<scene>:<m>`, for example `sandbox:3-investigate:1`,
   beside the unchanged `<scene>:<first>-<last>` and `<scene>:<n>`. The name
   Terry typed, normalized as today, is the record id; the audition folder and
@@ -349,11 +242,5 @@ naming refusal and the README state the form.
 
 ## Concern review
 
-Slice-plan refinement was not needed: two slices, one preserving proof loop
-and one naming behavior proved through it. The fresh fixture observation above
-settles the previously open selection premise in the named preparation
-checkout. This review found no remaining slice-specific concern; the goal,
-bounded correction scope and proof ownership remain unchanged. Both slices
-remain planned. No numeric slice limit is supplied and none is invented.
-This plan grants no Take, queue priority, implementation or publication
-authority.
+Preparation found no remaining concern: two cohesive slices, selection premise settled.
+Execution authority comes from the user's invocation and established start.
