@@ -71,8 +71,10 @@ change in the region's length. The region take is saved under
 direction in `cedar-performance.json`, whose `baseWords` keep the base take's own measurement.
 Score, effects, mix and treatment are regenerated in the same run; then run the render command
 for the film and subtitles, and update the runtime figures and region sentence in this file,
-which are written by hand. A candidate that fails its audit, a region overlapping another
-replaced region, or a result longer than 85 seconds is refused before anything is written.
+which are written by hand. Scene boundaries inside a replacement follow its measured
+caption cues. A candidate that fails its audit, a region overlapping another replaced
+region, or a result longer than 85 seconds is refused before saved takes, the record or
+the script change; ignored prepared and audition audio may be rebuilt during checking.
 Selecting the same region again replaces its take; another region is added beside it. A run
 with no flags verifies every saved take against its recorded hash and names the first that differs.
 
