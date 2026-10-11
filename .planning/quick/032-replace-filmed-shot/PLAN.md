@@ -53,8 +53,14 @@ through the same command.
   `e69fb1c8d6f0e79806513185816f2d6454e98e24`, `startingRevision`
   `2240cb2281279e4d61124f227aaa0b6b7f9509db`, `candidateSha`
   `e69fb1c8d6f0e79806513185816f2d6454e98e24`. Previously published base for
-  the first increment is `publishedSha`. Replanning permission: preserved
-  (neither `--replan` nor `--no-replan`).
+  the first increment is `publishedSha`. Slice 1 increment published at
+  `0f8e4da25c1ca7f363c245134106b3141437833b` on
+  `refs/heads/cursor/i-can-replace-a-filmed-shot-while-preserving-its`
+  (previously published base `e69fb1c8d6f0e79806513185816f2d6454e98e24`;
+  next increment base is that SHA). Observer
+  `/tmp/dough-ci-501/watch-8SRdMu` attached; no project workflows — local
+  proof remains required. Replanning permission: preserved (neither
+  `--replan` nor `--no-replan`).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile'`
   passed in this workspace (2026-10-11, ~18 s). Host `ffmpeg`/`ffprobe` are
   on `PATH` outside the nix shell; run them from a plain shell. Run jest
@@ -65,7 +71,7 @@ through the same command.
   observation is unavailable. Local planned proof is required.
   `pendingCi: unobserved` on delivery.
 - **Plan location:** `.planning/quick/`; 031 was the highest allocated entry
-  in history, so this plan is 032. Slice statuses: planned, in-progress, done.
+  in history, so this plan is 032. Slice statuses: planned | done.
 - **No ADR or North Star applies.** Only ADR-0000 (use ADRs) exists. The
   seed's Architecture section records the design: one declared shot with
   measured source facts, one derived clock, no second hand-typed copy of the
@@ -247,7 +253,14 @@ unchanged. Enables slice 2.
 
 ### 2. Terry replaces the source with a re-framed export and the presentation holds
 Type: Behavior
-Status: planned
+Status: done
+Accepted proof: in-memory stand-in unit test (896×1768 full-frame crop)
+matches approved inset mapping within a pixel; focused `tests/featureTeams`
+green; compositions 3768; stills at frame 1308
+(`out/feature-teams-still-approved-1308.png`,
+`out/feature-teams-still-stand-in-1308.png`) judged OK by Terry; outside-inset
+pixel diff ≤6 (inset may differ from re-encode); timeline `cmp` identical;
+stand-ins removed (durable change: film spec test only).
 Proof: `ffmpeg` makes the stand-in with the margins cut away (crop
 `896:1769:92:77` of the source, audio copied) and `measure-shot.mjs` records
 it; a scratch declaration names it with crop `{ 0, 0, 1 }`; unit proof in
@@ -352,3 +365,5 @@ how to replace the shot.
   (max 55) on a few pixels — above the plan's stage sample of ≤6. Exact
   preservation for this story remains the timeline dump `cmp`; G1 tracks
   the compare noise reading through slice 4.
+- Stand-in crop `896:1769:92:77` encodes as height **1768** under yuv420;
+  unit proof and measurements use the stored height.
