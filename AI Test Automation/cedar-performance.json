@@ -45,5 +45,6 @@
   ],
   "unpromptedTranscript": "Ask AI to write more tests? You probably don't want to do that. In a large legacy system, tickets arrive faster than your team can close them. Not enough automated tests? You're probably right. Tests define what your code should do, purpose, and show whether it does, proof. But first, they're more code. Test automation requires high-level software engineering and must preserve the original intent. AI can pile on complexity before providing protection. Stop. And fix. Stop adding complexity. Get the system back under control. A better use of AI here? Hands-on testing. First, an isolated, repeatable environment that's easy to set up. Show AI your manual checks. Have it perform similar tests, confirm fixes, explore for bugs, and check that known behavior still works. It's a compromise, but a system already in panic needs relief. Not more test code to maintain. Once you regain control, turn useful checks into test code. No AI needed to run it. For new features, express intent in tests first. Let them drive development. Then simplify. Delete redundant tests. Move suitable checks to fast unit tests. Keep essential end-to-end protection. Use spare AI to simplify and fix. Less to carry, fewer bugs to chase.",
   "auditSource": "whisper-1 transcription of actual narration without a prompt",
-  "preparedSha256": "424fc271f454eed9071ffdc5bb140a50dcdba6605ab85ed7191d2b74f903ecb7"
+  "preparedSha256": "424fc271f454eed9071ffdc5bb140a50dcdba6605ab85ed7191d2b74f903ecb7",
+  "regions": []
 }

@@ -5,14 +5,13 @@ owns its composed soundtrack, PCM layers and measured final stereo mix.
 """
 
 from array import array
-import hashlib
 import json
 from pathlib import Path
 import wave
 
 import numpy as np
 
-from narration_audio import master, run, write_pcm
+from narration_audio import master, run, sha256, write_pcm
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -222,7 +221,7 @@ def build_mix(script):
         "mix": measure(ASSETS / "mix.wav"),
         "samplePeakDbfs": float(20 * np.log10(np.max(np.abs(mix)))),
         "clippedSamples": int(np.count_nonzero(np.abs(mix) >= 1)),
-        "mixSha256": hashlib.sha256((ASSETS / "mix.wav").read_bytes()).hexdigest(),
+        "mixSha256": sha256(ASSETS / "mix.wav"),
     }
     (WORK / "mix-analysis.json").write_text(json.dumps(report, indent=2) + "\n")
     return report

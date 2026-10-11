@@ -3,14 +3,13 @@
 import json
 import re
 import sys
-from array import array
-from narration_audio import exact_script, read_pcm, tokens, write_pcm, write_performance
-from cedar_narration import DIRECTION, MODEL, VOICE, cedar_client, measure, performance, prepare, sha256, speak
+from narration_audio import (exact_script, gap_span, read_pcm, replace_region, sha256, tokens, verify,
+                             word_range, write_pcm, write_performance)
+from cedar_narration import DIRECTION, MODEL, VOICE, cedar_client, measure, performance, prepare, speak
 
 
 EXCERPT = """This request is an excerpt of that film. Speak only the user script,
 from its first word to its last, in the same connected performance."""
-FADE = 0.005  # Linear crossfade centred on each seam.
 
 
 def clauses(script, region):
@@ -29,54 +28,6 @@ def clauses(script, region):
     offset = sum(list(counts.values())[:list(counts).index(scene)])
     name = f"{scene}:{first}" + (f"-{last}" if last > first else "")
     return name, offset + first - 1, offset + last
-
-
-def word_range(words, first, count):
-    """Measured words holding `count` script tokens from token `first`, as align() counts them."""
-    edges, total = {0: 0}, 0
-    for index, word in enumerate(words):
-        total += len(tokens(word["word"]))
-        edges[total] = index + 1
-    if first not in edges or first + count not in edges:
-        raise ValueError("A measured word spans the region's edge, so the region has no natural gap there")
-    return edges[first], edges[first + count]
-
-
-def gap_span(words, first, last, seconds):
-    """Seams at the midpoints of the natural gaps around words[first:last]; a take's own ends otherwise."""
-    start = (words[first - 1]["end"] + words[first]["start"]) / 2 if first else 0.0
-    end = (words[last - 1]["end"] + words[last]["start"]) / 2 if last < len(words) else seconds
-    return start, end
-
-
-def splice(base, a, b, take, a2, b2, fade):
-    """base[:a] + take[a2:b2] + base[b:] in samples, crossfaded over `fade` samples at each seam."""
-    pcm = array("h", base[:a])
-    pcm.extend(take[a2:b2])
-    pcm.extend(base[b:])
-    for seam, left, i, right, j in ((a, base, a, take, a2), (a + b2 - a2, take, b2, base, b)):
-        half = min(fade // 2, i, j, len(left) - i, len(right) - j)
-        for k in range(-half, half):
-            mix = (k + half + 0.5) / (2 * half)
-            pcm[seam + k] = round(left[i + k] * (1 - mix) + right[j + k] * mix)
-    return pcm
-
-
-def replace_region(base, words, region, take, take_words, take_region, sample_rate):
-    """Retained PCM and words with one word range replaced by a take's own range.
-
-    Region words keep the take's spacing, later words shift by the change in
-    region length, and earlier words are untouched.
-    """
-    (first, last), (take_first, take_last) = region, take_region
-    a, b = (round(t * sample_rate) for t in gap_span(words, first, last, len(base) / sample_rate))
-    a2, b2 = (round(t * sample_rate)
-              for t in gap_span(take_words, take_first, take_last, len(take) / sample_rate))
-    pcm = splice(base, a, b, take, a2, b2, round(FADE * sample_rate))
-    move = lambda word, by: {**word, "start": word["start"] + by, "end": word["end"] + by}
-    return pcm, (words[:first]
-                 + [move(w, (a - a2) / sample_rate) for w in take_words[take_first:take_last]]
-                 + [move(w, ((b2 - a2) - (b - a)) / sample_rate) for w in words[last:]])
 
 
 def request_candidate(folder, name, region, text, spoken, note, run, sample_rate):
@@ -104,14 +55,12 @@ def candidate_in_context(folder, name, text, context, before, count, size, base,
     take, prepared = folder / f"{name}.wav", folder / f"{name}-prepared.wav"
     audible = folder / f"{name}-in-context.wav"
     audible.unlink(missing_ok=True)  # Only an audited candidate is offered in context.
-    if not take.exists() or record["takeSha256"] != sha256(take):
-        raise ValueError(f"{take.name} differs from its record")
+    verify(take, record["takeSha256"])
     exact_script(text, record["requestText"], f"{name} request")
     exact_script(text, record["transcript"], f"{name} measured transcription")
     exact_script(text, " ".join(word["word"] for word in record["words"]), f"{name} timed words")
     prepare(take, prepared, run, sample_rate)
-    if record["preparedSha256"] != sha256(prepared):
-        raise ValueError(f"{prepared.name} differs from its record")
+    verify(prepared, record["preparedSha256"])
     region = word_range(words, context + before, count)
     pcm, composed = replace_region(base, words, region, read_pcm(prepared, sample_rate), record["words"],
                                    word_range(record["words"], before, count), sample_rate)

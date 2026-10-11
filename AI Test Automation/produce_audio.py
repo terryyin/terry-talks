@@ -125,15 +125,11 @@ def main():
     script = json.loads(SOURCE.read_text())
     if "--audition" in sys.argv:
         # Candidates stay in the work directory: the take, script and record are only read.
-        try:
-            count = option("--candidates", "1")
-            if not count.isdigit():
-                raise ValueError(f"--candidates needs a whole number, not {count!r}.")
-            refused = audition(ROOT, script, run, SAMPLE_RATE, option("--audition", None),
-                               option("--note", ""), int(count))
-        except ValueError as problem:
-            sys.exit(str(problem))
-        sys.exit(1 if refused else 0)
+        count = option("--candidates", "1")
+        if not count.isdigit():
+            raise ValueError(f"--candidates needs a whole number, not {count!r}.")
+        sys.exit(1 if audition(ROOT, script, run, SAMPLE_RATE, option("--audition", None),
+                               option("--note", ""), int(count)) else 0)
     if "--refresh-docs" not in sys.argv:
         voice = build_narration(script)
         if "--narration-only" in sys.argv:
@@ -153,4 +149,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except ValueError as problem:
+        sys.exit(str(problem))  # A refusal or a file that differs from its record is a plain stop.

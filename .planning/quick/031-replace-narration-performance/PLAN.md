@@ -149,6 +149,18 @@ reproduction keeps verifying every saved take by hash and needs no API.
   to the shared helper. The in-context file is unmastered, cut at gap
   midpoints; `--candidates 0` re-processes saved candidates with no API; a
   candidate also keeps `candidate-N-prepared.wav`.
+- **Manifest shape (slice 3):** shared `scripts/narration_audio.py` owns
+  `compose(base, words, regions, sample_rate)`, `read_manifest`, `verify`,
+  `compose_manifest` and `write_performance`. A region entry must carry
+  `take` (repository-relative path), `takeSha256`, `firstToken`,
+  `tokenCount`, `takeFirstToken` and the candidate's relative `words`; the
+  other decided fields (id, note, request text, model, voice, direction) are
+  free. `words` is the composed timeline, so a record with regions also
+  keeps `baseWords`, the base take's own measurement; slice 4's writer adds
+  it on the first selection. Regions apply in list order. With no regions
+  `preparedSha256` is the trimmed base file's hash; with regions it is the
+  composed file's. Any `ValueError` in the producer is a one-sentence stderr
+  stop with exit 1.
 - **Interim behavior:** after slice 1 candidates can be auditioned but not
   selected; slice 4 adds selection. After slice 3 the manifest exists with
   an empty `regions` list.
@@ -163,7 +175,7 @@ Observed in this workspace on 2026-10-11, before any product change:
 | The workshop's choreography, captions, subtitles and tests follow the measured script without edits | jest `tests/aiTestAutomation` | Scratch edit of `film-script.json` shifting every time from 55.38 s onward by 0.9 s (27 frames) and `durationInFrames` by 27 with `duration = durationInFrames / 30`: 2 suites, 10 tests passed with no test edit; restored with `git checkout`, SHA-256 `897125052253bc53ed87fe4cd3467777c4b21dbd8965833eb393603b299c80b1` after restore. (A first attempt with `duration += 0.9` failed only the exact `durationInFrames / FPS === duration` assertion through floating error, a scratch artifact.) | Settled: the acting and film contracts derive from cues |
 | Score and duck follow measurement | `build_score` | Chords are bounded by scene starts, melody notes by caption `speechEnd`, the duck by RMS of the actual `narration.wav`, the hush by `stopFix`/`sandbox` starts (read, `workshop_soundtrack.py` 81–146) | Settled by code reading; slice 2's byte-identical regeneration and the shifted-cue observation cover it |
 | Effects do not follow measurement | `build_effects` | 26 cues typed as absolute seconds (`workshop_soundtrack.py` 151–177), placed by `round(start * SAMPLE_RATE)` | Settled false for the story's promise: slice 2 re-expresses them |
-| The gate runs green here | `pnpm test` | `nix develop -c sh -c 'NODE_ENV=test pnpm test'`: 58 suites, 605 tests passed, no lint or tsc diagnostics, 58 s | Settled |
+| The gate runs green here | `pnpm test` | `nix develop -c sh -c 'NODE_ENV=test pnpm test'`: 58 suites, 605 tests passed at planning (59 suites, 657 tests after the story branch took master's later work), no lint or tsc diagnostics, 58 s | Settled |
 | The paid candidate route is available | `--audition` request and Whisper measurement | `python3 -c "import openai"` succeeds (1.99.9); key present in the environment. The request itself is paid and owner-held; it is slice 1's probe | Open until slice 1; cheap prefix observed |
 
 Promise ownership: region naming, candidate request, audit, work-directory
@@ -243,7 +255,16 @@ regenerated effects must land on the shifted actions.
 
 ### 3. The performance record is a manifest of saved takes
 Type: Structure
-Status: planned
+Status: done
+Accepted proof (2026-10-11): `python3 -m unittest discover -s scripts -p 'test_*.py'`
+10 tests (identical region, longer and shorter candidate, regions in order,
+differing tokens refused, crossfade on differing audio, manifest round trip
+and changed-byte stop naming the file); the offline workshop producer
+reproduced every asset byte-identically with `"regions": []` the only record
+change; a flipped byte in `cedar-take.wav` stopped the producer naming it;
+both Problem Decomposition producers ran offline with `git status`
+unchanged; the identity audition still gives +0.00 s; jest
+`tests/aiTestAutomation` green; gate `pnpm test` 59 suites, 657 tests.
 Proof: new `scripts/test_narration_audio.py` (unittest, synthetic PCM
 fixtures) observing: composing with an identical region returns
 sample-identical PCM and identical words; a region whose candidate is 0.5 s
@@ -347,3 +368,6 @@ Disposition: receiving slice 5
   `cue()` does. Cues 17 and 18 sit inside `investigate:4-6` and follow the
   candidate's own caption start and speech start; slice 4 observes that.
 - Push CI is confirmed unobserved: the observer reports no `ci.yml` workflow.
+- `scripts/narration_audio.py` is 230 lines; slice 4 additions there may
+  need a split. `Problem Decomposition Remake/produce_audio.py` keeps its
+  own identical `sha256(path)`; left alone as another film's producer.

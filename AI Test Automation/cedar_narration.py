@@ -1,10 +1,9 @@
 """One connected Cedar performance, with measured word alignment and exact-script audit."""
 
-import hashlib
-import json
 import math
 from array import array
-from narration_audio import exact_script, narration_text, tokens, write_performance
+from narration_audio import (compose_manifest, exact_script, narration_text, read_manifest, sha256, tokens,
+                             verify, write_performance)
 
 
 MODEL = "gpt-4o-mini-tts"
@@ -38,10 +37,6 @@ The final SEVEN words are part of the spoken script and must ALL be spoken:
 Less to carry. Fewer bugs to chase. Do not end after simplify and fix.
 Credible human drama, no cartoon voice, sales pitch, constant upward inflection
 or vocal fry. Keep a single connected natural performance through Fewer bugs to chase."""
-
-
-def sha256(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def cedar_client():
@@ -93,8 +88,7 @@ def performance(root, script, run, sample_rate, new_take=False):
         report = {"model": MODEL, "voice": VOICE, "direction": DIRECTION,
                   "script": text, "takeSha256": sha256(selected_take)}
     else:
-        report = json.loads(evidence.read_text())
-        assert report["takeSha256"] == sha256(take)
+        report = read_manifest(evidence, root, take)
         exact_script(text, report["script"], "Saved performance")
         exact_script(text, report["transcript"], "Saved transcript")
         exact_script(text, report["unpromptedTranscript"], "Saved unprompted transcript")
@@ -108,9 +102,17 @@ def performance(root, script, run, sample_rate, new_take=False):
         write_performance(work / "cedar-candidate-measurement.json", report)
         exact_script(text, report["transcript"], "Measured transcription")
         exact_script(text, " ".join(word["word"] for word in report["words"]), "Timed words")
-    if not new_take:
-        assert report["preparedSha256"] == sha256(prepared)
-    report["preparedSha256"] = sha256(prepared)
+        # A new take is measured whole, so it replaces every region.
+        report.update(preparedSha256=sha256(prepared), regions=[])
+    else:
+        regions = [work / f"region-{number}-prepared.wav" for number, _ in enumerate(report["regions"], 1)]
+        for region, trimmed in zip(report["regions"], regions):
+            prepare(root / region["take"], trimmed, run, sample_rate)
+        # The recorded words and prepared hash describe the composition of every listed take.
+        prepared, words = compose_manifest(report, prepared, regions, work / "cedar-composed.wav", sample_rate)
+        verify(prepared, report["preparedSha256"])
+        if words != report["words"]:
+            raise ValueError(f"{evidence} words differ from the composition of its takes.")
     exact_script(text, " ".join(word["word"] for word in report["words"]), "Timed words")
     if new_take:
         take.write_bytes(selected_take.read_bytes())
