@@ -6,8 +6,9 @@ Identity: terry-moves-filmmaking#narration-region-across-scenes
 Story: [narration region across scenes](../../../terry-moves/seed.md#narration-region-across-scenes).
 Bounded correction from the completed planned
 `terry-moves-filmmaking#replace-narration-performance` execution
-([story](../../../terry-moves/seed.md#replace-narration-performance),
-[plan](../031-replace-narration-performance/PLAN.md)), which started at
+(story section `replace-narration-performance` of `terry-moves/seed.md` and
+plan `.planning/quick/031-replace-narration-performance/PLAN.md`, both at
+commit `ddb9ff50bc32e87ade6151adb2cd540abd1f032b`), which started at
 `6d2681a127080ed3217b281d24710f161653c716`. The attributable published
 implementation set on `origin/claude/i-can-replace-one-narration-performance-without`
 is `a6a9291` (audition), `dd3e13e` (effects follow the measured script),

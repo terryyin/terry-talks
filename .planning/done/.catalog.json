@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_replace-narration-performance.json",
+      "identity": "terry-moves-filmmaking#replace-narration-performance",
+      "completedAt": "2026-10-11T06:12:10.922Z",
+      "blob": "4ee889afac026c8b1372d93804f71ad3517e296c"
+    },
+    {
       "fileName": "terry-moves-filmmaking_character-prop-interaction.json",
       "identity": "terry-moves-filmmaking#character-prop-interaction",
       "completedAt": "2026-10-11T00:41:18.348Z",

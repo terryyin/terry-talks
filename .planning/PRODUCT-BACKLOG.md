@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [I can replace one narration performance without repairing unrelated scenes](../terry-moves/seed.md#replace-narration-performance) — terry-moves-filmmaking#replace-narration-performance ([plan](quick/031-replace-narration-performance/PLAN.md))
-
 ## Backlog list
 
 - [Terry can replace a narration region that crosses a scene boundary, with the region commands held by repeatable proof](../terry-moves/seed.md#narration-region-across-scenes) — terry-moves-filmmaking#narration-region-across-scenes
