@@ -5,14 +5,13 @@ owns its composed soundtrack, PCM layers and measured final stereo mix.
 """
 
 from array import array
-import hashlib
 import json
 from pathlib import Path
 import wave
 
 import numpy as np
 
-from narration_audio import master, run, write_pcm
+from narration_audio import master, run, sha256, write_pcm
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -144,39 +143,52 @@ def build_score(script):
     return master(raw, ASSETS / "score.wav", -40, SAMPLE_RATE)
 
 
+def effect_cues(script):
+    """Each causal accent, placed from the clause it accompanies in the measured script."""
+    scenes = {scene["id"]: scene for scene in script["scenes"]}
+    # Scene, clause, a spoken word or caption bound, and seconds from it: the anchors the
+    # scene components use, so a sound and its visible action share one moment.
+    # Each cue has a meaning; the film has no continuous beeping or decorative chatter.
+    cues = [
+        ("hook", 1, "speechStart", 0.29, "engineer pauses the offer", "tick", 57, 0.024, 0.38),
+        ("overload", 0, "tickets", 0.25, "first ticket lands", "paper", 0, 0.050, 0.63),
+        ("overload", 0, "tickets", 0.90, "second ticket lands", "paper", 0, 0.047, 0.61),
+        ("overload", 0, "tickets", 1.55, "third ticket lands", "paper", 0, 0.044, 0.59),
+        ("purpose", 1, "show", 0.20, "purpose is checked against SAVE behavior", "tick", 65, 0.029, 0.42),
+        ("upkeep", 0, "but", 0.60, "test code becomes a maintenance burden", "paper", 0, 0.051, 0.62),
+        ("upkeep", 2, "pile", 0.60, "AI piles additional weight onto upkeep", "paper", 0, 0.056, 0.58),
+        ("stopFix", 0, "stop", 0, "STOP palm halts the accumulating code", "tick", 45, 0.066, 0.43),
+        ("stopFix", 2, "adding", 0.40, "code is withdrawn instead of accumulated", "paper", 0, 0.035, 0.60),
+        ("stopFix", 3, "system", 0, "repair becomes the current work", "tick", 58, 0.022, 0.44),
+        ("sandbox", 1, "repeatable", 0.445, "isolated environment is reset at the control", "paper", 0, 0.044, 0.55),
+        ("sandbox", 2, "show", 0.46, "engineer demonstrates the manual SAVE check", "tick", 65, 0.030, 0.42),
+        ("investigate", 0, "have", 0.675, "engineer repairs the demonstrated SAVE defect", "tick", 58, 0.025, 0.46),
+        ("investigate", 1, "confirm", 0, "AI presses SAVE to confirm the repair", "tick", 65, 0.030, 0.57),
+        ("investigate", 1, "explore", 0, "AI explores RELOAD in a second tab", "paper", 0, 0.035, 0.57),
+        ("investigate", 2, "check", 0, "AI checks the known SEARCH behavior", "tick", 65, 0.028, 0.57),
+        ("investigate", 3, "start", 0.525, "the new RELOAD finding reaches the engineer", "paper", 0, 0.039, 0.50),
+        ("investigate", 4, "speechStart", 0.75, "the engineer works on the new RELOAD defect", "tick", 58, 0.022, 0.46),
+        ("selective", 0, "code", 0, "learned checks settle into ordinary test code", "paper", 0, 0.044, 0.52),
+        ("selective", 1, "speechStart", 0.90, "the mechanical test completes without AI", "tick", 67, 0.025, 0.52),
+        ("selective", 2, "tests", 0, "the new-feature intent first becomes a failing test", "paper", 0, 0.032, 0.50),
+        ("selective", 3, "speechEnd", -0.20, "implemented feature satisfies the intent-first test", "felt", 72, 0.021, 0.50),
+        ("optimize", 0, "delete", 0.30, "a redundant check is physically removed", "paper", 0, 0.049, 0.47),
+        ("optimize", 1, "unit", 0, "a suitable local check runs as a fast unit", "tick", 72, 0.028, 0.44),
+        ("end", 0, "fix", 0, "spare AI works on a fix", "tick", 58, 0.023, 0.53),
+        ("end", 1, "speechStart", 0, "a lighter burden leaves room to work", "felt", 69, 0.019, 0.48),
+    ]
+    for scene_id, clause, anchor, offset, *sound in cues:
+        caption = scenes[scene_id]["captionRanges"][clause]
+        bound = caption[anchor] if anchor in ("start", "speechStart", "speechEnd") else caption["wordCues"][anchor]
+        # Whisper's word times carry float noise; a cue is placed to the millisecond.
+        yield (round(bound + offset, 3), *sound)
+
+
 def build_effects(script):
     """Sparse tactile actions, synchronized with the final animation's causal beats."""
     effects = np.zeros((round(script["duration"] * SAMPLE_RATE), 2))
     rng = np.random.default_rng(20261004)
-    # Each cue has a meaning; the film has no continuous beeping or decorative chatter.
-    cues = [
-        (2.65, "engineer pauses the offer", "tick", 57, 0.024, 0.38),
-        (6.45, "first ticket lands", "paper", 0, 0.050, 0.63),
-        (7.10, "second ticket lands", "paper", 0, 0.047, 0.61),
-        (7.75, "third ticket lands", "paper", 0, 0.044, 0.59),
-        (15.16, "purpose is checked against SAVE behavior", "tick", 65, 0.029, 0.42),
-        (17.38, "test code becomes a maintenance burden", "paper", 0, 0.051, 0.62),
-        (25.90, "AI piles additional weight onto upkeep", "paper", 0, 0.056, 0.58),
-        (28.00, "STOP palm halts the accumulating code", "tick", 45, 0.066, 0.43),
-        (30.60, "code is withdrawn instead of accumulated", "paper", 0, 0.035, 0.60),
-        (32.00, "repair becomes the current work", "tick", 58, 0.022, 0.44),
-        (39.325, "isolated environment is reset at the control", "paper", 0, 0.044, 0.55),
-        (42.00, "engineer demonstrates the manual SAVE check", "tick", 65, 0.030, 0.42),
-        (44.235, "engineer repairs the demonstrated SAVE defect", "tick", 58, 0.025, 0.46),
-        (45.40, "AI presses SAVE to confirm the repair", "tick", 65, 0.030, 0.57),
-        (46.82, "AI explores RELOAD in a second tab", "paper", 0, 0.035, 0.57),
-        (47.98, "AI checks the known SEARCH behavior", "tick", 65, 0.028, 0.57),
-        (50.225, "the new RELOAD finding reaches the engineer", "paper", 0, 0.039, 0.50),
-        (51.97, "the engineer works on the new RELOAD defect", "tick", 58, 0.022, 0.46),
-        (58.96, "learned checks settle into ordinary test code", "paper", 0, 0.044, 0.52),
-        (60.80, "the mechanical test completes without AI", "tick", 67, 0.025, 0.52),
-        (63.18, "the new-feature intent first becomes a failing test", "paper", 0, 0.032, 0.50),
-        (65.12, "implemented feature satisfies the intent-first test", "felt", 72, 0.021, 0.50),
-        (67.68, "a redundant check is physically removed", "paper", 0, 0.049, 0.47),
-        (70.02, "a suitable local check runs as a fast unit", "tick", 72, 0.028, 0.44),
-        (75.20, "spare AI works on a fix", "tick", 58, 0.023, 0.53),
-        (76.10, "a lighter burden leaves room to work", "felt", 69, 0.019, 0.48),
-    ]
+    cues = list(effect_cues(script))
     for start, _, kind, midi, gain, pan in cues:
         sound = paper(rng) if kind == "paper" else wooden_tick(midi) if kind == "tick" else felt(midi, 1.4)
         add_sound(effects, start, sound, gain, pan)
@@ -209,7 +221,7 @@ def build_mix(script):
         "mix": measure(ASSETS / "mix.wav"),
         "samplePeakDbfs": float(20 * np.log10(np.max(np.abs(mix)))),
         "clippedSamples": int(np.count_nonzero(np.abs(mix) >= 1)),
-        "mixSha256": hashlib.sha256((ASSETS / "mix.wav").read_bytes()).hexdigest(),
+        "mixSha256": sha256(ASSETS / "mix.wav"),
     }
     (WORK / "mix-analysis.json").write_text(json.dumps(report, indent=2) + "\n")
     return report

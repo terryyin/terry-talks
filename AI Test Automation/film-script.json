@@ -82,54 +82,54 @@
       "captionRanges": [
         {"text": "AI performs similar tests.", "spoken": "Have it perform similar tests:", "speechStart": 43.559999542236326, "speechEnd": 44.76000030517578, "wordCues": {"have": 43.559999542236326, "it": 43.58, "perform": 43.67999847412109, "similar": 44.01999862670898, "tests": 44.42000015258789}, "start": 43.166666666666664, "end": 45.06666666666667},
         {"text": "Confirm fixes. Explore for bugs.", "spoken": "confirm fixes, explore for bugs,", "speechStart": 45.39999969482422, "speechEnd": 47.3399983215332, "wordCues": {"confirm": 45.39999969482422, "fixes": 45.62000091552734, "explore": 46.820001678466795, "for": 46.820001678466795, "bugs": 47.3399983215332}, "start": 45.06666666666667, "end": 47.43333333333333},
-        {"text": "Does known behavior still work?", "spoken": "and check that known behavior still works.", "speechStart": 47.539999084472655, "speechEnd": 49.44000061035156, "wordCues": {"and": 47.539999084472655, "check": 47.980001525878905, "that": 48.08, "known": 48.35999877929687, "behavior": 48.51999862670898, "still": 48.8399983215332, "works": 49.23999984741211}, "start": 47.43333333333333, "end": 49.7},
-        {"text": "It’s a compromise.", "spoken": "It’s a compromise.", "speechStart": 49.96000106811523, "speechEnd": 50.89999969482422, "wordCues": {"its": 49.96000106811523, "a": 50.3399983215332, "compromise": 50.89999969482422}, "start": 49.7, "end": 51.06666666666667},
-        {"text": "A system in panic needs relief.", "spoken": "But a system already in panic needs relief—", "speechStart": 51.219999389648436, "speechEnd": 53.46000106811523, "wordCues": {"but": 51.219999389648436, "a": 51.49999816894531, "system": 51.719999389648436, "already": 51.92000015258789, "in": 52.379999237060545, "panic": 52.820001678466795, "needs": 52.820001678466795, "relief": 53.10000045776367}, "start": 51.06666666666667, "end": 53.733333333333334},
-        {"text": "No more test code to maintain.", "spoken": "not more test code to maintain.", "speechStart": 53.99999816894531, "speechEnd": 55.379999237060545, "wordCues": {"not": 53.99999816894531, "more": 54.219999389648436, "test": 54.42000015258789, "code": 54.719999389648436, "to": 54.8399983215332, "maintain": 55.379999237060545}, "start": 53.733333333333334, "end": 55.7}
+        {"text": "Does known behavior still work?", "spoken": "and check that known behavior still works.", "speechStart": 47.539999084472655, "speechEnd": 49.44000061035156, "wordCues": {"and": 47.539999084472655, "check": 47.980001525878905, "that": 48.08, "known": 48.35999877929687, "behavior": 48.51999862670898, "still": 48.8399983215332, "works": 49.23999984741211}, "start": 47.43333333333333, "end": 49.733333333333334},
+        {"text": "It’s a compromise.", "spoken": "It’s a compromise.", "speechStart": 50.04999989509582, "speechEnd": 50.74999994277954, "wordCues": {"its": 50.04999989509582, "a": 50.170000019073484, "compromise": 50.46999997138977}, "start": 49.733333333333334, "end": 51.1},
+        {"text": "A system in panic needs relief.", "spoken": "But a system already in panic needs relief—", "speechStart": 51.47000020980835, "speechEnd": 53.74999994277954, "wordCues": {"but": 51.47000020980835, "a": 51.670000019073484, "system": 51.86999982833862, "already": 52.11000007629394, "in": 52.49000019073486, "panic": 52.99000019073486, "needs": 52.99000019073486, "relief": 53.389999809265134}, "start": 51.1, "end": 54.03333333333333},
+        {"text": "No more test code to maintain.", "spoken": "not more test code to maintain.", "speechStart": 54.30999988555908, "speechEnd": 55.6299995803833, "wordCues": {"not": 54.30999988555908, "more": 54.53000015258789, "test": 54.729999961853025, "code": 54.99000019073486, "to": 55.11000007629394, "maintain": 55.6299995803833}, "start": 54.03333333333333, "end": 56.0}
       ],
       "start": 43.166666666666664,
-      "end": 55.7,
-      "duration": 12.533333333333339
+      "end": 56.0,
+      "duration": 12.833333333333336
     },
     {
       "id": "selective",
       "label": "Regained control, intent-first development",
       "captionRanges": [
-        {"text": "Regain control. Turn useful checks into test code.", "spoken": "Once you regain control, turn useful checks into test code.", "speechStart": 56.039999084472655, "speechEnd": 59.199998931884764, "wordCues": {"once": 56.039999084472655, "you": 56.3399983215332, "regain": 56.46000106811523, "control": 56.73999984741211, "turn": 57.76000030517578, "useful": 57.78000076293945, "checks": 58.160001831054686, "into": 58.379999237060545, "test": 58.640001373291014, "code": 58.96000106811523}, "start": 55.7, "end": 59.53333333333333},
-        {"text": "No AI needed to run it.", "spoken": "No AI needed to run it.", "speechStart": 59.89999969482422, "speechEnd": 61.219999389648436, "wordCues": {"no": 59.89999969482422, "ai": 60.059999542236326, "needed": 60.3399983215332, "to": 60.60000045776367, "run": 60.85999877929687, "it": 60.92000015258789}, "start": 59.53333333333333, "end": 61.4},
-        {"text": "New features: express intent in tests first.", "spoken": "For new features, express intent in tests first.", "speechStart": 61.58, "speechEnd": 63.80000122070312, "wordCues": {"for": 61.58, "new": 61.640001373291014, "features": 61.820001678466795, "express": 62.320001678466795, "intent": 62.559999542236326, "in": 62.879999237060545, "tests": 63.17999847412109, "first": 63.39999969482422}, "start": 61.4, "end": 64.13333333333334},
-        {"text": "Let tests drive development.", "spoken": "Let them drive development.", "speechStart": 64.44000061035156, "speechEnd": 65.31999786376953, "wordCues": {"let": 64.44000061035156, "them": 64.4800015258789, "drive": 64.62000091552734, "development": 64.89999969482422}, "start": 64.13333333333334, "end": 65.66666666666667}
+        {"text": "Regain control. Turn useful checks into test code.", "spoken": "Once you regain control, turn useful checks into test code.", "speechStart": 56.389999084472656, "speechEnd": 59.549998931884765, "wordCues": {"once": 56.389999084472656, "you": 56.6899983215332, "regain": 56.810001068115234, "control": 57.08999984741211, "turn": 58.11000030517578, "useful": 58.13000076293945, "checks": 58.51000183105469, "into": 58.72999923706055, "test": 58.990001373291015, "code": 59.310001068115234}, "start": 56.0, "end": 59.9},
+        {"text": "No AI needed to run it.", "spoken": "No AI needed to run it.", "speechStart": 60.24999969482422, "speechEnd": 61.56999938964844, "wordCues": {"no": 60.24999969482422, "ai": 60.40999954223633, "needed": 60.6899983215332, "to": 60.95000045776367, "run": 61.209998779296875, "it": 61.27000015258789}, "start": 59.9, "end": 61.733333333333334},
+        {"text": "New features: express intent in tests first.", "spoken": "For new features, express intent in tests first.", "speechStart": 61.93, "speechEnd": 64.15000122070312, "wordCues": {"for": 61.93, "new": 61.990001373291015, "features": 62.1700016784668, "express": 62.6700016784668, "intent": 62.90999954223633, "in": 63.22999923706055, "tests": 63.52999847412109, "first": 63.74999969482422}, "start": 61.733333333333334, "end": 64.46666666666667},
+        {"text": "Let tests drive development.", "spoken": "Let them drive development.", "speechStart": 64.79000061035156, "speechEnd": 65.66999786376952, "wordCues": {"let": 64.79000061035156, "them": 64.8300015258789, "drive": 64.97000091552734, "development": 65.24999969482421}, "start": 64.46666666666667, "end": 66.03333333333333}
       ],
-      "start": 55.7,
-      "end": 65.66666666666667,
-      "duration": 9.966666666666669
+      "start": 56.0,
+      "end": 66.03333333333333,
+      "duration": 10.033333333333331
     },
     {
       "id": "optimize",
       "label": "Keep simplifying the suite",
       "captionRanges": [
-        {"text": "Simplify. Delete redundant tests.", "spoken": "Then simplify. Delete redundant tests.", "speechStart": 66.02000244140625, "speechEnd": 68.17999847412109, "wordCues": {"then": 66.02000244140625, "simplify": 66.20000274658203, "delete": 67.38000305175781, "redundant": 67.38000305175781, "tests": 67.77999694824219}, "start": 65.66666666666667, "end": 68.53333333333333},
-        {"text": "Suitable checks become fast unit tests.", "spoken": "Move suitable checks to fast unit tests.", "speechStart": 68.88000305175781, "speechEnd": 70.58, "wordCues": {"move": 68.88000305175781, "suitable": 68.91999633789062, "checks": 69.21999938964844, "to": 69.49999816894531, "fast": 69.71999938964844, "unit": 70.02000244140625, "tests": 70.27999694824219}, "start": 68.53333333333333, "end": 70.93333333333334},
-        {"text": "Keep essential end-to-end protection.", "spoken": "Keep essential end-to-end protection.", "speechStart": 71.31999786376953, "speechEnd": 72.67999847412109, "wordCues": {"keep": 71.31999786376953, "essential": 71.35999877929687, "end": 71.76000030517578, "to": 72.08, "protection": 72.27999694824219}, "start": 70.93333333333334, "end": 73.06666666666666}
+        {"text": "Simplify. Delete redundant tests.", "spoken": "Then simplify. Delete redundant tests.", "speechStart": 66.37000244140624, "speechEnd": 68.52999847412109, "wordCues": {"then": 66.37000244140624, "simplify": 66.55000274658202, "delete": 67.7300030517578, "redundant": 67.7300030517578, "tests": 68.12999694824218}, "start": 66.03333333333333, "end": 68.86666666666666},
+        {"text": "Suitable checks become fast unit tests.", "spoken": "Move suitable checks to fast unit tests.", "speechStart": 69.2300030517578, "speechEnd": 70.92999999999999, "wordCues": {"move": 69.2300030517578, "suitable": 69.26999633789062, "checks": 69.56999938964843, "to": 69.8499981689453, "fast": 70.06999938964843, "unit": 70.37000244140624, "tests": 70.62999694824218}, "start": 68.86666666666666, "end": 71.3},
+        {"text": "Keep essential end-to-end protection.", "spoken": "Keep essential end-to-end protection.", "speechStart": 71.66999786376952, "speechEnd": 73.02999847412109, "wordCues": {"keep": 71.66999786376952, "essential": 71.70999877929687, "end": 72.11000030517577, "to": 72.42999999999999, "protection": 72.62999694824218}, "start": 71.3, "end": 73.43333333333334}
       ],
-      "start": 65.66666666666667,
-      "end": 73.06666666666666,
-      "duration": 7.3999999999999915
+      "start": 66.03333333333333,
+      "end": 73.43333333333334,
+      "duration": 7.400000000000006
     },
     {
       "id": "end",
       "label": "Less to carry. Fewer bugs to chase.",
       "captionRanges": [
-        {"text": "Use spare AI to simplify and fix.", "spoken": "Use spare AI to simplify and fix.", "speechStart": 73.45999725341797, "speechEnd": 75.34000213623047, "wordCues": {"use": 73.45999725341797, "spare": 73.62000091552734, "ai": 73.89999969482422, "to": 74.21999938964844, "simplify": 74.49999816894531, "and": 74.81999786376953, "fix": 75.20000274658203}, "start": 73.06666666666666, "end": 75.73333333333333},
-        {"text": "Less to carry. Fewer bugs to chase.", "spoken": "Less to carry. Fewer bugs to chase.", "speechStart": 76.0999966430664, "speechEnd": 77.88000305175781, "wordCues": {"less": 76.0999966430664, "to": 76.0999966430664, "carry": 76.45999725341797, "fewer": 76.9800015258789, "bugs": 77.21999938964844, "chase": 77.88000305175781}, "start": 75.73333333333333, "end": 79.93333333333334}
+        {"text": "Use spare AI to simplify and fix.", "spoken": "Use spare AI to simplify and fix.", "speechStart": 73.80999725341796, "speechEnd": 75.69000213623046, "wordCues": {"use": 73.80999725341796, "spare": 73.97000091552734, "ai": 74.24999969482421, "to": 74.56999938964843, "simplify": 74.8499981689453, "and": 75.16999786376952, "fix": 75.55000274658202}, "start": 73.43333333333334, "end": 76.06666666666666},
+        {"text": "Less to carry. Fewer bugs to chase.", "spoken": "Less to carry. Fewer bugs to chase.", "speechStart": 76.4499966430664, "speechEnd": 78.2300030517578, "wordCues": {"less": 76.4499966430664, "to": 76.4499966430664, "carry": 76.80999725341796, "fewer": 77.3300015258789, "bugs": 77.56999938964843, "chase": 78.2300030517578}, "start": 76.06666666666666, "end": 80.26666666666667}
       ],
-      "start": 73.06666666666666,
-      "end": 79.93333333333334,
-      "duration": 6.866666666666674
+      "start": 73.43333333333334,
+      "end": 80.26666666666667,
+      "duration": 6.833333333333329
     }
   ],
-  "duration": 79.93333333333334,
-  "durationInFrames": 2398,
+  "duration": 80.26666666666667,
+  "durationInFrames": 2408,
   "voice": "Cedar (OpenAI synthetic narration; not Terry's recorded voice)",
   "voiceCredit": "CEDAR · AI-GENERATED NARRATION",
   "narrationModel": "gpt-4o-mini-tts"

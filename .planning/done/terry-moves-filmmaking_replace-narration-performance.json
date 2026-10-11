@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#replace-narration-performance",
+  "title": "I can replace one narration performance without repairing unrelated scenes",
+  "completedAt": "2026-10-11T06:12:10.922Z",
+  "developer": "Terry Yin",
+  "agent": "Sola-chan",
+  "host": "claude"
+}

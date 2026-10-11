@@ -74,243 +74,6 @@ and assumptions, not delivery estimates. S/M/L bands remain unassigned because
 the project has no definitions. The research references R01–R28 below are
 provenance labels; the recorded identities are the canonical work identities.
 
-<a id="replace-narration-performance"></a>
-### 6. I can replace one narration performance without repairing unrelated scenes
-
-**Identity:** terry-moves-filmmaking#replace-narration-performance
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/031-replace-narration-performance/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"02756bfc2ee7ff00e18ef808d1b48b20ada13b73e454ea71be7dca60699e16ca","plan":"e1dfb3a9ed8acc83a7c17e5373baf05111613619c3dafe2fa79fbc6fefc5bcd6"}}
-```
-
-- **Goal:** Terry improves the emotion and delivery of one narrated region of
-  an approved performance-led film without redoing the rest of it. He names a
-  region of the film's script, one clause or a run of consecutive clauses,
-  requests candidate synthetic takes of exactly those words, auditions each
-  candidate in the context of the retained narration, and selects one. The
-  film's measured timeline, captions, choreography cues, score, effects, mix,
-  subtitles and treatment then follow the selected delivery through the film's
-  existing producer, while every retained performance, approved take and scene
-  component stays as approved and is never regenerated. The first film is the
-  AI test automation workshop, whose saved performance is its only clock. This
-  is the contained revision R05 asks for, kept within R26's rule that
-  production consumes saved approved assets.
-- **Scope — required behavior:**
-  - Region: a region is one or more consecutive caption clauses of the film's
-    script, named by the film's own scene and clause identity or by its exact
-    words. The replacement performs the same words; nothing in the path
-    depends on whether the region lies inside one scene.
-  - Candidate takes: on an explicit request, the producer asks the film's
-    voice (Cedar) for one connected take of the region's words, with the
-    film's performance direction plus an optional delivery note for this
-    region (for example "weary" or "more weight on relief"). Only the region
-    is requested. The retained take is never re-requested, and no request
-    happens during ordinary reproduction or rendering. Each candidate is
-    measured by the existing prompt-free transcription and word alignment and
-    audited exactly against the region's words. Candidates and their
-    measurements stay in the film's ignored work directory; nothing under the
-    public assets, the script or the performance record changes until a
-    selection.
-  - Audition in context: Terry listens to each candidate as it would sound in
-    the film: the retained clause before the region, the candidate, and the
-    retained clause after it, joined with the film's natural gaps. The
-    isolated candidate file is also available. Selection is Terry's explicit
-    choice of a named candidate; the producer never selects by length, score
-    or any automatic judgment.
-  - Selection effect on the narration: the film's narration becomes the
-    retained take with the region's span replaced by the selected take. The
-    seams fall at the midpoints of the natural gaps on either side of the
-    region, the positions the captions already change at, so each gap keeps
-    its retained half and takes the candidate's own half. Retained audio is
-    sample-identical outside the region, the selected take keeps its own
-    breaths and pauses, and there is no time-stretching, playback-rate change
-    or inserted artificial silence. The composed narration is mastered once as
-    a whole to the film's existing target.
-  - Selection effect on the timeline: the script takes the region's new word
-    cues and speech bounds from the candidate's measurement. Every clause
-    after the region shifts by the difference between the new and old region
-    durations and keeps its own measured speech bounds, word spacing and gaps.
-    Clauses before the region are unchanged to the sample and the frame.
-    Caption changes stay at the frame-aligned midpoints of the natural gaps;
-    scene starts, ends and durations follow their captions; total duration and
-    frame count follow.
-  - Downstream follows without edits: the workshop's scene components, acting
-    tests, subtitle export, score placement and ducking, and treatment table
-    already derive from the measured script, and after this story the sound
-    effects do too, so the existing producer and render commands carry the
-    selected delivery through with no edit to any scene component, test,
-    subtitle script or effect cue. Unrelated scenes change only in absolute
-    start time; their internal timing and performances are unchanged. The
-    replaced region's own scene follows its new cues. The film's treatment and
-    README runtime figures state the new duration.
-  - Provenance and reproduction: the performance record names every take the
-    composed narration uses, the retained base take and each region take, each
-    with its script segment, measured words, model, voice, direction and note,
-    and SHA-256, plus the hash of the composed prepared audio. Running the
-    producer with no flags rebuilds narration, score, effects and mix from
-    saved takes only, verifies every hash, verifies that the saved measurement
-    reproduces the fixed timeline, and needs no API key; the render command
-    produces the film as it does now. A saved take whose bytes differ from its
-    record stops the producer and names that take.
-  - Repeat and re-replace: replacing another region later composes onto the
-    current composition; replacing a region again replaces that region's
-    current take. The record always lists the current take per region, and
-    the base take is never re-requested by either.
-  - Feedback: a candidate whose measured transcription differs from the
-    region's words is reported with the differing words and cannot be
-    selected. A selection that would take the workshop beyond its existing
-    85-second ceiling is reported and not applied, so Terry chooses a shorter
-    candidate. Justification: both are the producer's existing rules, the
-    exact-script audit in `scripts/narration_audio.py` and the length
-    assertion in the workshop's `cedar_narration.py`, and the treatment's
-    promise that the subtitles contain the full spoken words.
-  - Documentation truth: the treatment the producer regenerates states that
-    the narration is one connected base take with the named regions replaced
-    by connected takes of their own, and the Cedar credit is unchanged.
-- **Scope — assumptions and deferred promises:**
-  - First film and timing policy, settled by refinement: the AI test
-    automation workshop under its performance-led policy, where the saved
-    performance is the only clock. It is the film whose choreography, score
-    and effects are most tightly cued to speech, so "no repair" is actually
-    tested there; it already carries the exact-script audit, hashes and
-    offline reproduction this story extends; and it is the film stories 1 and
-    5 build on. The region and the winning candidate are Terry's choices at
-    audition; the key examples use the "It's a compromise" passage
-    illustratively.
-  - Replacement voice: the film's own synthetic voice. The path takes an audio
-    file for a region, so a supplied recording in the same slot is measured
-    and audited the same way and is naturally supported, but it is not
-    verified here, and mixing Terry's recorded voice into a Cedar film is not
-    an aim.
-  - Considered and excluded, not rejected: automatic choice among candidates;
-    auditioning through a Studio control rather than the producer and audio
-    files.
-  - Deferred, neither built nor verified here: replacing a performance in a
-    motion-led film whose recorded lines are fitted to beats (Story Impact's
-    path, which trims and rate-fits Terry's recording per beat; the Story
-    Impact voice-over story keeps its own lifecycle); changing the words of a
-    region (a script edit followed by a replacement is the same path but is
-    not verified); carrying the composed-take mechanism to the other Cedar
-    films (Problem Decomposition, its remake and ATDD), even though the shared
-    helper may host it; replacing music, effects or a whole-film take (the
-    existing whole-take request stays as it is); Terry's cleaned recordings as
-    region takes; reusing a region take across films. None of these is
-    rejected.
-- **Key examples:**
-  1. *Connected passage, longer delivery.* The workshop's "investigate" scene
-     runs 43.17–55.70 s. Terry names the region from "It's a compromise."
-     through "not more test code to maintain." (5.42 s of speech, 49.96–
-     55.38 s) and requests three candidates with the note "more weight on
-     relief". He selects a candidate that speaks the same 19 words in 6.3 s.
-     Result: everything up to "and check that known behavior still works." is
-     unchanged to the frame; the three replaced clauses carry new word cues;
-     the "selective", "optimize" and "end" scenes start about 0.9 s later with
-     their clause durations, gaps and cue spacing unchanged; the handoff and
-     relief in "investigate" start at the region's new cues; score, effects,
-     mix, subtitles and treatment regenerate; the workshop is about 80.8 s and
-     the author card is still 3 s; no scene component, acting test or subtitle
-     script is edited, and the acting tests pass as they are.
-  2. *One clause inside a scene, shorter delivery.* Terry replaces "Not enough
-     automated tests!" (1.02 s) with a sharper 0.80 s take. Result: "In a
-     large legacy system..." and "You're probably right." keep their retained
-     audio and gaps, with no inserted silence and no stretch; the caption
-     changes move to the new gap midpoints; "purpose" and every later scene
-     start about 0.2 s earlier; nothing else changes.
-  3. *Audition in context.* For example 1, each candidate is auditioned as
-     the composed narration from "and check that known behavior still works."
-     through "Once you regain control, turn useful checks into test code.",
-     not as an isolated clip. Until Terry selects one, the candidates and
-     their measurements live only in the ignored work directory, and the
-     saved take, script and performance record are byte-identical to the
-     approved film.
-  4. *Reproduction needs no API.* After example 1, running the producer with
-     no flags on a machine without an API key rebuilds narration, score,
-     effects and mix from the saved base take and the saved region take,
-     verifying both hashes and the composed audio's hash, and the render
-     command produces the film. If the region take's bytes are changed, the
-     producer stops and names that take before writing anything.
-  5. *Useful feedback.* A candidate that drops "already" is reported with the
-     differing words and cannot be selected. A candidate of 11 s for the
-     example 1 region, which would take the workshop past 85 s, is reported
-     with the ceiling and is not applied; the approved film is untouched.
-  6. *Second region, then again.* Terry later replaces "Stop. And fix." with
-     a weightier take; example 1's replacement remains and the record lists
-     both regions with their takes. Replacing the example 1 region once more
-     replaces only that region's take; the base take is still the one approved
-     and was never re-requested.
-- **Command sketch (illustrative, not a format commitment):**
-  ```
-  python3 'AI Test Automation/produce_audio.py' --audition investigate:4-6 --note "more weight on relief" --candidates 3
-  python3 'AI Test Automation/produce_audio.py' --select investigate:4-6 candidate-2
-  python3 'AI Test Automation/produce_audio.py'          # offline reproduction, no API
-  pnpm -C terry-moves render:ai-test-automation
-  ```
-- **Architecture:**
-  - What changes: a film's narration becomes a composition of saved takes,
-    one connected base take plus zero or more region takes, instead of one
-    take, and the performance record becomes a manifest of those takes with
-    their hashes and measurements, with the composed prepared audio hashed as
-    well. This preserves R26's rule that production consumes saved approved
-    assets and that approved audio is never silently regenerated.
-  - What must not change: the single derived clock. The workshop's script is
-    derived from measured words, and its scene components, acting tests,
-    subtitle export and score take their times from scene, caption and word
-    cues; observed on 2026-10-11, the timing literals in those components are
-    offsets from such cues, and every workshop test passes unchanged against a
-    timeline shifted after the example region. The one exception is the sound
-    effects builder, whose 26 action cues are typed as absolute seconds; it
-    must be re-expressed through scene and word cues within this story, with
-    the regenerated effects unchanged for the approved timeline, or the
-    accents drift after any replacement. The "no repair" promise rests
-    entirely on that property. The delivery must not introduce hand-typed
-    absolute times or a second timeline.
-  - Seams: the composition joins in the natural gaps between clauses, the
-    positions the captions already change at, with sample-identical retained
-    audio and one mastering pass. The film's treatment rejects chopped-clause
-    assembly; a bounded regional replacement is not that, but a candidate
-    requested as bare words may not match the base take's energy at the seam.
-    Planning may request the region with its neighbouring clauses as run-in
-    and run-out and keep only the region's measured span. Audition in context
-    is the check; no automated seam metric is promised.
-  - Placement: the per-film Cedar producers duplicate `performance` and
-    `align` with film-specific lead, tail and ceiling, while the shared
-    `scripts/narration_audio.py` owns the exact-script audit, PCM handling,
-    mastering and serializers. Composition and the take manifest are
-    film-independent responsibilities and belong with the shared helper if
-    planning's PFE assessment agrees; the workshop's lead, ceiling and
-    direction stay in its producer. The first delivery verifies only the
-    workshop.
-  - Decisions: only ADR-0000 (use ADRs) is Accepted; no Accepted decision
-    constrains or conflicts with this design and nothing is superseded. The
-    measured-performance-as-clock convention is practice in three films, not
-    a recorded decision; whether to record it is Terry's call and is not
-    proposed here.
-- **Known basis and boundary:** R05 and the selected-asset aspects of R26.
-  The workshop producer (`AI Test Automation/produce_audio.py` with
-  `cedar_narration.py` and `workshop_soundtrack.py`) already requests one
-  connected take only on an explicit flag, trims boundaries only, transcribes
-  without a prompt, audits exactly, hashes the take and the prepared audio,
-  derives the script, subtitles, score, effects, mix and treatment from the
-  measurement, and refuses a saved performance that no longer reproduces the
-  fixed timeline. The earlier rejection of fixed-pace isolated clauses is
-  recorded in that film's treatment. Story Impact's recorded narration is the
-  motion-led contrast: per-beat trim and playback-rate fit of Terry's cleaned
-  recording. This story is broader reuse, not a replacement or completion of
-  the Story Impact voice-over story. The manifest's representation, how the
-  candidate request is phrased, and exact seam placement are planning
-  decisions under PFE; refinement establishes the region, audition,
-  composition, derivation and provenance contract above.
-- **Value / effort hypothesis:** Better delivery with contained revision
-  cost, and the first proof that the measured clock lets one performance
-  change without touching choreography. Moderate scope; high confidence in
-  value; the paid request and Terry's listening are the only steps that cannot
-  be automated.
-- **Depends on:** None; it extends the workshop's existing producer and
-  alignment path. An OpenAI key is needed only while Terry requests
-  candidates.
-- **Safe stopping point:** The workshop can receive isolated new takes with
-  offline reproduction intact, even if no other film ever gets the path and no
-  new voice provider, character or style follows.
-
 <a id="replace-filmed-shot"></a>
 ### 7. I can replace a filmed shot while preserving its intended presentation
 
@@ -816,6 +579,34 @@ provenance labels; the recorded identities are the canonical work identities.
   mandatory.
 - **Safe stopping point:** Terry can export and revise that portrait edition
   even if no wider aspect-ratio system follows.
+
+<a id="narration-region-across-scenes"></a>
+### Terry can replace a narration region that crosses a scene boundary, with the region commands held by repeatable proof
+
+**Identity:** terry-moves-filmmaking#narration-region-across-scenes
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/032-narration-region-across-scenes/PLAN.md","assessment":"not-ready","reasons":["Premise unobserved: select() is drivable offline against a temporary root and a cross-scene selection writes a coherent record, take and script; the unreached operation is select(root, script, run, sample_rate, region, candidate) on a fixture film, which the retrospective review was not permitted to run."],"basis":{"document":"28e066fbb541b3257fea2e5ea88aee57ae2027215685b86a70555e898a2c5953","plan":"1b0c11bbdf8927ddbfd7b9bc6128965ddd588ce75bef1262887ca57593cee4a1"}}
+```
+
+#### Goal
+
+Terry can audition and select a region of consecutive clauses that runs from
+one scene of the AI test automation workshop into the next, as the narration
+replacement story defines a region, and the region commands he already has
+keep their behavior under proof he can run again without an API.
+
+#### Scope
+
+Accept a region whose first and last clauses lie in different scenes through
+the existing audition and selection path, and keep the current single-scene
+names working unchanged. Retain repeatable offline proof of the delivered
+audition, selection, refusal and re-selection behavior beside the workshop
+producer, with its command stated in the film's maintained documentation.
+Preserve the approved workshop, its saved takes, record, script, stems, mix
+and treatment. This is a bounded correction from the narration replacement
+retrospective, with no new film promise and no paid request.
+
+Plan: [narration region across scenes](../.planning/quick/032-narration-region-across-scenes/PLAN.md).
 
 ## Ordering and scope reduction
 

@@ -1,9 +1,9 @@
 """One connected Cedar performance, with measured word alignment and exact-script audit."""
 
-import hashlib
-import json
 import math
-from narration_audio import exact_script, narration_text, tokens, write_performance
+from array import array
+from narration_audio import (compose_manifest, exact_script, narration_text, read_manifest, sha256, tokens,
+                             verify, write_performance)
 
 
 MODEL = "gpt-4o-mini-tts"
@@ -38,58 +38,105 @@ Less to carry. Fewer bugs to chase. Do not end after simplify and fix.
 Credible human drama, no cartoon voice, sales pitch, constant upward inflection
 or vocal fry. Keep a single connected natural performance through Fewer bugs to chase."""
 
-def performance(root, script, run, sample_rate, new_take=False):
-    assets = root / "terry-moves" / "public" / "assets" / "ai-test-automation"
-    work = root / "terry-moves" / "out" / "ai-test-automation-audio"
-    take = assets / "cedar-take.wav"
-    evidence = root / "AI Test Automation" / "cedar-performance.json"
-    prepared = work / "cedar-prepared.wav"
-    selected_take = work / "cedar-candidate.wav" if new_take else take
-    text = narration_text(script)
-    if new_take:
-        from openai import OpenAI
-        client = OpenAI(timeout=600, max_retries=0)
-        print("Generating one connected Cedar performance…", flush=True)
-        with client.audio.speech.with_streaming_response.create(
-            model=MODEL, voice=VOICE, input=text, instructions=DIRECTION,
-            response_format="wav",
-        ) as response:
-            response.stream_to_file(selected_take)
-        report = {"model": MODEL, "voice": VOICE, "direction": DIRECTION,
-                  "script": text,
-                  "takeSha256": hashlib.sha256(selected_take.read_bytes()).hexdigest()}
-    else:
-        report = json.loads(evidence.read_text())
-        assert report["takeSha256"] == hashlib.sha256(take.read_bytes()).hexdigest()
-        exact_script(text, report["script"], "Saved performance")
-        exact_script(text, report["transcript"], "Saved transcript")
-        exact_script(text, report["unpromptedTranscript"], "Saved unprompted transcript")
+
+def cedar_client():
+    from openai import OpenAI
+    return OpenAI(timeout=600, max_retries=0)
+
+
+def speak(client, text, instructions, take):
+    with client.audio.speech.with_streaming_response.create(
+        model=MODEL, voice=VOICE, input=text, instructions=instructions,
+        response_format="wav",
+    ) as response:
+        response.stream_to_file(take)
+
+
+def prepare(take, prepared, run, sample_rate):
     # Boundaries only: every internal breath and pause remains in the performance.
     trim = ("silenceremove=start_periods=1:start_duration=0.01:start_threshold=-50dB,"
             "areverse,silenceremove=start_periods=1:start_duration=0.01:start_threshold=-50dB,"
             "areverse")
-    run(["ffmpeg", "-y", "-v", "error", "-i", str(selected_take), "-af", trim,
+    run(["ffmpeg", "-y", "-v", "error", "-i", str(take), "-af", trim,
          "-ar", str(sample_rate), "-ac", "1", "-c:a", "pcm_s16le", str(prepared)])
+
+
+def measure(client, prepared):
+    """Record fields for the words actually spoken and their timing, recognized without a prompt."""
+    with prepared.open("rb") as audio_file:
+        measured = client.audio.transcriptions.create(
+            file=audio_file, model="whisper-1", language="en",
+            response_format="verbose_json", timestamp_granularities=["word"],
+        )
+    return {"alignmentModel": "whisper-1", "transcript": measured.text,
+            "transcriptSource": "whisper-1 transcription and word measurement of actual audio without a prompt",
+            "words": [{"word": w.word, "start": w.start, "end": w.end} for w in measured.words]}
+
+
+LEAD = 0.08  # Seconds of silence before the question, which starts with no title-card hold.
+TAIL = 2.0  # Seconds of breathing room after the last word.
+CEILING = 85  # The workshop's longest acceptable length in seconds.
+
+
+def record_path(root):
+    return root / "AI Test Automation" / "cedar-performance.json"
+
+
+def region_prepared(work, regions):
+    """Where each listed region take is boundary-trimmed, in list order."""
+    return [work / f"region-{number}-prepared.wav" for number, _ in enumerate(regions, 1)]
+
+
+def composition(work, report, regions, sample_rate):
+    """A record's prepared audio file and timeline words, from the boundary-trimmed base and region takes."""
+    return compose_manifest(report, work / "cedar-prepared.wav", regions, work / "cedar-composed.wav", sample_rate)
+
+
+def film_frames(script, pcm, sample_rate):
+    """The workshop's length in whole frames: lead, prepared speech and tail."""
+    return math.ceil((LEAD + len(pcm) / sample_rate + TAIL) * script["fps"])
+
+
+def performance(root, script, run, sample_rate, new_take=False):
+    assets = root / "terry-moves" / "public" / "assets" / "ai-test-automation"
+    work = root / "terry-moves" / "out" / "ai-test-automation-audio"
+    take = assets / "cedar-take.wav"
+    evidence = record_path(root)
+    prepared = work / "cedar-prepared.wav"
+    selected_take = work / "cedar-candidate.wav" if new_take else take
+    text = narration_text(script)
+    if new_take:
+        client = cedar_client()
+        print("Generating one connected Cedar performance…", flush=True)
+        speak(client, text, DIRECTION, selected_take)
+        report = {"model": MODEL, "voice": VOICE, "direction": DIRECTION,
+                  "script": text, "takeSha256": sha256(selected_take)}
+    else:
+        report = read_manifest(evidence, root, take)
+        exact_script(text, report["script"], "Saved performance")
+        exact_script(text, report["transcript"], "Saved transcript")
+        exact_script(text, report["unpromptedTranscript"], "Saved unprompted transcript")
+    prepare(selected_take, prepared, run, sample_rate)
     if new_take:
         print("Measuring and auditing the actual performance without a script prompt…", flush=True)
-        with prepared.open("rb") as audio_file:
-            measured = client.audio.transcriptions.create(
-                file=audio_file, model="whisper-1", language="en",
-                response_format="verbose_json", timestamp_granularities=["word"],
-            )
-        report["alignmentModel"] = "whisper-1"
-        report["transcript"] = measured.text
-        report["transcriptSource"] = "whisper-1 transcription and word measurement of actual audio without a prompt"
-        report["words"] = [{"word": w.word, "start": w.start, "end": w.end} for w in measured.words]
+        report.update(measure(client, prepared))
         # The source words are independently recognized, never supplied as an ASR hint.
-        report["unpromptedTranscript"] = measured.text
+        report["unpromptedTranscript"] = report["transcript"]
         report["auditSource"] = "whisper-1 transcription of actual narration without a prompt"
         write_performance(work / "cedar-candidate-measurement.json", report)
-        exact_script(text, measured.text, "Measured transcription")
+        exact_script(text, report["transcript"], "Measured transcription")
         exact_script(text, " ".join(word["word"] for word in report["words"]), "Timed words")
-    if not new_take:
-        assert report["preparedSha256"] == hashlib.sha256(prepared.read_bytes()).hexdigest()
-    report["preparedSha256"] = hashlib.sha256(prepared.read_bytes()).hexdigest()
+        # A new take is measured whole, so it replaces every region.
+        report.update(preparedSha256=sha256(prepared), regions=[])
+    else:
+        regions = region_prepared(work, report["regions"])
+        for region, trimmed in zip(report["regions"], regions):
+            prepare(root / region["take"], trimmed, run, sample_rate)
+        # The recorded words and prepared hash describe the composition of every listed take.
+        prepared, words = composition(work, report, regions, sample_rate)
+        verify(prepared, report["preparedSha256"])
+        if words != report["words"]:
+            raise ValueError(f"{evidence} words differ from the composition of its takes.")
     exact_script(text, " ".join(word["word"] for word in report["words"]), "Timed words")
     if new_take:
         take.write_bytes(selected_take.read_bytes())
@@ -98,9 +145,7 @@ def performance(root, script, run, sample_rate, new_take=False):
 
 
 def align(script, pcm, report, sample_rate):
-    from array import array
-    fps, rate = script["fps"], sample_rate
-    lead = 0.08  # The question starts immediately, with no title-card hold.
+    fps, rate, lead = script["fps"], sample_rate, LEAD
     assert rate % fps == 0
     words = []
     for word in report["words"]:
@@ -123,8 +168,8 @@ def align(script, pcm, report, sample_rate):
             cursor += count
             captions.append(caption)
     assert cursor == len(words)
-    duration_frames = math.ceil((lead + len(pcm) / rate + 2.0) * fps)
-    assert duration_frames / fps <= 85, "Retain the script; choose a more fluent take if needed."
+    duration_frames = film_frames(script, pcm, rate)
+    assert duration_frames / fps <= CEILING, "Retain the script; choose a more fluent take if needed."
     # Change the caption at a frame in the natural gap before the next clause.
     # No artificial inter-clause silence is added to the voice.
     boundaries = [0]

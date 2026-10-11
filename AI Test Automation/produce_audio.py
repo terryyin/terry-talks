@@ -2,7 +2,12 @@
 """Rebuild the saved narration, original workshop score, accents and final mix.
 
 Requires Python, ffmpeg and ffprobe. The chosen continuous Cedar performance and
-measured alignment are committed. Only --new-take uses the OpenAI SDK and API.
+measured alignment are committed. Only --new-take and --audition use the OpenAI
+SDK and API. --audition <scene>:<first>-<last> [--note …] [--candidates N] saves
+candidate takes of that region in the ignored work directory, each also between
+its retained neighbours; --candidates 0 rebuilds those from saved candidates.
+--select <region> <candidate> makes a saved candidate that region's take, with
+no API: the film's timeline, stems, mix and treatment then follow it.
 Each caption range owns its spoken clause, displayed text and measured timing.
 """
 
@@ -15,7 +20,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from narration_audio import master, read_pcm, run, write_pcm, write_script
-from cedar_narration import align, narration_text, performance
+from cedar_narration import align, narration_text, performance, record_path
+from cedar_regions import audition, select
 from workshop_soundtrack import ASSETS, SAMPLE_RATE, WORK, build_effects, build_mix, build_score
 
 
@@ -34,6 +40,21 @@ def build_narration(script):
     raw = WORK / "narration-unmastered.wav"
     write_pcm(raw, timeline, SAMPLE_RATE)
     return master(raw, ASSETS / "narration.wav", -18, SAMPLE_RATE)
+
+
+def takes(regions):
+    """The treatment's account of the takes the narration is made of."""
+    if not regions:
+        return ["One continuous take retains its natural internal breaths and pauses; only leading and trailing",
+                "silence is trimmed. There is no time stretching, playback-rate change or chopped-clause assembly."]
+    return ["The narration is one connected base take with these regions replaced by connected takes of their own:",
+            *(f"`{region['id']}` “{region['spoken']}”" + ("," if region is not regions[-1] else "")
+              for region in regions),
+            "Each take retains its natural internal breaths and pauses; only leading and trailing silence is",
+            "trimmed. A region take joins the base take at the midpoints of the natural gaps on either side of",
+            "its region. There is no time stretching, playback-rate change or inserted silence, and no other",
+            "assembly of clauses. Each region take is saved under `regions/` with its own SHA-256, measured",
+            "words and audit in `cedar-performance.json`; `--select` replaces a region's take without an API request."]
 
 
 def treatment(script):
@@ -77,8 +98,7 @@ def treatment(script):
              "Run `python3 'AI Test Automation/produce_audio.py'` to reproduce the saved narration, original score and effects,",
              "and final stereo mix. Use `--narration-only` when reviewing the voice in isolation; the composition prop",
              "`narrationOnly: true` plays that stem. Normal playback uses the finished mix once at volume 1.",
-             "One continuous take retains its natural internal breaths and pauses; only leading and trailing",
-             "silence is trimmed. There is no time stretching, playback-rate change or chopped-clause assembly.",
+             *takes(json.loads(record_path(ROOT).read_text())["regions"]),
              "The opening question begins after an 80 ms audio lead. The ending has approximately two seconds of breathing room.",
              "Every caption owns its exact spoken clause, shorter displayed text, measured speech bounds and word cues.",
              "Caption changes use frame-aligned midpoints in the natural gaps; scene boundaries follow those captions.",
@@ -107,10 +127,33 @@ def treatment(script):
     (ROOT / "AI Test Automation" / "film-treatment.md").write_text("\n".join(rows) + "\n")
 
 
+def option(name, default):
+    if name not in sys.argv:
+        return default
+    if sys.argv.index(name) + 1 == len(sys.argv):
+        raise ValueError(f"{name} needs a value.")
+    return sys.argv[sys.argv.index(name) + 1]
+
+
 def main():
     WORK.mkdir(parents=True, exist_ok=True)
     ASSETS.mkdir(parents=True, exist_ok=True)
     script = json.loads(SOURCE.read_text())
+    if "--audition" in sys.argv:
+        # Candidates stay in the work directory: the take, script and record are only read.
+        count = option("--candidates", "1")
+        if not count.isdigit():
+            raise ValueError(f"--candidates needs a whole number, not {count!r}.")
+        sys.exit(1 if audition(ROOT, script, run, SAMPLE_RATE, option("--audition", None),
+                               option("--note", ""), int(count)) else 0)
+    if "--select" in sys.argv:
+        chosen = sys.argv[sys.argv.index("--select") + 1:][:2]
+        if len(chosen) < 2 or {"--new-take", "--refresh-docs", "--narration-only"} & set(sys.argv):
+            raise ValueError("--select needs a region and a saved candidate and no other mode, "
+                             "such as --select investigate:4-6 candidate-2.")
+        # Checked whole before anything is written; the rest is the ordinary reproduction of saved takes.
+        script = select(ROOT, script, run, SAMPLE_RATE, *chosen)
+        write_script(SOURCE, script)
     if "--refresh-docs" not in sys.argv:
         voice = build_narration(script)
         if "--narration-only" in sys.argv:
@@ -130,4 +173,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except ValueError as problem:
+        sys.exit(str(problem))  # A refusal or a file that differs from its record is a plain stop.
