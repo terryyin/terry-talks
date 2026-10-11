@@ -6,9 +6,10 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
+- [I can replace one narration performance without repairing unrelated scenes](../terry-moves/seed.md#replace-narration-performance) — terry-moves-filmmaking#replace-narration-performance ([plan](quick/031-replace-narration-performance/PLAN.md))
+
 ## Backlog list
 
-- [I can replace one narration performance without repairing unrelated scenes](../terry-moves/seed.md#replace-narration-performance) — terry-moves-filmmaking#replace-narration-performance
 - [I can replace a filmed shot while preserving its intended presentation](../terry-moves/seed.md#replace-filmed-shot) — terry-moves-filmmaking#replace-filmed-shot
 - [I can make an illustrated conversation with convincing speaking and listening](../terry-moves/seed.md#illustrated-conversation) — terry-moves-filmmaking#illustrated-conversation
 - [I can direct a cinematic 3D shot through the script](../terry-moves/seed.md#cinematic-3d-shot) — terry-moves-filmmaking#cinematic-3d-shot

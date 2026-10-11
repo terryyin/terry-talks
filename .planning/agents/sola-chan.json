@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Sola-chan",
+  "email": "sola-chan@example.org",
+  "identity": "terry-moves-filmmaking#replace-narration-performance",
+  "mode": "story-branch",
+  "branch": "claude/i-can-replace-one-narration-performance-without",
+  "host": "claude"
+}
