@@ -294,7 +294,27 @@ down against the folded state and the rig's reach, raising story 1's
 
 ### 5. Terry renders and revises the prop scene through the documented path
 Type: Behavior
-Status: planned
+Status: done
+Accepted: README "Silent scene" rewritten against the code (places and
+surfaces, props, six move entries, minimum frames, middle-frame contact,
+feedback messages, 171 frames). `pnpm render:silent-scene` on the default
+script and on the example 2 reorder, both exit 0; `ffprobe` on both: h264,
+yuv420p, bt709, 1080×1080, 30/1, 171 frames, one stream, 5.7 s, no audio.
+Posters show the wrench on the window surface on the final frame (identical
+in both, as the scenes end alike); frame 78 of the reorder shows the Engineer
+hopping at the desk holding the wrench. `script.ts` restored to SHA256
+`8ac389b07eec35f546cb9409022edd987f6acdf9c841574508527294f026de76`. Whole gate
+exit 0: 59 suites / 657 tests, eslint, tsc. Studio (headless Chromium on
+`remotion studio`): SilentScene previews at 1080×1080, 30 fps, 00:05.21 with
+the wrench on the desk; with the out-of-reach edit Studio shows only `Error`
+and the recorded message, no picture. Retained under git-ignored
+`terry-moves/out/`: `silent-scene-example-1.mp4`,
+`silent-scene-example-2-reorder.mp4`, posters, and the two Studio captures.
+For Terry's believability evaluation: the surfaces read as short floating
+shelves (the desk slab is near shoe height and overlaps the shoe during the
+reorder's hop), the resting wrench stands upright, the carried wrench is
+drawn over the hand, and the hand at rest by the window ends close to the
+wrench head.
 Proof: `pnpm render:silent-scene` on the default script and on the example 2
 reorder, both outputs retained with distinct names, `ffprobe` showing 171
 frames, 30 fps, 1080 square, H.264/yuv420p, no audio; posters inspected for
@@ -355,7 +375,7 @@ Disposition: proved by slice 3: `tests/silentScene/putDown.spec.tsx` "on the mid
 ### G8. Remotion Studio has not been observed
 Reported: slice 4 — "Studio was not observed; the CLI `calculateMetadata` observation is the only real-path evidence."
 Story clause: "Terry previews the scene in Remotion Studio and renders it with the existing render path"
-Disposition: receiving slice 5
+Disposition: proved by slice 5: headless Chromium captures of `remotion studio` at `/SilentScene`, retained as `terry-moves/out/silent-scene-studio.png` and `silent-scene-studio-out-of-reach.png`; frames after the first were observed through the render, not scrubbed in Studio
 
 ## Learnings
 
