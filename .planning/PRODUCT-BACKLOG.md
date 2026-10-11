@@ -10,6 +10,7 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Backlog list
 
+- [Terry can replace a narration region that crosses a scene boundary, with the region commands held by repeatable proof](../terry-moves/seed.md#narration-region-across-scenes) — terry-moves-filmmaking#narration-region-across-scenes
 - [I can replace a filmed shot while preserving its intended presentation](../terry-moves/seed.md#replace-filmed-shot) — terry-moves-filmmaking#replace-filmed-shot
 - [I can make an illustrated conversation with convincing speaking and listening](../terry-moves/seed.md#illustrated-conversation) — terry-moves-filmmaking#illustrated-conversation
 - [I can direct a cinematic 3D shot through the script](../terry-moves/seed.md#cinematic-3d-shot) — terry-moves-filmmaking#cinematic-3d-shot

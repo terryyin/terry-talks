@@ -39,6 +39,43 @@ score follows measured scene boundaries and ducks under actual speech activity. 
 and wood accents follow physical actions; the opening question and reply stay exposed,
 and a decisive stop gives way to quieter repair.
 
+## Replacing one narrated region
+
+A region is one clause or a run of consecutive clauses of one scene, named
+`<scene>:<first>-<last>` or `<scene>:<n>` with 1-based clause positions, such as
+`investigate:4-6`. The same words are performed again; nothing else is re-requested.
+
+```bash
+python3 'AI Test Automation/produce_audio.py' --audition investigate:4-6 --note "more weight on relief" --candidates 3
+python3 'AI Test Automation/produce_audio.py' --select investigate:4-6 candidate-1
+```
+
+`--audition` is a **paid** OpenAI request for each candidate, and requests one when
+`--candidates` is omitted; `--candidates 0` only rebuilds the audition files from saved
+candidates. It needs the OpenAI Python SDK and `OPENAI_API_KEY`. Each candidate performs the
+region with the retained clause on either side, is measured without a script prompt and audited
+word for word, and is written to the ignored
+`terry-moves/out/ai-test-automation-audio/auditions/<region>/` as `candidate-N.wav`, its
+measurement `candidate-N.json`, and `candidate-N-in-context.wav`, the candidate between its
+retained neighbours. Nothing tracked changes until a selection.
+
+`--select` needs no API. It joins the candidate to the base take at the midpoints of the natural
+gaps on either side of the region, with a 5 ms crossfade and no stretch or inserted silence.
+Speech, word cues and audio before the region stay as they were; the caption change just before
+the region follows the new gap midpoint; every later clause keeps its own timing and moves by the
+change in the region's length. The region take is saved under
+`terry-moves/public/assets/ai-test-automation/regions/` and listed with its hash, words and
+direction in `cedar-performance.json`, whose `baseWords` keep the base take's own measurement.
+Score, effects, mix and treatment are regenerated in the same run; then run the render command
+for the film and subtitles, and update the runtime figures and region sentence in this file,
+which are written by hand. A candidate that fails its audit, a region overlapping another
+replaced region, or a result longer than 85 seconds is refused before anything is written.
+Selecting the same region again replaces its take; another region is added beside it. A run
+with no flags verifies every saved take against its recorded hash and names the first that differs.
+
+`python3 -m unittest discover -s scripts -p 'test_*.py'` checks the shared composition and
+record helpers in `scripts/narration_audio.py`.
+
 The voice is **Cedar synthetic AI narration**, not Terry’s recorded voice.
 The film credits it on the final workshop shot and author card. See the [film treatment](./film-treatment.md), producer and workshop soundtrack
 for measured audio evidence and reproducibility. `--narration-only` rebuilds just the voice stem;
