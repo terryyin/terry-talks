@@ -111,11 +111,6 @@ describe('picking up the wrench that rests on the desk', () => {
 		const mirrored = compileScene(behind);
 		expect(picture(mirrored.poseAt(contact), behind.places).gaze).toBeLessThan(0);
 	});
-
-	test('a wrench beyond the fixed-length arm is refused before a timeline is returned', () => {
-		const tooFar: SceneScript = { ...pickUp, moves: [pickUp.moves[2], pickUp.moves[1]] };
-		expect(() => compileScene(tooFar)).toThrow('move 2 (pick up wrench)');
-	});
 });
 
 test('a cut while carrying a picked-up wrench keeps it at the real hand on the cut frame and both neighbors', () => {

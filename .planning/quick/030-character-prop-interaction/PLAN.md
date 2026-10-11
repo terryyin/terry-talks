@@ -256,7 +256,27 @@ completing the first scene. Replaces the slice 2 interim scene.
 
 ### 4. A contradictory script reports the move, the prop, and the fix before rendering
 Type: Behavior
-Status: planned
+Status: done
+Accepted: `rehearse` in `compileScene.ts` walks the script by name once,
+raises every problem in story 1's form, and hands the timeline the staging
+before and after each move. `tests/silentScene/validation.spec.ts` "a prop
+move that contradicts reach or ownership is reported before a timeline is
+returned" asserts each message with exact `Error` equality and, for example
+3's `cut to desk`, the drawn hand at the desk grip on the contact frame.
+Messages worded in execution: `scene start: wrench and spanner are both held;
+only one prop can be held`; `scene start: wrench rests at unknown place
+"kitchen"; places are …`; `move N (pick up spanner): the Engineer at window
+already holds wrench; put down wrench first`; `move N (put down spanner):
+spanner rests at window, not in hand; the Engineer at window holds wrench`;
+`…wrench rests at desk, but the desk surface is beyond the Engineer's reach
+from desk; move the surface closer`; `…wrench is in hand at window, but the
+window surface is beyond the Engineer's reach; move the surface closer`.
+jest `tests/silentScene` 4 suites / 90 tests, tsc, eslint; whole gate 59
+suites / 657 tests before the refactor pass. A temporary out-of-reach edit of
+`script.ts` made `remotion compositions` exit 1 with the recorded message at
+`calculateMetadata`; restored to SHA256
+`8ac389b07eec35f546cb9409022edd987f6acdf9c841574508527294f026de76` and 171
+frames. Studio was not opened (G8).
 Proof: `tests/silentScene/validation.spec.ts` observing the recorded messages
 for story examples 3 and 4: pick up after travel to window (out of reach,
 naming desk and window) and the same script compiling after `cut to desk` is
@@ -310,7 +330,7 @@ Disposition: proved by slice 3: `tests/silentScene/putDown.spec.tsx` "putting th
 ### G3. Contradictory pick ups and prop declarations get a generic error
 Reported: slice 2 — "A pick up that is out of reach, names an unknown or non-resting prop, or happens while a prop is held throws the generic `move N (pick up <prop>): cannot pick up <prop> here`."
 Story clause: "The message names the prop, where it rests or who holds it, and where the Engineer is"
-Disposition: receiving slice 4
+Disposition: proved by slice 4: `tests/silentScene/validation.spec.ts` "a prop move that contradicts reach or ownership is reported before a timeline is returned"
 
 ### G4. The resting wrench stands upright on a thin slab
 Reported: slice 2 — "The wrench rests upright (standing on the slab), not lying down: the grip is the wrench's drawing origin, so the slab top is drawn 48 px below the surface point"
@@ -325,12 +345,17 @@ Disposition: no user cost "directs one believable prop interaction through the s
 ### G6. Contradictory put downs get a generic error
 Reported: slice 3 — "Contradictory put downs throw the generic interim message, not the recorded ones."
 Story clause: "when a put down happens while nothing is held, when a put down happens at a place with no surface"
-Disposition: receiving slice 4
+Disposition: proved by slice 4: `tests/silentScene/validation.spec.ts` "the put down moved to before the pick up reports that nothing is held" and "putting the wrench down at the door reports the place and the places that have a surface"
 
 ### G7. The wrench's draw order flips at contact
 Reported: slice 3 — "A carried wrench is drawn in front of the Engineer and a resting one behind, so at frame 141 the wrench moves from in front of the hand to behind it."
 Story clause: "The prop is never drawn in two places and never disappears"
 Disposition: proved by slice 3: `tests/silentScene/putDown.spec.tsx` "on the middle frame the real hand is at the surface grip, the wrench is released there, and the gaze is toward it" observes one resting wrench and no carried one; the one-frame layer change while the hand is on the wrench is part of Terry's believability evaluation.
+
+### G8. Remotion Studio has not been observed
+Reported: slice 4 — "Studio was not observed; the CLI `calculateMetadata` observation is the only real-path evidence."
+Story clause: "Terry previews the scene in Remotion Studio and renders it with the existing render path"
+Disposition: receiving slice 5
 
 ## Learnings
 

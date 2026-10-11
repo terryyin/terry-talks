@@ -80,18 +80,6 @@ describe('putting the wrench down on the window surface', () => {
 		expect(picture(compileScene(behind).poseAt(contact), behind.places).gaze).toBeLessThan(0);
 	});
 
-	test.each<[string, SceneScript['moves']]>([
-		['nothing is held', [putDown.moves[0], putDown.moves[3]]],
-		['another prop is held', [putDown.moves[0], putDown.moves[1], { kind: 'put down', prop: 'spanner', seconds: 0.8 }]],
-		['the place has no surface', [putDown.moves[0], putDown.moves[1], { kind: 'travel', to: 'door', seconds: 1 }, putDown.moves[3]]],
-	])('a put down is refused before a timeline is returned when %s', (_reason, moves) => {
-		expect(() => compileScene({ ...putDown, moves })).toThrow(`move ${moves.length} (put down `);
-	});
-
-	test('a surface beyond the fixed-length arm is refused before a timeline is returned', () => {
-		const tooFar: SceneScript = { ...putDown, places: { ...putDown.places, window: { ...window, surface: { x: 1160, y: 590 } } } };
-		expect(() => compileScene(tooFar)).toThrow('move 4 (put down wrench)');
-	});
 });
 
 describe('the hop moved between the pick up and the travel to the window', () => {
