@@ -1,9 +1,9 @@
 // When things happen, in seconds into Bas's clip, aligned to his narration
 // (transcript timestamps) and checked against the real clip.
 
-// Choreography end in narration seconds (last cue joy at 109.3). Not a copy of
-// the measured file length; under the approved shot the slot (113.508 s) still
-// governs CLIP_FRAMES while this end keeps the pose clock as today.
+// Nominal choreography end in narration seconds (last cue joy at 109.3).
+// The compiled shot owns scene length; film.ts caps its clip-end clock at
+// this end so the approved pose timeline stays unchanged.
 export const SCENE_END = 113.5;
 export const CLIP_SECONDS = SCENE_END;
 

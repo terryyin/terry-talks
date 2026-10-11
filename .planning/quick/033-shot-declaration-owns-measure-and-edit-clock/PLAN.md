@@ -146,7 +146,7 @@ Accepted proof (2026-10-11):
 
 ### 2. A shorter edit's scene clock follows `sceneSeconds` without moving the approved timeline
 Type: Behavior
-Status: planned
+Status: done
 Proof: unit for in-memory 110 s `edit` (cues reached): clip-end / leave /
 ending keyed to 110; existing hold and edit-unreached proofs still pass;
 approved timeline dump `cmp` identical; focused `tests/featureTeams` green.
@@ -155,6 +155,12 @@ Behavior: `filmPoseAt` (and any helper it needs) uses
 `Math.min(speakerSlot.sceneSeconds, CLIP_SECONDS)` as the clip-end second
 for last-moment hold and ending, so the approved film stays on 113.5 and a
 valid shorter edit closes on its slot. No cue table change.
+
+Accepted proof (2026-10-11):
+- `nix develop --command sh -c 'cd terry-moves && NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/featureTeams/FeatureTeamsEditClock.spec.ts --runInBand'` — before implementation exit 1; inset remained shown at 110.2 and end card absent at 111.5. Fixture changes only measured duration; actual declaration/compiler/choreography/film functions establish the result.
+- `nix develop --command sh -c 'cd terry-moves && NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js tests/featureTeams --runInBand'` — after implementation exit 0, 5 suites / 29 tests. New edit-clock tests observe all cues reached, slot 110, partial inset leave at 110.2/gone at 110.4, last-moment stage before 111.5, ending at 111.5 with that sampled scene through the closing line, shortened duration and final credits. Existing trim/hold/unreached-edit and all slice 1 proof pass. Setup and assertions inspected.
+- `nix develop --command sh -c 'cd terry-moves && NODE_ENV=test pnpm exec tsx scripts/feature-teams-timeline.ts /tmp/shot-declaration-slice2-timeline.json && cmp /tmp/shot-declaration-approved-baseline.json /tmp/shot-declaration-slice2-timeline.json'` — exit 0, approved all-frame timeline and metadata byte-identical. No full-render comparison needed.
+- Independent refactor clarifies only the nominal choreography end comment in `cues.ts`; no values or accepted runtime boundaries change. Selective formatter `nix develop --command sh -c 'cd terry-moves && pnpm exec eslint src/featureTeams/film.ts src/featureTeams/cues.ts --fix'` and `git diff --check` pass. Clock consumers inspected: FeatureTeamsFilm composition, focused suites, timeline/cover exporter; Root simply mounts the unchanged composition. No generation trigger.
 
 ## Current decisions
 
@@ -193,6 +199,9 @@ valid shorter edit closes on its slot. No cue table change.
 - CI: `.planning/open-dough.json` and push workflows are absent. GitHub default
   has no selected push check to observe; no observer armed. Claim and later
   publications have `pendingCi: unobserved`; local proof remains required.
+- Slice 1 delivery accepted `f32e7b755e44b9307b9b0e616d5ceb918be894b8` on the
+  remote execution branch; suffix base `beee598b4700e3c5251cde982c2188f5cd3073ed`.
+  Managed delivery confirms publication; CI unobserved, maintenance not applicable.
 
 ## Concern review
 
@@ -208,3 +217,8 @@ publication authority.
 Reported: slice 1 — "A successful full-film export was not required or run."
 Story clause: "keeps the approved film's pose timeline byte-identical"
 Disposition: no user cost "keeps the approved film's pose timeline byte-identical": exact timeline cmp proves preservation; actual CLI refusal proves check-before-render, and this correction promises no new export.
+
+### G2. No repeat full renderer or Root registration run
+Reported: slice 2 — "The full video renderer and Root registration were not run; neither changed, and the plan accepts exact timeline preservation without another export."
+Story clause: "the film's last-moment / ending clock follow that declaration"
+Disposition: no user cost "the film's last-moment / ending clock follow that declaration": actual filmPoseAt integration observes short-edit phases and sampled ending, and approved all-frame cmp preserves the renderer's pose input; Root only mounts the unchanged composition with no clock contract of its own.
