@@ -53,14 +53,11 @@ through the same command.
   `e69fb1c8d6f0e79806513185816f2d6454e98e24`, `startingRevision`
   `2240cb2281279e4d61124f227aaa0b6b7f9509db`, `candidateSha`
   `e69fb1c8d6f0e79806513185816f2d6454e98e24`. Previously published base for
-  the first increment is `publishedSha`.   Increments: slice 1 `0f8e4da25c1ca7f363c245134106b3141437833b`; slice 2
-  `62f2bd9da944fc4cd031a9d2788b9d25bdb2acb3`; slice 3
-  `d205ede528a0150d44a5d78bb99c3c35a309ebac` on
-  `refs/heads/cursor/i-can-replace-a-filmed-shot-while-preserving-its`
-  (next increment base is the slice 3 SHA). Observer
-  `/tmp/dough-ci-501/watch-Lw92o9` attached; no `ci.yml` — local proof
-  required (`CI_MONITOR_UNAVAILABLE`). Replanning permission: preserved
-  (neither `--replan` nor `--no-replan`).
+  the first increment is `publishedSha`.   Increments: slice 1 `0f8e4da…`; slice 2 `62f2bd9…`; slice 3 `d205ede…`;
+  slice 4 `0d56b73495c99e83aa238ab8fe7b51f6fa4a291f` on
+  `refs/heads/cursor/i-can-replace-a-filmed-shot-while-preserving-its`.
+  Observer `/tmp/dough-ci-501/watch-Prbqxj` attached; no `ci.yml` —
+  `CI_MONITOR_UNAVAILABLE`. Replanning permission: preserved.
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile'`
   passed in this workspace (2026-10-11, ~18 s). Host `ffmpeg`/`ffprobe` are
   on `PATH` outside the nix shell; run them from a plain shell. Run jest
@@ -380,3 +377,15 @@ how to replace the shot.
 - Lead pad stand-in measured ~115.514 s vs plan 115.508; trim proofs used
   the declared `to`. Hold silence confirmed with explicit `muted` +
   `volume={0}` on the Freeze path.
+
+## Execution complete
+
+Product advice: Queue/execute the correction
+`terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock`
+(plan `.planning/quick/033-shot-declaration-owns-measure-and-edit-clock/PLAN.md`)
+when ready — it blocks the README “retarget source, re-measure” path
+(`measure-shot.mjs` hardcodes the approved clip; shorter edit still phases
+`filmPoseAt` on `CLIP_SECONDS`). No other product change required for this
+story’s approved-film outcome. Optional later: whether compare Preserved
+should tolerate Feature Teams renderer AA; deferred R17 items stay deferred.
+Process review skipped (no `open-dough.json`).
