@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_narration-region-across-scenes.json",
+      "identity": "terry-moves-filmmaking#narration-region-across-scenes",
+      "completedAt": "2026-10-11T22:13:24.082Z",
+      "blob": "7422300f430cd5fa901ca19c5dd38cbe884c816d"
+    },
+    {
       "fileName": "tps-and-ai-talk_conference-ready.json",
       "identity": "tps-and-ai-talk#conference-ready",
       "completedAt": "2026-10-11T21:41:31.851Z",

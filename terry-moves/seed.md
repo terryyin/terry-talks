@@ -361,34 +361,6 @@ provenance labels; the recorded identities are the canonical work identities.
 - **Safe stopping point:** Terry can export and revise that portrait edition
   even if no wider aspect-ratio system follows.
 
-<a id="narration-region-across-scenes"></a>
-### Terry can replace a narration region that crosses a scene boundary, with the region commands held by repeatable proof
-
-**Identity:** terry-moves-filmmaking#narration-region-across-scenes
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/032-narration-region-across-scenes/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"872ca4f04f27bfc3478bc96ff15d5cc4cb2c5d1163332450d83c2752b63a33fd","plan":"58f0cc5f2381ceb166b867418d98d4d29ad2d3d64d24f4063a79b5dc28a4fa4c"}}
-```
-
-#### Goal
-
-Terry can audition and select a region of consecutive clauses that runs from
-one scene of the AI test automation workshop into the next, as the narration
-replacement story defines a region, and the region commands he already has
-keep their behavior under proof he can run again without an API.
-
-#### Scope
-
-Accept a region whose first and last clauses lie in different scenes through
-the existing audition and selection path, and keep the current single-scene
-names working unchanged. Retain repeatable offline proof of the delivered
-audition, selection, refusal and re-selection behavior beside the workshop
-producer, with its command stated in the film's maintained documentation.
-Preserve the approved workshop, its saved takes, record, script, stems, mix
-and treatment. This is a bounded correction from the narration replacement
-retrospective, with no new film promise and no paid request.
-
-Plan: [narration region across scenes](../.planning/quick/032-narration-region-across-scenes/PLAN.md).
-
 ## Ordering and scope reduction
 
 The backlog follows the accepted order above. Story 1 tests the defining silent

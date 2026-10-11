@@ -17,21 +17,27 @@ from its first word to its last, in the same connected performance."""
 
 
 def clauses(script, region):
-    """`<sceneId>:<first>-<last>` or `<sceneId>:<n>`, 1-based, as its name and flat caption slice."""
-    named = re.fullmatch(r"([^:]+):(\d+)(?:-(\d+))?", region)
+    """A 1-based single- or cross-scene name and its flat caption slice."""
+    named = re.fullmatch(r"([^:]+):(\d+)(?:-(?:([^:]+):)?(\d+))?", region)
     if not named:
-        raise ValueError(f"Name a region as <scene>:<first>-<last> or <scene>:<n>, "
-                         f"such as investigate:4-6, not {region!r}.")
-    scene, first, last = named[1], int(named[2]), int(named[3] or named[2])
+        raise ValueError(f"Name a region as <scene>:<n>, <scene>:<first>-<last> or <scene>:<n>-<scene>:<m>, "
+                         f"such as sandbox:3-investigate:1, not {region!r}.")
+    scene, first = named[1], int(named[2])
+    end_scene, last = named[3] or scene, int(named[4] or named[2])
     counts = {s["id"]: len(s["captionRanges"]) for s in script["scenes"]}
-    if scene not in counts:
-        known = ", ".join(f"{name} ({count})" for name, count in counts.items())
-        raise ValueError(f"The script has no scene {scene!r}. Its scenes and clause counts are {known}.")
-    if not 1 <= first <= last <= counts[scene]:
-        raise ValueError(f"Scene {scene!r} has {counts[scene]} clauses, so {region} names no region of it.")
-    offset = sum(list(counts.values())[:list(counts).index(scene)])
-    name = f"{scene}:{first}" + (f"-{last}" if last > first else "")
-    return name, offset + first - 1, offset + last
+    for endpoint, clause in ((scene, first), (end_scene, last)):
+        if endpoint not in counts:
+            known = ", ".join(f"{name} ({count})" for name, count in counts.items())
+            raise ValueError(f"The script has no scene {endpoint!r}; its scenes and clause counts are {known}.")
+        if not 1 <= clause <= counts[endpoint]:
+            raise ValueError(f"Scene {endpoint!r} has {counts[endpoint]} clauses, so {region} names no region of it.")
+    offset = lambda endpoint: sum(list(counts.values())[:list(counts).index(endpoint)])
+    start, end = offset(scene) + first - 1, offset(end_scene) + last
+    if end <= start:
+        raise ValueError(f"The end of {region} precedes its start; scene {scene!r} has {counts[scene]} clauses "
+                         f"and scene {end_scene!r} has {counts[end_scene]} clauses.")
+    suffix = f"-{end_scene}:{last}" if named[3] else (f"-{last}" if last > first else "")
+    return f"{scene}:{first}{suffix}", start, end
 
 
 def request_candidate(folder, name, region, text, spoken, note, run, sample_rate):

@@ -41,9 +41,12 @@ and a decisive stop gives way to quieter repair.
 
 ## Replacing one narrated region
 
-A region is one clause or a run of consecutive clauses of one scene, named
-`<scene>:<first>-<last>` or `<scene>:<n>` with 1-based clause positions, such as
-`investigate:4-6`. The same words are performed again; nothing else is re-requested.
+A region is one clause or a run of consecutive clauses, including across scenes.
+Use `<scene>:<first>-<last>` or `<scene>:<n>` within one scene, such as
+`investigate:4-6`, or `<scene>:<n>-<scene>:<m>` across scenes, such as
+`sandbox:3-investigate:1`, with 1-based clause positions at each end.
+Unknown scenes or clauses and an end before the start are refused with the scene's
+clause counts. The same words are performed again; nothing else is re-requested.
 
 ```bash
 python3 'AI Test Automation/produce_audio.py' --audition investigate:4-6 --note "more weight on relief" --candidates 3
@@ -68,13 +71,25 @@ change in the region's length. The region take is saved under
 direction in `cedar-performance.json`, whose `baseWords` keep the base take's own measurement.
 Score, effects, mix and treatment are regenerated in the same run; then run the render command
 for the film and subtitles, and update the runtime figures and region sentence in this file,
-which are written by hand. A candidate that fails its audit, a region overlapping another
-replaced region, or a result longer than 85 seconds is refused before anything is written.
+which are written by hand. Scene boundaries inside a replacement follow its measured
+caption cues. A candidate that fails its audit, a region overlapping another replaced
+region, or a result longer than 85 seconds is refused before saved takes, the record or
+the script change; ignored prepared and audition audio may be rebuilt during checking.
 Selecting the same region again replaces its take; another region is added beside it. A run
 with no flags verifies every saved take against its recorded hash and names the first that differs.
 
-`python3 -m unittest discover -s scripts -p 'test_*.py'` checks the shared composition and
-record helpers in `scripts/narration_audio.py`.
+Run these offline checks from the repository root with Python and ffmpeg installed:
+
+```bash
+python3 -m unittest discover -s scripts -p 'test_*.py'
+python3 -m unittest discover -s 'AI Test Automation' -p 'test_*.py'
+```
+
+The first checks the shared composition and record helpers in `scripts/narration_audio.py`.
+The second drives region audition and selection on a temporary synthetic workshop, including
+cross-scene naming and measured scene boundaries, naming, transcript, ceiling and overlap
+refusals, second-region selection and re-selection. Neither
+needs an API key or network access, and neither changes the approved film.
 
 The voice is **Cedar synthetic AI narration**, not Terry’s recorded voice.
 The film credits it on the final workshop shot and author card. See the [film treatment](./film-treatment.md), producer and workshop soundtrack
