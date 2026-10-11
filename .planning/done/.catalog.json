@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_character-prop-interaction.json",
+      "identity": "terry-moves-filmmaking#character-prop-interaction",
+      "completedAt": "2026-10-11T00:41:18.348Z",
+      "blob": "51f02c293dbb57b9db1127c4777fab6fea8c4ce3"
+    },
+    {
       "fileName": "terry-moves-filmmaking_subtitle-export-test-isolation.json",
       "identity": "terry-moves-filmmaking#subtitle-export-test-isolation",
       "completedAt": "2026-10-10T10:55:01.292Z",

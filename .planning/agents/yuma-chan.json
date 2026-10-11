@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Yuma-chan",
-  "email": "yuma-chan@example.org",
-  "identity": "terry-moves-filmmaking#character-prop-interaction",
-  "mode": "story-branch",
-  "branch": "claude/i-can-bring-an-existing-character-into-a-new-sce",
-  "host": "claude"
-}
