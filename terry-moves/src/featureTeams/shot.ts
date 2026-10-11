@@ -62,18 +62,39 @@ const firstUnreachedCue = (cues: ReadonlyArray<ShotCue>, slotSeconds: number): S
 			undefined,
 		);
 
+const cropOutsideFrame = (crop: Shot['crop']): boolean =>
+	crop.left < 0 ||
+	crop.left > 1 ||
+	crop.top < 0 ||
+	crop.top > 1 ||
+	crop.width < 0 ||
+	crop.width > 1 ||
+	crop.left + crop.width > 1;
+
 // Pure: slot length, hold, frame count and inset video placement from the
 // declaration and measured source. The approved film uses full play, edit and
-// voice; hold and ranged play compile for replacement timing choices. Edit
-// refuses when the slot ends before a choreography cue.
+// voice; hold and ranged play compile for replacement timing choices. Refuses
+// a crop outside the frame, a play range outside the measured length, voice
+// without audio, or edit when the slot ends before a choreography cue.
 export const compileShot = (
 	shot: Shot,
 	measurement: ShotMeasurement,
 	choreography: ShotChoreography,
 	fps: number,
 ): CompiledShot => {
+	if (cropOutsideFrame(shot.crop)) {
+		throw new Error(`${shot.source}: crop is outside the source frame`);
+	}
 	const from = shot.play === 'full' ? 0 : shot.play.from;
 	const to = shot.play === 'full' ? measurement.durationSeconds : shot.play.to;
+	if (from < 0 || to > measurement.durationSeconds || to <= from) {
+		throw new Error(
+			`${shot.source}: play range ${from}–${to} s is outside the measured length ${measurement.durationSeconds} s`,
+		);
+	}
+	if (shot.audio === 'voice' && !measurement.hasAudio) {
+		throw new Error(`${shot.source}: voice policy requires an audio stream`);
+	}
 	const slotSeconds = to - from;
 	if (shot.whenShort === 'edit') {
 		const unreached = firstUnreachedCue(choreography.cues, slotSeconds);

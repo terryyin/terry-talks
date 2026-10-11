@@ -53,11 +53,12 @@ through the same command.
   `e69fb1c8d6f0e79806513185816f2d6454e98e24`, `startingRevision`
   `2240cb2281279e4d61124f227aaa0b6b7f9509db`, `candidateSha`
   `e69fb1c8d6f0e79806513185816f2d6454e98e24`. Previously published base for
-  the first increment is `publishedSha`.   Slice 1 increment `0f8e4da25c1ca7f363c245134106b3141437833b`; slice 2
-  `62f2bd9da944fc4cd031a9d2788b9d25bdb2acb3` on
+  the first increment is `publishedSha`.   Increments: slice 1 `0f8e4da25c1ca7f363c245134106b3141437833b`; slice 2
+  `62f2bd9da944fc4cd031a9d2788b9d25bdb2acb3`; slice 3
+  `d205ede528a0150d44a5d78bb99c3c35a309ebac` on
   `refs/heads/cursor/i-can-replace-a-filmed-shot-while-preserving-its`
-  (next increment base is the slice 2 SHA). Observer
-  `/tmp/dough-ci-501/watch-1wXpU5` attached; no `ci.yml` — local proof
+  (next increment base is the slice 3 SHA). Observer
+  `/tmp/dough-ci-501/watch-Lw92o9` attached; no `ci.yml` — local proof
   required (`CI_MONITOR_UNAVAILABLE`). Replanning permission: preserved
   (neither `--replan` nor `--no-replan`).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile'`
@@ -208,7 +209,7 @@ modules (`grep -rn featureTeams src tests`: only those files).
 ### G1. Compare stage pixels exceed plan ≤6 sample
 Reported: slice 1 — "stage AA often max ~15–17 (up to 55) on few pixels — above the plan's ≤6 sample, same class of renderer noise"
 Story clause: "no picture difference beyond the renderer's own run-to-run noise"
-Disposition: interim until slices 4
+Disposition: proved by slice 4: timeline `cmp` identical; compare report `FeatureTeamsFilm-2026-10-11T08-53-51-311Z` duration/audio unchanged; inset max delta 1 (0 previews >6); outside-inset median max 15 / max 55 on few pixels — same settled renderer-noise class as plan learnings (exact Preserved unreachable)
 
 ## Ordered slices
 
@@ -315,7 +316,13 @@ playback rate is never changed.
 
 ### 4. Terry gets useful feedback, and the film documents the shot
 Type: Behavior
-Status: planned
+Status: done
+Accepted proof: unit refusals (crop / range 0–120 / voice+no-audio) naming
+the shot; rename makes `measure-shot --check` and `render:feature-teams`
+stop; README Feature Teams section (credits unchanged); focused
+`tests/featureTeams` 25 tests; gate 61 suites / 663 tests; timeline `cmp`
+identical; compare `FeatureTeamsFilm-2026-10-11T08-53-51-311Z`
+duration/audio unchanged, inset max 1; G1 proved (see Story obligations).
 Proof: unit proof on `compileShot` for a crop with `left + width > 1`, a
 range `0–120` on the measured 113.508 s, and `audio: 'voice'` with
 `hasAudio: false` (a stand-in made with `ffmpeg -an`, measured, so the
@@ -364,11 +371,10 @@ how to replace the shot.
   noise is a product decision for Terry, outside this story.
 - Run jest, remotion and the compare tool inside the nix dev shell with
   `NODE_ENV=test`; ffmpeg and ffprobe are host binaries outside it.
-- Slice 1 compare vs `f0bedba` with the declared shot: duration/audio match
-  and the inset stays within ≤6, but stage/character AA often peaks ~15–17
-  (max 55) on a few pixels — above the plan's stage sample of ≤6. Exact
-  preservation for this story remains the timeline dump `cmp`; G1 tracks
-  the compare noise reading through slice 4.
+- Slice 1/4 compare vs `f0bedba`: duration/audio match and inset ≤6, but
+  outside-inset AA often peaks ~15–17 (max 55) on a few pixels — above the
+  plan's stage sample of ≤6. Exact preservation remains the timeline dump
+  `cmp`; G1 closed as proved by that plus audio/duration/inset (slice 4).
 - Stand-in crop `896:1769:92:77` encodes as height **1768** under yuv420;
   unit proof and measurements use the stored height.
 - Lead pad stand-in measured ~115.514 s vs plan 115.508; trim proofs used

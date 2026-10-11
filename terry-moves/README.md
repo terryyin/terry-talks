@@ -134,6 +134,10 @@ The 'camera' actor is a special actor that is used to represent the camera in th
 
 The special ability it has is to 'look at' a position.
 
+# Feature Teams
+
+Bas Vodde's speaker clip is a portrait inset declared in [`src/featureTeams/shot.ts`](src/featureTeams/shot.ts) (`speakerShot`: source under `public/`, crop fractions, `play` as `full` or `{ from, to }`, `whenShort` `edit`|`hold`, `audio` `voice`|`muted`). Measured facts in [`shot-measurement.json`](src/featureTeams/shot-measurement.json) via `node scripts/measure-shot.mjs` (`--check` before `pnpm render:feature-teams`). Replace under `public/assets/`, retarget `source`, re-measure; new crop only when geometry differs. Same length: no cue/scene/test-literal edits. Different length — **trim** (explicit range), **hold** (freeze silently to choreography end), or **edit** (slot follows new length; unreached cues stop before render). Missing or changed file, out-of-frame crop, out-of-length play, or `voice` without audio also stop and name the shot and problem. Studio or `pnpm render:feature-teams`. Credits stay "An idea and film by Terry Yin" and "Content and voice by Bas Vodde".
+
 # Silent scene
 
 Direct the Engineer by editing [the script](src/silentScene/script.ts): choose

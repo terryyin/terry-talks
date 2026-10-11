@@ -140,4 +140,39 @@ describe('FeatureTeamsShot compile and replacement', () => {
 		);
 		expect(CUE.joy).toBe(109.3);
 	});
+
+	test('crop, play range and voice without audio each name the shot and the problem', () => {
+		const wideCrop: Shot = {
+			...speakerShot,
+			crop: { left: 0.3, top: 0.04, width: 0.83 },
+		};
+		expect(() => compileShot(wideCrop, measurement, speakerChoreography, FPS)).toThrow(
+			`${speakerShot.source}: crop is outside the source frame`,
+		);
+
+		const longRange: Shot = {
+			...speakerShot,
+			play: { from: 0, to: 120 },
+		};
+		expect(() => compileShot(longRange, measurement, speakerChoreography, FPS)).toThrow(
+			`${speakerShot.source}: play range 0–120 s is outside the measured length ${measurement.durationSeconds} s`,
+		);
+
+		// Facts from a real ffmpeg -an export of the approved clip (measured, then deleted).
+		const silentMeasurement: ShotMeasurement = {
+			...measurement,
+			source: 'assets/feature-teams-stand-ins/silent.mp4',
+			sha256: '2f41ee228621cc6a7e85ccff808ae179fdbca909da96a50cb47730d0ab33ed6f',
+			durationSeconds: 113.5,
+			hasAudio: false,
+		};
+		const voiceSilent: Shot = {
+			...speakerShot,
+			source: silentMeasurement.source,
+			audio: 'voice',
+		};
+		expect(() => compileShot(voiceSilent, silentMeasurement, speakerChoreography, FPS)).toThrow(
+			`${silentMeasurement.source}: voice policy requires an audio stream`,
+		);
+	});
 });
