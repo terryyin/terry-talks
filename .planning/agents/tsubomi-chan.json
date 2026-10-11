@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Tsubomi-chan",
+  "email": "tsubomi-chan@example.org",
+  "identity": "terry-moves-filmmaking#narration-region-across-scenes",
+  "mode": "story-branch",
+  "branch": "codex/terry-can-replace-a-narration-region-that-crosse",
+  "host": "codex"
+}
