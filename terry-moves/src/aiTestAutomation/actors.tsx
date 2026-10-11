@@ -4,6 +4,12 @@ import { articulatedArm, Point } from './motion';
 
 export type Mood = 'concerned' | 'focused' | 'pleased' | 'surprised' | 'panicked' | 'determined' | 'relieved';
 export type Pose = 'stop' | 'rest';
+export type SpeechMouth = 'rest' | 'open' | 'round' | 'wide';
+
+/** A single mouth replaces the expression mouth only when a speech track is supplied. */
+const Mouth: React.FC<{shape: SpeechMouth; y: number}> = ({shape, y}) => <g data-testid="speech-mouth" transform={`translate(0 ${y})`}>
+	{shape === 'rest' ? <path d="M-11 0Q0 2 11 0" fill="none" strokeWidth="3"/> : shape === 'round' ? <ellipse rx="7" ry="10" fill={palette.ink} strokeWidth="3"/> : <g><path d={shape === 'wide' ? 'M-17-4Q0-8 17-4Q14 10 0 10Q-14 10-17-4Z' : 'M-12-5Q0-8 12-5Q13 12 0 13Q-13 12-12-5Z'} fill={palette.ink} strokeWidth="3"/><path d={shape === 'wide' ? 'M-13-3Q0-5 13-3L11 1H-11Z' : 'M-8-4Q0-6 8-4L7 0H-7Z'} fill={palette.cream} stroke="none"/><path d="M-5 8Q0 4 5 8" fill="none" stroke={palette.coral} strokeWidth="2"/></g>}
+</g>;
 
 /** The Engineer's right arm in actor-local units from the feet, shared with scenes that plan reachable targets. */
 export const engineerRig = {
@@ -27,7 +33,7 @@ const Arm: React.FC<{ shoulder: Point; hand: Point; color: string; stop?: boolea
 };
 
 /** Anchored at the feet. Continuous hand targets keep gestures attached to props. */
-export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; pose?: Pose; gaze?: number; blink?: boolean; headTilt?: number; leftHand?: Point; rightHand?: Point }> = ({ x, y, scale = 1, mood = 'focused', pose = 'rest', gaze = 0, blink = false, headTilt = 0, leftHand, rightHand }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="engineer" data-pose={pose} data-mood={mood}>
+export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; pose?: Pose; gaze?: number; blink?: boolean; headTilt?: number; speechMouth?: SpeechMouth; leftHand?: Point; rightHand?: Point }> = ({ x, y, scale = 1, mood = 'focused', pose = 'rest', gaze = 0, blink = false, headTilt = 0, speechMouth, leftHand, rightHand }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="engineer" data-pose={pose} data-mood={mood}>
 	<ellipse cy="4" rx="78" ry="16" fill={palette.shadow} opacity="0.3"/>
 	<g transform="rotate(0 0 -130)" stroke={palette.ink} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
 		<path d="M-49-139L-48-19L-14-18L2-98L20-20L55-23L39-141Z" fill="#657788"/>
@@ -48,14 +54,14 @@ export const Engineer: React.FC<{ x: number; y: number; scale?: number; mood?: M
 		{blink || mood === 'relieved' ? <path d={mood === 'relieved' ? 'M-40-304Q-31-310-23-304M9-304Q18-310 26-304' : 'M-40-305H-23M9-305H26'} fill="none" strokeWidth="4"/> : <g stroke="none"><ellipse cx={-31 + gaze * 4} cy="-305" rx="4.5" ry={mood === 'panicked' ? 9 : 6} fill={palette.ink}/><ellipse cx={17 + gaze * 4} cy="-305" rx="4.5" ry={mood === 'panicked' ? 9 : 6} fill={palette.ink}/><circle cx={-30 + gaze * 4} cy="-307" r="1.5" fill="white"/><circle cx={18 + gaze * 4} cy="-307" r="1.5" fill="white"/></g>}
 		<path d={mood === 'panicked' ? 'M-42-329L-23-343 M8-343L28-329' : mood === 'determined' ? 'M-42-337L-23-328 M8-328L28-337' : mood === 'concerned' ? 'M-42-328L-23-335 M8-335L28-326' : mood === 'surprised' ? 'M-42-341Q-31-348-22-340M9-340Q20-348 30-340' : 'M-42-333L-23-332M10-331L29-333'} fill="none" strokeWidth="4"/>
 		<path d="M0-303L-4-284L4-282" fill="none" stroke="#A96551" strokeWidth="3"/>
-		<path d={mood === 'pleased' || mood === 'relieved' ? 'M-15-271Q2-256 18-271' : mood === 'panicked' ? 'M-14-264Q0-280 16-264' : mood === 'determined' ? 'M-13-269L13-271' : mood === 'concerned' ? 'M-10-268Q1-275 12-268' : mood === 'surprised' ? 'M-7-271Q1-283 9-271Q1-258-7-271' : 'M-11-270Q0-266 13-272'} fill={mood === 'surprised' ? palette.ink : 'none'} strokeWidth="3"/>
+		{speechMouth !== undefined ? <Mouth shape={speechMouth} y={-270}/> : <path d={mood === 'pleased' || mood === 'relieved' ? 'M-15-271Q2-256 18-271' : mood === 'panicked' ? 'M-14-264Q0-280 16-264' : mood === 'determined' ? 'M-13-269L13-271' : mood === 'concerned' ? 'M-10-268Q1-275 12-268' : mood === 'surprised' ? 'M-7-271Q1-283 9-271Q1-258-7-271' : 'M-11-270Q0-266 13-272'} fill={mood === 'surprised' ? palette.ink : 'none'} strokeWidth="3"/>}
 		{mood === 'panicked' && <path d="M-79-311Q-90-293-79-289Q-68-293-79-311M69-327Q58-309 69-305Q80-309 69-327" fill={palette.sky} strokeWidth="2"/>}
 		<ellipse cx="-35" cy="-280" rx="10" ry="4" fill={palette.coral} opacity="0.45" stroke="none"/>
 		</g>
 	</g>
 </g>;
 
-export const AI: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; gaze?: number; blink?: boolean; tilt?: number; leftHand?: Point; rightHand?: Point }> = ({ x, y, scale = 1, mood = 'focused', gaze = -1, blink = false, tilt = 0, leftHand, rightHand }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="ai-companion" data-pose="rest">
+export const AI: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; gaze?: number; blink?: boolean; tilt?: number; speechMouth?: SpeechMouth; leftHand?: Point; rightHand?: Point }> = ({ x, y, scale = 1, mood = 'focused', gaze = -1, blink = false, tilt = 0, speechMouth, leftHand, rightHand }) => <g transform={`translate(${x} ${y}) scale(${scale})`} data-testid="ai-companion" data-pose="rest">
 	<ellipse cy="5" rx="72" ry="15" fill={palette.shadow} opacity="0.28"/>
 	<g transform={`rotate(${tilt} 0 -100)`} stroke={palette.ink} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
 		<path d="M-35-61L-40-17M34-61L39-17" strokeWidth="18"/>
@@ -67,7 +73,7 @@ export const AI: React.FC<{ x: number; y: number; scale?: number; mood?: Mood; g
 		<Arm shoulder={{ x: 62, y: -164 }} hand={rightHand ?? { x: 96, y: -102 }} color={palette.mint} robot/>
 		<rect x="-47" y="-191" width="94" height="66" rx="24" fill={palette.cream}/>
 		{blink ? <path d="M-30-156H-15M15-156H30"/> : <g stroke="none"><ellipse cx={-22 + gaze * 4} cy="-163" rx="6" ry={mood === 'surprised' ? 10 : 7} fill={palette.ink}/><ellipse cx={22 + gaze * 4} cy="-163" rx="6" ry={mood === 'surprised' ? 10 : 7} fill={palette.ink}/></g>}
-		<path d={mood === 'concerned' ? 'M-11-141Q0-149 11-141' : mood === 'pleased' ? 'M-13-146Q0-132 13-146' : 'M-10-141H10'} fill="none" strokeWidth="3"/>
+		{speechMouth !== undefined ? <Mouth shape={speechMouth} y={-141}/> : <path d={mood === 'concerned' ? 'M-11-141Q0-149 11-141' : mood === 'pleased' ? 'M-13-146Q0-132 13-146' : 'M-10-141H10'} fill="none" strokeWidth="3"/>}
 		<path d={mood === 'concerned' ? 'M-35-180L-17-185M16-185L34-180' : 'M-35-181L-17-181M17-181L35-181'} fill="none" strokeWidth="3"/>
 		<path d="M-13-106L-5-114L3-106L11-114" stroke="#D5FAEE" strokeWidth="3"/>
 	</g>

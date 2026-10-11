@@ -1,0 +1,33 @@
+{
+  "credit": "Cedar and Marin \u00b7 OpenAI synthetic voices",
+  "takes": {
+    "question": {
+      "actor": "engineer",
+      "voice": "cedar",
+      "text": "Passing which tests? Did we check what the customer actually needed?",
+      "direction": "Speak these exact words as a thoughtful engineer talking to a trusted colleague. Curious, warm, quietly questioning; never scolding or theatrical. A small natural breath between the two questions. Put gentle emphasis on which tests and actually needed. Natural conversational pace. Only speak the supplied words.",
+      "model": "gpt-4o-mini-tts",
+      "file": "assets/illustrated-conversation/question.wav",
+      "sha256": "d7be7d7c8a0907e35c327f14b37f84d6d47257b70a03ce3dccc41fb7292c3cec",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleFrames": 115200,
+      "sampleWidth": 2,
+      "durationSeconds": 4.8
+    },
+    "reconsider": {
+      "actor": "ai",
+      "voice": "marin",
+      "text": "I checked the code I wrote. I didn't ask that.",
+      "direction": "Speak these exact words as a helpful colleague realizing a limitation. Start reflective, slightly subdued; a small natural pause after wrote, then honest recognition on I did not ask that. Warm and candid, no robot affect, no caricature or sales voice. Natural conversational pace. Only speak the supplied words.",
+      "model": "gpt-4o-mini-tts",
+      "file": "assets/illustrated-conversation/reconsider.wav",
+      "sha256": "3f062b6b68d8e250cd50aaeac0eae9abc697fc8edf266c29e3ec0da787478d37",
+      "sampleRate": 24000,
+      "channels": 1,
+      "sampleFrames": 79200,
+      "sampleWidth": 2,
+      "durationSeconds": 3.3
+    }
+  }
+}

@@ -241,3 +241,9 @@ exports. Select `TreatmentSelected` or `TreatmentSelectedContinued` in Studio.
 See [the film guide](../ATDD/README.md) for the source references, saved
 narration, `render:atdd` film export and `diagrams:atdd` SVG/PNG exports.
 Select `ATDDFilm`, `ATDDSolutionTree` or `ATDDScenarioCycle` in Studio.
+
+## Illustrated conversation pilot
+
+See [the pilot guide](src/illustratedConversation/README.md) for saved takes, script direction and sound-on review.
+
+Export: `pnpm -C terry-moves render:illustrated-conversation:pilot`.
