@@ -7,10 +7,10 @@ import { Easing } from 'remotion';
 import { between, bounce, BOUNCY, POPPY, settle } from '../storyImpact/motion';
 import { palette } from '../storyImpact/scene';
 import type { EndCardPose, TitlePose } from '../storyImpact/scene';
-import { CLIP_SECONDS, SCENE_END } from './cues';
+import { CLIP_SECONDS, CUE, SCENE_END } from './cues';
 import { mixHex, Pose, poseAt } from './pose';
 import measurement from './shot-measurement.json';
-import { compileShot, speakerShot } from './shot';
+import { compileShot, speakerShot, type ShotCue } from './shot';
 
 export { FPS } from '../storyImpact/motion';
 import { FPS } from '../storyImpact/motion';
@@ -29,7 +29,12 @@ export const HOLD_SECONDS = 1.5; // the scene's last moment, after Bas has finis
 export const END_SECONDS = 7;
 export const OPEN_FRAMES = Math.round(OPEN_SECONDS * FPS);
 
-export const speakerSlot = compileShot(speakerShot, measurement, { end: SCENE_END }, FPS);
+const choreographyCues: ShotCue[] = Object.entries(CUE).flatMap(([name, at]) =>
+	Array.isArray(at) ? at.map((t) => ({ name, at: t })) : [{ name, at }],
+);
+
+export const speakerChoreography = { end: SCENE_END, cues: choreographyCues };
+export const speakerSlot = compileShot(speakerShot, measurement, speakerChoreography, FPS);
 // Clip sequence length and film length follow the compiled slot; the pose clock
 // still samples through CLIP_SECONDS (choreography SCENE_END) as today.
 export const CLIP_FRAMES = speakerSlot.videoFrames;

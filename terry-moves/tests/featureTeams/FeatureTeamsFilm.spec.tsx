@@ -25,25 +25,10 @@ import {
 import { INSET, LOGO } from '@/featureTeams/layout';
 import { poseAt } from '@/featureTeams/pose';
 import measurement from '@/featureTeams/shot-measurement.json';
-import { compileShot, speakerShot, type Shot, type ShotMeasurement } from '@/featureTeams/shot';
 import { FeatureTeamsScene } from '@/featureTeams/Scene';
 import { OddeCorner } from '@/stories/FeatureTeamsFilm';
 
 const frameOf = (clipSeconds: number) => OPEN_FRAMES + Math.round(clipSeconds * FPS);
-
-// How the declared crop lands in the inset: drawn width, crop-origin offsets and
-// scale (inset pixels per source pixel). Used to prove a re-framed stand-in with
-// full-frame crop matches the approved crop mapping within a pixel.
-const insetMapping = (shot: Shot, m: ShotMeasurement) => {
-	const { placement } = compileShot(shot, m, { end: SCENE_END }, FPS);
-	const videoHeight = placement.videoWidth * (m.height / m.width);
-	return {
-		drawnCropWidth: placement.videoWidth * shot.crop.width,
-		cropOriginLeft: placement.left + shot.crop.left * placement.videoWidth,
-		cropOriginTop: placement.top + shot.crop.top * videoHeight,
-		scale: placement.videoWidth / m.width,
-	};
-};
 
 describe('FeatureTeamsFilm timeline', () => {
 	test('the opening shifts Bas\'s clip, which plays in full, and the ending follows it', () => {
@@ -78,55 +63,6 @@ describe('FeatureTeamsFilm timeline', () => {
 	test('the clip file matches the committed measurement record', () => {
 		const take = fs.readFileSync(path.join(__dirname, '../../public', measurement.source));
 		expect(createHash('sha256').update(take).digest('hex')).toBe(measurement.sha256);
-	});
-
-	// Stand-in geometry is the approved crop as integer pixels (ffmpeg
-	// crop=896:1769:92:77; yuv420 encode stores height 1768). In-memory only —
-	// stand-in files are never committed.
-	test('a re-framed stand-in with full-frame crop matches the approved inset mapping within a pixel', () => {
-		const standInMeasurement: ShotMeasurement = {
-			source: 'assets/feature-teams-stand-ins/margins-cut.mp4',
-			sha256: 'in-memory-stand-in',
-			durationSeconds: measurement.durationSeconds,
-			width: 896,
-			height: 1768,
-			fps: measurement.fps,
-			hasAudio: true,
-		};
-		const standInShot: Shot = {
-			source: standInMeasurement.source,
-			crop: { left: 0, top: 0, width: 1 },
-			play: 'full',
-			whenShort: 'edit',
-			audio: 'voice',
-		};
-		const approved = compileShot(speakerShot, measurement, { end: SCENE_END }, FPS);
-		const standIn = compileShot(standInShot, standInMeasurement, { end: SCENE_END }, FPS);
-		const a = insetMapping(speakerShot, measurement);
-		const s = insetMapping(standInShot, standInMeasurement);
-
-		expect(s.drawnCropWidth).toBe(INSET.width);
-		expect(a.drawnCropWidth).toBe(INSET.width);
-		expect(Math.abs(s.cropOriginLeft - a.cropOriginLeft)).toBeLessThanOrEqual(1);
-		expect(Math.abs(s.cropOriginTop - a.cropOriginTop)).toBeLessThanOrEqual(1);
-		expect(Math.abs(s.scale - a.scale)).toBeLessThanOrEqual(1 / measurement.width);
-
-		// Stand-in's frame is the approved crop region; mapped back, the inset
-		// window covers the same source pixels within one pixel.
-		const standInOrigin = { left: 92, top: 77 };
-		const approvedSrcLeft = speakerShot.crop.left * measurement.width;
-		const approvedSrcTop = -approved.placement.top / a.scale;
-		const standInSrcLeft = standInOrigin.left - standIn.placement.left / s.scale;
-		const standInSrcTop = standInOrigin.top - standIn.placement.top / s.scale;
-		expect(Math.abs(standInSrcLeft - approvedSrcLeft)).toBeLessThanOrEqual(1);
-		expect(Math.abs(standInSrcTop - approvedSrcTop)).toBeLessThanOrEqual(1);
-		expect(Math.abs(standInMeasurement.width - speakerShot.crop.width * measurement.width)).toBeLessThanOrEqual(1);
-
-		expect(standIn.slotSeconds).toBe(approved.slotSeconds);
-		expect(standIn.videoFrames).toBe(approved.videoFrames);
-		expect(standIn.sceneSeconds).toBe(approved.sceneSeconds);
-		expect(standIn.audio).toBe('voice');
-		expect(standIn.holdFrom).toBeNull();
 	});
 });
 

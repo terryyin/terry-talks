@@ -53,14 +53,13 @@ through the same command.
   `e69fb1c8d6f0e79806513185816f2d6454e98e24`, `startingRevision`
   `2240cb2281279e4d61124f227aaa0b6b7f9509db`, `candidateSha`
   `e69fb1c8d6f0e79806513185816f2d6454e98e24`. Previously published base for
-  the first increment is `publishedSha`. Slice 1 increment published at
-  `0f8e4da25c1ca7f363c245134106b3141437833b` on
+  the first increment is `publishedSha`.   Slice 1 increment `0f8e4da25c1ca7f363c245134106b3141437833b`; slice 2
+  `62f2bd9da944fc4cd031a9d2788b9d25bdb2acb3` on
   `refs/heads/cursor/i-can-replace-a-filmed-shot-while-preserving-its`
-  (previously published base `e69fb1c8d6f0e79806513185816f2d6454e98e24`;
-  next increment base is that SHA). Observer
-  `/tmp/dough-ci-501/watch-8SRdMu` attached; no project workflows — local
-  proof remains required. Replanning permission: preserved (neither
-  `--replan` nor `--no-replan`).
+  (next increment base is the slice 2 SHA). Observer
+  `/tmp/dough-ci-501/watch-1wXpU5` attached; no `ci.yml` — local proof
+  required (`CI_MONITOR_UNAVAILABLE`). Replanning permission: preserved
+  (neither `--replan` nor `--no-replan`).
 - **Checkout setup:** `nix develop -c sh -c 'pnpm install --frozen-lockfile'`
   passed in this workspace (2026-10-11, ~18 s). Host `ffmpeg`/`ffprobe` are
   on `PATH` outside the nix shell; run them from a plain shell. Run jest
@@ -286,7 +285,12 @@ are unchanged; the stand-in's own sound plays under the voice policy.
 
 ### 3. A different-length source follows Terry's trim, hold or edit choice
 Type: Behavior
-Status: planned
+Status: done
+Accepted proof: in-memory lead trim/full and short hold/edit unit tests in
+`FeatureTeamsShot.spec.tsx`; focused `tests/featureTeams` 3 suites / 24
+tests; lead-trim timeline `cmp` identical; short-hold WAV frames 3366–3513
+silent (peak 0) with Freeze+mute; freeze stills show frozen inset /
+advancing stage; stand-ins removed. `ClipInset` takes `CompiledShot`.
 Proof: two stand-ins: `lead.mp4` with 2.0 s of leading room (ffmpeg
 `tpad`/`adelay`, 115.508 s) and `short.mp4` cut at 108.6 s. Unit proof on
 `compileShot`: lead with `play: { from: 2.0, to: 115.508 }` gives the
@@ -367,3 +371,6 @@ how to replace the shot.
   the compare noise reading through slice 4.
 - Stand-in crop `896:1769:92:77` encodes as height **1768** under yuv420;
   unit proof and measurements use the stored height.
+- Lead pad stand-in measured ~115.514 s vs plan 115.508; trim proofs used
+  the declared `to`. Hold silence confirmed with explicit `muted` +
+  `volume={0}` on the Freeze path.

@@ -21,8 +21,11 @@ export type ShotMeasurement = {
 	hasAudio: boolean;
 };
 
+export type ShotCue = { name: string; at: number };
+
 export type ShotChoreography = {
 	end: number;
+	cues: ReadonlyArray<ShotCue>;
 };
 
 export type ShotPlacement = {
@@ -51,9 +54,18 @@ export const speakerShot = {
 	audio: 'voice',
 } as const satisfies Shot;
 
+const firstUnreachedCue = (cues: ReadonlyArray<ShotCue>, slotSeconds: number): ShotCue | undefined =>
+	cues
+		.filter((cue) => cue.at > slotSeconds)
+		.reduce<ShotCue | undefined>(
+			(earliest, cue) => (!earliest || cue.at < earliest.at ? cue : earliest),
+			undefined,
+		);
+
 // Pure: slot length, hold, frame count and inset video placement from the
 // declaration and measured source. The approved film uses full play, edit and
-// voice; hold and ranged play compile for replacement timing choices.
+// voice; hold and ranged play compile for replacement timing choices. Edit
+// refuses when the slot ends before a choreography cue.
 export const compileShot = (
 	shot: Shot,
 	measurement: ShotMeasurement,
@@ -63,6 +75,14 @@ export const compileShot = (
 	const from = shot.play === 'full' ? 0 : shot.play.from;
 	const to = shot.play === 'full' ? measurement.durationSeconds : shot.play.to;
 	const slotSeconds = to - from;
+	if (shot.whenShort === 'edit') {
+		const unreached = firstUnreachedCue(choreography.cues, slotSeconds);
+		if (unreached) {
+			throw new Error(
+				`Played range ${from}–${to} s ends at ${slotSeconds} s before cue ${unreached.name} at ${unreached.at} s`,
+			);
+		}
+	}
 	const sceneSeconds = shot.whenShort === 'edit' ? slotSeconds : Math.max(slotSeconds, choreography.end);
 	const holdFrom =
 		shot.whenShort === 'hold' && slotSeconds < choreography.end ? slotSeconds : null;

@@ -1,28 +1,32 @@
 import React from 'react';
-import { AbsoluteFill, Composition, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Composition, Freeze, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { palette } from '../storyImpact/scene';
 import { STAGE } from '../storyImpact/layout';
 import { OddeLogo } from '../parts/OddeLogo';
 import { OddeLogoInner } from '../parts/OddeLogoInner';
 import { FlipCoin } from '../video_components/AutonomousComponents/FlipCoin';
-import { CLIP_FRAMES, durationInFrames, FPS, filmPoseAt, OPEN_FRAMES, speakerSlot } from '../featureTeams/film';
+import { durationInFrames, FPS, filmPoseAt, OPEN_FRAMES, speakerSlot } from '../featureTeams/film';
 import { INSET, LOGO } from '../featureTeams/layout';
 import { FeatureTeamsScene } from '../featureTeams/Scene';
-import type { ShotPlacement } from '../featureTeams/shot';
+import type { CompiledShot } from '../featureTeams/shot';
 
 // Bas Vodde's clip, with his audio, as a picture-in-picture in the lower
 // right; the animation follows his narration. The film adds its own short
 // opening and ending. Source, crop and play come from the compiled speaker shot.
 
-const ClipInset: React.FC<{ shown: number; placement: ShotPlacement; from: number; to: number; source: string; muted: boolean }> = ({
-	shown,
-	placement,
-	from,
-	to,
-	source,
-	muted,
-}) => {
+const ClipInset: React.FC<{ shown: number; slot: CompiledShot }> = ({ shown, slot }) => {
 	const { fps } = useVideoConfig();
+	const { placement, from, to, source, videoFrames, sceneSeconds, holdFrom } = slot;
+	const muted = slot.audio === 'muted';
+	const videoStyle: React.CSSProperties = {
+		position: 'absolute',
+		width: placement.videoWidth,
+		left: placement.left,
+		top: placement.top,
+		maxWidth: 'none',
+	};
+	const sceneFrames = Math.round(sceneSeconds * fps);
+	const holdFrames = holdFrom == null ? 0 : Math.max(0, sceneFrames - videoFrames);
 	return (
 		<div
 			style={{
@@ -42,21 +46,30 @@ const ClipInset: React.FC<{ shown: number; placement: ShotPlacement; from: numbe
 				visibility: shown <= 0 ? 'hidden' : 'visible',
 			}}
 		>
-			<Sequence from={OPEN_FRAMES} durationInFrames={CLIP_FRAMES} layout="none">
+			<Sequence from={OPEN_FRAMES} durationInFrames={videoFrames} layout="none">
 				<OffthreadVideo
 					src={staticFile(source)}
 					trimBefore={from * fps}
 					trimAfter={to * fps}
 					{...(muted ? { muted: true } : {})}
-					style={{
-						position: 'absolute',
-						width: placement.videoWidth,
-						left: placement.left,
-						top: placement.top,
-						maxWidth: 'none',
-					}}
+					style={videoStyle}
 				/>
 			</Sequence>
+			{holdFrom != null && holdFrames > 0 ? (
+				<Sequence from={OPEN_FRAMES + videoFrames} durationInFrames={holdFrames} layout="none">
+					{/* Freeze the last played frame; mute explicitly so hold is silent. */}
+					<Freeze frame={videoFrames - 1}>
+						<OffthreadVideo
+							src={staticFile(source)}
+							trimBefore={from * fps}
+							trimAfter={to * fps}
+							muted
+							volume={0}
+							style={videoStyle}
+						/>
+					</Freeze>
+				</Sequence>
+			) : null}
 		</div>
 	);
 };
@@ -76,14 +89,7 @@ const FilmFrame: React.FC = () => {
 	return (
 		<AbsoluteFill>
 			<FeatureTeamsScene film={film} />
-			<ClipInset
-				shown={film.clipShown}
-				placement={speakerSlot.placement}
-				from={speakerSlot.from}
-				to={speakerSlot.to}
-				source={speakerSlot.source}
-				muted={speakerSlot.audio === 'muted'}
-			/>
+			<ClipInset shown={film.clipShown} slot={speakerSlot} />
 			<OddeCorner />
 		</AbsoluteFill>
 	);
