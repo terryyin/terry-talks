@@ -5,8 +5,11 @@ import io
 import json
 import random
 import sys
+import tempfile
+import unittest
 from array import array
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
@@ -17,6 +20,19 @@ from narration_audio import (gap_span, narration_text, read_pcm, run, sha256,
 
 
 RATE = 48000
+
+
+class WorkshopTestCase(unittest.TestCase):
+    """Each offline scenario owns a fresh workshop and refuses every API call."""
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory(prefix="cedar-regions-test-")
+        self.addCleanup(temporary.cleanup)
+        self.film = Workshop(Path(temporary.name))
+        for module in (narration, regions):
+            client = patch.object(module, "cedar_client", side_effect=AssertionError("API client reached"))
+            mocked = client.start()
+            self.addCleanup(client.stop)
+            self.addCleanup(mocked.assert_not_called)
 
 
 class Workshop:

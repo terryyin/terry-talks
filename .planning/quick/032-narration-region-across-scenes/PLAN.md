@@ -4,17 +4,14 @@
 
 Identity: terry-moves-filmmaking#narration-region-across-scenes
 Story: [narration region across scenes](../../../terry-moves/seed.md#narration-region-across-scenes).
-Bounded correction from the completed planned
-`terry-moves-filmmaking#replace-narration-performance` execution
-(story section `replace-narration-performance` of `terry-moves/seed.md` and
-plan `.planning/quick/031-replace-narration-performance/PLAN.md`, both at
-commit `ddb9ff50bc32e87ade6151adb2cd540abd1f032b`), which started at
-`6d2681a127080ed3217b281d24710f161653c716`. The attributable published
-implementation set on `origin/claude/i-can-replace-one-narration-performance-without`
-is `a6a9291` (audition), `dd3e13e` (effects follow the measured script),
-`358d950` (manifest of saved takes), `5ed27bd` (selection) and `f52bae4`
-(Terry's chosen take). `f6eb4d6` is the claim and `41dc29a` plan progress;
-both are provenance. The range `6d2681a..f52bae4` holds only these commits.
+Bounded correction from `terry-moves-filmmaking#replace-narration-performance`;
+its seed section and `.planning/quick/031-replace-narration-performance/PLAN.md`
+are recoverable at `ddb9ff50bc32e87ade6151adb2cd540abd1f032b`.
+Original start: `6d2681a127080ed3217b281d24710f161653c716`. Published implementation
+on `origin/claude/i-can-replace-one-narration-performance-without`: `a6a9291`
+(audition), `dd3e13e` (effects), `358d950` (manifest), `5ed27bd` (selection),
+`f52bae4` (chosen take). Claim `f6eb4d6` and progress `41dc29a` are provenance;
+the range `6d2681a..f52bae4` holds only these commits.
 
 ## Current findings and impact
 
@@ -103,21 +100,17 @@ proof that runs offline in seconds.
 
 ## Selection premise observation
 
-On 2026-10-12, Mana-chan observed the selection premise in this established
-workspace and branch (named under Current decisions), at
-`8c5dffd6ace904711721d2b09ba545678a35974c`. The approved naming refusal
-reproduced first; only `clauses()` was replaced in memory for the cross-scene
-span. Real selection, trimming, composition, alignment, hashes and serialization
-ran against a removed temporary root; both client constructors failed if reached.
-Inspected setup: `AI Test Automation/film-script.json`, `cedar-performance.json`,
-base/prepared takes and `auditions/sandbox:3-investigate:1/candidate-1.{wav,json}`.
-Inspected outcomes: selected take, record, measured script, PCM and offline replay.
-Result: exit 0; audition 8.75 s, no refusals; token span `(4, 6)`, take-first 2;
-region +0.50 s; internal scene boundary 160 → 167 frames at 30 fps (gap midpoint),
-later scene +15 frames. Replay matched words/hash/script and retained samples
-outside 5 ms fades; all tracked hashes stayed equal, checkout clean, no API client.
-This remains preparation evidence: slice 1 owns repeatable proof and refusal
-discrimination; slice 2 owns the real parser. The helper suite passed 13 tests.
+On 2026-10-12, Mana-chan observed selection in this established checkout at
+`8c5dffd6ace904711721d2b09ba545678a35974c`: approved refusal first, then only
+`clauses()` replaced in memory; real selection/composition/alignment/replay
+on a removed temporary workshop, with both API constructors forbidden.
+Inspected script, record, base/prepared/candidate/selected takes and PCM.
+Exit 0: audition 8.75 s; span `(4, 6)`, take-first 2; region +0.50 s;
+internal scene boundary 160 → 167 frames at 30 fps, later scene +15 frames.
+Replay matched words/hash/script and retained samples outside 5 ms fades;
+tracked hashes unchanged, checkout clean. Helper suite: 13 tests passed.
+Preparation only: slice 1 owns repeatable proof/refusal discrimination;
+slice 2 owns the real parser.
 The complete observation and literal heredoc remain in the
 [immutable preparation plan](https://github.com/terryyin/terry-talks/blob/d9f94630b4bb1cfb84de6f692af24511a3f988fa/.planning/quick/032-narration-region-across-scenes/PLAN.md#selection-premise-observation),
 under this same heading; recover locally with
@@ -175,7 +168,14 @@ selection premise, and slice 2 then changes naming under this proof.
 
 ### 2. Terry names a region that runs from one scene into the next
 Type: Behavior
-Status: planned
+Status: done
+Accepted: workshop discovery command above — 14 tests (9.717 s after fixture refactor);
+shared discovery — 13 tests. Inspected `CrossSceneRegions` assertions and shared
+`WorkshopTestCase`: normalized spans/neighbours, real audition/selection, measured
+internal scene boundary/cues, replay/hashes/retained PCM, endpoint refusals with no writes,
+and alternate spelling overlap. Approved `--audition sandbox:3-investigate:1 --candidates 0`
+exited 0; offline producer remained `Complete: 80.267s / 2408 frames.`;
+all 1252 tracked hashes and one symlink target unchanged. No API client reached.
 Proof: slice 1's module gains the cross-scene naming, audition, selection and
 refusal tests mapped above and passes; on the approved film
 `python3 'AI Test Automation/produce_audio.py' --audition sandbox:3-investigate:1 --candidates 0`
@@ -200,23 +200,18 @@ naming refusal and the README state the form.
   Starting revision: `d9f94630b4bb1cfb84de6f692af24511a3f988fa`;
   accepted claim/base: `b5568df9860e1f4f74dba8e22a3039f7610e081b` on
   `origin/master`; increments publish to the execution branch on `origin`.
-  This continuation reused the existing clean checkout, installed locked
-  dependencies with `pnpm install --frozen-lockfile`, and ran the shared
-  Python command successfully (13 tests). Replanning within this outcome
-  remains allowed; no numeric slice budget is supplied.
-- CI now exists as `.github/workflows/ci.yml` (GitHub Actions, push-triggered,
-  verified selector `ci.yml`, name `CI`). The earlier no-CI finding describes
-  the original execution, not this checkout. The separately documented
+  Slice 1 accepted there: `2d74e4abf9b676662cb810bd4cfb6085b7a747a5`, suffix base the claim.
+  Checkout setup: `pnpm install --frozen-lockfile`, shared Python suite 13 tests.
+  Replanning remains allowed; no numeric slice budget is supplied.
+- CI: `.github/workflows/ci.yml`, GitHub Actions push-triggered, selector `ci.yml`,
+  name `CI`. The earlier no-CI finding concerns the original execution;
   workshop tests remain outside pnpm/CI wiring in this correction's scope.
   Observer: coordinator `tsubomi-032`, directory
   `/tmp/dough-ci-501/watch-dvCleX`, cell 9, session 13360, PID 6501, launched
   from this checkout for `terryyin/terry-talks` and the execution branch.
   The already-published trunk claim is unobserved by this branch observer.
-- No commit hook is installed in the shared Git hooks directory and no
-  `core.hooksPath` is configured. The project's formatter is ESLint for
-  Remotion source/revision files; it does not apply to Python or Markdown
-  changes here. Their selective formatting is a no-op; `git diff --check`
-  verifies whitespace without touching unrelated Remotion files.
+- No commit hook or `core.hooksPath`. ESLint applies only to Remotion files;
+  selective formatting here is a no-op, with `git diff --check` for whitespace.
 - Refusal preservation covers durable film files and candidate source WAV/JSON;
   ignored prepared/composed/in-context audio may regenerate before a refusal.
 

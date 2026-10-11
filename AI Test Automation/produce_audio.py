@@ -3,9 +3,11 @@
 
 Requires Python, ffmpeg and ffprobe. The chosen continuous Cedar performance and
 measured alignment are committed. Only --new-take and --audition use the OpenAI
-SDK and API. --audition <scene>:<first>-<last> [--note …] [--candidates N] saves
-candidate takes of that region in the ignored work directory, each also between
+SDK and API. --audition <region> [--note …] [--candidates N] saves candidate
+takes in the ignored work directory, each also between
 its retained neighbours; --candidates 0 rebuilds those from saved candidates.
+Name a region as <scene>:<n>, <scene>:<first>-<last> or <scene>:<n>-<scene>:<m>
+with 1-based clause positions, such as sandbox:3-investigate:1 across scenes.
 --select <region> <candidate> makes a saved candidate that region's take, with
 no API: the film's timeline, stems, mix and treatment then follow it.
 Each caption range owns its spoken clause, displayed text and measured timing.

@@ -3,27 +3,15 @@
 import contextlib
 import io
 import json
-import tempfile
 import unittest
 from copy import deepcopy
-from pathlib import Path
 from unittest.mock import patch
 
-from cedar_region_fixture import RATE, Workshop, narration, regions
+from cedar_region_fixture import RATE, WorkshopTestCase, narration, regions
 from narration_audio import gap_span, read_pcm, run, verify, write_performance, write_script
 
 
-class RegionCommands(unittest.TestCase):
-    def setUp(self):
-        temporary = tempfile.TemporaryDirectory(prefix="cedar-regions-test-")
-        self.addCleanup(temporary.cleanup)
-        self.film = Workshop(Path(temporary.name))
-        for module in (narration, regions):
-            client = patch.object(module, "cedar_client", side_effect=AssertionError("API client reached"))
-            mocked = client.start()
-            self.addCleanup(client.stop)
-            self.addCleanup(mocked.assert_not_called)
-
+class RegionCommands(WorkshopTestCase):
     def test_existing_names_and_request_neighbours(self):
         self.assertEqual(regions.clauses(self.film.script, "sandbox:02-03"), ("sandbox:2-3", 1, 3))
         self.assertEqual(regions.clauses(self.film.script, "investigate:1"), ("investigate:1", 3, 4))

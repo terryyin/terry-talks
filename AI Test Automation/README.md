@@ -41,9 +41,12 @@ and a decisive stop gives way to quieter repair.
 
 ## Replacing one narrated region
 
-A region is one clause or a run of consecutive clauses of one scene, named
-`<scene>:<first>-<last>` or `<scene>:<n>` with 1-based clause positions, such as
-`investigate:4-6`. The same words are performed again; nothing else is re-requested.
+A region is one clause or a run of consecutive clauses, including across scenes.
+Use `<scene>:<first>-<last>` or `<scene>:<n>` within one scene, such as
+`investigate:4-6`, or `<scene>:<n>-<scene>:<m>` across scenes, such as
+`sandbox:3-investigate:1`, with 1-based clause positions at each end.
+Unknown scenes or clauses and an end before the start are refused with the scene's
+clause counts. The same words are performed again; nothing else is re-requested.
 
 ```bash
 python3 'AI Test Automation/produce_audio.py' --audition investigate:4-6 --note "more weight on relief" --candidates 3
@@ -82,7 +85,8 @@ python3 -m unittest discover -s 'AI Test Automation' -p 'test_*.py'
 
 The first checks the shared composition and record helpers in `scripts/narration_audio.py`.
 The second drives region audition and selection on a temporary synthetic workshop, including
-transcript, ceiling and overlap refusals, second-region selection and re-selection. Neither
+cross-scene naming and measured scene boundaries, naming, transcript, ceiling and overlap
+refusals, second-region selection and re-selection. Neither
 needs an API key or network access, and neither changes the approved film.
 
 The voice is **Cedar synthetic AI narration**, not Terry’s recorded voice.
