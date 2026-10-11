@@ -366,7 +366,7 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#narration-region-across-scenes
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/032-narration-region-across-scenes/PLAN.md","assessment":"not-ready","reasons":["Premise unobserved: select() is drivable offline against a temporary root and a cross-scene selection writes a coherent record, take and script; the unreached operation is select(root, script, run, sample_rate, region, candidate) on a fixture film, which the retrospective review was not permitted to run."],"basis":{"document":"28e066fbb541b3257fea2e5ea88aee57ae2027215685b86a70555e898a2c5953","plan":"1b0c11bbdf8927ddbfd7b9bc6128965ddd588ce75bef1262887ca57593cee4a1"}}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/032-narration-region-across-scenes/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"872ca4f04f27bfc3478bc96ff15d5cc4cb2c5d1163332450d83c2752b63a33fd","plan":"58f0cc5f2381ceb166b867418d98d4d29ad2d3d64d24f4063a79b5dc28a4fa4c"}}
 ```
 
 #### Goal
