@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#narration-region-across-scenes",
+  "title": "Terry can replace a narration region that crosses a scene boundary, with the region commands held by repeatable proof",
+  "completedAt": "2026-10-11T22:13:24.082Z",
+  "developer": "Terry Yin",
+  "agent": "Tsubomi-chan",
+  "host": "codex"
+}
