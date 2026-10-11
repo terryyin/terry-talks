@@ -342,7 +342,18 @@ text states the composition truthfully.
 
 ### 5. Terry's chosen take is in the rendered workshop
 Type: Behavior
-Status: planned
+Status: in-progress
+Progress (2026-10-11): with Terry's agreement the paid audition ran once:
+`--audition investigate:4-6 --note "more weight on relief" --candidates 3`
+wrote `candidate-1`, `-2`, `-3` (wav, json, prepared, in-context) in the
+ignored auditions directory. All three passed the exact audit; regions are
+6.36 s (+0.35 s), 5.80 s (−0.21 s) and 6.77 s (+0.76 s) against the base
+take's 6.01 s, in context 12.46 s, 11.90 s and 12.87 s (the retained
+12.11 s span plus each delta); `git status --short` showed no tracked
+change. The excerpt direction held: each candidate spoke only the requested
+text. Waiting for Terry to listen and name a candidate (or ask for more);
+then `--select`, render, README and the gate. The whole gate was green
+after slice 4 (59 suites, 657 tests).
 Proof: Terry selects a candidate from slice 1 (or requests more) and the
 producer applies it; `pnpm -C terry-moves render:ai-test-automation`
 produces `out/ai-test-automation.mp4` whose `ffprobe` duration is the new
