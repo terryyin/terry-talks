@@ -316,27 +316,211 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#replace-filmed-shot
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
 ```
 
-- **For / why:** Terry can swap footage or an illustration without rebuilding
-  its presentation in the film.
-- **Outcome and scope:** Replace saved speaker footage or an illustration
-  through the script while retaining intended crop, timing, overlays, and audio
-  policy. A different-duration source uses an explicit trim, hold, or edit choice.
-- **Evaluation example:** Terry replaces the saved speaker shot beside an
-  explanation. The new media fits the selected framing, the explanatory overlay
-  remains synchronized, and audio follows the chosen policy. He can render and
-  revise the shot through the same reusable path.
-- **Known basis and boundary:** R17; Feature Teams already composites real
-  speaker footage and animation. Generalize the useful replacement journey for
-  a selected example. Generating the footage, arbitrary time stretching, and a
-  complete nonlinear editor are outside this outcome.
-- **Value / effort hypothesis:** Reusable mixed-media editing. Moderate
-  scope; high confidence in value; media/audio policy depends on the example.
-- **Depends on:** None; approved saved media is sufficient.
-- **Safe stopping point:** Recorded and illustrated films can use the
-  workflow independently of generated people or 3D production.
+- **Goal:** Terry swaps the saved media of one filmed shot in a mixed-media
+  film, the footage of a speaker beside the animation that explains what the
+  speaker says, without rebuilding how that shot is presented. He names a new
+  source file for the shot and, only when the new source differs from the
+  approved one in geometry or length, states its crop and his trim, hold or
+  edit choice. The shot's placement, framing intent, border, pop-in, the
+  overlays around it, its audio policy and the animation that follows the
+  shot's clock are retained, and the film renders through the same command.
+  The first film is Feature Teams, the one film that composites real speaker
+  footage: Bas's clip hangs as a portrait inset and the animation follows his
+  narration. This is R17's reusable shot workflow on one selected example,
+  not a general editor.
+- **Scope — required behavior:**
+  - One declaration per shot: the Feature Teams speaker shot is declared in
+    one place naming its source file, the crop (the region of the source
+    frame the inset shows), the play choice (the whole source, or an explicit
+    range of source seconds), what the inset does when the played range ends
+    before the scene does, and the audio policy. The inset's position, size,
+    border, shadow, pop-in and leave, the card and meter above it, and the
+    logo are the shot's presentation and are not restated per source. The
+    composition, the film's length, the last-moment hold, the ending and the
+    cover frame follow from the declaration.
+  - Source facts are measured, not typed: the source's duration and pixel
+    size come from the file, through a measurement the film checks against
+    the file, as the AI test automation workshop checks its saved
+    performance, so a replacement file brings its own facts and a stale copy
+    cannot survive. Observed 2026-10-11: the clip's length is typed three
+    times today, 113.508 s in `film.ts`, 113.5 in `cues.ts`, and as the
+    cover's absolute frame 3366 in the render script.
+  - Replace by declaration: Terry changes the declared source file and, only
+    when needed, its crop and play choice. For a replacement whose
+    performance timing is the same, no scene component, cue, test literal or
+    render script is edited. The replacement is a saved file under the
+    film's public assets in a container Remotion plays, as today's MP4 is;
+    recording or generating it is not part of this story.
+  - Framing follows intent: with the crop stated in the new source's own
+    frame, the new source fills the same inset the same way: the crop fills
+    the inset's width and is top-anchored, as today, inside the same border
+    and corner radius, with the same pop-in and leave. A source whose pixel
+    geometry matches the approved one needs no new crop.
+  - Timing follows the explicit choice: the scene's clock stays seconds into
+    the shot's slot, as now, and the slot is the played range of the source.
+    A source of a different length never changes playback rate and never
+    stretches or repeats frames. Terry chooses one of: trim, an explicit
+    range of the source so the slot stays as approved; hold, the inset
+    freezes its last played frame, silent, while the scene runs to its own
+    end; or edit, the slot takes the new length and the last-moment hold,
+    ending, total duration and cover follow. A replacement that declares no
+    choice plays the whole source with edit, which is the film's behaviour
+    today.
+  - Audio follows the policy: the shot's policy today is voice, its sound is
+    the film's voice and the only sound in Feature Teams; a replacement's own
+    sound is used over the played range and nothing else supplies sound. The
+    other value is muted, an illustrative shot with no sound, as the TPS and
+    AI film's loom shot is; it is declared the same way but not verified in
+    this delivery.
+  - Reproduction and preservation: with the approved clip declared, the film
+    renders frame-identical and sample-identical to the approved film, so
+    the compare command against the approved revision reports Preserved with
+    no declared change, and the cover is the same picture. The render
+    command produces the film and cover as it does now, with the cover at the
+    derived frame instead of a typed one.
+  - Review: Terry previews the shot in Studio and renders a still at a named
+    shot second to judge framing; the existing compare command shows
+    before/after frames of a replaced shot's range. Its audio check reports a
+    replaced voice as changed, which is the expected reading of a footage
+    replacement, not a failed preservation.
+  - Feedback: a declared source file that is missing, a crop outside the
+    source frame, a play range outside the source's measured length, or a
+    voice-policy source with no audio stream stops the film before rendering
+    and names the shot and the problem. Justification: the film's existing
+    promises made checkable, the test that the clip plays in full and that
+    the film's duration follows it, and the credit "Content and voice by Bas
+    Vodde" that the voice policy carries. Under edit, a played range that
+    ends before the scene's last cue stops the film and names the range and
+    the first unreached cue, so Terry chooses trim or hold, or revises the
+    cues knowingly. Justification: the Feature Teams tests promise that the
+    story completes within the clip, with the shared card, rising quality and
+    joy by its end.
+  - Documentation truth: the Terry Moves README gains a Feature Teams section
+    naming the shot declaration, how to replace the source, and the trim,
+    hold and edit choices, as the silent scene section does. The credits are
+    unchanged.
+- **Scope — assumptions and deferred promises:**
+  - First film, settled by refinement: Feature Teams, the only film with
+    speaker footage; its approved render is the preservation baseline and the
+    shot is Bas's portrait inset.
+  - Same performance assumed: the path preserves presentation; it does not
+    re-align the animation's cues to a differently timed performance. A
+    replacement that speaks the same words at the same moments, such as a
+    re-export, a cleaner encode, or a differently framed or trimmed delivery
+    of the same recording, keeps the animation synchronized through the
+    declared range. A new performance with different timing is a cue revision
+    Terry makes knowingly, like a script edit, and is not verified here.
+    Measuring footage against its transcript, as the workshop measures its
+    narration, is a later story if it is wanted.
+  - Stand-in replacement sources: Terry has no second recording of Bas, so
+    the key examples use derived exports of the approved clip (margins cut
+    away, leading room added, the tail cut) as replacement files. They
+    exercise geometry, trim, hold and edit on real media and claim nothing
+    about a new recording's quality.
+  - Considered and excluded, not rejected: a Studio control for choosing the
+    source or crop; automatic subject framing; an illustration slot, which is
+    a shot with no play choice and would be declared the same way, while the
+    TPS and AI and Problem Decomposition films keep their stills as they are;
+    replacing the shot in a translated edition.
+  - Deferred, neither built nor verified here: more than one filmed shot in a
+    film, or arranging shots in sequence (R17's "arrange"); transitions
+    between shots; generating footage; time stretching; a nonlinear editor;
+    subtitle export for Bas's words, which the film does not have today; a
+    score or ducking under the voice. None of these is rejected.
+- **Key examples:**
+  1. *Approved film reproduced.* The shot is declared as
+     `assets/Component teams.mp4`, crop left 8.5 % and top 4 % of the frame
+     with 83 % of its width, play the whole source, voice. Running the
+     compare command for `FeatureTeamsFilm` against the approved revision
+     with no `--change` reports Preserved: every frame identical, mixed audio
+     identical, 3768 frames at 30 fps. The render command writes the same
+     film and the same cover, now at the frame derived from 108.6 s into the
+     shot.
+  2. *Re-framed export, same performance.* Terry exports the clip with the
+     grey margins cut away, about 896×1769, declares the new file with a crop
+     of its whole frame, and renders. At 0:40 of the shot the inset shows Bas
+     at the same size and place inside the same border, the card and meter
+     above it and the component labels are unchanged, the cue table is
+     untouched, and the film's duration is unchanged. The only changed pixels
+     lie inside the inset.
+  3. *Longer source, explicit trim.* A re-export with 2 s of leading room is
+     declared with play from 2.0 s to its end. The slot, every cue, the total
+     duration and the cover are as approved, and the inset pops in on Bas,
+     not on the leading room. Left undeclared, the whole source plays and the
+     animation runs 2 s ahead of his words, visibly wrong in preview; the fix
+     is the trim, not a cue edit.
+  4. *Shorter source, hold or edit.* A source cut at 108.6 s, 4.9 s short.
+     With hold, the inset freezes Bas's last frame silently, the scene runs
+     to its end and the ending starts at the approved time; the duration is
+     unchanged. With edit, the slot ends at 108.6 s and the film stops before
+     rendering, naming the range and the unreached cue `joy` at 109.3 s;
+     Terry picks hold, or trims the scene's cues knowingly, and then the
+     last-moment hold, ending, duration and cover follow the shorter slot.
+  5. *Useful feedback.* Declaring a file that is not under the public assets,
+     a range of 0–120 s on a 113.508 s source, or a voice-policy export saved
+     without its audio track stops before rendering and names the shot and
+     the problem; the approved film is untouched.
+- **Command sketch (illustrative, not a format commitment):**
+  ```ts
+  // src/featureTeams/shot.ts
+  export const speakerShot = {
+  	source: 'assets/Component teams.mp4',
+  	crop: { left: 0.085, top: 0.04, width: 0.83 }, // of the source frame
+  	play: 'full', // or { from: 2.0, to: 115.5 }
+  	whenShort: 'edit', // or 'hold'
+  	audio: 'voice', // or 'muted'
+  } as const satisfies Shot;
+  ```
+  ```
+  pnpm moves compare FeatureTeamsFilm --baseline <approved revision>
+  pnpm -C terry-moves render:feature-teams
+  ```
+- **Architecture:**
+  - What changes: the speaker shot becomes a declared shot with measured
+    source facts; the composition reads the declaration, and the film's
+    length, hold, ending and cover follow it. Crop and play belong to the
+    source; placement and presentation belong to the shot.
+  - What must not change: the single clock. The scene samples its pose at
+    seconds into the shot, cues stay in narration seconds, and the tests keep
+    sampling the pure film. No second hand-typed copy of the source's
+    duration or geometry may remain.
+  - Measurement: how source facts are measured and checked (a saved
+    measurement verified against the file as the workshop's performance
+    record is, Remotion's media parser when composition metadata is
+    calculated, or a producer step) is a planning decision under PFE; the
+    workshop's performance record and the compare tool's media handling are
+    the existing solutions to assess. Studio preview and tests must still
+    work from the declaration.
+  - Placement: the shot declaration and inset are film-independent; whether
+    they live beside the Feature Teams modules or in a shared module is
+    planning's PFE call. The first delivery verifies only Feature Teams.
+  - Decisions: only ADR-0000 (use ADRs) is Accepted; no Accepted decision
+    constrains or conflicts with this design and nothing is superseded.
+- **Known basis and boundary:** R17. Observed 2026-10-11: `FeatureTeamsFilm`
+  composites `assets/Component teams.mp4` (1080×1920, 50 fps, 113.508 s,
+  with audio, the film's only sound) through `OffthreadVideo` in a sequence
+  from the opening, inside an inset with hand-typed crop fractions; the
+  animation samples its pose at seconds into the clip from a cue table
+  aligned to Bas's transcript; the clip's length is typed in `film.ts`,
+  `cues.ts` and as the cover frame in the render script; the compare tool
+  checks picture, audio and duration for this composition but has no
+  timeline entry for it. The TPS and AI loom shot, a muted frozen frame of a
+  video, is the illustrative contrast. The declaration's format, the
+  measurement and the module placement are planning decisions; refinement
+  establishes the declaration, framing, timing-choice, audio-policy,
+  preservation and feedback contract above.
+- **Value / effort hypothesis:** Reusable mixed-media editing and the first
+  shot whose presentation survives a media swap. Moderate scope; high
+  confidence in value; the only steps that cannot be automated are exporting
+  the stand-in sources and Terry's framing judgment at preview.
+- **Depends on:** None; the approved saved clip is sufficient. Host `ffmpeg`
+  is needed only to make the stand-in exports and the compare previews.
+- **Safe stopping point:** The Feature Teams film keeps a declared, measured
+  speaker shot with offline preservation evidence, even if no second film,
+  illustration slot or shot sequence ever follows.
 
 <a id="illustrated-conversation"></a>
 ### 8. I can make an illustrated conversation with convincing speaking and listening
@@ -665,6 +849,10 @@ the rest of this list.
   and the winning candidate at audition; replacing a performance in a
   motion-led recorded-voice film (Story Impact's path) waits for a later
   selection.
+- Story 7's refinement settled its first film on Feature Teams' speaker
+  shot, proved with same-performance replacements derived from the approved
+  clip; re-aligning the animation to a differently timed performance, and an
+  illustration slot, wait for a later selection.
 - Which new style does Terry most want to use in an upcoming film? The accepted
   queue can be reprioritized to test that interest early.
 - For character and generated-media stories, choose the design/rig/provider,
