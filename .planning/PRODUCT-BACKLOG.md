@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [I can replace a filmed shot while preserving its intended presentation](../terry-moves/seed.md#replace-filmed-shot) — terry-moves-filmmaking#replace-filmed-shot ([plan](quick/032-replace-filmed-shot/PLAN.md))
-
 ## Backlog list
 
 - [Terry's shot declaration owns measurement check and the edit scene clock](../terry-moves/seed.md#shot-declaration-owns-measure-and-edit-clock) — terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock

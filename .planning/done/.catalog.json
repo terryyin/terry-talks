@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_replace-filmed-shot.json",
+      "identity": "terry-moves-filmmaking#replace-filmed-shot",
+      "completedAt": "2026-10-11T09:26:02.717Z",
+      "blob": "f96bb2a359919fd4a535d896bc37591cc5e29911"
+    },
+    {
       "fileName": "terry-moves-filmmaking_replace-narration-performance.json",
       "identity": "terry-moves-filmmaking#replace-narration-performance",
       "completedAt": "2026-10-11T06:12:10.922Z",

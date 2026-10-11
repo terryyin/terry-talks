@@ -5,9 +5,11 @@
 Identity: terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock
 Story: [shot declaration owns measure and edit clock](../../../terry-moves/seed.md#shot-declaration-owns-measure-and-edit-clock).
 Bounded correction from the completed planned
-`terry-moves-filmmaking#replace-filmed-shot` execution
-(story section `replace-filmed-shot` of `terry-moves/seed.md` and plan
-`.planning/quick/032-replace-filmed-shot/PLAN.md`), attributable published
+`terry-moves-filmmaking#replace-filmed-shot` execution. Predecessor story
+section and plan are recoverable from before-cleanup commit
+`b8f6d2d34331e16c8db5039defd470ab567fa550` at
+`terry-moves/seed.md#replace-filmed-shot` and
+`.planning/quick/032-replace-filmed-shot/PLAN.md`. Attributable published
 implementation on `cursor/i-can-replace-a-filmed-shot-while-preserving-its`:
 `0f8e4da` (declaration/measurement/derived clock), `62f2bd9` (stand-in inset
 mapping), `d205ede` (trim/hold/edit + Freeze), `0d56b73` (refusals + README).

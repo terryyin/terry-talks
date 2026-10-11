@@ -1,9 +1,0 @@
-{
-  "schemaVersion": 1,
-  "agent": "Ai-chan",
-  "email": "ai-chan@example.org",
-  "identity": "terry-moves-filmmaking#replace-filmed-shot",
-  "mode": "story-branch",
-  "branch": "cursor/i-can-replace-a-filmed-shot-while-preserving-its",
-  "host": "cursor"
-}
