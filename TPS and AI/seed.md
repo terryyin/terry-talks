@@ -1,10 +1,10 @@
 ---
 id: tps-and-ai-talk
-status: proposed-decomposition
+status: delivered
 created: 2026-09-28
 created_during: Near-future direction — TPS and AI talk ready for the LeSS Conference in Tokyo, 2026
 trigger_when: Now; the backlog direction selects this talk
-scope: three candidate stories; S/M/L bands unassigned (no project definitions)
+scope: no active candidate stories; the talk is delivered
 ---
 
 # TPS and AI talk: from a working deck to a Tokyo-ready presentation
@@ -85,161 +85,20 @@ roles.
 
 ## Candidate story decomposition
 
-These are non-executable candidates. The proposed story boundaries and order are
-a response to Terry's direction; they are not his decisions. Effort bands are
-unassigned because this project has no S/M/L definitions. Relative effort is
-noted as a hypothesis.
+No active candidate stories remain. The talk is delivered.
 
-<a id="conference-ready"></a>
-### 4. Terry can deliver the talk reliably on conference day
-```json dough-story-state
-{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/011-conference-ready/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"2b2d0719ed52eb50aeff29a10f079824db44e53d4cd929580cd8ad43c6699955","plan":"342982957147db8417c189a7f3670a7e21e0074f7ff3f8a5b0a7b2264fd1416d"}}
-```
+## Preparation order and scope reduction
 
-#### Goal
-
-For **Terry**, presenting at 15:45 on 8 October 2026 at the Tokyo LeSS
-Conference, the finished bilingual *Freedom and Trust* deck becomes a
-performance he can count on. Terry fits the 45-minute talk with 15 minutes
-left for Q&A, and the climax falls near the three-quarter mark. Speaker notes
-are cues he can glance at while speaking. If the network or the venue fails,
-the talk still runs from his own laptop, and he has backups. This delivers
-the direction's "ready to present". Its learning question is whether the
-accepted deck fits the slot at Terry's real pace.
-
-#### Scope
-
-**Decided with Terry (2026-09-28):**
-
-- **Speaker notes are short spoken cues.** Each slide's note becomes 2–5 short
-  lines of what Terry says. Each doughnut example becomes a one-line spoken
-  story. Claim numbers, commit hashes, class names, and editorial rationale
-  come out of the notes, because the [claims](claims/) hold the reasoning.
-- **Presentation machine: Terry's own Mac,** running presenter mode through
-  `pnpm present` from this repository. The backups are a PDF export and a
-  static build, kept on the laptop and on a USB stick. A venue PC is not a
-  planned path.
-- **Generated art credit:** One line on the end slide credits the AI-generated
-  illustrations, with its Japanese beneath it. Every third-party image keeps
-  or gains its license credit on its own slide.
-- **Timing support:** A few elapsed-time checkpoints go in the notes. Terry
-  runs the timed rehearsal himself. The changes Terry reports are then
-  applied.
-
-**Required:**
-
-- **Timing checkpoints:** The notes carry elapsed-time checkpoints at the end
-  of the opening act, at the climax ("AI speeds whichever loop you feed",
-  about 34:00 of 45:00), and at the start of the closing. Each checkpoint
-  moves with its slide if slides change.
-- **Rehearsal changes stay within the limits:** After a rehearsal, Terry's
-  reported cuts, reorders, and wording changes are applied. Any overrun is
-  cut in the seed's [scope-reduction order](#ordering-and-scope-reduction).
-  The deck stays at 35 rendered slides or fewer. The protected beats listed
-  there are cut only if Terry says so.
-- **Bilingual stays true:** A slide whose English changes also gets its
-  Japanese updated. The slide is then listed as not yet reviewed by Aki,
-  under the review rule in
-  [japanese-review.md](../slides/tps-and-ai/japanese-review.md#keeping-the-deck-bilingual).
-- **Runs offline:** With the network off on Terry's Mac, `pnpm present`
-  opens presenter mode. Every slide renders its Japanese glyphs, mermaid
-  diagrams, and images, and the loom video plays.
-- **Backups open offline:** The PDF has one page per slide. Its "Smart →
-  dumb → gone" slide shows the still loom-mechanism image where the video
-  plays live. The static build opens on the laptop with
-  the network off. Both are also copied to a USB stick. Terry does the copy.
-- **Credits:** Every third-party image or graphic shows its source and license
-  on-slide. At present these are the Toyota reconstruction, the less.works CC
-  graphics, the Wikimedia CC0 loom photo, and the AllAboutLean CC BY-SA photo.
-  The end slide carries the generated-art credit.
-- **Commands:** The existing build, export, and `pnpm present` commands keep
-  working.
-
-**Rejection constraints:**
-
-- **More than 35 rendered slides** fails Terry's limit.
-
-**Deferred** (not built or verified here):
-
-- Recording, publishing the slides online, and follow-up blog posts.
-- Japanese speaker notes, handouts, and a venue-PC run as a primary path.
-- Per-slide time budgets.
-
-**Assumptions:**
-
-- **Evidence removed from the notes:** If a commit hash or evidence detail
-  in the notes appears in no claim file, it moves into the matching claim
-  instead of being lost.
-- **Rehearsal inputs:** Terry reports rehearsal results as elapsed times at
-  the checkpoints plus the slides to change. The agent does not time anything.
-- **Credit wording:** The proposed end-slide line is "Illustrations generated
-  with AI by Terry Yin". Terry may reword it.
-
-**Open question (Terry):**
-
-- **Stale cut order.** Items 2 and 3 of the
-  [scope-reduction order](#ordering-and-scope-reduction) name a "Preferred
-  tests" slide and section dividers. Neither exists in the accepted 30-slide
-  deck. Before rehearsal, Terry decides which current slides come next in
-  line to be cut. Until then, only items 1 and 4 apply.
-
-#### Key examples
-
-1. **Spoken cues.** Today the "Smart → dumb → gone" note lists
-   `RecallStatsPerformanceTest`, `getPrepareStatementCount()`, and three
-   hashes. After the change it reads as short cues, such as "Dumb: a test now
-   stops the 200-recall timeout from coming back" and "Gone: illegal path
-   characters can no longer be typed into a name". It contains no claim
-   numbers and no hashes.
-2. **Climax checkpoint.** The note on "AI speeds whichever loop you feed"
-   starts with "⏱ ~34:00". In rehearsal Terry reaches it at 38:00 and reports
-   the overrun. The cut order is applied to what still exists. First the
-   spoken "lower the switching cost" follow-on is dropped from the notes.
-   Then "Tensions and honest limits" is shortened to the one tension from
-   Claim 23. The deck stays at 30 slides, and each checkpoint stays on its
-   slide.
-3. **Wi-Fi off.** With Wi-Fi off on the Mac, Terry runs `pnpm present`. Presenter
-   mode shows the notes. 現地現物 and the other Japanese render in a proper
-   Japanese font. The "AI speeds whichever loop you feed" mermaid diagram
-   draws, and the loom warp-stop video loops.
-4. **PDF fallback.** In the exported PDF, the "Smart → dumb → gone" slide
-   shows the still `loom-jidoka-mechanism.png` clearly where the loom video
-   would play. The page count
-   equals the deck's slide count.
-5. **Credits.** The end slide reads "Illustrations generated with AI by Terry
-   Yin", with its Japanese beneath it. The Type G dropper photo slide still shows
-   "Christoph Roser, AllAboutLean.com · CC BY-SA 4.0".
-6. **Changed wording after rehearsal.** Terry shortens one bullet on "The
-   gates do not care who authored the change". Its Japanese line is updated
-   to match, and the slide is listed as not yet reviewed by Aki.
-
-- **Evaluation:** Terry does a full timed rehearsal in presenter mode on the
-  Mac with the network off and hits the checkpoints within about a minute.
-  He opens the PDF and the static build from the USB stick.
-- **Effort hypothesis:** Small to medium. The uncertainty is how much the
-  rehearsal changes.
-- **Depends on:** the bilingual deck (done; see
-  [japanese-review.md](../slides/tps-and-ai/japanese-review.md)). Final timing is rehearsed on the
-  bilingual deck. Rewriting the notes and adding the credits touch the same
-  `slides.md` as that story, so they follow it or are coordinated with it.
-- **Safe stopping point:** Spoken-cue notes with checkpoints, verified offline
-  presenting, and PDF and static-build backups. Rehearsal changes follow on
-  top.
-
-## Ordering and scope reduction
-
-Order: storyline → japanese → conference-ready. Each story consumes the
+The preparation order was: storyline → japanese. Each story consumes the
 stable output of the one before it; the storyline starts from the README's
 talk roles. The storyline carries the highest learning.
 
-**Calendar (proposed, not committed):** there are ten days until
-8 October 15:45, so each story needs a time-box:
+**Preparation calendar:** targeted 8 October 15:45:
 
 | Story | Finish by |
 | --- | --- |
 | storyline | about 2 October |
 | japanese | about 5 October, leaving time for the fluent reviewer |
-| conference-ready | rehearsals on 6–7 October |
 
 A 45-minute talk (15 minutes banked for Q&A) with the accepted 30 slides
 allows about 1.5 minutes per slide.
@@ -274,16 +133,10 @@ review silently: if it is late, say so.
   under the English on the same slide, covering all audience-facing text,
   with speaker notes left in English. Aki (aki@odd-e.com) reviews
   ([japanese-review.md](../slides/tps-and-ai/japanese-review.md)).
-- ~~**Conference-day readiness.**~~ Decided 2026-09-28: the notes become
-  short spoken cues with elapsed-time checkpoints. The talk runs from Terry's
-  Mac through `pnpm present`, with the PDF and static-build backups on the
-  laptop and a USB stick. One generated-art credit goes on the end slide
-  ([conference-ready](#conference-ready)).
 
 ## When to surface
 
-Now. The product backlog's near-future direction names this talk. Refinement and
-slice planning follow selection. This seed authorizes no execution.
+No active work remains. This seed retains preparation context for the delivered talk.
 
 ## References
 

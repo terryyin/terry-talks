@@ -466,6 +466,3 @@ capability; backlog membership does not imply execution readiness.
   external sources, and the original R01–R28 menu. Its unchanged-backlog statement
   describes the research stage before this seed and queue update.
 - [Product backlog](../.planning/PRODUCT-BACKLOG.md) carries global priority.
-  [Story Impact seed](../Story%20Driven/seed.md#terry-voice-over) and
-  [conference-readiness seed](../TPS%20and%20AI/seed.md#conference-ready) remain
-  separate canonical work.

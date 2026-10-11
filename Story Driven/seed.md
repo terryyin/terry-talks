@@ -4,7 +4,7 @@ status: proposed-decomposition
 created: 2026-09-28
 created_during: A digression from the current near-future direction (the TPS and AI talk); a redo of the story-driven ("3D + 1") animation after Terry rejected the previous effort
 trigger_when: When Terry chooses to spend time on the animation; it is not for the TPS and AI talk
-scope: four delivered stories, improvement stories 6-10, corrections 11-12, reading pace 14 and the story ≠ feature correction 15 (all delivered), voice-over 13 queued, and one conditional; S/M/L bands unassigned (no project definitions)
+scope: four delivered stories, improvement stories 6-10, corrections 11-12, reading pace 14 and the story ≠ feature correction 15 (all delivered), and one conditional; S/M/L bands unassigned (no project definitions)
 ---
 
 # Story impact animation: romantic stories, disciplined products
@@ -136,8 +136,7 @@ Terry allowed up to 2.5 minutes.
 
 Terry found the captions a bit faster than he can read, some far too short.
 Story 14 (delivered; see the breadcrumbs) re-timed every caption from its
-syllables and added six breathing pauses. The film is now about 133 seconds,
-and its caption timings are the time budget for the voice-over (story 13).
+syllables and added six breathing pauses. The film is now about 133 seconds.
 
 ## Story ≠ feature correction (2026-09-29)
 
@@ -146,30 +145,6 @@ fuzzy impact that has meaning only as a unit of planning, so there is no
 mapping of any kind between a feature and stories. Correction 15
 (delivered; see the breadcrumbs) replaced the line and its picture with a
 feature as many layers working together. The film is now about 135 seconds.
-
-## Voice-over (2026-09-29)
-
-<a id="terry-voice-over"></a>
-### 13. Viewers hear Terry narrate the film in his own voice
-
-- **For / why:** The film is silent, and the captions carry it. Terry wants to
-  record himself reading the captions so that viewers hear the idea from its
-  author.
-- **Outcome:** The rendered film carries Terry's recorded narration, one
-  recorded line per caption, played in sync with each caption. Where a
-  recording is longer or shorter than its caption's slot, the beat's timing
-  adapts rather than cutting him off or leaving dead air. The captions stay
-  on screen (silent-first viewing still works). Re-recording one line and
-  re-rendering does not require manual timing repair elsewhere.
-- **Inputs from Terry:** his audio recordings. Refinement defines the
-  recording format and file naming, and the script (the caption list, in film
-  order) he reads from.
-- **Out of scope:** speech coaching. Terry judged automated delivery and
-  pronunciation feedback not useful.
-- **Assumption:** Terry asked for "the module for it". This is read as the
-  audio (voice-over) for the film. Correct it if another module was meant.
-- **Relation:** this may expose the authoring gap in conditional story 5
-  (revise a scene without repairing unrelated timing).
 
 ## Conditional candidate
 

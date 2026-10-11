@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "tps-and-ai-talk_conference-ready.json",
+      "identity": "tps-and-ai-talk#conference-ready",
+      "completedAt": "2026-10-11T21:41:31.851Z",
+      "blob": "53753932a96ddabacac769972344f14a91fd786e"
+    },
+    {
       "fileName": "terry-moves-filmmaking_shot-declaration-owns-measure-and-edit-clock.json",
       "identity": "terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock",
       "completedAt": "2026-10-11T12:51:19.791Z",
