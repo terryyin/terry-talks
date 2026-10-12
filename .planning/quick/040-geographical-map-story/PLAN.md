@@ -1,0 +1,229 @@
+# First principles across a fictional bay
+
+**Identity:** terry-moves-filmmaking#geographical-map-story
+**Source:** [selected story](../../../terry-moves/seed.md#geographical-map-story)
+**Preparation workspace:** `/Users/terryyin/git/terry-talks/.worktrees/i-can-tell-a-geographical-story-through-an-anima`
+**Preparation branch:** `codex/i-can-tell-a-geographical-story-through-an-anima`
+**Observed base:** `05c87cfe414d61195efc597576159c4b6e5a6136`
+
+This is preparation only. The story remains queued; execution needs a separate
+instruction and its own workspace/assignment. Preparation may retire the named
+workspace after landing; its path identifies where the observations below ran.
+
+## Goal and scope
+
+Give Terry a complete, watchable, revisable geographical film about first
+principles. Two towns face one another across a fictional bay. An inherited
+road skirts the coast; reconsidering the goal and constraints exposes a ferry
+as an option, without making a shorter line an automatic winner. The camera
+moves from overview to detail and returns to both options for the takeaway:
+“Start with what must be true. Reconsider what we've inherited.”
+
+Deliver a baseline, a meaningful script-only comparison-framing revision,
+local map inputs, preview/export access and reproduction instructions. Labels
+remain readable through camera motion. The fictional setting stays explicit.
+Water, distance, capacity and available transport are considerations, not
+invented measured facts. Animation is illustrative, not a travel-time race.
+
+Use silent English text/action, initially 1080×1080 at 30 fps, consistent with
+the existing local film path. These are production defaults, not product input
+restrictions. Choose enough reading holds for the actual copy rather than a
+fixed arbitrary running time. No narration/music, real-world transport advice,
+provider integration, geocoding, optimization, globe/terrain, or other editions
+are committed. No new geographic dependency is required for authored fictional
+vectors. Both takes use the same renderer and clock.
+
+## Current design and reuse
+
+- Reuse `terry-moves/src/beatTimeline.ts` for ordered cue durations and frame
+  sampling. Reuse the script → direction → registered composition convention
+  illustrated by typography and cinematic films. Keep duration derived from
+  the same cues that drive preview/export.
+- Add film-local geography and direction under a capability-named location
+  such as `terry-moves/src/geographicalMap/`. One local map coordinate system
+  owns coastline, town/landing positions and route paths; one camera transform
+  projects it. Text placement and font sizing operate in screen space so zoom
+  does not shrink important labels. Camera movement is authored, not a live
+  map engine's independent animation.
+- The geography is a locally authored fictional asset/data object. No real
+  coordinates, real projection or Natural Earth download is assumed. Keep
+  explicit coastline/land/water relationships so this reads as geography,
+  rather than two abstract nodes. Connect both options to the same towns;
+  show access legs if ferry landings are separate from town markers.
+- The renderer consumes direction values rather than recognizing particular
+  beat names. A revised shot changes its framing endpoints/hold through the
+  same model. The baseline's narrower comparison and revised wider comparison
+  must both remain coherent and readable; do not manufacture a broken baseline
+  to demonstrate improvement.
+- Existing 3D camera code is an example of frame evaluation, not a geographic
+  camera to reuse directly. No current local map renderer was found. Shared
+  clock changes are not expected; if needed, identify and verify all affected
+  consumers before editing them.
+- [Accepted ADR-0000](../../../docs/adrs/0000-use-adrs-accepted.md) preserves
+  human ownership of durable decisions. It specifies no map stack; this local
+  renderer introduces no conflict or new cross-product architecture rule.
+  No North Star topic is warranted.
+
+## Outside-in proof ownership
+
+| Promise | Owner | Observation |
+| --- | --- | --- |
+| Locate both towns, follow the coast road, read labels during purposeful motion, recognize fiction | Slice 1 | Registered opening played normally; actual browser pictures at overview, moving camera and held detail; at 1080 and 360-pixel viewing sizes. |
+| Complete first-principles argument, constraints, possible ferry, balanced comparison and return | Slice 2 | Whole baseline MP4 reviewed in order, with all four considerations and final takeaway; Terry/viewer can distinguish goal from inherited solution. |
+| Direct/backward seeks reproduce the same map state and cue joins | Slices 1–2 | Sample registered film at identical frames after fresh mounts and reverse order; compare real rendered pictures and inspect boundaries; unit proof supplements this. |
+| Meaningful framing edit uses the authoring path without renderer edits; retained baseline survives | Slice 3 | Save alternate script direction, preview/export it through the same composition path; visibly changed comparison, unchanged route/copy, original reselected and re-rendered. |
+| Required inputs retained and both takes reproducible without map-service access | Slice 3 | Documented commands regenerate both MP4s with external network denied while local asset/bundle serving remains available; inspect decoded frames and timing, not MP4 container byte identity. |
+| Reusable authoring path | Slices 1 and 3 | Script owns place/route/cue/framing values; README gives concrete edits and preview/export commands; changed comparison consumes those inputs without a second renderer. |
+
+Automated checks must reach the registered film's actual direction and rendered
+SVG/HTML. Replace only the clock/registration where necessary; do not mock the
+route geometry, camera transform or label positions that assertions claim to
+prove. Rendered text existence alone does not prove readability. Browser/pixel
+observations and normal-speed review cover cropping, overlap and pacing.
+Terry owns the artistic judgment; an agent may report its observations but
+must not claim Terry approved a film he has not seen.
+
+## Ordered slices
+
+### 1. Locate the towns and follow the familiar journey
+Type: Behavior
+Status: planned
+Proof: The opening plays through a registered composition; both towns and the
+road are geographically connected and readable through the overview-to-detail
+move. Focused boundary tests exercise direction through the actual rendered
+map, and real browser frames agree for forward, backward and direct sampling.
+
+Behavior: Given local fictional bay geography and ordered opening directions,
+select the map film in Studio and play. Viewers see the explicit fictional
+setting, locate the origin and destination across water, and follow the road
+around the coast. Labels remain screen-readable as the camera moves and holds.
+
+Implement the minimal shared model for authored coastline, named places, route
+paths, reveal progress, camera framing and labels alongside this visible opening.
+Register it through `src/Root.tsx`; derive duration from the existing beat clock.
+Keep all required inputs local. Establish script ownership and a usable preview
+command. Verify opening, mid-move, cue joins and settled states, including fresh
+middle-frame renders. The safe stopping point is a coherent opening excerpt;
+the complete argument and ferry comparison remain owned by slice 2, so this
+excerpt must not be presented as a completed story.
+
+### 2. Explain the problem independently of the inherited road
+Type: Behavior
+Status: planned
+Proof: A full baseline export and normal-speed review show the question,
+constraints, candidate ferry and final overview/takeaway in order. Focused
+rendered-film checks observe these states through the registration; actual
+pictures at transitions and comparison holds demonstrate readable labels and
+retained geographic orientation.
+
+Behavior: Given the working opening, continue playback. The film asks whether
+we need to follow the existing road or get people to the other town. It makes
+water, distance, capacity and available transport visible as things to reason
+from; the ferry is presented as a possible crossing, then both options return
+in the overview. No fabricated speed, fare, capacity or verdict makes the
+ferry the winner. A viewer can state the goal, inherited assumption, remaining
+constraints and the reason to consider another option.
+
+Extend the same direction model with the argument's cues, route comparison and
+reading holds. Reuse geography and camera rules from slice 1, not a separate
+ferry renderer. Export the complete baseline H.264/yuv420p/BT.709 film. Inspect
+it at full size and 360-pixel viewing width, including movement and reading
+holds. Present it to Terry for judgment; record actual feedback and unresolved
+obligations truthfully. Same-scope visual corrections belong here. This slice
+replaces slice 1's incomplete excerpt with a complete film; the retained revision
+and full reproduction demonstration remain owned by slice 3.
+
+### 3. Revise the comparison shot and reproduce both takes
+Type: Behavior
+Status: planned
+Proof: Script-only framing changes visibly alter the comparison while both
+routes and labels remain readable. Both saved takes use the same renderer;
+reselection and export reproduce their authored states from retained inputs.
+Document and replay the full preview/edit/export/reproduce journey.
+
+Behavior: Given the baseline and its retained inputs, Terry edits the comparison
+shot to hold both the road and ferry together in a wider frame. The preview and
+export follow the new direction, while the original is still selectable and
+unchanged. Repeat the documented exports with map-service/network access denied
+(except local serving); both takes retain their geometry, text, timing and
+framing without fetching geographic inputs.
+
+Retain baseline/revision direction objects and distinct outputs or an explicit
+take selector. Use the same path for the demonstrated edit, not a composition-
+specific branch. Choose a revision that visibly changes emphasis while preserving
+orientation and the argument. Verify changed and unchanged portions independently
+at their actual beat ranges, plus duration/frame rate and fresh middle-frame
+sampling. Preserve fonts or document the exact locally available font and render
+environment needed for reproduction. Describe all authored inputs and credits
+(fictional geography is locally authored); keep generated output under the
+existing ignored `terry-moves/out/` convention. The README gives copyable Studio
+and export commands, where to edit route/place/camera direction, and how to retain
+another take. This completes the outcome without publishing the film to a service.
+
+## Verification and delivery gates
+
+Run each new slice's focused tests with `pnpm -C terry-moves test:unit --runInBand
+<actual-spec-paths>` and `pnpm -C terry-moves typecheck` for the new TypeScript
+registration and direction contracts. Apply lint to affected code using the
+existing ESLint configuration. The exact new spec paths and composition IDs
+must be recorded when introduced, not presented here as existing commands.
+Use real Remotion still/render commands for the registered film and retained
+outputs, with frame numbers derived from the script. Manual visual observation
+is an explicit requirement of these slices; use `dough-manual-testing` for that
+bounded observation during execution.
+
+Execution follows installed `dough-execute-plan`, including independent
+post-change refactoring, applicable proof, agent commits and authorized delivery.
+This plan does not grant execution or push authority for implementation. No full
+repository test run is required for this preparation-only change. If a shared
+clock or existing registration contract changes during implementation, expand
+verification to its actual consumers rather than assuming local isolation.
+
+## Preparation observations and remaining product proof
+
+Observed in the named preparation checkout, 2026-10-12:
+
+- `pnpm -C terry-moves test:unit --runInBand tests/typographyFilm/direction.spec.tsx tests/typographyFilm/revision.spec.tsx`
+  passed 14 tests. These execute the actual typography script, shared beat clock
+  and rendered markup, substituting only Remotion clock/registration. They prove
+  the existing script/duration/revision route, not the future map renderer.
+- Discrimination: temporarily replaced `return beats[index].pose(t);` with
+  `return beats[index].pose(t * 0);` in `src/beatTimeline.ts`, then ran that same
+  literal command. Six behavior assertions failed and eight passed. Restored
+  the file byte-for-byte and reran: all 14 passed. An initial mutation using
+  literal `0` was rejected for unused `t` before tests and is not behavioral
+  evidence. All scratch code edits are gone.
+- `pnpm -C terry-moves exec remotion still src/index.ts TypographyProblemBaseline /tmp/geographical-map-preparation-timing.png --frame=435 --log=error`
+  succeeded. The inspected 1080-square image displays the expected opening
+  “Find” at that beat's first frame. This reaches the real registered browser
+  composition and render path; it does not demonstrate map layout.
+- `pnpm -C terry-moves exec remotion render src/index.ts TypographyFeedbackExample /tmp/geographical-map-preparation-render.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --scale=0.3333333333 --concurrency=2 --log=error`
+  succeeded. `ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate -show_entries format=duration -of json /tmp/geographical-map-preparation-render.mp4`
+  reports H.264, 360×360, 30 fps, 8 seconds. This settles availability of local
+  encoding, not the new film's quality or its full-resolution render time.
+- The existing root import emits 404s for unrelated
+  `assets/quillustration_flower_and_water-can/scene.bin`; both selected 2D
+  renders still completed. This map plan uses no GLTF input and does not own
+  repairs to unrelated compositions. Check the new film's actual export rather
+  than treating this warning as either map failure or proof that it will work.
+- pnpm populated this worktree's ignored dependency installation from its store.
+  Package and lock files were unchanged. No map library or external data was
+  installed. Source inspection establishes the absence of a reusable map-film
+  implementation; new map behavior and layout are implementation obligations,
+  not claims of existing success.
+
+All cheap decisive premises relied on here (shared timing/revision behavior and
+local real-render/encoding availability) have result-bearing observations.
+Human review of the new film's meaning and quality belongs to slices 2–3 after
+there is a concrete artifact; no paid, credentialed or unobserved existing-map
+premise is used to justify readiness.
+
+## Plan review
+
+Three Behavior slices each own one visible proof loop: coherent opening,
+complete explanation, and retained revision/reproduction. The cumulative model
+stays one authored map and frame-sampled direction; there are no story-number
+branches or speculative provider interfaces. No numeric slice target or hard
+limit is supplied; boundedness includes implementation, focused proof and
+cleanup for each result. No remaining slice-specific concern was identified
+in this review, so a separate slice-plan refinement pass was not needed.
