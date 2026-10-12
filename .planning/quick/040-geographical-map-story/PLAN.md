@@ -164,3 +164,18 @@ Slice2 observer recovery confirmed remote candidate already published with pushC
 - Interruption recovery restarted owned Studio PTY51009 atlocalhost:3000 and local output viewer PTY70491 at127.0.0.1:8766; inputs and prior rendered files preserved.
 
 Slice 3 delivery: independent refactor consolidated SVG geometry observations in `tests/geographicalMap/mapObservations.ts` and updated all3specs without changed assertions; affected15-test suite/typecheck passed. Renderer/scripts/pixels/offline proof unchanged. Selective ESLint fix and obligation check passed.
+
+Accepted slice3 publication: `f49269e04fdad4d42d8914616c5fd43fecc3b5eb` on retained storybranch, same candidate and suffixbase `66e15fc851a4c6d1a3b6251ea13543cb9134f771`; observer reused `/tmp/dough-ci-501/watch-czi2fN`.
+
+## Execution retrospective
+
+- Planned execution recovered from original ready plan at `add7a55773ed6848b1f15ddb54ef51fc71f50bb7` and selected seed contract. All3slices delivered; scope unchanged. Implementation manifest: `ea85613ef7361b878718e12e31aa279c5decd006` opening/model/registered proof; `66e15fc851a4c6d1a3b6251ea13543cb9134f771` full argument/access legs/comparison/export; `f49269e04fdad4d42d8914616c5fd43fecc3b5eb` saved framing/reproduction/docs/test-observation consolidation. No interleaved commits; preparation and claim are provenance, not film implementation. Aggregate diff/current source, tests, docs and proof reviewed.
+- Findings: none requiring correction. Film-local geography/direction/rendering responsibilities remain cohesive, reuse unchanged beatTimeline and existing author/register/export convention, and add no provider, universal platform or cross-product architectural rule. Accepted ADR0000 is followed; durable decisions remain Terry's. Town/landing positions and camera anchor each have one home; revision changes script endpoints with continuous return and preserved baseline.
+- Automated browser E2E did not drive development. Registered-film markup tests plus real browser/encoded-movie/lossless and offline observations provide the outside-in journey proof. Three focused suites cover distinct opening, argument/connectivity and saved-revision contracts with shared geometric observations; low-cost exhaustive frame-state checks prove the edit boundary. No redundant-suite correction justified. Automated typecheck/lint and all15map tests passed; unchanged unrelated consumers retain their boundaries.
+- Product alignment: complete locally authored map film and meaningful retained script revision support the near-future direction of varied films through rearrangeable actions. Current music/sound and portrait queue stories remain unrefined; this execution supplies no evidence to reprioritize or expand them. No new product work recommended.
+- Process review skipped: `.planning/open-dough.json` absent and no include-process request. Review planning unchanged; no correction story/plan or process log written. Artistic judgment stays with Terry; films presented, feedback unreceived, approval not inferred. Exact font/render environment bounds pixel reproduction. Known unrelated root asset404 is not a map defect.
+- CI remains pending on the storybranch for exact accepted `f49269e04fdad4d42d8914616c5fd43fecc3b5eb`; review conclusions conditional on final CI. Coordinator will publish completion record and use one completion operation on that latest accepted revision.
+
+## Execution complete
+
+Product advice: No new backlog work or priority change is justified. The delivered map film and saved wider take satisfy the accepted authoring/reproduction scope; retain Terry's opportunity to judge the explanation and pacing without claiming artistic approval. Keep the current near-future direction and queue order.
