@@ -220,31 +220,179 @@ the selected performance is observed.
 
 **Identity:** terry-moves-filmmaking#realistic-generated-scene
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"unselected"}
 ```
 
-- **For / why:** Terry can tell an idea through believable people acting in
-  a real-looking setting, extending the film's visual range.
-- **Outcome and scope:** Generate, audition, select, save, and incorporate a
-  short moving shot of a fictional person performing meaningful action in one
-  environment. Revise the intended shot without recreating approved assets.
-  Routine film renders consume saved approved footage.
-- **Evaluation example:** Terry directs one action, judges candidate takes,
-  and chooses a convincing shot. He revises that action or framing and compares
-  the new take. Anatomy, contact, movement, and environmental stability support
-  the script; a still with camera motion is insufficient.
-- **Known basis and boundary:** R15 with regeneration/caching aspects of
-  R26. Veo and Runway offer different external generation/performance routes;
-  neither has been validated in this repository. Preserve candidates and
-  provenance; measure revision turnaround and cost per approved shot including
-  rejects. Provider selection, spending limits, and first action are refinement
-  decisions, not authorization to purchase or generate during backlog work.
-- **Value / effort hypothesis:** A usable generated live-action asset route.
-  Moderate to substantial exploratory scope; provider access, editability, cost,
-  and acceptable quality are uncertain.
-- **Depends on:** None; any necessary saved-shot assembly is included here.
-- **Safe stopping point:** Terry has one finished revisable realistic scene
-  and retained assets even if multi-shot continuity proves unattractive.
+**Goal.** Terry can tell an idea through believable human action in a
+real-looking environment, then meaningfully revise that direction. Deliver a
+watchable short film, retained production inputs and takes, and a reusable
+authoring path. A generated still, playback adapter or one-off clip alone does
+not deliver the benefit.
+
+**Scope.** Direct, generate, audition, select, save and incorporate a short
+moving shot of a fictional person performing meaningful action in one
+environment. Keep the shot's authored production brief and editing choices;
+revise its action or framing through that path and compare a newly produced
+candidate with the retained original. Terry judges anatomy, contact, motion,
+environmental stability and whether the action conveys the intended idea at
+normal playback. Panning or zooming over a still is insufficient.
+
+Retain candidate footage, production inputs, provider/model/settings, review
+decisions and selected file identities. Record generation and revision
+turnaround and cost, including rejected takes; distinguish a quoted estimate
+from observed charges. Routine preview and export consume selected local
+footage without generating again. Adding a candidate does not overwrite or
+automatically replace the selected take. Reproduction means rendering saved
+approved inputs, not expecting a provider to regenerate identical footage.
+
+Terry approved the workshop scene and closer-framing revision below on
+2026-10-12, and set a US$5 total generation cap including original candidates,
+rejected takes and the revision. He has no Gemini API access and asked to use
+an available OpenAI API through his existing access. Current official
+documentation establishes that the OpenAI video route has shut down; the
+remaining provider decision is recorded below. Refinement authorizes no
+purchase or generation. Multi-shot
+cast/setting continuity, arbitrary fine-grained control inside a generated
+performance, a universal provider layer, lip-synced dialogue and a complete
+live-action film are deferred promises, not product rejection rules. One
+selected person or shot is an acceptance example, not a global limit. No
+mandatory sibling dependency is established; necessary saved-shot assembly
+belongs to this story.
+
+**Key examples.**
+
+- Given an agreed shot brief and production allowance → generate and audition
+  candidate takes → Terry can inspect the complete moving shot and select one
+  whose intended action, contact and environment remain convincing. A plausible
+  poster frame cannot establish this result.
+- Given the selected take → change the intended action or framing in the
+  authored brief and explicitly produce the revision → compare a visibly
+  different take while the original approved file and selection remain
+  available. Selection of the revision is a separate deliberate choice.
+- Given either selected version and its saved inputs → preview and export
+  again → reproduce its intended edit from the same local footage without a
+  provider request or new generation charge. Inspect the moving output,
+  including its opening and ending, rather than only successful encoding.
+- Given rejected attempts and an accepted take → inspect the production record
+  → see which brief/settings produced each candidate, the review reason and
+  total observed production cost and elapsed time. A rejected visual result
+  still counts when the provider charged for it.
+
+**Exploration and recommendation (2026-10-12; production route unresolved).** Compare
+routes against believable action, useful revision, retained assets and the
+work needed to direct another shot:
+
+| Candidate | Fit and consequential limit |
+| --- | --- |
+| Text-directed generation with retained trial records — recommended first | Smallest generation route: one authored brief produces candidate footage, which the existing saved-shot approach can assemble. A changed action/framing produces another take while preserving the original. Borrowing an experiment notebook makes the revision and its cost inspectable. Precise performance and contact remain uncertain until the actual moving take is judged. |
+| Use an OpenAI video-generation API through Terry's existing access — requested, currently unavailable | Official OpenAI documentation records removal of the Videos API and Sora 2 models on 2026-09-24, with no replacement listed. Existing OpenAI access does not establish an available moving-video route; do not plan against the retired API or substitute a generated still for the approved action. |
+| Reference-led image-to-video generation | Lets Terry establish appearance, setting and initial composition before directing motion. Adds reference creation/selection and may help when the brief alone cannot hold the intended look. A convincing reference does not prove convincing movement or exact identity preservation; no multi-shot continuity claim follows. |
+| Transfer a recorded performance to a fictional character | A driving performance supplies gesture and emotional timing. It requires a suitable recording and character reference, and a performance revision may require recording again. Runway Act-Two documents hand/body control for character-image inputs; character-video inputs instead preserve their existing body motion. This is less direct for the proposed person–part interaction, whose contact still needs inspection. |
+| Import existing recorded footage through the current film path | Strongest existing assembly solution, with immediate predictable playback. It does not itself deliver generation of a directed fictional person or production of a new revised take, so it is a reuse boundary rather than a substitute outcome. |
+
+The borrowed mechanism is a **laboratory experiment notebook**: the shot's
+intended action is the hypothesis, the brief/settings are the recorded
+conditions, a generation request is a trial, downloaded footage is the retained
+specimen, review notes are observations, and a revised brief defines the next
+trial. Adapt it by naming the changed direction and retaining failed as well as
+selected outputs, so selection cannot erase the true production cost. Its
+consequential limit is that generated trials do not isolate variables reliably:
+changing framing can also change the actor or action, and the same conditions
+need not reproduce the same video. The record supports comparison and recovery;
+it cannot guarantee controlled motion or prove realism.
+
+**Selected first scene (Terry, 2026-10-12).** A silent eight-second landscape shot of an original
+adult technician inspecting a part at a workshop bench and setting it aside;
+the meaningful revision generates a closer framing of that action. This gives
+the person a readable purpose and makes hand–object contact an explicit quality
+question. Terry accepted this scene and the newly generated closer-framing
+revision. Muting generated audio in the edit is sufficient for this silent
+scene; sound production is not an additional promise.
+
+**Architecture.** Separate explicit asset production from film playback.
+Production owns the brief, external request or documented tool operation,
+candidate files and provenance. Selection names the exact retained take;
+editing owns its measured range, crop, audio policy and position in the film.
+Preview/export must have no generation side effect. Editing the brief cannot
+silently replace selected bytes, and saved footage should outlive provider URLs.
+This preserves a usable offline film even if future generation is unavailable.
+
+PFE inspected `src/featureTeams/shot.ts`, `scripts/measure-shot.mjs` and
+`src/stories/FeatureTeamsFilm.tsx`: they already measure/hash footage and play
+it with `OffthreadVideo`, with explicit trim, hold and audio choices. Reuse the
+domain-correct measurement and playback responsibilities. `compileShot` also
+calculates Feature Teams' fixed portrait-inset placement, so importing that
+whole policy would give a landscape scene the wrong geometry; any extraction
+must preserve the existing film. `src/visualTreatments/choice.ts` and
+`selection.ts` establish explicit version selection without falling back to
+the newest candidate. `src/illustratedConversation/script.ts` and
+`performance.ts` preserve measured, hashed speech takes, but their PCM and
+mouth-cue verification is not a video-production interface. No new universal
+asset engine or provider abstraction is justified by this single scene.
+
+The current ADR index and in-file status agree that
+[ADR-0000 — Use Architectural Decision Records](../docs/adrs/0000-use-adrs-accepted.md)
+is the only Accepted decision, with no supersession. It preserves Terry's
+authority over durable decisions and specifies no generation provider or media
+format. No conflict was found. These are story-local design proposals, not a
+new ADR or an approved product-wide architecture.
+
+**Observed basis and limits.** R15/R26 in the
+[filmmaking research](research/2026-10-07-filmmaking-opportunities.md) supply
+the original generated-shot and retained-asset rationale. Local inspection
+confirmed the reuse boundaries above; it did not render a generated shot or
+establish account access, quality, revision success or actual spend.
+
+Current primary documentation, checked 2026-10-12:
+
+- [OpenAI's Sora/Videos API deprecation notice](https://developers.openai.com/api/docs/deprecations#2026-03-24-sora-2-video-generation-models-and-videos-api)
+  records removal of the Videos API, `sora-2`, `sora-2-pro` and their listed
+  snapshots on 2026-09-24. It lists no recommended replacement. The exact
+  notice was retrieved through official OpenAI documentation after Terry
+  requested this route; no available OpenAI video-generation substitute was
+  established. This is a provider-availability stop, not a failed paid trial
+  or a claim that Terry lacks general OpenAI access.
+- [Veo generation](https://ai.google.dev/gemini-api/docs/veo) documents text
+  and image inputs, eight-second 720p output at 24 fps, generated audio,
+  non-guaranteed determinism even with a seed, and a two-day server retention
+  window. These support an explicit download-and-retain route, not a quality
+  verdict on the proposed scene.
+- [Google API pricing](https://ai.google.dev/gemini-api/docs/pricing) lists
+  Veo 3.1 Fast at US$0.10/second for 720p and US$0.12/second for 1080p, with
+  no free API tier. Eight seconds at 720p therefore has a US$0.80 generation
+  estimate; rejected completed clips can still incur charges.
+- [Runway Gen-4.5](https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5)
+  documents text/image generation and durations from two to ten seconds.
+  Its [API pricing](https://docs.dev.runwayml.com/guides/pricing/) lists
+  12 credits/second at US$0.01/credit, an eight-second estimate of US$0.96
+  before applicable tax. Existing subscription access may change the practical
+  comparison; these API quotes do not describe subscription entitlements.
+- [Runway Act-Two](https://help.runwayml.com/hc/en-us/articles/42311337895827-Performance-Capture-with-Act-Two)
+  establishes the performance-transfer candidate and its input/control limits.
+
+The earlier Veo recommendation and US$10 proposed allowance are superseded by
+Terry's access constraint and US$5 cap. No provider is selected. Any alternative
+must have a usable access route and fit the complete trial, including rejected
+candidates and the revision, within that cap; do not infer a new subscription
+purchase. Public unit prices do not establish account access, minimum funding,
+actual charges or accepted-shot cost. A cost quote also cannot settle the
+decisive quality premise: an authorized trial of the actual scene and revision,
+inspected at normal playback, must do that. If the allowance cannot deliver a
+convincing pair, retain the evidence and return the choice to Terry instead of
+silently buying more attempts or substituting a still.
+
+**Retirement decision (Terry, 2026-10-12).** Terry explicitly retired this
+story and requested cleanup because the available OpenAI video route is closed
+and the work is not urgent. This is dropped work, not a delivered film. No
+generation, purchase, executable plan or readiness assessment occurred. Retain
+the selected scene, revision, US$5 cap and investigation in Git recovery, then
+remove the active story and preparation assignment. The separate generated-scene
+continuity story remains queued; its single-shot prerequisite was not delivered.
+
+**Safe stopping point.** Terry retains one finished revisable realistic scene,
+its original and revised takes, and the production path even if multi-shot
+continuity is never added. Effort and accepted-shot cost remain uncertain until
+the proposed production path is observed.
 
 <a id="generated-scene-continuity"></a>
 ### 13. I can tell a scene across generated shots with a consistent cast and setting
