@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#geographical-map-story",
+  "title": "I can tell a geographical story through an animated map",
+  "completedAt": "2026-10-12T22:21:21.062Z",
+  "developer": "Terry Yin",
+  "agent": "Maki-chan",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}

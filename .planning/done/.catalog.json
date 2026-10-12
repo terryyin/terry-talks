@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_geographical-map-story.json",
+      "identity": "terry-moves-filmmaking#geographical-map-story",
+      "completedAt": "2026-10-12T22:21:21.062Z",
+      "blob": "cdc0eb608d21ea3b09b1e26989b666a428bb2da3"
+    },
+    {
       "fileName": "terry-moves-filmmaking_typography-film.json",
       "identity": "terry-moves-filmmaking#typography-film",
       "completedAt": "2026-10-12T12:30:10.379Z",
