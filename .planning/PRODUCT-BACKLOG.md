@@ -10,7 +10,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Backlog list
 
-- [I can make a realistic scene with a person in an environment](../terry-moves/seed.md#realistic-generated-scene) — terry-moves-filmmaking#realistic-generated-scene
 - [I can tell a scene across generated shots with a consistent cast and setting](../terry-moves/seed.md#generated-scene-continuity) — terry-moves-filmmaking#generated-scene-continuity
 - [I can tell an idea through typography and restrained motion](../terry-moves/seed.md#typography-film) — terry-moves-filmmaking#typography-film
 - [I can make a film whose rhythm follows music and sound](../terry-moves/seed.md#music-and-sound-film) — terry-moves-filmmaking#music-and-sound-film
