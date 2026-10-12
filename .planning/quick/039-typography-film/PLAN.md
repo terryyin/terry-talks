@@ -173,10 +173,7 @@ slices under the manual-testing skill; test output cannot replace film review.
 
 ## Learnings
 
-The existing typography treatment is a useful visual precedent, not already a
-reusable passage engine. Local technical export is available. Final artistic
-quality and normal-speed readability remain the explicit slice-1/2 observations,
-not preparation claims.
+The existing typography treatment is a useful visual precedent, not already a reusable passage engine. Local technical export is available. Final artistic quality and normal-speed readability are established by slice-1/2 observations, not preparation claims.
 
 ## Slice 1 accepted proof
 
@@ -246,3 +243,8 @@ Disposition: proved by slice 3: Independent refactor split direction/revision pr
 - Actual browser seeking: revision frames `0,435,459,495,519,528,585,630,780,929` and baseline `0,42,135,270,435,495,585,735,884` matched forward/reverse rendered HTML without line overflow. Fresh middle mounts matched at revision 528 and baseline 495. Temporary viewport overrides were reset.
 - README's two-string “Keep changes” recipe was followed with its own frozen installation in `/var/folders/65/16p4k5qj42qg7l46k2j0nhj40000gn/T/typography-authoring-38hnen9d`: actual Studio preview and exact export succeeded; renderer/clock files remained byte-identical. Coordinator observed both passages at 1x. Owned temporary services ended with exit 130; no verification remains running. The setup concern is resolved by the isolated repeat and parent setup checks, with no tracked dependency changes.
 - Independent refactor moved the unchanged nine opening/baseline assertions to `direction.spec.tsx`, five revision/reuse assertions to `revision.spec.tsx`, and external clock/registration plus real-picture helpers to `renderedFilm.tsx`. Both suites passed 14 tests; typecheck and whitespace checks passed. After force frozen install repaired the stale ESLint links, all 51 affected tests, typecheck and selective ESLint passed. Mutation targets/assertions and all product/export/playback boundaries stayed unchanged.
+- Slice 3 delivery accepted `932590417cbf2b4c8e188a927f23478b80ce2b56`, suffix base `ad0a16b0b4b9471eac810e302b467fea18533876`, on the execution branch; exact current CI observation was reused.
+
+## Execution complete
+
+Product advice: No backlog change or correction is required. The delivered baseline, script-only revision and second-idea example support the current varied-films direction; retain music/sound, map and portrait priorities. Retrospective reviewed the attributable claim and three implementation commits against the original plan, current story, shared clock, existing treatment and behavioral proof; no supported architecture or test-cleanup finding. Process review skipped by project default. Final handoff remains conditional on the completion operation's CI verdict.
