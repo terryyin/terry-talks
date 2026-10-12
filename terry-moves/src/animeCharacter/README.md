@@ -15,7 +15,7 @@ identical; only the interior listening reaction differs.
 
 `AnimeEngineerCasting` is a 5.7-second, 1080-square, 30 fps moving casting
 sample. It contains a directed silent listening lead, the retained reconsider
-reply, and a short settle. Its accepted drawing and performance remain available
+reply, and a short settle. Its drawing and performance remain available
 alongside both full-scene versions.
 
 ## Retained inputs and provenance
@@ -64,7 +64,7 @@ alongside both full-scene versions.
 From the repository root, preview through `pnpm moves`, then select
 `AnimeEngineerScene` for surprise or `AnimeEngineerThoughtful` for the revised
 reaction. Open `/AnimeEngineerScene` or `/AnimeEngineerThoughtful` on the printed
-Studio URL; this checkout currently serves `http://localhost:3001`.
+Studio URL.
 Select `AnimeEngineerCasting` for the retained short rehearsal. Judge acting
 and perceived speech synchronization at normal playback with sound.
 To restore the baseline, select `AnimeEngineerScene`; no source edit or asset
