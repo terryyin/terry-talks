@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Composition, useCurrentFrame, useVideoConfig } from 'remotion';
 import { TypeDirection, TypePose, typographyTimeline } from './direction';
-import { editedOpeningContrast, openingContrast, problemBaseline } from './script';
+import { editedOpeningContrast, feedbackExample, openingContrast, problemBaseline, problemRevision } from './script';
 
 const tones = { ink: '#f3efe7', quiet: '#c0bdb4', accent: '#dce3bd' };
 
@@ -65,6 +65,26 @@ export const TypographyProblemBaselineComposition: React.FC = () => <Composition
 	component={TypographyFilm}
 	defaultProps={{ direction: problemBaseline }}
 	durationInFrames={typographyTimeline(problemBaseline, fps).durationInFrames}
+	fps={fps}
+	width={size}
+	height={size}
+/>;
+
+export const TypographyProblemRevisionComposition: React.FC = () => <Composition
+	id="TypographyProblemRevision"
+	component={TypographyFilm}
+	defaultProps={{ direction: problemRevision }}
+	durationInFrames={typographyTimeline(problemRevision, fps).durationInFrames}
+	fps={fps}
+	width={size}
+	height={size}
+/>;
+
+export const TypographyFeedbackExampleComposition: React.FC = () => <Composition
+	id="TypographyFeedbackExample"
+	component={TypographyFilm}
+	defaultProps={{ direction: feedbackExample }}
+	durationInFrames={typographyTimeline(feedbackExample, fps).durationInFrames}
 	fps={fps}
 	width={size}
 	height={size}

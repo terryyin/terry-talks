@@ -130,3 +130,61 @@ export const problemBaseline: TypeDirection = {
 		},
 	],
 };
+
+// Keep the words and argument intact, but let the time constraint carry the
+// emphasis. Derive this version without writing into the retained baseline.
+export const problemRevision: TypeDirection = {
+	passages: problemBaseline.passages.map((passage) => passage.id === 'useful-outcome' ? {
+		...passage,
+		holdSeconds: 3.6,
+		groups: passage.groups.map((group) => group.id === 'focus' ? {
+			...group, size: 72, weight: 400, letterSpacing: -2, tone: 'ink',
+		} : group.id === 'context' ? {
+			...group, size: 112, weight: 700, letterSpacing: -3, spaceBefore: 44, tone: 'accent',
+			motion: { delaySeconds: 2, revealSeconds: 0.7, settleSeconds: 0.9, risePixels: 22 },
+		} : group),
+	} : passage),
+};
+
+// A compact second idea uses a two-line group, its own spacing and reading
+// rhythm through the same direction model and picture renderer.
+export const feedbackExample: TypeDirection = {
+	passages: [
+		{
+			id: 'feedback-small',
+			holdSeconds: 2.4,
+			groups: [
+				{
+					id: 'lead-in', lines: ['Make', 'feedback'],
+					size: 78, weight: 400, letterSpacing: -2, lineHeight: 1.02,
+					spaceBefore: 0, tone: 'ink',
+					motion: { delaySeconds: 0, revealSeconds: 0, settleSeconds: 0, risePixels: 0 },
+				},
+				{
+					id: 'focus', lines: ['small.'],
+					size: 140, weight: 700, letterSpacing: -5, lineHeight: 1.02,
+					spaceBefore: 36, tone: 'accent',
+					motion: { delaySeconds: 0.8, revealSeconds: 0.6, settleSeconds: 0.8, risePixels: 20 },
+				},
+			],
+		},
+		{
+			id: 'feedback-useful',
+			holdSeconds: 2.7,
+			groups: [
+				{
+					id: 'lead-in', lines: ['Make it'],
+					size: 64, weight: 400, letterSpacing: -1, lineHeight: 1.1,
+					spaceBefore: 0, tone: 'ink',
+					motion: { delaySeconds: 0, revealSeconds: 0, settleSeconds: 0, risePixels: 0 },
+				},
+				{
+					id: 'focus', lines: ['useful.'],
+					size: 132, weight: 700, letterSpacing: -4, lineHeight: 1.02,
+					spaceBefore: 48, tone: 'accent',
+					motion: { delaySeconds: 0.55, revealSeconds: 0.65, settleSeconds: 0.75, risePixels: 20 },
+				},
+			],
+		},
+	],
+};

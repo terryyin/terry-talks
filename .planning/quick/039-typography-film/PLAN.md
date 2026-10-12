@@ -109,13 +109,7 @@ large/small or weighted emphasis, purposeful spacing, gentle reveal/settling
 and readable holds. Include a small script edit in this sample to verify that
 direction reaches the picture, not only numeric pose output.
 
-Own the minimal direction model, frame sampling, composition registration and
-font choice in this slice. Use the existing clock. Do not build a preset catalog.
-Record the actual preview/export commands and the sample's accepted treatment.
-Terry's rejection or unavailable review holds the dependent slices; change the
-art direction within the story or surface a scope change rather than claiming
-artistic acceptance from test output. The sample is interim; slice 2 replaces
-its incomplete argument with the whole film.
+Own the minimal direction model, frame sampling, composition registration and font choice in this slice. Use the existing clock. Do not build a preset catalog. Record the actual preview/export commands and the sample's accepted treatment. Terry's rejection or unavailable review holds the dependent slices; change the art direction within the story or surface a scope change rather than claiming artistic acceptance from test output. The sample is interim; slice 2 replaces its incomplete argument with the whole film.
 
 ### 2. Watch the complete idea at a readable pace
 Type: Behavior
@@ -123,22 +117,13 @@ Status: done
 Proof: Full baseline playback conveys the selected idea at normal speed and both
 viewing sizes, and export/seek observations agree with its script.
 
-Behavior: Given the accepted moving treatment → author and export the complete
-short argument → the contrast, development and conclusion read coherently in
-silence, with unclipped text and enough settled reading time. Refine copy,
-line breaks, spacing and holds in the same script path. Use the actual browser
-layout and output, not jsdom text alone, to assess fit.
+Behavior: Given the accepted moving treatment → author and export the complete short argument → the contrast, development and conclusion read coherently in silence, with unclipped text and enough settled reading time. Refine copy, line breaks, spacing and holds in the same script path. Use the actual browser layout and output, not jsdom text alone, to assess fit.
 
-Exercise first frame, reveal/hold joins, beat changes and final frame through
-forward playback, reverse seeking and a fresh middle-frame render. Verify
-export dimensions, frame rate, duration and absence of an unintended audio
-track. Preserve the baseline inputs as the named baseline before revision.
-This slice owns complete-film review and any copy/pacing correction needed
-within the selected idea.
+Exercise first frame, reveal/hold joins, beat changes and final frame through forward playback, reverse seeking and a fresh middle-frame render. Verify export dimensions, frame rate, duration and absence of an unintended audio track. Preserve the baseline inputs as the named baseline before revision. This slice owns complete-film review and any copy/pacing correction needed within the selected idea.
 
 ### 3. Revise emphasis and reuse the same authoring path
 Type: Behavior
-Status: planned
+Status: done
 Proof: A script-only edit yields a meaningfully different readable film, the
 baseline stays reproducible, and another short idea uses the same renderer.
 
@@ -169,7 +154,7 @@ verify they reach preview and export without a renderer change.
 - Accepted claim: `8453a630ed4cd8dec4a4f8039fc7a332752f970a`; starting revision `178f967893f1e3431b7ccd47bb6b1e119f94e0b1`. Authorized remote `origin`, eventual trunk `master`; ordinary increments publish only to the named execution branch.
 - Setup: `pnpm install --frozen-lockfile` and `pnpm -C terry-moves test:unit --runInBand tests/visualTreatments/typographyTreatment.spec.tsx` passed in this checkout (six tests). Studio started here at `http://localhost:3000` and was opened and verified in Chrome before edits.
 - No numeric slice budget or explicit replanning override. Preserve the existing planning authority. The Git pre-commit hook is absent; selective formatting uses the existing Remotion ESLint configuration on the changed source paths.
-- CI: GitHub Actions `ci.yml`, verified active workflow 381584897, display name `CI`, push-triggered. This coordinator's Codex observer targets the execution branch: `hitomi-typography-ae630e11`, directory `/tmp/dough-ci-501/watch-RPooN6`, cell 33, session 89869, PID 18854. Claim on trunk has unobserved CI coverage.
+- CI: GitHub Actions `ci.yml`, verified active workflow 381584897, display name `CI`, push-triggered. This coordinator's Codex observer targets the execution branch: `hitomi-typography-ae630e11`, directory `/tmp/dough-ci-501/watch-mylquC`, cell 10, session 29372, PID 4360. Claim on trunk has unobserved CI coverage.
 - Slice-1 manual observation is bounded to the sample and edited sample: prepare Studio/exports (20%), inspect both compositions and viewing sizes (40%), inspect reveal/hold/beat joins and script-control differences (30%), reserve for confirming any surprise (10%). Terry approved both moving samples on 2026-10-12 and authorized continuation.
 
 Each slice owns implementation, focused checks, visual proof and cleanup for
@@ -223,7 +208,7 @@ Disposition: proved by slice 2: TypographyProblemBaseline export, complete rende
 ### G3. Full baseline, revision and second-idea proof remain
 Reported: slice 1 — "Complete versions and a second-idea fixture remain for later slices."
 Story clause: "Retain the original and revised films, their script inputs, and usable preview/export instructions."
-Disposition: receiving slice 3
+Disposition: proved by slice 3: Named baseline/revision/feedback compositions, README authoring recipe, rendered assertions and unchanged decoded baseline replay.
 
 ### G4. Studio cannot save imported script defaults
 Reported: slice 1 — "Studio's Save default props action cannot write imported direction objects back to the script."
@@ -235,9 +220,29 @@ Reported: slice 1 — "Exports logged existing unrelated quillustration_flower_a
 Story clause: "Terry can communicate an idea through a watchable typography film"
 Disposition: no user cost "Terry can communicate an idea through a watchable typography film": The new silent text renderer consumes no such asset; both actual exports finished and displayed the intended samples. Existing asset inputs are unchanged.
 
+### G6. Disposable authoring environment isolation
+Reported: slice 3 — "pnpm11 auto-install ran in temp project with symlinked node_modules, potentially altering ignored terry-moves/node_modules resolution."
+Story clause: "The same authoring path can express another short idea without copying a bespoke renderer."
+Disposition: proved by slice 3: Owned temporary symlinks/services removed; stale ESLint dependency links repaired with force frozen install; 51 focused tests, typecheck and selective ESLint passed. README recipe repeated with independent locked dependencies, successful export and coordinator-observed preview; tracked dependency metadata unchanged.
+
+### G7. Oversized typography test file
+Reported: slice 3 — "Tests are now above the refactor skill's 250-line limit; the coordinator already identified their cohesive split."
+Story clause: "Terry can communicate an idea through a watchable typography film"
+Disposition: proved by slice 3: Independent refactor split direction/revision proof and shared renderedFilm transport; both suites passed 14 tests, typecheck passed, all changed files below 250 lines.
+
 ## Slice 2 accepted proof
 
 - Complete baseline: `problemBaseline`, composition `TypographyProblemBaseline`, silent H.264 1080×1080 at 30 fps, 885 frames / 29.5 seconds. README export command and typecheck passed; owner answered the full-baseline review prompt with “continue” twice. Opening samples and actual picture renderer remain unchanged.
 - `pnpm -C terry-moves test:unit --runInBand tests/typographyFilm/direction.spec.tsx` passed nine tests. Three new assertions observe the registered full argument, reveal/hold and transition boundaries, closing text, retained opening, fresh mounts and reverse/out-of-order samples. The combined run with `tests/tpsAndAiJit/film.spec.tsx tests/tpsAndAi/languageEditions.spec.tsx` passed all 37 existing Root consumers; an endpoint-only new assertion was corrected and the nine typography tests passed again without production edits.
 - Two independent PNG exports of frames `0,24,42,134,135,269,270,294,312,434,435,474,495,584,585,609,627,734,735,759,777,884` to `out/typography-film/baseline-frames-a` and `baseline-frames-b` passed. Coordinator SHA-256 comparison confirmed 22 matching files, byte-identical. Coordinator observed full MP4 playback at rate 1 and measured CSS 360×360 and 1080×1080; argument, seat example and closing were legible without clipping/overlap. Actual Studio frame 495 had no line overflow.
 - Independent refactor: none — already clean, no edits or rerun of unchanged proof. Selective ESLint formatting and `git diff --check` passed. Slice 1 was delivered as `eff087733cd749da6b6a1ed1f4094549f7c24944` on the execution branch; its suffix base is the accepted claim.
+- Slice 2 delivery accepted `ad0a16b0b4b9471eac810e302b467fea18533876`, suffix base `eff087733cd749da6b6a1ed1f4094549f7c24944`. Conversation interruption ended the prior observer with lost coverage, zero unread events, and PID exit; its slice-1 coverage receipt records success. A new exact owner stream above recovered baseline registration through managed resume without another push.
+
+## Slice 3 accepted proof
+
+- Full revision preserves all words and other passages while changing seat/deadline emphasis, spacing, arrival and settled hold through `problemRevision`; `feedbackExample` uses its own two-line grouping, gaps and rhythm through the identical renderer. The focused typography plus real-Root consumer command passed 51 tests, including four suites after refactoring; typecheck passed. The new reveal assertion at frame 511 discriminates the changed entrance duration.
+- `python3 /tmp/typography-slice3-mutations.py` passed its final mutation/restoration audit: all 14 reverted revision controls caused behavioral assertion failures, restored 14 tests passed. Evidence: `/var/folders/65/16p4k5qj42qg7l46k2j0nhj40000gn/T/typography-slice3-5ievgkg8/revision-mutations.json`. Prior renderer-control proof remains valid because the renderer and clock are unchanged.
+- README export commands produced silent H.264 1080×1080 at 30 fps: revision 930 frames / 31 seconds, fixture 240 / 8 seconds, retained baseline replay 885 / 29.5 seconds. Coordinator `cmp` of the two decoded baseline `.framemd5` files confirmed every frame identical. Complete baseline/revision were watched at rate 1 through their ends at measured CSS 360×360 and 1080×1080; changed emphasis and pause were visible, meaning retained, no clipping/overlap. The complete fixture was watched at 360×360.
+- Actual browser seeking: revision frames `0,435,459,495,519,528,585,630,780,929` and baseline `0,42,135,270,435,495,585,735,884` matched forward/reverse rendered HTML without line overflow. Fresh middle mounts matched at revision 528 and baseline 495. Temporary viewport overrides were reset.
+- README's two-string “Keep changes” recipe was followed with its own frozen installation in `/var/folders/65/16p4k5qj42qg7l46k2j0nhj40000gn/T/typography-authoring-38hnen9d`: actual Studio preview and exact export succeeded; renderer/clock files remained byte-identical. Coordinator observed both passages at 1x. Owned temporary services ended with exit 130; no verification remains running. The setup concern is resolved by the isolated repeat and parent setup checks, with no tracked dependency changes.
+- Independent refactor moved the unchanged nine opening/baseline assertions to `direction.spec.tsx`, five revision/reuse assertions to `revision.spec.tsx`, and external clock/registration plus real-picture helpers to `renderedFilm.tsx`. Both suites passed 14 tests; typecheck and whitespace checks passed. After force frozen install repaired the stale ESLint links, all 51 affected tests, typecheck and selective ESLint passed. Mutation targets/assertions and all product/export/playback boundaries stayed unchanged.
