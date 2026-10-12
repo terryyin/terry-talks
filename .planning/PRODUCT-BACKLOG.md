@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [I can make an anime-style character perform a short scene](../terry-moves/seed.md#anime-character-scene) — terry-moves-filmmaking#anime-character-scene ([plan](quick/038-anime-character-scene/PLAN.md))
-
 ## Backlog list
 
 - [I can tell an idea through typography and restrained motion](../terry-moves/seed.md#typography-film) — terry-moves-filmmaking#typography-film

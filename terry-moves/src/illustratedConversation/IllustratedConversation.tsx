@@ -3,20 +3,11 @@ import {AbsoluteFill, Audio, Composition, Sequence, staticFile, useCurrentFrame,
 import {AI, Engineer} from '../aiTestAutomation/actors';
 import {BODY, Definitions, palette} from '../aiTestAutomation/design';
 import {blinkAt} from '../aiTestAutomation/motion';
-import {compileConversation, Performance, verifyConversationAssets} from './performance';
+import {compileConversation, Performance} from './performance';
+import {conversationMetadata} from './metadata';
 import {ConversationScript, conversationScript, pilotScript, thoughtfulConversationScript} from './script';
 
 const compositionFps=30;
-const conversationMetadata=(defaultScript: ConversationScript)=>async ({props}: {props: {script?: ConversationScript}})=>{
- const script=props.script ?? defaultScript;
- const compiled=compileConversation(script,compositionFps);
- await verifyConversationAssets(script,async file=>{
-  const response=await fetch(staticFile(file));
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return response.arrayBuffer();
- },async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),byte=>byte.toString(16).padStart(2,'0')).join(''));
- return {durationInFrames:compiled.durationInFrames};
-};
 
 export const ConversationPicture: React.FC<{performance: Performance; frame: number; fps: number}> = ({performance,frame,fps}) => {
  const engineer=performance.actors.engineer;
@@ -52,7 +43,7 @@ export const IllustratedConversationComposition: React.FC = () => <Composition
  id="IllustratedConversationPilot"
  component={IllustratedConversation}
  durationInFrames={compileConversation(pilotScript,compositionFps).durationInFrames}
- calculateMetadata={conversationMetadata(pilotScript)}
+ calculateMetadata={conversationMetadata(pilotScript,compositionFps)}
  fps={compositionFps}
  width={1080}
  height={1080}
@@ -64,7 +55,7 @@ export const FullIllustratedConversationComposition: React.FC = () => <Compositi
  id="IllustratedConversation"
  component={IllustratedConversationFilm}
  durationInFrames={compileConversation(conversationScript,compositionFps).durationInFrames}
- calculateMetadata={conversationMetadata(conversationScript)}
+ calculateMetadata={conversationMetadata(conversationScript,compositionFps)}
  fps={compositionFps}
  width={1080}
  height={1080}
@@ -76,7 +67,7 @@ export const ThoughtfulIllustratedConversationComposition: React.FC = () => <Com
  id="IllustratedConversationThoughtful"
  component={ThoughtfulIllustratedConversationFilm}
  durationInFrames={compileConversation(thoughtfulConversationScript,compositionFps).durationInFrames}
- calculateMetadata={conversationMetadata(thoughtfulConversationScript)}
+ calculateMetadata={conversationMetadata(thoughtfulConversationScript,compositionFps)}
  fps={compositionFps}
  width={1080}
  height={1080}

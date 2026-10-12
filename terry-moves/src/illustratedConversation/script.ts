@@ -5,7 +5,11 @@ import recording from '../../public/assets/illustrated-conversation/takes.json';
 export type Actor = 'engineer' | 'ai';
 export type MouthCue = {at: number; shape: SpeechMouth};
 export type Take = {actor: string; file: string; text: string; sha256: string; durationSeconds: number; sampleFrames: number; sampleRate: number};
-export type ActorPose = {mood: Mood; gaze: number; tilt: number; leftHand: Point; rightHand: Point};
+// Optional continuous face channels. Existing drawings still consume their mood;
+// a deforming rig may instead consume these dimensionless authored values.
+export type FacePose = {browRaise: number; browPinch: number; eyeOpen: number; smile: number};
+export const neutralFace: FacePose = {browRaise:0,browPinch:0,eyeOpen:1,smile:0};
+export type ActorPose = {mood: Mood; gaze: number; tilt: number; leftHand: Point; rightHand: Point; face?: FacePose};
 export type PoseCue = {actor: Actor; turn: string; offset: number; pose: Partial<ActorPose>};
 export type ConversationScript = {
  lead: number;

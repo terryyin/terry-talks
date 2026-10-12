@@ -1,10 +1,17 @@
 import {beat, timeline} from '../beatTimeline';
 import {lerpPoint, mix, travel} from '../aiTestAutomation/motion';
 import type {SpeechMouth} from '../aiTestAutomation/actors';
-import type {Actor, ActorPose, ConversationScript, Take} from './script';
+import type {Actor, ActorPose, ConversationScript, FacePose, Take} from './script';
+import {neutralFace} from './script';
 
 export type TurnRange = {id: string; speaker: Actor; from: number; durationInFrames: number; take: Take; mouth: ConversationScript['turns'][number]['mouth']};
 export type Performance = {actors: Record<Actor, ActorPose & {mouth: SpeechMouth}>; caption: string; speaker?: Actor; turn?: string};
+
+const blendFace = (before: FacePose | undefined, after: FacePose | undefined, amount: number) => {
+ if (!before && !after) return {};
+ const from=before ?? neutralFace;const to=after ?? neutralFace;
+ return {face:{browRaise:mix(from.browRaise,to.browRaise,amount),browPinch:mix(from.browPinch,to.browPinch,amount),eyeOpen:mix(from.eyeOpen,to.eyeOpen,amount),smile:mix(from.smile,to.smile,amount)}};
+};
 
 export const compileConversation = (script: ConversationScript, fps: number) => {
  const fail = (turn: string, correction: string): never => {throw new Error(`Turn ${turn}: ${correction}`);};
@@ -50,7 +57,7 @@ export const compileConversation = (script: ConversationScript, fps: number) => 
   for (const next of cues.slice(1)) {
    if (frame<=next.frame) {
     const amount=travel(frame,previous.frame,next.frame-previous.frame);
-    return {mood:frame>=next.frame?next.pose.mood:previous.pose.mood,gaze:mix(previous.pose.gaze,next.pose.gaze,amount),tilt:mix(previous.pose.tilt,next.pose.tilt,amount),leftHand:lerpPoint(previous.pose.leftHand,next.pose.leftHand,amount),rightHand:lerpPoint(previous.pose.rightHand,next.pose.rightHand,amount)};
+    return {mood:frame>=next.frame?next.pose.mood:previous.pose.mood,gaze:mix(previous.pose.gaze,next.pose.gaze,amount),tilt:mix(previous.pose.tilt,next.pose.tilt,amount),leftHand:lerpPoint(previous.pose.leftHand,next.pose.leftHand,amount),rightHand:lerpPoint(previous.pose.rightHand,next.pose.rightHand,amount),...blendFace(previous.pose.face,next.pose.face,amount)};
    }
    previous=next;
   }
