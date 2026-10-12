@@ -79,29 +79,141 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#3d-character-action
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/037-3d-character-action/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"d4e3daa08ba9963ccc17ce8b4a6c2c10b692af44f114f81ebfc789e6b2c402b5","plan":"572d1e43cde71e2f44eb8ca803b73bb95d36d520360c1b37411b6f475ddc969a"}}
 ```
 
-- **For / why:** Terry can direct recognizable 3D acting instead of merely
-  displaying a static model or playing every imported animation.
-- **Outcome and scope:** Use one compatible character and intended named
-  actions, with acceptable joins in a short scripted sequence. Revise the action
-  sequence and reproduce the shot reliably, including arbitrary-frame seeking.
-- **Evaluation example:** Terry directs a supported walk, turn, and gesture,
-  then changes a gesture or sequence. The intended clips play, their joins read
-  naturally, and feet/contact remain acceptable for the chosen actions. Seeking
-  or mounting in the middle matches the rendered performance.
-- **Known basis and boundary:** R13. The current wrapper starts all imported
-  actions, so named selection and joins are useful improvements. GLB/VRM,
-  compatible authored clips, and retargeting are candidate routes. Choose one
-  rig and check permissions and compatibility; do not promise arbitrary rigs,
-  automatic retargeting, or every blend/secondary-motion case.
-- **Value / effort hypothesis:** A reusable supported 3D acting workflow.
-  Substantial scope; medium confidence, driven by chosen asset/clip quality.
-- **Depends on:** None as a mandatory backlog dependency; the [cinematic shot](src/cinematicShot/README.md) may provide
-  reusable staging, but this story owns any staging necessary for its action.
-- **Safe stopping point:** Terry can make and revise the selected actor's
-  supported actions without adding anime, speech, or advanced simulation.
+**Goal.** Terry can direct recognizable 3D acting in a watchable short film,
+then meaningfully revise the performance through its script. The usable result
+includes the film, retained production inputs and a reusable direction path;
+displaying a model or demonstrating an animation adapter alone is insufficient.
+
+**Scope.** One compatible character performs intended named actions in a short
+scripted sequence. The selected walk, turn and gesture read clearly, their joins
+look natural at normal playback, and foot placement/contact remain acceptable
+for those actions. Direction owns action order and timing; a supported revision
+must not require repairing component choreography or an independent clock.
+Preview, export, backward seeking and a fresh mount in the middle give the same
+intended performance. Retain the selected character, compatible motion inputs,
+their source/permissions and the original/revised scripts so routine reproduction
+does not depend on reacquiring assets.
+
+Arbitrary rigs, automatic retargeting, universal blending, advanced secondary
+motion, speech and the later anime-character outcome are deferred promises,
+not rejection rules. One supported example does not impose a product-wide actor
+or action limit. No mandatory sibling dependency is established: the [cinematic shot](src/cinematicShot/README.md)
+may offer staging, but this story owns any staging its action needs.
+The selected scene is a short silent RobotExpressive greeting: walk in, turn
+toward the viewer and wave. The meaningful revision replaces the wave with a
+thumbs-up. Terry accepted this recommendation on 2026-10-12.
+
+**Key examples.**
+
+- Given the selected compatible actor and actions → play/export the scripted
+  walk, turn and gesture → only the intended performance plays, its joins read
+  naturally, and visible feet do not distract through sliding, floating or
+  penetration. Evaluate the complete motion at normal speed, including the turn.
+- Given that film → change a supported gesture or action sequence in the script
+  → obtain a visibly different performance with usable timing and joins, without
+  editing a second representation of the choreography.
+- Given a frame within a clip or transition → arrive by forward playback,
+  backward seeking or a fresh middle-frame mount → see the same skeletal pose,
+  world position, facing and relevant expression. A frozen actor does not satisfy
+  this example merely because every sampled image matches.
+- Given saved inputs and the selected take → reproduce the original and revision
+  → recover their intended performance without downloading or regenerating the
+  actor or motion. Document the editable direction and preview/export route.
+
+**Exploration and decision (Terry, 2026-10-12).** Terry accepted the robot
+greeting and compatible-GLB recommendation and instructed preparation to proceed.
+
+| Candidate | Fit against acting, revision, joins and seeking |
+| --- | --- |
+| Extend the existing GLB wrapper with named clip switches | Strongest simpler reuse option: the project already loads animated GLTF and supplies a frame-derived time. Selecting one clip addresses accidental simultaneous playback. Hard switches alone do not establish natural walk/turn/gesture joins; adding transition timing would lead toward the next candidate. |
+| Compatible GLB actor with a script of timed, blended clips — selected | Reuses browser rendering and the existing frame timeline; keeps clip choice, local time, world motion and blend weights reconstructible at any requested frame. A saved actor with compatible clips avoids a retargeting prerequisite. The preparation probe established rendering, frame reconstruction and a support-foot-based turning candidate; final contact and performance remain execution acceptance. |
+| Author and bake the performance offline, then import the rendered shot | Offers direct control over poses and contact, but the reusable revision path must actually consume the script, retain rig/scene inputs and rerender the changed performance. A hand-edited movie would miss the story's revision promise. No offline route was validated in this preparation. |
+
+The borrowed mechanism is an **audio sequencer**: a saved sample corresponds to
+a motion clip, a sequenced region to an action, region offset to local clip time,
+gain envelopes to pose-blend weights, and transport position to the requested
+Remotion frame. Adapt it by deriving the active clips, times and weights directly
+from that frame, instead of waiting for playback events. This is a candidate
+mechanism, not proof: overlapping audio needs no shared skeleton or grounded
+contact, whereas blended character poses do. A smooth blend can still slide feet.
+
+The selected greeting gives the actions a readable intention and makes the
+revision change the acting. Turn while stepping into the final facing, then
+settle before the gesture; the story does not require a stationary pivot.
+
+**Architecture.** Keep one authored direction and one frame-addressable
+evaluation path for preview/export. Reuse `src/beatTimeline.ts` for ordered
+timing where its semantics fit, and the installed Three/Remotion rendering
+stack. A character adapter would own clip sampling and applying a pose to its
+rig; world translation/facing and skeletal motion need explicit ownership to
+avoid moving the actor twice or depending on a previous frame.
+
+PFE inspected `AnimatedGlb`, `GLBAnimationActioner`, `AnimationContextWrapper`,
+`Script`, `GLTFNode`, `beatTimeline` and `silentScene/compileScene`.
+`AnimatedGlb` starts every loaded action and uses R3F's render loop to set mixer
+time. Its current consumer is the watering asset in `StoryProductDeveloper`;
+changing its default playback would affect that film. The older action context
+owns subtitle timing and global GLB time, not clip names and transition weights.
+The silent-scene compiler offers a useful pattern for deriving joins from ordered
+actions, but its 2D arm reach and prop-ownership rules do not solve skeletal
+3D contact. Preserve those domain boundaries. Final placement remains a local
+design choice; no universal character
+engine, new product-wide format or dependency on sibling work is
+established here.
+
+The [Remotion ThreeCanvas guidance](https://www.remotion.dev/docs/three-canvas)
+requires frame-driven animation; Three's
+[AnimationAction API](https://threejs.org/docs/pages/AnimationAction.html)
+provides local clip time and effective weights. The preparation probe observed
+direct clip-time/weight sampling through actual rendering, including reverse
+order and a fresh middle-frame mount. Use these frame-derived values instead
+of relying on accumulated mixer time or event-driven fades. Let ThreeCanvas's
+loading boundary wait for the asset: an inner null-fallback Suspense in the
+probe allowed empty first/fresh frames until removed.
+
+The only current Accepted record is
+[ADR-0000 — Use Architectural Decision Records](../docs/adrs/0000-use-adrs-accepted.md),
+with matching index/in-file status and no supersession. It preserves human
+ownership of durable decisions and specifies no renderer or rig format. No
+conflict was found. These are story-local design proposals, not an ADR proposal
+or approval.
+
+**Observed basis and limits.** R13 in the
+[filmmaking research](research/2026-10-07-filmmaking-opportunities.md) identifies
+named motion as the gap. Inspection here confirmed the wrapper's all-actions
+loop; this is a code observation, not a rendered symptom reproduction. Existing
+saved GLB/GLTF assets inspected by filename offered no established actor with
+the required walk/turn/gesture performance.
+
+On 2026-10-12 a disposable download of
+[RobotExpressive and its README](https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf/RobotExpressive)
+was inspected outside tracked product files. The source identifies Tomás Laulhé
+as creator, Don McCurdy's modifications and CC0 1.0. The 463,988-byte GLB has
+SHA-256 `047f5e5fb3bb6d378bd1df16ca6137f2a596c99b3a1b5690b4020c05aaf6f319`,
+two skins, no external buffer/image URI, and named clips including `Idle`,
+`Walking`, `Wave` and `ThumbsUp`. There is **no dedicated turn clip**. File
+inspection establishes those contents. A subsequent disposable browser probe
+in this workspace loaded the actual actor, rendered 150 distinct frames with
+identical reverse-order counterparts and an identical fresh frame 100, changed
+Wave to a visibly different ThumbsUp pose, and encoded an MP4. A frozen-skeleton
+mutation changed the expected frame, so equality alone cannot hide no motion.
+
+The probe sampled a walking cycle while turning the actor's facing by 90 degrees
+over continuing steps. A deterministic path precomputed from clip samples held
+the selected support-foot point horizontally; observed drift was below 1e-12
+model units. This establishes a feasible local mechanism, not full sole contact,
+smoothness or artistic acceptance. The finished film still needs normal-speed
+review of planted feet, weight changes, joins, staging and gesture readability.
+Do not silently substitute a sliding root rotation for that acceptance.
+
+**Plan.** [Direct and revise a 3D robot greeting](../.planning/quick/037-3d-character-action/PLAN.md)
+records the consuming observations, their limits and the ordered execution proof.
+
+**Safe stopping point.** Terry can make and revise the selected actor's
+supported actions even if anime, speech and advanced simulation are never added.
 
 <a id="anime-character-scene"></a>
 ### 11. I can make an anime-style character perform a short scene
