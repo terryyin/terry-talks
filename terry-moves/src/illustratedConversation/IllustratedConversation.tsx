@@ -4,7 +4,7 @@ import {AI, Engineer} from '../aiTestAutomation/actors';
 import {BODY, Definitions, palette} from '../aiTestAutomation/design';
 import {blinkAt} from '../aiTestAutomation/motion';
 import {compileConversation, Performance, verifyConversationAssets} from './performance';
-import {ConversationScript, conversationScript, pilotScript} from './script';
+import {ConversationScript, conversationScript, pilotScript, thoughtfulConversationScript} from './script';
 
 const compositionFps=30;
 const conversationMetadata=(defaultScript: ConversationScript)=>async ({props}: {props: {script?: ConversationScript}})=>{
@@ -65,6 +65,18 @@ export const FullIllustratedConversationComposition: React.FC = () => <Compositi
  component={IllustratedConversationFilm}
  durationInFrames={compileConversation(conversationScript,compositionFps).durationInFrames}
  calculateMetadata={conversationMetadata(conversationScript)}
+ fps={compositionFps}
+ width={1080}
+ height={1080}
+/>;
+
+export const ThoughtfulIllustratedConversationFilm: React.FC<{script?: ConversationScript}> = ({script=thoughtfulConversationScript}) => <IllustratedConversation script={script}/>;
+
+export const ThoughtfulIllustratedConversationComposition: React.FC = () => <Composition
+ id="IllustratedConversationThoughtful"
+ component={ThoughtfulIllustratedConversationFilm}
+ durationInFrames={compileConversation(thoughtfulConversationScript,compositionFps).durationInFrames}
+ calculateMetadata={conversationMetadata(thoughtfulConversationScript)}
  fps={compositionFps}
  width={1080}
  height={1080}

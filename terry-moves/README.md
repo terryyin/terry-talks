@@ -246,5 +246,5 @@ Select `ATDDFilm`, `ATDDSolutionTree` or `ATDDScenarioCycle` in Studio.
 
 See [the conversation guide](src/illustratedConversation/README.md) for saved takes, script direction and sound-on review.
 
-Export: `pnpm -C terry-moves render:illustrated-conversation:pilot`.
-Full exchange: `pnpm -C terry-moves render:illustrated-conversation`.
+Export the pilot: `pnpm -C terry-moves render:illustrated-conversation:pilot`; full exchange: `pnpm -C terry-moves render:illustrated-conversation`.
+Thoughtful listening revision: `pnpm -C terry-moves render:illustrated-conversation:thoughtful`.

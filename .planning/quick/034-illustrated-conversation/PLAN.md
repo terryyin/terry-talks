@@ -6,11 +6,7 @@
 
 ## Goal and scope
 
-Terry can make a watchable English exchange between the existing Engineer and AI, then revise the AI's listening
-reaction through the same script. Deliver a new square 1080×1080, 30 fps film, roughly 20–30 seconds, with saved
-speech, speech-shaped mouths, gaze, expression, intentional gestures and pauses, and clear changes of speaker.
-The duration is a creative target, not a rejection rule. The first film and its revised performance remain
-available for comparison.
+Terry can make a watchable English exchange between the existing Engineer and AI, then revise the AI's listening reaction through the same script. Deliver a new square 1080×1080, 30 fps film, roughly 20–30 seconds, with saved speech, speech-shaped mouths, gaze, expression, intentional gestures and pauses, and clear changes of speaker. The duration is a creative target, not a rejection rule. The first film and its revised performance remain available for comparison.
 
 Working dialogue, to polish during the pilot without changing the selected idea:
 
@@ -21,14 +17,9 @@ Working dialogue, to polish during the pilot without changing the selected idea:
 | reconsider | AI | After a visible listening pause: “I checked the code I wrote. I didn't ask that.” — recognition |
 | next | Engineer | “Then let's start there.” — invitation |
 
-The chosen revision changes the AI's response during `question` from quick surprise to slower thoughtfulness,
-then returns to the same settled pose before `reconsider`. Speech assets, captions and turn boundaries stay
-fixed. Changing spoken words is not required for this proof. The model must not reject a valid script merely
-because its turn count differs from this example.
+The chosen revision changes the AI's response during `question` from quick surprise to slower thoughtfulness, then returns to the same settled pose before `reconsider`. Speech assets, captions and turn boundaries stay fixed. Changing spoken words is not required for this proof. The model must not reject a valid script merely because its turn count differs from this example.
 
-Deferred: a new rig, anime/3D styles, automatic acting inference, a visual editor, automatic lip-sync tooling,
-music-led timing, translated editions, and SRT export. No queued story is a prerequisite. Preserve existing
-films and the solved arm behavior. Do not change shared product architecture for hypothetical later rigs.
+Deferred: a new rig, anime/3D styles, automatic acting inference, a visual editor, automatic lip-sync tooling, music-led timing, translated editions, and SRT export. No queued story is a prerequisite. Preserve existing films and the solved arm behavior. Do not change shared product architecture for hypothetical later rigs.
 
 ## Current design and reuse decisions
 
@@ -71,10 +62,7 @@ films and the solved arm behavior. Do not change shared product architecture for
   existing root. Add the authoring/export recipe to `terry-moves/README.md`. These are working locations, not a
   prohibition on coherent supporting changes.
 
-[ADR-0000 — Use Architectural Decision Records](../../../docs/adrs/0000-use-adrs-accepted.md) is the only
-Accepted record in the index and agrees with its in-file status. It preserves human ownership of durable
-decisions; none selects a rig or conflicts with this local extension. No North Star file or new ADR is
-warranted.
+[ADR-0000 — Use Architectural Decision Records](../../../docs/adrs/0000-use-adrs-accepted.md) is the only Accepted record in the index and agrees with its in-file status. It preserves human ownership of durable decisions; none selects a rig or conflicts with this local extension. No North Star file or new ADR is warranted.
 
 ## Outside-in proof ownership
 
@@ -148,7 +136,7 @@ turn.
 
 ### 3. Revise the AI's listening through the same script
 Type: Behavior
-Status: planned
+Status: done
 Proof: The second export visibly changes the listening performance while its speech, captions and turn timing
 remain the first version's; the renderer is unchanged by the demonstrated edit.
 
@@ -223,10 +211,17 @@ Slice 1 delivered as `4eebdac7548d010145853906912aaa857083e34c` to `origin/refs/
 
 ## Slice 2 full exchange proof — 2026-10-12
 
-The 582-frame / 19.4-second baseline is `terry-moves/out/illustrated-conversation.mp4`; `passed` (Marin, 2.8 s) and `next` (Cedar, 1.7 s) join the accepted pilot's byte-identical recordings and local mouths. Reuse Terry's pilot acceptance for its unchanged question/reply pause, without claiming new artistic judgment of the expanded film. Studio normal playback, invitation frame 499 and reverse seek to pause 316 show fitted captions, resting listener and sustained reconsideration; actual MP4 played in QuickTime at normal speed.
+The 582-frame / 19.4-second baseline is `terry-moves/out/illustrated-conversation.mp4`; `passed` (Marin, 2.8 s) and `next` (Cedar, 1.7 s) join the accepted pilot's byte-identical recordings and local mouths. Reuse Terry's pilot acceptance for its unchanged question/reply pause, without claiming new artistic judgment of the expanded film. Studio normal playback, invitation frame 499 and reverse seek to pause 316 show fitted captions, resting listener and sustained reconsideration; actual MP4 played in QuickTime at normal speed. Slice 2 delivered as `31db27cc2d27b577064fd3cc4038402b60c387ca` on the authorized execution branch, suffix base `4eebdac7548d010145853906912aaa857083e34c`, accepted and registered on the same observer.
 - `pnpm -C terry-moves test:unit --runInBand tests/illustratedConversation` passed 2 suites / 15 tests after independent refactoring; `pnpm -C terry-moves typecheck` passed. Inspected `fullExchange.spec.tsx`: actual registered component audio/caption/drawn mouths at four measured slots, empty caption/rest during silence, real drawn hands across boundaries/direct-reverse seeking, and all later local mouth samples unchanged after an authored pause shifts audio/captions/pose. Mocked frame/config/media wrappers supply timing preconditions only. Both metadata callbacks invoke shared validation against default/explicit scripts and saved bytes. The refactor removed repeated metadata and extended the pilot's anchor in place, preserving picture/audio. Selective ESLint format/check and whitespace check passed.
 - `pnpm -C terry-moves render:illustrated-conversation` succeeded without generation; `ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,sample_rate,channels:format=duration -of json terry-moves/out/illustrated-conversation.mp4` observed H.264 1080×1080 / 30 fps, AAC 48 kHz stereo, 19.413 s. `ffmpeg -v error -i terry-moves/out/illustrated-conversation.mp4 -f null -` decoded all streams. The retained first/last voiced 100 ms check (`python3 /tmp/illustrated-conversation-slice2-audio-check.py`, after decoding mono PCM with ffmpeg) compares all four source recordings with decoded AAC: correlations 0.999532–0.999979; five authored silence interiors have RMS 0.0000.
 - `pnpm -C terry-moves exec tsx out/illustrated-conversation-slice2-anchor-check.tsx` proved all 582 real SVG frames and media schedules unchanged after making the question's settled cue explicitly complete. Common question start/end anchors now bound slice 3's reaction edit; an Engineer reply-start anchor preserves held listening when a pause is edited. No shared rig/Python helper changed, so earlier consumer proof remains valid. The first MP4 stays the revision baseline.
+
+## Slice 3 reaction revision proof — 2026-10-12
+
+`thoughtfulConversationScript` changes only the AI's interior `question` cues; the renderer/compiler/rig and saved inputs are unchanged. The baseline and `out/illustrated-conversation-thoughtful.mp4` remain available with the same 582 frames, captions and speech. Independent refactoring preserved the three authored composition nodes and reflowed the implicated README only; selective ESLint format/check and whitespace checks passed.
+- `pnpm -C terry-moves test:unit --runInBand tests/illustratedConversation` passed 3 suites / 19 tests; `pnpm -C terry-moves typecheck` passed. Inspected `reactionRevision.spec.tsx`: complete actual component markup matches over all 582 frames outside `[156,299)`; Engineer/captions match inside; surprise eye geometry and articulated hand differ at 190, all take/turn/mouth/caption records agree, frame 299 exactly matches and direct/reverse frame 240 is deterministic. Real saved script/rig/compiler supplies behavior; mocked Remotion frame/config/media wrappers supply timing only. `fullExchange.spec.tsx` exercises every version's actual metadata callback/default/explicit source bytes.
+- `pnpm -C terry-moves render:illustrated-conversation:thoughtful` succeeded without speech requests; ffprobe observed H.264 1080×1080 / 30 fps / 19.400 s and AAC 48 kHz stereo / 19.413 s; `ffmpeg -v error -i terry-moves/out/illustrated-conversation-thoughtful.mp4 -f null -` decoded the whole export. Mixed WAV commands `pnpm -C terry-moves exec remotion render src/index.ts IllustratedConversation out/illustrated-conversation-baseline-mix.wav --codec=wav --concurrency=2` and `pnpm -C terry-moves exec remotion render src/index.ts IllustratedConversationThoughtful out/illustrated-conversation-thoughtful-mix.wav --codec=wav --concurrency=2` completed. Python `wave`/`array('h')` decoded both actual mixes and asserted identical layouts and every sample: 48 kHz stereo PCM16, 931,200 sample frames / 1,862,400 samples, zero differences. Float64 ffmpeg decoding independently agreed.
+- Manual observation: actual export pair `out/illustrated-conversation-reaction-comparison.png`, rows 190/240/275, baseline left/revision right, shows shorter surprise eyes and slower thoughtful tilt/hand movement with unchanged Engineer/captions. Studio revision frame 190 and actual revised MP4 in QuickTime at normal speed, unmuted volume 1, through elapsed 19 s / terminal play-off confirm playback. Baseline normal playback was observed in slice 2. Guides document the concrete cue edit, either actor's direction, silence, saved-only exports, mixed-audio review and replacement-take measurement/hash/cue reauthoring. No additional artistic approval is claimed beyond Terry's accepted pilot and requested revision direction.
 
 ## Story obligations
 
@@ -243,4 +238,4 @@ Disposition: proved by slice 2: fullExchange.spec.tsx, decoded speech/silence ch
 ### G3. Meaningful reaction revision after first film
 Reported: slice 1 — "The reaction revision is not produced; slices 2–3 remain untouched."
 Story clause: "a second export shows that change while using the same selected speech and turn timing."
-Disposition: receiving slice 3
+Disposition: proved by slice 3: reactionRevision.spec.tsx all-frame drawings/schedule equality, actual decoded Remotion PCM equality, exported frame comparison and normal-speed playback of both MP4s.

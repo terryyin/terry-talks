@@ -3,9 +3,9 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {createHash, webcrypto} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
-import {ConversationPicture, FullIllustratedConversationComposition, IllustratedConversation, IllustratedConversationComposition, IllustratedConversationFilm} from '../../src/illustratedConversation/IllustratedConversation';
+import {ConversationPicture, FullIllustratedConversationComposition, IllustratedConversation, IllustratedConversationComposition, IllustratedConversationFilm, ThoughtfulIllustratedConversationComposition} from '../../src/illustratedConversation/IllustratedConversation';
 import {compileConversation, verifyConversationAssets} from '../../src/illustratedConversation/performance';
-import {conversationScript, ConversationScript, pilotScript} from '../../src/illustratedConversation/script';
+import {conversationScript, ConversationScript, pilotScript, thoughtfulConversationScript} from '../../src/illustratedConversation/script';
 
 let selectedFrame = 0;
 jest.mock('remotion',()=>{
@@ -96,6 +96,7 @@ test('one authored pause moves subsequent audio, captions and directed poses tog
 test.each([
  ['pilot',IllustratedConversationComposition,pilotScript,318],
  ['full',FullIllustratedConversationComposition,conversationScript,582],
+ ['thoughtful',ThoughtfulIllustratedConversationComposition,thoughtfulConversationScript,582],
 ] as const)('%s public metadata verifies its default and supplied script sources and schedule',async(_name,composition,defaultScript,durationInFrames)=>{
  await expect(verifyConversationAssets(conversationScript,load,digest)).resolves.toBeUndefined();
  const oldFetch=globalThis.fetch;

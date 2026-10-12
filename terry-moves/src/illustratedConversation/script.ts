@@ -100,3 +100,14 @@ export const conversationScript: ConversationScript = {
   {actor:'ai',turn:'next',offset:1.6,pose:{mood:'pleased',tilt:0}},
  ],
 };
+
+// A performance revision: retain the full film's takes, mouths and clock.
+// The unchanged question anchors at 0 and 4.75 seconds bound this edit.
+export const thoughtfulConversationScript: ConversationScript = {
+ ...conversationScript,
+ acting: [
+  ...conversationScript.acting.filter(cue=>!(cue.actor==='ai' && cue.turn==='question' && cue.offset>0 && cue.offset<4.75)),
+  {actor:'ai',turn:'question',offset:1.5,pose:{mood:'focused',gaze:0.1,tilt:4,leftHand:{x:-62,y:-132}}},
+  {actor:'ai',turn:'question',offset:3.3,pose:{mood:'concerned',gaze:0.45,tilt:6,leftHand:{x:-35,y:-137}}},
+ ],
+};
