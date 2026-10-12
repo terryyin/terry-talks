@@ -1,9 +1,17 @@
-# Anime engineer casting rehearsal
+# Anime engineer scene and casting rehearsal
+
+`AnimeEngineerScene` is the complete original scene: 1080 square, 30 fps,
+318 frames (10.6 seconds). The colleague stays off screen, asks the full saved
+question, and the engineer reacts with surprise, reconsiders during a quiet
+pause, then replies. The soundtrack and captions use the same compiled clock
+as the face, gaze, head and wrist direction: 0.5-second lead, 4.8-second question,
+1.2-second listening pause, 3.3-second reply and 0.8-second tail.
 
 `AnimeEngineerCasting` is a 5.7-second, 1080-square, 30 fps moving casting
 sample. It contains a directed silent listening lead, the retained reconsider
-reply, and a short settle. The full off-screen question belongs to the later
-scene; this rehearsal does not implement that scene or a named final revision.
+reply, and a short settle. Its accepted drawing and performance remain available
+alongside the full scene. The thoughtful alternative performance is the next
+planned revision; it is not implemented by these registrations.
 
 ## Retained inputs and provenance
 
@@ -12,11 +20,26 @@ scene; this rehearsal does not implement that scene or a named final revision.
   charcoal high-neck shirt. Paths, palette, separate eyes/brows/mouth, shoulders,
   cuffs and articulated palms/fingers are retained here. No external character,
   generated artwork, imported model or raster reference is required.
-- `script.ts` is the performance score. The saved recording's internal `ai`
+- `script.ts` retains `castingScript` and the complete `animeSceneScript`
+  performance score. The saved recording's internal `ai`
   role is cast as this human engineer, without changing other films' roles.
   Edit its gaze, tilt, wrist targets and continuous face values to direct acting.
-  The renderer only consumes the compiled sampled pose; it has no independent
-  choreography clock. `eyeOpen` also supplies the authored blink.
+  `listeningReaction` identifies the question-start and reply-entry boundaries.
+  Their complete pose anchors contain later edits to the interior reaction
+  without changing lead or reply acting. Offsets are seconds relative to the
+  selected turn, so they follow measured speech and authored pause edits.
+  `AnimeEngineerPerformance.tsx` shares the accepted stage and only consumes the
+  compiled sampled pose; it has no independent choreography clock. `eyeOpen`
+  also supplies the authored blink. A positive `smile` raises the corners of
+  the resting mouth, zero gives a quiet neutral line, and a negative value
+  conveys concern. Rear hair paints behind the neck while
+  forearms and palms remain in front of the torso.
+- `public/assets/illustrated-conversation/question.wav` is the retained OpenAI
+  `gpt-4o-mini-tts` Cedar synthetic voice: “Passing which tests? Did we check what
+  the customer actually needed?” Its provenance and direction remain in
+  `public/assets/illustrated-conversation/takes.json`. PCM mono, 24 kHz,
+  115,200 samples, 4.8 seconds; SHA-256
+  `d7be7d7c8a0907e35c327f14b37f84d6d47257b70a03ce3dccc41fb7292c3cec`.
 - `public/assets/illustrated-conversation/reconsider.wav`, selected through
   `public/assets/illustrated-conversation/takes.json`, is the existing OpenAI
   `gpt-4o-mini-tts` Marin synthetic voice: “I checked the code I wrote. I didn't
@@ -28,14 +51,20 @@ scene; this rehearsal does not implement that scene or a named final revision.
   measurements. Routine previews and renders do not request new speech.
 
 From the repository root, preview through `pnpm moves`, then select
-`AnimeEngineerCasting` (or open `/AnimeEngineerCasting` on the printed Studio
-URL). The rehearsal's intended artistic reading remains Terry's judgment at
-normal playback with sound.
+`AnimeEngineerScene` (or open `/AnimeEngineerScene` on the printed Studio URL).
+The current checkout serves `http://localhost:3001/AnimeEngineerScene`.
+Select `AnimeEngineerCasting` for the retained short rehearsal. Judge acting
+and perceived speech synchronization at normal playback with sound.
 
 ```sh
+pnpm -C terry-moves exec remotion render src/index.ts AnimeEngineerScene out/anime-engineer-scene.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2
 pnpm -C terry-moves exec remotion render src/index.ts AnimeEngineerCasting out/anime-engineer-casting.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2
 pnpm -C terry-moves test:unit --runInBand tests/animeCharacter
 ```
+
+The complete original export is `terry-moves/out/anime-engineer-scene.mp4`.
+Both preview and export consume the retained local vector art, saved takes and
+their hash-bound mouth cues. No asset acquisition or generation step is needed.
 
 The optional continuous face channels in the existing conversation compiler
 interpolate with the same easing as head, gaze and hands. Existing drawings

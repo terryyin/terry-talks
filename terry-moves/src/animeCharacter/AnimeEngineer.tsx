@@ -66,7 +66,7 @@ const Mouth: React.FC<{shape:SpeechMouth;smile:number}> = ({shape,smile}) => {
  const c=engineerColors;
  return <g transform="translate(1 -396)" data-testid="anime-mouth" data-shape={shape}>
   {shape==='rest'
-   ? <path d={`M-19 0Q0 ${7-smile*11} 20 -1`} fill="none" stroke="#864F4C" strokeWidth="3.1" strokeLinecap="round"/>
+   ? <path d={`M-19 0Q0 ${-0.5+smile*25} 20 -1`} fill="none" stroke="#864F4C" strokeWidth="3.1" strokeLinecap="round"/>
    : <>
     <path d={shape==='round'?'M-9-4C-15-5-17 16-4 18C10 21 16 1 8-4Q0-7-9-4Z':shape==='wide'?'M-25-4Q0-12 25-5Q22 16 0 17Q-22 16-25-4Z':'M-18-6Q0-13 18-6Q21 26 0 27Q-21 26-18-6Z'} fill="#613D49" stroke="#864F4C" strokeWidth="2.5"/>
     {shape!=='round'&&<path d={shape==='wide'?'M-21-4Q0-9 21-4L18 2Q0 5-18 2Z':'M-15-5Q0-10 15-5L12 1Q0 4-12 1Z'} fill="#FFF4E6"/>}

@@ -84,24 +84,21 @@ probe files surviving.
 
 - Established execution: Rio-chan, publisher `dashboard-territory.local-terry-talks`, Story Branch Mode; execution and originating checkout `/Users/terryyin/git/terry-talks/.worktrees/i-can-make-an-anime-style-character-perform-a-sh`, branch `codex/i-can-make-an-anime-style-character-perform-a-sh` (reused owned linked worktree). No integration-checkout mutation is required.
 - Remote `origin` (`terryyin/terry-talks`), trunk `master`; increments publish to `refs/heads/codex/i-can-make-an-anime-style-character-perform-a-sh`. Published claim/base `e629dbbb6eb54c2024cca1c73717e2e8fd2180ad`, starting revision `f7192950c57b28884ffe6ac6f00ded480295b5a6`; initial candidate equals the published claim. Claim CI on trunk is unobserved by this execution.
+- Last accepted increment: `28122c834ccf693661ea8a80cea8211bd0a6dd33` on the story branch, suffix base `e629dbbb6eb54c2024cca1c73717e2e8fd2180ad`; managed delivery reused the current observer. This is the next increment's published base.
 - Checkout setup: `pnpm install --frozen-lockfile` passed without lock changes; `pnpm -C terry-moves typecheck` passed on the current dependency state. Studio session 82488 serves this checkout at `http://localhost:3001`.
 - No numeric slice budget or additional replanning override is supplied; existing planning authority applies. No Git pre-commit hook is installed; coordinator uses the package's ESLint fixer with owned changed TypeScript paths for selective formatting, then checks those paths with ESLint.
 - CI: GitHub Actions, verified active selector `ci.yml`, display name `CI`, workflow ID 381584897. Resumed Codex stream coordinator `rio-anime`, directory `/tmp/dough-ci-501/watch-Dbnc8T`, PID 5886, PTY session 49933, cell 12; checkout/runtime both resolve to this execution checkout. It observes the authorized story branch, and managed delivery receives these owner inputs.
 
 
-## Slice 1 progress
+## Execution progress
 
-The uncommitted `AnimeEngineerCasting` rehearsal is 1080 square, 30 fps,
-171 frames (1.6-second lead, saved 3.3-second reply, 0.8-second settle).
-[Inspected technical and manual proof](CASTING-PROOF.md) records the passing
-8 anime tests, 24 conversation tests, typecheck, actual sound export, 16
-forward/reverse/fresh frame observations and frozen-motion discriminator.
-Terry reviewed the moving sample, requested the proved hair correction, then
-instructed continued plan execution. That direction selects the corrected
-casting for the remaining scene. Independent refactoring, formatting and lint
-passed. Slice 1 is accepted for delivery; slices 2–3 remain unstarted.
-The earlier observer stop confirmed zero unread events and PID 19389 exited.
-Resume rearms the stopped stream for managed story-branch delivery.
+Slice 1 is accepted and published; [casting proof](CASTING-PROOF.md) retains
+its technical observations, Terry's review/direction and the corrected hair.
+Slice 2 implements the complete 318-frame scene; [full-scene proof](FULL-SCENE-PROOF.md)
+records 16 anime tests, typecheck, real picture/audio export and the bounded
+normal-playback/direct/reverse/fresh Studio journey. Its signed resting-mouth
+response correction preserves speech, soundtrack and all other drawing pixels.
+Independent slice 2 refactoring passed; slice 3 remains unstarted.
 
 ## Story obligations
 
@@ -113,7 +110,7 @@ Disposition: proved by slice 1: Terry's direction to continue plan execution aft
 ### G2. Complete off-screen question and listening scene
 Reported: slice 1 — "The full off-screen question is intentionally absent from the casting rehearsal."
 Story clause: "Deliver the moving scene and its revised listening reaction through the selected authored 2D route"
-Disposition: receiving slice 2
+Disposition: proved by slice 2: FULL-SCENE-PROOF.md
 
 ### G3. Named meaningful alternative performance
 Reported: slice 1 — "The named final reaction revision is not implemented by the casting rehearsal."
@@ -124,6 +121,11 @@ Disposition: receiving slice 3
 Reported: slice 1 — "Terry observed rear hair in front of the neck, resembling a beard, and requested a correction."
 Story clause: "the moving character conveys the intended action and emotion with a stable designed appearance."
 Disposition: proved by slice 1: CASTING-PROOF.md#rear-hair-correction-after-terrys-review
+
+### G5. Inverted resting-mouth emotion response
+Reported: slice 2 — "Negative smile cues deepened a smiling curve rather than conveying the intended reconsideration."
+Story clause: "the moving character conveys the intended action and emotion with a stable designed appearance."
+Disposition: proved by slice 2: FULL-SCENE-PROOF.md#consequential-correction-and-diagnosis
 
 ## Ordered slices
 
@@ -162,7 +164,7 @@ and listening arc are intentionally absent here and belong to slice 2.
 
 ### 2. Watch the complete question, listening pause and reply
 Type: Behavior
-Status: planned
+Status: done
 Proof: The original film communicates surprise and reconsideration in the
 complete scene at normal playback with sound, and its actual export matches
 the directed timing and intended character on arbitrary frame entry.

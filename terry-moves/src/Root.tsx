@@ -27,6 +27,7 @@ import { FullIllustratedConversationComposition, IllustratedConversationComposit
 import { VisualTreatmentCompositions } from './visualTreatments/TreatmentCompositions';
 import { CinematicBottleneckComposition } from './cinematicShot/CinematicBottleneck';
 import { AnimeEngineerCastingComposition } from './animeCharacter/AnimeEngineerCasting';
+import { AnimeEngineerSceneComposition } from './animeCharacter/AnimeEngineerScene';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -66,6 +67,7 @@ export const RemotionRoot: React.FC = () => {
 			<ThoughtfulIllustratedConversationComposition />
 			<CinematicBottleneckComposition />
 			<AnimeEngineerCastingComposition />
+			<AnimeEngineerSceneComposition />
 		</>
 	);
 };
