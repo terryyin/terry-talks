@@ -44,8 +44,9 @@ these exclusions into input rejection rules. Existing films stay unchanged.
   `ThreeDFrameInner` defaults or `UnderCamera` merely to configure this shot.
   Set sampled camera position/target explicitly before drawing, updating
   projection/matrices when relevant. Changing the canvas's initial camera props
-  alone failed the real render probe below. No per-frame accumulated `useFrame`
-  animation, wall-clock time, unseeded randomness or warm-up prerequisite.
+  alone failed the [retained real render probe](./PREPARATION.md). No per-frame
+  accumulated `useFrame` animation, wall-clock time, unseeded randomness or
+  warm-up prerequisite.
 - No external asset acquisition is needed for the authored geometry. Retain the
   scripts, geometry/material definitions, original/revised direction and export
   settings. Any asset introduced to achieve the agreed look must be saved with
@@ -62,56 +63,10 @@ these exclusions into input rejection rules. Existing films stay unchanged.
 
 ## Decisive premises and observed preparation evidence
 
-Observed on 2026-10-12 in the established preparation checkout
-`/Users/terryyin/git/terry-talks/.worktrees/i-can-direct-a-cinematic-3d-shot-through-the-scr`,
-branch `codex/i-can-direct-a-cinematic-3d-shot-through-the-scr`, product base
-`c4c9975f12c1d3e19e21e0cfa9d093ea578a770f`. Dependencies were installed from the
-lockfile with Node 24.21.0 and pnpm 11.28.5. Remotion 4.0.533, Three 0.186.1,
-R3F 9.8.1 and the existing ANGLE configuration rendered locally using Remotion's
-Chrome Headless Shell 149.0.7790.0. Sandbox network initially prevented the
-browser download; the authorized retry completed. This is not a route blocker.
-
-The disposable `src/__preparationProbe.tsx` registered `PreparationProbe`, a
-320×180/30 fps/30-frame scene: yellow and cyan boxes at different depths,
-ambient and directional light, and the existing beat clock sampling camera x
-as `elapsedSeconds * 2`. A `reverse` input sampled `29 - frame`. The corrected
-version applies camera position `[x,2,6]`, target `[0,0,0]` and projection/world
-matrix updates in a layout effect through R3F's actual camera. No mesh, light
-or canvas was mocked. Inspected the rendered middle frame. Probe source and
-images were retained outside the checkout at `/tmp/cinematic-3d-preparation/`;
-all scratch product edits were removed before writing preparation records.
-These temporary artifacts are observation evidence, not production assets.
-
-| Premise and consumer | Observation and result | Planning consequence |
-| --- | --- | --- |
-| Existing camera-prop changes animate in the renderer | Initial forward render produced only 1 distinct PNG across 30 frames; direct frame 15 differed; all 30 reverse counterparts differed. | False. Do not rely on initialization props for camera movement. |
-| Explicit sampled camera updates work through real rendering | Corrected forward render produced 30 distinct PNGs. All 30 reverse counterparts were byte-identical to the corresponding forward PNG; a fresh frame 15 was identical. | Supported for this representative geometry/light/camera route. Actual shot and Studio seeking still need slice 1 proof. |
-| Existing beat sampler is usable by this 3D scene | The real render consumed `timeline(...).poseAt(frame)` and its reversed order to compute camera positions above. | Reuse it without changing its API. No assumed transfer of silent-scene domain rules. |
-| MP4 delivery works in this checkout | The same probe encoded successfully. `ffprobe` reported h264, 320×180, yuv420p, bt709, 30/1 fps, 30 frames. | Encode the actual shot through this route; no claim about its eventual 1080px speed or artistic quality. |
-| Focused existing test route runs | 3 suites / 28 tests passed for frame sizing, 3D transforms and silent-scene joins. Canvas mocks make these insufficient pixel proof. | Tests locate reusable numeric boundaries; new real-render proof must discriminate the observed camera failure. |
-
-Literal observation commands (from repository root; scratch source is removed):
-
-```sh
-pnpm install --offline --frozen-lockfile --store-dir /Users/terryyin/Library/pnpm/store/v11
-pnpm -C terry-moves test:unit --runInBand tests/video_conomponents/ThreeDFrame.spec.tsx tests/video_conomponents/ThreeAnimationEffect.spec.tsx tests/silentScene/joins.spec.ts
-pnpm -C terry-moves exec remotion render src/__preparationProbe.tsx PreparationProbe /tmp/cinematic-3d-preparation/sequential --sequence --image-format=png --frames=0-29 --concurrency=1
-pnpm -C terry-moves exec remotion still src/__preparationProbe.tsx PreparationProbe /tmp/cinematic-3d-preparation/direct15.png --frame=15
-pnpm -C terry-moves exec remotion render src/__preparationProbe.tsx PreparationProbe /tmp/cinematic-3d-preparation/reverse --sequence --image-format=png --frames=0-29 --concurrency=1 --props '{"reverse":true}'
-# After the explicit sampled-camera scratch change:
-pnpm -C terry-moves exec remotion render src/__preparationProbe.tsx PreparationProbe /tmp/cinematic-3d-preparation/fixed-forward --sequence --image-format=png --frames=0-29 --concurrency=1
-pnpm -C terry-moves exec remotion render src/__preparationProbe.tsx PreparationProbe /tmp/cinematic-3d-preparation/fixed-reverse --sequence --image-format=png --frames=0-29 --concurrency=1 --props '{"reverse":true}'
-pnpm -C terry-moves exec remotion still src/__preparationProbe.tsx PreparationProbe /tmp/cinematic-3d-preparation/fixed-direct15.png --frame=15
-pnpm -C terry-moves exec remotion render src/__preparationProbe.tsx PreparationProbe /tmp/cinematic-3d-preparation/probe.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=1
-ffprobe -v error -show_entries stream=codec_name,width,height,pix_fmt,avg_frame_rate,nb_frames,color_space -of json /tmp/cinematic-3d-preparation/probe.mp4
-```
-
-PNG comparison used SHA-256 of each complete file: counted distinct forward
-hashes, compared forward index `i` against reverse index `29-i`, and compared
-direct15 against forward index 15. It discriminated the camera-prop failure
-before passing with explicit updates. Do not treat this probe as proof of the
-unbuilt film's look, cue joins, authoring revision or saved-take reproduction.
-Those are new behavior owned below, not unsettled claims that it already works.
+The [retained preparation observations](./PREPARATION.md) record setup, exact
+commands, renderer results and limits. Changing only initial camera props
+failed; explicit sampled updates passed real forward/reverse/fresh-frame proof.
+The probe establishes the route, while the actual film proof remains owned below.
 
 ## Outside-in proof ownership
 
@@ -128,7 +83,7 @@ Those are new behavior owned below, not unsettled claims that it already works.
 
 ### 1. Watch the scripted camera reveal the bottleneck
 Type: Behavior
-Status: planned
+Status: done
 Proof: The registered shot plays and exports the close view → pullback → hold, with rendered frame equivalence across traversal orders.
 
 Behavior: Given the authored work pieces, narrow passage, queue, staging marks,
@@ -228,3 +183,26 @@ rendering, sampling and encoding premises were observed in this checkout.
 Film quality and the actual shot's frame equivalence remain explicit delivery
 proof, not pre-claimed acceptance. Record readiness against the completed seed
 and this plan; it grants no execution authority.
+
+## Execution context
+
+Mode: story-branch. Owned execution checkout: `/Users/terryyin/git/terry-talks/.worktrees/i-can-direct-a-cinematic-3d-shot-through-the-scr`; branch: `codex/i-can-direct-a-cinematic-3d-shot-through-the-scr`. Established publisher: `dashboard-territory.local-terry-talks`; agent: Nao-chan. Claim/base: `156758245cc311bcb04ffbac301762b09a27dd36`, starting revision: `dc3e5474c051ef57ba49e386145b496982b06290`. Remote: origin; integration target: master; increment target: execution branch. No integration checkout is mutated. Replanning retains existing planned authority; no numeric slice budget is supplied. Locked offline install and checkout-local typecheck passed on 2026-10-12. No pre-commit hook exists; selective ESLint formatting/checking applies to changed TS/TSX.
+
+CI source: GitHub Actions, verified `ci.yml` (CI, ID 381584897). Coordinator: `nao-cinematic-3d`; observer: `/tmp/dough-ci-501/watch-z8QjqT`; PID 60847; PTY session 25904; yielded cell 8. Observer covers the execution branch. The earlier trunk claim has unobserved CI coverage. Checkout-local Studio: http://localhost:3001 (session 8214).
+
+## Accepted slice 1 proof
+
+- Independent post-change refactor completed: `shotFormat` centralizes unchanged 30 fps/1080-square values; preparation evidence extracted verbatim to `PREPARATION.md`. Typecheck passed; numeric, real-pixel, negative-camera, manual and MP4 observations remain applicable. Selective ESLint formatting/check and `git diff --check` passed.
+- `pnpm -C terry-moves test:unit --runInBand tests/cinematicShot`: 8 tests passed. Inspected `direction.spec.ts` through authored input → `compileDirection` → existing beat clock: start/middle/end camera, lights and pieces; 360-frame edit; both complete-pose joins; final hold; all 360 numeric poses forward/reverse; five fresh evaluators; mark edit. Returning authored endpoints exactly resolved floating-point discrepancies at joins.
+- `pnpm -C terry-moves exec tsx scripts/verify-cinematic-shot.ts`: passed. Inspected `pixelEntry.tsx` → real `DirectedShot`, plus actual registered composition fresh mounts. ANGLE/1080×1080/concurrency 1: 11 forward/reverse PNG pairs (0,30,74,75,76,150,238,239,240,241,359), fresh 74,75,150,239,240, identical adjacent joins, six distinct camera-only pictures with objects/lights fixed. Evidence: `terry-moves/out/cinematic-bottleneck/pixel-proof/result.json`.
+- Camera-disabled bundle: `pnpm -C terry-moves exec remotion bundle tests/cinematicShot/pixelEntry.tsx --out-dir out/cinematic-bottleneck/camera-disabled/bundle`; `pnpm -C terry-moves exec tsx /tmp/cinematic-bottleneck-negative/verify-disabled.ts out/cinematic-bottleneck/camera-disabled` failed as intended: only 1/6 camera-only pictures distinct. Production source restored before negative rendering; positive proof above passed afterward.
+- `pnpm -C terry-moves typecheck`: passed. Root only adds the new registration; inspected consumers stay film-local. Existing direction, assets, shared clock and defaults are unchanged.
+- Exports passed: `pnpm -C terry-moves exec remotion still src/index.ts CinematicBottleneck out/cinematic-bottleneck/close.png --frame=30`, equivalent `reveal.png --frame=150` and `hold.png --frame=300`; `pnpm -C terry-moves exec remotion render src/index.ts CinematicBottleneck out/cinematic-bottleneck/original.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2`. All stills matched corresponding proof hashes. `ffprobe -v error -show_entries stream=codec_name,width,height,pix_fmt,avg_frame_rate,nb_frames,color_space,codec_type -show_entries format=duration -of json terry-moves/out/cinematic-bottleneck/original.mp4`: h264/1080 square/yuv420p/bt709/30 fps/360 frames/12 seconds/video-only.
+- Manual scope: normal playback, backwards and fresh-middle visits, cue joins and exported look; existing setup reused, breadth across these journeys then depth at joins, no extra exploration. Studio `http://localhost:3001/CinematicBottleneck`, 1×: observed 4/7,118/121,301/303; seek 300→150 matched exported reveal framing/light; reload mounted directly at 150 with same picture. 74→75 and 239→240 were visibly identical. Saved close30/reveal150/hold300 inspected; native QuickTime original MP4 playback 0→7→12 seconds read smoothly and ended with the constraint visible. Manual result: Good. Artistic approval remains Terry's.
+
+## Story obligations
+
+### G1. Existing GLTF warning during Root exports
+Reported: slice 1 — "Root-based rendering logged an existing missing quillustration_flower_and_water-can/scene.bin asset."
+Story clause: "The watchable result and reusable direction path both matter."
+Disposition: no user cost "The watchable result and reusable direction path both matter.": the missing asset belongs to unchanged StoryProductDeveloper, is unused by the new shot, and did not prevent its successful renders; isolated real-pixel proof had no warning.
