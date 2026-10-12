@@ -1,6 +1,6 @@
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
-import {createHash, webcrypto} from 'node:crypto';
+import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {AI, Engineer, Mood} from '../../src/aiTestAutomation/actors';
@@ -8,20 +8,13 @@ import {ConversationPicture, IllustratedConversation, IllustratedConversationCom
 import {compileConversation, verifyConversationAssets} from '../../src/illustratedConversation/performance';
 import {pilotScript, ConversationScript} from '../../src/illustratedConversation/script';
 import baseline from './omitted-mouth-baseline.json';
+import {setFrame, loadSavedTake as load, digestTake as digest, withSavedTakeFetch} from './testSupport';
 
-let selectedFrame = 0;
-jest.mock('remotion',()=>{
- const actual=jest.requireActual('remotion');
- return {...actual,useCurrentFrame:()=>selectedFrame,useVideoConfig:()=>({fps:30,width:1080,height:1080}),
-  Sequence:({children,from,durationInFrames}: {children: React.ReactNode;from:number;durationInFrames:number})=><div data-audio-from={from} data-audio-duration={durationInFrames}>{children}</div>,
-  Audio:({src}:{src:string})=><div data-audio-source={src}/>};
-});
+jest.mock('remotion',()=>jest.requireActual('./testSupport').mockRemotion());
 const performance=compileConversation(pilotScript,30);
 const picture=(frame:number)=>new DOMParser().parseFromString(renderToStaticMarkup(<ConversationPicture performance={performance.sample(frame)} frame={frame} fps={30}/>),'text/html');
 const mouth=(frame:number,actor='engineer')=>picture(frame).querySelector(`[data-testid="${actor}"] [data-testid="speech-mouth"]`)!;
 const copy=():ConversationScript=>JSON.parse(JSON.stringify(pilotScript));
-const load=async (file:string)=>new Uint8Array(readFileSync(join(__dirname,'../../public',file))).buffer;
-const digest=async (bytes:ArrayBuffer)=>createHash('sha256').update(new Uint8Array(bytes)).digest('hex');
 
 test('preserves every pre-edit omitted-input drawing including moods, eyes and blinks',()=>{
  for (const observation of baseline.cases) {
@@ -58,7 +51,7 @@ test('uses measured full take slots and registers the real audio/caption/rig com
  for (const turn of performance.turns) expect(turn.durationInFrames/30).toBeGreaterThanOrEqual(turn.take.durationSeconds);
  const registered=IllustratedConversationComposition({}) as React.ReactElement<{id:string;component:unknown;width:number;height:number;fps:number;durationInFrames:number}>;
  expect(registered.props).toMatchObject({id:'IllustratedConversationPilot',component:IllustratedConversation,width:1080,height:1080,fps:30,durationInFrames:318});
- selectedFrame=215;
+ setFrame(215);
  const doc=new DOMParser().parseFromString(renderToStaticMarkup(<IllustratedConversation/>),'text/html');
  expect(doc.querySelector('[data-testid="conversation-caption"]')!.textContent).toBe(pilotScript.takes.reconsider.text);
  expect(doc.querySelector('[data-testid="conversation-picture"]')!.getAttribute('data-turn')).toBe('reconsider');
@@ -113,11 +106,7 @@ test('accepts another authored turn through the same schedule rule',()=>{
 
 
 test('registered metadata validates the supplied script and measured sources before scheduling its export',async()=>{
- const oldFetch=globalThis.fetch;
- const oldSubtle=Object.getOwnPropertyDescriptor(globalThis.crypto,'subtle');
- Object.defineProperty(globalThis.crypto,'subtle',{configurable:true,value:webcrypto.subtle});
- globalThis.fetch=jest.fn(async(input)=>({ok:true,arrayBuffer:()=>load(String(input).replace(/^.*(?=assets\/illustrated-conversation\/)/,''))})) as unknown as typeof fetch;
- try {
+ await withSavedTakeFetch(async()=>{
   const registered=IllustratedConversationComposition({}) as React.ReactElement<{calculateMetadata:(input:{props:{script:ConversationScript}})=>Promise<{durationInFrames:number}>}>;
   const revised=copy();revised.turns[0].pauseAfter=2.2;
   await expect(registered.props.calculateMetadata({props:{script:revised}})).resolves.toEqual({durationInFrames:348});
@@ -125,9 +114,5 @@ test('registered metadata validates the supplied script and measured sources bef
   await expect(registered.props.calculateMetadata({props:{script:stale}})).rejects.toThrow(/Turn reconsider.*review mouth cues/);
   const wrongMeasurement=copy();wrongMeasurement.takes.reconsider.sampleFrames+=24000;wrongMeasurement.takes.reconsider.durationSeconds+=1;
   await expect(registered.props.calculateMetadata({props:{script:wrongMeasurement}})).rejects.toThrow(/Turn reconsider.*duration differs.*remeasure/);
- } finally {
-  globalThis.fetch=oldFetch;
-  if (oldSubtle) Object.defineProperty(globalThis.crypto,'subtle',oldSubtle);
-  else Reflect.deleteProperty(globalThis.crypto,'subtle');
- }
+ });
 });

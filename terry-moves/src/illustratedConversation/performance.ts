@@ -8,7 +8,8 @@ export type Performance = {actors: Record<Actor, ActorPose & {mouth: SpeechMouth
 
 export const compileConversation = (script: ConversationScript, fps: number) => {
  const fail = (turn: string, correction: string): never => {throw new Error(`Turn ${turn}: ${correction}`);};
- const beats = [beat('lead',script.lead,'',()=>null,fps)];
+ const beats = [beat('0',script.lead,'',()=>null,fps)];
+ const turnBeatNames: string[] = [];
  const names = new Set<string>();
  for (const turn of script.turns) {
   if (names.has(turn.id)) fail(turn.id,'choose a unique turn name for timing references.');
@@ -24,12 +25,15 @@ export const compileConversation = (script: ConversationScript, fps: number) => 
    previous = cue.at;
   }
   if (turn.pauseAfter < 0) fail(turn.id,'author a nonnegative listening pause.');
-  beats.push(beat(turn.id,Math.ceil(take.durationSeconds*fps)/fps,take.text,()=>null,fps));
-  if (turn.pauseAfter>0) beats.push(beat(`${turn.id}:pause`,turn.pauseAfter,'',()=>null,fps));
+  // Clock identities follow beat order and never consume authored turn names.
+  const clockName = String(beats.length);
+  turnBeatNames.push(clockName);
+  beats.push(beat(clockName,Math.ceil(take.durationSeconds*fps)/fps,take.text,()=>null,fps));
+  if (turn.pauseAfter>0) beats.push(beat(String(beats.length),turn.pauseAfter,'',()=>null,fps));
  }
- if (script.tail>0) beats.push(beat('tail',script.tail,'',()=>null,fps));
+ if (script.tail>0) beats.push(beat(String(beats.length),script.tail,'',()=>null,fps));
  const clock = timeline(beats,fps);
- const turns: TurnRange[] = script.turns.map(turn => ({...clock.beatRange(turn.id),id:turn.id,speaker:turn.speaker,take:script.takes[turn.take],mouth:turn.mouth}));
+ const turns: TurnRange[] = script.turns.map((turn,index) => ({...clock.beatRange(turnBeatNames[index]),id:turn.id,speaker:turn.speaker,take:script.takes[turn.take],mouth:turn.mouth}));
  const actorCues = (actor: Actor) => {
   let pose = script.initial[actor];
   const cues = script.acting.filter(cue => cue.actor===actor).map(cue => {

@@ -53,9 +53,24 @@ scripts whose actions rearrange naturally. No new ADR/North Star or prerequisite
 
 ## Outside-in proof and ordered slice
 
+Execution context: story-branch in
+`/Users/terryyin/git/terry-talks/.worktrees/preserve-audio-timing-when-a-conversation-turn-i`,
+branch `codex/preserve-audio-timing-when-a-conversation-turn-i`, agent Tsukasa-chan,
+publisher `dashboard-territory.local-terry-talks`. Established claim accepted on
+`origin/master` at `344840b58430bbe38f9476101197af838cdc0665`; starting revision
+`a28f2c0294033831d77fa674a3eabc2a099622ae`. Readiness remains changed since review;
+source scope still agrees. No numeric slice limit; existing replanning authority retained.
+Checkout setup: `pnpm install --frozen-lockfile` and focused conversation command
+succeeded against the current lockfile (3 suites, 19 tests).
+
+CI: GitHub Actions `ci.yml` (verified ID 381584897, name CI), observing the remote
+execution branch from this checkout. Coordinator `tsukasa-timing`, directory
+`/tmp/dough-ci-501/watch-TsaXT7`, PID 19100, PTY session 72831, yielded cell 9.
+The earlier trunk claim's CI is unobserved by this branch observer.
+
 ### 1. Rename a turn and retain its complete speaking performance
 Type: Behavior
-Status: planned
+Status: done
 Proof: A registered conversation consuming the renamed/extended script retains each measured full audio slot and matching captions/mouth/acting; current films remain unchanged.
 
 Behavior: Given the retained four-turn script → rename `passed` to `lead` and
@@ -74,6 +89,38 @@ captions and performance use the authored turn's real position and complete take
   speech or unchanged full MP4 rerender is needed if the all-frame/media proof holds.
 - Safe stop: the corrected authoring path accepts collision-prone unique names,
   while retained films and assets are preserved.
+
+Accepted proof: `turnNames.spec.tsx` drives the registered full composition and
+its metadata with authored edits and actual retained WAV bytes. Before repair,
+`pnpm -C terry-moves test:unit --runInBand tests/illustratedConversation/turnNames.spec.tsx`
+failed four assertions: audio slots `[0,36]` versus `[36,84]` and `[300,36]`
+versus `[522,99]`, plus resting/missing-turn drawings at the real speaking
+positions. Duplicate-name rejection already passed.
+
+The same scenarios now prove every media start, complete measured duration and
+source, captions and take-local mouths, authored acting and right-hand drawing,
+silence, and direct/reverse sampling. `pilot.spec.tsx`, `fullExchange.spec.tsx`
+and `reactionRevision.spec.tsx` cover all other compiler consumers and retained
+asset validation. Terminal focused proof after the independent test-harness
+refactor: `pnpm -C terry-moves test:unit --runInBand tests/illustratedConversation`
+passed 4 suites / 24 tests; `pnpm -C terry-moves typecheck` passed.
+
+Disposable public-composition probe captured and compared all 318 pilot, 582
+full and 582 thoughtful frame markups, compiled turn/take/media records and
+captions. Both
+`CONVERSATION_CAPTURE=before pnpm -C terry-moves test:unit --runInBand tests/illustratedConversation/unchangedOutput.probe.spec.tsx`
+and the post-repair command without `CONVERSATION_CAPTURE` passed exact equality.
+Probe removed after proof; inspectable source and baseline remain at
+`/tmp/conversation-turn-name-timing-probe.spec.tsx` and
+`/tmp/conversation-turn-name-timing-before.json`. Production/asset boundaries
+were unchanged by refactoring, so this proof remains valid.
+
+Learning: clock names now derive solely from private beat order, with one
+turn-to-clock mapping. Authored identities remain public for media, acting and
+errors; the shared clock API and frame arithmetic are unchanged. Independent
+refactoring consolidated only repeated test rendering/fetch setup in
+`testSupport.tsx`, retaining all observations. Selective ESLint formatting and
+`git diff --check` passed; no generation trigger or outstanding obligation.
 
 ## Verification, readiness and delivery
 
