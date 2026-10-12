@@ -11,6 +11,7 @@ export type MapRoute = {
 	color: string;
 	labelPosition: MapPoint;
 	labelOffset: MapPoint;
+	waypoints?: MapPoint[];
 };
 export type MapGeography = {
 	land: MapPoint[];
@@ -20,8 +21,8 @@ export type MapGeography = {
 	water: { name: string; labelPosition: MapPoint };
 };
 export type RouteState = { progress: number; opacity: number };
-export type MapFrame = { camera: MapCamera; routes: Record<string, RouteState> };
-export type MapCopy = { eyebrow: string; headline: string[]; footer: string };
+export type MapFrame = { camera: MapCamera; routes: Record<string, RouteState>; waterLabelOpacity?: number };
+export type MapCopy = { eyebrow: string; headline: string[]; supporting?: string[]; footer: string };
 export type MapCue = {
 	id: string;
 	moveSeconds: number;
@@ -50,6 +51,7 @@ export const mapTimeline = (direction: MapDirection, fps: number): Timeline<MapP
 		}));
 		return {
 			cue: cue.id, copy: cue.copy, routes,
+			waterLabelOpacity: mix(cue.from.waterLabelOpacity ?? 1, cue.to.waterLabelOpacity ?? 1, t),
 			camera: { center: pointBetween(cue.from.camera.center, cue.to.camera.center, t), scale: mix(cue.from.camera.scale, cue.to.camera.scale, t) },
 		};
 	}, fps)), fps,

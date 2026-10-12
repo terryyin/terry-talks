@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { MapDirection } from '../../src/geographicalMap/direction';
-import { GeographicalMapFilm, GeographicalMapOpeningComposition } from '../../src/geographicalMap/GeographicalMapFilm';
+import { GeographicalMapBaselineComposition, GeographicalMapFilm, GeographicalMapOpeningComposition } from '../../src/geographicalMap/GeographicalMapFilm';
 
 type Registration = {
 	id: string;
@@ -27,16 +27,19 @@ jest.mock('remotion', () => {
 });
 
 export const transport = (jest.requireMock('remotion') as { __mapTransport: Transport }).__mapTransport;
-export const registration = () => {
+export const registration = (Composition = GeographicalMapOpeningComposition) => {
 	transport.registrations = [];
-	renderToStaticMarkup(<GeographicalMapOpeningComposition />);
+	renderToStaticMarkup(<Composition />);
 	return transport.registrations[0];
 };
-export const picture = (frame: number, direction = registration().defaultProps.direction, fps = 30) => {
-	const { component: Film } = registration();
+export const baselineRegistration = () => registration(GeographicalMapBaselineComposition);
+const registeredPicture = (frame: number, direction: MapDirection, fps: number, entry: Registration) => {
+	const { component: Film } = entry;
 	transport.frame = frame;
 	transport.fps = fps;
 	const page = document.createElement('div');
 	page.innerHTML = renderToStaticMarkup(<Film direction={direction} />);
 	return page;
 };
+export const picture = (frame: number, direction = registration().defaultProps.direction, fps = 30) => registeredPicture(frame, direction, fps, registration());
+export const baselinePicture = (frame: number, direction = baselineRegistration().defaultProps.direction, fps = 30) => registeredPicture(frame, direction, fps, baselineRegistration());

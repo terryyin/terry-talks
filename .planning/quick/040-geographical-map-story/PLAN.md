@@ -51,7 +51,7 @@ Implement the minimal shared model for authored coastline, named places, route p
 
 ### 2. Explain the problem independently of the inherited road
 Type: Behavior
-Status: planned
+Status: done
 Proof: A full baseline export and normal-speed review show the question, constraints, candidate ferry and final overview/takeaway in order. Focused rendered-film checks observe these states through the registration; actual pictures at transitions and comparison holds demonstrate readable labels and retained geographic orientation.
 
 Behavior: Given the working opening, continue playback. The film asks whether we need to follow the existing road or get people to the other town. It makes water, distance, capacity and available transport visible as things to reason from; the ferry is presented as a possible crossing, then both options return in the overview. No fabricated speed, fare, capacity or verdict makes the ferry the winner. A viewer can state the goal, inherited assumption, remaining constraints and the reason to consider another option.
@@ -111,7 +111,7 @@ Disposition: proved by slice 1: corrected reveal path and real `terry-moves/out/
 ### G2. Opening excerpt does not yet explain first principles
 Reported: slice 1 — "The full argument and ferry comparison remain slices 2–3; this is explicitly an opening excerpt."
 Story clause: "Water, distance, capacity and available transport enter the comparison; a ferry appears as a possibility."
-Disposition: receiving slice 2
+Disposition: proved by slice 2: baseline.spec.tsx six rendered-film assertions plus 77-second baseline MP4 normal-speed review and decoded twelve-cue storyboard.
 
 ### G3. Saved framing revision and reproduction are not yet delivered
 Reported: slice 1 — "The retained take revision remains slice 3."
@@ -127,3 +127,18 @@ Disposition: receiving slice 3
 - Successful stills retain known unrelated root `scene.bin`404 from preparation; new map uses no such asset and its actual pictures completed.
 
 Slice 1 delivery: independent refactor consolidated existing camera/window/format values without behavior changes; affected 5-test suite and typecheck passed. Selective `pnpm -C terry-moves exec eslint src/geographicalMap src/Root.tsx --fix` passed; obligation check passed.
+
+Accepted slice 1 publication: `ea85613ef7361b878718e12e31aa279c5decd006` on the retained story branch; candidate same SHA, suffix base `1fe374589dccc7541aecefcc269417208588a314`, observation reused `/tmp/dough-ci-501/watch-N5hfTI`. This is slice 2's previously published base.
+
+## Slice 2 proof and review
+
+- `GeographicalMapBaseline`: 2310 frames /77s, same renderer/clock/local geography as opening. Question420–599, goal600–779, four considerations780–1379, ferry1380–1649 (complete1500), comparison1650–1919 (settled1710), overview/takeaway1920–2309 (overview2010).
+- `pnpm -C terry-moves test:unit --runInBand tests/geographicalMap/opening.spec.tsx tests/geographicalMap/baseline.spec.tsx` passed 11 tests in2 suites; `pnpm -C terry-moves typecheck` passed. Inspected actual direction/render and `baseline.spec.tsx` assertions: ordered goal/four prompts, route town endpoints/land access/water crossing/shore markers, stationary road, label fade, balanced comparison, final exact thought, continuous cue joins and fresh forward/reverse/direct samples. Shared clock and unrelated films unchanged.
+- `pnpm -C terry-moves exec remotion render src/index.ts GeographicalMapBaseline out/geographical-map/baseline.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2 --log=error` completed. `ffprobe -v error -show_entries stream=codec_name,width,height,pix_fmt,r_frame_rate,color_space,color_transfer,color_primaries,nb_frames -show_entries format=duration -of json terry-moves/out/geographical-map/baseline.mp4` confirmed H264,1080square,yuv420p,BT709,30fps,2310frames,77s.
+- Real registered still1440/1770/2309 and fresh1440 were rendered with `pnpm -C terry-moves exec remotion still src/index.ts GeographicalMapBaseline out/geographical-map/proof/baseline-TAG.png --frame=FRAME --log=error`; inspected moving ferry/accesslegs, held comparison and final overview. `cmp terry-moves/out/geographical-map/proof/baseline-moving.png terry-moves/out/geographical-map/proof/baseline-reseek.png` passed. Unit proof covers all joins.
+- Bounded manual full-film journey, ~10min observation budget with selective-depth reserve: actual Studio goal700/capacity1120/comparison1770 pictures inspected; exported MP4 played from beginning through ending at1x/360px in local viewer. Actual video state reported width360/rate1 at24.75s,45.75s,76.85s; labels/copy clear. Full-size playback also started at1x/1080px; inspected capacity at36.39s and full-size decoded/registered motion/comparison/end pictures. Decoded `proof/baseline-storyboard.png` covers all12 cues in order at360px.
+- Baseline presented to Terry via asynchronous review request and `http://127.0.0.1:8766/geographical-map/review.html`. No feedback received yet; artistic approval is not claimed. The deliverable provides the promised opportunity to judge it. Same-scope feedback can still be incorporated if supplied.
+
+Full-size baseline playback terminal observation: HTMLvideo width1080/rate1/currentTime77/duration77/endedtrue, after inspected final overview at74.51s. Whole baseline reviewed in order at1080 and360; final manual result: Good. Terry feedback remains unreceived, not inferred.
+
+Slice 2 delivery: independent refactor gave town/landing coordinates one home, unchanged rendered values; affected11-test suite and typecheck passed. Selective ESLint fix passed and obligation check passed.

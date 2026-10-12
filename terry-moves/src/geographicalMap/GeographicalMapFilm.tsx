@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Composition, useCurrentFrame, useVideoConfig } from 'remotion';
 import { MapDirection, MapGeography, mapPath, MapPose, mapScreenOrigin, mapTimeline, projectMapPoint } from './direction';
-import { mapOpening } from './script';
+import { mapBaseline, mapOpening } from './script';
 
 const ink = '#263b3b';
 const paper = '#f6f2e8';
@@ -17,6 +17,9 @@ export const GeographicalMapPicture: React.FC<{ geography: MapGeography; pose: M
 		<div data-map-headline style={{ position: 'absolute', left: 86, top: 150, fontSize: 84, fontWeight: 600, lineHeight: 1.04, letterSpacing: -2.7 }}>
 			{pose.copy.headline.map((line, index) => <div key={index}>{line}</div>)}
 		</div>
+		{pose.copy.supporting && <div data-map-supporting style={{ position: 'absolute', left: 90, top: 150 + pose.copy.headline.length * 84 * 1.04 + 30, fontSize: 44, lineHeight: 1.16 }}>
+			{pose.copy.supporting.map((line, index) => <div key={index}>{line}</div>)}
+		</div>}
 		<svg width={filmFormat.width} height={filmFormat.height} viewBox={`0 0 ${filmFormat.width} ${filmFormat.height}`} style={{ position: 'absolute', inset: 0 }}>
 			<defs>
 				<clipPath id="map-window"><rect {...mapWindow} rx={mapWindowRadius} /></clipPath>
@@ -34,10 +37,11 @@ export const GeographicalMapPicture: React.FC<{ geography: MapGeography; pose: M
 							<path data-map-route-base={route.id} d={mapPath(route.points)} fill="none" stroke="#c7b8a0" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
 							{/* Normalized dashes scale with the path; preserve screen width separately. */}
 							<path data-map-route={route.id} d={mapPath(route.points)} fill="none" stroke={route.color} strokeWidth={10 / camera.scale} strokeLinecap="round" strokeLinejoin="round" pathLength="1" strokeDasharray="1" strokeDashoffset={1 - state.progress} />
+							{route.waypoints?.map((point, index) => <circle key={index} data-map-waypoint={route.id} cx={point.x} cy={point.y} r={7 / camera.scale} fill={paper} stroke={route.color} strokeWidth={3 / camera.scale} />)}
 						</g>;
 					})}
 				</g>
-				<text data-map-water-label x={waterLabel.x} y={waterLabel.y} textAnchor="middle" fill="#537c86" fontSize="42" fontStyle="italic">{geography.water.name}</text>
+				<text data-map-water-label x={waterLabel.x} y={waterLabel.y} textAnchor="middle" fill="#537c86" fontSize="42" fontStyle="italic" opacity={pose.waterLabelOpacity ?? 1}>{geography.water.name}</text>
 				{geography.routes.map((route) => {
 					const point = projectMapPoint(route.labelPosition, camera);
 					return <text key={route.id} data-map-route-label={route.id} x={point.x + route.labelOffset.x} y={point.y + route.labelOffset.y} textAnchor="middle" fill={route.color} fontSize="44" fontWeight="600" opacity={pose.routes[route.id]?.opacity ?? 0}>{route.name}</text>;
@@ -71,5 +75,13 @@ export const GeographicalMapOpeningComposition: React.FC = () => <Composition
 	component={GeographicalMapFilm}
 	defaultProps={{ direction: mapOpening }}
 	durationInFrames={mapTimeline(mapOpening, filmFormat.fps).durationInFrames}
+	{...filmFormat}
+/>;
+
+export const GeographicalMapBaselineComposition: React.FC = () => <Composition
+	id="GeographicalMapBaseline"
+	component={GeographicalMapFilm}
+	defaultProps={{ direction: mapBaseline }}
+	durationInFrames={mapTimeline(mapBaseline, filmFormat.fps).durationInFrames}
 	{...filmFormat}
 />;
