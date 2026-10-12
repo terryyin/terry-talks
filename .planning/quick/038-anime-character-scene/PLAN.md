@@ -63,11 +63,9 @@ character format are deferred promises, not product rejection rules. The current
 
 ## Preparation observations and their limits
 
-[Retained preparation evidence](PREPARATION.md) records the disposable route
-probe, literal commands, observations and their limits. It established local
-rendering, deterministic sampling and audio reuse; production artwork and
-artistic acceptance remained unproved. Execution does not depend on temporary
-probe files surviving.
+[Retained preparation evidence](PREPARATION.md) records the disposable route probe,
+commands and limits: local rendering/sampling/audio reuse, without production art
+or artistic acceptance. Execution does not depend on temporary probe files.
 
 ## Outside-in proof ownership
 
@@ -84,21 +82,17 @@ probe files surviving.
 
 - Established execution: Rio-chan, publisher `dashboard-territory.local-terry-talks`, Story Branch Mode; execution and originating checkout `/Users/terryyin/git/terry-talks/.worktrees/i-can-make-an-anime-style-character-perform-a-sh`, branch `codex/i-can-make-an-anime-style-character-perform-a-sh` (reused owned linked worktree). No integration-checkout mutation is required.
 - Remote `origin` (`terryyin/terry-talks`), trunk `master`; increments publish to `refs/heads/codex/i-can-make-an-anime-style-character-perform-a-sh`. Published claim/base `e629dbbb6eb54c2024cca1c73717e2e8fd2180ad`, starting revision `f7192950c57b28884ffe6ac6f00ded480295b5a6`; initial candidate equals the published claim. Claim CI on trunk is unobserved by this execution.
-- Published increments: casting `28122c834ccf693661ea8a80cea8211bd0a6dd33` (base `e629dbbb6eb54c2024cca1c73717e2e8fd2180ad`), full scene `876da6b7a1787aadb48f411f191e210a6387eabb` (base casting SHA), both on the story branch with the current observer. Full scene SHA is the next increment's published base.
+- Published increments: casting `28122c834ccf693661ea8a80cea8211bd0a6dd33` (base claim SHA), full scene `876da6b7a1787aadb48f411f191e210a6387eabb` (base casting SHA), revision `b14e434a22720a1c0d3e33d41cd35d0988cc292d` (base full-scene SHA); all accepted on the story branch with the current observer. Revision SHA is the completion record's published base.
 - Checkout setup: `pnpm install --frozen-lockfile` passed without lock changes; `pnpm -C terry-moves typecheck` passed on the current dependency state. Resumed Studio session 23108 serves this checkout at `http://localhost:3001`.
 - No numeric slice budget or additional replanning override is supplied; existing planning authority applies. No Git pre-commit hook is installed; coordinator uses the package's ESLint fixer with owned changed TypeScript paths for selective formatting, then checks those paths with ESLint.
 - CI: GitHub Actions, verified active selector `ci.yml`, display name `CI`, workflow ID 381584897. Resumed Codex stream coordinator `rio-anime`, directory `/tmp/dough-ci-501/watch-Dbnc8T`, PID 5886, PTY session 49933, cell 12; checkout/runtime both resolve to this execution checkout. It observes the authorized story branch, and managed delivery receives these owner inputs.
 
-
 ## Execution progress
 
-Slices 1–2 are accepted and published: [casting proof](CASTING-PROOF.md) retains
-Terry's direction and the hair correction; [full-scene proof](FULL-SCENE-PROOF.md)
-retains full-film tests, exports, Studio observation and signed-mouth correction.
-Slice 3's [revision proof](REVISION-PROOF.md) covers 23 tests, typecheck, both
-reproduced films, exact audio equality and revised Studio playback/seeking.
-Independent registration refactoring and selective formatting/lint passed;
-slice 3 is accepted and ready for managed delivery.
+Slices 1–3 are accepted and published. [Casting proof](CASTING-PROOF.md) retains
+Terry's direction/hair correction; [full-scene proof](FULL-SCENE-PROOF.md) covers
+the complete film/mouth correction; [revision proof](REVISION-PROOF.md) covers
+23 tests, both reproduced films, exact audio, Studio seeking and independent refactor.
 
 ## Story obligations
 
@@ -217,6 +211,18 @@ the exact preview/export commands and which performance each version selects.
 
 Safe stop: the whole story is usable even if no other anime story is built.
 
+## Execution complete
+
+Product advice: Keep the current backlog order. The reusable authored 2D path is
+complete; no new prerequisite or corrective story is justified by this execution.
+Retrospective compared the original f719295 plan and unchanged refined contract
+with all three attributable published increments and current consumers/proof.
+Findings: none; correction planning unchanged. One clock, optional face channels,
+local registration and retained-input metadata remain coherent under ADR-0000.
+Focused component tests plus real export/Studio journeys cover the promises;
+E2E-first development is not claimed. Process review skipped (project default).
+CI remains pending on the story branch; execution's completion operation owns its verdict.
+
 ## Verification, delivery and sizing
 
 Execution follows the installed `dough-execute-plan` workflow, including its
@@ -238,10 +244,7 @@ and seeking claims. Automated checks protect timing, changed motion, continuity
 and retained assets; they do not accept emotion. Record literal proof commands,
 observations and Terry's artistic decisions during execution in this plan.
 
-The sequence uses one performance/clock model and one retained character design.
-It separates the early artistic risk, complete-scene behavior and meaningful
-revision without adding a framework or an independent infrastructure outcome.
-Slice-plan refinement was not needed: this review found no remaining concern
-about slice boundaries, cumulative design, sizing or proof ownership. Artistic
-acceptance is explicitly owned by the early sample and final playback, not
-assumed from preparation's technical render.
+One clock/design supports the early artistic probe, complete scene and meaningful
+revision without an independent framework. Slice-plan refinement found no concern
+about boundaries, cumulative design, sizing or proof ownership. Artistic assessment
+belongs to the sample and final playback, not preparation's technical render.
