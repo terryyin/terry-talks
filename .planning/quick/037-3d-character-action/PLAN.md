@@ -28,120 +28,12 @@ These are delivery boundaries, not arbitrary input rejection rules. Other valid
 cases handled by the same model need no special prohibition. No sibling story
 is a mandatory dependency; this story supplies the staging it needs.
 
-## Current design and reuse decisions
+## Design and preparation
 
-- One direction compiles into frame-addressable clip samples, blend weights
-  and world placement. The renderer applies that sampled state to the selected
-  rig. Time within a clip, world facing/translation and total scene duration
-  each have one owner. No animation advances using wall time, R3F `useFrame`,
-  mixer deltas from previous playback, or completion events.
-- Reuse `src/beatTimeline.ts` for ordered timing where its semantics fit; the
-  film adds clip/transition sampling and the selected rig's locomotion handling.
-  The existing silent-scene compiler demonstrates deriving starts/joins from
-  action order; do not copy its 2D arm reach or prop ownership into 3D acting.
-- The audio-sequencer analogy maps samples to clips, offsets to local times,
-  gain envelopes to weights and transport position to the requested frame.
-  Unlike audio, pose mixing needs a compatible skeleton and cannot itself
-  establish floor contact. Treat grounding separately from clip crossfades.
-- Direct Three actions can be started once, paused, assigned explicit times and
-  effective weights (including zero for inactive actions), then evaluated with
-  a zero-delta mixer update before drawing. Clone the rig for the composition
-  instance, including its skeleton. Dispose its local resources appropriately.
-  Avoid history-dependent fade state; restore all sampled fields on every frame.
-- Preparation found a concrete loading failure: inner `Suspense fallback={null}`
-  swallowed the asset load from ThreeCanvas's Remotion-aware loading boundary.
-  Removing it fixed blank first/fresh frames. Preserve the asset-wait boundary
-  and explicitly prove the first frame and direct entry into a gesture.
-- Candidate locomotion: sample the selected walk, determine support changes,
-  derive root translation while turning so the active support-foot point stays
-  horizontally planted. Precompute from the complete authored script or derive
-  it analytically; never integrate from whichever frame the user visited last.
-  The preparation method was feasible for this rig. Execution must assess sole
-  rotation, support changes and settling as well as a stationary foot point;
-  adjust clip phase, timing or the local contact treatment within this story.
-  A coordinate check alone does not accept the performance.
-- Keep the film and character-specific responsibility local, e.g.
-  `src/characterAction/`, `tests/characterAction/`, and a `RobotGreeting`
-  composition with a retained `RobotGreetingThumbsUp` revision. These are
-  capability names, not required file-by-file tasks. Add registration through
-  existing `Root.tsx` and exports through the Remotion CLI/package scripts.
-- PFE found `AnimatedGlb` only exposes global playback and plays all clips; its
-  watering consumer in `StoryProductDeveloper` relies on the old behavior.
-  `GLBAnimationActioner`, `Script` and `AnimationContextWrapper` tie it to subtitle
-  timing. Reuse dependencies and timing concepts without changing that default
-  consumer merely to implement this silent actor. Any actual shared change
-  requires tracing and proving its affected consumers before delivery.
-- During landing, trunk completed the cinematic-shot story. Its maintained
-  `src/cinematicShot/README.md` replaces the old story link. Inspection of its
-  scene and `scripts/verify-cinematic-shot.ts` found useful camera-application
-  and real-render traversal examples, but its object choreography, frame list
-  and camera-only assertions belong to that film. Reuse suitable mechanics
-  when implementing the actor proof; preserve the existing caller if a shared
-  helper is extracted. No shared timeline, dependency or renderer configuration
-  changed in that publication, so it does not invalidate the actor probe.
-- Save the exact selected GLB, provenance, source's CC0 statement and creator
-  credit with the product. Render from local files. The asset SHA-256 is
-  `047f5e5fb3bb6d378bd1df16ca6137f2a596c99b3a1b5690b4020c05aaf6f319`.
-  Source: [RobotExpressive](https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf/RobotExpressive),
-  Tomás Laulhé, with Don McCurdy's modifications. No purchase or credentialed
-  asset service is needed for this route.
-- [ADR-0000 — Use Architectural Decision Records](../../../docs/adrs/0000-use-adrs-accepted.md)
-  is the only Accepted record, with matching index/status and no supersession.
-  Durable architecture decisions stay human-owned; it prescribes no renderer.
-  This is local design, with no ADR conflict or warranted North Star topic.
-  No North Star file or numeric slice time limit was found in project guidance.
-
-## Decisive premises and preparation evidence
-
-Observed on 2026-10-12 in
-`/Users/terryyin/git/terry-talks/.worktrees/i-can-direct-a-3d-character-performing-a-short-a`,
-branch `codex/i-can-direct-a-3d-character-performing-a-short-a`, product base
-`96c9eddb43fdb666cb37c38667e02d25dd1e2fa5`. `pnpm install --frozen-lockfile`
-succeeded with Node 24.21.0 and pnpm 11.28.5. The installed Remotion 4.0.533,
-Three 0.186.1 and Chrome Headless Shell 149.0.7790.0 rendered with the existing
-ANGLE configuration. These are observations of this checkout, not assumptions
-borrowed from the sibling 3D-camera story.
-
-The disposable `src/__characterProbe.tsx` registered a 480×320, 30 fps,
-150-frame composition with the real GLB, lights, ground and grid. It sampled
-Walking for the approach, turned yaw from pi/2 to zero during frames 45–90,
-blended to Wave beginning at 3 seconds over 0.3 seconds, then to Idle at 4.5.
-It reconstructed a support-foot-constrained path from those clip samples.
-`reverse` sampled frame `149-current`; `gesture` selected Wave or ThumbsUp;
-`frozen` held the skeleton at frame zero to check proof discrimination.
-
-| Premise / consuming operation | Observation | Limit carried into execution |
-| --- | --- | --- |
-| The selected saved asset loads into this renderer | Actual GLTFLoader and browser render consumed the 463,988-byte self-contained GLB, including its two skins. Walking, Idle, Wave and ThumbsUp were found by name. | Save this actor; no arbitrary-rig compatibility claim. |
-| Explicit clip-time/weight sampling is independent of playback history | Corrected render produced 150 distinct PNGs; all 150 reverse counterparts were byte-identical. Fresh frame 100 matched forward frame 100. | Repeat on actual registered composition, action boundaries and Studio seeking; this is route proof, not accepted final-film proof. |
-| The observation catches a broken loading boundary | First version with nested null Suspense mismatched forward/reverse at frames 0 and 149; a fresh frame 100 also differed. Removing that boundary made the same checks pass. | First-frame and fresh-mount checks must see the actor, not just compare two empty images. |
-| Equality proof distinguishes motion from a frozen skeleton | Frozen frame 100 differed from expected frame 100; all corrected forward frames were distinct. | Keep a motion/expected-pose assertion alongside equality. |
-| The chosen rig can turn during a walk with controlled support | Actual foot bones sampled across 150 frames; selected support point's maximum horizontal drift 4.44e-16 model units, maximum root step 0.2399 units; yaw changed 90 degrees. Inspected rendered approach, turn and gesture frames. | One foot point is not the whole sole. Normal-speed contact, weight transfer, visual smoothness and final staging remain slice 2 acceptance. |
-| A different named gesture changes the performance | Fresh frame 110 with ThumbsUp visibly differed from Wave; both poses were inspected. | Actual script revision and its joins/reproduction belong to slice 3. |
-| MP4 output works through this checkout's CLI | Probe encoded successfully; ffprobe: h264, 480×320, yuv420p, bt709, 30/1 fps, 150 frames. | Actual film export still required; no 1080px performance estimate is inferred. |
-| Existing focused test route runs | 2 suites, 19 tests passed: silent-scene joins and GLB animation timing. | Numeric legacy tests do not prove this character's rendering or contact. |
-
-Observation commands, from repository root (scratch files were removed before
-writing these records; no production implementation is retained):
-
-```sh
-node terry-moves/__character-inspect.mjs
-pnpm -C terry-moves exec remotion render src/__characterProbe.tsx CharacterProbe /tmp/3d-character-refinement/forward-fixed --sequence --image-format=png --concurrency=1
-pnpm -C terry-moves exec remotion render src/__characterProbe.tsx CharacterProbe /tmp/3d-character-refinement/reverse-fixed --sequence --image-format=png --concurrency=1 --props='{"reverse":true}'
-pnpm -C terry-moves exec remotion still src/__characterProbe.tsx CharacterProbe /tmp/3d-character-refinement/fresh-fixed.png --frame=100
-pnpm -C terry-moves exec remotion still src/__characterProbe.tsx CharacterProbe /tmp/3d-character-refinement/frozen.png --frame=100 --props='{"frozen":true}'
-pnpm -C terry-moves exec remotion still src/__characterProbe.tsx CharacterProbe /tmp/3d-character-refinement/thumbs-up.png --frame=110 --props='{"gesture":"ThumbsUp"}'
-pnpm -C terry-moves exec remotion render src/__characterProbe.tsx CharacterProbe /tmp/3d-character-refinement/probe.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=1
-ffprobe -v error -show_entries stream=codec_name,width,height,pix_fmt,avg_frame_rate,nb_frames,color_space -of json /tmp/3d-character-refinement/probe.mp4
-pnpm -C terry-moves test:unit --runInBand tests/silentScene/joins.spec.ts tests/video_conomponents/GLBAnimation.spec.ts
-```
-
-Temporary observation copies/results are in `/tmp/3d-character-refinement/`:
-`failed-probe.tsx`, `corrected-probe.tsx`, `inspect.mjs`,
-`asset-motion-inspection.txt`, `render-results.json`, frame directories and MP4.
-They are diagnostic evidence, not retained production inputs or a dependency
-of the delivered film. SHA-256 comparison paired forward index i with reverse
-index 149-i and separately checked fresh frame 100; the results are above.
+[Retained route decisions and preparation evidence](PREPARATION.md) establish
+the compatible actor, explicit clip sampling, loading boundary and candidate
+support-foot treatment. These decisions remain applicable; final performance
+and actual-composition proof belong to the slices below.
 
 ## Outside-in proof ownership
 
@@ -155,11 +47,43 @@ index 149-i and separately checked fresh frame 100; the results are above.
 | Saved assets, permissions and scripts reproduce the selected result | 1 saves asset/provenance; 3 rerenders original/revision from retained inputs with routine acquisition disabled, compares pictures and metadata, and documents commands/selected take. |
 | Existing films remain usable | Each slice preserves old consumers; any actual shared change owns affected consumer regressions in that slice. No unchanged film rerender is required solely because registration grows. |
 
+## Execution context
+
+Established start resumed on 2026-10-12 by Mihiro-chan, publisher
+`dashboard-territory.local-terry-talks`, in Story Branch Mode. Execution and
+originating checkout:
+`/Users/terryyin/git/terry-talks/.worktrees/i-can-direct-a-3d-character-performing-a-short-a`;
+branch `codex/i-can-direct-a-3d-character-performing-a-short-a`. No integration
+checkout is selected. Authorized remote is `origin`, final trunk `master`;
+increments publish to the execution branch. Starting revision
+`4c3adb0cca1ea532bf80189af6aa0ff52d411a2b`; accepted Take and first delivery base
+`9249ef94937b237e93b74191b56d5976783df139`. The existing claim is retained;
+no second start was made. Current planning authority permits bounded refinement.
+
+Checkout setup: `pnpm install --frozen-lockfile` completed against the unchanged
+lockfile, then `pnpm -C terry-moves typecheck` passed. Studio runs from this
+checkout at `http://localhost:3000`. No active Git hooks are configured;
+coordinator uses selective `pnpm -C terry-moves exec eslint <owned TS paths> --fix`
+before each slice commit. No asset generator is required for the saved GLB.
+
+CI: GitHub Actions, verified workflow `ci.yml` (ID 381584897, name `CI`), with
+push triggers. Codex observer coordinator `mihiro-robot`, directory
+`/tmp/dough-ci-501/watch-aBCjG3`, PID 13748, session 33498, yielded cell 10;
+checkout and observed target are the execution checkout and branch above.
+Take publication on trunk is unobserved by this branch observer; increment
+delivery registers every accepted branch revision on this retained stream.
+
+Manual observation uses the active story and existing Studio session. Allow a
+five-minute observation pass per slice: first cover first load, pose and joins,
+then backward seeking/pause/remount; reserve the remainder for confirming
+surprises. Slice 2 adds full normal-speed playback with visible feet and selected
+footfall/turn/settling frames; slice 3 reviews the alternate gesture and joins.
+
 ## Ordered slices
 
 ### 1. Direct a named greeting gesture at any frame
 Type: Behavior
-Status: planned
+Status: done
 Proof: The registered scene shows the selected robot performing Wave with a
 defined settled entry/exit; forward, backward and fresh-frame views agree.
 
@@ -184,6 +108,29 @@ observe actual Studio seek/pause/remount behavior alongside rendered-frame proof
 Safe stop: a usable named gesture rehearsal with reliable seeking. Locomotion
 is intentionally absent at this boundary and is owned by slice 2; this slice
 does not claim to have delivered the whole greeting story.
+
+Accepted observations (2026-10-12); independent refactor: none — already clean.
+Selective ESLint formatting passed; no product proof boundary changed:
+- `pnpm -C terry-moves typecheck` passed.
+- `pnpm -C terry-moves test:unit --runInBand tests/characterAction/direction.spec.ts`
+  passed all six tests. Inspected ordered duration/ranges, active named Wave,
+  normalized/eased joins, explicit inactive samples and fresh/reverse evaluation.
+- `pnpm -C terry-moves exec tsx scripts/verify-character-action.ts /tmp/3d-character-slice1-proof`
+  passed to terminal completion. Inspected the saved-GLB assertion, real elbow
+  measurements, missing-clip diagnostic, traversal wrapper and separately
+  bundled production `src/index.ts`. Twelve forward/reverse PNG pairs match;
+  joins 23/24 and 89/90 match; eight fresh production frames (0,24,28,50,89,90,96,119)
+  match. Every sample differs from a blank stage, and frozen frame 50 matches
+  settled frame 0 while differing from the actual Wave apex. Result and pictures
+  remain at `/tmp/3d-character-slice1-proof/` as disposable observation evidence.
+- Manual Studio pass at `http://localhost:3000/RobotGreeting`: visible actor and
+  feet at frame 0; sensible entry 28, raised hand/head tilt at 50, return 96;
+  backward seek 96→50 and reload at 50/96 preserve poses. Playback at 1x (~29.7 fps)
+  and pause at 49 behaved correctly. No rehearsal discrepancy found.
+- Root change adds registration only. Legacy `AnimatedGlb`/watering code is
+  unchanged. Its discovery warning comes from the existing GLTF reference to
+  absent `scene.bin`; the published Take already contains that reference and no
+  binary. It does not affect the new self-contained actor or its pixel proof.
 
 ### 2. Watch the robot approach, turn and greet naturally
 Type: Behavior
@@ -267,3 +214,15 @@ Slice-plan refinement was not needed: this review found no remaining concern
 about slice boundaries, cumulative design, sizing or proof ownership. Record
 readiness against the completed story and plan; this judgment grants neither
 Take nor execution authority.
+
+## Story obligations
+
+### G1. Full locomotion and contact
+Reported: slice 1 — "Full locomotion/contact acceptance, alternate rendered take, final MP4 and reproduction remain slices 2–3."
+Story clause: "The selected walk, turn and gesture read clearly, their joins look natural at normal playback, and foot placement/contact remain acceptable for those actions."
+Disposition: receiving slice 2
+
+### G2. Alternate take and reproduction
+Reported: slice 1 — "Full locomotion/contact acceptance, alternate rendered take, final MP4 and reproduction remain slices 2–3."
+Story clause: "Given saved inputs and the selected take → reproduce the original and revision → recover their intended performance without downloading or regenerating the actor or motion. Document the editable direction and preview/export route."
+Disposition: receiving slice 3
