@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_3d-character-action.json",
+      "identity": "terry-moves-filmmaking#3d-character-action",
+      "completedAt": "2026-10-12T03:26:43.163Z",
+      "blob": "780a1d3f88961ee5a53c1eb871c8463d9a318494"
+    },
+    {
       "fileName": "terry-moves-filmmaking_cinematic-3d-shot.json",
       "identity": "terry-moves-filmmaking#cinematic-3d-shot",
       "completedAt": "2026-10-12T02:02:13.088Z",
