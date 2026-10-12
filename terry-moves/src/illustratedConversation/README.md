@@ -36,6 +36,11 @@ take, including that take's internal silences. Their hash binds them to the
 recording they were authored against. `rest`, `open`, `round` and `wide` draw
 one mouth on the existing rigs. A listening actor uses the resting speech mouth.
 
+Turn names must be unique. Renaming a turn and its acting references preserves
+its complete speech slot, captions, mouths and directed poses, including names
+such as `lead` or `question:pause`. The compiler maps authored identities to
+private ordered clock ranges; generated timing names impose no naming restriction.
+
 Acting cues name either actor, a turn and an offset from that turn's start.
 They change mood, gaze, tilt or hand targets. Poses interpolate and persist on
 film time across turns and silence. A negative offset can anticipate the next
