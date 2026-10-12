@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [Preserve audio timing when a conversation turn is renamed](../terry-moves/seed.md#conversation-turn-name-timing) — terry-moves-filmmaking#conversation-turn-name-timing ([plan](quick/035-conversation-turn-name-timing/PLAN.md))
-
 ## Backlog list
 
 - [I can direct a cinematic 3D shot through the script](../terry-moves/seed.md#cinematic-3d-shot) — terry-moves-filmmaking#cinematic-3d-shot

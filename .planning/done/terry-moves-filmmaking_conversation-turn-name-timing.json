@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#conversation-turn-name-timing",
+  "title": "Preserve audio timing when a conversation turn is renamed",
+  "completedAt": "2026-10-12T00:57:34.021Z",
+  "developer": "Terry Yin",
+  "agent": "Tsukasa-chan",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}

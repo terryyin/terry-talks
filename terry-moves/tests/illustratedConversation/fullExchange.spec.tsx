@@ -1,33 +1,23 @@
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
-import {createHash, webcrypto} from 'node:crypto';
-import {readFileSync} from 'node:fs';
-import {join} from 'node:path';
 import {ConversationPicture, FullIllustratedConversationComposition, IllustratedConversation, IllustratedConversationComposition, IllustratedConversationFilm, ThoughtfulIllustratedConversationComposition} from '../../src/illustratedConversation/IllustratedConversation';
 import {compileConversation, verifyConversationAssets} from '../../src/illustratedConversation/performance';
 import {conversationScript, ConversationScript, pilotScript, thoughtfulConversationScript} from '../../src/illustratedConversation/script';
+import {setFrame, loadSavedTake as load, digestTake as digest, withSavedTakeFetch} from './testSupport';
 
-let selectedFrame = 0;
-jest.mock('remotion',()=>{
- const actual=jest.requireActual('remotion');
- return {...actual,useCurrentFrame:()=>selectedFrame,useVideoConfig:()=>({fps:30,width:1080,height:1080}),
-  Sequence:({children,from,durationInFrames}: {children: React.ReactNode;from:number;durationInFrames:number})=><div data-audio-from={from} data-audio-duration={durationInFrames}>{children}</div>,
-  Audio:({src}:{src:string})=><div data-audio-source={src}/>};
-});
+jest.mock('remotion',()=>jest.requireActual('./testSupport').mockRemotion());
 const full=compileConversation(conversationScript,30);
 const copy=():ConversationScript=>JSON.parse(JSON.stringify(conversationScript));
 const draw=(frame:number,script=conversationScript)=>new DOMParser().parseFromString(renderToStaticMarkup(<ConversationPicture performance={compileConversation(script,30).sample(frame)} frame={frame} fps={30}/>),'text/html');
 const scene=(frame:number,script=conversationScript)=>{
- selectedFrame=frame;
+ setFrame(frame);
  return new DOMParser().parseFromString(renderToStaticMarkup(<IllustratedConversation script={script}/>),'text/html');
 };
-const load=async(file:string)=>new Uint8Array(readFileSync(join(__dirname,'../../public',file))).buffer;
-const digest=async(bytes:ArrayBuffer)=>createHash('sha256').update(new Uint8Array(bytes)).digest('hex');
 
 test('registers the four-turn public film with complete measured slots, saved sources and empty silence captions',()=>{
  const registered=FullIllustratedConversationComposition({}) as React.ReactElement<{id:string;component:unknown;width:number;height:number;fps:number;durationInFrames:number}>;
  expect(registered.props).toMatchObject({id:'IllustratedConversation',component:IllustratedConversationFilm,width:1080,height:1080,fps:30,durationInFrames:582});
- selectedFrame=39;
+ setFrame(39);
  expect(renderToStaticMarkup(<IllustratedConversationFilm/>)).toContain('data-turn="passed"');
  expect(full.turns.map(turn=>[turn.id,turn.from,turn.durationInFrames])).toEqual([['passed',36,84],['question',156,144],['reconsider',336,99],['next',471,51]]);
  for (const turn of full.turns) {
@@ -99,15 +89,7 @@ test.each([
  ['thoughtful',ThoughtfulIllustratedConversationComposition,thoughtfulConversationScript,582],
 ] as const)('%s public metadata verifies its default and supplied script sources and schedule',async(_name,composition,defaultScript,durationInFrames)=>{
  await expect(verifyConversationAssets(conversationScript,load,digest)).resolves.toBeUndefined();
- const oldFetch=globalThis.fetch;
- const oldSubtle=Object.getOwnPropertyDescriptor(globalThis.crypto,'subtle');
- Object.defineProperty(globalThis.crypto,'subtle',{configurable:true,value:webcrypto.subtle});
- const requested:string[]=[];
- globalThis.fetch=jest.fn(async(input)=>{
-  const file=String(input).replace(/^.*(?=assets\/illustrated-conversation\/)/,'');requested.push(file);
-  return {ok:true,arrayBuffer:()=>load(file)};
- }) as unknown as typeof fetch;
- try {
+ await withSavedTakeFetch(async(requested)=>{
   const registered=composition({}) as React.ReactElement<{calculateMetadata:(input:{props:{script?:ConversationScript}})=>Promise<{durationInFrames:number}>}>;
   await expect(registered.props.calculateMetadata({props:{}})).resolves.toEqual({durationInFrames});
   expect(requested).toEqual(defaultScript.turns.map(turn=>defaultScript.takes[turn.take].file));
@@ -121,9 +103,5 @@ test.each([
   expect(requested[0]).toBe(selected.takes.reconsider.file);
   const stale=copy();stale.takes.next.sha256='changed';stale.turns[3].mouth.takeSha256='changed';
   await expect(registered.props.calculateMetadata({props:{script:stale}})).rejects.toThrow(/Turn next.*hash changed.*Restore/);
- } finally {
-  globalThis.fetch=oldFetch;
-  if (oldSubtle) Object.defineProperty(globalThis.crypto,'subtle',oldSubtle);
-  else Reflect.deleteProperty(globalThis.crypto,'subtle');
- }
+ });
 });

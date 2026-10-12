@@ -3,19 +3,14 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {IllustratedConversation, ThoughtfulIllustratedConversationComposition, ThoughtfulIllustratedConversationFilm} from '../../src/illustratedConversation/IllustratedConversation';
 import {compileConversation} from '../../src/illustratedConversation/performance';
 import {conversationScript, thoughtfulConversationScript} from '../../src/illustratedConversation/script';
+import {setFrame} from './testSupport';
 
-let selectedFrame=0;
-jest.mock('remotion',()=>{
- const actual=jest.requireActual('remotion');
- return {...actual,useCurrentFrame:()=>selectedFrame,useVideoConfig:()=>({fps:30,width:1080,height:1080}),
-  Sequence:({children,from,durationInFrames}:{children:React.ReactNode;from:number;durationInFrames:number})=><div data-audio-from={from} data-audio-duration={durationInFrames}>{children}</div>,
-  Audio:({src}:{src:string})=><div data-audio-source={src}/>};
-});
+jest.mock('remotion',()=>jest.requireActual('./testSupport').mockRemotion());
 
 const baseline=compileConversation(conversationScript,30);
 const revised=compileConversation(thoughtfulConversationScript,30);
 const render=(frame:number,script=thoughtfulConversationScript)=>{
- selectedFrame=frame;
+ setFrame(frame);
  return renderToStaticMarkup(<IllustratedConversation script={script}/>);
 };
 const drawn=(markup:string,selector:string)=>new DOMParser().parseFromString(markup,'text/html').querySelector(selector)!;
@@ -23,7 +18,7 @@ const drawn=(markup:string,selector:string)=>new DOMParser().parseFromString(mar
 test('named thoughtful version uses the shared scene and preserves the selected takes, mouths, captions and all turn timing',()=>{
  const registered=ThoughtfulIllustratedConversationComposition({}) as React.ReactElement<{id:string;component:unknown;durationInFrames:number}>;
  expect(registered.props).toMatchObject({id:'IllustratedConversationThoughtful',component:ThoughtfulIllustratedConversationFilm,durationInFrames:582});
- selectedFrame=240;
+ setFrame(240);
  expect(renderToStaticMarkup(<ThoughtfulIllustratedConversationFilm/>)).toBe(render(240));
  expect(thoughtfulConversationScript.turns).toEqual(conversationScript.turns);
  expect(thoughtfulConversationScript.takes).toEqual(conversationScript.takes);
