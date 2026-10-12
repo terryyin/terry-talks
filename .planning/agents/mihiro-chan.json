@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "agent": "Mihiro-chan",
+  "email": "mihiro-chan@example.org",
+  "identity": "terry-moves-filmmaking#3d-character-action",
+  "mode": "story-branch",
+  "branch": "codex/i-can-direct-a-3d-character-performing-a-short-a",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}
