@@ -1,23 +1,9 @@
 import { picture, registration } from './renderedFilm';
+import { attr, onLand, pathPoints } from './mapObservations';
 import { mapTimeline } from '../../src/geographicalMap/direction';
 import { GeographicalMapFilm } from '../../src/geographicalMap/GeographicalMapFilm';
 import { mapOpening } from '../../src/geographicalMap/script';
 
-type Point = { x: number; y: number };
-const points = (path: Element): Point[] => {
-	const numbers = path.getAttribute('d')!.match(/-?\d+(?:\.\d+)?/g)!.map(Number);
-	return Array.from({ length: numbers.length / 2 }, (_, i) => ({ x: numbers[i * 2], y: numbers[i * 2 + 1] }));
-};
-const onLand = (point: Point, polygon: Point[]) => {
-	let inside = false;
-	for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-		const a = polygon[i];
-		const b = polygon[j];
-		if ((a.y > point.y) !== (b.y > point.y) && point.x < (b.x - a.x) * (point.y - a.y) / (b.y - a.y) + a.x) inside = !inside;
-	}
-	return inside;
-};
-const attr = (element: Element, name: string) => Number(element.getAttribute(name));
 const camera = (page: HTMLElement) => page.querySelector('[data-map-camera]')!;
 const route = (page: HTMLElement) => page.querySelector('[data-map-route="coast-road"]')!;
 const markers = (page: HTMLElement) => [...page.querySelectorAll('[data-map-town-marker]')];
@@ -39,8 +25,8 @@ test('the registered opening consumes its local script and derives its square 30
 
 test('the rendered road connects the two town markers on land while the direct gap between them crosses the bay', () => {
 	const page = picture(330);
-	const land = points(page.querySelector('[data-map-land]')!);
-	const road = points(route(page));
+	const land = pathPoints(page.querySelector('[data-map-land]')!);
+	const road = pathPoints(route(page));
 	const transform = camera(page).getAttribute('transform')!;
 	const values = transform.match(/-?\d+(?:\.\d+)?/g)!.map(Number);
 	const [screenX, screenY, scale, offsetX, offsetY] = values;

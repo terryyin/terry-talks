@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Composition, useCurrentFrame, useVideoConfig } from 'remotion';
 import { MapDirection, MapGeography, mapPath, MapPose, mapScreenOrigin, mapTimeline, projectMapPoint } from './direction';
-import { mapBaseline, mapOpening } from './script';
+import { mapBaseline, mapOpening, mapWideComparison } from './script';
 
 const ink = '#263b3b';
 const paper = '#f6f2e8';
@@ -83,5 +83,13 @@ export const GeographicalMapBaselineComposition: React.FC = () => <Composition
 	component={GeographicalMapFilm}
 	defaultProps={{ direction: mapBaseline }}
 	durationInFrames={mapTimeline(mapBaseline, filmFormat.fps).durationInFrames}
+	{...filmFormat}
+/>;
+
+export const GeographicalMapWideComparisonComposition: React.FC = () => <Composition
+	id="GeographicalMapWideComparison"
+	component={GeographicalMapFilm}
+	defaultProps={{ direction: mapWideComparison }}
+	durationInFrames={mapTimeline(mapWideComparison, filmFormat.fps).durationInFrames}
 	{...filmFormat}
 />;

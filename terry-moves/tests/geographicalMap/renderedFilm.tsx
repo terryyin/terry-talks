@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { MapDirection } from '../../src/geographicalMap/direction';
-import { GeographicalMapBaselineComposition, GeographicalMapFilm, GeographicalMapOpeningComposition } from '../../src/geographicalMap/GeographicalMapFilm';
+import { GeographicalMapBaselineComposition, GeographicalMapFilm, GeographicalMapOpeningComposition, GeographicalMapWideComparisonComposition } from '../../src/geographicalMap/GeographicalMapFilm';
 
 type Registration = {
 	id: string;
@@ -33,6 +33,7 @@ export const registration = (Composition = GeographicalMapOpeningComposition) =>
 	return transport.registrations[0];
 };
 export const baselineRegistration = () => registration(GeographicalMapBaselineComposition);
+export const revisionRegistration = () => registration(GeographicalMapWideComparisonComposition);
 const registeredPicture = (frame: number, direction: MapDirection, fps: number, entry: Registration) => {
 	const { component: Film } = entry;
 	transport.frame = frame;
@@ -43,3 +44,4 @@ const registeredPicture = (frame: number, direction: MapDirection, fps: number, 
 };
 export const picture = (frame: number, direction = registration().defaultProps.direction, fps = 30) => registeredPicture(frame, direction, fps, registration());
 export const baselinePicture = (frame: number, direction = baselineRegistration().defaultProps.direction, fps = 30) => registeredPicture(frame, direction, fps, baselineRegistration());
+export const revisionPicture = (frame: number, direction = revisionRegistration().defaultProps.direction, fps = 30) => registeredPicture(frame, direction, fps, revisionRegistration());

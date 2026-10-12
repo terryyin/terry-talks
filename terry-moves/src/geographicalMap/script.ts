@@ -140,3 +140,15 @@ export const mapBaseline: MapDirection = {
 		},
 	],
 };
+
+// A saved take: widen the comparison without changing its geography, copy or
+// clock. Carry the held camera into the next cue so the return has no jump.
+const wideComparison: MapCamera = { center: { x: 500, y: 300 }, scale: 0.88 };
+export const mapWideComparison: MapDirection = {
+	...mapBaseline,
+	cues: mapBaseline.cues.map((cue) => {
+		if (cue.id === 'compare-the-options') return { ...cue, to: { ...cue.to, camera: wideComparison } };
+		if (cue.id === 'return-to-first-principles') return { ...cue, from: { ...cue.from, camera: wideComparison } };
+		return cue;
+	}),
+};

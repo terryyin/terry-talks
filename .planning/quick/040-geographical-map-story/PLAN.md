@@ -60,7 +60,7 @@ Extend the same direction model with the argument's cues, route comparison and r
 
 ### 3. Revise the comparison shot and reproduce both takes
 Type: Behavior
-Status: planned
+Status: done
 Proof: Script-only framing changes visibly alter the comparison while both routes and labels remain readable. Both saved takes use the same renderer; reselection and export reproduce their authored states from retained inputs. Document and replay the full preview/edit/export/reproduce journey.
 
 Behavior: Given the baseline and its retained inputs, Terry edits the comparison shot to hold both the road and ferry together in a wider frame. The preview and export follow the new direction, while the original is still selectable and unchanged. Repeat the documented exports with map-service/network access denied (except local serving); both takes retain their geometry, text, timing and framing without fetching geographic inputs.
@@ -116,7 +116,12 @@ Disposition: proved by slice 2: baseline.spec.tsx six rendered-film assertions p
 ### G3. Saved framing revision and reproduction are not yet delivered
 Reported: slice 1 — "The retained take revision remains slice 3."
 Story clause: "Deliver the watchable film, a reusable script-directed authoring path, a saved meaningful camera-framing revision through that path, and the inputs and instructions to reproduce both versions."
-Disposition: receiving slice 3
+Disposition: proved by slice 3: retained mapWideComparison script, revision.spec.tsx, both complete normal/offline exports matching every decoded frame/timestamp, and README author/edit/export/reproduction journey.
+
+### G4. Encoded cross-take difference range includes compression effects
+Reported: slice 3 — "Baseline-versus-revision H.264 hashes differ on 621 frames spanning 1624–2249."
+Story clause: "the original take remains selectable and reproducible without renderer edits"
+Disposition: proved by slice 3: original baseline retained and all2310 decoded frames/timestamps reproduced exactly offline; exhaustive unchanged authored states and identical lossless1649/2010 pictures bound the source edit to1651–2009. Cross-take compression differences do not imply an altered original or source-state drift.
 
 ## Slice 1 accepted proof
 
@@ -142,3 +147,20 @@ Accepted slice 1 publication: `ea85613ef7361b878718e12e31aa279c5decd006` on the 
 Full-size baseline playback terminal observation: HTMLvideo width1080/rate1/currentTime77/duration77/endedtrue, after inspected final overview at74.51s. Whole baseline reviewed in order at1080 and360; final manual result: Good. Terry feedback remains unreceived, not inferred.
 
 Slice 2 delivery: independent refactor gave town/landing coordinates one home, unchanged rendered values; affected11-test suite and typecheck passed. Selective ESLint fix passed and obligation check passed.
+
+Accepted slice2 publication: `66e15fc851a4c6d1a3b6251ea13543cb9134f771` on retained story branch, same candidate with suffixbase `ea85613ef7361b878718e12e31aa279c5decd006`. Initial receipt reported lost observer worker. Exact old request matched repository/checkout/mode/target; result stopped with lost coverage/unread0; PID16425 absent. Rearmed same coordinator after confirmed worker exit. Current observer `/tmp/dough-ci-501/watch-czi2fN`, PID13822, PTY95880, exec cell7; all later deliveries use it.
+
+Slice2 observer recovery confirmed remote candidate already published with pushCount0; managed delivery reattaches the accepted revision to the new retained stream without another commit.
+
+## Slice 3 accepted proof
+
+- Saved `mapWideComparison` widens comparison from1.12/(500,325) to0.88/(500,300), carries that endpoint into the return, and uses the same `GeographicalMapFilm`/clock/geography/copy/holds. Registered `GeographicalMapWideComparison` is2310frames/77s,1080square,30fps. Picture renderer/timeline untouched; explicit registration added.
+- `pnpm -C terry-moves test:unit --runInBand tests/geographicalMap/opening.spec.tsx tests/geographicalMap/baseline.spec.tsx tests/geographicalMap/revision.spec.tsx` passed15tests/3suites; `pnpm -C terry-moves typecheck` passed. Inspected all new revision tests and actual direction/registration/rendered harness. All2310poses compare content and camera, proving changed1651–2009/unchanged1650and2010+; real markup samples observe routes, label fonts, continuity, holds, fresh direct/reverse seeks and retained baseline. Initial new-test y<944 bound wrongly included inherited comparison-start label948.2; corrected bound958 inside map ending974, supported by accepted actual pictures, without product change.
+- `pnpm -C terry-moves exec remotion render src/index.ts GeographicalMapWideComparison out/geographical-map/revision.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2 --log=error` completed. Both full exports repeated under README's tested macOS sandbox profile denying external networking while allowing loopback: `baseline-offline.mp4`/`revision-offline.mp4` both completed.
+- All four files probed as H264,1080square,30fps,2310frames,77s,BT709. README's four literal FFmpeg framemd5 commands and two cmp commands completed; normal/offline baseline and normal/offline revision match every decoded frame and timestamp, PTS0–2309. Evidence in `out/geographical-map/{baseline,baseline-offline,revision,revision-offline}.framemd5`. Original baseline stays intact.
+- Fresh registered lossless baseline/revision still1649 and2010 pairs (`proof/slice3-{baseline,revision}-{1649,2010}.png`) are identical. Frame1800 differs only in the map: pixel bbox(70,377,1009,966), with copy unchanged. Encoded cross-take hashes differ on621frames/1624–2249 due to compression/lookahead/GOP effects; source-state and lossless observations establish the authored change boundary independently.
+- Root sampled registered1770/1965/1770fresh and360px1770 with `remotion still` into `proof/revision-{comparison,return,reseek,comparison-small}.png`; `cmp terry-moves/out/geographical-map/proof/revision-comparison.png terry-moves/out/geographical-map/proof/revision-reseek.png` passed. Actual full/360 pictures and live Studio1770 retain both routes and legible labels in a visibly wider frame.
+- Bounded manual journey (~10min observation budget): selected revision in exported MP4 viewer; full playback360 reached77s at1x, then comparison55s through77s played at360 and1080. Actual ending1080/rate1/time77/endedtrue; moving return observed67.48s at360. Prior unchanged baseline observations reused. Final manual result: Good. README documents full preview/edit/export/reproduce journey, shared endpoints, local fiction inputs/credits, exact fonts and environment. No artistic approval from Terry is inferred.
+- Interruption recovery restarted owned Studio PTY51009 atlocalhost:3000 and local output viewer PTY70491 at127.0.0.1:8766; inputs and prior rendered files preserved.
+
+Slice 3 delivery: independent refactor consolidated SVG geometry observations in `tests/geographicalMap/mapObservations.ts` and updated all3specs without changed assertions; affected15-test suite/typecheck passed. Renderer/scripts/pixels/offline proof unchanged. Selective ESLint fix and obligation check passed.

@@ -31,7 +31,7 @@ import { AnimeEngineerCastingComposition } from './animeCharacter/AnimeEngineerC
 import { AnimeEngineerSceneComposition } from './animeCharacter/AnimeEngineerScene';
 import { AnimeEngineerThoughtfulComposition } from './animeCharacter/AnimeEngineerThoughtful';
 import { TypographyFeedbackExampleComposition, TypographyOpeningCompositions, TypographyProblemBaselineComposition, TypographyProblemRevisionComposition } from './typographyFilm/TypographyFilm';
-import { GeographicalMapBaselineComposition, GeographicalMapOpeningComposition } from './geographicalMap/GeographicalMapFilm';
+import { GeographicalMapBaselineComposition, GeographicalMapOpeningComposition, GeographicalMapWideComparisonComposition } from './geographicalMap/GeographicalMapFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -81,6 +81,7 @@ export const RemotionRoot: React.FC = () => {
 			<TypographyFeedbackExampleComposition />
 			<GeographicalMapOpeningComposition />
 			<GeographicalMapBaselineComposition />
+			<GeographicalMapWideComparisonComposition />
 		</>
 	);
 };

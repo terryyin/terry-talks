@@ -1,24 +1,11 @@
 import { baselinePicture, baselineRegistration } from './renderedFilm';
-import { mapTimeline, MapPoint } from '../../src/geographicalMap/direction';
+import { attr, onLand, pathPoints } from './mapObservations';
+import { mapTimeline } from '../../src/geographicalMap/direction';
 import { GeographicalMapFilm } from '../../src/geographicalMap/GeographicalMapFilm';
 import { mapBaseline } from '../../src/geographicalMap/script';
 
 const performance = mapTimeline(mapBaseline, 30);
 const cueFrame = (cue: string, seconds = 0) => performance.beatRange(cue).from + Math.round(seconds * 30);
-const attr = (element: Element, name: string) => Number(element.getAttribute(name));
-const pathPoints = (path: Element): MapPoint[] => {
-	const numbers = path.getAttribute('d')!.match(/-?\d+(?:\.\d+)?/g)!.map(Number);
-	return Array.from({ length: numbers.length / 2 }, (_, i) => ({ x: numbers[i * 2], y: numbers[i * 2 + 1] }));
-};
-const onLand = (point: MapPoint, polygon: MapPoint[]) => {
-	let inside = false;
-	for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-		const a = polygon[i];
-		const b = polygon[j];
-		if ((a.y > point.y) !== (b.y > point.y) && point.x < (b.x - a.x) * (point.y - a.y) / (b.y - a.y) + a.x) inside = !inside;
-	}
-	return inside;
-};
 const route = (page: HTMLElement, id: string) => page.querySelector(`[data-map-route="${id}"]`)!;
 const routeOpacity = (page: HTMLElement, id: string) => attr(route(page, id).parentElement!, 'opacity');
 const camera = (page: HTMLElement) => page.querySelector('[data-map-camera]')!.getAttribute('transform');
