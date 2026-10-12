@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { typographyTimeline, TypeDirection } from '../../src/typographyFilm/direction';
-import { editedOpeningContrast, openingContrast } from '../../src/typographyFilm/script';
-import { TypographyFilm, TypographyOpeningCompositions } from '../../src/typographyFilm/TypographyFilm';
+import { editedOpeningContrast, openingContrast, problemBaseline } from '../../src/typographyFilm/script';
+import { TypographyFilm, TypographyOpeningCompositions, TypographyProblemBaselineComposition } from '../../src/typographyFilm/TypographyFilm';
 
 type Registration = {
 	id: string;
@@ -119,4 +119,57 @@ test('frame sampling uses the composition frame rate and stays stable across out
 	const forward = new Map(frames.map((frame) => [frame, picture(openingContrast, frame).innerHTML]));
 	for (const frame of [...frames].reverse()) expect(picture(openingContrast, frame).innerHTML).toBe(forward.get(frame));
 	expect(typographyTimeline(openingContrast, 60).durationInFrames).toBe(540);
+});
+
+test('the named baseline carries the complete argument through its registered film', () => {
+	transport.registrations = [];
+	renderToStaticMarkup(<TypographyProblemBaselineComposition />);
+	const entry = transport.registrations[0];
+	expect(entry).toMatchObject({ id: 'TypographyProblemBaseline', component: TypographyFilm, durationInFrames: 885, fps: 30, width: 1080, height: 1080 });
+	const Film = entry.component;
+	const beats = [
+		{ frame: 0, id: 'problem', lines: ['Start with the', 'problem.'] },
+		{ frame: 135, id: 'solution', lines: ['not the', 'solution.'] },
+		{ frame: 270, id: 'question', lines: ['What is someone', 'trying to do?'] },
+		{ frame: 435, id: 'useful-outcome', lines: ['Find', 'a seat', 'for tonight.'] },
+		{ frame: 585, id: 'smaller-step', lines: ['Help them', 'find one.'] },
+		{ frame: 735, id: 'return-to-problem', lines: ['Start with the', 'problem.'] },
+	];
+	for (const { frame, id, lines } of beats) {
+		transport.frame = frame;
+		transport.fps = entry.fps;
+		const page = document.createElement('div');
+		page.innerHTML = renderToStaticMarkup(<Film {...entry.defaultProps} />);
+		expect(passage(page)).toBe(id);
+		expect([...page.querySelectorAll('[data-type-line]')].map((line) => line.textContent)).toEqual(lines);
+		if (frame > 0) expect(passage(picture(problemBaseline, frame - 1))).not.toBe(id);
+	}
+});
+
+test('the baseline settles its question and small outcome before reading holds and returns to the problem', () => {
+	expect(group(picture(problemBaseline, 294), 'focus').style.opacity).not.toBe('1');
+	for (const frame of [312, 434]) {
+		expect(group(picture(problemBaseline, frame), 'focus').style).toMatchObject({ opacity: '1', translate: '0px 0px' });
+	}
+	expect(group(picture(problemBaseline, 471), 'context').style.opacity).toBe('0');
+	const outcomeHold = picture(problemBaseline, 496);
+	expect(group(outcomeHold, 'focus').style).toMatchObject({ fontSize: '132px', fontWeight: '700', opacity: '1', translate: '0px 0px' });
+	expect(group(outcomeHold, 'context').style).toMatchObject({ fontSize: '60px', marginTop: '32px', opacity: '1', translate: '0px 0px' });
+	expect(picture(problemBaseline, 584).innerHTML).toBe(outcomeHold.innerHTML);
+	expect(picture(problemBaseline, 734).innerHTML).toBe(picture(problemBaseline, 627).innerHTML);
+	const final = picture(problemBaseline, 884);
+	expect(passage(final)).toBe('return-to-problem');
+	expect(group(final, 'focus').textContent).toBe('problem.');
+	expect(group(final, 'focus').style).toMatchObject({ fontSize: '142px', fontWeight: '700', opacity: '1', translate: '0px 0px' });
+	expect(final.querySelector('audio,video')).toBeNull();
+});
+
+test('the baseline retains the sample and repeats first, entrance, hold, transition and final pictures across fresh reverse seeks', () => {
+	for (const frame of [0, 24, 42, 134, 135, 171, 269]) {
+		expect(picture(problemBaseline, frame).innerHTML).toBe(picture(openingContrast, frame).innerHTML);
+	}
+	const frames = [0, 24, 42, 134, 135, 269, 270, 294, 312, 434, 435, 474, 495, 584, 585, 609, 627, 734, 735, 759, 777, 884];
+	const forward = new Map(frames.map((frame) => [frame, picture(problemBaseline, frame).innerHTML]));
+	for (const frame of [...frames].reverse()) expect(picture(problemBaseline, frame).innerHTML).toBe(forward.get(frame));
+	for (const frame of [495, 270, 884, 0, 627]) expect(picture(problemBaseline, frame).innerHTML).toBe(forward.get(frame));
 });

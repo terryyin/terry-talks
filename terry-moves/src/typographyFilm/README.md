@@ -1,12 +1,12 @@
 # Typography film
 
-The opening sample introduces “Start with the problem, not the solution.”
-through one restrained treatment: a warm dark stage, a large bold focus, quieter
-supporting type, a small vertical settling motion and a settled reading hold.
-It is an interim contrast for artistic review before authoring the complete
-argument.
+The complete baseline develops “Start with the problem, not the solution.”
+into a small useful outcome: someone wants a seat for tonight; help them find
+one. It uses the approved treatment: a warm dark stage, a large bold focus,
+quieter supporting type, gentle vertical settling and a settled reading hold.
+The two approved opening samples remain available as references.
 
-Edit [script.ts](./script.ts), then preview the two named compositions in Studio:
+Edit [script.ts](./script.ts), then preview the named compositions in Studio:
 
 ```sh
 pnpm moves
@@ -16,6 +16,9 @@ pnpm moves
 - `TypographyOpeningContrastEdited`: script-only sample edit, 11 seconds.
   “Begin with the” becomes larger and bold, “problem.” becomes smaller and
   regular, its group spacing grows, and its entrance and hold take longer.
+- `TypographyProblemBaseline`: complete retained argument, 29.5 seconds.
+  `problemBaseline` keeps the approved opening, asks what someone is trying to
+  do, names a smaller useful outcome, and returns to the original advice.
 
 Studio previews the script. Its visual-editor Save default props action cannot
 write these imported direction objects back to the script. Change the source
@@ -26,9 +29,10 @@ Export from the repository root:
 ```sh
 pnpm -C terry-moves exec remotion render src/index.ts TypographyOpeningContrast out/typography-film/opening-contrast.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2 --log=error
 pnpm -C terry-moves exec remotion render src/index.ts TypographyOpeningContrastEdited out/typography-film/opening-contrast-edited.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2 --log=error
+pnpm -C terry-moves exec remotion render src/index.ts TypographyProblemBaseline out/typography-film/problem-baseline.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2 --log=error
 ```
 
-Both are silent, 1080×1080 at 30 fps. Outputs under `terry-moves/out/` are
+All are silent, 1080×1080 at 30 fps. Outputs under `terry-moves/out/` are
 ignored by Git. Watch each at normal speed at 1080 and 360 pixels square;
 inspect the arriving type as well as the reading holds. Terry owns the judgment
 of whether emphasis, movement and reading time convey the idea.
@@ -37,7 +41,7 @@ of whether emphasis, movement and reading time convey the idea.
 
 [direction.ts](./direction.ts) compiles ordered passages through the existing
 `beatTimeline` clock. [TypographyFilm.tsx](./TypographyFilm.tsx) consumes the
-sampled direction for both compositions, without passage-specific rendering.
+sampled direction for every composition, without passage-specific rendering.
 
 | Field | Direction |
 | --- | --- |
@@ -61,12 +65,13 @@ hold changes the export length without editing the component.
 For a small experiment, change a group in `openingContrast`, save `script.ts`
 and revisit `TypographyOpeningContrast`. Its wording, styles, spacing and
 timing all pass through the same renderer. `editedOpeningContrast` retains the
-demonstrated edits without modifying the original object's values. The later
-complete baseline and revision will use this same path.
+demonstrated edits without modifying the original object's values.
+`problemBaseline` preserves the complete film's inputs for a later script-only
+revision through this same path.
 
 ## Font and render environment
 
-The sample uses CSS `Arial, sans-serif`, with regular 400 and bold 700 weights.
+The film uses CSS `Arial, sans-serif`, with regular 400 and bold 700 weights.
 It uses the host's installed Arial rather than a bundled font asset. The observed
 export environment is macOS 26.6.2 (25G83), Apple arm64, Node 24.21.0, pnpm
 11.28.5 and Remotion 4.0.533. Arial and Arial Bold are installed at:
@@ -77,7 +82,7 @@ export environment is macOS 26.6.2 (25G83), Apple arm64, Node 24.21.0, pnpm
 ```
 
 Use Arial on the reproduction host to retain these glyph metrics. The same
-files and font stack served the opening and script-edited exports.
+files and font stack served the opening, script-edited and baseline exports.
 
 Focused checks, from the repository root:
 

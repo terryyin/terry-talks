@@ -30,7 +30,7 @@ import { RobotGreetingComposition, RobotGreetingThumbsUpComposition } from './ch
 import { AnimeEngineerCastingComposition } from './animeCharacter/AnimeEngineerCasting';
 import { AnimeEngineerSceneComposition } from './animeCharacter/AnimeEngineerScene';
 import { AnimeEngineerThoughtfulComposition } from './animeCharacter/AnimeEngineerThoughtful';
-import { TypographyOpeningCompositions } from './typographyFilm/TypographyFilm';
+import { TypographyOpeningCompositions, TypographyProblemBaselineComposition } from './typographyFilm/TypographyFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -75,6 +75,7 @@ export const RemotionRoot: React.FC = () => {
 			<AnimeEngineerSceneComposition />
 			<AnimeEngineerThoughtfulComposition />
 			<TypographyOpeningCompositions />
+			<TypographyProblemBaselineComposition />
 		</>
 	);
 };

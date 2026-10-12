@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Composition, useCurrentFrame, useVideoConfig } from 'remotion';
 import { TypeDirection, TypePose, typographyTimeline } from './direction';
-import { editedOpeningContrast, openingContrast } from './script';
+import { editedOpeningContrast, openingContrast, problemBaseline } from './script';
 
 const tones = { ink: '#f3efe7', quiet: '#c0bdb4', accent: '#dce3bd' };
 
@@ -59,3 +59,13 @@ export const TypographyOpeningCompositions: React.FC = () => <>
 		height={size}
 	/>
 </>;
+
+export const TypographyProblemBaselineComposition: React.FC = () => <Composition
+	id="TypographyProblemBaseline"
+	component={TypographyFilm}
+	defaultProps={{ direction: problemBaseline }}
+	durationInFrames={typographyTimeline(problemBaseline, fps).durationInFrames}
+	fps={fps}
+	width={size}
+	height={size}
+/>;

@@ -62,12 +62,7 @@ composition registration and focused tests, including `visualTreatments`,
 
 ## Preparation observations and limits
 
-Observed on 2026-10-12 in
-`/Users/terryyin/git/terry-talks/.worktrees/i-can-tell-an-idea-through-typography-and-restra`,
-branch `codex/i-can-tell-an-idea-through-typography-and-restra`, product base
-`1dbab876a9b59b98d848afbe387ee2bdebdfa1e3`. All scratch source edits were removed
-before recording preparation. Temporary outputs under `/tmp/typography-preparation`
-are diagnostics only; execution does not depend on their survival.
+Observed on 2026-10-12 in `/Users/terryyin/git/terry-talks/.worktrees/i-can-tell-an-idea-through-typography-and-restra`, branch `codex/i-can-tell-an-idea-through-typography-and-restra`, product base `1dbab876a9b59b98d848afbe387ee2bdebdfa1e3`. All scratch source edits were removed before recording preparation. Temporary outputs under `/tmp/typography-preparation` are diagnostics only; execution does not depend on their survival.
 
 | Decisive premise / consuming operation | Observation and result | Limit / consequence |
 | --- | --- | --- |
@@ -86,10 +81,7 @@ ffmpeg -v error -y -ss 0.7 -i /tmp/typography-preparation/route.mp4 -frames:v 1 
 ffmpeg -v error -y -ss 1.7 -i /tmp/typography-preparation/route.mp4 -frames:v 1 /tmp/typography-preparation/solution.png
 ```
 
-The disposable probe contained only two one-second beats (text, weight and
-spacing), linear clamped opacity/16px settling sampled from beat progress,
-an Arial 90px text block on a light background, and composition registration.
-It was not a retained implementation or a future production dependency.
+The disposable probe contained only two one-second beats (text, weight and spacing), linear clamped opacity/16px settling sampled from beat progress, an Arial 90px text block on a light background, and composition registration. It was not a retained implementation or a future production dependency.
 
 ## Outside-in proof ownership
 
@@ -127,7 +119,7 @@ its incomplete argument with the whole film.
 
 ### 2. Watch the complete idea at a readable pace
 Type: Behavior
-Status: planned
+Status: done
 Proof: Full baseline playback conveys the selected idea at normal speed and both
 viewing sizes, and export/seek observations agree with its script.
 
@@ -226,7 +218,7 @@ Disposition: proved by slice 1: Terry reviewed both moving samples and approved 
 ### G2. Interim opening needs the complete argument
 Reported: slice 1 — "The implementation is an interim opening contrast, not the complete film."
 Story clause: "Deliver a short English, silent, square film about “Start with the problem, not the solution.”"
-Disposition: receiving slice 2
+Disposition: proved by slice 2: TypographyProblemBaseline export, complete rendered-script tests, and Terry's continuation after the baseline review prompt.
 
 ### G3. Full baseline, revision and second-idea proof remain
 Reported: slice 1 — "Complete versions and a second-idea fixture remain for later slices."
@@ -242,3 +234,10 @@ Disposition: excluded "a visual editor"
 Reported: slice 1 — "Exports logged existing unrelated quillustration_flower_and_water-can/scene.bin 404s."
 Story clause: "Terry can communicate an idea through a watchable typography film"
 Disposition: no user cost "Terry can communicate an idea through a watchable typography film": The new silent text renderer consumes no such asset; both actual exports finished and displayed the intended samples. Existing asset inputs are unchanged.
+
+## Slice 2 accepted proof
+
+- Complete baseline: `problemBaseline`, composition `TypographyProblemBaseline`, silent H.264 1080×1080 at 30 fps, 885 frames / 29.5 seconds. README export command and typecheck passed; owner answered the full-baseline review prompt with “continue” twice. Opening samples and actual picture renderer remain unchanged.
+- `pnpm -C terry-moves test:unit --runInBand tests/typographyFilm/direction.spec.tsx` passed nine tests. Three new assertions observe the registered full argument, reveal/hold and transition boundaries, closing text, retained opening, fresh mounts and reverse/out-of-order samples. The combined run with `tests/tpsAndAiJit/film.spec.tsx tests/tpsAndAi/languageEditions.spec.tsx` passed all 37 existing Root consumers; an endpoint-only new assertion was corrected and the nine typography tests passed again without production edits.
+- Two independent PNG exports of frames `0,24,42,134,135,269,270,294,312,434,435,474,495,584,585,609,627,734,735,759,777,884` to `out/typography-film/baseline-frames-a` and `baseline-frames-b` passed. Coordinator SHA-256 comparison confirmed 22 matching files, byte-identical. Coordinator observed full MP4 playback at rate 1 and measured CSS 360×360 and 1080×1080; argument, seat example and closing were legible without clipping/overlap. Actual Studio frame 495 had no line overflow.
+- Independent refactor: none — already clean, no edits or rerun of unchanged proof. Selective ESLint formatting and `git diff --check` passed. Slice 1 was delivered as `eff087733cd749da6b6a1ed1f4094549f7c24944` on the execution branch; its suffix base is the accepted claim.

@@ -1,7 +1,6 @@
 import { TypeDirection } from './direction';
 
-// Interim opening contrast. The complete argument replaces this sample in
-// the next slice, after Terry has evaluated its moving treatment.
+// Retained opening sample, approved before developing the complete argument.
 export const openingContrast: TypeDirection = {
 	passages: [
 		{
@@ -56,4 +55,78 @@ export const editedOpeningContrast: TypeDirection = {
 			motion: { delaySeconds: 0.95, revealSeconds: 1.1, settleSeconds: 1.35, risePixels: 24 },
 		}),
 	} : passage),
+};
+
+// The complete baseline keeps the approved contrast, then turns the abstract
+// advice into a small useful outcome before returning to the original idea.
+// Retain these inputs when authoring the later emphasis/pacing revision.
+export const problemBaseline: TypeDirection = {
+	passages: [
+		...openingContrast.passages,
+		{
+			id: 'question',
+			holdSeconds: 4.1,
+			groups: [
+				{
+					id: 'lead-in', lines: ['What is someone'],
+					size: 64, weight: 400, letterSpacing: -1, lineHeight: 1.1,
+					spaceBefore: 0, tone: 'ink',
+					motion: { delaySeconds: 0, revealSeconds: 0, settleSeconds: 0, risePixels: 0 },
+				},
+				{
+					id: 'focus', lines: ['trying to do?'],
+					size: 94, weight: 700, letterSpacing: -3, lineHeight: 1.02,
+					spaceBefore: 24, tone: 'accent',
+					motion: { delaySeconds: 0.5, revealSeconds: 0.7, settleSeconds: 0.9, risePixels: 24 },
+				},
+			],
+		},
+		{
+			id: 'useful-outcome',
+			holdSeconds: 3,
+			groups: [
+				{
+					id: 'lead-in', lines: ['Find'],
+					size: 64, weight: 400, letterSpacing: -1, lineHeight: 1.1,
+					spaceBefore: 0, tone: 'ink',
+					motion: { delaySeconds: 0, revealSeconds: 0, settleSeconds: 0, risePixels: 0 },
+				},
+				{
+					id: 'focus', lines: ['a seat'],
+					size: 132, weight: 700, letterSpacing: -5, lineHeight: 1.02,
+					spaceBefore: 18, tone: 'accent',
+					motion: { delaySeconds: 0.45, revealSeconds: 0.6, settleSeconds: 0.75, risePixels: 22 },
+				},
+				{
+					id: 'context', lines: ['for tonight.'],
+					size: 60, weight: 400, letterSpacing: -1, lineHeight: 1.1,
+					spaceBefore: 32, tone: 'ink',
+					motion: { delaySeconds: 1.3, revealSeconds: 0.5, settleSeconds: 0.7, risePixels: 16 },
+				},
+			],
+		},
+		{
+			id: 'smaller-step',
+			holdSeconds: 3.6,
+			groups: [
+				{
+					id: 'lead-in', lines: ['Help them'],
+					size: 64, weight: 400, letterSpacing: -1, lineHeight: 1.1,
+					spaceBefore: 0, tone: 'ink',
+					motion: { delaySeconds: 0, revealSeconds: 0, settleSeconds: 0, risePixels: 0 },
+				},
+				{
+					id: 'focus', lines: ['find one.'],
+					size: 116, weight: 700, letterSpacing: -4, lineHeight: 1.02,
+					spaceBefore: 24, tone: 'accent',
+					motion: { delaySeconds: 0.5, revealSeconds: 0.7, settleSeconds: 0.9, risePixels: 22 },
+				},
+			],
+		},
+		{
+			...openingContrast.passages[0],
+			id: 'return-to-problem',
+			holdSeconds: 3.6,
+		},
+	],
 };
