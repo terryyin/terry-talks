@@ -1,13 +1,10 @@
 import React from 'react';
-import {Composition} from 'remotion';
-import {compileConversation} from '../illustratedConversation/performance';
-import {conversationMetadata} from '../illustratedConversation/metadata';
 import type {ConversationScript} from '../illustratedConversation/script';
 import {AnimeEngineerPerformance} from './AnimeEngineerPerformance';
+import {animeEngineerComposition} from './composition';
 import {castingScript} from './script';
 
 export type CastingProps = {script?:ConversationScript};
-const compositionFps=30;
 
 export const AnimeEngineerCasting: React.FC<CastingProps> = ({script=castingScript}) => <AnimeEngineerPerformance
  script={script}
@@ -16,12 +13,4 @@ export const AnimeEngineerCasting: React.FC<CastingProps> = ({script=castingScri
  cast={{engineer:'off-screen colleague',ai:'engineer'}}
 />;
 
-export const AnimeEngineerCastingComposition: React.FC = () => <Composition
- id="AnimeEngineerCasting"
- component={AnimeEngineerCasting}
- fps={compositionFps}
- width={1080}
- height={1080}
- durationInFrames={compileConversation(castingScript,compositionFps).durationInFrames}
- calculateMetadata={conversationMetadata(castingScript,compositionFps)}
-/>;
+export const AnimeEngineerCastingComposition: React.FC = () => animeEngineerComposition('AnimeEngineerCasting',AnimeEngineerCasting,castingScript);

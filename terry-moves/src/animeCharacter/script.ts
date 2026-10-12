@@ -67,3 +67,21 @@ export const animeSceneScript: ConversationScript = {
   ...reconsiderActing,
  ],
 };
+
+// The question lands gradually: look away, incline the head and bring a hand
+// inward to consider it. The shared full entry/exit poses contain this revision
+// to listening; recorded speech and the reply's direction remain unchanged.
+export const thoughtfulAnimeSceneScript: ConversationScript = {
+ ...animeSceneScript,
+ acting:[
+  ...animeSceneScript.acting.filter(cue=>cue.turn==='question'&&cue.offset===listeningReaction.entry.offset),
+  {actor:'ai',turn:'question',offset:0.95,pose:{gaze:-0.58,tilt:1,leftHand:{x:-181,y:-107},rightHand:{x:164,y:-94},face:{browRaise:0.1,browPinch:0.2,eyeOpen:0.82,smile:0.03}}},
+  {actor:'ai',turn:'question',offset:2.3,pose:{mood:'concerned',gaze:0.4,tilt:5,leftHand:{x:-130,y:-222},rightHand:{x:170,y:-102},face:{browRaise:0.02,browPinch:0.5,eyeOpen:0.65,smile:-0.12}}},
+  {actor:'ai',turn:'question',offset:2.75,pose:{gaze:0.7,tilt:6,leftHand:{x:-95,y:-260},rightHand:{x:174,y:-105},face:{browRaise:0.01,browPinch:0.56,eyeOpen:0.58,smile:-0.15}}},
+  {actor:'ai',turn:'question',offset:3,pose:{face:{browRaise:0.01,browPinch:0.56,eyeOpen:0.08,smile:-0.15}}},
+  {actor:'ai',turn:'question',offset:3.22,pose:{face:{browRaise:0.01,browPinch:0.56,eyeOpen:0.58,smile:-0.15}}},
+  {actor:'ai',turn:'question',offset:4.6,pose:{gaze:0.45,tilt:4.5,leftHand:{x:-102,y:-244},rightHand:{x:179,y:-115},face:{browRaise:0.03,browPinch:0.58,eyeOpen:0.63,smile:-0.15}}},
+  {actor:'ai',turn:'question',offset:5.15,pose:{gaze:-0.15,tilt:2.5,leftHand:{x:-144,y:-183},rightHand:{x:190,y:-128},face:{browRaise:0.05,browPinch:0.5,eyeOpen:0.72,smile:-0.09}}},
+  ...animeSceneScript.acting.filter(cue=>cue.turn!=='question'),
+ ],
+};

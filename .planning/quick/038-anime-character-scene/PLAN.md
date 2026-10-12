@@ -84,21 +84,21 @@ probe files surviving.
 
 - Established execution: Rio-chan, publisher `dashboard-territory.local-terry-talks`, Story Branch Mode; execution and originating checkout `/Users/terryyin/git/terry-talks/.worktrees/i-can-make-an-anime-style-character-perform-a-sh`, branch `codex/i-can-make-an-anime-style-character-perform-a-sh` (reused owned linked worktree). No integration-checkout mutation is required.
 - Remote `origin` (`terryyin/terry-talks`), trunk `master`; increments publish to `refs/heads/codex/i-can-make-an-anime-style-character-perform-a-sh`. Published claim/base `e629dbbb6eb54c2024cca1c73717e2e8fd2180ad`, starting revision `f7192950c57b28884ffe6ac6f00ded480295b5a6`; initial candidate equals the published claim. Claim CI on trunk is unobserved by this execution.
-- Last accepted increment: `28122c834ccf693661ea8a80cea8211bd0a6dd33` on the story branch, suffix base `e629dbbb6eb54c2024cca1c73717e2e8fd2180ad`; managed delivery reused the current observer. This is the next increment's published base.
-- Checkout setup: `pnpm install --frozen-lockfile` passed without lock changes; `pnpm -C terry-moves typecheck` passed on the current dependency state. Studio session 82488 serves this checkout at `http://localhost:3001`.
+- Published increments: casting `28122c834ccf693661ea8a80cea8211bd0a6dd33` (base `e629dbbb6eb54c2024cca1c73717e2e8fd2180ad`), full scene `876da6b7a1787aadb48f411f191e210a6387eabb` (base casting SHA), both on the story branch with the current observer. Full scene SHA is the next increment's published base.
+- Checkout setup: `pnpm install --frozen-lockfile` passed without lock changes; `pnpm -C terry-moves typecheck` passed on the current dependency state. Resumed Studio session 23108 serves this checkout at `http://localhost:3001`.
 - No numeric slice budget or additional replanning override is supplied; existing planning authority applies. No Git pre-commit hook is installed; coordinator uses the package's ESLint fixer with owned changed TypeScript paths for selective formatting, then checks those paths with ESLint.
 - CI: GitHub Actions, verified active selector `ci.yml`, display name `CI`, workflow ID 381584897. Resumed Codex stream coordinator `rio-anime`, directory `/tmp/dough-ci-501/watch-Dbnc8T`, PID 5886, PTY session 49933, cell 12; checkout/runtime both resolve to this execution checkout. It observes the authorized story branch, and managed delivery receives these owner inputs.
 
 
 ## Execution progress
 
-Slice 1 is accepted and published; [casting proof](CASTING-PROOF.md) retains
-its technical observations, Terry's review/direction and the corrected hair.
-Slice 2 implements the complete 318-frame scene; [full-scene proof](FULL-SCENE-PROOF.md)
-records 16 anime tests, typecheck, real picture/audio export and the bounded
-normal-playback/direct/reverse/fresh Studio journey. Its signed resting-mouth
-response correction preserves speech, soundtrack and all other drawing pixels.
-Independent slice 2 refactoring passed; slice 3 remains unstarted.
+Slices 1–2 are accepted and published: [casting proof](CASTING-PROOF.md) retains
+Terry's direction and the hair correction; [full-scene proof](FULL-SCENE-PROOF.md)
+retains full-film tests, exports, Studio observation and signed-mouth correction.
+Slice 3's [revision proof](REVISION-PROOF.md) covers 23 tests, typecheck, both
+reproduced films, exact audio equality and revised Studio playback/seeking.
+Independent registration refactoring and selective formatting/lint passed;
+slice 3 is accepted and ready for managed delivery.
 
 ## Story obligations
 
@@ -115,7 +115,7 @@ Disposition: proved by slice 2: FULL-SCENE-PROOF.md
 ### G3. Named meaningful alternative performance
 Reported: slice 1 — "The named final reaction revision is not implemented by the casting rehearsal."
 Story clause: "Deliver the moving scene and its revised listening reaction through the selected authored 2D route"
-Disposition: receiving slice 3
+Disposition: proved by slice 3: REVISION-PROOF.md
 
 ### G4. Rear hair obscures the neck
 Reported: slice 1 — "Terry observed rear hair in front of the neck, resembling a beard, and requested a correction."
@@ -193,7 +193,7 @@ The delivered meaningful alternative performance remains owned by slice 3.
 
 ### 3. Revise surprise into thoughtfulness and reproduce both versions
 Type: Behavior
-Status: planned
+Status: done
 Proof: Editing the named reaction in the script produces a coherent thoughtful
 version with the same design and soundtrack; both registered versions reproduce
 from saved inputs through documented commands.
