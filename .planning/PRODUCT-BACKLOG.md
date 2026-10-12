@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [I can make an illustrated conversation with convincing speaking and listening](../terry-moves/seed.md#illustrated-conversation) — terry-moves-filmmaking#illustrated-conversation ([plan](quick/034-illustrated-conversation/PLAN.md))
-
 ## Backlog list
 
 - [Preserve audio timing when a conversation turn is renamed](../terry-moves/seed.md#conversation-turn-name-timing) — terry-moves-filmmaking#conversation-turn-name-timing

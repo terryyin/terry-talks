@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_illustrated-conversation.json",
+      "identity": "terry-moves-filmmaking#illustrated-conversation",
+      "completedAt": "2026-10-12T00:24:35.835Z",
+      "blob": "6797a22dba298af350f7959c05e104e2659f1899"
+    },
+    {
       "fileName": "terry-moves-filmmaking_narration-region-across-scenes.json",
       "identity": "terry-moves-filmmaking#narration-region-across-scenes",
       "completedAt": "2026-10-11T22:13:24.082Z",

@@ -40,8 +40,9 @@ current tests exercise adding a differently named turn but not this collision.
 ## Current design, reuse and constraints
 
 Keep the shared beat clock and its frame arithmetic; only the conversation
-compiler owns the authored-ID-to-clock-range relationship. Reuse the original
-plan's existing-solution finding: `beatTimeline` supplies ordered ranges, while
+compiler owns the authored-ID-to-clock-range relationship. Reuse the predecessor plan's existing-solution finding, recoverable at
+`de80837d82276980bff1a97e65cbad86df34a52b:.planning/quick/034-illustrated-conversation/PLAN.md`
+under `Current design and reuse decisions`: `beatTimeline` supplies ordered ranges, while
 the conversation sampler owns film-time acting. Do not solve this with a list
 of forbidden user names or per-name branches. The existing renderer/audio nodes
 must receive the corrected schedule through the same public path.
