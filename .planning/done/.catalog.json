@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_cinematic-3d-shot.json",
+      "identity": "terry-moves-filmmaking#cinematic-3d-shot",
+      "completedAt": "2026-10-12T02:02:13.088Z",
+      "blob": "fa7a2e43cbb9dacb84ef113e6ea11cac39f2d59b"
+    },
+    {
       "fileName": "terry-moves-filmmaking_conversation-turn-name-timing.json",
       "identity": "terry-moves-filmmaking#conversation-turn-name-timing",
       "completedAt": "2026-10-12T00:57:34.021Z",
