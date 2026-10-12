@@ -220,29 +220,74 @@ the selected performance is observed.
 
 **Identity:** terry-moves-filmmaking#typography-film
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/039-typography-film/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"7abebad150cf8bc73b32763c1d6a9d8e02c7331876fda3081c3a0d7c35d97657","plan":"011dcc4c2764bf3be38615d11a8231f2095d3cb12a66289ade3b9db84d066c5f"}}
 ```
 
-- **For / why:** Terry can choose a clear, expressive style when characters
-  or complex scenes would distract from the explanation.
-- **Outcome and scope:** Make and revise a short film through script-directed
-  type, spacing, emphasis, and restrained movement. Preserve readability and the
-  argument; the authoring path should be reusable for another idea.
-- **Evaluation example:** Terry changes the emphasis, spacing, or timing of
-  a passage. The resulting motion still guides attention and the text remains
-  readable at normal playback and at the intended viewing size.
-- **Known basis and boundary:** R28. The simple decomposition remake already
-  demonstrates this visual style, and `TreatmentTypographyV1` in
-  `terry-moves/src/visualTreatments/` directs one passage with type and cards
-  through the shared beat timeline ([treatment guide](../Problem%20Decomposition%20Remake/visual-treatments.md)).
-  The new outcome is reusable direction and revision, not another bespoke copy
-  or a general typography framework.
-- **Value / effort hypothesis:** A lower-asset, reusable filmmaking style.
-  Moderate scope; medium confidence; choose the first idea and supported type
-  vocabulary during refinement.
-- **Depends on:** None.
-- **Safe stopping point:** Terry can make typography films without richer
-  rigs, 3D assets, or generated footage.
+**Goal.** Terry can communicate an idea through a watchable typography film,
+then meaningfully revise its emphasis and pacing through an editable script.
+The same authoring path can express another short idea without copying a bespoke
+renderer. Viewers can follow the argument at normal playback.
+
+**Scope.** Deliver a short English, silent, square film about **“Start with the
+problem, not the solution.”** Terry accepted this proposed idea and format on
+2026-10-12. Type size/weight, spacing, and gentle reveals guide attention; the
+revision shifts emphasis and pause timing in one passage while preserving its
+meaning. Retain the original and revised films, their script inputs, and usable
+preview/export instructions. Use a 1080×1080 production frame; evaluate it also
+at a 360-pixel-square viewing size. These concrete dimensions operationalize the
+selected square format, not a product-wide format restriction.
+
+The supported direction vocabulary covers text and line grouping, size/weight
+emphasis, spacing between text groups, reveal/settle/hold timing, and restrained
+movement. Start with one coherent typographic treatment, rather than a preset
+catalog. Wording, emphasis, spacing and timing belong in the script, not a second
+choreography embedded in a component. A small second-idea example demonstrates
+reuse; a second polished film is not promised. Terry judges the artistic result;
+objective timing or text checks alone do not establish readable filmmaking.
+
+Sound, narration, translated editions, portrait/widescreen adaptations,
+characters, footage, arbitrary font import, a visual editor, automatic layout
+for every possible passage and a general typography framework are deferred.
+They are not rejection rules. Existing films and treatment versions remain
+reproducible. There is no sibling dependency.
+
+**Key examples.**
+
+- Given the selected idea → preview and export its short film → a viewer can
+  follow its contrast and conclusion through type and restrained movement,
+  without narration, clipped text or unreadably brief holds at normal playback
+  at 1080 and 360 pixels square.
+- Given the baseline → change emphasis and pause timing in one passage through
+  its script → the revised film visibly redirects attention and allows a
+  different reading rhythm, while retaining the argument and the available
+  baseline. Changing renderer choreography to obtain that revision fails the
+  authoring goal.
+- Given the supported type vocabulary → author a different short idea using the
+  same path → its own text, spacing and timing appear without special handling
+  for the selected slogan. This is a reuse demonstration, not another film
+  production commitment.
+- Given either retained script → preview, seek and export it again → intended
+  text and poses agree at the same frames. Document the font/render environment
+  used for reproduction rather than silently depending on an unavailable font.
+
+**Selected direction.** Begin with a brief moving sample of the contrast before
+finishing the full film. A working passage can ask what someone is trying to do,
+show a smaller useful outcome, and return to “Start with the problem.” The exact
+copy and composition are authoring choices within the accepted idea, not claims
+that Terry has approved unseen artwork. Preserve meaning when revising them.
+
+**Reuse basis.** R28 and the
+[existing treatment guide](../Problem%20Decomposition%20Remake/visual-treatments.md)
+provide the style precedent. `beatTimeline.ts` already owns the ordered,
+frame-sampled clock. `TypographyTreatment` and its script encode the specific
+stock/hours/reservation argument, so they are references rather than a reusable
+arbitrary-passage renderer. The plan owns the small new direction model and its
+proof; no universal framework or migration of earlier films is required.
+
+**Plan.** [Tell and revise an idea through typography](../.planning/quick/039-typography-film/PLAN.md).
+
+**Safe stopping point.** The complete film, revision and reusable script path
+remain useful if later film styles are cancelled.
 
 <a id="music-and-sound-film"></a>
 ### 15. I can make a film whose rhythm follows music and sound
