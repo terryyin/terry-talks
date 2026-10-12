@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "identity": "terry-moves-filmmaking#3d-character-action",
+  "title": "I can direct a 3D character performing a short action",
+  "completedAt": "2026-10-12T03:26:43.163Z",
+  "developer": "Terry Yin",
+  "agent": "Mihiro-chan",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}

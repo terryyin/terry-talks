@@ -9,6 +9,8 @@
 		"build": "remotion render",
 		"buildgif": "remotion render --codec=gif",
 		"compositions": "remotion compositions src/index.ts",
+		"render:robot-greeting": "remotion render src/index.ts RobotGreeting out/robot-greeting.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=1",
+		"render:robot-greeting:thumbs-up": "remotion render src/index.ts RobotGreetingThumbsUp out/robot-greeting-thumbs-up.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=1",
 		"upgrade": "remotion upgrade",
 		"format": "eslint src revision --fix",
 		"lint": "eslint src revision",
