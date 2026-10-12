@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "agent": "Hitomi-chan",
+  "email": "hitomi-chan@example.org",
+  "identity": "terry-moves-filmmaking#typography-film",
+  "mode": "story-branch",
+  "branch": "codex/i-can-tell-an-idea-through-typography-and-restra",
+  "host": "codex",
+  "model": "gpt-6.1-sol"
+}
