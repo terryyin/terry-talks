@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_typography-film.json",
+      "identity": "terry-moves-filmmaking#typography-film",
+      "completedAt": "2026-10-12T12:30:10.379Z",
+      "blob": "02562ded491ac645fca235fbbd214061b9cb6bb4"
+    },
+    {
       "fileName": "terry-moves-filmmaking_anime-character-scene.json",
       "identity": "terry-moves-filmmaking#anime-character-scene",
       "completedAt": "2026-10-12T07:02:58.885Z",
