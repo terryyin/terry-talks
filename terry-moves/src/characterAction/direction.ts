@@ -9,6 +9,7 @@ export type ClipCue = {
 	startSeconds: number;
 	rate: number;
 	playback: 'hold' | 'once' | 'loop';
+	turn?: { startSeconds: number; seconds: number; toYaw: number };
 };
 
 export type CharacterDirection = {
@@ -24,7 +25,7 @@ export type CharacterDirection = {
 };
 
 export type ClipSample = { cue: string; clip: string; seconds: number; weight: number; playback: ClipCue['playback'] };
-export type CharacterPose = { clips: ClipSample[]; position: Vector; yaw: number };
+export type CharacterPose = { clips: ClipSample[]; position: Vector; yaw: number; support?: { foot: string; yawOffset: number } };
 
 const smooth = (t: number) => {
 	const bounded = Math.max(0, Math.min(1, t));
@@ -45,6 +46,11 @@ export const compileDirection = (direction: CharacterDirection, fps: number) => 
 			throw new Error(`Invalid duration or transition for character cue: ${cue.name}`);
 		}
 	});
+	const facingAt = (index: number, seconds: number): number => {
+		const cue = direction.actions[index];
+		const previousYaw = index === 0 ? direction.stage.yaw : facingAt(index - 1, (Math.round(direction.actions[index - 1].seconds * fps) - 1) / fps);
+		return cue.turn ? previousYaw + (cue.turn.toYaw - previousYaw) * smooth((seconds - cue.turn.startSeconds) / cue.turn.seconds) : previousYaw;
+	};
 	return timeline(direction.actions.map((cue, index) => beat(cue.name, cue.seconds, undefined, (seconds): CharacterPose => {
 		const previous = direction.actions[index - 1];
 		const weight = previous && cue.transitionSeconds > 0 ? smooth(seconds / cue.transitionSeconds) : 1;
@@ -59,6 +65,6 @@ export const compileDirection = (direction: CharacterDirection, fps: number) => 
 				playback: action.playback,
 			};
 		});
-		return { clips, position: direction.stage.position, yaw: direction.stage.yaw };
+		return { clips, position: direction.stage.position, yaw: facingAt(index, seconds) };
 	}, fps)), fps);
 };

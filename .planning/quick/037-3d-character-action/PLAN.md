@@ -134,7 +134,7 @@ Selective ESLint formatting passed; no product proof boundary changed:
 
 ### 2. Watch the robot approach, turn and greet naturally
 Type: Behavior
-Status: planned
+Status: done
 Proof: One watchable original film communicates the greeting through a grounded
 walk, stepping turn, settle and wave, with readable joins and consistent seeking.
 
@@ -160,6 +160,14 @@ frame proof across movement and joins. Reuse slice 1 proof where unchanged.
 
 Safe stop: a finished original greeting and script direction; the meaningful
 alternate take and reproduction promise still belong to slice 3.
+
+Accepted slice 2 proof (2026-10-12); refactor removed unused contact metadata, typecheck passed; selective ESLint formatting passed. Accepted rendering/contact proof unchanged:
+- `pnpm -C terry-moves test:unit --runInBand tests/characterAction/direction.spec.ts` (7 tests) and `pnpm -C terry-moves typecheck` passed.
+- `pnpm -C terry-moves exec tsx scripts/verify-character-action.ts /tmp/3d-character-slice2-proof` passed: 33 forward/reverse PNG pairs and 10 fresh production frames agree; blank/frozen counterexamples discriminate. Inspected actual foot matrices/sole vertices, all 213 reverse/repeated samples and fresh rig assertions (1e-10 tolerance), production/traversal loading and result.json.
+- Contact supplements: support drift 9.16e-16, sole error 7.86e-16, planted heading change 7.29e-7 rad; max root step 0.216 units. Actual footfalls 0,7,20,38,52,70; turn 30–63; joins 83/84,116/117,182/183. Inspected turn-footfall PNGs 38/39 and 52/53, Studio joins 83/84/94, turn 45/63 and apex 145.
+- `pnpm -C terry-moves render:robot-greeting` and `ffprobe -v error -show_entries stream=codec_name,width,height,pix_fmt,avg_frame_rate,nb_frames,color_space,duration -show_entries format=duration -of json terry-moves/out/robot-greeting.mp4` passed: H.264,1080×1080,yuv420p,BT.709,30fps,213frames,7.100s.
+- Whole Studio 1x playback and exported MP4 at QuickTime Normal speed reviewed with full feet: approach, stepping turn, weight transfer, small settling shuffle, regard, wave and settled ending read clearly; no distracting floating, penetration or discontinuity seen. Backward 94→63/reload63 agree. Final camera first0/apex145 rechecked; contact shadows clarify grounding.
+- Restoring uncompensated foot rotation before each mixer sample prevents cumulative correction when Three skips unchanged writes. Normalizing sampled bone quaternions removes Float32 exact-key entry differences; repeated/backward/fresh proof covers both. Legacy consumers and shared timing unchanged.
 
 ### 3. Revise the greeting and reproduce either take
 Type: Behavior
@@ -202,25 +210,12 @@ preparation starts no execution/refactor agent or CI observer. Keep accepted
 proof, consequential learnings and remaining obligations in this plan during
 execution; leave all slices planned until their actual work/proof is delivered.
 
-The three slices isolate named-clip/asset loading risk first, then deliver the
-cohesive full performance, then prove its meaningful revision and reproduction.
-They extend one sampling rule; they do not divide by files or add a framework
-for later anime/retargeting stories. Preparation settled asset consumption,
-frame reconstruction, a bounded contact mechanism, gesture variation and encode
-routes in this checkout. Final artistic acceptance is execution work, not an
-unobserved claim about current product behavior.
-
-Slice-plan refinement was not needed: this review found no remaining concern
-about slice boundaries, cumulative design, sizing or proof ownership. Record
-readiness against the completed story and plan; this judgment grants neither
-Take nor execution authority.
-
 ## Story obligations
 
 ### G1. Full locomotion and contact
 Reported: slice 1 — "Full locomotion/contact acceptance, alternate rendered take, final MP4 and reproduction remain slices 2–3."
 Story clause: "The selected walk, turn and gesture read clearly, their joins look natural at normal playback, and foot placement/contact remain acceptable for those actions."
-Disposition: receiving slice 2
+Disposition: proved by slice 2: verify-character-action.ts actual sole/heading/matrix assertions and rendered forward/reverse/fresh frames, plus full Studio and exported MP4 normal-speed observation above
 
 ### G2. Alternate take and reproduction
 Reported: slice 1 — "Full locomotion/contact acceptance, alternate rendered take, final MP4 and reproduction remain slices 2–3."
