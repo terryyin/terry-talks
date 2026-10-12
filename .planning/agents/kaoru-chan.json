@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Kaoru-chan",
+  "email": "kaoru-chan@example.org",
+  "activity": "preparation",
+  "identity": "terry-moves-filmmaking#cinematic-3d-shot",
+  "host": "codex",
+  "model": "gpt-6-astra"
+}
