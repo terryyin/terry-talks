@@ -2,7 +2,7 @@
 
 A silent 12-second shot starts close on moving work, pulls back to reveal the
 queue at one narrow opening, and holds for four seconds. The revised take is
-the retained selection for reproduction; Terry's artistic approval is pending.
+the retained selection for reproduction.
 Its higher, more face-on ending view fits the whole platform and makes the
 opening, queue and exiting work easier to read.
 
@@ -31,6 +31,11 @@ the takes and `selectedTake` chooses the default for Studio and export.
 [CinematicBottleneck.tsx](CinematicBottleneck.tsx) applies that sampled camera,
 work and lighting to authored geometry using the same path in Studio and export.
 No warmed-up playback, fetched models or generated assets are required.
+
+`ThreeCanvas` camera props initialize the camera. Sampled direction updates the
+actual R3F camera before drawing, including projection and world matrices.
+Camera, work and lighting are evaluated from the requested frame, so playback,
+backward seeks and direct middle-frame mounts use the same direction.
 
 ## Preview and export
 
@@ -74,8 +79,16 @@ with `revised-close.png`, `revised-reveal.png`, `revised-hold.png`. These output
 are generated and ignored by Git; preserve copies if comparing takes.
 
 To reproduce the selection, preserve any desired comparison copy, remove only
-the generated `revised.mp4`, and run its export command again. Retained proof in
-`out/cinematic-bottleneck/reproduction/` compares every decoded picture frame
-and the duration/fps of two exports from these saved inputs. MP4 container bytes
-may differ without a picture or edit change. Revised traversal proof lives in
-`out/cinematic-bottleneck/revised-pixel-proof/result.json`.
+the generated `revised.mp4`, and run its export command again. Compare decoded
+picture frames and duration/fps when checking two exports; MP4 container bytes
+may differ without a picture or edit change.
+
+For the saved 12-second edit, check forward/reverse traversal, fresh mounts,
+cue joins and visible camera movement through the real renderer:
+
+```bash
+pnpm -C terry-moves exec tsx scripts/verify-cinematic-shot.ts out/cinematic-bottleneck/revised-pixel-proof revised
+```
+
+The command writes its rendered pictures and comparison result to that output
+directory. Use `original` as the last argument to check the other saved take.
