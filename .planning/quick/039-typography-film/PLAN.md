@@ -107,7 +107,7 @@ It was not a retained implementation or a future production dependency.
 
 ### 1. Preview a directed moving type contrast
 Type: Behavior
-Status: planned
+Status: done
 Proof: The opening contrast plays through the actual script-to-composition path
 at both viewing sizes, and Terry evaluates the moving sample before finishing.
 
@@ -170,6 +170,16 @@ verify they reach preview and export without a renderer change.
 
 ## Execution boundaries and review
 
+### Execution resume context — 2026-10-12
+
+- Established execution: `terry-moves-filmmaking#typography-film`, publisher `dashboard-territory.local-terry-talks`, agent Hitomi-chan, Story Branch Mode.
+- Originating and owned execution checkout: `/Users/terryyin/git/terry-talks/.worktrees/i-can-tell-an-idea-through-typography-and-restra`; branch `codex/i-can-tell-an-idea-through-typography-and-restra`. Existing linked workspace reused; no integration checkout is selected for mutation.
+- Accepted claim: `8453a630ed4cd8dec4a4f8039fc7a332752f970a`; starting revision `178f967893f1e3431b7ccd47bb6b1e119f94e0b1`. Authorized remote `origin`, eventual trunk `master`; ordinary increments publish only to the named execution branch.
+- Setup: `pnpm install --frozen-lockfile` and `pnpm -C terry-moves test:unit --runInBand tests/visualTreatments/typographyTreatment.spec.tsx` passed in this checkout (six tests). Studio started here at `http://localhost:3000` and was opened and verified in Chrome before edits.
+- No numeric slice budget or explicit replanning override. Preserve the existing planning authority. The Git pre-commit hook is absent; selective formatting uses the existing Remotion ESLint configuration on the changed source paths.
+- CI: GitHub Actions `ci.yml`, verified active workflow 381584897, display name `CI`, push-triggered. This coordinator's Codex observer targets the execution branch: `hitomi-typography-ae630e11`, directory `/tmp/dough-ci-501/watch-RPooN6`, cell 33, session 89869, PID 18854. Claim on trunk has unobserved CI coverage.
+- Slice-1 manual observation is bounded to the sample and edited sample: prepare Studio/exports (20%), inspect both compositions and viewing sizes (40%), inspect reveal/hold/beat joins and script-control differences (30%), reserve for confirming any surprise (10%). Terry approved both moving samples on 2026-10-12 and authorized continuation.
+
 Each slice owns implementation, focused checks, visual proof and cleanup for
 one cohesive result. There is no project numeric slice limit; do not invent
 one. The early sample bounds visual uncertainty; later slices separately own
@@ -190,3 +200,45 @@ The existing typography treatment is a useful visual precedent, not already a
 reusable passage engine. Local technical export is available. Final artistic
 quality and normal-speed readability remain the explicit slice-1/2 observations,
 not preparation claims.
+
+## Slice 1 accepted proof
+
+The two opening samples are implemented and approved by Terry: “both looks good to me”, followed by “Okay, then continue” on 2026-10-12. Retain the original opening emphasis for the baseline; both treatments are available for the script-only revision. Review at `http://127.0.0.1:4189/review.html` (ignored local export harness), or use the two named Studio compositions. The source and reproduction instructions live in `terry-moves/src/typographyFilm/README.md`. Baseline export is 9 seconds; the script-edited sample is 11 seconds. Both are silent H.264, 1080×1080, 30 fps, respectively 270 and 330 frames.
+
+Accepted technical proof, inspected at the real script/renderer boundary:
+
+- `pnpm -C terry-moves test:unit --runInBand tests/typographyFilm/direction.spec.tsx` passed six tests. Remotion transport/registration alone is replaced; real script, clock and picture establish text, grouping, CSS, reveal/settling, holds, transitions, composition duration and out-of-order sampling.
+- `pnpm -C terry-moves typecheck` passed.
+- `pnpm -C terry-moves test:unit --runInBand tests/tpsAndAiJit/film.spec.tsx tests/tpsAndAi/languageEditions.spec.tsx` passed 37 tests for existing real-Root consumers. No shared clock or old film inputs changed, so wider visual-treatment proof is not invalidated.
+- Both literal README export commands finished with exit 0. `ffprobe` confirmed the output properties above and no audio stream.
+- Coordinator observed both exported samples playing at rate 1 in the review page, at measured CSS 360×360 and 1080×1080. Arrival, settled holds, passage cuts and final text were visible without clipping or overlap. The two samples visibly differ in wording, emphasis, spacing and rhythm. This observation is technical/visual evidence, not Terry's artistic acceptance.
+- `python3 /tmp/typography-slice1-mutations.py` used a disposable source copy; ignoring wording, size, weight, tracking, spacing, reveal, settling or hold caused behavioral assertion failures. Baseline and restored copy passed all six tests. Diagnostics are under `/var/folders/65/16p4k5qj42qg7l46k2j0nhj40000gn/T/typography-film-proof-f3_ub2sj`.
+- Independent refactor completed: local fps/size constants now feed both explicit compositions; six typography tests and typecheck passed again. Picture/script boundaries are unchanged, so export and playback evidence remains valid. Selective `pnpm -C terry-moves exec eslint src/Root.tsx src/typographyFilm/direction.ts src/typographyFilm/script.ts src/typographyFilm/TypographyFilm.tsx tests/typographyFilm/direction.spec.tsx --fix` and `git diff --check` passed.
+- Earlier human-review stop (resolved by Terry's approval): obligation check refused G1 while Terry's judgment was pending. At that stop no slice was marked done and changes remained uncommitted in the owned workspace. Exact observer `/tmp/dough-ci-501/watch-gBaDbV` was stopped with zero unread events, `pendingCi: unobserved`; PID 63085 exited. Studio and the local review server remain available. The stopped observer was subsequently rearmed with the exact new identity above; resume now proceeds with slice-1 delivery.
+
+## Story obligations
+
+### G1. Owner-held artistic judgment
+Reported: slice 1 — "Terry's artistic judgment remains pending."
+Story clause: "Terry judges the artistic result; objective timing or text checks alone do not establish readable filmmaking."
+Disposition: proved by slice 1: Terry reviewed both moving samples and approved continuation in the 2026-10-12 conversation.
+
+### G2. Interim opening needs the complete argument
+Reported: slice 1 — "The implementation is an interim opening contrast, not the complete film."
+Story clause: "Deliver a short English, silent, square film about “Start with the problem, not the solution.”"
+Disposition: receiving slice 2
+
+### G3. Full baseline, revision and second-idea proof remain
+Reported: slice 1 — "Complete versions and a second-idea fixture remain for later slices."
+Story clause: "Retain the original and revised films, their script inputs, and usable preview/export instructions."
+Disposition: receiving slice 3
+
+### G4. Studio cannot save imported script defaults
+Reported: slice 1 — "Studio's Save default props action cannot write imported direction objects back to the script."
+Story clause: "a visual editor"
+Disposition: excluded "a visual editor"
+
+### G5. Unrelated asset warning during composition evaluation
+Reported: slice 1 — "Exports logged existing unrelated quillustration_flower_and_water-can/scene.bin 404s."
+Story clause: "Terry can communicate an idea through a watchable typography film"
+Disposition: no user cost "Terry can communicate an idea through a watchable typography film": The new silent text renderer consumes no such asset; both actual exports finished and displayed the intended samples. Existing asset inputs are unchanged.
