@@ -6,8 +6,6 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Taken
 
-- [I can direct a cinematic 3D shot through the script](../terry-moves/seed.md#cinematic-3d-shot) — terry-moves-filmmaking#cinematic-3d-shot ([plan](quick/036-cinematic-3d-shot/PLAN.md))
-
 ## Backlog list
 
 - [I can direct a 3D character performing a short action](../terry-moves/seed.md#3d-character-action) — terry-moves-filmmaking#3d-character-action

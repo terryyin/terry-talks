@@ -220,14 +220,11 @@ or two props held.
 
 # Story impact animation
 
-See [the film guide](../Story%20Driven/README.md) for the storyboard,
-English and Traditional Chinese narration, animation model and export
-instructions.
+See [the film guide](../Story%20Driven/README.md) for the storyboard, English and Traditional Chinese narration, animation model and export instructions.
 
 # AI test automation: The Legacy Workshop
 
-See [the film guide](../AI%20Test%20Automation/README.md) for the finished
-61-second film, content source, audio reproduction and export instructions.
+See [the film guide](../AI%20Test%20Automation/README.md) for the finished 61-second film, content source, audio reproduction and export instructions.
 
 # Visual treatments: Problem Decomposition
 
@@ -246,5 +243,8 @@ Select `ATDDFilm`, `ATDDSolutionTree` or `ATDDScenarioCycle` in Studio.
 
 See [the conversation guide](src/illustratedConversation/README.md) for saved takes, script direction and sound-on review.
 
-Export the pilot: `pnpm -C terry-moves render:illustrated-conversation:pilot`; full exchange: `pnpm -C terry-moves render:illustrated-conversation`.
-Thoughtful listening revision: `pnpm -C terry-moves render:illustrated-conversation:thoughtful`.
+Export the pilot: `pnpm -C terry-moves render:illustrated-conversation:pilot`; full exchange: `pnpm -C terry-moves render:illustrated-conversation`. Thoughtful listening revision: `pnpm -C terry-moves render:illustrated-conversation:thoughtful`.
+
+## Cinematic bottleneck
+
+Select `CinematicBottleneck` in Studio for the silent 3D camera reveal. See [the film guide](src/cinematicShot/README.md) for script-owned stage/camera/light direction, the retained original and revised takes, and tested export and reproduction commands. The default selected take is revised.
