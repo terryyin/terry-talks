@@ -71,6 +71,11 @@ is fully revealed at frame 1500; the comparison camera holds from frame 1710.
 The framing revision differs at frames 1651–2009: comparison motion/hold and
 the return motion. Frame 1650 has the shared start, and both takes have reached
 the same final overview from frame 2010. Every other authored state is unchanged.
+
+Use lossless registered stills to compare the boundaries of a framing edit.
+H.264 lookahead and inter-frame compression can change decoded pixels outside
+the authored edit range. Reproduction checks compare each take with its own
+export, including every decoded frame and timestamp.
 H.264 predictive compression can change decoded pixels around those boundaries;
 use lossless stills when comparing the takes' exact authored pictures.
 
