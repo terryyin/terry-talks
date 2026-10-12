@@ -66,3 +66,17 @@ export const originalDirection: Direction = {
 		{ name: 'read the queue', seconds: 4 },
 	],
 };
+
+// The alternate take changes only the reveal's camera ending position/target.
+// Its closer-to-face-on, higher view keeps the whole stage in the closing frame.
+export const revisedDirection: Direction = {
+	...originalDirection,
+	cues: originalDirection.cues.map((cue) => cue.name === 'reveal the constraint' ? {
+		...cue,
+		camera: { ...cue.camera!, position: [-12.4, 13.8, 11.2], target: [0, 0.2, 0] },
+	} : cue),
+};
+
+export const directions = { original: originalDirection, revised: revisedDirection };
+export type Take = keyof typeof directions;
+export const selectedTake: Take = 'revised';

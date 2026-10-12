@@ -117,7 +117,7 @@ reveal the constraint, with readable lighting and a deliberate closing hold.
 
 ### 2. Revise the framing and reproduce the selected take
 Type: Behavior
-Status: planned
+Status: done
 Proof: A script-only camera revision yields a visibly clearer reveal; the retained selected direction reproduces the same picture sequence and edit.
 
 Behavior: Given the finished original → change its camera ending position/target
@@ -190,6 +190,8 @@ Mode: story-branch. Owned execution checkout: `/Users/terryyin/git/terry-talks/.
 
 CI source: GitHub Actions, verified `ci.yml` (CI, ID 381584897). Coordinator: `nao-cinematic-3d`; observer: `/tmp/dough-ci-501/watch-z8QjqT`; PID 60847; PTY session 25904; yielded cell 8. Observer covers the execution branch. The earlier trunk claim has unobserved CI coverage. Checkout-local Studio: http://localhost:3001 (session 8214).
 
+Slice 1 publication accepted: `b13477e6d481cf1e363aa3de950cbeaeeceed301` on the remote execution branch, suffix base `156758245cc311bcb04ffbac301762b09a27dd36`. Managed delivery reused the retained observer; this accepted SHA is the next increment's base. CI was pending at slice 2 dispatch.
+
 ## Accepted slice 1 proof
 
 - Independent post-change refactor completed: `shotFormat` centralizes unchanged 30 fps/1080-square values; preparation evidence extracted verbatim to `PREPARATION.md`. Typecheck passed; numeric, real-pixel, negative-camera, manual and MP4 observations remain applicable. Selective ESLint formatting/check and `git diff --check` passed.
@@ -206,3 +208,17 @@ CI source: GitHub Actions, verified `ci.yml` (CI, ID 381584897). Coordinator: `n
 Reported: slice 1 — "Root-based rendering logged an existing missing quillustration_flower_and_water-can/scene.bin asset."
 Story clause: "The watchable result and reusable direction path both matter."
 Disposition: no user cost "The watchable result and reusable direction path both matter.": the missing asset belongs to unchanged StoryProductDeveloper, is unused by the new shot, and did not prevent its successful renders; isolated real-pixel proof had no warning.
+
+### G2. Studio cannot save the imported default
+Reported: slice 2 — "Studio's inability to save the imported script-owned default is explicitly documented."
+Story clause: "then meaningfully revise the finished shot through its script."
+Disposition: no user cost "then meaningfully revise the finished shot through its script.": the guide retains selection by editing script.selectedTake; Studio preview/export props and explicit original export work. A source-writing visual editor is deferred; no duplicate default is introduced to suppress its notice.
+
+## Accepted slice 2 proof
+
+- Independent post-change refactor completed: no code candidates; root README wrapping compacted without word/link/command changes to stay at 250 lines. All accepted proof remains applicable. Selective ESLint formatting/check and `git diff --check` passed.
+- `pnpm -C terry-moves test:unit --runInBand tests/cinematicShot`: 17 tests passed; inspected both authored takes through the same evaluator, including every frame's unchanged work/light/FOV, original opening and changed ending camera. `pnpm -C terry-moves typecheck` passed. Take consumers in scene, metadata and pixel harness were exercised.
+- `pnpm -C terry-moves exec tsx scripts/verify-cinematic-shot.ts out/cinematic-bottleneck/revised-pixel-proof revised`: passed 11 forward/reverse pairs, 5 fresh registered-composition mounts, both adjacent joins and 6 distinct camera-only pictures. `revised-pixel-proof/result.json` retains exact selection/hashes. Slice 1's negative-camera observation still covers unchanged camera application.
+- The guide's full revised MP4/still commands passed, as did its explicit original-props hold command. `python3 terry-moves/out/cinematic-bottleneck/reproduction/compare-stills.py` passed: default revised stills match revised proof, original props match retained original hold, close is identical and reveal/hold differ. Inspected both views: revised camera fits all platform corners, shows a broader opening and clearer queue/exit relationship; no scene/light/action repair.
+- Saved-input proof: copied first export to `reproduction/reference.mp4`, removed only generated revised.mp4, reran the guide's render command. `ffmpeg -v error -i terry-moves/out/cinematic-bottleneck/reproduction/reference.mp4 -map 0:v:0 -f framehash -hash sha256 terry-moves/out/cinematic-bottleneck/reproduction/reference.frames.sha256` and corresponding revised.mp4 command produced decoded SHA-256/frame times. Both full ffprobe metadata commands and `python3 terry-moves/out/cinematic-bottleneck/reproduction/compare.py` passed. Inspected assertions/result.json: all 360 decoded pictures/times and metadata equal, 12 s/30 fps/1080 square/h264/yuv420p/bt709/video-only. Saved script/evaluator/geometry/materials/settings/locked dependencies supplied inputs; no asset fetch or generation.
+- Manual scope reused slice 1 setup and original observations, then checked revised playback/seek/mount and changed join. Studio default revised at 1×: 7/10,167/170,340/343, near 30 fps; seek300→150 and fresh reload150 matched exported reveal framing, lighting and block at opening. 239→240 visibly identical; unchanged 74/75 manual proof reused, new pixels cover both. Native QuickTime reference MP4 played 0→6.14→12 s, smooth pullback/hold and clearer relationship; reproduction proves final revised MP4's same pictures. Manual result: Good. Artistic approval remains Terry's.

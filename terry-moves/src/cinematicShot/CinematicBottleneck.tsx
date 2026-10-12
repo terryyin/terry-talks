@@ -5,7 +5,9 @@ import { ThreeCanvas } from '@remotion/three';
 import { AbsoluteFill, Composition, useCurrentFrame, useVideoConfig } from 'remotion';
 import { PerspectiveCamera } from 'three';
 import { CameraDirection, compileDirection, Direction, Material, ShotPose, Vector } from './direction';
-import { originalDirection, shotFormat } from './script';
+import { directions, selectedTake, shotFormat, Take } from './script';
+
+export type CinematicBottleneckProps = { take: Take };
 
 const SampledCamera: React.FC<{ direction: CameraDirection }> = ({ direction }) => {
 	const { camera } = useThree();
@@ -51,16 +53,19 @@ export const DirectedShot: React.FC<{ pose: ShotPose; direction: Direction }> = 
 	</AbsoluteFill>;
 };
 
-export const CinematicBottleneckFrame: React.FC = () => {
+export const CinematicBottleneckFrame: React.FC<CinematicBottleneckProps> = ({ take }) => {
 	const frame = useCurrentFrame();
 	const { fps } = useVideoConfig();
-	const shot = useMemo(() => compileDirection(originalDirection, fps), [fps]);
-	return <DirectedShot pose={shot.poseAt(frame)} direction={originalDirection} />;
+	const direction = directions[take];
+	const shot = useMemo(() => compileDirection(direction, fps), [direction, fps]);
+	return <DirectedShot pose={shot.poseAt(frame)} direction={direction} />;
 };
 
 export const CinematicBottleneckComposition: React.FC = () => <Composition
 	id="CinematicBottleneck"
 	component={CinematicBottleneckFrame}
-	durationInFrames={compileDirection(originalDirection, shotFormat.fps).durationInFrames}
+	durationInFrames={compileDirection(directions[selectedTake], shotFormat.fps).durationInFrames}
 	{...shotFormat}
+	defaultProps={{ take: selectedTake }}
+	calculateMetadata={({ props }) => ({ durationInFrames: compileDirection(directions[props.take], shotFormat.fps).durationInFrames })}
 />;
