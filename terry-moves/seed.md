@@ -79,29 +79,84 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#cinematic-3d-shot
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/036-cinematic-3d-shot/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"88a9d30496d378258170db01ab58ea8e21d9ccf3dd66f2fd54e38ce392d7e940","plan":"61a2a4c15743b4e38c047710984730cc831e1ffe5ca9da5674a14e4860f1e806"}}
 ```
 
-- **For / why:** Terry can use depth, camera, staging, and lighting to convey
-  an idea beyond current 2D treatments.
-- **Outcome and scope:** Make an intentional object or environment shot with
-  scripted staging, camera movement, and lighting. Render it, then meaningfully
-  revise framing or staging through the same path. Save required assets so the
-  approved shot can be reproduced.
-- **Evaluation example:** Terry changes a camera move or object placement in
-  a short scene. Exported frames match intended staging when viewed sequentially,
-  sought backward, or mounted directly at a middle frame.
-- **Known basis and boundary:** R12 and relevant environment/asset aspects
-  of R14. Existing 3D frame, camera, light, and GLB infrastructure is a starting
-  point. Browser 3D and offline Blender-rendered media are alternatives to
-  evaluate for the chosen shot; full Blender scene parity and character rigging
-  are not requirements. A rotating model alone does not establish filmmaking.
-- **Value / effort hypothesis:** An immediately usable cinematic 3D route.
-  Moderate to substantial scope; medium feasibility confidence, with asset and
-  render-route uncertainty.
-- **Depends on:** None; object/environment work does not require story 10.
-- **Safe stopping point:** Terry retains a finished revisable 3D shot without
-  needing a humanoid rig or imported character motions.
+**Goal.** Terry can convey an idea through depth, purposeful camera movement,
+staging and lighting, then meaningfully revise the finished shot through its
+script. The first film reveals a bottleneck: local activity initially fills
+the view; the camera pulls back to expose work queued at a narrow passage.
+The watchable result and reusable direction path both matter.
+
+**Scope.** One short, silent object/environment shot, using browser 3D. Its
+script owns staging, camera direction, timing and lighting; the exported shot
+and Studio preview consume that same direction. Deliver a finished original,
+a meaningful scripted framing revision, and retained inputs that reproduce the
+selected result without reacquiring or regenerating assets. A frame's intended
+picture is independent of playback history, including backward seeking and a
+fresh middle-frame mount. The scene should communicate the constraint through
+composition, depth and motion; a rotating model or attractive still is insufficient.
+
+Begin with authored simple geometry and materials, so this film needs no external
+model acquisition. Lighting gives the queue, passage and moving work readable
+volume and separation. Approximate duration and delivery defaults belong to the
+plan and may be tuned to make the reveal read. Full Blender parity, a second
+rendering backend, character rigs, arbitrary model compatibility, physical queue
+simulation, voice/music and a visual editor are deferred promises, not rejection
+rules. No sibling-story prerequisite is required.
+
+**Key examples.**
+
+- Given a close view of moving work → play/export the shot → the pullback reveals
+  the queue and narrow passage, then holds long enough to read the relationship.
+  Depth and lighting make the objects' spatial arrangement legible.
+- Given the original shot → revise the camera's ending position/target or reveal
+  timing in its script → export a deliberately clearer view of the queue and
+  passage without repairing JSX choreography or a second timing source.
+- Given a frame during the camera move → view it sequentially, seek backward to
+  it, or mount directly there → the camera, objects and lighting yield the same
+  intended picture. Repeat for the revised shot and cue boundaries.
+- Given retained original/revised directions and the selected take → reproduce
+  it from saved inputs → the same staging and edit return, without regeneration.
+  Routine documentation identifies the editable script and export command.
+
+**Exploration and decision (Terry, 2026-10-12).** Terry accepted the bottleneck
+reveal and the browser-3D recommendation, then requested slice planning.
+
+| Candidate | Fit and trade-off |
+| --- | --- |
+| Existing browser script actions alone | Simplest reuse candidate: existing object, camera-target and light-intensity actions. Keep these where useful, but the subtitle-oriented API and default frame lights should not scatter silent-shot direction across components. |
+| Browser 3D with a theatre-style cue sheet — selected | Named stage marks map to positions; timed cues map to camera/object/light direction; cue order and duration determine the shot. Reuse existing frame/timeline mechanisms where their meaning fits. Live theatre relies on previous cues; this adaptation reconstructs every frame directly. Cues do not guarantee a good composition, so normal-speed visual review remains necessary. |
+| Scripted Blender render consumed as saved footage | Credible alternate for a look requiring another renderer, but adds scene/source retention and a separate render/import cycle. No Blender route was validated here and this delivery promises one route. Revisit only if observed visual limitations invalidate the selected direction. |
+
+**Architecture.** Keep one authored source for shot direction and one
+frame-addressable evaluation path for preview and export. Reuse
+`@remotion/three` and `src/beatTimeline.ts`; keep the chosen shot's geometry and
+camera/light application local. `ThreeDFrameInner` hard-codes ambient and point
+lights and `UnderCamera` consumes the older animation context. Direct reuse of
+`ThreeCanvas` avoids changing these existing consumers just to remove defaults.
+Do not introduce a universal shot engine or constrain later character stories.
+
+The planning probe found that changing `ThreeCanvas` camera initialization props
+alone leaves sequential frames at the initial pose. Applying the sampled camera
+position/target explicitly before drawing produced 30 distinct forward frames,
+identical reverse-order counterparts and an identical fresh middle-frame render.
+Carry this discovery into the actual shot's rendering proof; the probe is not
+acceptance of the film. See the plan for setup, commands, results and limits.
+
+The only current Accepted record is
+[ADR-0000 — Use Architectural Decision Records](../docs/adrs/0000-use-adrs-accepted.md),
+with matching index/in-file status. It leaves durable decisions human-owned and
+mandates no renderer. No conflict or supersession was found. This local design
+creates no new product-wide architecture policy or ADR.
+
+**Basis.** Research R12 and the asset/environment aspects of R14. The
+[Remotion Three documentation](https://www.remotion.dev/docs/three) supports
+frame-driven R3F rendering; [Blender's command-line documentation](https://docs.blender.org/manual/en/5.1/advanced/command_line/arguments.html)
+explains its alternate offline route. Neither documentation is artistic proof.
+
+**Safe stopping point.** Terry retains a finished, revisable object/environment
+shot without requiring humanoid rigging or another rendering route.
 
 <a id="3d-character-action"></a>
 ### 10. I can direct a 3D character performing a short action
