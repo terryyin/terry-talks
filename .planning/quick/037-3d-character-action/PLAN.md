@@ -171,7 +171,7 @@ Accepted slice 2 proof (2026-10-12); refactor removed unused contact metadata, t
 
 ### 3. Revise the greeting and reproduce either take
 Type: Behavior
-Status: planned
+Status: done
 Proof: A script-only Wave → ThumbsUp revision produces a recognizably different,
 equally usable performance; both saved takes can be rendered again locally.
 
@@ -192,6 +192,14 @@ the decoded pictures/frame sequence and duration/fps to the accepted outputs,
 not MP4 bytes whose container metadata may vary. Confirm source/permissions,
 asset identity, both directions and the export guide suffice. Reuse unchanged
 locomotion proof unless this revision actually changes its boundary.
+
+Accepted slice 3 proof (2026-10-12); independent refactor reused selectedTake in the proof CLI and clarified the guide; typecheck passed. Selective ESLint passed after explicit Node-global imports, and syntax proof passed again; rendering/reproduction boundaries unchanged:
+- `pnpm -C terry-moves test:unit --runInBand tests/characterAction/direction.spec.ts` (10 tests), `pnpm -C terry-moves typecheck`, and `node --check terry-moves/scripts/reproduce-character-action.mjs` passed. Inspected shared direction authoring, fixed registrations, active unchanged movement, clip replacement, normalized joins and duration-derived exit assertions.
+- `pnpm -C terry-moves exec tsx scripts/verify-character-action.ts /tmp/3d-character-slice3-fixed-proof thumbs-up` passed: 11 reverse pairs/8 fresh production frames; joins116/117,173/174 exact; actual ThumbsUp elbow/full saved clip/Idle exit, distinct Wave comparison, blank/frozen discrimination; all204 repeated/reverse foot matrices and fresh rig samples agree1e-10. Inspected real GLB setup, assertions and result.json.
+- `pnpm -C terry-moves render:robot-greeting:thumbs-up` and `ffprobe -v error -show_entries stream=codec_name,width,height,pix_fmt,avg_frame_rate,nb_frames,color_space,duration -show_entries format=duration -of json terry-moves/out/robot-greeting-thumbs-up.mp4` passed: H.264,1080square,yuv420p,BT.709,30fps,204frames,6.8s.
+- Fixed Studio registration: fresh143, entry121/exit178, backward178→143 agree and show a distinct clear thumb pose; whole alternate MP4 reviewed at QuickTime Normal speed, with full feet and smooth joins/settled ending. Unchanged locomotion retains slice2 proof.
+- `pnpm -C terry-moves exec node scripts/reproduce-character-action.mjs record /tmp/3d-character-slice3-reproduction` then `pnpm -C terry-moves exec node scripts/reproduce-character-action.mjs reproduce /tmp/3d-character-slice3-reproduction` passed. Inspected exact two output removals, saved asset identity/local-source bundle, installed browser and request interception, all decoded-frame comparisons and metadata. All213 original pictures (including before-edit baseline) and204 accepted alternate pictures reproduce; duration/fps match; external requests blocked with forbidden/interceptionErrors empty and local actor request present. accepted.json/result.json/network.json retain observations outside generated out/.
+- Shared authoring consumes the full saved gesture with its authored duration; no gesture-specific choreography. Original remains selected. Source/CC0/credit, pinned GLB, both directions, local encoding and edit/preview/export/reproduction guide are retained; no shared legacy contract changed.
 
 ## Verification, delivery and review
 
@@ -220,4 +228,4 @@ Disposition: proved by slice 2: verify-character-action.ts actual sole/heading/m
 ### G2. Alternate take and reproduction
 Reported: slice 1 — "Full locomotion/contact acceptance, alternate rendered take, final MP4 and reproduction remain slices 2–3."
 Story clause: "Given saved inputs and the selected take → reproduce the original and revision → recover their intended performance without downloading or regenerating the actor or motion. Document the editable direction and preview/export route."
-Disposition: receiving slice 3
+Disposition: proved by slice 3: script-only registered ThumbsUp, actual pose/joins/seek proof, manual export review, and reproduce-character-action.mjs all decoded pictures plus local-only request/metadata assertions above

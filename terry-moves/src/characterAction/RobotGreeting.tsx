@@ -6,7 +6,7 @@ import { AbsoluteFill, Composition, staticFile, useCurrentFrame, useVideoConfig 
 import { PerspectiveCamera } from 'three';
 import { CharacterDirection, compileDirection } from './direction';
 import { compileCharacterPerformance, createCharacterRig } from './rig';
-import { filmFormat, greetingDirection } from './script';
+import { filmFormat, greetingDirection, thumbsUpDirection } from './script';
 
 const SampledCamera: React.FC<{ direction: CharacterDirection['stage']['camera'] }> = ({ direction }) => {
 	const { camera } = useThree();
@@ -60,14 +60,24 @@ export const DirectedCharacterScene: React.FC<{ direction: CharacterDirection; f
 	</AbsoluteFill>;
 };
 
-export const RobotGreeting: React.FC = () => {
+const CurrentFrameCharacter: React.FC<{ direction: CharacterDirection }> = ({ direction }) => {
 	const frame = useCurrentFrame();
-	return <DirectedCharacterScene direction={greetingDirection} frame={frame} />;
+	return <DirectedCharacterScene direction={direction} frame={frame} />;
 };
+
+export const RobotGreeting: React.FC = () => <CurrentFrameCharacter direction={greetingDirection} />;
+export const RobotGreetingThumbsUp: React.FC = () => <CurrentFrameCharacter direction={thumbsUpDirection} />;
 
 export const RobotGreetingComposition: React.FC = () => <Composition
 	id="RobotGreeting"
 	component={RobotGreeting}
 	durationInFrames={compileDirection(greetingDirection, filmFormat.fps).durationInFrames}
+	{...filmFormat}
+/>;
+
+export const RobotGreetingThumbsUpComposition: React.FC = () => <Composition
+	id="RobotGreetingThumbsUp"
+	component={RobotGreetingThumbsUp}
+	durationInFrames={compileDirection(thumbsUpDirection, filmFormat.fps).durationInFrames}
 	{...filmFormat}
 />;

@@ -26,7 +26,7 @@ import { TPSAndAIJITFilm } from './stories/TPSAndAIJITFilm';
 import { FullIllustratedConversationComposition, IllustratedConversationComposition, ThoughtfulIllustratedConversationComposition } from './illustratedConversation/IllustratedConversation';
 import { VisualTreatmentCompositions } from './visualTreatments/TreatmentCompositions';
 import { CinematicBottleneckComposition } from './cinematicShot/CinematicBottleneck';
-import { RobotGreetingComposition } from './characterAction/RobotGreeting';
+import { RobotGreetingComposition, RobotGreetingThumbsUpComposition } from './characterAction/RobotGreeting';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -66,6 +66,7 @@ export const RemotionRoot: React.FC = () => {
 			<ThoughtfulIllustratedConversationComposition />
 			<CinematicBottleneckComposition />
 			<RobotGreetingComposition />
+			<RobotGreetingThumbsUpComposition />
 		</>
 	);
 };

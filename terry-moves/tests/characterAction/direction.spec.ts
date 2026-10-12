@@ -1,5 +1,5 @@
 import { compileDirection } from '../../src/characterAction/direction';
-import { filmFormat, greetingDirection } from '../../src/characterAction/script';
+import { directGreeting, filmFormat, greetingDirection, selectedTake, thumbsUpDirection } from '../../src/characterAction/script';
 
 const performance = compileDirection(greetingDirection, filmFormat.fps);
 const activeClips = (frame: number) => performance.poseAt(frame).clips.filter((clip) => clip.weight > 0);
@@ -52,9 +52,47 @@ test('forward, reverse and fresh evaluation preserve all clip and placement fiel
 });
 
 test('editing the named gesture in direction reaches the sampled performance', () => {
-	const changed = { ...greetingDirection, actions: greetingDirection.actions.map((cue) => cue.name === 'greeting' ? { ...cue, clip: 'ThumbsUp' } : cue) };
-	expect(compileDirection(changed, 30).poseAt(apex).clips.find((clip) => clip.weight === 1)?.clip).toBe('ThumbsUp');
+	const revised = compileDirection(thumbsUpDirection, 30);
+	expect(revised.poseAt(apex).clips.find((clip) => clip.weight === 1)?.clip).toBe('ThumbsUp');
+	expect(revised.durationInFrames).toBe(204);
+	expect(revised.beatRange('settled-exit')).toEqual({ from: 174, durationInFrames: 30 });
 	expect(activeClips(apex)[0].clip).toBe('Wave');
+	expect(selectedTake).toBe('original');
+});
+
+test('both retained takes preserve the approach, turn, settle and staging', () => {
+	const revised = compileDirection(thumbsUpDirection, 30);
+	expect(thumbsUpDirection.stage).toEqual(greetingDirection.stage);
+	for (let frame = 0; frame < greeting.from; frame++) {
+		const original = performance.poseAt(frame);
+		const alternate = revised.poseAt(frame);
+		expect(alternate.position).toEqual(original.position);
+		expect(alternate.yaw).toBe(original.yaw);
+		expect(alternate.clips.filter((clip) => clip.weight > 0)).toEqual(original.clips.filter((clip) => clip.weight > 0));
+	}
+});
+
+test('the revision uses the same eased joins and settled exit on backward and fresh entry', () => {
+	const revised = compileDirection(thumbsUpDirection, 30);
+	for (const after of [revised.beatRange('greeting').from, revised.beatRange('settled-exit').from]) {
+		const active = (frame: number) => revised.poseAt(frame).clips.filter((clip) => clip.weight > 0);
+		expect(active(after)).toEqual(active(after - 1));
+		expect(active(after + 4)).toHaveLength(2);
+		expect(active(after + 4).reduce((sum, clip) => sum + clip.weight, 0)).toBeCloseTo(1);
+		const expected = revised.poseAt(after + 4);
+		revised.poseAt(revised.durationInFrames - 1);
+		expect(revised.poseAt(after + 4)).toEqual(expected);
+		expect(compileDirection(thumbsUpDirection, 30).poseAt(after + 4)).toEqual(expected);
+	}
+	expect(revised.poseAt(revised.durationInFrames - 1).clips.filter((clip) => clip.weight > 0).map((clip) => [clip.clip, clip.seconds])).toEqual([['Idle', 0]]);
+});
+
+test('an authored gesture duration shifts its exit and total film without a component clock', () => {
+	const longer = compileDirection(directGreeting({ clip: 'ThumbsUp', seconds: 2.9 }), 30);
+	const revised = compileDirection(thumbsUpDirection, 30);
+	expect(longer.beatRange('greeting')).toEqual({ from: greeting.from, durationInFrames: 87 });
+	expect(longer.beatRange('settled-exit').from).toBe(revised.beatRange('settled-exit').from + 30);
+	expect(longer.durationInFrames).toBe(revised.durationInFrames + 30);
 });
 
 test('the stepping turn derives from its cue and remains complete through later actions', () => {

@@ -1,5 +1,5 @@
 // Real saved rig and WebGL proof. Run from terry-moves:
-// pnpm exec tsx scripts/verify-character-action.ts [output-directory]
+// pnpm exec tsx scripts/verify-character-action.ts [output-directory] [original|thumbs-up]
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
@@ -7,9 +7,13 @@ import { resolve } from 'node:path';
 import { Mesh, Vector3 } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { compileCharacterPerformance, createCharacterRig } from '../src/characterAction/rig';
-import { filmFormat, greetingDirection } from '../src/characterAction/script';
+import { filmFormat, greetingDirections, GreetingTake, selectedTake } from '../src/characterAction/script';
 
 const output = resolve(process.argv[2] ?? 'out/character-action/pixel-proof');
+const take = (process.argv[3] ?? selectedTake) as GreetingTake;
+if (!(take in greetingDirections)) throw new Error(`Unknown greeting take: ${take}`);
+const greetingDirection = greetingDirections[take];
+const composition = take === 'original' ? 'RobotGreeting' : 'RobotGreetingThumbsUp';
 const assert = (condition: boolean, message: string) => { if (!condition) throw new Error(message); };
 const hash = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
 const run = (args: string[]) => {
@@ -41,8 +45,15 @@ const main = async () => {
 	rig.sample(performance.poseAt(regard.from));
 	const settledElbow = localElbow();
 	rig.sample(performance.poseAt(apex));
-	const wavingElbow = localElbow();
-	assert(wavingElbow.y > settledElbow.y + 0.4 && wavingElbow.x < settledElbow.x - 0.2, 'Expected Wave apex did not raise and extend the right arm');
+	const gestureElbow = localElbow();
+	const expectedPoses: Record<string, () => boolean> = {
+		Wave: () => gestureElbow.y > settledElbow.y + 0.4 && gestureElbow.x < settledElbow.x - 0.2,
+		ThumbsUp: () => gestureElbow.y > settledElbow.y + 0.35 && gestureElbow.z > settledElbow.z + 0.35 && Math.abs(gestureElbow.x - settledElbow.x) < 0.05,
+	};
+	const namedGesture = greetingDirection.actions.find((cue) => cue.name === 'greeting')!;
+	assert(expectedPoses[namedGesture.clip](), `Expected ${namedGesture.clip} arm pose was absent or replaced with a different gesture`);
+	const savedClip = loaded.animations.find((clip) => clip.name === namedGesture.clip)!;
+	assert((greeting.durationInFrames - 1) / filmFormat.fps * namedGesture.rate + namedGesture.startSeconds >= savedClip.duration, `The authored greeting trims the complete saved ${namedGesture.clip} performance`);
 	rig.sample(performance.poseAt(last));
 	assert(localElbow().distanceTo(settledElbow) < 1e-10, 'Settled exit differs from regard');
 	let maxSupportDrift = 0;
@@ -102,18 +113,19 @@ const main = async () => {
 	let missingMessage = '';
 	try { createCharacterRig(loaded.scene, loaded.animations, missing); } catch (error) { missingMessage = String(error); }
 	assert(missingMessage.includes('greeting') && missingMessage.includes('AbsentGesture') && missingMessage.includes('Available clips:') && missingMessage.includes('Wave'), 'Missing named clip was silently substituted or poorly identified');
-	console.log('PASS: exact saved actor, actual Wave arm pose, settled exit and missing named-clip diagnostic.');
+	console.log(`PASS: exact saved actor, actual ${namedGesture.clip} arm pose, full source clip, settled exit and missing named-clip diagnostic.`);
 
 	const bundle = `${output}/traversal-bundle`;
 	const productionBundle = `${output}/production-bundle`;
 	run(['bundle', 'tests/characterAction/pixelEntry.tsx', '--out-dir', bundle]);
 	run(['bundle', 'src/index.ts', '--out-dir', productionBundle]);
-	const joins = [settle.from, greeting.from, exit.from];
+	const joins = take === 'original' ? [settle.from, greeting.from, exit.from] : [greeting.from, exit.from];
 	const bounded = (frame: number) => Math.max(0, Math.min(last, frame));
-	const frames = [...new Set([0, turnStart, Math.round((turnStart + turnEnd) / 2), turnEnd, ...footfalls.flatMap((frame) => [bounded(frame - 1), frame, bounded(frame + 1)]), ...joins.flatMap((frame) => [frame - 1, frame, frame + 4]), regard.from, apex, exit.from + Math.round(0.35 * filmFormat.fps), last])].sort((a, b) => a - b);
+	const movementFrames = take === 'original' ? [turnStart, Math.round((turnStart + turnEnd) / 2), turnEnd, ...footfalls.flatMap((frame) => [bounded(frame - 1), frame, bounded(frame + 1)])] : [];
+	const frames = [...new Set([0, ...movementFrames, ...joins.flatMap((frame) => [frame - 1, frame, frame + 4]), regard.from, apex, exit.from + Math.round(0.35 * filmFormat.fps), last])].sort((a, b) => a - b);
 	const render = (name: string, selection: number[], mutation = 'none') => {
 		const props = `${output}/${name}-props.json`;
-		writeFileSync(props, JSON.stringify({ frames: selection, mutation }));
+		writeFileSync(props, JSON.stringify({ frames: selection, mutation, take }));
 		run(['render', bundle, 'CharacterActionTraversal', `${output}/${name}`, '--sequence', '--image-format=png', '--concurrency=1', '--gl=angle', `--props=${props}`]);
 		return readdirSync(`${output}/${name}`).filter((file) => file.endsWith('.png')).sort().map((file) => `${output}/${name}/${file}`);
 	};
@@ -122,22 +134,31 @@ const main = async () => {
 	assert(forward.length === frames.length && reverse.length === frames.length, 'Missing traversal frames');
 	for (let index = 0; index < frames.length; index++) assert(hash(forward[index]) === hash(reverse[frames.length - 1 - index]), `Backward frame ${frames[index]} differs`);
 	for (const after of joins) assert(hash(forward[frames.indexOf(after - 1)]) === hash(forward[frames.indexOf(after)]), `Action join ${after - 1}/${after} jumps`);
-	console.log(`PASS: ${frames.length} real forward/reverse pairs match, including walk, stepping turn, footfalls and all joins.`);
-	const directFrames = [...new Set([0, turnStart, Math.round((turnStart + turnEnd) / 2), turnEnd, settle.from, regard.from, greeting.from, apex, exit.from, last])];
+	console.log(`PASS: ${frames.length} real forward/reverse pairs and affected joins match for ${take}.`);
+	const directFrames = [...new Set([0, ...(take === 'original' ? [turnStart, Math.round((turnStart + turnEnd) / 2), turnEnd, settle.from] : [greeting.from + 4, exit.from + 4]), regard.from, greeting.from, apex, exit.from, last])];
 	for (const frame of directFrames) {
 		const direct = `${output}/direct-${frame}.png`;
-		run(['still', productionBundle, 'RobotGreeting', direct, `--frame=${frame}`, '--gl=angle']);
+		run(['still', productionBundle, composition, direct, `--frame=${frame}`, '--gl=angle']);
 		assert(hash(direct) === hash(forward[frames.indexOf(frame)]), `Fresh production frame ${frame} differs`);
 	}
-	console.log(`PASS: ${directFrames.length} fresh production mounts match traversal, including first frame and Wave apex.`);
+	console.log(`PASS: ${directFrames.length} fresh production mounts match traversal, including first frame and ${namedGesture.clip} apex.`);
+	if (take === 'thumbs-up') {
+		const original = `${output}/original-wave-apex.png`;
+		run(['still', productionBundle, 'RobotGreeting', original, `--frame=${apex}`, '--gl=angle']);
+		assert(hash(original) !== hash(forward[frames.indexOf(apex)]), 'Gesture replacement produced the original Wave picture');
+		console.log('PASS: the registered ThumbsUp and original Wave have visibly distinct apex pictures.');
+	}
 	const blank = render('blank', [0], 'blank')[0];
 	for (const [index, picture] of forward.entries()) assert(hash(picture) !== hash(blank), `Frame ${frames[index]} has no visible actor`);
 	const frozen = render('frozen', [apex], 'frozen')[0];
 	assert(hash(frozen) === hash(forward[0]), 'Frozen counterexample did not hold the actual first pose');
-	assert(hash(frozen) !== hash(forward[frames.indexOf(apex)]), 'A frozen skeleton passed the expected Wave apex');
-	assert(hash(frozen) !== hash(forward[frames.indexOf(turnEnd)]), 'A frozen actor passed the expected approach/turn');
-	assert(new Set(forward.map(hash)).size >= 5, 'The visible performance did not change pose');
+	assert(hash(frozen) !== hash(forward[frames.indexOf(apex)]), `A frozen skeleton passed the expected ${namedGesture.clip} apex`);
+	if (take === 'original') assert(hash(frozen) !== hash(forward[frames.indexOf(turnEnd)]), 'A frozen actor passed the expected approach/turn');
+	const pictureAt = (frame: number) => hash(forward[frames.indexOf(frame)]);
+	assert(pictureAt(apex) !== pictureAt(greeting.from), 'Gesture apex stayed at its settled entry pose');
+	assert(pictureAt(greeting.from + 4) !== pictureAt(apex), 'Gesture entry blend was frozen at its apex');
+	assert(pictureAt(exit.from + Math.round(0.35 * filmFormat.fps)) !== pictureAt(apex), 'Gesture did not return to a settled exit');
 	console.log('PASS: all sampled frames contain the actor; frozen and blank counterexamples fail the expected performance.');
-	writeFileSync(`${output}/result.json`, JSON.stringify({ assetHash, renderer: 'angle', ...filmFormat, durationInFrames: performance.durationInFrames, frames, directFrames, footfalls, joins, maxSupportDrift, maxSoleError, maxRootStep, maxPlantedHeadingChange, settledElbow: settledElbow.toArray(), wavingElbow: wavingElbow.toArray(), missingMessage, forwardHashes: forward.map(hash), blankHash: hash(blank), frozenHash: hash(frozen) }, null, 2) + '\n');
+	writeFileSync(`${output}/result.json`, JSON.stringify({ take, namedGesture: namedGesture.clip, sourceClipSeconds: savedClip.duration, assetHash, renderer: 'angle', ...filmFormat, durationInFrames: performance.durationInFrames, frames, directFrames, footfalls, joins, maxSupportDrift, maxSoleError, maxRootStep, maxPlantedHeadingChange, settledElbow: settledElbow.toArray(), gestureElbow: gestureElbow.toArray(), missingMessage, forwardHashes: forward.map(hash), blankHash: hash(blank), frozenHash: hash(frozen) }, null, 2) + '\n');
 };
 main().catch((error) => { console.error(error); process.exitCode = 1; });
