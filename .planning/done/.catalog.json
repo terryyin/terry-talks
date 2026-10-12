@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_anime-character-scene.json",
+      "identity": "terry-moves-filmmaking#anime-character-scene",
+      "completedAt": "2026-10-12T07:02:58.885Z",
+      "blob": "cd3f9907579795ae4b8251ad3fda1ef5ab973c1e"
+    },
+    {
       "fileName": "terry-moves-filmmaking_cinematic-3d-shot.json",
       "identity": "terry-moves-filmmaking#cinematic-3d-shot",
       "completedAt": "2026-10-12T02:02:13.088Z",
