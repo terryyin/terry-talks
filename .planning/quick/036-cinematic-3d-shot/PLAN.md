@@ -150,6 +150,14 @@ that version from the saved inputs.
 - Safe stop: Terry has the finished film, its meaningful alternate framing and
   a tested way to revise and reproduce the selected take.
 
+## Execution complete
+
+Product advice: No backlog change recommended. The finished original and revised shot support the current direction of varied films through scripts. Keep the next 3D-character story's priority; rigs, clips and contact still need that story's own assessment.
+
+Retrospective: complete; findings none, correction planning unchanged. Process review skipped (no project opt-in). Attributable implementation publications are `b13477e6d481cf1e363aa3de950cbeaeeceed301` (original) and `e288267020dd77e631b8af58f1ca8a23ff63c042` (revision/reproduction); the established claim and preparation are provenance, with no interleaved unrelated commits. Reviewed the original story/plan, aggregate source/tests/docs, actual images and accepted proof. Geometry/direction and renderer remain film-local, reuse the existing clock, and leave old defaults untouched; ADR-0000's human decision ownership is preserved. Real render evidence guided camera application, numeric tests caught endpoint rounding, and the real-pixel harness validates the integrated result. Seventeen fast authored-direction tests and the real-pixel journey have distinct proof roles; no supported suite cleanup is needed. Artifact reproduction is proved for all 360 decoded pictures; traversal pixels are the exact representative selections recorded above, with all-frame numeric and Studio evidence. Artistic approval is unclaimed. CI for the accepted story-branch revision was pending during review; the coordinator completion operation owns its final verdict and shutdown.
+
+Additional consumer proof: `pnpm -C terry-moves test:unit --runInBand tests/tpsAndAi/languageEditions.spec.tsx tests/tpsAndAiJit/film.spec.tsx` passed 2 suites/37 tests. Inspected their real Root registration, selected-film and media/sequence assertions: the added registration preserves the existing language editions and JIT film. No correction was implemented or proposed.
+
 ## Verification and delivery
 
 During execution use focused tests under the new shot's test directory, plus
@@ -191,6 +199,8 @@ Mode: story-branch. Owned execution checkout: `/Users/terryyin/git/terry-talks/.
 CI source: GitHub Actions, verified `ci.yml` (CI, ID 381584897). Coordinator: `nao-cinematic-3d`; observer: `/tmp/dough-ci-501/watch-z8QjqT`; PID 60847; PTY session 25904; yielded cell 8. Observer covers the execution branch. The earlier trunk claim has unobserved CI coverage. Checkout-local Studio: http://localhost:3001 (session 8214).
 
 Slice 1 publication accepted: `b13477e6d481cf1e363aa3de950cbeaeeceed301` on the remote execution branch, suffix base `156758245cc311bcb04ffbac301762b09a27dd36`. Managed delivery reused the retained observer; this accepted SHA is the next increment's base. CI was pending at slice 2 dispatch.
+
+Slice 2 publication accepted: `e288267020dd77e631b8af58f1ca8a23ff63c042` on the same branch, suffix base `b13477e6d481cf1e363aa3de950cbeaeeceed301`; observer reused. This is the execution-complete record's previously published base.
 
 ## Accepted slice 1 proof
 
