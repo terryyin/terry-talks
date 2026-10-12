@@ -210,6 +210,24 @@ goal or scope question remains before planning.
 
 **Plan:** [Illustrated conversation](../.planning/quick/034-illustrated-conversation/PLAN.md).
 
+<a id="conversation-turn-name-timing"></a>
+### Correction: preserve audio timing when a conversation turn is renamed
+
+**Identity:** terry-moves-filmmaking#conversation-turn-name-timing
+```json dough-story-state
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/035-conversation-turn-name-timing/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"3819e21f228093e5f5a6d36dfc2818ab7496913255901a162815466419513fd9","plan":"c015d8d5ff6d95fad3a72e30be23dd564ba16e6b2f0a0a4a9ab3109ac9f4a33a"}}
+```
+
+**Goal.** Terry can rename a uniquely named conversation turn without changing
+its measured speech slot, captions, mouths or directed pose timing.
+
+**Scope.** Correct collisions between authored turn names and the compiler's
+generated lead-in/pause names. Preserve genuine duplicate-turn ambiguity checks,
+saved-take verification, the accepted films and their original/revised performances.
+No new dialogue, actors, audio generation, shared timeline rewrite or visual editor.
+
+**Plan:** [Conversation turn-name timing correction](../.planning/quick/035-conversation-turn-name-timing/PLAN.md).
+
 <a id="cinematic-3d-shot"></a>
 ### 9. I can direct a cinematic 3D shot through the script
 
