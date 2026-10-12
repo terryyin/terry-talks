@@ -2,8 +2,7 @@
 
 `IllustratedConversationPilot` is the saved two-turn casting/acting probe: the
 Engineer asks which tests passed, the AI listens in silence, then acknowledges
-what it did not ask. Terry accepted its voices, mouths and listening pause with
-“LGTM” on 2026-10-12. It remains available with its original performance for
+what it did not ask. It remains available with its original performance for
 comparison. `IllustratedConversation` adds the confident opening and the
 Engineer's invitation through the same script and renderer.
 
@@ -15,7 +14,7 @@ pnpm -C terry-moves render:illustrated-conversation:thoughtful
 
 The exports are `terry-moves/out/illustrated-conversation-pilot.mp4` and
 `terry-moves/out/illustrated-conversation.mp4` (1080 square, 30 fps). The complete
-exchange is 19.4 seconds, including the accepted 1.2-second listening pause.
+exchange is 19.4 seconds, including a 1.2-second listening pause.
 These recipes verify the retained WAVs and render them; they make no
 speech requests. Open either composition in Studio for playback and
 seek review. Cedar and Marin are synthetic OpenAI voices, credited in picture
@@ -29,7 +28,7 @@ its face. The reaction returns to the baseline's settled pose before the reply.
 Both films keep the same 582 frames, captions, recordings and mouth timing.
 
 Author `conversationScript` in `src/illustratedConversation/script.ts`; leave
-`pilotScript` as the accepted probe. Each named turn chooses a
+`pilotScript` as the two-turn probe. Each named turn chooses a
 speaker and saved take; the take owns text, measured sample count and SHA-256.
 The compiler contains its entire take in a whole-frame slot. `pauseAfter` adds
 silence with an explicitly empty caption. Mouth cues are seconds into the saved
@@ -52,7 +51,7 @@ question anchors at offsets 0 and 4.75 seconds, so changes remain within frames
 156–298 and frame 299 returns to the original settled pose. Run the thoughtful
 export recipe above and compare at approximately 6.3, 8 and 9.2 seconds; seek
 backward through the pause and then replay with sound. Edit the baseline only
-when intentionally replacing it; the pilot remains the accepted two-turn probe.
+when intentionally replacing it; the pilot remains the two-turn probe.
 
 Silence is part of the turn clock: increase `pauseAfter` for a longer listening
 beat, then place an acting cue during that gap using an offset later than the
@@ -71,8 +70,9 @@ pnpm -C terry-moves exec remotion render src/index.ts IllustratedConversationTho
 This checks the composed soundtrack, including silent intervals, rather than
 only checking that both versions name the same input files.
 
-The pilot's two takes were requested once before review. After acceptance, only
-the missing `passed` and `next` takes were requested from the repository root:
+All four takes are retained. To generate new missing takes, run the helper from
+the repository root with their names; for example, before `passed` and `next`
+have saved recordings:
 
 ```sh
 python3 scripts/illustrated-conversation-speech.py --generate passed next
@@ -92,8 +92,8 @@ speech, caption fit, handover and all later cue positions: the measured take
 length changes the later turn schedule. Missing files, changed hashes, stale mouth tracks and
 out-of-take cues identify the affected turn before export.
 
-Initial local cue authoring used the selected WAV waveforms and measured clause
-gaps (`ffmpeg -af silencedetect=noise=-35dB:d=0.09`): question 1.562–2.124 seconds,
+The saved WAVs have measured clause gaps
+(`ffmpeg -af silencedetect=noise=-35dB:d=0.09`): question 1.562–2.124 seconds,
 reply 1.424–2.075 seconds, opening 1.179–1.497 seconds, invitation
 0.355–0.716 seconds, with their original lead/tail silence retained. Shape
 changes within speech are authored sound candidates, not automatic phoneme

@@ -10,6 +10,7 @@ Use Terry Moves to make great films in varied visual styles through scripts whos
 
 ## Backlog list
 
+- [Preserve audio timing when a conversation turn is renamed](../terry-moves/seed.md#conversation-turn-name-timing) — terry-moves-filmmaking#conversation-turn-name-timing
 - [I can direct a cinematic 3D shot through the script](../terry-moves/seed.md#cinematic-3d-shot) — terry-moves-filmmaking#cinematic-3d-shot
 - [I can direct a 3D character performing a short action](../terry-moves/seed.md#3d-character-action) — terry-moves-filmmaking#3d-character-action
 - [I can make an anime-style character perform a short scene](../terry-moves/seed.md#anime-character-scene) — terry-moves-filmmaking#anime-character-scene
