@@ -7,6 +7,7 @@ import { StoryImpactScene } from '../storyImpact/StoryImpactScene';
 import { zhHantCaption } from '../storyImpact/zhHant';
 import { jaCaption } from '../storyImpact/ja';
 import { RecordedNarration } from '../storyImpact/RecordedNarration';
+import { PORTRAIT_PRESENTATION, PORTRAIT_REVISED_PRESENTATION, StoryImpactPresentation } from '../storyImpact/presentation';
 
 // Hold a complete title frame before the animated opening, so the first
 // frame also serves as the film's cover.
@@ -16,13 +17,13 @@ export const EN_NARRATION = 'assets/story-impact/narration-en-cleaned.m4a';
 
 export const releaseFrame = (frame: number): number => frame < COVER_FRAMES ? COVER_SOURCE_FRAME : frame - COVER_FRAMES;
 
-const FilmFrame: React.FC = () => {
+const FilmFrame: React.FC<{ presentation?: StoryImpactPresentation }> = ({ presentation }) => {
 	const frame = releaseFrame(useCurrentFrame());
 	const caption = fullFilm.captionAt(frame);
 	return (
 		<AbsoluteFill>
 			<RecordedNarration src={EN_NARRATION} from={COVER_FRAMES} />
-			<StoryImpactScene pose={fullFilm.poseAt(frame)} caption={caption} secondaryCaption={jaCaption(caption)} />
+			<StoryImpactScene pose={fullFilm.poseAt(frame)} caption={caption} secondaryCaption={jaCaption(caption)} presentation={presentation} />
 		</AbsoluteFill>
 	);
 };
@@ -51,6 +52,23 @@ export const StoryImpactFilm: React.FC = () => (
 		height={STAGE.height}
 	/>
 );
+
+// Both retained portrait takes register the same original English performance.
+const portraitComposition = (id: string, presentation: StoryImpactPresentation) => (
+	<Composition
+		id={id}
+		component={FilmFrame}
+		defaultProps={{ presentation }}
+		durationInFrames={COVER_FRAMES + fullFilm.durationInFrames}
+		fps={FPS}
+		width={presentation.canvas.width}
+		height={presentation.canvas.height}
+	/>
+);
+
+export const StoryImpactFilmPortrait: React.FC = () => portraitComposition('StoryImpactFilmPortrait', PORTRAIT_PRESENTATION);
+
+export const StoryImpactFilmPortraitRevised: React.FC = () => portraitComposition('StoryImpactFilmPortraitRevised', PORTRAIT_REVISED_PRESENTATION);
 
 export const StoryImpactFilmZhHant: React.FC = () => (
 	<Composition

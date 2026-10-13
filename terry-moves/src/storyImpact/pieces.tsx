@@ -53,14 +53,14 @@ export const Label: React.FC<{
 );
 
 
-export const Paper: React.FC = () => (
+export const Paper: React.FC<{ width?: number; height?: number }> = ({ width = STAGE.width, height = STAGE.height }) => (
 	<g>
-		<rect x={0} y={0} width={STAGE.width} height={STAGE.height} fill={palette.paper} />
+		<rect x={0} y={0} width={width} height={height} fill={palette.paper} />
 		{Array.from({ length: 14 }, (_, i) => (
 			<circle
 				key={i}
 				cx={(i * 257) % 1040 + 20}
-				cy={(i * 397) % 820 + 30}
+				cy={((i * 397) % 820 + 30) * height / STAGE.height}
 				r={4 + (i % 3) * 2}
 				fill={palette.paperShadow}
 				opacity={0.7}

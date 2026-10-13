@@ -1,8 +1,9 @@
 import React from 'react';
 import { palette } from './scene';
-import { CAPTION_BOX, FONT_FAMILY, OUTLINE, SHADOW } from './layout';
+import { FONT_FAMILY, OUTLINE, SHADOW } from './layout';
 import { ZH_HANT_FONT_FAMILY } from './zhHant';
 import { JA_FONT_FAMILY } from './ja';
+import { CaptionPresentation, SQUARE_PRESENTATION } from './presentation';
 
 const CJK = /[\u3000-\u9fff\uff00-\uffef]/;
 const CJK_BREAK_AFTER = /[，。：；！？、]/;
@@ -34,16 +35,19 @@ export const captionLines = (caption: string, maxChars = 38): string[] => {
 	return pool.reduce((best, s) => (s.width < best.width ? s : best)).lines;
 };
 
-export const CaptionBar: React.FC<{ caption: string; secondaryCaption?: string }> = ({ caption, secondaryCaption }) => {
-	const { left, right, top, bottom } = CAPTION_BOX;
-	const lines = captionLines(caption);
-	const size = 44;
+export const CaptionBar: React.FC<{ caption: string; secondaryCaption?: string; presentation?: CaptionPresentation }> = ({ caption, secondaryCaption, presentation = SQUARE_PRESENTATION.captions }) => {
+	const { left, right, top, bottom } = presentation.box;
+	const lines = captionLines(caption, presentation.primaryMaxChars);
+	const size = presentation.primarySize;
 	const lineHeight = size * 1.25;
 	const midY = (top + bottom) / 2;
-	const secondarySize = 26;
-	const languageGap = 12;
+	const secondarySize = presentation.secondarySize;
+	const secondaryLines = secondaryCaption ? (presentation.secondaryMaxChars === undefined ? [secondaryCaption] : cjkCaptionLines(secondaryCaption, presentation.secondaryMaxChars)) : [];
+	const secondaryLineHeight = secondarySize * 1.35;
+	const secondaryHeight = secondarySize + (secondaryLines.length - 1) * secondaryLineHeight;
+	const languageGap = presentation.languageGap;
 	const primaryHeight = size + (lines.length - 1) * lineHeight;
-	const bilingualTop = midY - (primaryHeight + languageGap + secondarySize) / 2;
+	const bilingualTop = midY - (primaryHeight + languageGap + secondaryHeight) / 2;
 	const firstBaseline = secondaryCaption ? bilingualTop + size * 0.8 : midY - ((lines.length - 1) * lineHeight) / 2 + size * 0.35;
 	return (
 		<g>
@@ -74,7 +78,9 @@ export const CaptionBar: React.FC<{ caption: string; secondaryCaption?: string }
 					fontSize={secondarySize}
 					fill={palette.ink}
 				>
-					{secondaryCaption}
+					{presentation.secondaryMaxChars === undefined ? secondaryCaption : secondaryLines.map((line, i) => (
+						<tspan key={i} x={(left + right) / 2} y={bilingualTop + primaryHeight + languageGap + secondarySize * 0.8 + i * secondaryLineHeight}>{line}</tspan>
+					))}
 				</text>
 			) : null}
 		</g>

@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_portrait-film-edition.json",
+      "identity": "terry-moves-filmmaking#portrait-film-edition",
+      "completedAt": "2026-10-13T04:53:57.275Z",
+      "blob": "79c910f1102c22b95a4baadd07eca5087a7641c5"
+    },
+    {
       "fileName": "terry-moves-filmmaking_geographical-map-story.json",
       "identity": "terry-moves-filmmaking#geographical-map-story",
       "completedAt": "2026-10-12T22:21:21.062Z",
