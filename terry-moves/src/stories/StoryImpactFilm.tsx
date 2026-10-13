@@ -7,7 +7,7 @@ import { StoryImpactScene } from '../storyImpact/StoryImpactScene';
 import { zhHantCaption } from '../storyImpact/zhHant';
 import { jaCaption } from '../storyImpact/ja';
 import { RecordedNarration } from '../storyImpact/RecordedNarration';
-import { PORTRAIT_PRESENTATION, StoryImpactPresentation } from '../storyImpact/presentation';
+import { PORTRAIT_PRESENTATION, PORTRAIT_REVISED_PRESENTATION, StoryImpactPresentation } from '../storyImpact/presentation';
 
 // Hold a complete title frame before the animated opening, so the first
 // frame also serves as the film's cover.
@@ -53,19 +53,22 @@ export const StoryImpactFilm: React.FC = () => (
 	/>
 );
 
-// The complete portrait edition uses the original English performance.
-const PortraitFilmFrame: React.FC = () => <FilmFrame presentation={PORTRAIT_PRESENTATION} />;
-
-export const StoryImpactFilmPortrait: React.FC = () => (
+// Both retained portrait takes register the same original English performance.
+const portraitComposition = (id: string, presentation: StoryImpactPresentation) => (
 	<Composition
-		id="StoryImpactFilmPortrait"
-		component={PortraitFilmFrame}
+		id={id}
+		component={FilmFrame}
+		defaultProps={{ presentation }}
 		durationInFrames={COVER_FRAMES + fullFilm.durationInFrames}
 		fps={FPS}
-		width={PORTRAIT_PRESENTATION.canvas.width}
-		height={PORTRAIT_PRESENTATION.canvas.height}
+		width={presentation.canvas.width}
+		height={presentation.canvas.height}
 	/>
 );
+
+export const StoryImpactFilmPortrait: React.FC = () => portraitComposition('StoryImpactFilmPortrait', PORTRAIT_PRESENTATION);
+
+export const StoryImpactFilmPortraitRevised: React.FC = () => portraitComposition('StoryImpactFilmPortraitRevised', PORTRAIT_REVISED_PRESENTATION);
 
 export const StoryImpactFilmZhHant: React.FC = () => (
 	<Composition

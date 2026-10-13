@@ -49,5 +49,16 @@ export const PORTRAIT_PRESENTATION: StoryImpactPresentation = {
 	},
 };
 
+// Retained second take: raise connected action by 140px and give the caption
+// region 170px more height. All other staging and typography stay inherited.
+export const PORTRAIT_REVISED_PRESENTATION: StoryImpactPresentation = {
+	...PORTRAIT_PRESENTATION,
+	stage: { ...PORTRAIT_PRESENTATION.stage, y: 200 },
+	captions: {
+		...PORTRAIT_PRESENTATION.captions,
+		box: { ...PORTRAIT_PRESENTATION.captions.box, top: 1260 },
+	},
+};
+
 export const placementTransform = ({ x, y, scale }: Placement): string | undefined =>
 	x === 0 && y === 0 && scale === 1 ? undefined : `translate(${x} ${y}) scale(${scale})`;

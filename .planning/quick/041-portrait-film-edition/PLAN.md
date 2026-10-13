@@ -17,19 +17,20 @@
 - CI source: GitHub Actions, verified active `ci.yml` (display name `CI`), repository `terryyin/terry-talks`, target execution branch above. The trunk claim has `pendingCi: unobserved` by this branch observer.
 - Codex observer: coordinator `honoka-portrait`, directory `/tmp/dough-ci-501/watch-YQbU8q`, PID `18300`, session `96304`, yielded cell `9`; runtime is this checkout's `.agents/skills/dough-execute-plan`.
 
-- Slice 1 publication accepted `2e58aeb10d2046cb634e08e405a47b42c0c088d0` on `refs/heads/codex/i-can-publish-a-readable-portrait-edition-of-an`; suffix base `5c4bcfcd9df8f1a6c698e74e87b6955aa51b682f`. Observer reused,
-  maintenance not applicable. This accepted SHA is the next increment's published base.
+- Slice 1 publication accepted `2e58aeb10d2046cb634e08e405a47b42c0c088d0` on `refs/heads/codex/i-can-publish-a-readable-portrait-edition-of-an`; suffix base `5c4bcfcd9df8f1a6c698e74e87b6955aa51b682f`. Observer reused, maintenance not applicable. This accepted SHA is the next increment's published
+  base.
+
+- Slice 2 publication accepted `3ff2e9b2ca909174409eea923f24a75cba1b847e` on the same execution target; suffix base `2e58aeb10d2046cb634e08e405a47b42c0c088d0`. Observer reused; this is slice 3's published base.
 
 ## Goal and scope
 
-Terry can export and revise a readable 1080×1920 portrait edition of the current English `StoryImpactFilm`. Preserve the cleaned English voice, both English and Japanese captions, approved beat order, timing, cover and
-ending. Keep the square edition's presentation unchanged. Deliver a complete publishable MP4 and a meaningful retained layout revision through the same authoring path.
+Terry can export and revise a readable 1080×1920 portrait edition of the current English `StoryImpactFilm`. Preserve the cleaned English voice, both English and Japanese captions, approved beat order, timing, cover and ending. Keep the square edition's presentation unchanged. Deliver a complete
+publishable MP4 and a meaningful retained layout revision through the same authoring path.
 
-The review surface is the entire film at normal speed, full resolution and 360×640 display size. Both languages and important labels must be readable without zooming, and the action must remain visible. Size changes
-alone are not acceptance. No new translation, film, soundtrack, automatic aspect-ratio engine, platform-specific overlay treatment or upload is promised.
+The review surface is the entire film at normal speed, full resolution and 360×640 display size. Both languages and important labels must be readable without zooming, and the action must remain visible. Size changes alone are not acceptance. No new translation, film, soundtrack, automatic
+aspect-ratio engine, platform-specific overlay treatment or upload is promised.
 
-This is preparation only. Execution requires its own instruction. The named preparation worktree may be retired after landing; later execution records its actual checkout and reuses these observations only where the
-boundary matches.
+This is preparation only. Execution requires its own instruction. The named preparation worktree may be retired after landing; later execution records its actual checkout and reuses these observations only where the boundary matches.
 
 ## Design and reuse
 
@@ -59,9 +60,8 @@ boundary matches.
 | Baseline and revised portrait takes can be reselected/exported | Slice 3 | Replay documented commands from retained inputs, select each take and inspect resulting frames, dimensions, duration and audio. |
 | Publishable file and usable workflow | Slices 2–3 | Real H.264/yuv420p/BT.709 MP4 inspected with ffprobe and played; README supplies copyable selection, edit and export commands and actual output paths. |
 
-Geometry assertions supplement real text shaping and normal-speed observation. Use the real composition/frame wiring; mock only transport or the current frame where necessary, not layout or caption mapping being
-asserted. New portrait checks must fail if its layout selection is ignored, Japanese text disappears, or a revision setting is not consumed. Terry owns artistic approval; report agent observations and any actual feedback
-without claiming unseen approval.
+Geometry assertions supplement real text shaping and normal-speed observation. Use the real composition/frame wiring; mock only transport or the current frame where necessary, not layout or caption mapping being asserted. New portrait checks must fail if its layout selection is ignored, Japanese
+text disappears, or a revision setting is not consumed. Terry owns artistic approval; report agent observations and any actual feedback without claiming unseen approval.
 
 ## Ordered slices
 
@@ -77,12 +77,10 @@ checks discriminate missing portrait selection and missing caption languages.
 Behavior: Given the existing English film, select its portrait edition in Studio and play the opening through the first story becoming coherent. The same cover, poses, captions and voice play at the same frames, with
 portrait staging and a separate readable bilingual caption region.
 
-Introduce the smallest explicit presentation choice through the existing scene and its composition. Include necessary shared-geometry refactoring with this visible result, preserve square defaults, and give the portrait
-settings a clear authoring home. Allow Japanese wrapping without changing translation text or timing. Capture the square baseline before changing presentation; verify applicable square and shared-helper consumers after
-the change.
+Introduce the smallest explicit presentation choice through the existing scene and its composition. Include necessary shared-geometry refactoring with this visible result, preserve square defaults, and give the portrait settings a clear authoring home. Allow Japanese wrapping without changing
+translation text or timing. Capture the square baseline before changing presentation; verify applicable square and shared-helper consumers after the change.
 
-The safe stopping point is a verified portrait excerpt through `coherent`. The full timeline remains shared; later beats may still need portrait tuning. Label this as an incomplete edition and do not present a full
-export as ready. Slice 2 owns and removes that interim limitation.
+The safe stopping point is a verified portrait excerpt through `coherent`. The full timeline remains shared; later beats may still need portrait tuning. Label this as an incomplete edition and do not present a full export as ready. Slice 2 owns and removes that interim limitation.
 
 ### 2. Export the complete preserved explanation in portrait
 Type: Behavior
@@ -95,20 +93,18 @@ unclipped. Original square output retains its picture and audio.
 Behavior: Given the working portrait excerpt, play and export the entire film. The customer/idea, testing/domain concepts, later impacts and growing History, then story-versus-feature and final card remain
 understandable, with original English narration and both caption languages at their original times.
 
-Extend/tune the same presentation rule across the complete film, avoiding beat-name exceptions unless a distinct spatial requirement actually needs one. Inspect every caption pair and transition, widest wall/History
-extent, flight paths, value annotations, outlines and closing. Retain 30 fps and the current 3852-frame release (3816 performance frames plus 36 cover frames); derive these from the source rather than introducing a
-second timing authority.
+Extend/tune the same presentation rule across the complete film, avoiding beat-name exceptions unless a distinct spatial requirement actually needs one. Inspect every caption pair and transition, widest wall/History extent, flight paths, value annotations, outlines and closing. Retain 30 fps and the
+current 3852-frame release (3816 performance frames plus 36 cover frames); derive these from the source rather than introducing a second timing authority.
 
-Render a full 1080×1920 H.264/yuv420p/BT.709 MP4 under ignored `terry-moves/out/` with a distinct name. Confirm dimensions, fps, duration and audio stream with ffprobe, then play the file. Compare decoded mixed audio
-against the same source revision's square composition, not MP4 container bytes. Record the existing `pnpm moves compare StoryImpactFilm --baseline <pre-change-sha>` no-`--change` native observation. Because unchanged
-source also varies at raster edges, establish unchanged square presentation with complete independent pre-change/current composition graph equality at every release frame, metadata and decoded audio, supported by native
-font/frame observation. Its comparison CLI has no Story Impact timeline adapter; use direct beat/caption/cover wiring checks and claim no bit-identical full PNG sequence. See the evidence and reassessment below.
+Render a full 1080×1920 H.264/yuv420p/BT.709 MP4 under ignored `terry-moves/out/` with a distinct name. Confirm dimensions, fps, duration and audio stream with ffprobe, then play the file. Compare decoded mixed audio against the same source revision's square composition, not MP4 container bytes.
+Record the existing `pnpm moves compare StoryImpactFilm --baseline <pre-change-sha>` no-`--change` native observation. Because unchanged source also varies at raster edges, establish unchanged square presentation with complete independent pre-change/current composition graph equality at every
+release frame, metadata and decoded audio, supported by native font/frame observation. Its comparison CLI has no Story Impact timeline adapter; use direct beat/caption/cover wiring checks and claim no bit-identical full PNG sequence. See the evidence and reassessment below.
 
 Document selection and export. This slice replaces the incomplete excerpt with a whole usable portrait film. The retained authoring revision is still owned by slice 3. No upload occurs.
 
 ### 3. Revise the focal layout once and reproduce both portrait takes
 Type: Behavior
-Status: planned
+Status: done
 Proof: One authoring edit changes caption-region height and focal-stage
 placement in multiple separated beats through the same renderer. Both saved
 portrait configurations export correctly; all content, timing and audio stay
@@ -117,22 +113,18 @@ preserved and the original square edition is unchanged.
 Behavior: Given the complete portrait edition, Terry changes its caption-region height and stage placement through the documented settings. Preview and export show the new arrangement across the film without hand-editing
 shots; reselecting the baseline restores its original portrait arrangement.
 
-Retain baseline and revised configuration, with distinct outputs or a clear take selector. Use a meaningful visibly different arrangement that still meets the phone-size reading requirement; do not deliberately break the
-baseline to make the revision useful. Demonstrate both an early action beat and a later dense beat, then review the revised film as a whole for collisions. Replay both export commands from retained source/assets; record
-inputs, font requirements, paths and actual results. Do not duplicate narration, beats or caption content.
+Retain baseline and revised configuration, with distinct outputs or a clear take selector. Use a meaningful visibly different arrangement that still meets the phone-size reading requirement; do not deliberately break the baseline to make the revision useful. Demonstrate both an early action beat and
+a later dense beat, then review the revised film as a whole for collisions. Replay both export commands from retained source/assets; record inputs, font requirements, paths and actual results. Do not duplicate narration, beats or caption content.
 
 ## Verification and delivery
 
-Execution uses installed `dough-execute-plan`, including independent post-change refactoring, relevant proof, agent commits and authorized delivery. Each slice includes its implementation, focused verification and
-cleanup. No numerical slice target or hard limit is supplied; do not invent one.
+Execution uses installed `dough-execute-plan`, including independent post-change refactoring, relevant proof, agent commits and authorized delivery. Each slice includes its implementation, focused verification and cleanup. No numerical slice target or hard limit is supplied; do not invent one.
 
-Run `pnpm -C terry-moves test:unit --runInBand tests/storyImpact` after changes to Story Impact presentation, plus actual affected consumer suites (not unrelated films by default). Add focused portrait
-registration/layout/revision tests to this surface. Run `pnpm -C terry-moves typecheck` for changed TypeScript contracts and lint affected code with the existing configuration. Broaden proof only if shared-helper changes
-or an observed failure warrant it.
+Run `pnpm -C terry-moves test:unit --runInBand tests/storyImpact` after changes to Story Impact presentation, plus actual affected consumer suites (not unrelated films by default). Add focused portrait registration/layout/revision tests to this surface. Run `pnpm -C terry-moves typecheck` for
+changed TypeScript contracts and lint affected code with the existing configuration. Broaden proof only if shared-helper changes or an observed failure warrant it.
 
-For required visual observation during execution, use `dough-manual-testing`: real registered composition, normal-speed film, direct middle-frame and backward seeks, full and 360×640 display sizes. New composition
-IDs/spec paths are chosen and recorded when introduced; do not treat hypothetical commands as observations. The existing render path is `pnpm -C terry-moves exec remotion render src/index.ts <composition> <output>
---codec=h264 --pixel-format=yuv420p --color-space=bt709`. Use the installed Remotion skills for implementation/render specifics.
+For required visual observation during execution, use `dough-manual-testing`: real registered composition, normal-speed film, direct middle-frame and backward seeks, full and 360×640 display sizes. New composition IDs/spec paths are chosen and recorded when introduced; do not treat hypothetical
+commands as observations. The existing render path is `pnpm -C terry-moves exec remotion render src/index.ts <composition> <output> --codec=h264 --pixel-format=yuv420p --color-space=bt709`. Use the installed Remotion skills for implementation/render specifics.
 
 ## Preparation evidence and remaining product proof
 
@@ -157,8 +149,7 @@ Observed in the named checkout on 2026-10-13, at the source revision above:
   adapter/asset/audio route and sampled repeatability, not a full-film pixel preservation verdict. Execution still owns the complete comparison.
 - pnpm populated ignored dependencies from its existing store; package/lock files are unchanged. The render logged an unrelated missing `quillustration_flower_and_water-can/scene.bin`; the selected 2D still completed.
 
-The new portrait presentation, readability and revision path are implementation obligations, not asserted existing capabilities. The observed route covers the existing film's real caption rendering; no paid or
-credentialed premise is needed.
+The new portrait presentation, readability and revision path are implementation obligations, not asserted existing capabilities. The observed route covers the existing film's real caption rendering; no paid or credentialed premise is needed.
 
 ## Story obligations
 
@@ -175,7 +166,7 @@ Disposition: proved by slice 2: out/portrait-proof/full-graph-preservation.json 
 ### G3. Retained revision proof remains
 Reported: slice 1 — "Retained baseline/revised takes and demonstrated multi-beat authored revision belong to slice 3."
 Story clause: "Both portrait takes can be reselected and exported."
-Disposition: receiving slice 3
+Disposition: proved by slice 3: baseline and revised configurations remain selectable in Studio and independently export through the documented commands; registered frames 350, 2210 and 3431 visibly adopt the stage/caption revision and baseline reselection restores the prior graph. Both complete H.264 takes retain metadata and identical decoded audio; revised whole-film phone/full-resolution playback and seeks pass.
 
 ### G4. Opening manual observation returned to coordinator
 Reported: slice 1 — "Parent owns normal-speed playback and middle/backward-seek acceptance."
@@ -212,11 +203,10 @@ Disposition: no user cost "Terry can publish Story Impact to viewers watching a 
 
 ## Current execution learning
 
-Full native comparisons vary even for unchanged pre-change source. Single-worker and software-renderer trials also vary; all temporary comparator edits were restored byte-for-byte (SHA-256
-`82b270fac8b252ba46ea031f5f76b69ccc3ba221e258b451485adf667b5fe29d`). The original square identity-group structure was restored, while every portrait SVG stayed unchanged. Exact raster repeatability is an invalid proof
-assumption here. The story evaluation remains preserved presentation: G2 now uses positive complete independent pre-change/current selected-composition graph equality at every release frame, unchanged metadata and full
-decoded mixed audio, supported by physical-font/native frame and playback observations. Only transport is substituted; only the nonvisual focal-stage test attribute is ignored. Native verdicts remain `Not preserved`
-(final software trial matches 3848/3852 frames). No bit-identical full PNG sequence or renderer repair is claimed. This changes the technical proof method, not the source promise.
+Full native comparisons vary even for unchanged pre-change source. Single-worker and software-renderer trials also vary; all temporary comparator edits were restored byte-for-byte (SHA-256 `82b270fac8b252ba46ea031f5f76b69ccc3ba221e258b451485adf667b5fe29d`). The original square identity-group
+structure was restored, while every portrait SVG stayed unchanged. Exact raster repeatability is an invalid proof assumption here. The story evaluation remains preserved presentation: G2 now uses positive complete independent pre-change/current selected-composition graph equality at every release
+frame, unchanged metadata and full decoded mixed audio, supported by physical-font/native frame and playback observations. Only transport is substituted; only the nonvisual focal-stage test attribute is ignored. Native verdicts remain `Not preserved` (final software trial matches 3848/3852 frames).
+No bit-identical full PNG sequence or renderer repair is claimed. This changes the technical proof method, not the source promise.
 
 ### Slice 2 proof
 
@@ -239,8 +229,17 @@ decoded mixed audio, supported by physical-font/native frame and playback observ
 - Slice 2 independent refactor corrected the guide's input links only; all accepted product proof reused. Selective formatter `pnpm -C terry-moves exec eslint src/stories/StoryImpactFilm.tsx
   src/storyImpact/StoryImpactScene.tsx src/storyImpact/presentation.ts --fix` and `git diff --check` passed; no generator trigger or active hook.
 
+### Slice 3 proof
+
+- Both portrait IDs use the same original `FilmFrame` with production `defaultProps`. Retained revision raises connected action 140px (y=200) and expands caption height 170px (600px); baseline remains y=340/430px. Timing, voice, texts and shared geometry are unchanged. Coordinator inspected actual registration, configs and test setup/assertions.
+- `pnpm -C terry-moves test:unit --runInBand tests/storyImpact` passed 445 tests / 13 suites; `pnpm -C terry-moves typecheck` passed. Real selected scenes observe both ends of all 25 caption holds per take, first/middle/last frames of all 37 beats, cover/cards/clock, and actual layout revision then restoration at release frames 350, 2210 and 3431. Registration forwards real `defaultProps`; only frame/registration/media transport is substituted. The copied ignored-revision mutant fails all four selected retained-layout tests; setup/mutant/results are retained in `out/portrait-proof/revision-discrimination/`.
+- Both exact guide commands `pnpm -C terry-moves exec remotion render src/index.ts StoryImpactFilmPortrait out/story-impact-portrait.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709` and the revised ID/output `StoryImpactFilmPortraitRevised out/story-impact-portrait-revised.mp4` completed. ffprobe asserts 1080×1920, 30 fps, 3852 frames / 128.4 seconds, H.264/yuv420p/BT.709, AAC stereo for each. Complete revised WAV and decoded MP4 audio comparisons are identical; inputs, hashes, commands, metadata, Node/pnpm and installed fonts are retained in `out/portrait-proof/revision-export-replay.json` and `revision-audio-comparison.json`.
+- `pnpm -C terry-moves exec tsx /tmp/portrait-full-graph-probe.ts` again passed every square release frame. `pnpm -C terry-moves exec tsx /tmp/portrait-baseline-graph-probe.ts` proves every baseline portrait graph/metadata/actual narration attribute identical to accepted `3ff2e9b`, with nothing ignored. Coordinator inspected its separate complete imports and actual `defaultProps` forwarding. Retained spec/log/result: `out/portrait-proof/baseline-portrait-graph-*`. No native raster-repeatability claim.
+- Coordinator inspected all revised native 360×640 caption panels and motion extremes, full History/outlines/credit; observed actual Studio early/later revision and baseline restoration; played revised encoded film at 1× from cover to ended=true (128.405 seconds) at 360×640 and 1080×1920, then direct seek 2210 and backward seek 350. Both texts and labels fit, action remains unobscured. Terry's artistic approval is not claimed.
+
+- Independent post-change refactor consolidated the unchanged portrait registration rule in private `portraitComposition`; public IDs, actual renderer/default props and metadata stay unchanged. Coordinator inspected the factory and reused complete graph/audio/native/manual proof. `pnpm -C terry-moves test:unit --runInBand tests/storyImpact/StoryImpactPortrait.spec.tsx` passed 282 tests; typecheck passed. Selective formatter `pnpm -C terry-moves exec eslint src/Root.tsx src/stories/StoryImpactFilm.tsx src/storyImpact/presentation.ts --fix` and whitespace check passed; no generator or hook trigger.
+
 ## Plan review
 
-Three Behavior slices own distinct proof loops: a readable first-story excerpt, the complete publishable edition, and a retained authoring revision. All consume one performance and one coherent presentation model. Slice
-1's incomplete later beats are explicitly replaced by slice 2, not dropped. No unsupported generic framework, independent product outcome, or missing proof owner was found in this review. Slice-plan refinement was not
-needed. Readiness is recorded only through the canonical story recorder after reviewing this plan and its source.
+Three Behavior slices own distinct proof loops: a readable first-story excerpt, the complete publishable edition, and a retained authoring revision. All consume one performance and one coherent presentation model. Slice 1's incomplete later beats are explicitly replaced by slice 2, not dropped. No
+unsupported generic framework, independent product outcome, or missing proof owner was found in this review. Slice-plan refinement was not needed. Readiness is recorded only through the canonical story recorder after reviewing this plan and its source.

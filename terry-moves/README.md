@@ -220,7 +220,7 @@ or two props held.
 
 # Story impact animation
 
-See [the film guide](../Story%20Driven/README.md) for the storyboard, English and Traditional Chinese narration, animation model and square export; see [the portrait guide](src/storyImpact/README.md) for the complete portrait edition, authored presentation and export.
+See [the film guide](../Story%20Driven/README.md) for the storyboard, English and Traditional Chinese narration, animation model and square export; see [the portrait guide](src/storyImpact/README.md) for the retained baseline/revised portrait takes, authored presentation and exports.
 
 # AI test automation: The Legacy Workshop
 

@@ -1,17 +1,22 @@
 # Story Impact portrait edition
 
-Select `StoryImpactFilmPortrait` in Studio with `pnpm moves`. It is the complete
-1080×1920 edition, from the cover through the later stories, growing History,
-story-versus-feature explanation and Terry Yin credit. Its 30 fps release clock,
+Select `StoryImpactFilmPortrait` or `StoryImpactFilmPortraitRevised` in Studio
+with `pnpm moves`. Both are complete 1080×1920 editions, from the cover through
+the later stories, growing History, story-versus-feature explanation and Terry
+Yin credit. Their 30 fps release clock,
 cleaned English voice and English/Japanese captions are shared with
 `StoryImpactFilm`; the portrait presentation gives the paired captions their
 own larger reading region.
 
-Its authored canvas, connected focal stage, title/end card placement and
+The authored canvas, connected focal stage, title/end card placement and
 bilingual reading region live in [`presentation.ts`](presentation.ts), under
-`PORTRAIT_PRESENTATION`. Edit this master to revise staging or type across the
-film. Keep the performance and translations in their existing homes. The
-stage's translation and scale move connected action together, including flight
+`PORTRAIT_PRESENTATION` (baseline) and `PORTRAIT_REVISED_PRESENTATION` (revised).
+The retained revision raises the connected action from y=340 to y=200 and expands
+the caption region from y=1430–1860 (430px) to y=1260–1860 (600px). Its title/end
+cards and 54px English/48px Japanese type stay the same. Edit the revised master
+to change staging or caption room across the film; select the baseline ID to
+restore the original take. Keep performance and translations in their existing
+homes. The stage's translation and scale move connected action together, including flight
 paths and their endpoints; the captions have separate bounds, sizes and wrapping.
 
 Run these commands from the repository root:
@@ -25,10 +30,12 @@ Keep Studio open and run the export in another terminal:
 
 ```bash
 pnpm -C terry-moves exec remotion render src/index.ts StoryImpactFilmPortrait out/story-impact-portrait.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709
+pnpm -C terry-moves exec remotion render src/index.ts StoryImpactFilmPortraitRevised out/story-impact-portrait-revised.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709
 ```
 
-The export writes `terry-moves/out/story-impact-portrait.mp4`: H.264/yuv420p,
-BT.709, 1080×1920 at 30 fps, with AAC stereo narration. Its 3,852 video frames
+The exports write `terry-moves/out/story-impact-portrait.mp4` and
+`terry-moves/out/story-impact-portrait-revised.mp4`: H.264/yuv420p,
+BT.709, 1080×1920 at 30 fps, with AAC stereo narration. Their 3,852 video frames
 (128.4 seconds) come from the shared performance plus the 36-frame cover hold.
 The original square edition is selected as `StoryImpactFilm` and exported with
 `pnpm -C terry-moves render:story-impact`.

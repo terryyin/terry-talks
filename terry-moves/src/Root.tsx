@@ -14,7 +14,7 @@ import { StoryLoomWarpStop } from './stories/StoryLoomWarpStop';
 import { StoryLeSSInAction } from './stories/StoryLeSSInAction';
 import { StoryImpactStoryboard } from './stories/StoryImpactStoryboard';
 import { StoryImpactOneSplash } from './stories/StoryImpactOneSplash';
-import { StoryImpactFilm, StoryImpactFilmPortrait, StoryImpactFilmZhHant } from './stories/StoryImpactFilm';
+import { StoryImpactFilm, StoryImpactFilmPortrait, StoryImpactFilmPortraitRevised, StoryImpactFilmZhHant } from './stories/StoryImpactFilm';
 import { FeatureTeamsFilm } from './stories/FeatureTeamsFilm';
 import { ProblemDecompositionFilm } from './stories/ProblemDecompositionFilm';
 import { ProblemDecompositionRemakeFilm } from './stories/ProblemDecompositionRemakeFilm';
@@ -54,6 +54,7 @@ export const RemotionRoot: React.FC = () => {
 			<StoryImpactOneSplash />
 			<StoryImpactFilm />
 			<StoryImpactFilmPortrait />
+			<StoryImpactFilmPortraitRevised />
 			<StoryImpactFilmZhHant />
 			<FeatureTeamsFilm />
 			<ProblemDecompositionFilm />
