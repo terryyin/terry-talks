@@ -16,6 +16,7 @@ import { TidyMarks } from './tidyMarks';
 import { Title } from './title';
 import { Dim, Outlines } from './outline';
 import { Values } from './values';
+import { placementTransform, SQUARE_PRESENTATION, StoryImpactPresentation } from './presentation';
 
 // The History box pops up from its bottom middle.
 const HISTORY_POP_FROM = { x: (HISTORY_BOX.left + HISTORY_BOX.right) / 2, y: HISTORY_BOX.bottom };
@@ -75,24 +76,29 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => {
 };
 
 // An empty caption hides the caption bar.
-export const StoryImpactScene: React.FC<{ pose: Pose; caption: string; secondaryCaption?: string }> = ({ pose, caption, secondaryCaption }) => {
+export const StoryImpactScene: React.FC<{ pose: Pose; caption: string; secondaryCaption?: string; presentation?: StoryImpactPresentation }> = ({ pose, caption, secondaryCaption, presentation = SQUARE_PRESENTATION }) => {
 	const leave = pose.stageLeave ?? 0;
+	const { canvas, stage, cards, captions } = presentation;
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			viewBox={`0 0 ${STAGE.width} ${STAGE.height}`}
-			width={STAGE.width}
-			height={STAGE.height}
+			viewBox={`0 0 ${canvas.width} ${canvas.height}`}
+			width={canvas.width}
+			height={canvas.height}
 		>
-			<Paper />
+			<Paper width={canvas.width} height={canvas.height} />
 			{leave >= 1 ? null : (
-				<g transform={leave === 0 ? undefined : scaleAround(STAGE_CENTER, 1 - leave, 1 - leave)}>
-					<Stage pose={pose} />
+				<g data-testid="focal-stage" transform={placementTransform(stage)}>
+					<g transform={leave === 0 ? undefined : scaleAround(STAGE_CENTER, 1 - leave, 1 - leave)}>
+						<Stage pose={pose} />
+					</g>
 				</g>
 			)}
-			{pose.title ? <Title title={pose.title} /> : null}
-			{pose.endCard ? <EndCard card={pose.endCard} /> : null}
-			{caption === '' ? null : <CaptionBar caption={caption} secondaryCaption={secondaryCaption} />}
+			<g transform={placementTransform(cards)}>
+				{pose.title ? <Title title={pose.title} /> : null}
+				{pose.endCard ? <EndCard card={pose.endCard} /> : null}
+			</g>
+			{caption === '' ? null : <CaptionBar caption={caption} secondaryCaption={secondaryCaption} presentation={captions} />}
 		</svg>
 	);
 };
