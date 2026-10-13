@@ -1,21 +1,51 @@
 # Story Impact portrait edition
 
-`StoryImpactFilmPortrait` is the current **incomplete portrait edition**. Its
-opening through the first story becoming coherent (release frames 0–1513) is
-the reviewable excerpt; later beats still await portrait review. Select it in
-Studio with `pnpm moves`. The same release clock, cleaned English voice and
-English/Japanese captions feed the original and portrait compositions.
+Select `StoryImpactFilmPortrait` in Studio with `pnpm moves`. It is the complete
+1080×1920 edition, from the cover through the later stories, growing History,
+story-versus-feature explanation and Terry Yin credit. Its 30 fps release clock,
+cleaned English voice and English/Japanese captions are shared with
+`StoryImpactFilm`; the portrait presentation gives the paired captions their
+own larger reading region.
 
 Its authored canvas, connected focal stage, title/end card placement and
 bilingual reading region live in [`presentation.ts`](presentation.ts), under
-`PORTRAIT_PRESENTATION`. Edit this master to revise staging or type; the
-performance and caption translations remain in their existing homes.
+`PORTRAIT_PRESENTATION`. Edit this master to revise staging or type across the
+film. Keep the performance and translations in their existing homes. The
+stage's translation and scale move connected action together, including flight
+paths and their endpoints; the captions have separate bounds, sizes and wrapping.
 
-Render the excerpt from the repository root:
+Run these commands from the repository root:
 
 ```bash
-pnpm -C terry-moves exec remotion render src/index.ts StoryImpactFilmPortrait out/story-impact-portrait-opening.mp4 --frames=0-1513 --codec=h264 --pixel-format=yuv420p --color-space=bt709
+pnpm install --frozen-lockfile
+pnpm moves
 ```
+
+Keep Studio open and run the export in another terminal:
+
+```bash
+pnpm -C terry-moves exec remotion render src/index.ts StoryImpactFilmPortrait out/story-impact-portrait.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709
+```
+
+The export writes `terry-moves/out/story-impact-portrait.mp4`: H.264/yuv420p,
+BT.709, 1080×1920 at 30 fps, with AAC stereo narration. Its 3,852 video frames
+(128.4 seconds) come from the shared performance plus the 36-frame cover hold.
+The original square edition is selected as `StoryImpactFilm` and exported with
+`pnpm -C terry-moves render:story-impact`.
+
+Use the committed [`narration-en-cleaned.m4a`](../../public/assets/story-impact/narration-en-cleaned.m4a)
+and [`recordingTimeline.json`](recordingTimeline.json); this export needs no audio regeneration.
+Use Node 24.9 or later and the project's pnpm version from `package.json`
+(`pnpm@11.28.5` for this take), with `pnpm-lock.yaml` unchanged. The fonts are selected
+from installed system fonts, rather than bundled font files: the reviewed macOS
+export uses `Chalkboard SE` for English and `Hiragino Kaku Gothic ProN` for
+Japanese. The fallback stacks are declared in `layout.ts` and `ja.ts`. To
+reproduce this take, keep those fonts available; another fallback changes text
+shaping and needs a fresh check of both languages and labels at 360×640.
+
+After editing the master, inspect the customer and domain labels, every caption
+hold, the flight and impact extremes, the full History box, both ending outlines
+and credits in Studio and in the exported file at 1080×1920 and 360×640.
 
 See [the film guide](../../../Story%20Driven/README.md) for the storyboard,
 English and Traditional Chinese narration, animation model and square export.

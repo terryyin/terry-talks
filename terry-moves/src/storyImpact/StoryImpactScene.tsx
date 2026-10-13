@@ -79,6 +79,14 @@ const Stage: React.FC<{ pose: Pose }> = ({ pose }) => {
 export const StoryImpactScene: React.FC<{ pose: Pose; caption: string; secondaryCaption?: string; presentation?: StoryImpactPresentation }> = ({ pose, caption, secondaryCaption, presentation = SQUARE_PRESENTATION }) => {
 	const leave = pose.stageLeave ?? 0;
 	const { canvas, stage, cards, captions } = presentation;
+	const stageTransform = placementTransform(stage);
+	const cardsTransform = placementTransform(cards);
+	const leaveTransform = leave === 0 ? undefined : scaleAround(STAGE_CENTER, 1 - leave, 1 - leave);
+	const stageContents = <Stage pose={pose} />;
+	const cardContents = <>
+		{pose.title ? <Title title={pose.title} /> : null}
+		{pose.endCard ? <EndCard card={pose.endCard} /> : null}
+	</>;
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -87,17 +95,18 @@ export const StoryImpactScene: React.FC<{ pose: Pose; caption: string; secondary
 			height={canvas.height}
 		>
 			<Paper width={canvas.width} height={canvas.height} />
-			{leave >= 1 ? null : (
-				<g data-testid="focal-stage" transform={placementTransform(stage)}>
-					<g transform={leave === 0 ? undefined : scaleAround(STAGE_CENTER, 1 - leave, 1 - leave)}>
-						<Stage pose={pose} />
+			{leave >= 1 ? null : stageTransform ? (
+				<g data-testid="focal-stage" transform={stageTransform}>
+					<g transform={leaveTransform}>
+						{stageContents}
 					</g>
 				</g>
+			) : (
+				<g data-testid="focal-stage" transform={leaveTransform}>
+					{stageContents}
+				</g>
 			)}
-			<g transform={placementTransform(cards)}>
-				{pose.title ? <Title title={pose.title} /> : null}
-				{pose.endCard ? <EndCard card={pose.endCard} /> : null}
-			</g>
+			{cardsTransform ? <g transform={cardsTransform}>{cardContents}</g> : cardContents}
 			{caption === '' ? null : <CaptionBar caption={caption} secondaryCaption={secondaryCaption} presentation={captions} />}
 		</svg>
 	);

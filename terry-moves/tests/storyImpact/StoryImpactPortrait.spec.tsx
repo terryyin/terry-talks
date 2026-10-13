@@ -1,9 +1,10 @@
 import { render } from '@testing-library/react';
 import { useCurrentFrame } from 'remotion';
-import { fullFilm } from '@/storyImpact/fullFilm';
+import { fullFilm, fullFilmBeats } from '@/storyImpact/fullFilm';
 import { FPS } from '@/storyImpact/film';
 import { jaCaption } from '@/storyImpact/ja';
 import { PORTRAIT_PRESENTATION } from '@/storyImpact/presentation';
+import { StoryImpactScene } from '@/storyImpact/StoryImpactScene';
 import { COVER_FRAMES, EN_NARRATION, StoryImpactFilm, StoryImpactFilmPortrait } from '@/stories/StoryImpactFilm';
 
 // Keep the selected composition, performance and SVG presentation real; replace
@@ -18,14 +19,21 @@ jest.mock('@/storyImpact/RecordedNarration', () => ({
 	RecordedNarration: ({ src, from }: { src: string; from: number }) => <audio data-testid="narration" src={src} data-from={from} />,
 }));
 
-const coherentEnd = fullFilm.beatRange('coherent').from + fullFilm.beatRange('coherent').durationInFrames;
-const openingCaptions = new Map<string, number>();
-for (let frame = 0; frame < coherentEnd; frame++) {
+const captionHolds: { caption: string; from: number; to: number }[] = [];
+for (let frame = 0; frame < fullFilm.durationInFrames; frame++) {
 	const caption = fullFilm.captionAt(frame);
-	if (caption && !openingCaptions.has(caption)) openingCaptions.set(caption, frame);
+	if (!caption) continue;
+	const previous = captionHolds.at(-1);
+	if (previous?.caption === caption && previous.to === frame - 1) previous.to = frame;
+	else captionHolds.push({ caption, from: frame, to: frame });
 }
 
-describe('the registered Story Impact portrait opening', () => {
+const beatSamples = fullFilmBeats.flatMap(({ name }) => {
+	const { from, durationInFrames } = fullFilm.beatRange(name);
+	return [0, Math.floor(durationInFrames / 2), durationInFrames - 1].map((offset) => ({ name, frame: from + offset }));
+});
+
+describe('the registered complete Story Impact portrait edition', () => {
 	test('selects the authored portrait canvas and stage with the original release clock and cleaned voice', () => {
 		jest.mocked(useCurrentFrame).mockReturnValue(COVER_FRAMES + fullFilm.beatRange('backlog').from + 30);
 		const { getByTestId, container } = render(<StoryImpactFilmPortrait />);
@@ -45,11 +53,12 @@ describe('the registered Story Impact portrait opening', () => {
 		expect(getByTestId('narration')).toHaveAttribute('data-from', String(COVER_FRAMES));
 	});
 
-	test.each([...openingCaptions])('retains both texts at the source frame for "%s" in their separate reading region', (caption, frame) => {
-		jest.mocked(useCurrentFrame).mockReturnValue(COVER_FRAMES + frame);
+	test.each(captionHolds)('retains both texts and region at both ends of "$caption"', ({ caption, from, to }) => {
+		jest.mocked(useCurrentFrame).mockReturnValue(COVER_FRAMES + from);
 		const { getByTestId } = render(<StoryImpactFilmPortrait />);
 		const english = getByTestId('caption');
 		const japanese = getByTestId('secondary-caption');
+		expect(jaCaption(caption)).not.toBe('');
 		expect(english).toHaveTextContent(caption);
 		expect(japanese).toHaveTextContent(jaCaption(caption));
 		expect(english).toHaveAttribute('font-size', '54');
@@ -62,6 +71,32 @@ describe('the registered Story Impact portrait opening', () => {
 		expect(secondary.at(-1)! + 48 * 0.2).toBeLessThan(PORTRAIT_PRESENTATION.captions.box.bottom - 20);
 		// Generous full-em CJK bounds supplement real browser text inspection.
 		[...japanese.querySelectorAll('tspan')].forEach((line) => expect([...line.textContent!].length * 48).toBeLessThan(920));
+		jest.mocked(useCurrentFrame).mockReturnValue(COVER_FRAMES + to);
+		const last = render(<StoryImpactFilmPortrait />);
+		expect(last.getAllByTestId('caption').at(-1)).toHaveTextContent(caption);
+		expect(last.getAllByTestId('secondary-caption').at(-1)).toHaveTextContent(jaCaption(caption));
+	});
+
+	test.each(beatSamples)('uses the source pose and caption at $name frame $frame', ({ frame }) => {
+		jest.mocked(useCurrentFrame).mockReturnValue(COVER_FRAMES + frame);
+		const portrait = render(<StoryImpactFilmPortrait />);
+		const expected = render(<StoryImpactScene pose={fullFilm.poseAt(frame)} caption={fullFilm.captionAt(frame)} />);
+		const portraitAction = portrait.container.querySelector('[data-testid="focal-stage"]')?.firstElementChild;
+		const sourceAction = expected.container.querySelector('[data-testid="focal-stage"]');
+		expect(portraitAction?.innerHTML).toBe(sourceAction?.innerHTML);
+		expect(portraitAction?.getAttribute('transform')).toBe(sourceAction?.getAttribute('transform'));
+		for (const testId of ['title', 'end-card']) {
+			expect(portrait.container.querySelector(`[data-testid="${testId}"]`)?.outerHTML)
+				.toBe(expected.container.querySelector(`[data-testid="${testId}"]`)?.outerHTML);
+		}
+		const caption = fullFilm.captionAt(frame);
+		if (caption) {
+			expect(portrait.container.querySelector('[data-testid="caption"]')).toHaveTextContent(caption);
+			expect(portrait.container.querySelector('[data-testid="secondary-caption"]')).toHaveTextContent(jaCaption(caption));
+		} else {
+			expect(portrait.container.querySelector('[data-testid="caption"]')).toBeNull();
+			expect(portrait.container.querySelector('[data-testid="secondary-caption"]')).toBeNull();
+		}
 	});
 
 	test('wraps the dense Japanese opening without changing its translation', () => {

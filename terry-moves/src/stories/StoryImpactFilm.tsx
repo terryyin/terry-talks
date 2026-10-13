@@ -53,8 +53,7 @@ export const StoryImpactFilm: React.FC = () => (
 	/>
 );
 
-// The full clock is shared. This edition is an incomplete portrait take until
-// the later beats have received the same playback and phone-size review.
+// The complete portrait edition uses the original English performance.
 const PortraitFilmFrame: React.FC = () => <FilmFrame presentation={PORTRAIT_PRESENTATION} />;
 
 export const StoryImpactFilmPortrait: React.FC = () => (

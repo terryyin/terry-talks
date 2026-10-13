@@ -34,7 +34,7 @@ export const SQUARE_PRESENTATION: StoryImpactPresentation = {
 
 // Authored portrait master: connected action moves as one group, while the
 // bilingual reading region has its own larger type and room for Japanese lines.
-// This first take is verified only through the first story becoming coherent.
+// The same master stages the full explanation, later stories and ending.
 export const PORTRAIT_PRESENTATION: StoryImpactPresentation = {
 	canvas: { width: 1080, height: 1920 },
 	stage: { x: 0, y: 340, scale: 1 },
