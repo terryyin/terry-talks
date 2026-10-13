@@ -1,8 +1,10 @@
 import React from 'react';
 import { Art, Heading } from '../tpsAndAi/Frame';
 import { HousePicture } from '../tpsAndAi/House';
+import { DirectedHeading } from './DirectedHeading';
+import { definitionDirections, headingDirections } from './direction';
 import { Shot, useSeconds } from './Frame';
-import { sceneById, SceneId } from './film';
+import { sceneById } from './film';
 
 export const Hook: React.FC = () => {
 	const scene = sceneById('hook');
@@ -19,17 +21,18 @@ export const House: React.FC = () => {
 	const view = scene.definitionViews!.find((entry) => seconds >= entry.start && seconds < entry.end);
 	return <Shot id="house" seconds={seconds}>
 		{view ? <>
-			<Heading style={{ fontSize: 76 }}>{view.heading}</Heading>
+			<DirectedHeading direction={definitionDirections[scene.definitionViews!.indexOf(view)]} seconds={seconds - view.start} />
 			<Art file={view.asset} style={{ left: 60, top: 230, width: 960, height: 600 }} />
 		</> : <HousePicture highlightJIT heading={scene.heading} />}
 	</Shot>;
 };
 
 /** The whole original illustration remains visible inside the shared art area. */
-const IllustratedScene: React.FC<{ id: SceneId }> = ({ id }) => {
+const IllustratedScene: React.FC<{ id: 'resourceful' | 'pull' | 'feedback' }> = ({ id }) => {
 	const scene = sceneById(id);
-	return <Shot id={id} seconds={useSeconds(id)}>
-		<Heading style={{ fontSize: 76 }}>{scene.heading}</Heading>
+	const seconds = useSeconds(id);
+	return <Shot id={id} seconds={seconds}>
+		<DirectedHeading direction={headingDirections[id]} seconds={seconds - scene.start} />
 		<Art file={scene.asset!} style={{ left: 60, top: 260, width: 960, height: 570 }} />
 	</Shot>;
 };

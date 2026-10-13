@@ -5,8 +5,8 @@
   "width": 1080,
   "height": 1080,
   "duration": 86,
-  "voice": "No narration; English captions carry the complete argument.",
-  "music": "Reuse the approved 86-second TPS score at volume 0.75, including its final three-second fade.",
+  "voice": "Saved English Cedar performance (OpenAI synthetic voice, not Terry's recording), reading the accepted captions with measured complete-clause placement on the shared clock.",
+  "music": "Reuse the approved 86-second TPS score with gentle measured speech ducking, including its original final three-second fade.",
   "sources": {
     "stockpile": {"kind": "Terry's software synthesis", "reference": "slides/tps-and-ai/slides.md: green-light stockpile and JIT section; claims 3 and 4"},
     "house": {"kind": "Deck reconstruction of the TPS house", "reference": "slides/tps-and-ai/slides.md: Two houses, different layers; claim 2", "primarySource": "https://global.toyota/en/company/vision-and-philosophy/production-system/"},

@@ -10,7 +10,8 @@ integration and timely collaboration make trust dependable.
 
 [film-script.json](film-script.json) owns **86 seconds at 30 fps, 1080 × 1080**,
 the seven scenes, timed English captions, definition illustrations, viewer headings, focused panorama
-views and final credit. There is no narration. Captions carry the complete
+views and final credit. Saved English narration reads the accepted captions.
+The voice is OpenAI's synthetic Cedar, not Terry's recorded voice. Captions carry the complete
 argument with sound off and occupy the approved y856–1010 area, using 56px text
 and no more than two authored lines. `lineBreakAfter` counts words before a
 display break without changing the standalone subtitle wording. The exact
@@ -80,10 +81,29 @@ existing `Paper`, `Art`, `Heading`, shared `CaptionText`, palette and genuine Od
 as its default. The existing Jidoka language provider, script, editions, media
 and routes remain their own source.
 
-The approved `score.wav` is reused byte-for-byte at the existing volume 0.75.
+The approved `score.wav` is reused byte-for-byte, gently lowered during measured speech.
 It is the original sparse oscillator and open-fifth instrumental, already
 authored for 86 seconds with a final three-second fade. The JIT export does not
-regenerate it. No image, font, voice or audio service is needed during rendering.
+regenerate it. The retained narration and its measurements also render offline;
+no image, font, voice or audio service is needed during rendering.
+
+## English performance and direction
+
+[produce_audio.py](produce_audio.py) owns the English voice direction and uses
+the repository's shared audio primitives. [narration-en.json](narration-en.json)
+retains the exact transcript, measured words, complete-clause placements and
+asset hashes. The original connected take remains available alongside the
+mastered 86-second track. Default reproduction makes no paid requests; generating
+a new voice requires the explicit `--new-voice` option and refuses to overwrite
+a retained take. Speech keeps its original rate and every clause stays within
+the corresponding caption interval.
+
+The visual revision reuses Terry Moves' script-directed typography and beat
+clock for gentle heading entrances and brief camera moves followed by reading
+holds. It retains the complete frame-zero cover and definition paintings.
+The integration passage follows need → teams → stop → collaboration → result;
+the final framing settles into the closing hold. The narration, captions,
+artwork and final credit keep the accepted shared scene clock.
 
 ## Reproduction and future language editions
 
@@ -91,6 +111,7 @@ Use the locked dependencies with Node >=24.9.0 and pnpm 11.28.5. From the
 repository root:
 
 ```sh
+python3 'TPS and AI/JIT/produce_audio.py'
 pnpm --dir terry-moves exec remotion studio src/index.ts --no-open --port=3033
 pnpm --dir terry-moves render:tps-and-ai:jit
 ```

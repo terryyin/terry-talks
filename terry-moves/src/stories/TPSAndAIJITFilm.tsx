@@ -1,14 +1,15 @@
 import React from 'react';
-import { Audio, Composition, Folder, Sequence, staticFile, useVideoConfig } from 'remotion';
+import { Composition, Folder, Sequence, useVideoConfig } from 'remotion';
 import { Paper } from '../tpsAndAi/Frame';
 import { Closing, Integration } from '../tpsAndAiJit/Integration';
 import { Feedback, Hook, House, Pull, Resourceful } from '../tpsAndAiJit/Scenes';
 import { durationInFrames, film, sceneById, sceneFrames, startFrame } from '../tpsAndAiJit/film';
+import { EnglishAudio } from '../tpsAndAiJit/EnglishAudio';
 
 export const JITFilm: React.FC = () => {
 	const { fps } = useVideoConfig();
 	return <Paper>
-		<Audio src={staticFile('assets/tps-and-ai/score.wav')} volume={0.75} />
+		<EnglishAudio />
 		<Sequence name={sceneById('hook').label} from={startFrame('hook')} durationInFrames={sceneFrames('hook')} premountFor={fps}><Hook /></Sequence>
 		<Sequence name={sceneById('house').label} from={startFrame('house')} durationInFrames={sceneFrames('house')} premountFor={fps}><House /></Sequence>
 		<Sequence name={sceneById('resourceful').label} from={startFrame('resourceful')} durationInFrames={sceneFrames('resourceful')} premountFor={fps}><Resourceful /></Sequence>
