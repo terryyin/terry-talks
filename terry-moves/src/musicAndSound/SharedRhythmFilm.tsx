@@ -2,7 +2,9 @@ import React, { useMemo } from 'react';
 import { Audio, Composition, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import excerptScore from '../../public/assets/shared-rhythm/excerpt.json';
 import baselineScore from '../../public/assets/shared-rhythm/baseline.json';
+import revisionScore from '../../public/assets/shared-rhythm/revision.json';
 import { rhythmBaseline } from './baseline';
+import { rhythmRevision } from './revision';
 import { RhythmDirection, RhythmMotif, RhythmPose, rhythmMotion, rhythmTimeline } from './direction';
 import { RhythmScore, matchingRhythmScore } from './score';
 import { rhythmExcerpt, rhythmFps } from './script';
@@ -70,6 +72,17 @@ export const SharedRhythmBaselineComposition: React.FC = () => <Composition
 	component={SharedRhythmFilm}
 	defaultProps={{ direction: rhythmBaseline, score: baselineScore }}
 	durationInFrames={rhythmTimeline(rhythmBaseline, rhythmFps).durationInFrames}
+	fps={rhythmFps}
+	width={1080}
+	height={1080}
+	calculateMetadata={({ props }) => ({ durationInFrames: matchingRhythmScore(props.direction, props.score, rhythmFps).performance.durationInFrames })}
+/>;
+
+export const SharedRhythmRevisionComposition: React.FC = () => <Composition
+	id="SharedRhythmRevision"
+	component={SharedRhythmFilm}
+	defaultProps={{ direction: rhythmRevision, score: revisionScore }}
+	durationInFrames={rhythmTimeline(rhythmRevision, rhythmFps).durationInFrames}
 	fps={rhythmFps}
 	width={1080}
 	height={1080}

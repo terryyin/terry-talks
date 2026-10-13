@@ -7,18 +7,9 @@
 
 ## Goal and scope
 
-Deliver **Finding a Shared Rhythm**: roughly 36 seconds, 1080×1080 at 30 fps,
-original locally authored percussion/plucked-tone score, no speech. Scattered
-pulses answer one another, form an ensemble, pause and resolve with distinct
-motifs. Musical phrases and accents direct motion, emphasis and cuts. Deliver
-baseline and meaningful cue revision, saved media, separate exports, credits
-and script-based authoring guidance. Terry delegated creative selection on
-2026-10-13; no approval of an unseen film is claimed.
+Deliver **Finding a Shared Rhythm**: roughly 36 seconds, 1080×1080 at 30 fps, original locally authored percussion/plucked-tone score, no speech. Scattered pulses answer one another, form an ensemble, pause and resolve with distinct motifs. Musical phrases and accents direct motion, emphasis and cuts. Deliver baseline and meaningful cue revision, saved media, separate exports, credits and script-based authoring guidance. Terry delegated creative selection on 2026-10-13; no approval of an unseen film is claimed.
 
-The refined source owns scope and examples. Automatic analysis, arbitrary track
-replacement/tempo warping, external services, narration, new character/3D assets,
-visual editing, other formats and upload remain deferred. This plan proves a
-cue revision; it adds no phrase-replacement promise.
+The refined source owns scope and examples. Automatic analysis, arbitrary track replacement/tempo warping, external services, narration, new character/3D assets, visual editing, other formats and upload remain deferred. This plan proves a cue revision; it adds no phrase-replacement promise.
 
 ## Execution context
 
@@ -36,11 +27,11 @@ cue revision; it adds no phrase-replacement promise.
   Package/lock files unchanged. No active Git hooks; selective formatting uses
   ESLint `--fix` on affected source files, followed by focused check-only lint.
 - Replanning is allowed within the original scope.
-- Studio: `http://localhost:3000`, session `17029`; out review server `8767`, session `2011`.
+- Studio: `http://localhost:3000`, confirmed current checkout; out review server `8767`, PID `36806`.
 - CI: GitHub Actions `terryyin/terry-talks`, workflow `ci.yml` (ID `381584897`,
   name `CI`), observing the execution branch. Codex coordinator `koharu-music`,
-  directory `/tmp/dough-ci-501/watch-jNvhW7`, PID `34486`, session `93514`,
-  yielded cell `22`. Prior observer shutdown confirmed; claim CI unobserved.
+  directory `/tmp/dough-ci-501/watch-WLXUyU`, PID `28257`, session `40448`,
+  yielded cell `2`. Prior observer stopped with unread 0 and confirmed PID exit; observation rearmed after G5 acceptance.
 
 ## Current decisions and reuse
 
@@ -95,10 +86,7 @@ isolated pulse, answering motif, phrase change/cut and brief rest. Actual audio
 onsets and rendered target frames align; middle/backward seeks are deterministic.
 Stale direction/audio pairing produces actionable feedback before export.
 
-Behavior: Given a short authored musical direction and its explicitly saved
-score, select the excerpt in Studio and play it with sound. Visual anticipation,
-impact, emphasis and transition follow the named cues rather than narration or
-a separately edited time list.
+Behavior: Given a short authored musical direction and its explicitly saved score, select the excerpt in Studio and play it with sound. Visual anticipation, impact, emphasis and transition follow the named cues rather than narration or a separately edited time list.
 
 Include the small musical-direction representation, local sound generation,
 saved-take pairing, shape/motif rendering and composition registration in this
@@ -121,10 +109,7 @@ Proof: A full roughly 36-second baseline MP4 shows the complete arc, coordinated
 sound/action, intentional pause and resolved ending. All passages play at normal
 speed with sound, at full size and 360×360, and metadata matches the composition.
 
-Behavior: Given the working motif and cue path, author the full direction and
-explicitly save its baseline score. Preview/export Finding a Shared Rhythm →
-individual motifs begin apart, answer one another, form an ensemble, pause and
-return together without erasing their identities or needing spoken explanation.
+Behavior: Given the working motif and cue path, author the full direction and explicitly save its baseline score. Preview/export Finding a Shared Rhythm → individual motifs begin apart, answer one another, form an ensemble, pause and return together without erasing their identities or needing spoken explanation.
 
 Use the same cue rule across passages. Make at least one cut or clear framing
 change musical; do not satisfy the scope only by scaling shapes to amplitude.
@@ -142,15 +127,12 @@ revision is demonstrated.
 
 ### 3. Move an accent and reproduce both saved takes
 Type: Behavior
-Status: planned
+Status: done
 Proof: A half-beat authoring edit moves a selected isolated sound accent and its
 visual impact/cut together by nine frames at the chosen tempo. Both full takes
 can be selected/exported again; unrelated cues and baseline inputs stay intact.
 
-Behavior: Given the baseline, derive a revised direction with the selected cue
-half a beat later inside the same phrase, explicitly save a separate score, and
-select it in preview/export. Its action follows the cue without renderer edits;
-selecting the baseline again restores the original sound and performance.
+Behavior: Given the baseline, derive a revised direction with the selected cue half a beat later inside the same phrase, explicitly save a separate score, and select it in preview/export. Its action follows the cue without renderer edits; selecting the baseline again restores the original sound and performance.
 
 Choose an isolated cue with room for the delay and its release. Check stale
 pairing feedback before generating/selecting the new score. Prove decoded
@@ -197,6 +179,16 @@ change, then restore it. No second finished film is promised.
 - `out/shared-rhythm-baseline-proof.json` retains current input/audio/pixel hashes;
   `out/inspect-shared-rhythm-baseline.py` owns decoded observations. Terry accepted the full film with “LGTM”; G4 resolved.
 
+## Accepted slice 3 proof
+
+- `SharedRhythmRevision`: `answer-turns` 216→225, 7.2→7.5s, separate WAV/manifest. Stale CLI export refused before explicit save, naming the revision save command.
+- Fourteen focused tests and typecheck passed; actual Root, common SVG, saved score and source synthesis run. Disabling cue consumption failed the rendered-transform test; exact restoration and retry passed.
+- Independent refactor found no material candidate; selective formatting, check-only ESLint and whitespace checks passed. Protected input hashes remain unchanged after formatting.
+- Full revision and separate baseline/revision replays completed. Decoded onset moved exactly nine frames; six unrelated selected onsets stayed fixed. `out/shared-rhythm-revision-proof.json` and its inspection script retain proof.
+- Six baseline input hashes unchanged; baseline replay PCM and 17 sampled pixel hashes match the pre-revision snapshot. Revision replay PCM and 20 frames match its initial export.
+- Actual scratch save/registered composition export added a passage at 1080 with teal pluck/action at 1089; decoded onset 36.300113s. Scratch source/media restored; `out/shared-rhythm-scratch-passage-proof.json` retains evidence.
+- Studio 225→750→225 reproduces exact transforms. Encoded revision played to 36.011s at 1×, unmuted, at 360/1080; all credits readable. Terry accepted the changed-phrase listening check with “LGTM” on 2026-10-13.
+
 ## Story obligations
 
 ### G1. Excerpt is intentionally incomplete
@@ -212,12 +204,17 @@ Disposition: proved by slice 1: Terry’s “LGTM” and “SGTM” responses, r
 ### G3. Scratch passage has only renderer-level evidence
 Reported: slice 1 — "The scratch-added passage test proves actual renderer vocabulary/metadata only and claims no saved revised sound."
 Story clause: "Given the documented phrase/action vocabulary, author another passage or revise a motif through that home"
-Disposition: receiving slice 3
+Disposition: proved by slice 3: actual saved scratch score, common-composition export and decoded onset at 1089 in Accepted slice 3 proof
 
 ### G4. Full-film listening observation accepted
 Reported: slice 2 — "Remaining observation: coordinator-owned full normal-speed playback at 1080px/360px and Terry’s actual listening/artistic verdict."
 Story clause: "Judge the whole edit by normal-speed playback with sound"
 Disposition: proved by slice 2: Terry’s “LGTM” response after the full-film listening question, recorded in Accepted slice 2 proof
+
+### G5. Revision listening observation accepted
+Reported: slice 3 — "Coordinator-owned listening acceptance remains pending; I make no auditory-quality claim."
+Story clause: "Judge the whole edit by normal-speed playback with sound"
+Disposition: proved by slice 3: Terry’s “LGTM” response after the revised-phrase listening question, recorded in Accepted slice 3 proof
 
 ## Verification and delivery
 
@@ -235,12 +232,7 @@ need no new render or repository-wide suite.
 
 ## Preparation evidence and learnings
 
-Complete preparation commands/assertions remain in the plan at commit `6fd95c4`.
-In this checkout on 2026-10-13, real sequential timing moved frame 30→45 and
-length 90→105 with empty captions. Existing synthesis produced an 86-second
-mono s16le/44100 Hz WAV; an existing scored-film excerpt encoded 360×360/30 fps
-H.264+AAC. These proved route availability, not the new film or musical quality.
-No product source/media changed during those preparation observations.
+Complete preparation commands/assertions remain in the plan at commit `6fd95c4`. In this checkout on 2026-10-13, real sequential timing moved frame 30→45 and length 90→105 with empty captions. Existing synthesis produced an 86-second mono s16le/44100 Hz WAV; an existing scored-film excerpt encoded 360×360/30 fps H.264+AAC. These proved route availability, not the new film or musical quality. No product source/media changed during those observations.
 
 ## Plan review
 
