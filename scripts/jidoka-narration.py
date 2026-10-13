@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Generate explicitly, otherwise reproduce Jidoka's saved English narration offline."""
 
-from array import array
 import argparse
 import json
 from pathlib import Path
 
 from narration_audio import (
-    exact_script, gap_span, master, narration_text, read_pcm, run, sha256,
-    tokens, verify, word_range, write_pcm, write_performance,
+    exact_script, master, narration_text, read_pcm, run, sha256,
+    tokens, verify, write_pcm, write_performance,
 )
+
+from narration_timing import fixed_clock as place_clauses
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "TPS and AI" / "film-script.json"
@@ -103,58 +104,8 @@ def audit_silent_tail(record, pcm):
 
 
 def fixed_clock(script, pcm, record):
-    """Place complete clauses at natural gaps without changing the approved film clock."""
-    text = narration_text(script)
-    exact_script(text, record["script"], "Saved script")
-    exact_script(text, record["transcript"], "Measured transcript")
-    words = record["words"]
-    exact_script(text, " ".join(w["word"] for w in words), "Measured timed words")
-    clauses = [(scene["id"], caption) for scene in script["scenes"] for caption in scene["captionRanges"]]
-    # ASR word times locate the clause; the waveform supplies its actual safe seam.
-    gaps, silence_start = [], None
-    block, quiet = RATE // 200, round(32768 * 10 ** (-36 / 20))
-    for offset in range(0, len(pcm), block):
-        silent = max(abs(x) for x in pcm[offset:offset + block]) <= quiet
-        if silent and silence_start is None:
-            silence_start = offset / RATE
-        elif not silent and silence_start is not None:
-            if offset / RATE - silence_start >= 0.25:
-                gaps.append((silence_start, offset / RATE))
-            silence_start = None
-    cursor, seams = 0, []
-    for _, caption in clauses[:-1]:
-        count = len(tokens(caption["spoken"]))
-        first, last = word_range(words, cursor, count)
-        _, estimate = gap_span(words, first, last, len(pcm) / RATE)
-        # ASR can place an edge word inside a genuine quiet span. Its midpoint
-        # must still separate the expected edge words; waveform edges own cuts.
-        choices = [g for g in gaps
-                   if words[last - 1]["start"] <= (g[0] + g[1]) / 2 <= words[last]["end"]
-                   and abs((g[0] + g[1]) / 2 - estimate) <= 0.65]
-        if not choices:
-            raise ValueError(f"No verified quiet gap after: {caption['spoken']}")
-        seam = min(choices, key=lambda g: abs((g[0] + g[1]) / 2 - estimate))
-        if seams and seam[0] <= seams[-1][1]:
-            raise ValueError("Clause seams are not sequential; alignment needs review.")
-        seams.append(seam)
-        cursor += count
-    timeline = array("h", [0] * round(script["duration"] * RATE))
-    slots = []
-    for index, (scene_id, caption) in enumerate(clauses):
-        a = max(0, seams[index - 1][1] - 0.05) if index else 0
-        b = min(len(pcm) / RATE, seams[index][0] + 0.05) if index < len(seams) else len(pcm) / RATE
-        start = caption["start"] + 0.12
-        if start + b - a > caption["end"] - 0.08:
-            raise ValueError(f"Complete clause does not fit; saved take retained: {caption['spoken']}")
-        cut = pcm[round(a * RATE):round(b * RATE)]
-        destination = round(start * RATE)
-        timeline[destination:destination + len(cut)] = cut
-        slots.append({"scene": scene_id, "text": caption["spoken"],
-                      "captionStart": caption["start"], "captionEnd": caption["end"],
-                      "sourceStart": a, "sourceEnd": b, "placedStart": start,
-                      "speechStart": start + (seams[index - 1][1] - a if index else 0),
-                      "speechEnd": start + (seams[index][0] - a if index < len(seams) else b - a)})
-    return timeline, slots
+    """Preserve Jidoka's approved clock through the shared waveform placer."""
+    return place_clauses(script, pcm, record, sample_rate=RATE)
 
 
 def main():

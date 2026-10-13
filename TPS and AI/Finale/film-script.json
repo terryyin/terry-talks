@@ -1,0 +1,124 @@
+{
+  "title": "Freedom and trust",
+  "subtitle": "TPS and AI · Part three · The conclusion",
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "duration": 86,
+  "voice": "English Cedar, OpenAI synthetic narration; not Terry's recorded voice. Retained performance, measured words and complete clauses.",
+  "music": "Reuse the 86-second TPS score with speech ducking and its final three-second fade.",
+  "sources": {"pair": {"kind": "Terry's software synthesis", "reference": "slides/tps-and-ai/slides.md: The triad and The engine of freedom and trust; claims 3 and 10", "boundary": "Jidoka frees / Just in time entrusts is Terry's interpretation, not a Toyota quotation or Toyota's operational definition of Just in time."}, "jidoka": {"kind": "Toyota TPS mechanism and Terry's software translation", "reference": "slides/tps-and-ai/slides.md: Jidoka frees people; claims 3 and 6", "primarySource": "https://global.toyota/en/company/vision-and-philosophy/production-system/"}, "jit": {"kind": "Toyota operational definition and Terry's software application", "reference": "slides/tps-and-ai/slides.md: Just-in-Time and Freedom to choose again; claims 3 and 17", "primarySource": "https://global.toyota/en/company/vision-and-philosophy/production-system/", "boundary": "Synchronized pull and minimum ready stocks, not zero inventory. Reduce system waste and delay; no guarantee of minimum cost."}, "agency": {"kind": "Terry's synthesis and current user direction", "reference": "slides/tps-and-ai/slides.md: Freedom vs. trust? and The engine of freedom and trust; claims 3 and 10", "boundary": "Responsibility and usable authority, support and quality remain together. Decide when needs become concrete, retain stop authority and shared product evidence."}, "way": {"kind": "Toyota Way 2001", "reference": "slides/tps-and-ai/slides.md: Two houses, different layers; claim 2", "primarySource": "https://www.toyota-global.com/company/history_of_toyota/75years/data/conditions/philosophy/toyotaway2001.html", "boundary": "Continuous Improvement and Respect for People are the broader Toyota Way principles; do not portray them as extra operating pillars of TPS."}, "respect": {"kind": "Toyota Way principle with Terry's software interpretation", "reference": "slides/tps-and-ai/slides.md: Respect for People: making things means making people; claim 12", "primarySource": "https://www.toyota-global.com/company/history_of_toyota/75years/message/index.html", "boundary": "Challenge, teamwork and support grow independent judgment; learning is supported work. The lantern drawing is a teaching analogy, not a Toyota event."}, "improvement": {"kind": "Toyota Way principle and Terry's lower-change-cost synthesis", "reference": "slides/tps-and-ai/slides.md: Continuous improvement towards perfection; claims 5 and 18", "primarySource": "https://www.toyota-global.com/company/history_of_toyota/75years/data/conditions/philosophy/toyotaway2001.html", "boundary": "SMED/OTED artwork is a changeover analogy, not the whole principle or a real machine operating procedure. Reduce rework and switching burden, not cut people."}, "cycle": {"kind": "Terry's reinforcing feedback interpretation", "reference": "slides/tps-and-ai/slides.md: The engine of freedom and trust; claims 10 and 22", "boundary": "Capability and warranted trust grow through supported learning and observable results, over time; not an automatic effect of adding AI output."}, "closing": {"kind": "Terry's final-talk diagnostic", "reference": "slides/tps-and-ai/slides.md: How do you know if the organization is using AI right?; claims 3, 10 and 12"}},
+  "artwork": [{"file": "jidoka-jit-balanced-scale.png", "source": "slides/tps-and-ai/public/jidoka-jit-balanced-scale.png"}, {"file": "jidoka-frees-software-team.png", "source": "slides/tps-and-ai/public/jidoka-frees-software-team.png"}, {"file": "pull-customer-need.png", "source": "slides/tps-and-ai/public/pull-customer-need.png"}, {"file": "integration-coordination.png", "source": "slides/tps-and-ai/public/integration-coordination.png"}, {"file": "respect-people-grow-judgment.png", "source": "slides/tps-and-ai/public/respect-people-grow-judgment.png"}, {"file": "smed-oted-changeover.png", "source": "slides/tps-and-ai/public/smed-oted-changeover.png"}, {"file": "closing-crane-aloft.png", "source": "slides/tps-and-ai/public/closing-crane-aloft.png"}],
+  "scenes": [
+    {
+      "id": "cover",
+      "start": 0,
+      "end": 7.6,
+      "heading": "Freedom and trust",
+      "subheading": "Free people.\nEntrust the next real problem.",
+      "asset": "jidoka-jit-balanced-scale.png",
+      "captionRanges": [
+        {"start": 0, "end": 4.45, "spoken": "Jidoka frees people. Just in time entrusts them.", "translations": {}, "sourceIds": ["pair"], "lineBreakAfter": 3},
+        {"start": 4.45, "end": 7.6, "spoken": "Together, they can grow freedom and trust.", "translations": {}, "sourceIds": ["cycle"], "lineBreakAfter": 4}
+      ],
+      "translations": {}
+    },
+    {
+      "id": "free",
+      "start": 7.6,
+      "end": 16,
+      "heading": "Preserve learning.\nFree attention.",
+      "asset": "jidoka-frees-software-team.png",
+      "captionRanges": [
+        {"start": 7.6, "end": 12.1, "spoken": "Jidoka preserves learned judgment and stops known abnormalities.", "translations": {}, "sourceIds": ["jidoka"], "lineBreakAfter": 5},
+        {"start": 12.1, "end": 16, "spoken": "People are free to think, learn, and improve.", "translations": {}, "sourceIds": ["jidoka", "cycle"], "lineBreakAfter": 5}
+      ],
+      "translations": {}
+    },
+    {
+      "id": "entrust",
+      "start": 16,
+      "end": 29.5,
+      "heading": "Just in time entrusts.",
+      "asset": "pull-customer-need.png",
+      "captionRanges": [
+        {"start": 16, "end": 19.5, "spoken": "Just in time meets real need.", "translations": {}, "sourceIds": ["jit"], "lineBreakAfter": 3},
+        {"start": 19.5, "end": 24, "spoken": "Only what is needed. When needed. In the amount needed.", "translations": {}, "sourceIds": ["jit"], "lineBreakAfter": 6},
+        {"start": 24, "end": 29.5, "spoken": "In software, entrust the team and AI to respond together.", "translations": {}, "sourceIds": ["pair", "agency"], "lineBreakAfter": 6}
+      ],
+      "translations": {}
+    },
+    {
+      "id": "agency",
+      "start": 29.5,
+      "end": 43.5,
+      "heading": "Responsibility + authority",
+      "subheading": "With the same people.",
+      "asset": "integration-coordination.png",
+      "captionRanges": [
+        {"start": 29.5, "end": 33.5, "spoken": "Give the same people responsibility and authority.", "translations": {}, "sourceIds": ["agency"], "lineBreakAfter": 4},
+        {"start": 33.5, "end": 37.5, "spoken": "They can decide, collaborate, and stop when needed.", "translations": {}, "sourceIds": ["agency"], "lineBreakAfter": 3},
+        {"start": 37.5, "end": 39.8, "spoken": "Reduce waiting and unnecessary work.", "lineBreakAfter": 2, "translations": {}, "sourceIds": ["agency", "jit"]},
+        {"start": 39.8, "end": 43.5, "spoken": "Keep quality visible in one shared, working product.", "lineBreakAfter": 3, "translations": {}, "sourceIds": ["agency"]}
+      ],
+      "translations": {}
+    },
+    {
+      "id": "respect",
+      "start": 43.5,
+      "end": 52.1,
+      "heading": "Respect for People",
+      "subheading": "Grow independent thinkers.",
+      "group": "Toyota Way",
+      "asset": "respect-people-grow-judgment.png",
+      "captionRanges": [
+        {"start": 43.5, "end": 46, "spoken": "The Toyota Way adds two principles.", "translations": {}, "sourceIds": ["way"], "lineBreakAfter": 3},
+        {"start": 46, "end": 49.5, "spoken": "Respect for People develops independent thinkers.", "lineBreakAfter": 3, "translations": {}, "sourceIds": ["respect"]},
+        {"start": 49.5, "end": 52.1, "spoken": "Through challenge, teamwork, and support.", "lineBreakAfter": 2, "translations": {}, "sourceIds": ["respect"]}
+      ],
+      "translations": {}
+    },
+    {
+      "id": "improve",
+      "start": 52.1,
+      "end": 61,
+      "heading": "Continuous Improvement",
+      "subheading": "Make the next change easier.",
+      "group": "Toyota Way",
+      "asset": "smed-oted-changeover.png",
+      "captionRanges": [
+        {"start": 52.1, "end": 55.5, "spoken": "Continuous Improvement turns each response into learning.", "translations": {}, "sourceIds": ["improvement"], "lineBreakAfter": 3},
+        {"start": 55.5, "end": 61, "spoken": "Reduce rework and changeover cost. Make the next useful change easier.", "translations": {}, "sourceIds": ["improvement"], "lineBreakAfter": 5}
+      ],
+      "translations": {}
+    },
+    {
+      "id": "cycle",
+      "start": 61,
+      "end": 70,
+      "heading": "Freedom and trust\ngrow together.",
+      "asset": "jidoka-jit-balanced-scale.png",
+      "captionRanges": [
+        {"start": 61, "end": 65, "spoken": "Safeguards free attention. Freedom grows capability.", "translations": {}, "sourceIds": ["cycle"], "lineBreakAfter": 3},
+        {"start": 65, "end": 70, "spoken": "Capability earns trust. Trust enables the next responsible response.", "translations": {}, "sourceIds": ["cycle"], "lineBreakAfter": 5}
+      ],
+      "translations": {}
+    },
+    {
+      "id": "closing",
+      "start": 70,
+      "end": 86,
+      "heading": "The next real problem.",
+      "asset": "closing-crane-aloft.png",
+      "captionRanges": [
+        {"start": 70, "end": 71.6, "spoken": "So look beyond output.", "translations": {}, "sourceIds": ["closing"]},
+        {"start": 71.6, "end": 75.5, "spoken": "Are teams more freed than constrained by what they've built?", "translations": {}, "sourceIds": ["closing"], "lineBreakAfter": 5},
+        {"start": 75.5, "end": 78.5, "spoken": "Can we entrust them with the next real problem?", "translations": {}, "sourceIds": ["closing"], "lineBreakAfter": 5},
+        {"start": 78.5, "end": 83, "spoken": "Build the product. Grow the people. Keep learning.", "translations": {}, "sourceIds": ["closing"], "lineBreakAfter": 3}
+      ],
+      "creditStart": 83,
+      "creditLines": ["Idea and film from Terry"],
+      "translations": {}
+    }
+  ]
+}

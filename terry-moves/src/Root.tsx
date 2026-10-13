@@ -23,6 +23,7 @@ import { SilentSceneFilm } from './stories/SilentSceneFilm';
 import { ATDDFilm } from './stories/ATDDFilm';
 import { TPSAndAIFilm, TPSAndAIFilmJa, TPSAndAIFilmZhHant, TPSAndAIFilmTh } from './stories/TPSAndAIFilm';
 import { TPSAndAIJITFilm } from './stories/TPSAndAIJITFilm';
+import { TPSAndAIFinaleFilm } from './stories/TPSAndAIFinaleFilm';
 import { FullIllustratedConversationComposition, IllustratedConversationComposition, ThoughtfulIllustratedConversationComposition } from './illustratedConversation/IllustratedConversation';
 import { VisualTreatmentCompositions } from './visualTreatments/TreatmentCompositions';
 import { CinematicBottleneckComposition } from './cinematicShot/CinematicBottleneck';
@@ -67,6 +68,7 @@ export const RemotionRoot: React.FC = () => {
 			<TPSAndAIFilmZhHant />
 			<TPSAndAIFilmTh />
 			<TPSAndAIJITFilm />
+			<TPSAndAIFinaleFilm />
 			<VisualTreatmentCompositions />
 			<IllustratedConversationComposition />
 			<FullIllustratedConversationComposition />
