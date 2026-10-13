@@ -51,7 +51,6 @@ const LearningScene: React.FC<{ id: 'respect' | 'improve'; first: string; second
 	const view = teachingViewAt(scene, seconds);
 	const common = { file: scene.asset, sourceWidth: 1536, sourceHeight: 1024, y: 186, width: 760, height: 650, top: 322, areaHeight: 478 };
 	return <Shot id={id} seconds={seconds}>
-		<div style={{ position: 'absolute', left: 80, top: 70, fontSize: 32, letterSpacing: 1.2, color: palette.red }}>{scene.group}</div>
 		<DirectedHeading direction={headingDirections[id]} seconds={seconds - scene.start} />
 		<Heading style={{ top: 232, fontSize: 48, letterSpacing: -1 }}>{scene.subheading}</Heading>
 		{view.second ? <>

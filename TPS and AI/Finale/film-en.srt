@@ -43,45 +43,41 @@ Reduce waiting and unnecessary work.
 Keep quality visible in one shared, working product.
 
 12
-00:00:43,500 --> 00:00:46,000
-The Toyota Way adds two principles.
-
-13
 00:00:46,000 --> 00:00:49,500
 Respect for People develops independent thinkers.
 
-14
+13
 00:00:49,500 --> 00:00:52,100
 Through challenge, teamwork, and support.
 
-15
+14
 00:00:52,100 --> 00:00:55,500
 Continuous Improvement turns each response into learning.
 
-16
+15
 00:00:55,500 --> 00:01:01,000
 Reduce rework and changeover cost. Make the next useful change easier.
 
-17
+16
 00:01:01,000 --> 00:01:05,000
 Safeguards free attention. Freedom grows capability.
 
-18
+17
 00:01:05,000 --> 00:01:10,000
 Capability earns trust. Trust enables the next responsible response.
 
-19
+18
 00:01:10,000 --> 00:01:11,600
 So look beyond output.
 
-20
+19
 00:01:11,600 --> 00:01:15,500
 Are teams more freed than constrained by what they've built?
 
-21
+20
 00:01:15,500 --> 00:01:18,500
 Can we entrust them with the next real problem?
 
-22
+21
 00:01:18,500 --> 00:01:23,000
 Build the product. Grow the people. Keep learning.

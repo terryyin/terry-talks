@@ -51,18 +51,19 @@ it('burns in each source clause with its authored phrase break at starts, midpoi
 	}
 });
 
-it('keeps Toyota Way separate from the operational pillars and connects responsibility and authority to the same people', () => {
+it('connects responsibility and authority to the same people, then explains respect and kaizen within the TPS film', () => {
 	const agency = finaleAt(31).picture;
 	expect(normalized(agency.querySelector('[data-scene]')!.textContent)).toContain('Responsibility + authority');
 	expect(normalized(agency.querySelector('[data-scene]')!.textContent)).toContain('With the same people.');
 	expect(agency.querySelector('[data-illustration-view="people-and-shared-product"]')).not.toBeNull();
-	for (const [id, heading] of [['respect', 'Respect for People'], ['improve', 'Continuous Improvement']] as const) {
+	for (const [id, heading] of [['respect', 'Respect for People'], ['improve', 'Kaizen']] as const) {
 		const scene = sceneById(id);
 		const picture = finaleAt(scene.start + 1).picture;
-		expect(normalized(picture.querySelector('[data-scene]')!.textContent)).toContain('Toyota Way');
 		expect(normalized(picture.querySelector('[data-scene]')!.textContent)).toContain(heading);
-		expect(film.sources.way.boundary).toContain('broader Toyota Way principles');
+		expect(picture.textContent).not.toContain('Toyota Way');
 	}
+	expect(normalized(finaleAt(sceneById('improve').start + 1).picture.querySelector('[data-scene]')!.textContent)).toContain('Continuous improvement.');
+	expect(finaleAt(44).picture.querySelector('[data-testid="film-caption"]')!.textContent).toBe('');
 });
 
 it('preserves every source illustration and keeps each clause tied to an explicit declared source', () => {

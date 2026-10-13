@@ -123,9 +123,31 @@ def performance(record, prepared):
         placed_words.extend(move(w, offset) for w in ending["words"])
     composed = WORK / "cedar-composed.wav"
     write_pcm(composed, pcm, RATE)
-    verify(composed, record["preparedSha256"])
-    if placed_words != record["words"]:
+    verify(composed, record.get("fullPreparedSha256", record["preparedSha256"]))
+    if placed_words != record.get("fullWords", record["words"]):
         raise ValueError("Composed words differ from saved actual audio measurements.")
+    if record.get("omissions"):
+        omitted = set()
+        for clause in record["omissions"]:
+            first, last = word_range(placed_words, clause["firstToken"], clause["tokenCount"])
+            exact_script(clause["text"], " ".join(w["word"] for w in placed_words[first:last]),
+                         "Complete omitted clause")
+            a, b = round(clause["sourceStart"] * RATE), round(clause["sourceEnd"] * RATE)
+            if not (0 <= a < b <= len(pcm)):
+                raise ValueError("Omitted clause has invalid source bounds.")
+            if a / RATE > placed_words[first]["start"] or b / RATE < placed_words[last - 1]["end"]:
+                raise ValueError("Omission does not contain the complete measured clause.")
+            for seam in (a, b):
+                if max(abs(x) for x in pcm[seam - 240:seam + 240]) > 520:
+                    raise ValueError("Omitted clause seam is not verified quiet audio.")
+            pcm[a:b] = array("h", [0] * (b - a))
+            omitted.update(range(first, last))
+        selected_words = [w for index, w in enumerate(placed_words) if index not in omitted]
+        if selected_words != record["words"]:
+            raise ValueError("Selected words differ from saved omission evidence.")
+        selected = WORK / "cedar-selected.wav"
+        write_pcm(selected, pcm, RATE)
+        verify(selected, record["preparedSha256"])
     return pcm
 
 

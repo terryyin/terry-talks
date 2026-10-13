@@ -46,12 +46,13 @@ supports abnormality detection and stopping, less continuous watching, and
 synchronized production of what is needed at the required time and quantity.
 Minimum ready stocks remain compatible with Just in time.
 
-[Toyota Way 2001](https://www.toyota-global.com/company/history_of_toyota/75years/data/conditions/philosophy/toyotaway2001.html)
-identifies **Continuous Improvement** and **Respect for People** as the broader
-Toyota Way principles. They are not additional operating pillars on the TPS
-house. [Fujio Cho's 2012 message](https://www.toyota-global.com/company/history_of_toyota/75years/message/index.html)
-connects respect with developing independent thinkers and improving the work.
-These primary sources were checked on 13 October 2026.
+[Toyota's TPS explanation](https://global.toyota/en/company/vision-and-philosophy/production-system/)
+connects daily **kaizen** with easier work, human wisdom and developing people
+who can think independently. The film explains kaizen as continuous improvement.
+[Fujio Cho's 2012 message](https://www.toyota-global.com/company/history_of_toyota/75years/message/index.html)
+connects respect with independent thinking and improving the work. The film
+keeps both principles within Terry's TPS argument without introducing another
+framework. These primary sources were checked on 13 October 2026.
 
 The film's cost claim is reduction of waste, waiting, rework and the burden of
 the next change. It promises no automatic minimum total cost, zero inventory,
