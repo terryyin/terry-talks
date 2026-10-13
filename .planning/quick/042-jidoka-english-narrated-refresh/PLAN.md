@@ -127,3 +127,18 @@ Concurrent Just in time work was committed and published by its owner while
 this revision was prepared. Before our commit, `origin/master` is verified at
 `3ffe9f7fb5a35f77ada16e639033edf64835c38f`; this is the increment's publication
 base. The original starting revision remains the intent/attribution baseline.
+
+## Execution complete
+
+Product advice: no change. The independent product review found no required
+correction, architecture drift or test consolidation; English-only improvements
+support current filmmaking direction. The saved narration and film-specific
+caption policy reuse shared primitives coherently. Process review was skipped.
+Artistic satisfaction and subjective voice quality remain Terry's review.
+
+Implementation `f012c0ce4d1f3bbfcbca0cdee5ddab27e1278915` was accepted on
+`origin/master`. Its CI run 38348566485 was cancelled before jobs started when
+the newer unrelated preparation revision `beadbbb303c608fa9604a218684d93c05dc0dcd6`
+started run 38348585099 under the workflow's cancel-in-progress concurrency rule.
+This is evidenced supersession, not passing validation. The final applicable
+revision will be registered on this coordinator's retained observer.
