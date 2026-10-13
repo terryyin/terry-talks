@@ -19,6 +19,11 @@ restore the original take. Keep performance and translations in their existing
 homes. The stage's translation and scale move connected action together, including flight
 paths and their endpoints; the captions have separate bounds, sizes and wrapping.
 
+Keep square geometry and its default presentation stable: ATDD, Feature Teams,
+Problem Decomposition and other Story Impact editions share those helpers.
+Edition staging belongs in the authored presentation; narration, beat order,
+caption content and the release clock stay with the shared performance.
+
 Run these commands from the repository root:
 
 ```bash
@@ -49,6 +54,11 @@ export uses `Chalkboard SE` for English and `Hiragino Kaku Gothic ProN` for
 Japanese. The fallback stacks are declared in `layout.ts` and `ja.ts`. To
 reproduce this take, keep those fonts available; another fallback changes text
 shaping and needs a fresh check of both languages and labels at 360×640.
+
+Native renders can vary at antialiased text edges even with unchanged inputs.
+A full PNG comparison therefore needs qualification alongside composition,
+timing and decoded-audio checks; a small raster difference alone does not
+establish a presentation change. Preserve the comparison tool's actual verdict.
 
 After editing the master, inspect the customer and domain labels, every caption
 hold, the flight and impact extremes, the full History box, both ending outlines
