@@ -12,11 +12,13 @@ import { Freedom } from '../tpsAndAi/Freedom';
 import { Closing } from '../tpsAndAi/Closing';
 import { durationInFrames, film, sceneFrames, startFrame } from '../tpsAndAi/film';
 import { FilmLanguage, FilmLanguageProvider } from '../tpsAndAi/language';
+import { englishScoreVolumeAt } from '../tpsAndAi/englishDirection';
 
 export const TPSFilm: React.FC<{ language?: FilmLanguage }> = ({ language = 'en' }) => {
 	const { fps } = useVideoConfig();
 	return <FilmLanguageProvider language={language}><Paper>
-		<Audio src={staticFile('assets/tps-and-ai/score.wav')} volume={0.75} />
+		<Audio src={staticFile('assets/tps-and-ai/score.wav')} volume={language === 'en' ? englishScoreVolumeAt : 0.75} />
+		{language === 'en' ? <Audio src={staticFile('assets/tps-and-ai/narration-en.wav')} /> : null}
 		<Sequence name="Jidoka: Free to Move On" from={startFrame('hook')} durationInFrames={sceneFrames('hook')} premountFor={fps}><Hook /></Sequence>
 		<Sequence name="Bound to yesterday" from={startFrame('burden')} durationInFrames={sceneFrames('burden')} premountFor={fps}><Burden /></Sequence>
 		<Sequence name="Toyota Production System" from={startFrame('house')} durationInFrames={sceneFrames('house')} premountFor={fps}><House /></Sequence>

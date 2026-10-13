@@ -10,14 +10,18 @@ attention for the next needed problem.
 **86 seconds at 30 fps, 1080 × 1080**, including a three-second ending hold.
 Its **133 English caption words in 19 timed ranges** and their Japanese,
 Traditional Chinese and Thai translations carry the complete argument with sound off.
-There is no narration. Each caption keeps English in `spoken`, Japanese in
+The English edition also has Cedar synthetic narration; the other editions retain
+captions and music. Each caption keeps English in `spoken`, Japanese in
 `translations.ja`, Traditional Chinese in `translations['zh-Hant']` and Thai in
 `translations.th`, beside
 the same `start`, `end` and `sourceIds`. English `lineBreakAfter` counts words
 before an authored display break; the translated editions use
 authored newline breaks. All four SRTs retain their wording and the same intervals.
 
-The editions share one scene tree, choreography, paintings, loom clip and music.
+The editions share one scene tree, caption clock, paintings, loom clip and music.
+The English edition adds directed type, successive removal of redundant parts
+and a gentle title arrival through the existing type and beat samplers. Localized
+editions retain their approved direction.
 [`language.tsx`](../terry-moves/src/tpsAndAi/language.tsx) keeps adjacent screen
 wording in a private catalog and selects it through the language hooks and
 provider used by those shared scene components. Maintain all four languages
@@ -127,7 +131,8 @@ to English.
 
 Each render command regenerates the shared score and its language's SRT,
 exports H.264/yuv420p/bt709 MP4 with AAC audio and four rendering workers, then
-renders **frame 0** as the poster. Stable delivery filenames are:
+renders **frame 0** as the poster. The English command first reproduces and verifies
+its retained narration offline. Stable delivery filenames are:
 
 | File | English | Japanese | Traditional Chinese |
 | --- | --- | --- | --- |
@@ -173,6 +178,52 @@ All other required explanation is also retained visibly without sound.
 Rendered files live in ignored `out/`; source inputs, retained media and
 deterministic score are checked in. These films need no network asset or voice
 service at render time.
+
+## English narrated revision
+
+The 2026-10-13 English edition preserves the approved 86-second clock and every
+caption. At 56 seconds, known rules, simple checks and the closed STOP appear
+together; clear evidence arrives at 61 seconds. Three redundant outlines then
+disappear in sequence, leaving necessary behavior and self-protection. The
+conclusion's heading settles before the final three-second credit hold. These
+changes use `typographyTimeline` and `beatTimeline` in
+[`englishDirection.ts`](../terry-moves/src/tpsAndAi/englishDirection.ts), while the
+original localized picture paths stay intact.
+
+English speech uses **Cedar**, generated with OpenAI `gpt-4o-mini-tts`. It is a
+synthetic narrator, not a recording or imitation of Terry. The original continuous
+take is `public/assets/tps-and-ai/cedar-take-en.wav`; the mastered, caption-aligned
+86-second track is `narration-en.wav`. [jidoka-narration.json](jidoka-narration.json)
+retains acting direction, take and output hashes, measured word boundaries and
+the 19 complete clause placements. ASR times locate each clause boundary; actual
+waveform quiet gaps determine the cut, with 50ms of quiet room on both sides.
+A gap must also lie between the measured boundary words, so an internal sentence
+pause cannot substitute for a missing clause boundary. A missing quiet gap or
+overflowing clause is rejected. Each clause stays within its existing caption
+window, with all words and internal pauses retained. English music plays at 0.22
+under narration and returns towards 0.75 over the closing hold; translated
+editions keep their original 0.75 score and have no English voice track.
+
+Reproduce without network access or another paid request:
+
+```sh
+python3 scripts/jidoka-narration.py
+pnpm --dir terry-moves render:tps-and-ai
+```
+
+Only explicit `--generate` makes a new voice request and refuses to overwrite an
+existing take. `--measure` can remeasure an existing take without generating
+another performance. Both require the OpenAI Python SDK and configured credential;
+ordinary reproduction requires only Python, ffmpeg and the retained files.
+
+The selected Whisper measurement recognized the full script, then hallucinated
+extra tokens over 0.02 seconds of measured digital silence (peak 1 of 32768).
+The raw transcript and words remain in the record, beside the audited prefix and
+the precise correction. The producer permits this correction only after matching
+the complete script prefix and proving that the trailing tokens occupy silence;
+an audible addition or substituted word is rejected. No word in the recording
+was replaced or omitted. Transcript, timing and waveform checks support word
+coverage and fit; they do not certify human listening quality.
 
 ## Thai edition
 

@@ -9,7 +9,7 @@
     "loomHoldAt": 9,
     "contrastDissolve": 0.6
   },
-  "voice": "No narration; English captions carry the complete argument.",
+  "voice": "English: Cedar (OpenAI synthetic narration, not Terry’s recorded voice); other editions retain captions and music.",
   "music": "Original sparse plucked oscillator and open-fifth score, remapped to the Jidoka scene clock.",
   "sources": {
     "diagnostic": {

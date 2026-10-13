@@ -1,84 +1,9 @@
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
-import { RemotionRoot } from '../../src/Root';
 import { film } from '../../src/tpsAndAi/film';
+import { chineseAt, editionAt, englishAt, japaneseAt, registerEditions, registration } from './registeredFilmHarness';
 
-type Registration = {
-	id: string;
-	component: React.ComponentType;
-	defaultProps?: Record<string, unknown>;
-	durationInFrames: number;
-	fps: number;
-	width: number;
-	height: number;
-};
-type SequenceCue = { from: number; durationInFrames: number; name?: string; components: unknown[] };
-type Transport = {
-	frame: number;
-	config: Omit<Registration, 'component' | 'defaultProps'>;
-	registrations: Registration[];
-	sequences: SequenceCue[];
-};
-
-// Replace Remotion's registration/player/media boundaries. The Root, selected
-// film components, language provider, scene components and caption wiring run.
-// Sequence children receive their local frame, as they do in the real player.
-jest.mock('remotion', () => {
-	const React = jest.requireActual<typeof import('react')>('react');
-	const offset = React.createContext(0);
-	const transport: Transport = {
-		frame: 0,
-		config: { id: '', durationInFrames: 2580, fps: 30, width: 1080, height: 1080 },
-		registrations: [],
-		sequences: [],
-	};
-	return {
-		...jest.requireActual('remotion'),
-		__editionTestTransport: transport,
-		Composition: (registration: Registration) => { transport.registrations.push(registration); return null; },
-		Folder: ({ children }: React.PropsWithChildren) => <>{children}</>,
-		Sequence: ({ from = 0, durationInFrames = Infinity, name, children }: React.PropsWithChildren<{ from?: number; durationInFrames?: number; name?: string }>) => {
-			const absoluteFrom = React.useContext(offset) + from;
-			transport.sequences.push({
-				from: absoluteFrom,
-				durationInFrames,
-				name,
-				components: React.Children.toArray(children).map((child) => React.isValidElement(child) ? child.type : typeof child),
-			});
-			if (transport.frame < absoluteFrom || transport.frame >= absoluteFrom + durationInFrames) return null;
-			return <offset.Provider value={absoluteFrom}>{children}</offset.Provider>;
-		},
-		useCurrentFrame: () => transport.frame - React.useContext(offset),
-		useVideoConfig: () => transport.config,
-		Img: (props: React.ComponentProps<'img'>) => React.createElement('img', props),
-		Audio: ({ src }: { src: string }) => React.createElement('audio', { src }),
-		OffthreadVideo: (props: React.ComponentProps<'video'>) => React.createElement('video', props),
-		Freeze: ({ frame, children }: React.PropsWithChildren<{ frame: number }>) => <div data-freeze-frame={frame}>{children}</div>,
-	};
-});
-
-const transport = (jest.requireMock('remotion') as { __editionTestTransport: Transport }).__editionTestTransport;
-const registration = (id: string): Registration => {
-	const matching = transport.registrations.filter((entry) => entry.id === id);
-	expect(matching).toHaveLength(1);
-	return matching[0];
-};
-const editionAt = (id: string, seconds: number) => {
-	const selected = registration(id);
-	const { component: Component, defaultProps, ...config } = selected;
-	transport.config = config;
-	transport.frame = Math.round(seconds * config.fps);
-	transport.sequences = [];
-	const picture = document.createElement('div');
-	picture.innerHTML = renderToStaticMarkup(<Component {...defaultProps} />);
-	return { picture, sequences: [...transport.sequences] };
-};
-const englishAt = (seconds: number) => editionAt('TPSAndAIFilm', seconds);
-const japaneseAt = (seconds: number) => editionAt('TPSAndAIFilmJa', seconds);
-const chineseAt = (seconds: number) => editionAt('TPSAndAIFilmZhHant', seconds);
 const normalized = (text: string | null) => text?.replace(/\s+/g, ' ').trim();
 
-beforeAll(() => { renderToStaticMarkup(<RemotionRoot />); });
+beforeAll(registerEditions);
 
 describe('the registered English, Japanese and Traditional Chinese Jidoka editions', () => {
 	it('makes all three complete films selectable from the real Root with the accepted shared clock and square format', () => {
@@ -104,7 +29,7 @@ describe('the registered English, Japanese and Traditional Chinese Jidoka editio
 		for (const { picture } of [english, japanese, chinese]) {
 			expect([...picture.querySelectorAll('[data-scene]')].map((node) => node.getAttribute('data-scene'))).toEqual([scene]);
 		}
-		const media = (picture: HTMLElement) => [...picture.querySelectorAll('img,video,audio')].map((node) => ({
+		const media = (picture: HTMLElement) => [...picture.querySelectorAll('img,video')].map((node) => ({
 			tag: node.tagName, src: node.getAttribute('src'), style: node.getAttribute('style'), muted: node.hasAttribute('muted'), loop: node.hasAttribute('loop'),
 		}));
 		expect(media(japanese.picture)).toEqual(media(english.picture));
@@ -115,6 +40,7 @@ describe('the registered English, Japanese and Traditional Chinese Jidoka editio
 			expect(chinese.picture.querySelector('[data-source-frame]')!.getAttribute('data-source-frame')).toBe(english.picture.querySelector('[data-source-frame]')!.getAttribute('data-source-frame'));
 		}
 	});
+
 
 	it.each([
 		{ scene: 'hook', seconds: 0, english: ['Jidoka', 'Free to Move On', 'STOP'], japanese: ['自働化', '次へ進む自由', '停止'], chinese: ['自働化', '自由前進', '停止'] },

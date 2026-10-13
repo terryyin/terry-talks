@@ -2,6 +2,7 @@ import React from 'react';
 import { AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { captionAt, SceneId, sceneById } from './film';
 import { useFilmLanguage, useLocalizedFilmFonts } from './language';
+import type { TypePose } from '../typographyFilm/direction';
 
 export const palette = { paper: '#ece6dc', ink: '#262420', gray: '#5c564e', red: '#b33a2b' };
 export const serif = 'Georgia, "Times New Roman", serif';
@@ -15,6 +16,7 @@ export const Paper: React.FC<React.PropsWithChildren> = ({ children }) => { cons
 export const Art: React.FC<{ file: string; style?: React.CSSProperties }> = ({ file, style }) => <Img src={staticFile(`assets/tps-and-ai/${file}`)} style={{ position: 'absolute', objectFit: 'contain', ...style }} />;
 export const Brand: React.FC = () => <Art file="odd-e-logo.png" style={{ left: 934, top: 40, width: 72, height: 74 }} />;
 export const Heading: React.FC<React.PropsWithChildren<{ style?: React.CSSProperties }>> = ({ children, style }) => { const fonts = useLocalizedFilmFonts(); return <div style={{ position: 'absolute', left: 78, right: 100, top: 122, fontFamily: serif, fontSize: 82, lineHeight: 1.08, letterSpacing: -2.5, ...style, ...(fonts ? { fontFamily: fonts.serif, letterSpacing: 0, fontSize: Math.min(Number(style?.fontSize ?? 82), 74) } : {}) }}>{children}</div>; };
+export const typePoseStyle = (pose?: Pick<TypePose['groups'][number], 'opacity' | 'y'>): React.CSSProperties | undefined => pose ? { opacity: pose.opacity, transform: `translateY(${pose.y}px)` } : undefined;
 
 /** The script owns phrase breaks; formatting does not change subtitle wording. */
 const captionLines = (text: string, lineBreakAfter?: number): string => {
