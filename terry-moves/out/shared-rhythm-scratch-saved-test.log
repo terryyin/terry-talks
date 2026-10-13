@@ -1,0 +1,10 @@
+$ node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand tests/musicAndSound/scratchSaved.spec.tsx
+(node:10489) [THREE_CJS_DEPRECATED] DeprecationWarning: `require("three")` is deprecated and will be removed.
+Replace `const THREE = require("three")` with `import * as THREE from "three"`.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:10489) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        3.259 s
+Ran all test suites matching tests/musicAndSound/scratchSaved.spec.tsx.

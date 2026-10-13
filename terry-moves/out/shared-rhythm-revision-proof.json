@@ -1,0 +1,561 @@
+{
+  "composition": "SharedRhythmRevision",
+  "inputSha256": {
+    "src/musicAndSound/baseline.ts": "f62d2d3967995d6da9f4e4b61e80815b5fa2aa90d3a54d3b6e5bf3e3dab00c08",
+    "src/musicAndSound/script.ts": "9307138bebd5b94bd8e71fd5f9d520e3e6f03b1f1b132ac2da8098b1f4940f57",
+    "src/musicAndSound/direction.ts": "89ddde2a4cb42a8e617cc0e2b8f77f547410b70ab378b0b0b0a4ad909d083e48",
+    "src/musicAndSound/score.ts": "4bd477d9f3da0c96ba60fbb65f74a8da68a49bef4794897f947bbad65899f0eb",
+    "public/assets/shared-rhythm/baseline.wav": "746c29f5128993dc373535728f89774c82f78249e86a9daf756a37d6cdf986e8",
+    "public/assets/shared-rhythm/baseline.json": "baba49204b6a468514243978d424862a971598324865d70ce97407497b169c93"
+  },
+  "revisionSourceSha256": "a59cef36a6029c8999c9fe7f6e2b4df26f6fb67143fddbc0d13bb2caed534926",
+  "revisionWaveSha256": "9ff2fa0cc4b0e9579f2fdac91b7e748fab48f7a6c448ff864281eeff4811c030",
+  "revisionManifestSha256": "56fd60c46d9fc7d63b812fe07a691615662bc1c5d4b97ea2d4403766416083e9",
+  "baselineReplayDecodedWaveSha256": "beaef73612c44aa5967031d1d8c4abbbfb8587b70b78c57768366a66d91027c2",
+  "revisionDecodedWaveSha256": "3aad12a519841a7c3c835fa7d4b3849d13d07df1474580b5a60d9559dc390e91",
+  "baselineReplayExactFrames": [
+    17,
+    18,
+    143,
+    144,
+    215,
+    216,
+    217,
+    287,
+    288,
+    432,
+    576,
+    750,
+    791,
+    792,
+    900,
+    950,
+    1079
+  ],
+  "revisionReplayExactFrames": [
+    17,
+    18,
+    143,
+    144,
+    215,
+    216,
+    217,
+    224,
+    225,
+    226,
+    287,
+    288,
+    432,
+    576,
+    750,
+    791,
+    792,
+    900,
+    950,
+    1079
+  ],
+  "onsets": {
+    "alone-first": {
+      "frame": 18,
+      "seconds": 0.6001587301587301,
+      "movedFrames": 0.0
+    },
+    "answer-arrives": {
+      "frame": 144,
+      "seconds": 4.8001587301587305,
+      "movedFrames": 0.0
+    },
+    "answer-turns": {
+      "frame": 225,
+      "seconds": 7.500113378684807,
+      "movedFrames": 8.999999999999995
+    },
+    "spark-arrives": {
+      "frame": 288,
+      "seconds": 9.60013605442177,
+      "movedFrames": 0.0
+    },
+    "ensemble-pulse-one": {
+      "frame": 576,
+      "seconds": 19.200090702947847,
+      "movedFrames": 0.0
+    },
+    "return-pulse": {
+      "frame": 792,
+      "seconds": 26.400090702947846,
+      "movedFrames": 0.0
+    },
+    "resolve-pulse": {
+      "frame": 900,
+      "seconds": 30.000090702947844,
+      "movedFrames": 0.0
+    }
+  },
+  "frames": {
+    "17": {
+      "pixelSha256": "c1a5c5f4369a2ebe04e032ea01745ac9de9b010e7431ee9cf1a7d5ee3dd6cfee",
+      "bounds": {
+        "pulse": [
+          270,
+          542,
+          429,
+          719
+        ],
+        "answer": null,
+        "spark": null
+      }
+    },
+    "18": {
+      "pixelSha256": "69583f258b6c7d7b0dd58fde9e6365e6a2561140cb5685401417ee839ae7ccc3",
+      "bounds": {
+        "pulse": [
+          252,
+          578,
+          447,
+          721
+        ],
+        "answer": null,
+        "spark": null
+      }
+    },
+    "143": {
+      "pixelSha256": "1f9b84469d078783160fbe01bf6dabf2bc7bb9a6e92e7cbde11a570912f2d018",
+      "bounds": {
+        "pulse": [
+          266,
+          566,
+          433,
+          733
+        ],
+        "answer": null,
+        "spark": null
+      }
+    },
+    "144": {
+      "pixelSha256": "1bfae66ad60d1844e8d0d9c2808999b98acd06f34ecadba93c34bc8dbeff6ff0",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          680,
+          427,
+          859,
+          512
+        ],
+        "spark": null
+      }
+    },
+    "215": {
+      "pixelSha256": "0248af440ba4c91e6b4e3aff2e7c7c4b7ba7fe87b1ae5432771029a707acbfa6",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          693,
+          421,
+          846,
+          518
+        ],
+        "spark": null
+      }
+    },
+    "216": {
+      "pixelSha256": "b4f917035269725435e6d7c1eb9820da5a5a0d9483ca662a0c405772a1926054",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          693,
+          421,
+          846,
+          518
+        ],
+        "spark": null
+      }
+    },
+    "217": {
+      "pixelSha256": "8dc2e9dc0f1da0098acf4eaf5c32587b434a66f45eebb880446798f306d251ce",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          693,
+          421,
+          846,
+          518
+        ],
+        "spark": null
+      }
+    },
+    "224": {
+      "pixelSha256": "3bc646b29f888963af324cafaef4904c0fe2b0c3dfee6dc102dea8fbe5c557e6",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          696,
+          398,
+          843,
+          502
+        ],
+        "spark": null
+      }
+    },
+    "225": {
+      "pixelSha256": "46803f734005380280e2426a93cc06279f78c9aaa7dd1131b12069e4a5f9835e",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          677,
+          379,
+          862,
+          521
+        ],
+        "spark": null
+      }
+    },
+    "226": {
+      "pixelSha256": "5d080e8906b46c8c7eac2011af3265ea7614e814d4982c85c3ec1b3ec9beed39",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          681,
+          422,
+          858,
+          507
+        ],
+        "spark": null
+      }
+    },
+    "287": {
+      "pixelSha256": "b017c7ab257e528cf8fef6373288dd310802d62ca580f36a7ca29d86d4674f73",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          693,
+          421,
+          846,
+          518
+        ],
+        "spark": null
+      }
+    },
+    "288": {
+      "pixelSha256": "475a8320da034cd067dcff7f23486b58adb8360d7fc03d77ebef58b51a9fbe50",
+      "bounds": {
+        "pulse": [
+          202,
+          582,
+          337,
+          717
+        ],
+        "answer": [
+          471,
+          396,
+          608,
+          483
+        ],
+        "spark": [
+          736,
+          592,
+          883,
+          707
+        ]
+      }
+    },
+    "432": {
+      "pixelSha256": "c8057dd5b95497c509556f927c1d3c364173b8c482d59a92be6fed2d31c5cdd4",
+      "bounds": {
+        "pulse": [
+          206,
+          536,
+          373,
+          663
+        ],
+        "answer": [
+          466,
+          453,
+          613,
+          546
+        ],
+        "spark": [
+          720,
+          530,
+          859,
+          669
+        ]
+      }
+    },
+    "576": {
+      "pixelSha256": "ac90ffc9cc5a708abf15d2ec4d106d3d7e1215b6de82d352a2cff955ac1c4977",
+      "bounds": {
+        "pulse": [
+          206,
+          506,
+          373,
+          633
+        ],
+        "answer": [
+          457,
+          528,
+          622,
+          611
+        ],
+        "spark": [
+          712,
+          506,
+          867,
+          633
+        ]
+      }
+    },
+    "750": {
+      "pixelSha256": "db7e497763db5f78719677444b09f744aa57493b7f227b6c7f3079cf77bebad1",
+      "bounds": {
+        "pulse": [
+          216,
+          496,
+          363,
+          643
+        ],
+        "answer": [
+          466,
+          523,
+          613,
+          616
+        ],
+        "spark": [
+          720,
+          500,
+          859,
+          639
+        ]
+      }
+    },
+    "791": {
+      "pixelSha256": "0a81f1626dc195d672fcb90c1596f7cf2ff9f02a08898d47b1ffe90b1ceeeb52",
+      "bounds": {
+        "pulse": [
+          216,
+          496,
+          363,
+          643
+        ],
+        "answer": [
+          466,
+          523,
+          613,
+          616
+        ],
+        "spark": [
+          720,
+          500,
+          859,
+          639
+        ]
+      }
+    },
+    "792": {
+      "pixelSha256": "c416c9544dc47d8b4b51003c68d6a910a4d47850bd28b598dca9c64c6b216c18",
+      "bounds": {
+        "pulse": [
+          198,
+          482,
+          381,
+          617
+        ],
+        "answer": [
+          450,
+          505,
+          629,
+          595
+        ],
+        "spark": [
+          706,
+          480,
+          873,
+          619
+        ]
+      }
+    },
+    "900": {
+      "pixelSha256": "5c2f80bec4d047c900c3305cb5d21d08fcdb76f1643ff44c4cf749297fd9621b",
+      "bounds": {
+        "pulse": [
+          200,
+          480,
+          379,
+          619
+        ],
+        "answer": [
+          451,
+          504,
+          628,
+          595
+        ],
+        "spark": [
+          706,
+          480,
+          873,
+          619
+        ]
+      }
+    },
+    "950": {
+      "pixelSha256": "511b0f962956ca67167acd0db4f1548bfaf16fcc2705dd82086b700c1e9ca2c8",
+      "bounds": {
+        "pulse": [
+          210,
+          470,
+          369,
+          629
+        ],
+        "answer": [
+          460,
+          499,
+          619,
+          600
+        ],
+        "spark": [
+          714,
+          474,
+          865,
+          625
+        ]
+      }
+    },
+    "1079": {
+      "pixelSha256": "fdfef474005a254e43bd11f1f920853d9dacb023723e28377ffa7b60e69344e9",
+      "bounds": {
+        "pulse": [
+          210,
+          470,
+          369,
+          629
+        ],
+        "answer": [
+          460,
+          499,
+          619,
+          600
+        ],
+        "spark": [
+          714,
+          474,
+          865,
+          625
+        ]
+      }
+    }
+  },
+  "unchangedFrameRms": {
+    "17": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "18": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "143": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "144": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "287": [
+      0.3756475889861548,
+      0.2825637090234068,
+      0.3421643970707223
+    ],
+    "288": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "432": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "576": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "750": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "791": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "792": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "900": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "950": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "1079": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "decodedPeak": 15699,
+  "restPeak": 0,
+  "tailPeak": 0
+}

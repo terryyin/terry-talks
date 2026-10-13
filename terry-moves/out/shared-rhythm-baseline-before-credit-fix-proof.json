@@ -1,0 +1,409 @@
+{
+  "composition": "SharedRhythmBaseline",
+  "fps": 30,
+  "durationInFrames": 1080,
+  "inputSha256": {
+    "src/musicAndSound/baseline.ts": "f62d2d3967995d6da9f4e4b61e80815b5fa2aa90d3a54d3b6e5bf3e3dab00c08",
+    "src/musicAndSound/script.ts": "9307138bebd5b94bd8e71fd5f9d520e3e6f03b1f1b132ac2da8098b1f4940f57",
+    "src/musicAndSound/direction.ts": "89ddde2a4cb42a8e617cc0e2b8f77f547410b70ab378b0b0b0a4ad909d083e48",
+    "src/musicAndSound/score.ts": "4bd477d9f3da0c96ba60fbb65f74a8da68a49bef4794897f947bbad65899f0eb",
+    "public/assets/shared-rhythm/baseline.wav": "746c29f5128993dc373535728f89774c82f78249e86a9daf756a37d6cdf986e8",
+    "public/assets/shared-rhythm/baseline.json": "baba49204b6a468514243978d424862a971598324865d70ce97407497b169c93"
+  },
+  "decodedWavePath": "shared-rhythm-baseline-decoded.wav",
+  "decodedWaveSha256": "beaef73612c44aa5967031d1d8c4abbbfb8587b70b78c57768366a66d91027c2",
+  "onsets": {
+    "alone-first": {
+      "frame": 18,
+      "seconds": 0.6001587301587301,
+      "deltaFrames": 0.004761904761904079
+    },
+    "answer-arrives": {
+      "frame": 144,
+      "seconds": 4.8001587301587305,
+      "deltaFrames": 0.004761904761920732
+    },
+    "answer-turns": {
+      "frame": 216,
+      "seconds": 7.200113378684807,
+      "deltaFrames": 0.0034013605442062556
+    },
+    "spark-arrives": {
+      "frame": 288,
+      "seconds": 9.60013605442177,
+      "deltaFrames": 0.004081632653090139
+    },
+    "ensemble-pulse-one": {
+      "frame": 576,
+      "seconds": 19.200090702947847,
+      "deltaFrames": 0.0027210884354289533
+    },
+    "return-pulse": {
+      "frame": 792,
+      "seconds": 26.400090702947846,
+      "deltaFrames": 0.0027210884354289533
+    },
+    "resolve-pulse": {
+      "frame": 900,
+      "seconds": 30.000090702947844,
+      "deltaFrames": 0.002721088435322372
+    }
+  },
+  "restPeak": 0,
+  "tailPeak": 0,
+  "frames": {
+    "17": {
+      "path": "shared-rhythm-baseline-cue-01.png",
+      "pixelSha256": "c1a5c5f4369a2ebe04e032ea01745ac9de9b010e7431ee9cf1a7d5ee3dd6cfee",
+      "bounds": {
+        "pulse": [
+          270,
+          542,
+          429,
+          719
+        ],
+        "answer": null,
+        "spark": null
+      }
+    },
+    "18": {
+      "path": "shared-rhythm-baseline-cue-02.png",
+      "pixelSha256": "69583f258b6c7d7b0dd58fde9e6365e6a2561140cb5685401417ee839ae7ccc3",
+      "bounds": {
+        "pulse": [
+          252,
+          578,
+          447,
+          721
+        ],
+        "answer": null,
+        "spark": null
+      }
+    },
+    "143": {
+      "path": "shared-rhythm-baseline-cue-03.png",
+      "pixelSha256": "1f9b84469d078783160fbe01bf6dabf2bc7bb9a6e92e7cbde11a570912f2d018",
+      "bounds": {
+        "pulse": [
+          266,
+          566,
+          433,
+          733
+        ],
+        "answer": null,
+        "spark": null
+      }
+    },
+    "144": {
+      "path": "shared-rhythm-baseline-cue-04.png",
+      "pixelSha256": "1bfae66ad60d1844e8d0d9c2808999b98acd06f34ecadba93c34bc8dbeff6ff0",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          680,
+          427,
+          859,
+          512
+        ],
+        "spark": null
+      }
+    },
+    "215": {
+      "path": "shared-rhythm-baseline-cue-05.png",
+      "pixelSha256": "6e2b4ca5a6d57665f064aab3c736652396e428016f7ab1f3e2b31cb1c6054b14",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          696,
+          398,
+          843,
+          502
+        ],
+        "spark": null
+      }
+    },
+    "216": {
+      "path": "shared-rhythm-baseline-cue-06.png",
+      "pixelSha256": "0d36b2ab5e5e3fa117c0df85b4d04ea220b5d8e97c9e7831e0f8d179b9cde555",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          676,
+          374,
+          863,
+          557
+        ],
+        "spark": null
+      }
+    },
+    "217": {
+      "path": "shared-rhythm-baseline-cue-07.png",
+      "pixelSha256": "7e438a071ca136ccc743c7e2d8dcd0ea3ec155a511736416d477705bbbf1d746",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          681,
+          422,
+          858,
+          507
+        ],
+        "spark": null
+      }
+    },
+    "287": {
+      "path": "shared-rhythm-baseline-cue-08.png",
+      "pixelSha256": "01da5645d9e7f9f7973050c3a9371fd407ed234b1553efbf0886a9114a8bad96",
+      "bounds": {
+        "pulse": [
+          234,
+          534,
+          385,
+          685
+        ],
+        "answer": [
+          693,
+          421,
+          846,
+          518
+        ],
+        "spark": null
+      }
+    },
+    "288": {
+      "path": "shared-rhythm-baseline-cue-09.png",
+      "pixelSha256": "475a8320da034cd067dcff7f23486b58adb8360d7fc03d77ebef58b51a9fbe50",
+      "bounds": {
+        "pulse": [
+          202,
+          582,
+          337,
+          717
+        ],
+        "answer": [
+          471,
+          396,
+          608,
+          483
+        ],
+        "spark": [
+          736,
+          592,
+          883,
+          707
+        ]
+      }
+    },
+    "432": {
+      "path": "shared-rhythm-baseline-cue-10.png",
+      "pixelSha256": "c8057dd5b95497c509556f927c1d3c364173b8c482d59a92be6fed2d31c5cdd4",
+      "bounds": {
+        "pulse": [
+          206,
+          536,
+          373,
+          663
+        ],
+        "answer": [
+          466,
+          453,
+          613,
+          546
+        ],
+        "spark": [
+          720,
+          530,
+          859,
+          669
+        ]
+      }
+    },
+    "576": {
+      "path": "shared-rhythm-baseline-cue-11.png",
+      "pixelSha256": "ac90ffc9cc5a708abf15d2ec4d106d3d7e1215b6de82d352a2cff955ac1c4977",
+      "bounds": {
+        "pulse": [
+          206,
+          506,
+          373,
+          633
+        ],
+        "answer": [
+          457,
+          528,
+          622,
+          611
+        ],
+        "spark": [
+          712,
+          506,
+          867,
+          633
+        ]
+      }
+    },
+    "750": {
+      "path": "shared-rhythm-baseline-cue-12.png",
+      "pixelSha256": "db7e497763db5f78719677444b09f744aa57493b7f227b6c7f3079cf77bebad1",
+      "bounds": {
+        "pulse": [
+          216,
+          496,
+          363,
+          643
+        ],
+        "answer": [
+          466,
+          523,
+          613,
+          616
+        ],
+        "spark": [
+          720,
+          500,
+          859,
+          639
+        ]
+      }
+    },
+    "791": {
+      "path": "shared-rhythm-baseline-cue-13.png",
+      "pixelSha256": "0a81f1626dc195d672fcb90c1596f7cf2ff9f02a08898d47b1ffe90b1ceeeb52",
+      "bounds": {
+        "pulse": [
+          216,
+          496,
+          363,
+          643
+        ],
+        "answer": [
+          466,
+          523,
+          613,
+          616
+        ],
+        "spark": [
+          720,
+          500,
+          859,
+          639
+        ]
+      }
+    },
+    "792": {
+      "path": "shared-rhythm-baseline-cue-14.png",
+      "pixelSha256": "c416c9544dc47d8b4b51003c68d6a910a4d47850bd28b598dca9c64c6b216c18",
+      "bounds": {
+        "pulse": [
+          198,
+          482,
+          381,
+          617
+        ],
+        "answer": [
+          450,
+          505,
+          629,
+          595
+        ],
+        "spark": [
+          706,
+          480,
+          873,
+          619
+        ]
+      }
+    },
+    "900": {
+      "path": "shared-rhythm-baseline-cue-15.png",
+      "pixelSha256": "5c2f80bec4d047c900c3305cb5d21d08fcdb76f1643ff44c4cf749297fd9621b",
+      "bounds": {
+        "pulse": [
+          200,
+          480,
+          379,
+          619
+        ],
+        "answer": [
+          451,
+          504,
+          628,
+          595
+        ],
+        "spark": [
+          706,
+          480,
+          873,
+          619
+        ]
+      }
+    },
+    "950": {
+      "path": "shared-rhythm-baseline-cue-16.png",
+      "pixelSha256": "88c86fff1e76a79d8e13792fd9805e49fe4e6c2f2223bb34e4cc5fe7218a5a56",
+      "bounds": {
+        "pulse": [
+          210,
+          470,
+          369,
+          629
+        ],
+        "answer": [
+          460,
+          499,
+          619,
+          600
+        ],
+        "spark": [
+          714,
+          474,
+          865,
+          625
+        ]
+      }
+    },
+    "1079": {
+      "path": "shared-rhythm-baseline-cue-17.png",
+      "pixelSha256": "cf27dcb64b7e8eb10a151daa6490464bb8e3644642909ca1ec562a3bd6479fbb",
+      "bounds": {
+        "pulse": [
+          210,
+          470,
+          369,
+          629
+        ],
+        "answer": [
+          460,
+          499,
+          619,
+          600
+        ],
+        "spark": [
+          714,
+          474,
+          865,
+          625
+        ]
+      }
+    }
+  }
+}
