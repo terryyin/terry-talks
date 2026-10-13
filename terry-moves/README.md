@@ -248,3 +248,7 @@ Export the pilot: `pnpm -C terry-moves render:illustrated-conversation:pilot`; f
 ## Cinematic bottleneck
 
 Select `CinematicBottleneck` in Studio for the silent 3D camera reveal. See [the film guide](src/cinematicShot/README.md) for script-owned stage/camera/light direction, the retained original and revised takes, and tested export and reproduction commands. The default selected take is revised.
+
+## Finding a shared rhythm
+
+Select `SharedRhythmBaseline` or `SharedRhythmRevision` in Studio for the 36-second instrumental film. See [the music and sound guide](src/musicAndSound/README.md) for cue-driven sound/motion, separately saved takes, explicit score generation, replay/export and authoring another passage.
