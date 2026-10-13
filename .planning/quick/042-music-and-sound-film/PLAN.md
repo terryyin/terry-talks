@@ -149,6 +149,12 @@ another passage using the supported motif/action vocabulary. Exercise that
 last editing example through the same composition in a reversible scratch
 change, then restore it. No second finished film is promised.
 
+## Execution complete
+
+Product advice: Keep the demonstrated film-local cue direction and saved-take workflow. Extend it when a selected film supplies a concrete need; no backlog change is recommended.
+
+Retrospective reviewed the original plan/source and published implementations `7ef07dc`, `1d15b57`, `09314e6`: no correction required. ADR-0000 respected; process review skipped by project default. Final CI is owned by the completion receipt, not this record.
+
 ## Accepted slice 1 proof
 
 - `SharedRhythmExcerpt`: 288 frames, 9.6 seconds, square 1080/30. Six tests via
