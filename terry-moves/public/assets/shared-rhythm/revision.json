@@ -1,0 +1,10 @@
+{
+  "take": "revision",
+  "audioPath": "assets/shared-rhythm/revision.wav",
+  "directionFingerprint": "rhythm-a5758934",
+  "synthesisVersion": "percussion-pluck-bell-1",
+  "fps": 30,
+  "durationInFrames": 1080,
+  "sampleRate": 44100,
+  "wavSha256": "9ff2fa0cc4b0e9579f2fdac91b7e748fab48f7a6c448ff864281eeff4811c030"
+}

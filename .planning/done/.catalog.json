@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "terry-moves-filmmaking_music-and-sound-film.json",
+      "identity": "terry-moves-filmmaking#music-and-sound-film",
+      "completedAt": "2026-10-13T13:09:36.323Z",
+      "blob": "c1e9f558dd240dbc70216ad9cdbcd8ff4fdd5f37"
+    },
+    {
       "fileName": "terry-moves-filmmaking_portrait-film-edition.json",
       "identity": "terry-moves-filmmaking#portrait-film-edition",
       "completedAt": "2026-10-13T04:53:57.275Z",

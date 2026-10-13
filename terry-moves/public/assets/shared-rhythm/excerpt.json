@@ -1,0 +1,10 @@
+{
+  "take": "excerpt",
+  "audioPath": "assets/shared-rhythm/excerpt.wav",
+  "directionFingerprint": "rhythm-576bb6da",
+  "synthesisVersion": "percussion-pluck-bell-1",
+  "fps": 30,
+  "durationInFrames": 288,
+  "sampleRate": 44100,
+  "wavSha256": "a9559996f60f40f7cf2f7aebbc6f89e1b40edbaabe2ea089403941f21a5e5885"
+}

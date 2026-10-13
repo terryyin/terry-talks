@@ -33,6 +33,7 @@ import { AnimeEngineerSceneComposition } from './animeCharacter/AnimeEngineerSce
 import { AnimeEngineerThoughtfulComposition } from './animeCharacter/AnimeEngineerThoughtful';
 import { TypographyFeedbackExampleComposition, TypographyOpeningCompositions, TypographyProblemBaselineComposition, TypographyProblemRevisionComposition } from './typographyFilm/TypographyFilm';
 import { GeographicalMapBaselineComposition, GeographicalMapOpeningComposition, GeographicalMapWideComparisonComposition } from './geographicalMap/GeographicalMapFilm';
+import { SharedRhythmBaselineComposition, SharedRhythmExcerptComposition, SharedRhythmRevisionComposition } from './musicAndSound/SharedRhythmFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -86,6 +87,9 @@ export const RemotionRoot: React.FC = () => {
 			<GeographicalMapOpeningComposition />
 			<GeographicalMapBaselineComposition />
 			<GeographicalMapWideComparisonComposition />
+			<SharedRhythmExcerptComposition />
+			<SharedRhythmBaselineComposition />
+			<SharedRhythmRevisionComposition />
 		</>
 	);
 };
