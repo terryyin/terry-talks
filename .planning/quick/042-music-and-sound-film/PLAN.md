@@ -36,11 +36,11 @@ cue revision; it adds no phrase-replacement promise.
   Package/lock files unchanged. No active Git hooks; selective formatting uses
   ESLint `--fix` on affected source files, followed by focused check-only lint.
 - Replanning is allowed within the original scope.
-- Studio: `http://localhost:3000`, command session `49424`, opened in Chrome.
+- Studio: `http://localhost:3000`, session `17029`; out review server `8767`, session `2011`.
 - CI: GitHub Actions `terryyin/terry-talks`, workflow `ci.yml` (ID `381584897`,
   name `CI`), observing the execution branch. Codex coordinator `koharu-music`,
-  directory `/tmp/dough-ci-501/watch-NVwGUY`, PID `3970`, session `29306`,
-  yielded cell `2`. Resumed after confirmed shutdown of the prior observer; claim CI unobserved.
+  directory `/tmp/dough-ci-501/watch-jNvhW7`, PID `34486`, session `93514`,
+  yielded cell `22`. Prior observer shutdown confirmed; claim CI unobserved.
 
 ## Current decisions and reuse
 
@@ -116,7 +116,7 @@ retained full-film revision; do not claim it from this excerpt alone.
 
 ### 2. Export the complete sound-led film
 Type: Behavior
-Status: planned
+Status: done
 Proof: A full roughly 36-second baseline MP4 shows the complete arc, coordinated
 sound/action, intentional pause and resolved ending. All passages play at normal
 speed with sound, at full size and 360×360, and metadata matches the composition.
@@ -169,41 +169,40 @@ change, then restore it. No second finished film is promised.
 
 ## Accepted slice 1 proof
 
-- Registered `SharedRhythmExcerpt`: 288 frames (9.6 seconds), 1080×1080 at
-  30 fps. `script.ts` stages coral disc/drum, teal bar/pluck and amber ring/bell.
-  `rhythmTimeline` feeds both synthesis and picture. `matchingRhythmScore`
-  rejects stale direction/source/FPS selections at the component and export
-  metadata boundaries; ordinary preview/export only reads saved audio.
-- `pnpm -C terry-moves test:unit --runInBand tests/musicAndSound`
-  passed all six tests; `pnpm -C terry-moves typecheck` passed. Inspected tests
-  mount the real Root registration, cue compiler, score guard and SVG renderer;
-  only Remotion transport/registration/playback is substituted. The scratch
-  passage test proves picture vocabulary, not a newly saved score.
-- Rendered `terry-moves/out/shared-rhythm-excerpt.mp4`, H.264/yuv420p/BT.709,
-  1080×1080 at 30 fps with AAC, 9.6 seconds. Decoded cue PNGs and PCM are under
-  the same ignored directory. `inspect-shared-rhythm-excerpt.py` observes
-  sound onsets at frames 18/72/144/252 within 0.005 of a frame, silent rest
-  interior, pulse squash at 18, answering cut at 72 and third motif at 144.
-- Chrome Studio: normal-speed playback ran at approximately 29.8 fps. Direct
-  frame 72 shows `answer-enters`, `translate(730 570) scale(1.2 0.84)`; all
-  three performers hold at frame 230. Backward seek 230→72 reproduces exact
-  transforms and impact marker. Encoded frame 72 visually agrees with Studio.
-- Encoded MP4 played to its ending, unmuted at 1×, at 360×360 and 1080×1080
-  in the temporary local review page `http://127.0.0.1:8767/shared-rhythm-review.html`
-  (server session `64302`). Shapes and title remain readable. These are picture
-  and playback-state observations; no listening verdict is claimed.
-- Independent refactor completed; only exact-silence assertions were consolidated.
-  All six tests passed again. Production, saved media and render proof unchanged.
-- Recovered the missing formatting receipt by running the same selective ESLint
-  preparation to terminal exit 0; check-only lint and `git diff --check` passed.
-- Terry accepted the excerpt with “LGTM” and “SGTM” on 2026-10-13; G2 resolved.
+- `SharedRhythmExcerpt`: 288 frames, 9.6 seconds, square 1080/30. Six tests via
+  `pnpm -C terry-moves test:unit --runInBand tests/musicAndSound`, typecheck,
+  refactor, selective ESLint and whitespace checks passed. Actual Root, cue
+  compiler, guard, SVG and synthesis run; only Remotion transport is substituted.
+- Actual H.264/yuv420p/BT.709/AAC export: `out/shared-rhythm-excerpt.mp4`.
+  Decoded targets 18/72/144/252 align within 0.005 frame; rest is silent.
+  CLI stale export refused before output. Studio direct/backward 230→72 seeks
+  reproduce `answer-enters` and transforms; encoded picture agrees.
+- MP4 played at 1×, unmuted at 360/1080. Terry accepted it with “LGTM” and
+  “SGTM” on 2026-10-13. Full prior evidence is retained in commit `7ef07dc`.
+- Slice 1 published: `7ef07dc374e402884dd5e572c3a85c1d9ed26001`, suffix base
+  `84e12d19125b0b03f1262403eaa29e83615f6c44`, on the execution branch above.
+
+## Accepted slice 2 proof
+
+- `SharedRhythmBaseline`: 60 beats, 1080 frames, 36 seconds; separate motifs,
+  response, ensemble, 24–26.4s rest, return, resolution and 31.2–36s credits.
+- `pnpm -C terry-moves test:unit --runInBand tests/musicAndSound`: ten tests
+  passed after the credit correction; typecheck, refactor, formatting/lint passed.
+- Actual `out/shared-rhythm-baseline.mp4`: H.264/yuv420p/BT.709, 1080×1080/30,
+  AAC, 36.011s container. Seven decoded impacts align within 0.005 frame.
+- Rest/tail PCM peaks zero; saved WAV and decoded audio are unchanged after the
+  credits moved to bottom 180. Native 360 player shows all three credit lines.
+- Studio direct 216→750→216 reproduces `answer-turns` and exact transforms.
+  Encoded MP4 played to ending at 1×, unmuted, at 360 and 1080 CSS pixels.
+- `out/shared-rhythm-baseline-proof.json` retains current input/audio/pixel hashes;
+  `out/inspect-shared-rhythm-baseline.py` owns decoded observations. Terry accepted the full film with “LGTM”; G4 resolved.
 
 ## Story obligations
 
 ### G1. Excerpt is intentionally incomplete
 Reported: slice 1 — "The current SharedRhythmExcerpt is an intentionally incomplete 9.6-second study for the full film."
 Story clause: "Deliver a watchable H.264 MP4 with the score, a complete ending and appropriate authorship/source credits."
-Disposition: receiving slice 2
+Disposition: proved by slice 2: actual baseline MP4, stream checks and readable credits in Accepted slice 2 proof
 
 ### G2. Actual listening observation accepted
 Reported: slice 1 — "Sound-feel acceptance remains the pending boundary; no listening verdict is claimed."
@@ -214,6 +213,11 @@ Disposition: proved by slice 1: Terry’s “LGTM” and “SGTM” responses, r
 Reported: slice 1 — "The scratch-added passage test proves actual renderer vocabulary/metadata only and claims no saved revised sound."
 Story clause: "Given the documented phrase/action vocabulary, author another passage or revise a motif through that home"
 Disposition: receiving slice 3
+
+### G4. Full-film listening observation accepted
+Reported: slice 2 — "Remaining observation: coordinator-owned full normal-speed playback at 1080px/360px and Terry’s actual listening/artistic verdict."
+Story clause: "Judge the whole edit by normal-speed playback with sound"
+Disposition: proved by slice 2: Terry’s “LGTM” response after the full-film listening question, recorded in Accepted slice 2 proof
 
 ## Verification and delivery
 
@@ -231,17 +235,12 @@ need no new render or repository-wide suite.
 
 ## Preparation evidence and learnings
 
-The complete literal preparation commands/assertions remain in the committed
-plan at `6fd95c4659804a05217ae68aa4375ee1b787083e` (recover with `git show
-6fd95c4659804a05217ae68aa4375ee1b787083e:.planning/quick/042-music-and-sound-film/PLAN.md`).
-Observed in this checkout on 2026-10-13 at the source revision above:
-
-- Real `beatTimeline` observation moved the second beat 30→45 and duration
-  90→105 frames; captions remained empty.
-- Existing local synthesis wrote an 86-second mono s16le/44100 Hz WAV outside
-  the checkout. Existing scored-composition render encoded 360×360/30 fps
-  H.264 + AAC, 1.003 seconds; decoded audio peak −16.3 dB. This proves route
-  availability, not the new cues or musical quality. No product/media changed.
+Complete preparation commands/assertions remain in the plan at commit `6fd95c4`.
+In this checkout on 2026-10-13, real sequential timing moved frame 30→45 and
+length 90→105 with empty captions. Existing synthesis produced an 86-second
+mono s16le/44100 Hz WAV; an existing scored-film excerpt encoded 360×360/30 fps
+H.264+AAC. These proved route availability, not the new film or musical quality.
+No product source/media changed during those preparation observations.
 
 ## Plan review
 

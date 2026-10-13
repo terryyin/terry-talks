@@ -32,18 +32,20 @@ jest.mock('remotion', () => {
 });
 
 const transport = (jest.requireMock('remotion') as { __rhythmTransport: Transport }).__rhythmTransport;
-export const registeredExcerpt = () => {
+export const registeredRhythm = (id: string) => {
 	transport.registrations = [];
 	renderToStaticMarkup(<RemotionRoot />);
-	const selected = transport.registrations.filter((entry) => entry.id === 'SharedRhythmExcerpt');
-	if (selected.length !== 1) throw new Error(`Expected one registered rhythm excerpt, found ${selected.length}.`);
+	const selected = transport.registrations.filter((entry) => entry.id === id);
+	if (selected.length !== 1) throw new Error(`Expected one registered ${id}, found ${selected.length}.`);
 	return selected[0];
 };
-export const excerptPicture = (frame: number, props = registeredExcerpt().defaultProps) => {
-	const { component: Film, fps } = registeredExcerpt();
+export const registeredExcerpt = () => registeredRhythm('SharedRhythmExcerpt');
+export const rhythmPicture = (id: string, frame: number, props = registeredRhythm(id).defaultProps) => {
+	const { component: Film, fps } = registeredRhythm(id);
 	transport.frame = frame;
 	transport.fps = fps;
 	const page = document.createElement('div');
 	page.innerHTML = renderToStaticMarkup(<Film {...props} />);
 	return page;
 };
+export const excerptPicture = (frame: number, props = registeredExcerpt().defaultProps) => rhythmPicture('SharedRhythmExcerpt', frame, props);

@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { Audio, Composition, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import excerptScore from '../../public/assets/shared-rhythm/excerpt.json';
+import baselineScore from '../../public/assets/shared-rhythm/baseline.json';
+import { rhythmBaseline } from './baseline';
 import { RhythmDirection, RhythmMotif, RhythmPose, rhythmMotion, rhythmTimeline } from './direction';
 import { RhythmScore, matchingRhythmScore } from './score';
 import { rhythmExcerpt, rhythmFps } from './script';
@@ -37,7 +39,7 @@ export const RhythmPicture: React.FC<{ direction: RhythmDirection; pose: RhythmP
 		})}
 	</svg>
 	{pose.passage.title ? <div style={{ position: 'absolute', left: 110, top: 120, fontSize: 82, lineHeight: 1.08, letterSpacing: '-3px', fontWeight: 500, whiteSpace: 'pre-line' }}>{pose.passage.title}</div> : null}
-	{pose.passage.credit ? <div style={{ position: 'absolute', left: 110, right: 110, bottom: 110, fontSize: 32, lineHeight: 1.4, whiteSpace: 'pre-line' }}>{pose.passage.credit}</div> : null}
+	{pose.passage.credit ? <div style={{ position: 'absolute', left: 110, right: 110, bottom: 180, fontSize: 44, lineHeight: 1.4, whiteSpace: 'pre-line' }}>{pose.passage.credit}</div> : null}
 </div>;
 
 export type SharedRhythmFilmProps = { direction: RhythmDirection; score: RhythmScore };
@@ -57,6 +59,17 @@ export const SharedRhythmExcerptComposition: React.FC = () => <Composition
 	component={SharedRhythmFilm}
 	defaultProps={{ direction: rhythmExcerpt, score: excerptScore }}
 	durationInFrames={rhythmTimeline(rhythmExcerpt, rhythmFps).durationInFrames}
+	fps={rhythmFps}
+	width={1080}
+	height={1080}
+	calculateMetadata={({ props }) => ({ durationInFrames: matchingRhythmScore(props.direction, props.score, rhythmFps).performance.durationInFrames })}
+/>;
+
+export const SharedRhythmBaselineComposition: React.FC = () => <Composition
+	id="SharedRhythmBaseline"
+	component={SharedRhythmFilm}
+	defaultProps={{ direction: rhythmBaseline, score: baselineScore }}
+	durationInFrames={rhythmTimeline(rhythmBaseline, rhythmFps).durationInFrames}
 	fps={rhythmFps}
 	width={1080}
 	height={1080}

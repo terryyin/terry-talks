@@ -1,0 +1,10 @@
+{
+  "take": "baseline",
+  "audioPath": "assets/shared-rhythm/baseline.wav",
+  "directionFingerprint": "rhythm-55a76ad7",
+  "synthesisVersion": "percussion-pluck-bell-1",
+  "fps": 30,
+  "durationInFrames": 1080,
+  "sampleRate": 44100,
+  "wavSha256": "746c29f5128993dc373535728f89774c82f78249e86a9daf756a37d6cdf986e8"
+}
