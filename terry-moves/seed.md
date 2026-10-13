@@ -79,27 +79,104 @@ provenance labels; the recorded identities are the canonical work identities.
 
 **Identity:** terry-moves-filmmaking#music-and-sound-film
 ```json dough-story-state
-{"schemaVersion":1,"refinement":"not-refined","approach":"unselected"}
+{"schemaVersion":1,"refinement":"refined","approach":"planned","plan":"../.planning/quick/042-music-and-sound-film/PLAN.md","assessment":"ready","reasons":[],"basis":{"document":"2e04ba898938a3639d462d51b055b9cebb3c92bc4b9a99a2740a77d40c42f88c","plan":"496cebceb3e5d072270f5b5cef3011cbd1a80c28bbae4332dfaa6fe78995e5ba"}}
 ```
 
-- **For / why:** Terry can tell or evoke an idea through rhythm and sound
-  without requiring spoken narration.
-- **Outcome and scope:** Make a deliberate short edit whose motion, emphasis,
-  and cuts follow chosen musical phrases or sound cues. Revise a cue or phrase
-  through the authoring workflow and retain the approved media.
-- **Evaluation example:** Terry moves a musical accent or replaces a phrase;
-  its intended visual response follows the new cue. The complete piece feels
-  intentional with sound, rather than merely displaying an audio waveform.
-- **Known basis and boundary:** R24. Existing films already separate voice,
-  score, effects, and ducking. Audio-reactive properties and deliberate cueing
-  are alternatives to use selectively; the story need not make every visual
-  property react automatically. Retain appropriate music/source credits.
-- **Value / effort hypothesis:** A distinct reusable sound-led style.
-  Moderate scope; medium confidence; the piece, sound rights, and cue policy
-  remain to select.
-- **Depends on:** None.
-- **Safe stopping point:** Terry can make and revise the supported sound-led
-  piece independently of narration and character performance.
+**Goal:** Terry can make and revise an intentional sound-led film without
+spoken narration: the audience experiences scattered individual activity
+becoming a shared rhythm. The usable outcome includes the complete film, its
+retained media, and a script-based way to revise musical timing and the visual
+response together.
+
+**Scope:** Prepare **Finding a Shared Rhythm**, a roughly 36-second, square
+1080×1080 film at 30 fps. On 2026-10-13 Terry delegated the creative selection
+after the proposed directions; this is the agent's selected recommendation,
+not a claim of Terry's approval of an unseen film. Use an original locally
+authored instrumental score of percussion and plucked tones, saved as an audio
+asset. Simple distinct shapes or pulses introduce separate motifs, begin to
+answer one another, form an ensemble, pause, and return in a resolved phrase.
+Preserve the individual motifs within the ensemble. Motion, visual emphasis
+and cuts follow named musical phrases and accents; include a deliberate rest.
+The film communicates through sound and action, with only a short title and
+credits if useful. Exact notes, palette and shot design are execution choices.
+
+Author musical phrases and accent cues in one discoverable script/direction
+home. Their timing drives both the locally composed score and the intended
+visual responses. Preview and export through the existing Remotion workflow.
+Deliver a watchable H.264 MP4 with the score, a complete ending and appropriate
+authorship/source credits. Judge the whole edit by normal-speed playback with
+sound, including anticipation, accents, cuts and the rest; technical alignment
+alone does not establish an engaging piece. Terry remains the artistic evaluator.
+
+Demonstrate a meaningful revision: move one isolated accent by half a beat
+within its phrase, and let its sound and designated visual impact/cut follow
+without hand-editing renderer timestamps. Other cue times and phrase boundaries
+remain as authored. Retain baseline and revised directions, saved audio and
+distinct exports so either take can be selected again. Preview/export must use
+saved media rather than silently regenerate or overwrite an approved score.
+Explain how to author another passage with the same supported vocabulary;
+this is a reusable directing path, not only a hard-coded demonstration.
+
+Deferred promises: automatic beat detection, every property reacting to sound,
+arbitrary commercial-track replacement or tempo warping, a DAW or visual editor,
+external music-generation services, narration, new character/3D assets,
+additional formats, and service upload. These are delivery boundaries, not
+rejection rules for naturally supported inputs. Retaining approved media and
+source credits comes from the selected story's existing promise; no arbitrary
+cue-count or phrase-count restrictions are introduced.
+
+**Key examples:**
+
+- Given the retained baseline score and direction, play/export the film →
+  distinct motifs develop into an ensemble; an audible accent has an intentional
+  visual response, a phrase change directs a cut or motion change, and the rest
+  creates space before the final resolution. No spoken narration is needed.
+- Given an isolated accent inside a phrase, move it half a beat and explicitly
+  save a new score take → the sound and its associated visual impact/cut move
+  together; unrelated cues and phrase boundaries retain their authored times.
+  Preview and encoded playback show the same timing.
+- Given that revision, select and export the baseline again → its direction
+  and saved audio remain intact; the revised take is separately available and
+  does not replace the baseline. Both can be reproduced from retained inputs.
+- Given the documented phrase/action vocabulary, author another passage or
+  revise a motif through that home → the shared renderer consumes the new
+  direction without adding a passage-name branch or copying the film component.
+
+**Alternatives explored:**
+
+| Approach | Fit to intentional rhythm, revision and preservation |
+| --- | --- |
+| Hand-time a new edit against a saved soundtrack using existing scenes and Audio | Strongest simpler option; makes a film now, but separately maintained musical and visual timestamps recreate the revision burden. Keep existing playback/rendering, replace that duplicated timing responsibility. |
+| Drive visuals from audio amplitude or detected beats | Useful for sound-energy textures; detection alone does not establish phrase meaning, chosen emphasis or dramatic rests. Not required for this film. |
+| Author a musical cue score consumed by sound and action | Selected. Direct control over phrases and accents, with one cue revision reaching both consumers and saved takes retaining approved media. A small original score avoids a separate track-alignment/rights workflow. |
+
+The borrowed mechanism is a choreographer's cue score: musical phrases map to
+passages, accents to action targets, rests to held space, and performers to
+visual motifs. A timing change propagates to the sound and the action that
+names it. Adapt this as explicit authored cues, not continuous waveform-driven
+movement. The analogy breaks at interpretation: a shared clock cannot decide
+whether a cut feels right or whether the ensemble conveys the idea. Playback,
+revision evidence and Terry's reaction evaluate that, not the analogy.
+
+**Architecture:** Reuse `src/beatTimeline.ts` for frame-based passage timing
+where its sequential-beat meaning fits. Existing `Audio`/composition/export
+paths already play saved scores; `scripts/tps-and-ai-score.mjs` provides a
+local synthesis example, but its scene-specific composition is not a generic
+musical score. Give this film one coherent musical direction and derive sound
+events and visual timing from it, without reversing other films' timing policies.
+The typography film's retained baseline/revision directions are a useful
+selection pattern. Do not copy its reading-time policy into musical timing.
+No universal timeline framework or new product-wide rule is needed.
+
+The ADR index and [Accepted ADR-0000 — Use Architectural Decision Records](../docs/adrs/0000-use-adrs-accepted.md)
+agree; it is the only Accepted record and preserves human ownership of durable
+decisions. This local film does not conflict with it or require an exception.
+
+**Dependency and safe stopping point:** No other queued story is required.
+The complete film and retained cue revision remain useful if all later work
+is cancelled. No open scope decision remains; artistic quality must still be
+demonstrated during execution. Basis: research R24 and the existing timing,
+saved-score and retained-direction paths inspected during this preparation.
 
 <a id="portrait-film-edition"></a>
 ### 17. I can publish a readable portrait edition of an existing film
