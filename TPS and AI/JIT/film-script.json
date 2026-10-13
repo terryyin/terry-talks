@@ -67,7 +67,7 @@
       "captionRanges": [
         {"start": 38, "end": 42.5, "spoken": "Pull a small customer problem, not a queue of technical tasks.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["pull"]},
         {"start": 42.5, "end": 47, "spoken": "Let one useful, end-to-end outcome pull the necessary work.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["pull"]},
-        {"start": 47, "end": 50, "spoken": "Use AI for what this need requires.", "translations": {}, "sourceIds": ["pull"]}
+        {"start": 47, "end": 50, "spoken": "Trust the team and AI.", "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]}
       ],
       "action": "Fit the complete customer-need illustration. Let the highlighted train remain the first useful smaller outcome."
     },
@@ -75,8 +75,9 @@
       "id": "feedback", "start": 50, "end": 62, "label": "Make trust dependable",
       "heading": "Make trust dependable.", "translations": {}, "asset": "pull-customer-feedback.png",
       "captionRanges": [
-        {"start": 50, "end": 56, "spoken": "Earn trust through quality in the shared, working product.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]},
-        {"start": 56, "end": 62, "spoken": "Use feedback to choose again. Leave later work unstarted.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["pull"]}
+        {"start": 50, "end": 53, "spoken": "Handle complexity together, resourcefully.", "lineBreakAfter": 2, "translations": {}, "sourceIds": ["resourceful", "integration"]},
+        {"start": 53, "end": 57, "spoken": "Earn trust through quality in the shared, working product.", "lineBreakAfter": 4, "translations": {}, "sourceIds": ["resourceful", "pull", "integration"]},
+        {"start": 57, "end": 62, "spoken": "Use feedback to choose again. Leave later work unstarted.", "lineBreakAfter": 5, "translations": {}, "sourceIds": ["pull"]}
       ],
       "action": "Fit the complete feedback illustration. Feedback guides the next choice while later work remains unstarted."
     },

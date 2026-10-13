@@ -27,8 +27,8 @@ the captions.
 | 19–23s | When needed. Complete original assembly-pulls-wheels illustration. |
 | 23–27s | In the amount needed. Complete original wheel-replenishment illustration, with minimum stock and dependable flow. |
 | 27–38s | Trust capable people. Whole resourceful-response painting. People meet the actual obstacle with available materials and a checked ramp. |
-| 38–50s | Whole customer-need painting. A small useful customer outcome pulls the necessary work, including any AI assistance. |
-| 50–62s | Make trust dependable. Whole feedback painting. Quality in the shared working product earns trust; feedback chooses the next response and later work remains unstarted. |
+| 38–50s | Whole customer-need painting. A small useful customer outcome pulls the necessary work. Trust the team and AI with its internal complexity. |
+| 50–62s | Make trust dependable. Whole feedback painting. Handle complexity together, resourcefully; earn trust through quality in the shared working product. Feedback chooses the next response and later work remains unstarted. |
 | 62–78s | Original integration panorama in five successive focused views: actual need, teams, stop, collaboration, coherent result. The heading is “Integrate continuously. Collaborate just in time.” |
 | 78–86s | Trust the team. Hold the people collaborating and the complete resulting product. Build the capability to meet real needs on time; Terry's exact credit holds from 83 seconds as the score fades. |
 

@@ -40,28 +40,32 @@ Let one useful, end-to-end outcome pull the necessary work.
 
 11
 00:00:47,000 --> 00:00:50,000
-Use AI for what this need requires.
+Trust the team and AI.
 
 12
-00:00:50,000 --> 00:00:56,000
-Earn trust through quality in the shared, working product.
+00:00:50,000 --> 00:00:53,000
+Handle complexity together, resourcefully.
 
 13
-00:00:56,000 --> 00:01:02,000
-Use feedback to choose again. Leave later work unstarted.
+00:00:53,000 --> 00:00:57,000
+Earn trust through quality in the shared, working product.
 
 14
+00:00:57,000 --> 00:01:02,000
+Use feedback to choose again. Leave later work unstarted.
+
+15
 00:01:02,000 --> 00:01:08,000
 Integrate small changes continuously. Keep one coherent product.
 
-15
+16
 00:01:08,000 --> 00:01:13,000
 When a dependency becomes real, let it pull collaboration.
 
-16
+17
 00:01:13,000 --> 00:01:18,000
 Technical excellence makes that response dependable.
 
-17
+18
 00:01:18,000 --> 00:01:23,000
 Build the capability to meet real needs, on time.
