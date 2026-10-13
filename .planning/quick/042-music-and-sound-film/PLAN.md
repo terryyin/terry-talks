@@ -7,68 +7,64 @@
 
 ## Goal and scope
 
-Give Terry a complete, revisable sound-led film: scattered individual pulses
-become a shared rhythm, pause, then resolve as an ensemble with distinct motifs.
-Target roughly 36 seconds, 1080×1080 at 30 fps, with an original locally authored
-percussion/plucked-tone score and no speech. Music phrases and accents direct
-motion, visual emphasis and cuts. Deliver the baseline and a meaningful cue
-revision with saved media, separate MP4s, credits, and usable authoring guidance.
+Deliver **Finding a Shared Rhythm**: roughly 36 seconds, 1080×1080 at 30 fps,
+original locally authored percussion/plucked-tone score, no speech. Scattered
+pulses answer one another, form an ensemble, pause and resolve with distinct
+motifs. Musical phrases and accents direct motion, emphasis and cuts. Deliver
+baseline and meaningful cue revision, saved media, separate exports, credits
+and script-based authoring guidance. Terry delegated creative selection on
+2026-10-13; no approval of an unseen film is claimed.
 
-Terry delegated the creative recommendation on 2026-10-13. The direction is
-selected for preparation; no artistic approval of the future film is claimed.
-Exact notes, palette and choreography can evolve within this bounded idea.
-Automatic analysis, third-party tracks/services, arbitrary track replacement,
-tempo warping, narration, character/3D production, a visual editor, other formats
-and upload are deferred. The existing story asks for a cue or phrase revision;
-this plan proves the cue route and adds no phrase-replacement promise.
+The refined source owns scope and examples. Automatic analysis, arbitrary track
+replacement/tempo warping, external services, narration, new character/3D assets,
+visual editing, other formats and upload remain deferred. This plan proves a
+cue revision; it adds no phrase-replacement promise.
 
-This is preparation only. Execution needs its own instruction. Preparation may
-retire this checkout after landing; execution records its actual checkout and
-reuses observations only where their boundary still matches.
+## Execution context
+
+- Established execution: `terry-moves-filmmaking#music-and-sound-film`, publisher
+  `dashboard-territory.local-terry-talks`, agent `Koharu-chan`, Story Branch Mode.
+- Owned execution checkout: the preparation workspace named above; branch
+  `codex/i-can-make-a-film-whose-rhythm-follows-music-and`. Reused linked worktree.
+  Base `6fd95c4659804a05217ae68aa4375ee1b787083e`; published Take
+  `84e12d19125b0b03f1262403eaa29e83615f6c44` on `origin/master` and the execution branch.
+- Integration/default checkout: `/Users/terryyin/git/terry-talks`; execution
+  increments target `origin/refs/heads/codex/i-can-make-a-film-whose-rhythm-follows-music-and`.
+  Trunk integration remains story wrap-up's responsibility.
+- Setup: `pnpm install --frozen-lockfile --offline` and
+  `pnpm -C terry-moves typecheck` passed in this checkout on 2026-10-13.
+  Package/lock files unchanged. No active Git hooks; selective formatting uses
+  ESLint `--fix` on affected source files, followed by focused check-only lint.
+- Replanning is allowed within the original scope.
+- Studio: `http://localhost:3000`, command session `49424`, opened in Chrome.
+- CI: GitHub Actions `terryyin/terry-talks`, workflow `ci.yml` (ID `381584897`,
+  name `CI`), observing the execution branch. Codex coordinator `koharu-music`,
+  directory `/tmp/dough-ci-501/watch-NVwGUY`, PID `3970`, session `29306`,
+  yielded cell `2`. Resumed after confirmed shutdown of the prior observer; claim CI unobserved.
 
 ## Current decisions and reuse
 
-- One film-local musical direction owns phrase lengths and named accent times.
-  Derive score events and visual targets from those cues. Keep the media file
-  selected explicitly with its matching direction; do not maintain independent
-  literal sound and visual clocks. Convert to composition frames consistently
-  at 30 fps, keeping audio targets within one video frame of their intended
-  visual target. A visual anticipation may start earlier; its impact is the
-  cue target. Derive total duration and leave a deliberate ending/tail.
-- Start at 100 BPM as a practical composing choice: half a beat is 0.3 seconds,
-  or nine frames. About fifteen four-beat bars gives 36 seconds. Bar count and
-  BPM are authoring values, not production acceptance gates. For the revision,
-  move an isolated accent within a phrase; do not move every downstream phrase.
-- Borrow choreography's cue score: phrases become passages, accents become
-  action targets, rests become holds, motifs become performers. The analogy
-  organizes direction; it does not establish aesthetic quality.
-- PFE: `src/beatTimeline.ts` already owns sequential frame timing and sampling
-  with optional captions. Reuse it for passage ranges where that meaning fits,
-  applying musical timing before construction as its existing contract says.
-  `src/stories/TPSAndAIFilm.tsx` plays a saved score with `Audio` and uses the
-  existing composition/export route. Reuse that playback responsibility.
-- `scripts/tps-and-ai-score.mjs` demonstrates local synthesis and WAV output,
-  but its melody, scene IDs and source clock belong to Jidoka. This film needs
-  a musical-event-to-audio responsibility, not a copy of that scene-specific
-  arrangement. Reuse or narrowly expose suitable synthesis primitives if that
-  is simpler; keep Jidoka's output stable if changing its implementation.
-  Do not build a synthesizer framework or make all films music-led.
-- The typography film's `script.ts`, composition selection and README show
-  retained baseline/revision directions consumed by one renderer. Reuse that
-  pattern, not its reading-time policy. Existing `revision/` comparison helpers
-  may assist preservation, but this plan does not depend on their supporting
-  a new composition: explicit saved-input hashes and baseline replay own proof.
-- Preserve saved baseline media byte-for-byte during the revision. Generate a
-  new audio take explicitly; ordinary preview/export reads it. Keep baseline
-  and revision directions and audio paths distinct and discoverable. A small
-  cue/source fingerprint or equivalent check should detect a stale pairing
-  before exporting misleading synchronization, naming the take and regeneration
-  action. This is necessary to keep the cue-following promise after edits, not
-  a separate asset-management project.
-- [Accepted ADR-0000 — Use Architectural Decision Records](../../../docs/adrs/0000-use-adrs-accepted.md)
-  is the sole Accepted ADR; the index agrees. It reserves durable decisions to
-  the human. No conflict, exception, ADR proposal or North Star topic is needed
-  for this local film and its supported authoring path.
+- One film-local direction owns phrases and named accents. Derive sound events
+  and visual targets from it; quantize consistently at 30 fps within one frame.
+  Anticipation may start earlier; impact targets the cue. Derive duration with
+  a deliberate tail. Start at 100 BPM: half a beat is nine frames. Move one
+  isolated cue within its phrase, leaving other cues and boundaries intact.
+- PFE retained: `beatTimeline.ts` supplies sequential passage ranges after
+  musical timing; `TPSAndAIFilm.tsx` supplies saved `Audio` playback and the
+  existing export path. Jidoka's score generator demonstrates local synthesis,
+  but its arrangement/scene clock remains unchanged. Reuse suitable primitives
+  only if simpler; create no synthesizer framework or product-wide timing rule.
+- Reuse typography's retained baseline/revision selection pattern with one
+  renderer, without its reading-time policy. Shapes are performers, phrases
+  passages, accents action targets, rests held space. Playback owns aesthetics.
+- Save new audio explicitly. Keep baseline source/media byte-for-byte, baseline
+  and revision audio paths distinct, with a cue/source fingerprint that rejects
+  stale direction/score selection and names the take/regeneration command.
+  Preview/export reads saved media. Input hashes and baseline replay own
+  preservation proof; existing revision helpers are optional.
+- [Accepted ADR-0000](../../../docs/adrs/0000-use-adrs-accepted.md) is the sole
+  Accepted record; index agrees. Human ownership of durable decisions remains.
+  No conflict, exception, ADR proposal or North Star topic is needed here.
 
 ## Outside-in proof ownership
 
@@ -93,7 +89,7 @@ do not infer a listening verdict from waveform statistics.
 
 ### 1. Watch a short passage follow its musical cues
 Type: Behavior
-Status: planned
+Status: done
 Proof: An 8–10 second registered excerpt with saved original audio plays an
 isolated pulse, answering motif, phrase change/cut and brief rest. Actual audio
 onsets and rendered target frames align; middle/backward seeks are deterministic.
@@ -171,113 +167,84 @@ another passage using the supported motif/action vocabulary. Exercise that
 last editing example through the same composition in a reversible scratch
 change, then restore it. No second finished film is promised.
 
+## Accepted slice 1 proof
+
+- Registered `SharedRhythmExcerpt`: 288 frames (9.6 seconds), 1080×1080 at
+  30 fps. `script.ts` stages coral disc/drum, teal bar/pluck and amber ring/bell.
+  `rhythmTimeline` feeds both synthesis and picture. `matchingRhythmScore`
+  rejects stale direction/source/FPS selections at the component and export
+  metadata boundaries; ordinary preview/export only reads saved audio.
+- `pnpm -C terry-moves test:unit --runInBand tests/musicAndSound`
+  passed all six tests; `pnpm -C terry-moves typecheck` passed. Inspected tests
+  mount the real Root registration, cue compiler, score guard and SVG renderer;
+  only Remotion transport/registration/playback is substituted. The scratch
+  passage test proves picture vocabulary, not a newly saved score.
+- Rendered `terry-moves/out/shared-rhythm-excerpt.mp4`, H.264/yuv420p/BT.709,
+  1080×1080 at 30 fps with AAC, 9.6 seconds. Decoded cue PNGs and PCM are under
+  the same ignored directory. `inspect-shared-rhythm-excerpt.py` observes
+  sound onsets at frames 18/72/144/252 within 0.005 of a frame, silent rest
+  interior, pulse squash at 18, answering cut at 72 and third motif at 144.
+- Chrome Studio: normal-speed playback ran at approximately 29.8 fps. Direct
+  frame 72 shows `answer-enters`, `translate(730 570) scale(1.2 0.84)`; all
+  three performers hold at frame 230. Backward seek 230→72 reproduces exact
+  transforms and impact marker. Encoded frame 72 visually agrees with Studio.
+- Encoded MP4 played to its ending, unmuted at 1×, at 360×360 and 1080×1080
+  in the temporary local review page `http://127.0.0.1:8767/shared-rhythm-review.html`
+  (server session `64302`). Shapes and title remain readable. These are picture
+  and playback-state observations; no listening verdict is claimed.
+- Independent refactor completed; only exact-silence assertions were consolidated.
+  All six tests passed again. Production, saved media and render proof unchanged.
+- Recovered the missing formatting receipt by running the same selective ESLint
+  preparation to terminal exit 0; check-only lint and `git diff --check` passed.
+- Terry accepted the excerpt with “LGTM” and “SGTM” on 2026-10-13; G2 resolved.
+
+## Story obligations
+
+### G1. Excerpt is intentionally incomplete
+Reported: slice 1 — "The current SharedRhythmExcerpt is an intentionally incomplete 9.6-second study for the full film."
+Story clause: "Deliver a watchable H.264 MP4 with the score, a complete ending and appropriate authorship/source credits."
+Disposition: receiving slice 2
+
+### G2. Actual listening observation accepted
+Reported: slice 1 — "Sound-feel acceptance remains the pending boundary; no listening verdict is claimed."
+Story clause: "Judge the whole edit by normal-speed playback with sound"
+Disposition: proved by slice 1: Terry’s “LGTM” and “SGTM” responses, recorded in Accepted slice 1 proof
+
+### G3. Scratch passage has only renderer-level evidence
+Reported: slice 1 — "The scratch-added passage test proves actual renderer vocabulary/metadata only and claims no saved revised sound."
+Story clause: "Given the documented phrase/action vocabulary, author another passage or revise a motif through that home"
+Disposition: receiving slice 3
+
 ## Verification and delivery
 
-Execution uses installed `dough-execute-plan`, including independent post-change
-refactoring, relevant proof, agent commits and authorized delivery. Slices include
-their implementation, focused checks and cleanup. No numeric slice target or
-hard limit is supplied; boundedness follows the three distinct proof loops.
-
-Use `dough-manual-testing` for the required sound/visual observations and the
-installed Remotion skill for implementation specifics. Preview the registered
-composition. New tests under the film's capability-named test directory should
-exercise cue-to-rendered-action, score pairing and retained-take selection.
-Choose actual composition IDs/spec names during execution and record them;
-prospective commands below are not claimed observations:
-
-```sh
-pnpm -C terry-moves test:unit --runInBand <new-film-test-directory>
-pnpm -C terry-moves typecheck
-pnpm -C terry-moves exec eslint <affected-source-paths>
-pnpm -C terry-moves exec remotion render src/index.ts <composition> <output> --codec=h264 --pixel-format=yuv420p --color-space=bt709
-```
-
-If shared timing/synthesis changes, trace its consumers before editing and run
-their relevant suites or output comparisons too. Prefer keeping existing films'
-contracts unchanged; a shared change needs its own preservation evidence.
-Do not run unrelated film renders or a repository-wide suite by default.
+Use installed `dough-execute-plan`, independent post-change refactoring,
+`dough-manual-testing` and Remotion guidance. No numeric slice limit is supplied.
+New capability tests exercise actual direction→composition wiring, score pairing
+and take selection. Scratch-disable cue consumption to confirm revision proof
+fails. Assertions supplement real playback; never infer listening from metrics.
+Run `pnpm -C terry-moves test:unit --runInBand tests/musicAndSound` and
+`pnpm -C terry-moves typecheck`; coordinator formats/lints affected paths.
+Render selected compositions via the documented Remotion command with
+`--codec=h264 --pixel-format=yuv420p --color-space=bt709` under ignored `out/`.
+Trace and verify consumers if shared timing/synthesis changes; unchanged films
+need no new render or repository-wide suite.
 
 ## Preparation evidence and learnings
 
-Observed in the named checkout on 2026-10-13 at the source revision above:
+The complete literal preparation commands/assertions remain in the committed
+plan at `6fd95c4659804a05217ae68aa4375ee1b787083e` (recover with `git show
+6fd95c4659804a05217ae68aa4375ee1b787083e:.planning/quick/042-music-and-sound-film/PLAN.md`).
+Observed in this checkout on 2026-10-13 at the source revision above:
 
-- `pnpm install --frozen-lockfile --offline` succeeded from the local store;
-  package and lock files remained unchanged. This prepares the real local
-  Remotion route rather than relying on another checkout's dependencies.
-- The following direct observation reached existing timeline sampling (not
-  merely its type declarations). It passed: the second beat moves from frame
-  30 to 45, total duration from 90 to 105, and captions stay empty. This settles
-  sequential frame timing for silent authored durations, not the future music
-  cue compiler or score synchronization:
-
-  ```sh
-  node --input-type=module <<'JS'
-  import assert from 'node:assert/strict';
-  import {timeline} from './terry-moves/src/beatTimeline.ts';
-  const make = seconds => timeline([
-    {name:'first',seconds,pose:t=>({section:'first',t})},
-    {name:'second',seconds:2,pose:t=>({section:'second',t})}
-  ],30);
-  const before=make(1), after=make(1.5);
-  assert.equal(before.beatRange('second').from,30);
-  assert.equal(after.beatRange('second').from,45);
-  assert.equal(before.durationInFrames,90);
-  assert.equal(after.durationInFrames,105);
-  assert.equal(before.poseAt(30).section,'second');
-  assert.equal(after.poseAt(30).section,'first');
-  assert.equal(after.poseAt(45).section,'second');
-  assert.equal(after.captionAt(45),'');
-  JS
-  ```
-
-- Local synthesis ran through the existing score generator, diverting only its
-  output into `/tmp/music-preparation-generated-score.wav` and preserving the
-  original script's input resolution. The consuming command was
-  `node --input-type=module` with this observation body:
-
-  ```js
-  import {readFileSync} from 'node:fs';
-  import {pathToFileURL} from 'node:url';
-  const scoreURL=pathToFileURL(process.cwd()+'/terry-moves/scripts/tps-and-ai-score.mjs');
-  const observed=readFileSync(scoreURL,'utf8')
-    .replace('import.meta.url',JSON.stringify(scoreURL.href))
-    .replace("new URL('../public/assets/tps-and-ai/score.wav', import.meta.url)",
-      "new URL('file:///tmp/music-preparation-generated-score.wav')");
-  await import('data:text/javascript;base64,'+Buffer.from(observed).toString('base64'));
-  ```
-
-  It wrote the existing 86-second score. `ffprobe -v error -show_entries
-  stream=codec_name,sample_rate,channels -show_entries format=duration -of json
-  /tmp/music-preparation-generated-score.wav` reported PCM s16le, 44100 Hz,
-  mono, 86 seconds. This settles available local synthesis/file output, not
-  the new percussion voice or whether a future score sounds good.
-- `pnpm -C terry-moves exec remotion render src/index.ts TPSAndAIFilm
-  /tmp/music-preparation-existing-score.mp4 --frames=30-59 --codec=h264
-  --pixel-format=yuv420p --color-space=bt709 --scale=0.3333333333 --concurrency=2
-  --log=error` completed. `ffprobe -v error -show_entries
-  stream=codec_name,width,height,r_frame_rate -show_entries format=duration
-  -of json /tmp/music-preparation-existing-score.mp4` reported H.264 360×360,
-  30 fps, AAC audio and 1.003 seconds. `ffmpeg -hide_banner -i
-  /tmp/music-preparation-existing-score.mp4 -vn -af volumedetect -f null -`
-  decoded 96256 samples with mean -25.5 dB and peak -16.3 dB. This reaches actual
-  registered scored-film encoding and non-silent audio decoding. It does not
-  prove artistic quality or new-film synchronization. An unrelated missing
-  `quillustration_flower_and_water-can/scene.bin` warning did not stop the route.
-
-No product source or approved media was changed during observations. Temporary
-outputs live outside the checkout. New musical direction, stale-pair feedback,
-percussion quality, complete playback and revision preservation are explicit
-implementation obligations, not assumed existing capabilities. No paid,
-credentialed or human-held infrastructure premise is required for this route.
+- Real `beatTimeline` observation moved the second beat 30→45 and duration
+  90→105 frames; captions remained empty.
+- Existing local synthesis wrote an 86-second mono s16le/44100 Hz WAV outside
+  the checkout. Existing scored-composition render encoded 360×360/30 fps
+  H.264 + AAC, 1.003 seconds; decoded audio peak −16.3 dB. This proves route
+  availability, not the new cues or musical quality. No product/media changed.
 
 ## Plan review
 
-Three Behavior slices own one coherent cue model and three useful proof loops:
-the musical excerpt, complete baseline film, and retained authoring revision.
-The first tests the artistic mechanism early; slice 2 explicitly replaces its
-incomplete-film limitation. The third proves the defining revision and saved
-media promise. Each promise has an owner; no independent product outcome,
-speculative framework or unobserved existing-tool premise blocks preparation.
-Slice-plan refinement was not needed; this review found no remaining
-slice-specific concern. Readiness is recorded through the canonical story
-recorder after reviewing this plan and its source, not granted by this prose.
+Three Behavior slices own excerpt, complete baseline and retained cue revision.
+Each promise has an owner; slice 2 replaces the excerpt limitation. Preparation found no remaining slice concern.
+Canonical readiness remains its original record; execution proof updates do not renew it.
