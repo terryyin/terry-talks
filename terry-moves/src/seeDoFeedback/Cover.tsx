@@ -1,20 +1,16 @@
 import React from 'react';
 import { interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
-import { colors, GapRing, Headline, Stage, Support, World } from './Stage';
+import { colors, Stage } from './Stage';
 
 export const Cover: React.FC = () => {
 	const frame = useCurrentFrame();
 	const { fps } = useVideoConfig();
 	return <Stage chapter="SEE · DO · FEEDBACK">
-		<Headline style={{ top: 320, fontSize: 132, maxWidth: 1180 }}>{'Before we build,\nwe must see.'}</Headline>
-		<Support style={{ top: 657, color: colors.ink }}>A human beginning for software.</Support>
-		<div style={{ position: 'absolute', left: 146, top: 908, fontSize: 28, letterSpacing: 4, color: colors.muted }}>A FILM ABOUT NEED, ACTION AND LEARNING</div>
-		<World>
-			<g style={{ translate: interpolate(frame, [0, 3 * fps], ['0px 8px', '0px -8px'], { extrapolateRight: 'clamp', extrapolateLeft: 'clamp' }) }}>
-				<GapRing x={1495} y={531} radius={196} />
-				<path d="M1444 531H1531" stroke={colors.line} strokeWidth="3" strokeLinecap="round" />
-				<circle cx="1515" cy="531" r="14" fill={colors.gold} />
-			</g>
-		</World>
+		<h1 style={{ position: 'absolute', left: 72, top: 310, margin: 0, fontSize: 78, fontWeight: 600, lineHeight: 1.2, letterSpacing: -2.3 }}>Before we build,<br />we must see.</h1>
+		<div style={{ position: 'absolute', left: 76, top: 556, fontSize: 36, lineHeight: 1.4, fontWeight: 400, color: colors.muted }}>A human beginning<br />for software.</div>
+		<svg width="1080" height="1080" viewBox="0 0 1080 1080" style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
+			<path d="M80 797Q210 784 345 794T660 790Q737 788 815 793M783 762Q804 775 818 793L781 825" fill="none" stroke={colors.ink} strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+			<circle cx={interpolate(frame, [0, 2.5 * fps], [110, 760], { extrapolateRight: 'clamp' })} cy="793" r="10" fill={colors.gold} />
+		</svg>
 	</Stage>;
 };

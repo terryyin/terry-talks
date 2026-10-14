@@ -38,7 +38,7 @@
 		"render:tps-and-ai:th": "node scripts/tps-and-ai-score.mjs && node ../scripts/tps-and-ai-subtitles.mjs th && remotion render src/index.ts TPSAndAIFilmTh out/tps-and-ai-jidoka-th.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts TPSAndAIFilmTh out/tps-and-ai-jidoka-th-poster.png --frame=0",
 		"render:tps-and-ai:jit": "node ../scripts/tps-and-ai-jit-subtitles.mjs && remotion render src/index.ts TPSAndAIJITFilm out/tps-and-ai-jit.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts TPSAndAIJITFilm out/tps-and-ai-jit-poster.png --frame=0",
 		"render:tps-and-ai:finale": "python3 '../TPS and AI/Finale/produce_audio.py' && node ../scripts/tps-and-ai-finale-subtitles.mjs && remotion render src/index.ts TPSAndAIFinaleFilm out/tps-and-ai-finale.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=4 && remotion still src/index.ts TPSAndAIFinaleFilm out/tps-and-ai-finale-poster.png --frame=0",
-		"render:see-do-feedback": "python3 ../scripts/see-do-feedback-audio.py && remotion render src/index.ts SeeDoFeedbackFilm out/before-we-build.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2 && remotion still src/index.ts SeeDoFeedbackFilm out/before-we-build-cover.png --frame=0"
+		"render:see-do-feedback": "python3 ../scripts/see-do-feedback-square-audio.py --verify && remotion render src/index.ts SeeDoFeedbackFilm out/before-we-build-square.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2 && remotion still src/index.ts SeeDoFeedbackFilm out/before-we-build-square-cover.png --frame=0"
 	},
 	"repository": {},
 	"license": "UNLICENSED",
@@ -51,6 +51,7 @@
 		"@react-three/postprocessing": "3.1.3",
 		"@react-three/test-renderer": "9.1.1",
 		"@remotion/cli": "4.0.533",
+		"@remotion/fonts": "4.0.533",
 		"@remotion/media": "4.0.533",
 		"@remotion/media-utils": "4.0.533",
 		"@remotion/three": "4.0.533",

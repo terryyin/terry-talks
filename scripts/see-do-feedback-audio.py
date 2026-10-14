@@ -8,12 +8,12 @@ The oscillator score is original to this film. No third-party samples are used.
 import argparse
 from array import array
 import json
-import math
 from pathlib import Path
 import tempfile
 
 import numpy as np
 
+from audio_measurement import measure_pcm
 from narration_audio import exact_script, master, read_pcm, run, sha256, verify, write_pcm
 from see_do_feedback_score import compose_score
 
@@ -45,21 +45,6 @@ the separate letters A I. Give gentle emphasis to human, people, learn, and see
 where present. Avoid a sales-announcer delivery or exaggerated drama. Do not
 imitate any real person's voice. Speak only the supplied text, with no additions.
 """
-
-
-def measure(path):
-    pcm = read_pcm(path, RATE)
-    samples = np.asarray(pcm, dtype=np.float64) / 32768
-    peak = float(np.max(np.abs(samples))) if len(samples) else 0
-    report = run(["ffmpeg", "-hide_banner", "-i", str(path), "-af",
-                  "loudnorm=I=-18:TP=-1.5:LRA=7:print_format=json", "-f", "null", "-"])
-    loudness, _ = json.JSONDecoder().raw_decode(report.stderr[report.stderr.rfind("{"):])
-    return {"sampleRate": RATE, "channels": 1, "frames": len(pcm),
-            "durationSeconds": len(pcm) / RATE,
-            "samplePeakDbFS": round(20 * math.log10(peak), 3) if peak else None,
-            "truePeakDbTP": float(loudness["input_tp"]),
-            "integratedLoudnessLUFS": float(loudness["input_i"]),
-            "sha256": sha256(path)}
 
 
 def new_record():
@@ -157,7 +142,7 @@ def build_narration(record, work):
     write_pcm(unmastered, timeline, RATE)
     master(unmastered, output, -18, RATE)
     record["cues"] = placed
-    record["narration"] = {"file": output.name, **measure(output),
+    record["narration"] = {"file": output.name, **measure_pcm(output, RATE),
                             "timing": "Complete saved clauses; trim boundary silence only; modest measured tempo correction when needed"}
     save(record)
     for cue in placed:
@@ -168,7 +153,7 @@ def build_narration(record, work):
 def build_score(record):
     output = ASSETS / "score.wav"
     composition = compose_score(output, RATE, DURATION, CUES)
-    record["score"] = {"file": output.name, **measure(output), **composition}
+    record["score"] = {"file": output.name, **measure_pcm(output, RATE), **composition}
     save(record)
 
 
@@ -201,7 +186,7 @@ def measure_mix(record, work):
     path = work / "unity-mix.wav"
     write_pcm(path, array("h", mixed.tolist()), RATE)
     record["unityGainMix"] = {"narrationGain": 1, "scoreGain": 1,
-                              **measure(path), "clippedSamples": 0,
+                              **measure_pcm(path, RATE), "clippedSamples": 0,
                               "narrationSha256": record["narration"]["sha256"],
                               "scoreSha256": record["score"]["sha256"]}
     save(record)
