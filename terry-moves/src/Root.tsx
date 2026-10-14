@@ -34,10 +34,12 @@ import { AnimeEngineerThoughtfulComposition } from './animeCharacter/AnimeEngine
 import { TypographyFeedbackExampleComposition, TypographyOpeningCompositions, TypographyProblemBaselineComposition, TypographyProblemRevisionComposition } from './typographyFilm/TypographyFilm';
 import { GeographicalMapBaselineComposition, GeographicalMapOpeningComposition, GeographicalMapWideComparisonComposition } from './geographicalMap/GeographicalMapFilm';
 import { SharedRhythmBaselineComposition, SharedRhythmExcerptComposition, SharedRhythmRevisionComposition } from './musicAndSound/SharedRhythmFilm';
+import { SeeDoFeedbackFilm } from './stories/SeeDoFeedbackFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
+			<SeeDoFeedbackFilm />
 			<StorySimpleExample />
 			<StoryLoomWarpStop />
 			<StoryFailureVsFailure />

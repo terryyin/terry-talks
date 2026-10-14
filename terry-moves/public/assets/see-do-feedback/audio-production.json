@@ -1,0 +1,636 @@
+{
+  "film": "See \u00b7 Do \u00b7 Feedback",
+  "durationSeconds": 30,
+  "disclosure": "AI-generated English narration (OpenAI Cedar); not Terry's recorded voice",
+  "narrationModel": "gpt-4o-mini-tts",
+  "voice": "cedar",
+  "direction": "Speak these exact supplied words for a thoughtful 30-second educational\nfilm. Be a warm, lucid, reflective adult narrator, with quiet human concern and\npossibility. Natural conversational English, approximately 165 words per minute,\ncompact but never rushed. Use short natural sentence pauses. Pronounce AI as\nthe separate letters A I. Give gentle emphasis to human, people, learn, and see\nwhere present. Avoid a sales-announcer delivery or exaggerated drama. Do not\nimitate any real person's voice. Speak only the supplied text, with no additions.\n",
+  "apiGuide": "https://developers.openai.com/api/docs/guides/text-to-speech",
+  "takes": {
+    "gap": {
+      "file": "cedar-gap-en.wav",
+      "text": "Every useful product begins with a human gap.",
+      "direction": "Speak these exact supplied words for a thoughtful 30-second educational\nfilm. Be a warm, lucid, reflective adult narrator, with quiet human concern and\npossibility. Natural conversational English, approximately 165 words per minute,\ncompact but never rushed. Use short natural sentence pauses. Pronounce AI as\nthe separate letters A I. Give gentle emphasis to human, people, learn, and see\nwhere present. Avoid a sales-announcer delivery or exaggerated drama. Do not\nimitate any real person's voice. Speak only the supplied text, with no additions.\n\nComplete this clause in about 3.0 seconds.",
+      "requestSpeed": 1.02,
+      "sha256": "ad1367d2907a10498e0015d3cdb1a4c6ab69e06a9c48d03c988001ae531e1db3",
+      "rawDurationSeconds": 3.1830833333333333
+    },
+    "seeing": {
+      "file": "cedar-seeing-en.wav",
+      "text": "Seeing suffering can awaken passion.",
+      "direction": "Speak these exact supplied words for a thoughtful 30-second educational\nfilm. Be a warm, lucid, reflective adult narrator, with quiet human concern and\npossibility. Natural conversational English, approximately 165 words per minute,\ncompact but never rushed. Use short natural sentence pauses. Pronounce AI as\nthe separate letters A I. Give gentle emphasis to human, people, learn, and see\nwhere present. Avoid a sales-announcer delivery or exaggerated drama. Do not\nimitate any real person's voice. Speak only the supplied text, with no additions.\n\nComplete this clause in about 3.0 seconds.",
+      "requestSpeed": 1.02,
+      "sha256": "f7e16e589dc881051116b7e5d03871874d3d8cf2960eb50b9fb441c0304286d5",
+      "rawDurationSeconds": 2.993333333333333
+    },
+    "loop": {
+      "file": "cedar-loop-en.wav",
+      "text": "We act. AI can help us build. People show us whether it helped. We improve.",
+      "direction": "Speak these exact supplied words for a thoughtful 30-second educational\nfilm. Be a warm, lucid, reflective adult narrator, with quiet human concern and\npossibility. Natural conversational English, approximately 165 words per minute,\ncompact but never rushed. Use short natural sentence pauses. Pronounce AI as\nthe separate letters A I. Give gentle emphasis to human, people, learn, and see\nwhere present. Avoid a sales-announcer delivery or exaggerated drama. Do not\nimitate any real person's voice. Speak only the supplied text, with no additions.\n\nComplete this clause in about 6.5 seconds.",
+      "requestSpeed": 1.02,
+      "sha256": "a8ecca7f21bf18cfbc57befe5e83f8c5cf34039d8d0e7886b90e55cf91179c69",
+      "rawDurationSeconds": 5.786875
+    },
+    "memory": {
+      "file": "cedar-memory-en.wav",
+      "text": "The product preserves what we learn.",
+      "direction": "Speak these exact supplied words for a thoughtful 30-second educational\nfilm. Be a warm, lucid, reflective adult narrator, with quiet human concern and\npossibility. Natural conversational English, approximately 165 words per minute,\ncompact but never rushed. Use short natural sentence pauses. Pronounce AI as\nthe separate letters A I. Give gentle emphasis to human, people, learn, and see\nwhere present. Avoid a sales-announcer delivery or exaggerated drama. Do not\nimitate any real person's voice. Speak only the supplied text, with no additions.\n\nComplete this clause in about 3.0 seconds.",
+      "requestSpeed": 1.02,
+      "sha256": "facb6874c1b372127a463efcf64034e918741903e92cd3856604d14652bf8c09",
+      "rawDurationSeconds": 3.4360833333333334
+    },
+    "need": {
+      "file": "cedar-need-en.wav",
+      "text": "As building gets faster, we can respond when the need appears.",
+      "direction": "Speak these exact supplied words for a thoughtful 30-second educational\nfilm. Be a warm, lucid, reflective adult narrator, with quiet human concern and\npossibility. Natural conversational English, approximately 165 words per minute,\ncompact but never rushed. Use short natural sentence pauses. Pronounce AI as\nthe separate letters A I. Give gentle emphasis to human, people, learn, and see\nwhere present. Avoid a sales-announcer delivery or exaggerated drama. Do not\nimitate any real person's voice. Speak only the supplied text, with no additions.\n\nComplete this clause in about 4.9 seconds.",
+      "requestSpeed": 1.02,
+      "sha256": "ba3450ab6be3591cbb1ec224b7c9fa333a473c518a1ae762ed40370794dd311a",
+      "rawDurationSeconds": 4.068583333333334
+    },
+    "closing": {
+      "file": "cedar-closing-en-take2.wav",
+      "text": "AI helps us do. We must still see.",
+      "direction": "Speak these exact supplied words for a thoughtful 30-second educational\nfilm. Be a warm, lucid, reflective adult narrator, with quiet human concern and\npossibility. Natural conversational English, approximately 165 words per minute,\ncompact but never rushed. Use short natural sentence pauses. Pronounce AI as\nthe separate letters A I. Give gentle emphasis to human, people, learn, and see\nwhere present. Avoid a sales-announcer delivery or exaggerated drama. Do not\nimitate any real person's voice. Speak only the supplied text, with no additions.\n\nComplete this clause in about 2.9 seconds.\nFor this shorter replacement take, use 180 words per minute, with brief natural pauses. Keep every word clear.",
+      "requestSpeed": 1.11,
+      "sha256": "85aad74f28feaa82a3d0f5cbe8082486fc268779add8238f166d81fe9e385239",
+      "rawDurationSeconds": 3.3350833333333334
+    }
+  },
+  "score": {
+    "file": "score.wav",
+    "sampleRate": 48000,
+    "channels": 1,
+    "frames": 1440000,
+    "durationSeconds": 30.0,
+    "samplePeakDbFS": -17.037,
+    "truePeakDbTP": -17.03,
+    "integratedLoudnessLUFS": -33.13,
+    "sha256": "809edd1bebf1aea1c4af9874cd19888d4409cd6576f8bd78c878bfa28412a8e5",
+    "credit": "Original film score composed and synthesized for Terry; no recordings, samples, or external services",
+    "direction": "Warm low open-fifth pad and sparse damped string tones; human feedback responses at 13.5s/15.8s; hopeful D-major resolution at 26s",
+    "source": "scripts/see_do_feedback_score.py",
+    "synthesisVersion": "1",
+    "masterGain": 2.8,
+    "notes": [
+      {
+        "at": 0,
+        "midi": 50,
+        "gain": 0.012,
+        "length": 10.8,
+        "pad": true
+      },
+      {
+        "at": 0,
+        "midi": 57,
+        "gain": 0.007,
+        "length": 10.8,
+        "pad": true
+      },
+      {
+        "at": 8.6,
+        "midi": 55,
+        "gain": 0.009,
+        "length": 10.3,
+        "pad": true
+      },
+      {
+        "at": 8.6,
+        "midi": 62,
+        "gain": 0.006,
+        "length": 10.3,
+        "pad": true
+      },
+      {
+        "at": 17.1,
+        "midi": 57,
+        "gain": 0.009,
+        "length": 11.5,
+        "pad": true
+      },
+      {
+        "at": 17.1,
+        "midi": 64,
+        "gain": 0.005,
+        "length": 11.5,
+        "pad": true
+      },
+      {
+        "at": 25.5,
+        "midi": 50,
+        "gain": 0.012,
+        "length": 4.5,
+        "pad": true
+      },
+      {
+        "at": 25.5,
+        "midi": 57,
+        "gain": 0.006,
+        "length": 4.5,
+        "pad": true
+      },
+      {
+        "at": 26.05,
+        "midi": 66,
+        "gain": 0.006,
+        "length": 3.95,
+        "pad": true
+      },
+      {
+        "at": 0.45,
+        "midi": 74,
+        "gain": 0.042,
+        "length": 3.2,
+        "pad": false
+      },
+      {
+        "at": 1.5,
+        "midi": 69,
+        "gain": 0.02,
+        "length": 2.8,
+        "pad": false
+      },
+      {
+        "at": 3.05,
+        "midi": 62,
+        "gain": 0.015,
+        "length": 3,
+        "pad": false
+      },
+      {
+        "at": 6.55,
+        "midi": 74,
+        "gain": 0.031,
+        "length": 3.2,
+        "pad": false
+      },
+      {
+        "at": 8.1,
+        "midi": 76,
+        "gain": 0.018,
+        "length": 2.8,
+        "pad": false
+      },
+      {
+        "at": 10.1,
+        "midi": 69,
+        "gain": 0.024,
+        "length": 3,
+        "pad": false
+      },
+      {
+        "at": 13.5,
+        "midi": 76,
+        "gain": 0.03,
+        "length": 2,
+        "pad": false
+      },
+      {
+        "at": 15.8,
+        "midi": 74,
+        "gain": 0.03,
+        "length": 2,
+        "pad": false
+      },
+      {
+        "at": 17.1,
+        "midi": 69,
+        "gain": 0.022,
+        "length": 3,
+        "pad": false
+      },
+      {
+        "at": 20.6,
+        "midi": 76,
+        "gain": 0.025,
+        "length": 3.2,
+        "pad": false
+      },
+      {
+        "at": 23.35,
+        "midi": 78,
+        "gain": 0.018,
+        "length": 2.8,
+        "pad": false
+      },
+      {
+        "at": 26.0,
+        "midi": 74,
+        "gain": 0.04,
+        "length": 4,
+        "pad": false
+      },
+      {
+        "at": 26.8,
+        "midi": 78,
+        "gain": 0.018,
+        "length": 3.2,
+        "pad": false
+      },
+      {
+        "at": 27.6,
+        "midi": 81,
+        "gain": 0.014,
+        "length": 2.4,
+        "pad": false
+      }
+    ]
+  },
+  "previousTakes": {
+    "closing": [
+      {
+        "file": "cedar-closing-en.wav",
+        "text": "AI helps us do. We must still see.",
+        "direction": "Speak these exact supplied words for a thoughtful 30-second educational\nfilm. Be a warm, lucid, reflective adult narrator, with quiet human concern and\npossibility. Natural conversational English, approximately 165 words per minute,\ncompact but never rushed. Use short natural sentence pauses. Pronounce AI as\nthe separate letters A I. Give gentle emphasis to human, people, learn, and see\nwhere present. Avoid a sales-announcer delivery or exaggerated drama. Do not\nimitate any real person's voice. Speak only the supplied text, with no additions.\n\nComplete this clause in about 2.9 seconds.",
+        "requestSpeed": 1.02,
+        "sha256": "74ed7c38332525554f6b2185c25042eccafa74a979e0dc3184f60d8f39b23bdb",
+        "rawDurationSeconds": 3.826125
+      }
+    ]
+  },
+  "cues": [
+    {
+      "id": "gap",
+      "start": 3.1,
+      "end": 6.3,
+      "text": "Every useful product begins with a human gap.",
+      "rawDurationSeconds": 3.1830833333333333,
+      "sourceTrimStartSeconds": 0.0,
+      "sourceTrimEndSeconds": 2.5738958333333333,
+      "trimmedDurationSeconds": 2.5738958333333333,
+      "tempoMultiplier": 1.0,
+      "placedStartSeconds": 3.1350000000000002,
+      "placedEndSeconds": 5.708895833333333,
+      "placedDurationSeconds": 2.5738958333333333
+    },
+    {
+      "id": "seeing",
+      "start": 6.6,
+      "end": 9.8,
+      "text": "Seeing suffering can awaken passion.",
+      "rawDurationSeconds": 2.993333333333333,
+      "sourceTrimStartSeconds": 0.0,
+      "sourceTrimEndSeconds": 2.7900416666666668,
+      "trimmedDurationSeconds": 2.7900416666666668,
+      "tempoMultiplier": 1.0,
+      "placedStartSeconds": 6.635,
+      "placedEndSeconds": 9.425041666666667,
+      "placedDurationSeconds": 2.7900416666666668
+    },
+    {
+      "id": "loop",
+      "start": 10.1,
+      "end": 16.8,
+      "text": "We act. AI can help us build. People show us whether it helped. We improve.",
+      "rawDurationSeconds": 5.786875,
+      "sourceTrimStartSeconds": 0.0,
+      "sourceTrimEndSeconds": 5.6315625,
+      "trimmedDurationSeconds": 5.6315625,
+      "tempoMultiplier": 1.0,
+      "placedStartSeconds": 10.135,
+      "placedEndSeconds": 15.7665625,
+      "placedDurationSeconds": 5.6315625
+    },
+    {
+      "id": "memory",
+      "start": 17.1,
+      "end": 20.3,
+      "text": "The product preserves what we learn.",
+      "rawDurationSeconds": 3.4360833333333334,
+      "sourceTrimStartSeconds": 0.025125,
+      "sourceTrimEndSeconds": 2.5720833333333335,
+      "trimmedDurationSeconds": 2.5469583333333334,
+      "tempoMultiplier": 1.0,
+      "placedStartSeconds": 17.135,
+      "placedEndSeconds": 19.681958333333334,
+      "placedDurationSeconds": 2.5469583333333334
+    },
+    {
+      "id": "need",
+      "start": 20.6,
+      "end": 25.7,
+      "text": "As building gets faster, we can respond when the need appears.",
+      "rawDurationSeconds": 4.068583333333334,
+      "sourceTrimStartSeconds": 0.0,
+      "sourceTrimEndSeconds": 3.8198958333333333,
+      "trimmedDurationSeconds": 3.8198958333333333,
+      "tempoMultiplier": 1.0,
+      "placedStartSeconds": 20.635,
+      "placedEndSeconds": 24.454895833333335,
+      "placedDurationSeconds": 3.8198958333333333
+    },
+    {
+      "id": "closing",
+      "start": 26.1,
+      "end": 29.2,
+      "text": "AI helps us do. We must still see.",
+      "rawDurationSeconds": 3.3350833333333334,
+      "sourceTrimStartSeconds": 0.0,
+      "sourceTrimEndSeconds": 3.1229583333333335,
+      "trimmedDurationSeconds": 3.1229583333333335,
+      "tempoMultiplier": 1.037528,
+      "placedStartSeconds": 26.135,
+      "placedEndSeconds": 29.150145833333333,
+      "placedDurationSeconds": 3.0151458333333334
+    }
+  ],
+  "narration": {
+    "file": "narration-en.wav",
+    "sampleRate": 48000,
+    "channels": 1,
+    "frames": 1440000,
+    "durationSeconds": 30.0,
+    "samplePeakDbFS": -1.5,
+    "truePeakDbTP": -1.5,
+    "integratedLoudnessLUFS": -18.11,
+    "sha256": "21ada4017c6f92ed836d34a3b66a0b31ccc0f331bddca11eca1c1e536d4e1008",
+    "timing": "Complete saved clauses; trim boundary silence only; modest measured tempo correction when needed"
+  },
+  "speechAudit": {
+    "model": "whisper-1",
+    "transcript": "Every useful product begins with a human gap. Seeing suffering can awaken passion. We act. AI can help us build. People show us whether it helped. We improve. The product preserves what we learn. As building gets faster, we can respond when the need appears. AI helps us do. We must still see.",
+    "words": [
+      {
+        "word": "Every",
+        "start": 2.819999933242798,
+        "end": 3.4600000381469727
+      },
+      {
+        "word": "useful",
+        "start": 3.4600000381469727,
+        "end": 3.8399999141693115
+      },
+      {
+        "word": "product",
+        "start": 3.8399999141693115,
+        "end": 4.199999809265137
+      },
+      {
+        "word": "begins",
+        "start": 4.199999809265137,
+        "end": 4.599999904632568
+      },
+      {
+        "word": "with",
+        "start": 4.599999904632568,
+        "end": 4.78000020980835
+      },
+      {
+        "word": "a",
+        "start": 4.78000020980835,
+        "end": 5.0
+      },
+      {
+        "word": "human",
+        "start": 5.0,
+        "end": 5.21999979019165
+      },
+      {
+        "word": "gap",
+        "start": 5.21999979019165,
+        "end": 5.659999847412109
+      },
+      {
+        "word": "Seeing",
+        "start": 7.059999942779541,
+        "end": 7.079999923706055
+      },
+      {
+        "word": "suffering",
+        "start": 7.079999923706055,
+        "end": 7.639999866485596
+      },
+      {
+        "word": "can",
+        "start": 7.639999866485596,
+        "end": 8.260000228881836
+      },
+      {
+        "word": "awaken",
+        "start": 8.260000228881836,
+        "end": 8.640000343322754
+      },
+      {
+        "word": "passion",
+        "start": 8.640000343322754,
+        "end": 9.180000305175781
+      },
+      {
+        "word": "We",
+        "start": 10.399999618530273,
+        "end": 10.399999618530273
+      },
+      {
+        "word": "act",
+        "start": 10.399999618530273,
+        "end": 10.720000267028809
+      },
+      {
+        "word": "AI",
+        "start": 11.359999656677246,
+        "end": 11.520000457763672
+      },
+      {
+        "word": "can",
+        "start": 11.520000457763672,
+        "end": 11.760000228881836
+      },
+      {
+        "word": "help",
+        "start": 11.760000228881836,
+        "end": 11.979999542236328
+      },
+      {
+        "word": "us",
+        "start": 11.979999542236328,
+        "end": 12.319999694824219
+      },
+      {
+        "word": "build",
+        "start": 12.319999694824219,
+        "end": 12.399999618530273
+      },
+      {
+        "word": "People",
+        "start": 13.180000305175781,
+        "end": 13.199999809265137
+      },
+      {
+        "word": "show",
+        "start": 13.199999809265137,
+        "end": 13.5
+      },
+      {
+        "word": "us",
+        "start": 13.5,
+        "end": 13.739999771118164
+      },
+      {
+        "word": "whether",
+        "start": 13.739999771118164,
+        "end": 13.880000114440918
+      },
+      {
+        "word": "it",
+        "start": 13.880000114440918,
+        "end": 14.0600004196167
+      },
+      {
+        "word": "helped",
+        "start": 14.0600004196167,
+        "end": 14.260000228881836
+      },
+      {
+        "word": "We",
+        "start": 14.880000114440918,
+        "end": 15.100000381469727
+      },
+      {
+        "word": "improve",
+        "start": 15.100000381469727,
+        "end": 15.600000381469727
+      },
+      {
+        "word": "The",
+        "start": 17.479999542236328,
+        "end": 17.639999389648438
+      },
+      {
+        "word": "product",
+        "start": 17.639999389648438,
+        "end": 18.040000915527344
+      },
+      {
+        "word": "preserves",
+        "start": 18.040000915527344,
+        "end": 18.459999084472656
+      },
+      {
+        "word": "what",
+        "start": 18.459999084472656,
+        "end": 18.780000686645508
+      },
+      {
+        "word": "we",
+        "start": 18.780000686645508,
+        "end": 18.959999084472656
+      },
+      {
+        "word": "learn",
+        "start": 18.959999084472656,
+        "end": 19.260000228881836
+      },
+      {
+        "word": "As",
+        "start": 20.700000762939453,
+        "end": 20.959999084472656
+      },
+      {
+        "word": "building",
+        "start": 20.959999084472656,
+        "end": 21.3799991607666
+      },
+      {
+        "word": "gets",
+        "start": 21.3799991607666,
+        "end": 21.68000030517578
+      },
+      {
+        "word": "faster",
+        "start": 21.68000030517578,
+        "end": 22.100000381469727
+      },
+      {
+        "word": "we",
+        "start": 22.3799991607666,
+        "end": 22.639999389648438
+      },
+      {
+        "word": "can",
+        "start": 22.639999389648438,
+        "end": 22.860000610351562
+      },
+      {
+        "word": "respond",
+        "start": 22.860000610351562,
+        "end": 23.260000228881836
+      },
+      {
+        "word": "when",
+        "start": 23.260000228881836,
+        "end": 23.459999084472656
+      },
+      {
+        "word": "the",
+        "start": 23.459999084472656,
+        "end": 23.780000686645508
+      },
+      {
+        "word": "need",
+        "start": 23.780000686645508,
+        "end": 23.860000610351562
+      },
+      {
+        "word": "appears",
+        "start": 23.860000610351562,
+        "end": 24.299999237060547
+      },
+      {
+        "word": "AI",
+        "start": 26.100000381469727,
+        "end": 26.579999923706055
+      },
+      {
+        "word": "helps",
+        "start": 26.579999923706055,
+        "end": 26.979999542236328
+      },
+      {
+        "word": "us",
+        "start": 26.979999542236328,
+        "end": 27.260000228881836
+      },
+      {
+        "word": "do",
+        "start": 27.260000228881836,
+        "end": 27.3799991607666
+      },
+      {
+        "word": "We",
+        "start": 28.059999465942383,
+        "end": 28.219999313354492
+      },
+      {
+        "word": "must",
+        "start": 28.219999313354492,
+        "end": 28.440000534057617
+      },
+      {
+        "word": "still",
+        "start": 28.440000534057617,
+        "end": 28.799999237060547
+      },
+      {
+        "word": "see",
+        "start": 28.799999237060547,
+        "end": 29.040000915527344
+      }
+    ],
+    "narrationSha256": "21ada4017c6f92ed836d34a3b66a0b31ccc0f331bddca11eca1c1e536d4e1008",
+    "exactScriptPassed": true
+  },
+  "unityGainMix": {
+    "narrationGain": 1,
+    "scoreGain": 1,
+    "sampleRate": 48000,
+    "channels": 1,
+    "frames": 1440000,
+    "durationSeconds": 30.0,
+    "samplePeakDbFS": -1.257,
+    "truePeakDbTP": -1.26,
+    "integratedLoudnessLUFS": -18.47,
+    "sha256": "c248e87f17ea4362cfc1ff2b557e5cc500e024b8d8ec20e0b3f4ae5c4b72f380",
+    "clippedSamples": 0,
+    "narrationSha256": "21ada4017c6f92ed836d34a3b66a0b31ccc0f331bddca11eca1c1e536d4e1008",
+    "scoreSha256": "809edd1bebf1aea1c4af9874cd19888d4409cd6576f8bd78c878bfa28412a8e5"
+  }
+}

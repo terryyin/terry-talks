@@ -49,6 +49,9 @@ importers:
       '@remotion/cli':
         specifier: 4.0.533
         version: 4.0.533(lightningcss@1.33.0)(postcss@8.5.29)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(supports-color@8.1.1)(typescript@6.0.3)(uglify-js@3.19.3)
+      '@remotion/media':
+        specifier: 4.0.533
+        version: 4.0.533(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@remotion/media-utils':
         specifier: 4.0.533
         version: 4.0.533(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
