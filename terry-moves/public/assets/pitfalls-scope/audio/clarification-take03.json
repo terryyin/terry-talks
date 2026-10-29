@@ -1,0 +1,17 @@
+{
+  "id": "clarification",
+  "role": "product owner",
+  "voice": "coral",
+  "start": 18.05,
+  "end": 22.1,
+  "text": "Three was our example. We never agreed on a maximum.",
+  "speed": 1.1,
+  "direction": "The same product owner responding to the blocked demo. Firm and concerned, explaining the misunderstanding to a colleague at a brisk connected natural pace around 175 words per minute. Complete the ten words in under four seconds. Short purposeful sentence-boundary pause; no deliberate pauses between individual words, no elongated syllables. Brief audible stress on EXAMPLE and MAXIMUM without drawing them out. Use natural US English agreed on. Professional and explanatory, with residual frustration, no shouting, sarcasm or theatrical performance.",
+  "instructions": "The same product owner responding to the blocked demo. Firm and concerned, explaining the misunderstanding to a colleague at a brisk connected natural pace around 175 words per minute. Complete the ten words in under four seconds. Short purposeful sentence-boundary pause; no deliberate pauses between individual words, no elongated syllables. Brief audible stress on EXAMPLE and MAXIMUM without drawing them out. Use natural US English agreed on. Professional and explanatory, with residual frustration, no shouting, sarcasm or theatrical performance. Finish the complete line naturally within about 4.05 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 3,
+  "requestSpeed": 1.1,
+  "file": "audio/clarification-take03.wav",
+  "sha256": "fbfa5a231df0a30159e78a9cb324075707807fd97481949a416d175f0f487f5d",
+  "rawDurationSeconds": 4.225041666666667
+}

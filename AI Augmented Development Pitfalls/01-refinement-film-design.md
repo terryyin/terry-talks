@@ -4,151 +4,104 @@
 
 **Source:** [When Scope Becomes a Restriction](01-when-scope-becomes-a-restriction.md)
 
-**Status:** Local film preview approved
+**Status:** Revised local preview approved
 
 **Audience:** Software developers
 
-**Format:** Approximately 30 seconds, portrait 9:16
+**Format:** 30 seconds, portrait 9:16, 1080 × 1920, 30 fps
 
 ## Preview
 
-From the repository root, run `pnpm moves` and select **ScopeRestrictionFilm**.
-The preview is 900 frames at 30 fps, 1080 × 1920, with English dialogue,
-phrase captions and an original quiet room-tone/software-cue soundtrack.
-Its six scenes also have separate editable timelines under
+Run `pnpm moves` and select **ScopeRestrictionFilm**. Seven scenes and the shared
+meaning-change overlay also have editable timelines under
 **AI-Pitfalls-Scope-Scenes**.
 
-The film combines generated photographic scene plates, restrained camera motion
-and native animated software inserts. The people are fictional and the voices
-are synthetic: Cedar narrates, Coral performs the product owner and Ash performs
-the developer. They are not recordings of Terry or real actors. The preview
-identifies its generated scenes and voices on screen.
+The film combines generated photographs, restrained camera moves and animated
+software actions. The people are fictional; Cedar narrates, Coral performs the
+product owner and Ash performs the developer. These are synthetic voices and
+photographic stills, not recorded actors or lip-synced motion footage. The
+opening briefly shows a frustrated face under narration. Role dialogue plays
+over hands, notes and software cutaways so a frozen mouth does not carry a
+conversation. The whiteboard is blank to avoid competing with the series label.
+The AI disclosure appears with that label at the top.
 
-The [artwork record](01-film-artwork.json) saves the ImageGen prompts and asset
-paths. The [audio record](01-film-audio.json) saves the complete dialogue,
-voices, source hashes, measured placement and independent speech audit.
-[Phrase captions](01-film-captions.json) and the [SRT transcript](01-film.srt)
-follow the saved performance. Rebuild the soundtrack from its saved takes with
-`python3 scripts/pitfalls-scope-audio.py`; this makes no new API request.
-New speech requests use `--generate` for missing takes or `--retake` for named replacements.
-The revised preview uses `mix-v3.wav`; earlier mixes and raw takes are retained.
+The [artwork record](01-film-artwork.json) saves prompts and asset paths. The
+[audio record](01-film-audio.json) saves dialogue, voices, hashes, measured
+placement, sound cues, loudness, quiet-run measurements and the speech audit.
+[Phrase captions](01-film-captions.json) and [SRT](01-film.srt) follow measured
+speech timings. Rebuild the soundtrack offline with
+`python3 scripts/pitfalls-scope-audio.py`; `--generate` requests missing takes,
+`--retake` requests named replacements, and `--audit` transcribes the actual mix.
+The current soundtrack is `mix-v4.wav`; earlier mixes and takes remain retained.
 
-This is a local review preview for the three platforms. It has not been posted.
+This is a local platform review preview. It has not been posted to LinkedIn,
+YouTube or TikTok. Preview it with each platform’s overlays before publishing.
 
-A refinement discussion produces a requirement nobody intended. The product
-owner imagines a small delivery that brings value and feedback sooner. The
-developer interprets the same discussion as a request for a permanent limit,
-then asks a coding agent to implement it. The misunderstanding becomes visible
-at the demo.
+## Story and example
 
-The central idea is **a delivery decision becomes a product rule**.
+A product owner wants a small first user story for early feedback: tag a few
+contacts, using three as an example. The developer assumes a maximum of three
+would be safer and instructs a coding assistant accordingly. The assistant
+immediately adds validation, an error message and rejection tests. At the demo,
+the owner selects four contacts and presses Tag; applying the tag fails. Her
+clarification resolves the misunderstanding: three was an example, and no
+maximum had been agreed on.
 
-The genre is a naturalistic workplace vignette: a short scene developers can
-recognize from their own work. The reveal has a little dry irony, with the
-product owner expressing concern and frustration at the needless block. Both participants
-are competent and sincere. The coding agent makes the developer's
-interpretation concrete.
+The existing tagging operation accepts a list. The count guard is an added
+product decision, not an established business requirement or technical risk.
+The film does not promise every larger or unrelated future scenario. It shows
+how an example can become a prohibition without that separate decision.
 
-## Setting and example
-
-Use one ordinary team room, one product owner and one developer. The product
-lets a user select contacts and apply a tag to the selection.
-
-During refinement, the product owner limits the first user story’s scope to a small number of contacts,
-using three as an example. Their intention is to get the basic flow into users'
-hands, then decide what deserves further investment. The developer translates
-that example into a maximum of three contacts.
-
-This is an illustrative situation. The existing operation already accepts a
-list of selected contacts; the count guard is an additional decision. No
-business rule or technical risk has established the number three as a limit.
-The film does not claim that every larger selection, unrelated workflow or
-future feature is already supported.
-
-## Revised 30-second sequence
-
-The story resolves its ambiguity in conversation: three is the owner’s working
-example; the developer independently adds a maximum. The owner’s clarification
-after the failed demo lets a viewer understand the mistake without having read
-the article. The demo and clarification share one continuous scene.
+## Sequence
 
 | Time | Picture and action | Spoken line |
 | --- | --- | --- |
-| 0–2.4 s | Open with the concrete mistake, over the refinement two-shot: **An example became a product limit.** | Narrator: “An example became a product limit.” |
-| 2.4–9 s | The owner’s compact note identifies **First user story · scope**, **Tag a few contacts**, and **For example, three**. | Product owner: “For early feedback, let’s keep the first user story’s scope small: tag a few contacts, say three.” |
-| 9–12.6 s | The developer types **Enforce a maximum of 3 contacts** into the coding assistant. | Developer: “I’ll ask the agent to enforce a maximum of three.” |
-| 12.6–15.5 s | A brief insert shows the added count guard. There is no separate test or success-message beat. | Restrained keyboard sounds. |
-| 15.5–19 s | At the demo the owner selects a fourth contact. **Maximum 3 contacts** appears before her question. | Product owner, frustrated and concerned: “Why can’t I tag four?” |
-| 19–23 s | Continue the same conversation. The software insert fades so attention returns to her face and words. | Product owner, firmly clarifying: “Three was our example. We never agreed a maximum.” |
-| 23–30 s | Hold the concrete distinction: **Story scope — What must work? Product constraint — What must be blocked?** End with **Be explicit with people and AI.** | Narrator: “Clarify what this story must deliver—and what the product must reject. With people and AI.” |
+| 0–2.4 s | Frustrated demo reaction with **Maximum 3 contacts**. One prominent hook, without a duplicate subtitle. | Narrator: “She said three. He heard maximum.” |
+| 2.4–7.8 s | **Earlier · Refinement**. A note identifies the first user story’s scope: tag a few contacts for early feedback. | Owner: “For early feedback, let’s keep the first user story’s scope small: tag a few contacts, say three.” |
+| 6–11.8 s | One persistent **3** travels from the owner’s note into the developer’s request. Its green **EXAMPLE** label becomes red **MAXIMUM** across the cut. | This overlay supports the owner and developer lines. |
+| 7.8–11.8 s | Developer requests **Enforce: maximum 3 contacts** and presses **Ask assistant**. | Developer: “Maximum three, to be safe. I’ll ask the agent.” |
+| 11.8–14.4 s | Assistant responds at 12.1 s: **Done. Added: ✓ Max-3 validation ✓ Error message ✓ Rejection tests**. | Audible completion cue and quiet underscore. |
+| 14.4–18 s | Lee becomes the fourth selection at 15.0 s. **Tag 4 contacts** presses at 15.1 s. At 15.2 s the error says **Maximum 3 contacts · Tag not applied**. | Owner, frustrated: “Why can’t I tag four?” |
+| 18–22.2 s | Return to the original story note as she explains the misunderstanding. | Owner: “Three was our example. We never agreed on a maximum.” |
+| 22.2–30 s | The native closing text uses the narration’s exact words and stays through the final frame. | Narrator: “An example isn’t a maximum. Make that clear to people and AI.” |
 
-The preview lasts exactly 30 seconds. Saved complete speech fits inside the
-shot windows. Captions follow the revised performance and its independent
-transcription. The concise clarification supplies the causal explanation that
-was missing from the earlier cut; stronger emotion alone cannot supply it.
+Four checked boxes mean four selected contacts. The Tag action fails; selection
+itself is not rejected. The explicit button and **Tag not applied** status make
+that distinction visible.
 
-## Visual language and mobile layout
+## Mobile layout and text
 
-Use realistic people, ordinary clothing, natural daylight and a modest office.
-The camera observes a real conversation at eye level. Favor close two-shots,
-over-the-shoulder views and large screen inserts over wide room views. Keep the
-same faces, clothing, room, contact list and tag action throughout.
+Essential cards sit between x90–900 and above y1260. Phrase captions start at
+y1300, around the 70–75% area of the portrait frame, with balanced lines and
+room at the right for platform controls. The top label and disclosure sit in a
+single dark panel starting at y140. Avoid essential content near the lower
+platform description area.
 
-Show the different mental models through the participants' actual notes and
-brief product inserts. The owner’s note identifies the delivery scope and example; her dialogue explains early feedback. The
-developer's note introduces the count limit. These inserts make the invisible
-interpretation legible without requiring floating thought bubbles.
+The hook and conclusion are their own large captions. The generic subtitle
+layer is suppressed there, while the full SRT retains those words. The ending
+contains no competing jargon labels or alternate paraphrase and remains
+visible after the narrator finishes. Most dialogue captions contain short
+phrases; balanced wrapping avoids a lone final word.
 
-The product's rejected fourth contact is the fence. Keep the consequence inside
-the software interface. The repeated number **3** connects the refinement
-example, the developer's interpretation, the agent instruction and the error.
+## Sound
 
-For portrait framing:
+The mix targets −14 LUFS by choice for this edition, with true peak below
+−1.5 dBTP. It includes an unobtrusive midrange bed through the final hold,
+audible typing, an assistant completion cue, selection and Tag clicks, and a
+soft rejection sound. Software cues match their visible actions at 12.1,
+15.0, 15.1 and 15.2 seconds.
 
-- Keep faces, hands and the current point of attention large in the central
-  area. Reframe a screen as a close-up when its content matters.
-- Show one important line of screen text at a time. Crop tightly around the
-  relevant assistant instruction, count check or error message.
-- Keep the episode identifier small and consistent. The opening begins with
-  people and action, rather than a separate series title sequence.
-- Use short captions and keep essential copy clear of platform interface
-  overlays. Check the layout in each platform's preview before publishing.
-- Let the demo and clarification play as one exchange. Clear the software
-  insert as she explains the misunderstanding, so viewers can attend to her
-  face and the phrase captions.
-- The final card asks two concrete questions: **What must work?** and
-  **What must be blocked?** Keep its copy short and hold it for seven seconds.
-
-The closing text maps delivery scope to **What must work?** and a product
-constraint to **What must be blocked?** The spoken line connects those questions
-to people and instructions to AI. The example “three” expresses the first user
-story’s delivery scope; a hard maximum requires a separate requirement.
-
-## Performance and sound
-
-The product owner speaks naturally and wants to help the team deliver sooner.
-The developer listens, makes an unchecked interpretation, and gives the agent a
-specific instruction. Keep the misunderstanding plausible; the performance
-should not caricature either role.
-
-Use room tone, restrained keyboard sounds and a brief pause at the failed demo.
-The owner then explains her intent with firm concern, stressing “example” and
-“maximum.” Keep the exchange connected; no test-completion tones are needed.
-Music, if used, stays quiet under speech. The difference between the notes and
-the visible error should make the essential story understandable without sound.
+Measured 20 ms windows in the two previously quiet intervals (7.5–9.0 and
+13.9–16.4 seconds) contain no runs at or below −45 dBFS in this mix. The audio
+record retains the exact method and measurements. Complete phrases are
+preserved without digital speech stretching; the synthetic takes use their
+recorded request speeds. The speech audit retains the known recognition
+ambiguity between “story’s” and “story”; the approved caption uses “story’s.”
 
 ## Meaning to preserve
 
-The mistake happens when the developer turns the delivery boundary into a
-restriction. The agent then implements that interpretation. This keeps human
-communication and AI-assisted execution in the same causal chain.
-
-The takeaway is to distinguish scope from constraints and communicate the
-difference explicitly. It does not call for removing
-legitimate safety guards, implementing every deferred feature, or treating
-tests themselves as the problem. The original article remains the fuller
-argument; this film illustrates one recognizable instance.
-
-The proposed opening invites recognition without claiming a measured frequency
-for this particular mistake. The closing reminder applies to refinement conversations and instructions
-passed to a coding assistant.
+The developer supplies the mistaken restriction; the assistant makes it
+concrete without clarifying. The AI-specific risk is the speed and completeness
+with which that misunderstanding becomes software, including tests. Both
+people are plausible colleagues. The remedy is to make the intended scope and
+any real product restrictions explicit between people and in instructions to AI.

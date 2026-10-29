@@ -1,47 +1,47 @@
 1
-00:00:00,060 --> 00:00:02,300
-An example became a product limit.
+00:00:00,000 --> 00:00:02,340
+She said three. He heard maximum.
 
 2
-00:00:02,600 --> 00:00:03,440
+00:00:02,560 --> 00:00:03,440
 For early feedback,
 
 3
-00:00:03,740 --> 00:00:05,780
-let’s keep the first user story’s scope small:
+00:00:03,720 --> 00:00:04,540
+let’s keep the first
 
 4
-00:00:06,120 --> 00:00:07,600
-tag a few contacts, say three.
+00:00:04,540 --> 00:00:05,780
+user story’s scope small:
 
 5
-00:00:09,120 --> 00:00:10,400
-I’ll ask the agent
+00:00:06,120 --> 00:00:07,660
+tag a few contacts, say three.
 
 6
-00:00:10,400 --> 00:00:12,520
-to enforce a maximum of three.
+00:00:08,140 --> 00:00:09,880
+Maximum three, to be safe.
 
 7
-00:00:16,290 --> 00:00:18,380
-Why can’t I tag four?
+00:00:10,480 --> 00:00:11,680
+I’ll ask the agent.
 
 8
-00:00:19,240 --> 00:00:20,340
-Three was our example.
+00:00:15,240 --> 00:00:17,320
+Why can’t I tag four?
 
 9
-00:00:20,940 --> 00:00:22,500
-We never agreed a maximum.
+00:00:18,160 --> 00:00:19,660
+Three was our example.
 
 10
-00:00:23,400 --> 00:00:25,020
-Clarify what this story must deliver—
+00:00:20,040 --> 00:00:21,920
+We never agreed on a maximum.
 
 11
-00:00:25,020 --> 00:00:27,040
-and what the product must reject.
+00:00:22,400 --> 00:00:24,040
+An example isn’t a maximum.
 
 12
-00:00:27,040 --> 00:00:29,420
-With people and AI.
+00:00:24,620 --> 00:00:26,740
+Make that clear to people and AI.

@@ -15,6 +15,7 @@ import wave
 import numpy as np
 
 from narration_audio import master, read_pcm, run, sha256, tokens, verify, write_pcm
+from pitfalls_scope_sound import add_soundtrack, measure_quiet
 
 from pitfalls_scope_content import (
     ASSETS, CAST, DURATION, MIX, MODEL, RATE, RECORD, ROOT, TAKES,
@@ -108,7 +109,7 @@ def build():
             if end > round(cue["end"] * RATE) or end > len(mixture):
                 raise ValueError(f"{cue['id']} overrun")
             mixture[start:end] += cut[:, None]
-            prepared = TAKES / f"{cue['id']}-prepared-v3.wav"
+            prepared = TAKES / f"{cue['id']}-prepared-v4.wav"
             write_pcm(prepared, array("h", np.round(cut * 32767).astype(np.int16)), RATE)
             # Raw sidecars retain their original request windows; the current
             # film record exposes only its measured placement, not stale cues.
@@ -121,28 +122,23 @@ def build():
             fallback.extend({"word": word, "start": cue["start"] + i / len(parts) * len(cut) / RATE,
                              "end": cue["start"] + (i + 1) / len(parts) * len(cut) / RATE}
                             for i, word in enumerate(parts))
-        # Original deterministic room tone and restrained keyboard cues.
-        rng = np.random.default_rng(20261029)
-        room = rng.normal(0, .00018, len(mixture))
-        room = np.convolve(room, np.ones(25) / 25, mode="same")
-        mixture += room[:, None]
-        for when in [9.22, 9.44, 9.70, 12.82, 12.98, 13.27, 13.60, 13.88]:
-            count = round(.027 * RATE)
-            t = np.arange(count) / RATE
-            cue = rng.normal(0, .006, count) * np.exp(-t * 180)
-            mixture[round(when * RATE):round(when * RATE) + count] += cue[:, None]
+        score = add_soundtrack(mixture, RATE, placed)
         raw = work / "raw.wav"
         write_pcm(raw, array("h", np.clip(np.round(mixture.ravel() * 32767), -32768, 32767).astype(np.int16)), RATE, channels=2)
         output = MIX
-        measured = master(raw, output, -17, RATE)
+        mastered = work / "mastered.wav"
+        measured = master(raw, mastered, -14, RATE)
+        run(["ffmpeg", "-y", "-v", "error", "-i", str(mastered), "-af", "volume=-0.05dB", "-c:a", "pcm_s16le", str(output)])
         inspection = run(["ffmpeg", "-hide_banner", "-i", str(output), "-af",
-                          "loudnorm=I=-17:TP=-1.5:LRA=7:print_format=json", "-f", "null", "-"])
+                          "loudnorm=I=-14:TP=-1.5:LRA=7:print_format=json", "-f", "null", "-"])
         analysis, _ = json.JSONDecoder().raw_decode(inspection.stderr[inspection.stderr.rfind("{"):])
     report = {"film": "ScopeRestrictionFilm", "fps": 30, "durationInFrames": 900, "durationSeconds": 30,
               "sampleRate": RATE, "channels": 2, "disclosure": "AI-generated synthetic voices: OpenAI Cedar, Coral and Ash. Fictional roles; not recordings or imitations of Terry or any real person.",
               "apiGuide": "https://developers.openai.com/api/docs/guides/text-to-speech", "model": MODEL,
               "timingPolicy": "Preserve complete phrases at natural prepared speed; boundary silence only; no time scaling, internal pause deletion or speech truncation.",
-              "score": "No music. Original deterministic room tone and restrained keyboard transients, seed 20261029. No test-completion tones.",
+              "score": score, "masteringTarget": {"integratedLoudnessLUFS": -14, "maximumTruePeakDbTP": -1.5, "postMasterSafetyGainDb": -.05, "reason": "Requested creative target for this film; not a universal platform standard. A 0.05 dB final margin covers 16-bit quantization after the true-peak limiter."},
+              "quietAnalysis": measure_quiet(output, RATE),
+              "previousPreviewQuietAnalysis": {"file": "assets/pitfalls-scope/mix-v3.wav", "sha256": sha256(ASSETS / "mix-v3.wav"), "measurement": measure_quiet(ASSETS / "mix-v3.wav", RATE)},
               "clips": placed, "mastering": measured, "mix": {"file": str(output.relative_to(ROOT / "terry-moves/public")), "sha256": sha256(output),
                   "integratedLoudnessLUFS": float(analysis["input_i"]), "truePeakDbTP": float(analysis["input_tp"]), "loudnessRangeLU": float(analysis["input_lra"])},
               "captionTiming": "Provisional proportional phrase timing from placed clips; independent ASR audit not yet performed."}

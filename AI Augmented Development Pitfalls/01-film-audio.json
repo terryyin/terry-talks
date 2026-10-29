@@ -9,29 +9,192 @@
   "apiGuide": "https://developers.openai.com/api/docs/guides/text-to-speech",
   "model": "gpt-4o-mini-tts",
   "timingPolicy": "Preserve complete phrases at natural prepared speed; boundary silence only; no time scaling, internal pause deletion or speech truncation.",
-  "score": "No music. Original deterministic room tone and restrained keyboard transients, seed 20261029. No test-completion tones.",
+  "score": {
+    "origin": "Original offline synthesis; no stock audio or legacy test tones.",
+    "seed": 20261029,
+    "bed": "Soft open-fifth midrange pad and filtered air; ducked 7.5 dB under speech; extends through 30 seconds with a 350 ms final fade.",
+    "bedRmsDbFSBeforeMaster": -42.11,
+    "bedUnduckedTargetRmsDbFSBeforeMaster": -37.39,
+    "typingSeconds": [
+      7.84,
+      8.02,
+      8.15,
+      8.39,
+      8.65,
+      8.81,
+      9.12,
+      9.25,
+      9.54,
+      9.79,
+      10.07,
+      10.21,
+      10.52,
+      10.79,
+      11.05,
+      11.37,
+      11.61
+    ],
+    "events": [
+      {
+        "event": "assistant completion",
+        "startSeconds": 12.1,
+        "durationSeconds": 0.26
+      },
+      {
+        "event": "selection click",
+        "startSeconds": 15.0,
+        "durationSeconds": 0.036
+      },
+      {
+        "event": "Tag click",
+        "startSeconds": 15.1,
+        "durationSeconds": 0.044
+      },
+      {
+        "event": "soft rejection",
+        "startSeconds": 15.2,
+        "durationSeconds": 0.25
+      }
+    ]
+  },
+  "masteringTarget": {
+    "integratedLoudnessLUFS": -14,
+    "maximumTruePeakDbTP": -1.5,
+    "postMasterSafetyGainDb": -0.05,
+    "reason": "Requested creative target for this film; not a universal platform standard. A 0.05 dB final margin covers 16-bit quantization after the true-peak limiter."
+  },
+  "quietAnalysis": {
+    "method": "Stereo channel-mean power in nonoverlapping 20 ms blocks; moving mean of 25 block powers (500 ms), valid windows only; low means RMS <= -45 dBFS. Smoothed-run times identify starts of consecutive qualifying 500 ms windows.",
+    "thresholdDbFS": -45,
+    "blockMilliseconds": 20,
+    "smoothingMilliseconds": 500,
+    "windows": {
+      "0–30s": {
+        "longestSmoothedLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "longestRaw20msLowRun": {
+          "durationSeconds": 0.1,
+          "startSeconds": 29.9,
+          "endSeconds": 30.0
+        },
+        "minimumSmoothedRmsDbFS": -39.93,
+        "minimumRaw20msRmsDbFS": -64.03,
+        "rmsDbFS": -18.24
+      },
+      "7.5–9s": {
+        "longestSmoothedLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "longestRaw20msLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "minimumSmoothedRmsDbFS": -20.81,
+        "minimumRaw20msRmsDbFS": -40.99,
+        "rmsDbFS": -17.51
+      },
+      "13.9–16.4s": {
+        "longestSmoothedLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "longestRaw20msLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "minimumSmoothedRmsDbFS": -31.84,
+        "minimumRaw20msRmsDbFS": -41.07,
+        "rmsDbFS": -18.89
+      }
+    }
+  },
+  "previousPreviewQuietAnalysis": {
+    "file": "assets/pitfalls-scope/mix-v3.wav",
+    "sha256": "4529c3a2d3bcb4035e77b458fbe33a8d04e84b8891c0ff1f051c9d951a824195",
+    "measurement": {
+      "method": "Stereo channel-mean power in nonoverlapping 20 ms blocks; moving mean of 25 block powers (500 ms), valid windows only; low means RMS <= -45 dBFS. Smoothed-run times identify starts of consecutive qualifying 500 ms windows.",
+      "thresholdDbFS": -45,
+      "blockMilliseconds": 20,
+      "smoothingMilliseconds": 500,
+      "windows": {
+        "0–30s": {
+          "longestSmoothedLowRun": {
+            "durationSeconds": 3.54,
+            "startSeconds": 12.4,
+            "endSeconds": 15.94
+          },
+          "longestRaw20msLowRun": {
+            "durationSeconds": 3.92,
+            "startSeconds": 12.44,
+            "endSeconds": 16.36
+          },
+          "minimumSmoothedRmsDbFS": -88.96,
+          "minimumRaw20msRmsDbFS": -90.68,
+          "rmsDbFS": -21.18
+        },
+        "7.5–9s": {
+          "longestSmoothedLowRun": {
+            "durationSeconds": 1.02,
+            "startSeconds": 7.5,
+            "endSeconds": 8.52
+          },
+          "longestRaw20msLowRun": {
+            "durationSeconds": 1.5,
+            "startSeconds": 7.5,
+            "endSeconds": 9.0
+          },
+          "minimumSmoothedRmsDbFS": -88.84,
+          "minimumRaw20msRmsDbFS": -90.68,
+          "rmsDbFS": -65.55
+        },
+        "13.9–16.4s": {
+          "longestSmoothedLowRun": {
+            "durationSeconds": 2.0,
+            "startSeconds": 13.9,
+            "endSeconds": 15.9
+          },
+          "longestRaw20msLowRun": {
+            "durationSeconds": 2.46,
+            "startSeconds": 13.9,
+            "endSeconds": 16.36
+          },
+          "minimumSmoothedRmsDbFS": -88.96,
+          "minimumRaw20msRmsDbFS": -90.36,
+          "rmsDbFS": -55.54
+        }
+      }
+    }
+  },
   "clips": [
     {
       "id": "opening",
       "role": "narrator",
       "voice": "cedar",
-      "text": "An example became a product limit.",
-      "speed": 1.0,
-      "direction": "The same warm perceptive narrator, opening with a clear concise observation. Brisk ordinary speech, with gentle emphasis on example and product limit. No announcer or dramatic warning voice.",
-      "instructions": "The same warm perceptive narrator, opening with a clear concise observation. Brisk ordinary speech, with gentle emphasis on example and product limit. No announcer or dramatic warning voice. Finish the complete line naturally within about 2.18 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "text": "She said three. He heard maximum.",
+      "speed": 1.2,
+      "direction": "The same warm perceptive narrator, brisk connected ordinary speech. Treat this as one linked six-word thought and finish in two seconds. Keep flowing straight from three to he, with no deliberate sentence pause. Brief light emphasis on three and maximum, with no elongated syllables or theatrical contrast. No announcer or dramatic warning voice.",
+      "instructions": "The same warm perceptive narrator, brisk connected ordinary speech. Treat this as one linked six-word thought and finish in two seconds. Keep flowing straight from three to he, with no deliberate sentence pause. Brief light emphasis on three and maximum, with no elongated syllables or theatrical contrast. No announcer or dramatic warning voice. Finish the complete line naturally within about 2.18 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
       "model": "gpt-4o-mini-tts",
-      "takeNumber": 2,
-      "requestSpeed": 1.0,
-      "file": "audio/opening-take02.wav",
-      "sha256": "09841c2b6fb5f8f52bfe27b1074b2d3e61642cf802da65f80cef52ffa3d8a414",
-      "rawDurationSeconds": 2.35,
-      "speechStartSeconds": 0.12,
-      "speechEndSeconds": 2.285083333333333,
-      "trimmedLeadingSeconds": 0.0,
-      "trimmedTrailingSeconds": 0.18491666666666667,
+      "takeNumber": 4,
+      "requestSpeed": 1.2,
+      "file": "audio/opening-take04.wav",
+      "sha256": "a26b47c9319355822186637a9543214ff0c2c10453ddf15fc17b408c22022d4a",
+      "rawDurationSeconds": 2.7442083333333334,
+      "speechStartSeconds": 0.02,
+      "speechEndSeconds": 2.3674791666666666,
+      "trimmedLeadingSeconds": 0.0068125,
+      "trimmedTrailingSeconds": 0.3899166666666667,
       "atempo": 1.0,
-      "preparedFile": "audio/opening-prepared-v3.wav",
-      "preparedSha256": "e321ab5e51751b24103aa946b775a813ec0da7f0ef021d14f7e2aeb782f97911"
+      "preparedFile": "audio/opening-prepared-v4.wav",
+      "preparedSha256": "fa8dc61afe2950f5ead598fe4fb9febc8d99f5c6453094bccff4b6fc8d36bcd0"
     },
     {
       "id": "owner",
@@ -52,28 +215,30 @@
       "trimmedLeadingSeconds": 0.0,
       "trimmedTrailingSeconds": 0.444875,
       "atempo": 1.0,
-      "preparedFile": "audio/owner-prepared-v3.wav",
+      "preparedFile": "audio/owner-prepared-v4.wav",
       "preparedSha256": "cb3f558b15e7ae043cf0fc02929537d1c3e3cd2b1de6672fb4e16578a03d5390"
     },
     {
       "id": "developer",
       "role": "developer",
       "voice": "ash",
-      "text": "I’ll ask the agent to enforce a maximum of three.",
-      "speed": 1.06,
-      "direction": "A sincere capable developer speaking to a colleague. Quietly confident, practical, unhurried but compact. No caricature or robot affect.",
-      "instructions": "A sincere capable developer speaking to a colleague. Quietly confident, practical, unhurried but compact. No caricature or robot affect. Finish the complete line naturally within about 3.60 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "text": "Maximum three, to be safe. I’ll ask the agent.",
+      "speed": 1.1,
+      "direction": "The same sincere capable developer speaking to a colleague. Quietly confident, practical, connected and compact, around 170 words per minute. Maximum three is the developer's assumption; to be safe is a casual sincere rationale, not a sinister aside. A small sentence-boundary pause before I'll ask the agent. No caricature or robot affect, no elongated syllables.",
+      "instructions": "The same sincere capable developer speaking to a colleague. Quietly confident, practical, connected and compact, around 170 words per minute. Maximum three is the developer's assumption; to be safe is a casual sincere rationale, not a sinister aside. A small sentence-boundary pause before I'll ask the agent. No caricature or robot affect, no elongated syllables. Finish the complete line naturally within about 3.80 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
       "model": "gpt-4o-mini-tts",
-      "file": "audio/developer.wav",
-      "sha256": "a47dd314d8e8156123561568e74f149c54b24b08013a41959b6586d75126ad20",
-      "rawDurationSeconds": 4.013791666666667,
-      "speechStartSeconds": 9.05,
-      "speechEndSeconds": 12.533208333333333,
+      "takeNumber": 2,
+      "requestSpeed": 1.1,
+      "file": "audio/developer-take02.wav",
+      "sha256": "ed0ff388db17e049266c4c31048d3070f7125b48760e5cbe0bee52a4a4c65b2c",
+      "rawDurationSeconds": 4.134666666666667,
+      "speechStartSeconds": 7.81,
+      "speechEndSeconds": 11.733020833333333,
       "trimmedLeadingSeconds": 0.0,
-      "trimmedTrailingSeconds": 0.5305833333333333,
+      "trimmedTrailingSeconds": 0.21164583333333334,
       "atempo": 1.0,
-      "preparedFile": "audio/developer-prepared-v3.wav",
-      "preparedSha256": "ea982494f2ae6d786f0b39918bb9e0286c9bee7c1529b5869f245a069ae10d11"
+      "preparedFile": "audio/developer-prepared-v4.wav",
+      "preparedSha256": "0ec8c365a1fd66fd44c31093e76f6bf188040a8e126a14c54efd86434e379b3e"
     },
     {
       "id": "demo",
@@ -89,77 +254,77 @@
       "file": "audio/demo-take02.wav",
       "sha256": "0ec941ece75377f616d4e6796cc5d4cb9e9c1b9b9fc8614dfdb1f9fa2530f994",
       "rawDurationSeconds": 3.3248333333333333,
-      "speechStartSeconds": 16.35,
-      "speechEndSeconds": 18.401208333333333,
+      "speechStartSeconds": 15.3,
+      "speechEndSeconds": 17.351208333333332,
       "trimmedLeadingSeconds": 0.0,
       "trimmedTrailingSeconds": 1.273625,
       "atempo": 1.0,
-      "preparedFile": "audio/demo-prepared-v3.wav",
+      "preparedFile": "audio/demo-prepared-v4.wav",
       "preparedSha256": "1c3f11ffe619901fea178c700471b1e249c8df37f969f6148f7037333c073123"
     },
     {
       "id": "clarification",
       "role": "product owner",
       "voice": "coral",
-      "text": "Three was our example. We never agreed a maximum.",
-      "speed": 1.14,
-      "direction": "The same product owner responding to the blocked demo. Firm and concerned, explaining the misunderstanding to a colleague at a brisk connected natural pace around 175 to 185 words per minute. Complete this nine-word line in at most 3.65 seconds. Use a short purposeful sentence-boundary pause; no deliberate pauses between individual words, no elongated syllables. Brief audible stress on EXAMPLE and MAXIMUM, without drawing them out. Professional and explanatory, with residual frustration, no shouting, sarcasm or theatrical performance.",
-      "instructions": "The same product owner responding to the blocked demo. Firm and concerned, explaining the misunderstanding to a colleague at a brisk connected natural pace around 175 to 185 words per minute. Complete this nine-word line in at most 3.65 seconds. Use a short purposeful sentence-boundary pause; no deliberate pauses between individual words, no elongated syllables. Brief audible stress on EXAMPLE and MAXIMUM, without drawing them out. Professional and explanatory, with residual frustration, no shouting, sarcasm or theatrical performance. Finish the complete line naturally within about 3.75 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "text": "Three was our example. We never agreed on a maximum.",
+      "speed": 1.1,
+      "direction": "The same product owner responding to the blocked demo. Firm and concerned, explaining the misunderstanding to a colleague at a brisk connected natural pace around 175 words per minute. Complete the ten words in under four seconds. Short purposeful sentence-boundary pause; no deliberate pauses between individual words, no elongated syllables. Brief audible stress on EXAMPLE and MAXIMUM without drawing them out. Use natural US English agreed on. Professional and explanatory, with residual frustration, no shouting, sarcasm or theatrical performance.",
+      "instructions": "The same product owner responding to the blocked demo. Firm and concerned, explaining the misunderstanding to a colleague at a brisk connected natural pace around 175 words per minute. Complete the ten words in under four seconds. Short purposeful sentence-boundary pause; no deliberate pauses between individual words, no elongated syllables. Brief audible stress on EXAMPLE and MAXIMUM without drawing them out. Use natural US English agreed on. Professional and explanatory, with residual frustration, no shouting, sarcasm or theatrical performance. Finish the complete line naturally within about 4.05 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
       "model": "gpt-4o-mini-tts",
-      "takeNumber": 2,
-      "requestSpeed": 1.14,
-      "file": "audio/clarification-take02.wav",
-      "sha256": "2b9a1154aa882ac5dd728d36580280790e1f206bc1eb947f50be8e594d6fb32d",
-      "rawDurationSeconds": 4.0775,
-      "speechStartSeconds": 19.1,
-      "speechEndSeconds": 22.475083333333334,
-      "trimmedLeadingSeconds": 0.0,
-      "trimmedTrailingSeconds": 0.7024166666666667,
+      "takeNumber": 3,
+      "requestSpeed": 1.1,
+      "file": "audio/clarification-take03.wav",
+      "sha256": "fbfa5a231df0a30159e78a9cb324075707807fd97481949a416d175f0f487f5d",
+      "rawDurationSeconds": 4.225041666666667,
+      "speechStartSeconds": 18.05,
+      "speechEndSeconds": 21.990083333333335,
+      "trimmedLeadingSeconds": 0.011083333333333334,
+      "trimmedTrailingSeconds": 0.273875,
       "atempo": 1.0,
-      "preparedFile": "audio/clarification-prepared-v3.wav",
-      "preparedSha256": "f674bedc0ca2f0385d973a27c3e4cc4e37e49c3a90c2a282d1458d0f73f8d869"
+      "preparedFile": "audio/clarification-prepared-v4.wav",
+      "preparedSha256": "e8b208ccd491dc1f8e31f7fe3b07c45c0dd5e71c0283ba0c7f510c132870a1ef"
     },
     {
       "id": "closing",
       "role": "narrator",
       "voice": "cedar",
-      "text": "Clarify what this story must deliver—and what the product must reject. With people and AI.",
+      "text": "An example isn’t a maximum. Make that clear to people and AI.",
       "speed": 1.0,
-      "direction": "The same warm perceptive narrator. A lucid practical takeaway: emphasize what the story must deliver, then what the product must reject. Connected conversational speech with a short natural pause before With people and AI. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off.",
-      "instructions": "The same warm perceptive narrator. A lucid practical takeaway: emphasize what the story must deliver, then what the product must reject. Connected conversational speech with a short natural pause before With people and AI. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off. Finish the complete line naturally within about 6.65 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "direction": "The same warm perceptive narrator. A lucid practical takeaway, conversational and decisive. Briefly emphasize example and maximum, then make that clear. Connected speech, small purposeful sentence-boundary pause, no drawn-out dramatic delivery. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off.",
+      "instructions": "The same warm perceptive narrator. A lucid practical takeaway, conversational and decisive. Briefly emphasize example and maximum, then make that clear. Connected speech, small purposeful sentence-boundary pause, no drawn-out dramatic delivery. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off. Finish the complete line naturally within about 7.20 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
       "model": "gpt-4o-mini-tts",
-      "takeNumber": 4,
+      "takeNumber": 5,
       "requestSpeed": 1.0,
-      "file": "audio/closing-take04.wav",
-      "sha256": "5f88de0d9c41310ce901c21301e55e872a8dbe2c2f885273cef7f0d03651583c",
-      "rawDurationSeconds": 6.85,
-      "speechStartSeconds": 23.1,
-      "speechEndSeconds": 29.49225,
+      "file": "audio/closing-take05.wav",
+      "sha256": "6f56e42de371b4a44a626a9d1fd32413ace712fc1e816678e06273f246c131be",
+      "rawDurationSeconds": 4.9,
+      "speechStartSeconds": 22.4,
+      "speechEndSeconds": 26.8235,
       "trimmedLeadingSeconds": 0.0,
-      "trimmedTrailingSeconds": 0.45775,
+      "trimmedTrailingSeconds": 0.4765,
       "atempo": 1.0,
-      "preparedFile": "audio/closing-prepared-v3.wav",
-      "preparedSha256": "a1ae8d946f175be28890eb5042eb91da981d00f58311369810bd21373d2a7123"
+      "preparedFile": "audio/closing-prepared-v4.wav",
+      "preparedSha256": "0f803455693f8230dc7987d4e8dcb9e6cbf81b497fefee0c1c4e2d62e2d43d1b"
     }
   ],
   "mastering": {
-    "input_i": "-17.65",
-    "input_tp": "-3.32",
-    "input_lra": "4.80",
-    "input_thresh": "-28.52",
-    "output_i": "-16.49",
-    "output_tp": "-1.55",
-    "output_lra": "4.40",
-    "output_thresh": "-27.34",
+    "input_i": "-17.54",
+    "input_tp": "-3.26",
+    "input_lra": "19.80",
+    "input_thresh": "-29.59",
+    "output_i": "-13.79",
+    "output_tp": "-1.50",
+    "output_lra": "6.90",
+    "output_thresh": "-25.17",
     "normalization_type": "dynamic",
-    "target_offset": "-0.51"
+    "target_offset": "-0.21"
   },
   "mix": {
-    "file": "assets/pitfalls-scope/mix-v3.wav",
-    "sha256": "4529c3a2d3bcb4035e77b458fbe33a8d04e84b8891c0ff1f051c9d951a824195",
-    "integratedLoudnessLUFS": -17.0,
-    "truePeakDbTP": -2.67,
-    "loudnessRangeLU": 4.8
+    "file": "assets/pitfalls-scope/mix-v4.wav",
+    "sha256": "79554fe5f33d5936114532d798b665db9ea71112b3df14d4e204bce9b47d471e",
+    "integratedLoudnessLUFS": -14.03,
+    "truePeakDbTP": -1.54,
+    "loudnessRangeLU": 14.0
   },
   "captionTiming": "Actual-audio ASR word timestamps grouped at approved phrase and speaker boundaries; punctuation restored from the script.",
   "speechAudit": {
@@ -167,47 +332,47 @@
     "model": "whisper-1",
     "method": "Independent ASR of mastered mix; no script prompt supplied; not human listening.",
     "normalization": "Case, punctuation, apostrophes and three/four numeric spellings normalized.",
-    "text": "An example became a product limit. For early feedback, let's keep the first user story scope small. Tag a few contacts. Say three. I'll ask the agent to enforce a maximum of three. Why can't I tag four? Three was our example. We never agreed a maximum. Clarify what this story must deliver and what the product must reject. With people and AI.",
-    "expected": "An example became a product limit. For early feedback, let’s keep the first user story’s scope small: tag a few contacts, say three. I’ll ask the agent to enforce a maximum of three. Why can’t I tag four? Three was our example. We never agreed a maximum. Clarify what this story must deliver—and what the product must reject. With people and AI.",
+    "text": "She said 3. He heard maximum. For early feedback, let's keep the first user story scope small. Tag a few contacts. Say 3. Maximum 3 to be safe. I'll ask the agent. Why can't I tag 4? 3 was our example. We never agreed on a maximum. An example isn't a maximum. Make that clear to people and AI.",
+    "expected": "She said three. He heard maximum. For early feedback, let’s keep the first user story’s scope small: tag a few contacts, say three. Maximum three, to be safe. I’ll ask the agent. Why can’t I tag four? Three was our example. We never agreed on a maximum. An example isn’t a maximum. Make that clear to people and AI.",
     "words": [
       {
-        "end": 0.3400000035762787,
+        "end": 0.30000001192092896,
         "start": 0.0,
-        "word": "An"
+        "word": "She"
       },
       {
-        "end": 0.7400000095367432,
-        "start": 0.3400000035762787,
-        "word": "example"
+        "end": 0.5199999809265137,
+        "start": 0.30000001192092896,
+        "word": "said"
       },
       {
-        "end": 1.2999999523162842,
-        "start": 0.7400000095367432,
-        "word": "became"
+        "end": 0.7799999713897705,
+        "start": 0.5199999809265137,
+        "word": "3"
       },
       {
-        "end": 1.600000023841858,
-        "start": 1.2999999523162842,
-        "word": "a"
+        "end": 1.399999976158142,
+        "start": 0.9599999785423279,
+        "word": "He"
       },
       {
-        "end": 1.8200000524520874,
-        "start": 1.600000023841858,
-        "word": "product"
+        "end": 1.6799999475479126,
+        "start": 1.399999976158142,
+        "word": "heard"
       },
       {
-        "end": 2.240000009536743,
-        "start": 1.8200000524520874,
-        "word": "limit"
+        "end": 2.2799999713897705,
+        "start": 1.6799999475479126,
+        "word": "maximum"
       },
       {
-        "end": 2.619999885559082,
-        "start": 2.5999999046325684,
+        "end": 2.6600000858306885,
+        "start": 2.559999942779541,
         "word": "For"
       },
       {
         "end": 3.0,
-        "start": 2.619999885559082,
+        "start": 2.6600000858306885,
         "word": "early"
       },
       {
@@ -217,7 +382,7 @@
       },
       {
         "end": 3.880000114440918,
-        "start": 3.740000009536743,
+        "start": 3.7200000286102295,
         "word": "let's"
       },
       {
@@ -226,28 +391,28 @@
         "word": "keep"
       },
       {
-        "end": 4.21999979019165,
+        "end": 4.239999771118164,
         "start": 4.019999980926514,
         "word": "the"
       },
       {
-        "end": 4.519999980926514,
-        "start": 4.21999979019165,
+        "end": 4.539999961853027,
+        "start": 4.239999771118164,
         "word": "first"
       },
       {
-        "end": 4.800000190734863,
-        "start": 4.519999980926514,
+        "end": 4.78000020980835,
+        "start": 4.539999961853027,
         "word": "user"
       },
       {
-        "end": 5.099999904632568,
-        "start": 4.800000190734863,
+        "end": 5.139999866485596,
+        "start": 4.78000020980835,
         "word": "story"
       },
       {
         "end": 5.360000133514404,
-        "start": 5.099999904632568,
+        "start": 5.139999866485596,
         "word": "scope"
       },
       {
@@ -261,13 +426,13 @@
         "word": "Tag"
       },
       {
-        "end": 6.360000133514404,
+        "end": 6.320000171661377,
         "start": 6.119999885559082,
         "word": "a"
       },
       {
         "end": 6.420000076293945,
-        "start": 6.360000133514404,
+        "start": 6.320000171661377,
         "word": "few"
       },
       {
@@ -277,220 +442,200 @@
       },
       {
         "end": 7.28000020980835,
-        "start": 7.239999771118164,
+        "start": 7.199999809265137,
         "word": "Say"
       },
       {
-        "end": 7.539999961853027,
+        "end": 7.599999904632568,
         "start": 7.28000020980835,
-        "word": "three"
+        "word": "3"
       },
       {
-        "end": 9.420000076293945,
-        "start": 9.119999885559082,
-        "word": "I'll"
+        "end": 8.399999618530273,
+        "start": 8.140000343322754,
+        "word": "Maximum"
       },
       {
-        "end": 9.760000228881836,
-        "start": 9.420000076293945,
-        "word": "ask"
+        "end": 8.720000267028809,
+        "start": 8.399999618530273,
+        "word": "3"
       },
       {
-        "end": 10.079999923706055,
-        "start": 9.760000228881836,
-        "word": "the"
-      },
-      {
-        "end": 10.399999618530273,
-        "start": 10.079999923706055,
-        "word": "agent"
-      },
-      {
-        "end": 11.100000381469727,
-        "start": 10.399999618530273,
+        "end": 9.300000190734863,
+        "start": 8.720000267028809,
         "word": "to"
       },
       {
-        "end": 11.100000381469727,
-        "start": 11.100000381469727,
-        "word": "enforce"
+        "end": 9.760000228881836,
+        "start": 9.300000190734863,
+        "word": "be"
       },
       {
-        "end": 11.680000305175781,
-        "start": 11.100000381469727,
-        "word": "a"
+        "end": 9.819999694824219,
+        "start": 9.760000228881836,
+        "word": "safe"
       },
       {
-        "end": 11.720000267028809,
-        "start": 11.680000305175781,
-        "word": "maximum"
+        "end": 10.760000228881836,
+        "start": 10.479999542236328,
+        "word": "I'll"
       },
       {
-        "end": 12.199999809265137,
-        "start": 11.720000267028809,
-        "word": "of"
+        "end": 11.039999961853027,
+        "start": 10.760000228881836,
+        "word": "ask"
       },
       {
-        "end": 12.460000038146973,
-        "start": 12.199999809265137,
-        "word": "three"
-      },
-      {
-        "end": 16.860000610351562,
-        "start": 16.239999771118164,
-        "word": "Why"
-      },
-      {
-        "end": 17.260000228881836,
-        "start": 16.860000610351562,
-        "word": "can't"
-      },
-      {
-        "end": 17.579999923706055,
-        "start": 17.260000228881836,
-        "word": "I"
-      },
-      {
-        "end": 17.84000015258789,
-        "start": 17.579999923706055,
-        "word": "tag"
-      },
-      {
-        "end": 18.31999969482422,
-        "start": 17.84000015258789,
-        "word": "four"
-      },
-      {
-        "end": 19.479999542236328,
-        "start": 19.239999771118164,
-        "word": "Three"
-      },
-      {
-        "end": 19.739999771118164,
-        "start": 19.479999542236328,
-        "word": "was"
-      },
-      {
-        "end": 20.0,
-        "start": 19.739999771118164,
-        "word": "our"
-      },
-      {
-        "end": 20.280000686645508,
-        "start": 20.0,
-        "word": "example"
-      },
-      {
-        "end": 21.139999389648438,
-        "start": 20.940000534057617,
-        "word": "We"
-      },
-      {
-        "end": 21.5,
-        "start": 21.139999389648438,
-        "word": "never"
-      },
-      {
-        "end": 21.780000686645508,
-        "start": 21.5,
-        "word": "agreed"
-      },
-      {
-        "end": 22.440000534057617,
-        "start": 21.780000686645508,
-        "word": "a"
-      },
-      {
-        "end": 22.440000534057617,
-        "start": 22.440000534057617,
-        "word": "maximum"
-      },
-      {
-        "end": 23.639999389648438,
-        "start": 23.399999618530273,
-        "word": "Clarify"
-      },
-      {
-        "end": 23.959999084472656,
-        "start": 23.639999389648438,
-        "word": "what"
-      },
-      {
-        "end": 24.219999313354492,
-        "start": 23.959999084472656,
-        "word": "this"
-      },
-      {
-        "end": 24.440000534057617,
-        "start": 24.219999313354492,
-        "word": "story"
-      },
-      {
-        "end": 24.719999313354492,
-        "start": 24.440000534057617,
-        "word": "must"
-      },
-      {
-        "end": 25.020000457763672,
-        "start": 24.719999313354492,
-        "word": "deliver"
-      },
-      {
-        "end": 25.700000762939453,
-        "start": 25.020000457763672,
-        "word": "and"
-      },
-      {
-        "end": 25.8799991607666,
-        "start": 25.700000762939453,
-        "word": "what"
-      },
-      {
-        "end": 26.079999923706055,
-        "start": 25.8799991607666,
+        "end": 11.619999885559082,
+        "start": 11.039999961853027,
         "word": "the"
       },
       {
-        "end": 26.360000610351562,
-        "start": 26.079999923706055,
-        "word": "product"
+        "end": 11.619999885559082,
+        "start": 11.619999885559082,
+        "word": "agent"
       },
       {
-        "end": 26.65999984741211,
-        "start": 26.360000610351562,
-        "word": "must"
+        "end": 15.779999732971191,
+        "start": 15.100000381469727,
+        "word": "Why"
       },
       {
-        "end": 27.040000915527344,
-        "start": 26.65999984741211,
-        "word": "reject"
+        "end": 16.18000030517578,
+        "start": 15.779999732971191,
+        "word": "can't"
       },
       {
-        "end": 28.0,
-        "start": 27.040000915527344,
-        "word": "With"
+        "end": 16.520000457763672,
+        "start": 16.18000030517578,
+        "word": "I"
       },
       {
-        "end": 28.440000534057617,
-        "start": 28.0,
+        "end": 16.780000686645508,
+        "start": 16.520000457763672,
+        "word": "tag"
+      },
+      {
+        "end": 17.260000228881836,
+        "start": 16.780000686645508,
+        "word": "4"
+      },
+      {
+        "end": 18.399999618530273,
+        "start": 18.15999984741211,
+        "word": "3"
+      },
+      {
+        "end": 18.81999969482422,
+        "start": 18.399999618530273,
+        "word": "was"
+      },
+      {
+        "end": 19.239999771118164,
+        "start": 18.81999969482422,
+        "word": "our"
+      },
+      {
+        "end": 19.600000381469727,
+        "start": 19.239999771118164,
+        "word": "example"
+      },
+      {
+        "end": 20.360000610351562,
+        "start": 20.040000915527344,
+        "word": "We"
+      },
+      {
+        "end": 20.719999313354492,
+        "start": 20.360000610351562,
+        "word": "never"
+      },
+      {
+        "end": 21.079999923706055,
+        "start": 20.719999313354492,
+        "word": "agreed"
+      },
+      {
+        "end": 21.34000015258789,
+        "start": 21.079999923706055,
+        "word": "on"
+      },
+      {
+        "end": 21.860000610351562,
+        "start": 21.34000015258789,
+        "word": "a"
+      },
+      {
+        "end": 21.860000610351562,
+        "start": 21.860000610351562,
+        "word": "maximum"
+      },
+      {
+        "end": 22.6200008392334,
+        "start": 22.399999618530273,
+        "word": "An"
+      },
+      {
+        "end": 22.979999542236328,
+        "start": 22.6200008392334,
+        "word": "example"
+      },
+      {
+        "end": 23.399999618530273,
+        "start": 22.979999542236328,
+        "word": "isn't"
+      },
+      {
+        "end": 23.979999542236328,
+        "start": 23.399999618530273,
+        "word": "a"
+      },
+      {
+        "end": 23.979999542236328,
+        "start": 23.979999542236328,
+        "word": "maximum"
+      },
+      {
+        "end": 24.719999313354492,
+        "start": 24.6200008392334,
+        "word": "Make"
+      },
+      {
+        "end": 25.040000915527344,
+        "start": 24.719999313354492,
+        "word": "that"
+      },
+      {
+        "end": 25.280000686645508,
+        "start": 25.040000915527344,
+        "word": "clear"
+      },
+      {
+        "end": 25.520000457763672,
+        "start": 25.280000686645508,
+        "word": "to"
+      },
+      {
+        "end": 25.860000610351562,
+        "start": 25.520000457763672,
         "word": "people"
       },
       {
-        "end": 28.979999542236328,
-        "start": 28.440000534057617,
+        "end": 26.31999969482422,
+        "start": 25.860000610351562,
         "word": "and"
       },
       {
-        "end": 29.360000610351562,
-        "start": 28.979999542236328,
+        "end": 26.68000030517578,
+        "start": 26.31999969482422,
         "word": "AI"
       }
     ],
-    "mixSha256": "4529c3a2d3bcb4035e77b458fbe33a8d04e84b8891c0ff1f051c9d951a824195",
+    "mixSha256": "79554fe5f33d5936114532d798b665db9ea71112b3df14d4e204bce9b47d471e",
     "fullMixComparison": {
       "exactTokenMatch": false,
-      "expectedTokenCount": 63,
-      "recognizedTokenCount": 63,
+      "expectedTokenCount": 59,
+      "recognizedTokenCount": 59,
       "differences": [
         {
           "tokenIndex": 14,
@@ -498,19 +643,19 @@
           "recognized": "story"
         }
       ],
-      "allOtherTokensMatch": true
+      "allOtherTokensMatch": true,
+      "normalization": "Only case, punctuation, apostrophes and three/four numeric spellings normalized. The possessive-suffix difference is retained explicitly."
     },
-    "interpretation": "Both independent ASR engines render story’s as story in the linked phrase story’s scope. This is an isolated possessive-suffix ambiguity; the lexical meaning is retained. Approved possessive wording remains in captions. No exact-token-match or human-listening claim.",
-    "priorFullMixTranscript": "An example became a product limit. For early feedback, let's keep the first user story scope small. Tag a few contacts. Say three. I'll ask the agent to enforce a maximum of three. Why can't I tag four? Three was our example. We never agreed a maximum. Clarify what this story must deliver and what the product must reject. With people and AI.",
-    "priorFullMixAuditNote": "The first independent full-mix Whisper audit returned the same transcript; only its transcript was retained. The final full-mix audit additionally retains all 63 measured word timestamps.",
-    "isolatedOwnerAudit": {
+    "interpretation": "Actual v4 mix ASR renders story’s as story in story’s scope. This is the same isolated possessive-suffix ambiguity as v3, with the identical prepared owner take. All other normalized words match, including agreed on. Approved possessive wording remains in captions. No exact-token-match or human-listening claim.",
+    "retainedIndependentOwnerCheck": {
       "model": "gpt-4o-transcribe",
       "method": "Independent ASR of isolated prepared owner clip; no script prompt supplied; not human listening.",
       "text": "For early feedback, let's keep the first user story scope small, tag a few contacts, say three.",
       "sourceFile": "audio/owner-prepared-v3.wav",
       "sourceSha256": "cb3f558b15e7ae043cf0fc02929537d1c3e3cd2b1de6672fb4e16578a03d5390",
       "responseFile": "audio/owner-prepared-v3-asr.json",
-      "responseSha256": "a01396de62a97752b3ba2ef2506024135bc407230642954c899a71f19466bebb"
+      "responseSha256": "a01396de62a97752b3ba2ef2506024135bc407230642954c899a71f19466bebb",
+      "reuseReason": "The current prepared owner clip has the identical SHA-256 as this independently transcribed v3 prepared clip; no new isolated-clip request was made for v4."
     }
   }
 }

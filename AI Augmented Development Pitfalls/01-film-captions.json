@@ -1,21 +1,28 @@
 [
   {
-    "text": "An example became a product limit.",
-    "startMs": 60,
-    "endMs": 2300,
+    "text": "She said three. He heard maximum.",
+    "startMs": 0,
+    "endMs": 2340,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "For early feedback,",
-    "startMs": 2600,
+    "startMs": 2560,
     "endMs": 3440,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "let’s keep the first user story’s scope small:",
-    "startMs": 3740,
+    "text": "let’s keep the first",
+    "startMs": 3720,
+    "endMs": 4540,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "user story’s scope small:",
+    "startMs": 4540,
     "endMs": 5780,
     "timestampMs": null,
     "confidence": null
@@ -23,63 +30,56 @@
   {
     "text": "tag a few contacts, say three.",
     "startMs": 6120,
-    "endMs": 7600,
+    "endMs": 7660,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "I’ll ask the agent",
-    "startMs": 9120,
-    "endMs": 10400,
+    "text": "Maximum three, to be safe.",
+    "startMs": 8140,
+    "endMs": 9880,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "to enforce a maximum of three.",
-    "startMs": 10400,
-    "endMs": 12520,
+    "text": "I’ll ask the agent.",
+    "startMs": 10480,
+    "endMs": 11680,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Why can’t I tag four?",
-    "startMs": 16290,
-    "endMs": 18380,
+    "startMs": 15240,
+    "endMs": 17320,
     "timestampMs": null,
     "confidence": null
   },
   {
     "text": "Three was our example.",
-    "startMs": 19240,
-    "endMs": 20340,
+    "startMs": 18160,
+    "endMs": 19660,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "We never agreed a maximum.",
-    "startMs": 20940,
-    "endMs": 22500,
+    "text": "We never agreed on a maximum.",
+    "startMs": 20040,
+    "endMs": 21920,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "Clarify what this story must deliver—",
-    "startMs": 23400,
-    "endMs": 25020,
+    "text": "An example isn’t a maximum.",
+    "startMs": 22400,
+    "endMs": 24040,
     "timestampMs": null,
     "confidence": null
   },
   {
-    "text": "and what the product must reject.",
-    "startMs": 25020,
-    "endMs": 27040,
-    "timestampMs": null,
-    "confidence": null
-  },
-  {
-    "text": "With people and AI.",
-    "startMs": 27040,
-    "endMs": 29420,
+    "text": "Make that clear to people and AI.",
+    "startMs": 24620,
+    "endMs": 26740,
     "timestampMs": null,
     "confidence": null
   }

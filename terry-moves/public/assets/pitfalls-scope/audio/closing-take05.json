@@ -1,0 +1,17 @@
+{
+  "id": "closing",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 22.4,
+  "end": 29.6,
+  "text": "An example isn’t a maximum. Make that clear to people and AI.",
+  "speed": 1.0,
+  "direction": "The same warm perceptive narrator. A lucid practical takeaway, conversational and decisive. Briefly emphasize example and maximum, then make that clear. Connected speech, small purposeful sentence-boundary pause, no drawn-out dramatic delivery. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off.",
+  "instructions": "The same warm perceptive narrator. A lucid practical takeaway, conversational and decisive. Briefly emphasize example and maximum, then make that clear. Connected speech, small purposeful sentence-boundary pause, no drawn-out dramatic delivery. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off. Finish the complete line naturally within about 7.20 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 5,
+  "requestSpeed": 1.0,
+  "file": "audio/closing-take05.wav",
+  "sha256": "6f56e42de371b4a44a626a9d1fd32413ace712fc1e816678e06273f246c131be",
+  "rawDurationSeconds": 4.9
+}

@@ -1,0 +1,17 @@
+{
+  "id": "opening",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 0.12,
+  "end": 2.3,
+  "text": "She said three. He heard maximum.",
+  "speed": 1.2,
+  "direction": "The same warm perceptive narrator, brisk connected ordinary speech. Treat this as one linked six-word thought and finish in two seconds. Keep flowing straight from three to he, with no deliberate sentence pause. Brief light emphasis on three and maximum, with no elongated syllables or theatrical contrast. No announcer or dramatic warning voice.",
+  "instructions": "The same warm perceptive narrator, brisk connected ordinary speech. Treat this as one linked six-word thought and finish in two seconds. Keep flowing straight from three to he, with no deliberate sentence pause. Brief light emphasis on three and maximum, with no elongated syllables or theatrical contrast. No announcer or dramatic warning voice. Finish the complete line naturally within about 2.18 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 4,
+  "requestSpeed": 1.2,
+  "file": "audio/opening-take04.wav",
+  "sha256": "a26b47c9319355822186637a9543214ff0c2c10453ddf15fc17b408c22022d4a",
+  "rawDurationSeconds": 2.7442083333333334
+}

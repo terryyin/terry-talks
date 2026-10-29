@@ -1,0 +1,17 @@
+{
+  "id": "opening",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 0.12,
+  "end": 2.3,
+  "text": "She said three. He heard maximum.",
+  "speed": 1.12,
+  "direction": "The same warm perceptive narrator, opening with a clear concise observation in brisk connected conversational speech. Complete the six words in about two seconds. A very short sentence boundary pause. Brief natural emphasis on three and maximum, with no drawn-out syllables. No announcer or dramatic warning voice.",
+  "instructions": "The same warm perceptive narrator, opening with a clear concise observation in brisk connected conversational speech. Complete the six words in about two seconds. A very short sentence boundary pause. Brief natural emphasis on three and maximum, with no drawn-out syllables. No announcer or dramatic warning voice. Finish the complete line naturally within about 2.18 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 3,
+  "requestSpeed": 1.12,
+  "file": "audio/opening-take03.wav",
+  "sha256": "f9f6a35ecd78c0ae5d5f07e30561f3e152bbca34d9db1d35014cd52aca1f4e26",
+  "rawDurationSeconds": 3.252666666666667
+}

@@ -1,0 +1,17 @@
+{
+  "id": "developer",
+  "role": "developer",
+  "voice": "ash",
+  "start": 7.85,
+  "end": 11.65,
+  "text": "Maximum three, to be safe. I’ll ask the agent.",
+  "speed": 1.1,
+  "direction": "The same sincere capable developer speaking to a colleague. Quietly confident, practical, connected and compact, around 170 words per minute. Maximum three is the developer's assumption; to be safe is a casual sincere rationale, not a sinister aside. A small sentence-boundary pause before I'll ask the agent. No caricature or robot affect, no elongated syllables.",
+  "instructions": "The same sincere capable developer speaking to a colleague. Quietly confident, practical, connected and compact, around 170 words per minute. Maximum three is the developer's assumption; to be safe is a casual sincere rationale, not a sinister aside. A small sentence-boundary pause before I'll ask the agent. No caricature or robot affect, no elongated syllables. Finish the complete line naturally within about 3.80 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 2,
+  "requestSpeed": 1.1,
+  "file": "audio/developer-take02.wav",
+  "sha256": "ed0ff388db17e049266c4c31048d3070f7125b48760e5cbe0bee52a4a4c65b2c",
+  "rawDurationSeconds": 4.134666666666667
+}

@@ -3,7 +3,7 @@
   "purpose": "Photographic scene plates for the 30-second ScopeRestrictionFilm preview",
   "reference": "terry-moves/public/assets/pitfalls-scope/design-reference.png",
   "synthetic": true,
-  "notes": "Fictional people. Editable software inserts and captions are native Remotion. Original images are retained; v2 changes the whiteboard to user story and strengthens the demo reaction.",
+  "notes": "Fictional people and photographic stills. Native editable software actions carry the motion. The v4 opening shows a brief reaction under narration; role dialogue uses hands/software cutaways rather than frozen speaking faces. Originals are retained; refinement-v3 removes whiteboard lettering behind the series label.",
   "assets": [
     {
       "name": "refinement",
@@ -22,7 +22,7 @@
     }
   ],
   "activeScenePlates": [
-    "refinement-v2",
+    "refinement-v3",
     "interpretation",
     "demo-v2"
   ],
@@ -38,6 +38,12 @@
       "path": "terry-moves/public/assets/pitfalls-scope/demo-v2.png",
       "source": "terry-moves/public/assets/pitfalls-scope/demo.png",
       "prompt": "Edit this existing portrait photographic film still. Preserve the EXACT same fictional people, faces and identities, clothing, office, laptop, hands, composition, camera, daylight and realistic photographic texture. Adjust ONLY the woman's facial expression and very slight conversational body language. She has just discovered that a needless three-contact limit blocks her work, and is saying 'Why can't I tag FOUR?' with real concern and clear frustration. Draw the eyebrows together, a firmer questioning gaze toward the developer, slight tension at the mouth and jaw as she challenges the result. She is visibly upset and disappointed while remaining a believable professional colleague. No smile, no neutral curiosity, no exaggerated rage or comedy. Keep her face fully visible in the same position. The developer remains attentive. Keep the laptop generic with no readable words. No added text, titles or captions. Same portrait 9:16 composition."
+    },
+    {
+      "name": "refinement-v3",
+      "path": "terry-moves/public/assets/pitfalls-scope/refinement-v3.png",
+      "source": "terry-moves/public/assets/pitfalls-scope/refinement-v2.png",
+      "prompt": "Edit the supplied portrait photograph. Preserve the exact same fictional people, faces, clothing, poses, hands, laptop, office, daylight, camera framing, depth of field and realistic photographic texture. Change ONLY the whiteboard: erase every word and symbol, leaving a clean softly out-of-focus whiteboard with no writing. No new words, titles, captions or logos. Same portrait 9:16 composition."
     }
   ]
 }
