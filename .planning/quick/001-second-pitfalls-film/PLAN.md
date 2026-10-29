@@ -4,6 +4,7 @@
 
 - Story: [Generate Episode 2: Removing a Rule Is Not Adding Its Negation](../../seeds/SEED-001-pitfalls-second-film.md#second-pitfalls-film)
 - Identity: `SEED-001#second-pitfalls-film`
+**Source review:** [source-review.md](./source-review.md)
 - Article: [Removing a Rule Is Not Adding Its Negation](../../../AI%20Augmented%20Development%20Pitfalls/02-removing-a-rule-is-not-adding-its-negation.md)
 - Pattern to reuse: Episode 1 film home
   ([design](../../../AI%20Augmented%20Development%20Pitfalls/01-refinement-film-design.md),
@@ -81,7 +82,7 @@ Named checkout for observations: this preparation workspace
 
 ### 1. Film design locks the holdings-refresh story
 Type: Behavior
-Status: planned
+Status: done
 Proof: Design doc under `AI Augmented Development Pitfalls/` records sequence,
 spoken direction, mobile layout, sound targets, meaning to preserve, and
 evaluation nuance; a reader of the sequence alone can recount misunderstanding,
@@ -181,4 +182,11 @@ before finalize.
 
 ## Learnings
 
-_(none yet)_
+- Episode 2 design doc naming parallels Episode 1’s short thematic title
+  (`01-refinement-film-design.md` → `02-rule-negation-film-design.md`) while
+  staying `02-*-film-design.md` and aligned with working id `RuleNegationFilm`.
+- Slice 1 accepted proof: design-read of
+  `AI Augmented Development Pitfalls/02-rule-negation-film-design.md` —
+  sequence alone recounts misunderstanding (removal→absence assertion),
+  maintenance cost, and corrective action; posting out of scope; evaluation
+  nuance preserved; Cedar/Ash cast; ~30 s beat timings.
