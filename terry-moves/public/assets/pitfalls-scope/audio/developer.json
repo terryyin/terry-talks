@@ -1,0 +1,15 @@
+{
+  "id": "developer",
+  "role": "developer",
+  "voice": "ash",
+  "start": 10.2,
+  "end": 13.8,
+  "text": "I’ll ask the agent to enforce a maximum of three.",
+  "speed": 1.06,
+  "direction": "A sincere capable developer speaking to a colleague. Quietly confident, practical, unhurried but compact. No caricature or robot affect.",
+  "instructions": "A sincere capable developer speaking to a colleague. Quietly confident, practical, unhurried but compact. No caricature or robot affect. Finish the complete line naturally within about 3.60 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "file": "audio/developer.wav",
+  "sha256": "a47dd314d8e8156123561568e74f149c54b24b08013a41959b6586d75126ad20",
+  "rawDurationSeconds": 4.013791666666667
+}

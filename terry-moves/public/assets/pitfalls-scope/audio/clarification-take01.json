@@ -1,0 +1,17 @@
+{
+  "id": "clarification",
+  "role": "product owner",
+  "voice": "coral",
+  "start": 19.1,
+  "end": 22.85,
+  "text": "Three was our example. We never agreed a maximum.",
+  "speed": 1.0,
+  "direction": "The same product owner responding to the blocked demo. Firm and concerned, explaining the misunderstanding to a colleague, with audible emphasis on EXAMPLE and MAXIMUM. A brief natural pause between sentences. Professional and explanatory, with residual frustration, no shouting, sarcasm or theatrical performance.",
+  "instructions": "The same product owner responding to the blocked demo. Firm and concerned, explaining the misunderstanding to a colleague, with audible emphasis on EXAMPLE and MAXIMUM. A brief natural pause between sentences. Professional and explanatory, with residual frustration, no shouting, sarcasm or theatrical performance. Finish the complete line naturally within about 3.75 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 1,
+  "requestSpeed": 1.0,
+  "file": "audio/clarification-take01.wav",
+  "sha256": "d8c457fe9f21cbee48f77a50d0e0703a08d6213cc6c76a8ddebc04902bd75f38",
+  "rawDurationSeconds": 4.85
+}

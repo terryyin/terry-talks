@@ -1,0 +1,17 @@
+{
+  "id": "closing",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 22.65,
+  "end": 29.7,
+  "text": "Keep scope and constraints distinct. Make that clear between people, and when we instruct AI.",
+  "speed": 1.02,
+  "direction": "The same warm perceptive narrator. Clear constructive conclusion, emphasizing the distinction between scope and constraints, then the need to make that distinction explicit between people and in instructions to AI. Short natural pause after distinct. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off.",
+  "instructions": "The same warm perceptive narrator. Clear constructive conclusion, emphasizing the distinction between scope and constraints, then the need to make that distinction explicit between people and in instructions to AI. Short natural pause after distinct. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off. Finish the complete line naturally within about 7.05 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 3,
+  "requestSpeed": 1.02,
+  "file": "audio/closing-take03.wav",
+  "sha256": "ffee91dfa654fd3b3702da24c56d609cb284f0aaa72ea6c307482ade83ed9959",
+  "rawDurationSeconds": 6.524791666666666
+}

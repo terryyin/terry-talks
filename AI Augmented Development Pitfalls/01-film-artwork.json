@@ -1,0 +1,43 @@
+{
+  "generator": "Built-in ImageGen",
+  "purpose": "Photographic scene plates for the 30-second ScopeRestrictionFilm preview",
+  "reference": "terry-moves/public/assets/pitfalls-scope/design-reference.png",
+  "synthetic": true,
+  "notes": "Fictional people. Editable software inserts and captions are native Remotion. Original images are retained; v2 changes the whiteboard to user story and strengthens the demo reaction.",
+  "assets": [
+    {
+      "name": "refinement",
+      "path": "terry-moves/public/assets/pitfalls-scope/refinement.png",
+      "prompt": "Use case: photorealistic-natural. Create one full-resolution portrait 9:16 cinematographic still for a realistic software-team mini-drama. The supplied three-panel storyboard is a reference for the SAME fictional Asian woman product owner (navy shirt, shoulder-length dark hair) and Asian male developer (thin glasses, charcoal overshirt), SAME ordinary office, daylight, slate blue/grey palette and warm skin. Preserve their exact visual identities and naturalistic candid style. Produce ONE standalone portrait frame, not multiple panels, no borders, no phone frame, no title or captions. Real photographic texture, believable hands, eye-level camera, understated office drama, not glamorous stock photography. Adapt only the LEFT storyboard moment into a single portrait composition. A tighter natural two-shot across the shared laptop during refinement. The owner speaks and points at the shared contact-tagging sketch; the developer listens with a pen close to his laptop. A whiteboard softly readable in the background says only 'First slice' and 'Value → feedback'. Leave clean, uncluttered space above their heads and below the laptop for later native caption overlays. Screen contents should be softly out of focus without additional readable text."
+    },
+    {
+      "name": "interpretation",
+      "path": "terry-moves/public/assets/pitfalls-scope/interpretation.png",
+      "prompt": "Use case: photorealistic-natural. Create one full-resolution portrait 9:16 cinematographic still for a realistic software-team mini-drama. The supplied three-panel storyboard is a reference for the SAME fictional Asian woman product owner (navy shirt, shoulder-length dark hair) and Asian male developer (thin glasses, charcoal overshirt), SAME ordinary office, daylight, slate blue/grey palette and warm skin. Preserve their exact visual identities and naturalistic candid style. Produce ONE standalone portrait frame, not multiple panels, no borders, no phone frame, no title or captions. Real photographic texture, believable hands, eye-level camera, understated office drama, not glamorous stock photography. Adapt only the MIDDLE storyboard moment into a single portrait composition: an over-the-shoulder view from behind the developer, his hands at a laptop and the product owner in soft focus across the table. The laptop dominates the lower-middle of the frame. Its display is a simple unbranded pale neutral software surface with no readable words, no logos and no error message; native editable software inserts will be added in the film. The developer's face remains consistent at the side of frame, posture attentive and sincere. Leave clean top and bottom caption space."
+    },
+    {
+      "name": "demo",
+      "path": "terry-moves/public/assets/pitfalls-scope/demo.png",
+      "prompt": "Use case: photorealistic-natural. Create one full-resolution portrait 9:16 cinematographic still for a realistic software-team mini-drama. The supplied three-panel storyboard is a reference for the SAME fictional Asian woman product owner (navy shirt, shoulder-length dark hair) and Asian male developer (thin glasses, charcoal overshirt), SAME ordinary office, daylight, slate blue/grey palette and warm skin. Preserve their exact visual identities and naturalistic candid style. Produce ONE standalone portrait frame, not multiple panels, no borders, no phone frame, no title or captions. Real photographic texture, believable hands, eye-level camera, understated office drama, not glamorous stock photography. Adapt only the RIGHT storyboard moment into a single portrait composition. At the first demo the owner turns toward the developer with mild, believable surprise and a questioning look, keeping one hand close to their laptop. They are the same people from the reference and same desk. The laptop display is visible as a generic softly defocused contact list, with NO readable error and NO text or logos, because an editable software close-up will show the precise action in the film. No anger, no comedy mugging. Leave clean top and bottom caption space. Emphasize the owner's reaction and the developer's honest attention."
+    }
+  ],
+  "activeScenePlates": [
+    "refinement-v2",
+    "interpretation",
+    "demo-v2"
+  ],
+  "revisions": [
+    {
+      "name": "refinement-v2",
+      "path": "terry-moves/public/assets/pitfalls-scope/refinement-v2.png",
+      "source": "terry-moves/public/assets/pitfalls-scope/refinement.png",
+      "prompt": "Edit this existing portrait photographic film still. Preserve the EXACT same fictional people, faces, clothing, poses, hands, laptop, office, framing, daylight, depth of field and photographic realism. Change ONLY the whiteboard writing: replace 'First slice' with 'First user story'. The second line should remain 'Value → feedback'. Natural handwritten marker lettering, softly focused like the original. No other text, no title, no captions. Same portrait 9:16 composition."
+    },
+    {
+      "name": "demo-v2",
+      "path": "terry-moves/public/assets/pitfalls-scope/demo-v2.png",
+      "source": "terry-moves/public/assets/pitfalls-scope/demo.png",
+      "prompt": "Edit this existing portrait photographic film still. Preserve the EXACT same fictional people, faces and identities, clothing, office, laptop, hands, composition, camera, daylight and realistic photographic texture. Adjust ONLY the woman's facial expression and very slight conversational body language. She has just discovered that a needless three-contact limit blocks her work, and is saying 'Why can't I tag FOUR?' with real concern and clear frustration. Draw the eyebrows together, a firmer questioning gaze toward the developer, slight tension at the mouth and jaw as she challenges the result. She is visibly upset and disappointed while remaining a believable professional colleague. No smile, no neutral curiosity, no exaggerated rage or comedy. Keep her face fully visible in the same position. The developer remains attentive. Keep the laptop generic with no readable words. No added text, titles or captions. Same portrait 9:16 composition."
+    }
+  ]
+}

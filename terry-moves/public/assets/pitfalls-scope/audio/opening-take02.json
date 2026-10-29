@@ -1,0 +1,17 @@
+{
+  "id": "opening",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 0.12,
+  "end": 2.3,
+  "text": "An example became a product limit.",
+  "speed": 1.0,
+  "direction": "The same warm perceptive narrator, opening with a clear concise observation. Brisk ordinary speech, with gentle emphasis on example and product limit. No announcer or dramatic warning voice.",
+  "instructions": "The same warm perceptive narrator, opening with a clear concise observation. Brisk ordinary speech, with gentle emphasis on example and product limit. No announcer or dramatic warning voice. Finish the complete line naturally within about 2.18 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 2,
+  "requestSpeed": 1.0,
+  "file": "audio/opening-take02.wav",
+  "sha256": "09841c2b6fb5f8f52bfe27b1074b2d3e61642cf802da65f80cef52ffa3d8a414",
+  "rawDurationSeconds": 2.35
+}

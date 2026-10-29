@@ -1,0 +1,15 @@
+{
+  "id": "opening",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 0.3,
+  "end": 2.7,
+  "text": "Seen this happen in refinement?",
+  "speed": 1.04,
+  "direction": "A warm, perceptive narrator, inviting recognition with a small curious lift. Conversational, clear, compact; no announcer voice.",
+  "instructions": "A warm, perceptive narrator, inviting recognition with a small curious lift. Conversational, clear, compact; no announcer voice. Finish the complete line naturally within about 2.40 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "file": "audio/opening.wav",
+  "sha256": "15bc75b77c35538dc14a76b10537a93ac4296ab0e1f587c630574a40de1f03c5",
+  "rawDurationSeconds": 2.40525
+}

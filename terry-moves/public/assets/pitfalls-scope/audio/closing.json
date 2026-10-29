@@ -1,0 +1,15 @@
+{
+  "id": "closing",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 23.2,
+  "end": 29.65,
+  "text": "The scope was a delivery decision. The limit became a product rule. Ask: what requires this restriction?",
+  "speed": 1.06,
+  "direction": "The same warm perceptive narrator. Clear explanation, short natural pauses between the three sentences. Constructive and reflective, with emphasis on delivery decision and product rule. End with a genuine question.",
+  "instructions": "The same warm perceptive narrator. Clear explanation, short natural pauses between the three sentences. Constructive and reflective, with emphasis on delivery decision and product rule. End with a genuine question. Finish the complete line naturally within about 6.45 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "file": "audio/closing.wav",
+  "sha256": "04ed31cdfeca378490e3348a6569fee435b3bc4945a0d233ee952d013aa0057b",
+  "rawDurationSeconds": 7.835083333333333
+}

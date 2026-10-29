@@ -1,0 +1,15 @@
+{
+  "id": "demo",
+  "role": "product owner",
+  "voice": "coral",
+  "start": 20.15,
+  "end": 22.8,
+  "text": "Why can’t I tag four?",
+  "speed": 1.0,
+  "direction": "The same thoughtful product owner at a demo, a little surprised and genuinely curious. Ask a reasonable question, without anger, sarcasm or theatrical delivery.",
+  "instructions": "The same thoughtful product owner at a demo, a little surprised and genuinely curious. Ask a reasonable question, without anger, sarcasm or theatrical delivery. Finish the complete line naturally within about 2.65 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "file": "audio/demo.wav",
+  "sha256": "d4e1950e5def1a4ff002e66ddff57ff8c96f18b0c2093b32cdd60fcb2788004c",
+  "rawDurationSeconds": 3.95
+}

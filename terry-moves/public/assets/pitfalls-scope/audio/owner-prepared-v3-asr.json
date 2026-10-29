@@ -1,0 +1,20 @@
+{
+  "model": "gpt-4o-transcribe",
+  "method": "Independent ASR of isolated prepared owner clip; no script prompt supplied; not human listening.",
+  "sourceFile": "audio/owner-prepared-v3.wav",
+  "sourceSha256": "cb3f558b15e7ae043cf0fc02929537d1c3e3cd2b1de6672fb4e16578a03d5390",
+  "response": {
+    "text": "For early feedback, let's keep the first user story scope small, tag a few contacts, say three.",
+    "logprobs": null,
+    "usage": {
+      "input_tokens": 50,
+      "output_tokens": 23,
+      "total_tokens": 73,
+      "type": "tokens",
+      "input_token_details": {
+        "audio_tokens": 50,
+        "text_tokens": 0
+      }
+    }
+  }
+}

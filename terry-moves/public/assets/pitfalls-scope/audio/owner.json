@@ -1,0 +1,15 @@
+{
+  "id": "owner",
+  "role": "product owner",
+  "voice": "coral",
+  "start": 3.2,
+  "end": 9.55,
+  "text": "For the first slice, tag three contacts. Ship it, get feedback, then decide what’s next.",
+  "speed": 1.06,
+  "direction": "A thoughtful product owner speaking naturally to a colleague during refinement. Constructive and matter-of-fact, slightly energetic about early feedback. Connected speech with brief clause pauses.",
+  "instructions": "A thoughtful product owner speaking naturally to a colleague during refinement. Constructive and matter-of-fact, slightly energetic about early feedback. Connected speech with brief clause pauses. Finish the complete line naturally within about 6.35 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "file": "audio/owner.wav",
+  "sha256": "54c7877c8d0b77de56e09f4d5a2f95ef008eedc149323acb9fb70e9efdc3de15",
+  "rawDurationSeconds": 6.83525
+}

@@ -15,6 +15,13 @@ through incremental and iterative development.
    — An obsolete rule survives through new assertions about its absence,
    allowing development history to accumulate in tests and documentation.
 
+The mobile films are approximately 30-second workplace stories for developers,
+intended for LinkedIn, YouTube and TikTok. The first
+[film design and preview](01-refinement-film-design.md) follows a refinement
+discussion through a developer's interpretation to the product's first demo.
+Its 30-second portrait preview is available as **ScopeRestrictionFilm** in
+Terry Moves. The local preview is approved; it has not been published to the platforms.
+
 Each article stands on its own. Both examine how a small amount of useful
 product change can acquire a disproportionate amount of implementation,
 verification, and explanation. Their examples illustrate the mechanisms;

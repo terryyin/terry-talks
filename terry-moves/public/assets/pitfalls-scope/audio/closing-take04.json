@@ -1,0 +1,17 @@
+{
+  "id": "closing",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 23.1,
+  "end": 29.75,
+  "text": "Clarify what this story must deliver—and what the product must reject. With people and AI.",
+  "speed": 1.0,
+  "direction": "The same warm perceptive narrator. A lucid practical takeaway: emphasize what the story must deliver, then what the product must reject. Connected conversational speech with a short natural pause before With people and AI. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off.",
+  "instructions": "The same warm perceptive narrator. A lucid practical takeaway: emphasize what the story must deliver, then what the product must reject. Connected conversational speech with a short natural pause before With people and AI. Pronounce AI as the two English letters A I. Calm clarity, not a promotional sign-off. Finish the complete line naturally within about 6.65 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 4,
+  "requestSpeed": 1.0,
+  "file": "audio/closing-take04.wav",
+  "sha256": "5f88de0d9c41310ce901c21301e55e872a8dbe2c2f885273cef7f0d03651583c",
+  "rawDurationSeconds": 6.85
+}

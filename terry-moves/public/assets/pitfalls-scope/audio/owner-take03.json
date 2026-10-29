@@ -1,0 +1,17 @@
+{
+  "id": "owner",
+  "role": "product owner",
+  "voice": "coral",
+  "start": 2.5,
+  "end": 8.85,
+  "text": "For early feedback, let’s keep the first user story’s scope small: tag a few contacts, say three.",
+  "speed": 1.0,
+  "direction": "The same thoughtful product owner speaking naturally to a colleague during refinement. Constructive and practical, brisk connected conversation at about 175 to 185 words per minute with brief clause pauses. Emphasize this user story's scope as the current delivery boundary; say three is merely an illustrative example, not a maximum. Give say three the light inflection of suggesting an example.",
+  "instructions": "The same thoughtful product owner speaking naturally to a colleague during refinement. Constructive and practical, brisk connected conversation at about 175 to 185 words per minute with brief clause pauses. Emphasize this user story's scope as the current delivery boundary; say three is merely an illustrative example, not a maximum. Give say three the light inflection of suggesting an example. Finish the complete line naturally within about 6.35 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 3,
+  "requestSpeed": 1.0,
+  "file": "audio/owner-take03.wav",
+  "sha256": "fc42b5b2dbe03eadfabd7ab4fed394a7c8a32ff2db41566ddfe365586b7ab597",
+  "rawDurationSeconds": 8.05
+}

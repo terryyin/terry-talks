@@ -1,0 +1,47 @@
+1
+00:00:00,060 --> 00:00:02,300
+An example became a product limit.
+
+2
+00:00:02,600 --> 00:00:03,440
+For early feedback,
+
+3
+00:00:03,740 --> 00:00:05,780
+let’s keep the first user story’s scope small:
+
+4
+00:00:06,120 --> 00:00:07,600
+tag a few contacts, say three.
+
+5
+00:00:09,120 --> 00:00:10,400
+I’ll ask the agent
+
+6
+00:00:10,400 --> 00:00:12,520
+to enforce a maximum of three.
+
+7
+00:00:16,290 --> 00:00:18,380
+Why can’t I tag four?
+
+8
+00:00:19,240 --> 00:00:20,340
+Three was our example.
+
+9
+00:00:20,940 --> 00:00:22,500
+We never agreed a maximum.
+
+10
+00:00:23,400 --> 00:00:25,020
+Clarify what this story must deliver—
+
+11
+00:00:25,020 --> 00:00:27,040
+and what the product must reject.
+
+12
+00:00:27,040 --> 00:00:29,420
+With people and AI.

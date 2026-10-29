@@ -36,10 +36,12 @@ import { GeographicalMapBaselineComposition, GeographicalMapOpeningComposition, 
 import { SharedRhythmBaselineComposition, SharedRhythmExcerptComposition, SharedRhythmRevisionComposition } from './musicAndSound/SharedRhythmFilm';
 import { SeeDoFeedbackFilm } from './stories/SeeDoFeedbackFilm';
 import { ListenToCodeFilm } from './stories/ListenToCodeFilm';
+import { ScopeRestrictionFilm } from './stories/ScopeRestrictionFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
+			<ScopeRestrictionFilm />
 			<ListenToCodeFilm />
 			<SeeDoFeedbackFilm />
 			<StorySimpleExample />

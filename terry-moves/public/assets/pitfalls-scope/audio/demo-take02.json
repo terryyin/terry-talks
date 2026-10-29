@@ -1,0 +1,17 @@
+{
+  "id": "demo",
+  "role": "product owner",
+  "voice": "coral",
+  "start": 20.0,
+  "end": 22.45,
+  "text": "Why can’t I tag four?",
+  "speed": 0.99,
+  "direction": "The same product owner at the demo, genuinely frustrated and concerned that a straightforward task is blocked. Speak with a sharper questioning edge and audible disappointment; stress FOUR, as in why on earth is four blocked? This is an honest emotional reaction from a capable adult, not merely a curious question. No cartoon shouting, sneering or sarcasm. Preserve the supplied words exactly.",
+  "instructions": "The same product owner at the demo, genuinely frustrated and concerned that a straightforward task is blocked. Speak with a sharper questioning edge and audible disappointment; stress FOUR, as in why on earth is four blocked? This is an honest emotional reaction from a capable adult, not merely a curious question. No cartoon shouting, sneering or sarcasm. Preserve the supplied words exactly. Finish the complete line naturally within about 2.45 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 2,
+  "requestSpeed": 0.99,
+  "file": "audio/demo-take02.wav",
+  "sha256": "0ec941ece75377f616d4e6796cc5d4cb9e9c1b9b9fc8614dfdb1f9fa2530f994",
+  "rawDurationSeconds": 3.3248333333333333
+}
