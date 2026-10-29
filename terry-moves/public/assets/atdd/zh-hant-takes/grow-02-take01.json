@@ -1,0 +1,12 @@
+{
+  "file": "zh-hant-takes/grow-02-take01.wav",
+  "takeNumber": 1,
+  "text": "結構形成時，內部測試也能一起涵蓋幾個下層部分。",
+  "direction": "Read only the exact supplied Traditional Chinese text in natural\nTaiwan Mandarin (台灣國語). You are a warm, calm, lucid educational narrator.\nUse a conversational, compact delivery, clear articulation and short natural\nclause pauses. Keep a consistent warm adult voice across these film clauses.\nDo not imitate Terry or any real person. Do not add, omit, paraphrase, translate\nor explain any words. Pronounce AI as the separate English letters A I; retain\nany other English words as written. Avoid an announcer or theatrical delivery.\n\nFinish this complete clause naturally within about 4.35 seconds.",
+  "requestSpeed": 1.0,
+  "model": "gpt-4o-mini-tts",
+  "voice": "cedar",
+  "sha256": "0374e4e0333872f57f0f3ef8e26be8cd7b3a5df0d575aefece1204b2b3a95ede",
+  "rawDurationSeconds": 6.1,
+  "sampleRate": 24000
+}

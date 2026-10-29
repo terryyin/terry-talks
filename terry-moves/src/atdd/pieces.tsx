@@ -1,15 +1,18 @@
 import React from 'react';
 import { Face } from '../storyImpact/face';
 import { FONT_FAMILY, roundedPath } from '../storyImpact/layout';
+import { ZH_HANT_FONT_FAMILY } from '../storyImpact/zhHant';
 import { ballColors } from '../storyImpact/scene';
 import { palette, RED, WAIT, TEAM_COLORS, STROKE, SHADOW } from './art';
+import { screenChildren, useATDDLanguage } from './language';
 
 export { RED, WAIT } from './art';
 export type StepState = 'waiting' | 'running' | 'pass' | 'fail' | 'fake';
 
-export const Text: React.FC<{ x: number; y: number; children: React.ReactNode; size?: number; color?: string; anchor?: 'start' | 'middle' | 'end'; weight?: number }> = ({ x, y, children, size = 40, color = palette.ink, anchor = 'middle', weight = 800 }) => (
-	<text x={x} y={y} textAnchor={anchor} fontFamily={FONT_FAMILY} fontSize={size} fontWeight={weight} fill={color}>{children}</text>
-);
+export const Text: React.FC<{ x: number; y: number; children: React.ReactNode; size?: number; color?: string; anchor?: 'start' | 'middle' | 'end'; weight?: number }> = ({ x, y, children, size = 40, color = palette.ink, anchor = 'middle', weight = 800 }) => {
+	const language = useATDDLanguage();
+	return <text x={x} y={y} textAnchor={anchor} fontFamily={language === 'zh-Hant' ? ZH_HANT_FONT_FAMILY : FONT_FAMILY} fontSize={size} fontWeight={weight} fill={color}>{screenChildren(children, language)}</text>;
+};
 
 export const Box: React.FC<{ x: number; y: number; width: number; height: number; fill?: string; stroke?: string; dashed?: boolean; radius?: number; children?: React.ReactNode }> = ({ x, y, width, height, fill = palette.white, stroke = palette.ink, dashed = false, radius = 22, children }) => (
 	<g>

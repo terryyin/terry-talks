@@ -1,0 +1,266 @@
+{
+  "language": "zh-Hant",
+  "narration": [
+    {
+      "sceneId": "tree",
+      "captions": [
+        {
+          "text": "想像中的解決方案樹",
+          "spoken": "把軟體想成一棵樹，有前端、後端和小零件。好像得從底層做起，再向上整合。"
+        },
+        {
+          "text": "從底層猜起，可能白做工。",
+          "spoken": "但對零件的假設可能錯了，做出結果根本不需要的東西。"
+        }
+      ]
+    },
+    {
+      "sceneId": "grow",
+      "captions": [
+        {
+          "text": "一個小情境，帶出所需結構。",
+          "spoken": "先用自動測試定義一個小型端到端情境。做到通過，讓結構按需要成長。"
+        },
+        {
+          "text": "在有用的邊界做內部測試。",
+          "spoken": "結構形成時，內部測試也能一起涵蓋幾個下層部分。"
+        }
+      ]
+    },
+    {
+      "sceneId": "scenarios",
+      "captions": [
+        {
+          "text": "小情境，各自滿足一項需求。",
+          "spoken": "把衝刺項目拆成前提、動作、結果的小情境，每個都能獨立滿足使用者需求。"
+        },
+        {
+          "text": "前提：設定 · 動作：更新 · 結果：預期設定",
+          "spoken": "改設定，核對顯示結果。"
+        }
+      ]
+    },
+    {
+      "sceneId": "given",
+      "captions": [
+        {
+          "text": "自動執行第一步，確認通過。",
+          "spoken": "選一個情境，用現有功能自動執行第一步，跑一次，看它通過。"
+        },
+        {
+          "text": "一步已驗證，情境尚未完成。",
+          "spoken": "保留可執行的證據，情境還沒完成。"
+        }
+      ]
+    },
+    {
+      "sceneId": "selection",
+      "captions": [
+        {
+          "text": "跑下一步，看見真正的失敗。",
+          "spoken": "加入選擇，再跑測試。缺少下拉選單，測試失敗，指出還缺哪些工作。"
+        },
+        {
+          "text": "保留前面已通過的步驟。",
+          "spoken": "綠色步驟留在單上。"
+        }
+      ]
+    },
+    {
+      "sceneId": "shortcut",
+      "captions": [
+        {
+          "text": "暫時的下拉選單，也能推進。",
+          "spoken": "暫時寫死下拉選單，就能早點往前走。現在正式實作，也可以。"
+        },
+        {
+          "text": "更多步驟通過，結果還在後面。",
+          "spoken": "無論如何，再跑測試。重要結果還在後面。"
+        }
+      ]
+    },
+    {
+      "sceneId": "update",
+      "captions": [
+        {
+          "text": "更新，揭露下一步工作。",
+          "spoken": "加入更新。若跑測試發現實作缺漏，這個失敗就指出下一步工作。"
+        },
+        {
+          "text": "情境，拉動所需實作。",
+          "spoken": "追到相關邏輯。"
+        }
+      ]
+    },
+    {
+      "sceneId": "local",
+      "captions": [
+        {
+          "text": "保護既有行為。紅、綠、重構。",
+          "spoken": "保護會碰到的既有行為，再用局部測試跑紅、綠、重構，反覆完成情境需要的細節。"
+        },
+        {
+          "text": "回到同一個驗收測試。",
+          "spoken": "回到驗收測試，先前的步驟現在都通過了。"
+        }
+      ]
+    },
+    {
+      "sceneId": "then",
+      "captions": [
+        {
+          "text": "結果檢查，驗證實際顯示內容。",
+          "spoken": "但還要檢查結果。加上結果檢查，跑一次，畫面顯示卻不對。"
+        },
+        {
+          "text": "動作通過，結果未必正確。",
+          "spoken": "動作過了，還沒完成。"
+        }
+      ]
+    },
+    {
+      "sceneId": "split",
+      "captions": [
+        {
+          "text": "五人一起 → 三人實作",
+          "spoken": "五個人一直一起工作。下一步明確後，三個人可以用局部測試循環，實作回傳結果。"
+        },
+        {
+          "text": "兩人做自動化 · 同一個情境",
+          "spoken": "另外兩人同步完成驗收自動化，兩組都為同一個情境工作。"
+        }
+      ]
+    },
+    {
+      "sceneId": "rejoin",
+      "captions": [
+        {
+          "text": "重新集合，跑完整個情境。",
+          "spoken": "接著重新集合、整合，跑完整的驗收測試，所有步驟一起通過。"
+        },
+        {
+          "text": "一起 → 分頭 → 再一起",
+          "spoken": "短暫分頭並行探索，盡快回來一起做。"
+        }
+      ]
+    },
+    {
+      "sceneId": "done",
+      "captions": [
+        {
+          "text": "內聚性與整理，都是完成的一部分。",
+          "spoken": "完成也包含必要的實作與整理。從一開始就把相關領域概念放在一起，讓結構有內聚性。"
+        },
+        {
+          "text": "完整做完一個，再接下一個。",
+          "spoken": "測試保護下換掉該換的捷徑，徹底做完再接下一個。"
+        }
+      ]
+    },
+    {
+      "sceneId": "then-first",
+      "captions": [
+        {
+          "text": "進階選項：先做好結果檢查。",
+          "spoken": "還有進階選項：先真正做好結果檢查，讓結果一開始就看得見。"
+        },
+        {
+          "text": "前面的暫時做法，逐步換成真的。",
+          "spoken": "前幾步先用替身，再逐步實作。"
+        }
+      ]
+    },
+    {
+      "sceneId": "scope",
+      "captions": [
+        {
+          "text": "AI 在受保護的範圍內幫忙。",
+          "spoken": "AI 能在情境與測試的保護下，協助整個過程。由團隊有意識地擴大範圍。"
+        },
+        {
+          "text": "ATDD — 完整走過一個情境",
+          "spoken": "驗收測試驅動開發：完整走過一個情境。"
+        }
+      ]
+    }
+  ],
+  "screenText": {
+    "Parts before the whole?": "先做零件，再整合？",
+    "One narrow result": "一個小而具體的結果",
+    "Small, useful scenarios": "小而有用的情境",
+    "Automate. Run. Observe.": "自動化、執行、觀察",
+    "Keep the green prefix": "保留已通過的前面步驟",
+    "Temporary, if useful": "有用時，可以先暫時做",
+    "What does Update reveal?": "更新，揭露什麼？",
+    "Local work. Outer feedback.": "局部實作，驗收回饋",
+    "Actions pass. Result fails.": "動作通過，結果失敗",
+    "Together → briefly split": "一起 → 短暫分頭",
+    "Reunite and run it all": "重新集合，完整跑一次",
+    "Cohesion belongs in done": "內聚性也是完成的一部分",
+    "Advanced option: Then first": "進階選項：先檢查結果",
+    "AI within protected work": "AI 在保護範圍內幫忙",
+    "ATDD": "ATDD",
+    "Work through": "完整走過",
+    "one scenario": "一個情境",
+    "Acceptance Test Driven Development": "驗收測試驅動開發",
+    "Terry Yin": "Terry Yin",
+    "CEDAR · AI-GENERATED NARRATION": "CEDAR · AI 合成旁白",
+    "From the original whiteboard presentation": "改編自原始白板講解",
+    "Make the result": "先讓結果",
+    "observable first": "真正看得見",
+    "Given": "前提",
+    "Selection": "選擇",
+    "Select": "選擇",
+    "Update": "更新",
+    "Then": "結果",
+    "Temporary fake": "暫時做法",
+    "Real path": "真實路徑",
+    "Then: a real result check": "結果：真正檢查顯示內容",
+    "An advanced option, after the walkthrough.": "先走完流程，再考慮這個進階選項。",
+    "The solution tree": "解決方案樹",
+    "The scenario + checks": "情境與測試",
+    "Scenario A · existing checks": "情境 A · 既有測試",
+    "Grow scope deliberately": "有意識地擴大範圍",
+    "One scenario, changing sheets": "同一個情境，逐步演進",
+    "✓ Observed pass": "✓ 已觀察到通過",
+    "… Unfinished": "… 尚未完成",
+    "× Observed failure": "× 已觀察到失敗",
+    "Five together → brief 3 / 2 exploration → reunite": "五人一起 → 短暫分三人／兩人探索 → 重新集合",
+    "One observed outcome pulls the structure it needs.": "可觀察的結果，拉動所需的結構。",
+    "3 · Front-end TDD": "3 人 · 前端 TDD",
+    "2 · Finish Scenario A": "2 人 · 完成情境 A",
+    "Build parts": "先做零件",
+    "then integrate": "再整合",
+    "End-to-end": "端到端",
+    "test": "測試",
+    "Internal": "內部",
+    "One result pulls its needed path.": "一個結果，拉出所需路徑。",
+    "AI": "AI",
+    "Scenario A": "情境 A",
+    "RED": "紅",
+    "GREEN": "綠",
+    "REFACTOR": "重構",
+    "Local TDD": "局部 TDD",
+    "Backlog": "待辦清單",
+    "Waiting scenarios": "等待中的情境",
+    "One meaningful scenario": "一個有價值的情境",
+    "Given existing settings": "前提：已有設定",
+    "When we select and Update": "動作：選擇並更新",
+    "Then see the expected setting": "結果：顯示預期設定",
+    "Saved": "已保留",
+    "Next →": "下一個 →",
+    "* Temporary option": "* 暫時做法",
+    "Proper now also works.": "現在正式實作，也可以。",
+    "If Update fails…": "如果更新失敗……",
+    "DONE ✓": "完成 ✓",
+    "Fake → real": "暫時 → 真實",
+    "Cohesion": "內聚性",
+    "Ready for next": "可以接下一個",
+    "Under checks": "在測試保護下",
+    "Related concepts": "相關概念",
+    "User result": "使用者的結果",
+    "Front end": "前端",
+    "Back end": "後端",
+    "Working together": "一起工作"
+  }
+}

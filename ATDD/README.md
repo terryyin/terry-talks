@@ -23,6 +23,13 @@ zoom emphasizes these persistent elements while unrelated elements fade away.
 The existing animated Odd-e logo stays at upper right. Rounded sheet corners,
 lighter outlines and coordinated blue/green accents preserve the native style.
 
+The result-check passage moves closer to the same sheet and team, so the
+passing actions and failing Then can be read together. It returns to the
+circle before the brief split. The advanced option replaces its three
+temporary steps in sequence while keeping the result check real. In the
+conclusion, a small AI helper joins the people beside their completed
+scenario; the tree and scenario circle remain visible as context.
+
 The [content analysis](content-analysis.md) explains the complete argument
 and its timecoded evidence from the supplied 28:52 Chinese workshop.
 The [automatic transcript](source-transcript.md) and
@@ -54,6 +61,10 @@ nix develop -c sh -c 'pnpm -C terry-moves render:atdd'
 
 This renders `terry-moves/out/atdd-restaged.mp4` and its
 opening poster. `pnpm moves` opens Remotion Studio; select `ATDDFilm`.
+Review the result-check focus at 84.73–92.57 seconds, gradual replacement at
+127.87–136.80 seconds, and the helper joining protected work at
+136.80–143.85 seconds. The saved narration, score, captions and 149.03-second
+timeline remain the production inputs for these picture changes.
 Rendering uses saved local assets and requires no speech API access.
 Rebuild both diagram formats with
 `nix develop -c sh -c 'pnpm -C terry-moves diagrams:atdd'`.
@@ -83,3 +94,29 @@ Narration is mastered to −18 LUFS; music remains restrained beneath it.
 Reproduction uses the saved narration, score and measured timing directly.
 Audio regeneration is outside this restaging workflow; the source production
 helper and its speech/alignment dependencies are not incorporated here.
+
+## Traditional Chinese edition
+
+`ATDDFilmZhHant` reuses the revised English film's scenes, camera direction,
+4471-frame timeline, diagram geometry and saved score. Its headings, diagrams,
+captions and closing credit use Traditional Chinese, with Mandarin narration
+performed by the same synthetic Cedar voice. This is AI-generated narration,
+not a recording of Terry.
+
+[zh-Hant.json](zh-Hant.json) owns the translated narration, concise captions
+and screen labels. The saved Chinese narration is separate from the English
+track. Render the edition from its saved local assets:
+
+```sh
+pnpm -C terry-moves render:atdd:zh-hant
+```
+
+The outputs are `terry-moves/out/atdd-zh-hant.mp4` and
+`terry-moves/out/atdd-zh-hant-poster.png`. Preview `ATDDFilmZhHant` in Studio.
+The Chinese narration's saved takes and timing measurements are recorded in
+[narration-zh-hant.json](narration-zh-hant.json); [atdd-zh-hant.srt](atdd-zh-hant.srt)
+preserves the full spoken Chinese text. Rendering makes no speech API calls.
+Verify the saved narration offline with
+`python3 scripts/atdd-zh-hant-audio.py --verify`; running the helper without
+flags rebuilds it from the selected saved takes. New speech requests require
+the explicit `--generate` option, and replacement takes retain their predecessors.

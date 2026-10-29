@@ -35,10 +35,12 @@ import { TypographyFeedbackExampleComposition, TypographyOpeningCompositions, Ty
 import { GeographicalMapBaselineComposition, GeographicalMapOpeningComposition, GeographicalMapWideComparisonComposition } from './geographicalMap/GeographicalMapFilm';
 import { SharedRhythmBaselineComposition, SharedRhythmExcerptComposition, SharedRhythmRevisionComposition } from './musicAndSound/SharedRhythmFilm';
 import { SeeDoFeedbackFilm } from './stories/SeeDoFeedbackFilm';
+import { ListenToCodeFilm } from './stories/ListenToCodeFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
+			<ListenToCodeFilm />
 			<SeeDoFeedbackFilm />
 			<StorySimpleExample />
 			<StoryLoomWarpStop />

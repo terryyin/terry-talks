@@ -1,0 +1,19 @@
+{
+  "title": "Still listening \u2014 the code within",
+  "authorship": "Original procedural instrumental composed for this film; no sampled recording or voice.",
+  "durationSeconds": 20,
+  "sampleRate": 48000,
+  "samples": 960000,
+  "channels": 2,
+  "peakDbfs": -2.0,
+  "rmsDbfs": -16.753,
+  "cues": {
+    "listen": 0,
+    "insideProduct": 2,
+    "aiWritesAndReviews": 7,
+    "strain": 9.5,
+    "howDoWeHear": 12,
+    "beyondCode": 15
+  },
+  "seed": 20261020
+}

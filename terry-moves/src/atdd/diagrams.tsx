@@ -7,6 +7,7 @@ import { ATDDStaging, staging as authoredStaging } from './staging';
 import { scenes } from './film';
 import { CollaborationDiamond } from './CollaborationDiamond';
 import { collaborationPose } from './collaborationLayout';
+import { ScreenText } from './language';
 import { Box, Flow, LocalCycle, Person, RED, SheetArrow, StepState, Text, Tick, WAIT } from './pieces';
 
 import { cue, move } from './timing';
@@ -23,7 +24,7 @@ const Backlog: React.FC<{ seconds: number; selected: boolean; next: boolean; com
 	<Text x={lerp(143, 93, compact)} y={lerp(212, 169, compact)} size={lerp(34, 27, compact)} color={palette.structure}>Backlog</Text>
 	<rect {...pose.outline} rx={18} fill="none" stroke={palette.structure} strokeWidth={5} />
 	{['A', 'B', 'C', 'D', 'E'].map((letter, i) => <WaitingSheet key={letter} letter={letter} {...pose.rows[i]} compact={compact} opacity={i === 0 && selected ? 1 - move(seconds, cue(3, 0, 'take')) : i === 1 && next ? 0.45 : 1} />)}
-	<Text {...pose.waitingLabel} color={palette.structure} weight={700}><tspan opacity={1 - compact}>Waiting scenarios</tspan></Text>
+	<Text {...pose.waitingLabel} color={palette.structure} weight={700}><tspan opacity={1 - compact}><ScreenText>Waiting scenarios</ScreenText></tspan></Text>
 </g>;
 
 export const ScenarioCircle: React.FC<{ seconds?: number; phase?: number; staticBoard?: boolean; miniature?: boolean; staging?: ATDDStaging }> = ({ seconds = 126, phase = 11, staticBoard = false, miniature = false, staging = authoredStaging }) => {
@@ -46,9 +47,10 @@ export const ScenarioCircle: React.FC<{ seconds?: number; phase?: number; static
 	const merge = phase === 10 ? move(seconds, cue(10, 0, 'reunite'), 1.5) : phase > 10 ? 1 : 0;
 	const frontEndTddPhase = Math.floor(Math.max(0, seconds - cue(9, 0, 'loop')) / 1.1) % 3;
 	const focus = miniature || staticBoard ? 0 : phase === 9 ? move(seconds, scenes[9].start, 0.7) : phase === 10 ? 1 : phase === 11 ? 1 - move(seconds, scenes[11].start, 0.7) : 0;
+	const resultFocus = miniature || staticBoard || phase !== 8 ? 0 : move(seconds, cue(8, 0, 'then'), 1.2) * (1 - move(seconds, scenes[8].end - 0.9, 0.9));
 	// Clear the surrounding sheets before zooming; restore the camera before
 	// revealing them again. Both use the existing single authored focus beat.
-	const surroundings = 1 - Math.min(1, focus * 2);
+	const surroundings = 1 - Math.min(1, Math.max(focus, resultFocus) * 2);
 	const compact = phase === 2 ? 0 : staticBoard ? 1 : move(seconds, cue(3, 0, 'take'), 1.2);
 	const backlog = backlogPose(staging.backlog, compact);
 	const current = phase <= 3 ? 0 : phase === 4 ? 1 : phase <= 7 ? 2 : phase === 8 ? 3 : phase === 9 ? 4 : 5;
@@ -71,7 +73,7 @@ export const ScenarioCircle: React.FC<{ seconds?: number; phase?: number; static
 	const previousCurrent = phase === 4 ? 0 : phase === 5 ? 1 : phase === 8 ? 2 : phase === 10 ? 4 : current;
 	const travel = move(seconds, scenes[Math.min(phase, 13)].start + 0.2, 1.6);
 	const team = collaboration.teamPosition(previousCurrent, current, travel);
-	const camera = collaboration.camera(Math.max(0, focus * 2 - 1));
+	const camera = phase === 8 && !staticBoard && !miniature ? collaboration.resultCamera(Math.max(0, resultFocus * 2 - 1)) : collaboration.camera(Math.max(0, focus * 2 - 1));
 	const localShown = staticBoard ? 1 : phase >= 9 ? move(seconds, cue(9, 0, 'loop')) : 0;
 	const finishingShown = staticBoard || phase > 9 ? 1 : phase === 9 ? move(seconds, cue(9, 1, 'two'), 1.2) : 0;
 	return <g transform={camera}>

@@ -1,0 +1,12 @@
+{
+  "file": "zh-hant-takes/rejoin-01-take02.wav",
+  "takeNumber": 2,
+  "text": "接著重新集合、整合，跑完整的驗收測試，所有步驟一起通過。",
+  "direction": "Read only the exact supplied Traditional Chinese text in natural\nTaiwan Mandarin (台灣國語). You are a warm, clear, lucid educational narrator.\nSpeak fluent connected Mandarin at approximately 300–330 Han characters per\nminute. 保持自然流暢的台灣國語，每分鐘約三百至三百三十個中文字。\nUse compact conversational delivery and clear articulation, with very brief\nnatural clause pauses. Do not slow down, elongate words, or add extra pauses\nbetween short phrases. Keep a consistent warm adult voice across film clauses.\nDo not imitate Terry or any real person. Do not add, omit, paraphrase, translate\nor explain any words. Pronounce AI as the separate English letters A I; retain\nany other English words as written. Avoid an announcer or theatrical delivery.\n\nFinish this complete clause naturally within about 5.49 seconds.\nThis replacement needs compact pacing, brief natural pauses, and every word clearly spoken.",
+  "requestSpeed": 1.2,
+  "model": "gpt-4o-mini-tts",
+  "voice": "cedar",
+  "sha256": "898d19d48d3e6ba236dbbb65871394357a7a242c878d4bb5a6ecdd3050bd0410",
+  "rawDurationSeconds": 6.162333333333334,
+  "sampleRate": 24000
+}

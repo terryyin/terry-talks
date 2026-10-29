@@ -1,0 +1,12 @@
+{
+  "file": "zh-hant-takes/tree-01-take01.wav",
+  "takeNumber": 1,
+  "text": "把軟體想成一棵樹，有前端、後端和小零件。好像得從底層做起，再向上整合。",
+  "direction": "Read only the exact supplied Traditional Chinese text in natural\nTaiwan Mandarin (台灣國語). You are a warm, calm, lucid educational narrator.\nUse a conversational, compact delivery, clear articulation and short natural\nclause pauses. Keep a consistent warm adult voice across these film clauses.\nDo not imitate Terry or any real person. Do not add, omit, paraphrase, translate\nor explain any words. Pronounce AI as the separate English letters A I; retain\nany other English words as written. Avoid an announcer or theatrical delivery.\n\nFinish this complete clause naturally within about 7.20 seconds.",
+  "requestSpeed": 1.0,
+  "model": "gpt-4o-mini-tts",
+  "voice": "cedar",
+  "sha256": "6a47c2effdb341f5911bff69cf01367209a61d56dc724b2c6b4196654b4e6971",
+  "rawDurationSeconds": 9.0,
+  "sampleRate": 24000
+}

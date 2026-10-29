@@ -7,6 +7,13 @@ import { Point, ROUTE_CLEARANCE } from './geometry';
 import { LOCAL_CYCLE_RADIUS, PERSON_FOOTPRINT, SHEET_BADGE } from './pieces';
 
 const bounds = (points: Point[]) => ({ left: Math.min(...points.map((p) => p.x)), right: Math.max(...points.map((p) => p.x)), top: Math.min(...points.map((p) => p.y)), bottom: Math.max(...points.map((p) => p.y)) });
+const fittedCamera = (content: ReturnType<typeof bounds>, maxZoom: number, padding = 0) => {
+	const window = { left: 40, right: STAGE.width - 40, top: 140, bottom: CAPTION_BOX.top - 24 };
+	const zoom = Math.min(maxZoom, (window.right - window.left) / (content.right - content.left + padding), (window.bottom - window.top) / (content.bottom - content.top + padding));
+	const center = { x: (content.left + content.right) / 2, y: (content.top + content.bottom) / 2 };
+	const destination = { x: (window.left + window.right) / 2, y: (window.top + window.bottom) / 2 };
+	return (focus: number) => `translate(${(destination.x - zoom * center.x) * focus} ${(destination.y - zoom * center.y) * focus}) scale(${lerp(1, zoom, focus)})`;
+};
 const interpolate = (from: Point, to: Point, progress: number) => ({ x: lerp(from.x, to.x, progress), y: lerp(from.y, to.y, progress) });
 const stage = (progress: number, from: number, to: number) => Math.max(0, Math.min(1, (progress - from) / (to - from)));
 
@@ -82,11 +89,21 @@ export const collaborationPose = (pose: CirclePose) => {
 		occupied.push({ x: point.x + PERSON_FOOTPRINT.left * scale, y: point.y + PERSON_FOOTPRINT.top * scale - 2 }, { x: point.x + PERSON_FOOTPRINT.right * scale, y: point.y + PERSON_FOOTPRINT.bottom * scale + 2 });
 	});
 	Object.values(labels).forEach((p) => occupied.push({ x: p.x - p.size * 5.6, y: p.y - p.size * 1.2 }, { x: p.x + p.size * 5.6, y: p.y + p.size * 0.35 }));
-	const content = bounds(occupied);
-	const window = { left: 40, right: STAGE.width - 40, top: 140, bottom: CAPTION_BOX.top - 24 };
-	const zoom = Math.min(1.18, (window.right - window.left) / (content.right - content.left), (window.bottom - window.top) / (content.bottom - content.top));
-	const contentCenter = { x: (content.left + content.right) / 2, y: (content.top + content.bottom) / 2 };
-	const destination = { x: (window.left + window.right) / 2, y: (window.top + window.bottom) / 2 };
-	const camera = (focus: number) => `translate(${(destination.x - zoom * contentCenter.x) * focus} ${(destination.y - zoom * contentCenter.y) * focus}) scale(${lerp(1, zoom, focus)})`;
-	return { all, teamPosition, teamLabel, labels, person, camera };
+	const camera = fittedCamera(bounds(occupied), 1.18);
+	// The failed result is a reading beat before the split. Fit that actual
+	// sheet, its badge and the same crew; no enlarged copy of the evidence.
+	const resultSheet = pose.checkpoints[3];
+	const resultTeam = teamSpots[3];
+	const resultLabel = teamLabel(resultTeam);
+	const resultBounds = bounds([
+		...resultSheet.outline,
+		{ x: resultSheet.badge.x - (SHEET_BADGE.radius + 2) * resultSheet.scale, y: resultSheet.badge.y - (SHEET_BADGE.radius + 2) * resultSheet.scale },
+		{ x: resultSheet.badge.x + (SHEET_BADGE.radius + 2) * resultSheet.scale, y: resultSheet.badge.y + (SHEET_BADGE.radius + 2) * resultSheet.scale },
+		{ x: resultTeam.x - all.width / 2, y: resultTeam.y + all.top - 2 },
+		{ x: resultTeam.x + all.width / 2, y: resultTeam.y + all.bottom + 2 },
+		{ x: resultLabel.x - labelWidth / 2, y: resultLabel.y - workingLabel.size * 1.2 },
+		{ x: resultLabel.x + labelWidth / 2, y: resultLabel.y + workingLabel.size * 0.35 },
+	]);
+	const resultCamera = fittedCamera(resultBounds, 2.05, 24);
+	return { all, teamPosition, teamLabel, labels, person, camera, resultCamera };
 };

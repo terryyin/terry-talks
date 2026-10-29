@@ -1,0 +1,18 @@
+{
+  "title": "Still listening",
+  "authorship": "Original procedural instrumental composed for this film; no sampled recording or voice.",
+  "durationSeconds": 20,
+  "sampleRate": 48000,
+  "samples": 960000,
+  "channels": 2,
+  "peakDbfs": -2.0,
+  "rmsDbfs": -16.37,
+  "cues": {
+    "listen": 0,
+    "aiWritesAndReviews": 3,
+    "strain": 6,
+    "howDoWeHear": 10,
+    "beyondCode": 14
+  },
+  "seed": 20261020
+}

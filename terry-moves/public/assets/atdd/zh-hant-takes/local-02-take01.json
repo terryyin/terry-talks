@@ -1,0 +1,12 @@
+{
+  "file": "zh-hant-takes/local-02-take01.wav",
+  "takeNumber": 1,
+  "text": "回到驗收測試，先前的步驟現在都通過了。",
+  "direction": "Read only the exact supplied Traditional Chinese text in natural\nTaiwan Mandarin (台灣國語). You are a warm, calm, lucid educational narrator.\nUse a conversational, compact delivery, clear articulation and short natural\nclause pauses. Keep a consistent warm adult voice across these film clauses.\nDo not imitate Terry or any real person. Do not add, omit, paraphrase, translate\nor explain any words. Pronounce AI as the separate English letters A I; retain\nany other English words as written. Avoid an announcer or theatrical delivery.\n\nFinish this complete clause naturally within about 3.34 seconds.",
+  "requestSpeed": 1.0,
+  "model": "gpt-4o-mini-tts",
+  "voice": "cedar",
+  "sha256": "547a853faf3a0aaac8ac8e96517b90ad98d8267694c46d1ca3e3ace1947623fa",
+  "rawDurationSeconds": 4.45,
+  "sampleRate": 24000
+}

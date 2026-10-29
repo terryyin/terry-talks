@@ -13,6 +13,12 @@ frames. Circle routes follow their clockwise circumference; tree traversal
 keeps its narrated front/detail/return/back order. The tree's visible trace and
 moving cursor share the same rounded segments.
 
+The result-check close view follows the current Then sheet and the team's
+footprints. Earlier snapshots quiet before the camera moves; the view settles
+for the result failure and returns before the split. The closing AI annotation
+uses the same five colored people and a completed scenario, with both diagrams
+above it. These film-only directions leave the exported boards unchanged.
+
 ## Inputs
 
 Coordinates are pixels in the 1080 × 1080 stage. Keep room for the film heading,
