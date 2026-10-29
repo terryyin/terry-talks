@@ -4,7 +4,7 @@
 
 **Source:** [When Scope Becomes a Restriction](01-when-scope-becomes-a-restriction.md)
 
-**Status:** Revised local preview approved
+**Status:** Published on TikTok, YouTube, Facebook and LinkedIn
 
 **Audience:** Software developers
 
@@ -34,8 +34,15 @@ speech timings. Rebuild the soundtrack offline with
 `--retake` requests named replacements, and `--audit` transcribes the actual mix.
 The current soundtrack is `mix-v4.wav`; earlier mixes and takes remain retained.
 
-This is a local platform review preview. It has not been posted to LinkedIn,
-YouTube or TikTok. Preview it with each platform’s overlays before publishing.
+The approved edition was [published on TikTok](https://www.tiktok.com/@terryyin0/video/7702005784720248085)
+on October 29, 2026, with the AI-generated-content label and Everyone visibility.
+It was also published as a [YouTube Short](https://www.youtube.com/shorts/ayISdVQJzu4)
+and [Facebook Reel](https://facebook.com/reel/1782542916196765) through Metricool
+on the same date. YouTube’s AI-generated-content label is enabled; the Facebook
+post includes the AI disclosure in its text and the film. It was also
+[published on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7521501146583031808/)
+on Terry Yin’s profile with Anyone visibility and the AI disclosure in its text
+and the film.
 
 ## Story and example
 

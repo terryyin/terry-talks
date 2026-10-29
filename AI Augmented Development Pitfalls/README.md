@@ -20,7 +20,10 @@ intended for LinkedIn, YouTube and TikTok. The first
 [film design and preview](01-refinement-film-design.md) follows a refinement
 discussion through a developer's interpretation to the product's first demo.
 Its 30-second portrait preview is available as **ScopeRestrictionFilm** in
-Terry Moves. The revised local preview is approved; it has not been published to the platforms.
+Terry Moves. Watch Episode 1 on [TikTok](https://www.tiktok.com/@terryyin0/video/7702005784720248085),
+[YouTube Shorts](https://www.youtube.com/shorts/ayISdVQJzu4),
+[Facebook Reels](https://facebook.com/reel/1782542916196765), or
+[LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7521501146583031808/).
 
 Each article stands on its own. Both examine how a small amount of useful
 product change can acquire a disproportionate amount of implementation,

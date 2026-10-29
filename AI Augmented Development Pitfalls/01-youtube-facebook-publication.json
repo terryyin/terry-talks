@@ -1,0 +1,41 @@
+{
+  "publishingService": "Metricool",
+  "brand": "Odd-e",
+  "metricoolPostId": 409826977,
+  "publicationDate": {
+    "dateTime": "2026-10-29T17:07:00",
+    "timezone": "Asia/Singapore"
+  },
+  "sourceRevision": "2df4f95324aa7f5dd68458a49557f6032038088a",
+  "composition": "ScopeRestrictionFilm",
+  "export": "terry-moves/out/ai-augmented-development-pitfalls-01-tiktok.mp4",
+  "hostedMediaUrl": "https://static.metricool.com/video/6039231/202610/703d1f90e6764445.mp4",
+  "caption": "She said “three.” He heard “maximum.”\n\nA small user story became a hard product limit. The AI assistant turned that misunderstanding into validation, an error message and tests.\n\nAn example isn’t a maximum. Make that clear to people and AI.\n\nAI Augmented Development Pitfalls · 01\nAI-generated scenes and voices.\n\n#SoftwareDevelopment #AI #Agile",
+  "publications": [
+    {
+      "platform": "Facebook",
+      "page": "Odd-e",
+      "pageId": "542267589120872",
+      "videoId": "1782542916196765",
+      "url": "https://facebook.com/reel/1782542916196765",
+      "status": "PUBLISHED",
+      "type": "REEL",
+      "title": "She said three. He heard maximum.",
+      "aiDisclosure": "Included in the post text and burned into the film; the composer exposed no separate Facebook AI-label control."
+    },
+    {
+      "platform": "YouTube",
+      "channelId": "UCx-y23i2SADJYh8kuhBItZQ",
+      "videoId": "ayISdVQJzu4",
+      "url": "https://www.youtube.com/shorts/ayISdVQJzu4",
+      "status": "PUBLISHED",
+      "type": "short",
+      "title": "She said three. He heard maximum. | AI Augmented Development Pitfalls #1",
+      "privacy": "public",
+      "madeForKids": false,
+      "aiGeneratedLabel": true
+    }
+  ],
+  "verification": "Metricool returned PUBLISHED for both providers and the Planner list displayed both live post links.",
+  "receipt": "terry-moves/out/youtube-facebook-publication-01.jpg"
+}
