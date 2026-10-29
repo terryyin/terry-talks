@@ -1,0 +1,30 @@
+{
+  "composition": "RuleNegationFilm",
+  "purpose": "Portrait export for Terry’s review before finalize. Platform posting remains out of scope.",
+  "status": "ready-for-review",
+  "export": "terry-moves/out/rule-negation.mp4",
+  "gitignoredBinary": true,
+  "codec": "h264",
+  "pixelFormat": "yuv420p",
+  "colorSpace": "bt709",
+  "audioCodec": "aac",
+  "audioSampleRate": 48000,
+  "audioChannels": 2,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationSeconds": 30.016,
+  "durationInFrames": 900,
+  "sizeBytes": 6023244,
+  "sha256": "42bdfeb666ae0d13a771fd5ea259d7ae3e9be5a413a1e8c9eef6b707603fae77",
+  "renderedAt": "2026-10-29T10:31:35Z",
+  "sourceRevision": "40e317d411a4b83a17cca934d657c31fcf8308c0",
+  "renderCommand": "pnpm exec remotion render src/index.ts RuleNegationFilm out/rule-negation.mp4 --codec=h264 --pixel-format=yuv420p --color-space=bt709 --concurrency=2",
+  "editablePreview": "pnpm moves (Remotion Studio) → RuleNegationFilm",
+  "meaningEvidence": {
+    "stills": "terry-moves/out/rule-negation-slice4-stills/",
+    "mix": "terry-moves/public/assets/pitfalls-negation/mix-v1.wav",
+    "design": "AI Augmented Development Pitfalls/02-rule-negation-film-design.md"
+  },
+  "verification": "ffprobe: 1080×1920 h264 yuv420p bt709 @30fps, AAC stereo ~30.016s; file opens; Studio remains editable review surface. Posting not performed."
+}

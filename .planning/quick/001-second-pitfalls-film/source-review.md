@@ -12,15 +12,15 @@
 
 | Id | Source commitment | Slice | Observation or obligation |
 | --- | --- | --- | --- |
-| 1 | Terry can share a short film that helps developers recognize how removing an obsolete rule can leave unnecessary tests and documentation behind when people or AI treat that removal as a lasting requirement about absence. | slice 6 | |
-| 2 | The film helps developers name the corrective action: describe and verify the current capability, retiring assertions and explanations whose purpose has expired. | slice 6 | |
+| 1 | Terry can share a short film that helps developers recognize how removing an obsolete rule can leave unnecessary tests and documentation behind when people or AI treat that removal as a lasting requirement about absence. | slice 6 | observed: `out/rule-negation.mp4` + stills/mix/design convey removal→absence pitfall |
+| 2 | The film helps developers name the corrective action: describe and verify the current capability, retiring assertions and explanations whose purpose has expired. | slice 6 | observed: close narration+on-screen keep/retire in export; `02-film-export.json` ready-for-review |
 | 3 | Produce an editable film in Terry Moves. | slice 3 | observed: `pnpm -C terry-moves compositions` lists `RuleNegationFilm` 1080×1920×900@30; `terry-moves/src/stories/RuleNegationFilm.tsx` + `pitfallsNegation/` editable scene folder |
 | 4 | Produce a reviewable Studio preview. | slice 4 | observed: `RuleNegationFilm` timeline wired 0–30s; Remotion stills frames 0/330/480/720 show reviewable beats |
-| 5.1 | Shareable portrait export: 9:16 | slice 6 | |
-| 5.2 | Shareable portrait export: 1080×1920 | slice 6 | |
-| 5.3 | Shareable portrait export: ~30 s | slice 6 | |
-| 5.4 | Shareable portrait export: 30 fps | slice 6 | |
-| 6 | The export is suitable for LinkedIn, YouTube, TikTok and Facebook. | slice 6 | |
+| 5.1 | Shareable portrait export: 9:16 | slice 6 | observed: ffprobe 1080×1920 portrait |
+| 5.2 | Shareable portrait export: 1080×1920 | slice 6 | observed: ffprobe width 1080 height 1920 |
+| 5.3 | Shareable portrait export: ~30 s | slice 6 | observed: ffprobe duration 30.0s / 900 frames |
+| 5.4 | Shareable portrait export: 30 fps | slice 6 | observed: ffprobe r_frame_rate 30/1 |
+| 6 | The export is suitable for LinkedIn, YouTube, TikTok and Facebook. | slice 6 | observed: h264 yuv420p bt709 + aac stereo — format-ready; posting out of scope |
 | 7 | Tell a realistic development conversation with a visible AI assistant response. | slice 4 | observed: still frame 330 `AssistantAbsence` — CODING ASSISTANT Done. Gate removed. + absence checks |
 | 8.1 | Cedar narrates | slice 1 | observed: `AI Augmented Development Pitfalls/02-rule-negation-film-design.md` Preview — “Cedar narrates” |
 | 8.2 | Ash as developer | slice 1 | observed: same Preview — “Ash performs the developer” |
@@ -38,7 +38,7 @@
 | 10.7 | Closing line whose narration and on-screen text match and hold through the final frame | slice 5 | observed: closing cue text equals closeHeadline+closeSupport words; CorrectiveClose holds through 30s |
 | 11 | Useful regression coverage and meaningful negative requirements remain valid | slice 1 | observed: Meaning to preserve / Evaluation nuance |
 | 12 | The film must not imply that every negative assertion is waste | slice 1 | observed: Meaning to preserve + Sequence close guidance |
-| 13 | Terry reviews the preview before the edition is treated as final | slice 6 | |
+| 13 | Terry reviews the preview before the edition is treated as final | slice 6 | observed: design Status + `02-film-export.json` status ready-for-review; Studio editable; posting not performed |
 | 14 | Platform posting of the approved export is outside this story | slice 1 | observed: Status + Out of scope — posting out of scope |
 | 15.1 | Deferred: other pitfalls articles | slice 1 | observed: Out of scope — other pitfalls episodes |
 | 15.2 | Deferred: square or landscape editions | slice 1 | observed: Out of scope — other aspect ratios |
@@ -46,14 +46,14 @@
 | 15.4 | Deferred: changing Episode 1 | slice 1 | observed: Out of scope — no Episode 1 changes |
 | 16 | Exact wording is settled during production against measured speech | slice 1 | observed: Preview — wording settled against measured TTS |
 | 17 | Holdings labels may be shortened on screen for mobile readability while preserving the same meaning | slice 1 | observed: Story and example + Mobile layout short labels |
-| E1.1 | Standalone: explain misunderstanding (removal → permanent absence claim) after watching finished ~30 s film | slice 6 | |
-| E1.2 | Standalone: explain maintenance cost after watching finished ~30 s film | slice 6 | |
-| E1.3 | Standalone: explain corrective action after watching finished ~30 s film | slice 6 | |
+| E1.1 | Standalone: explain misunderstanding (removal → permanent absence claim) after watching finished ~30 s film | slice 6 | observed: finished mp4 + still 330 absence follow-through after gate removed |
+| E1.2 | Standalone: explain maintenance cost after watching finished ~30 s film | slice 6 | observed: finished mp4 + still 480 history occupies suite |
+| E1.3 | Standalone: explain corrective action after watching finished ~30 s film | slice 6 | observed: finished mp4 + still 720 keep/retire close matching narration |
 | E2 | Visible mistaken preservation: assistant adds absence-oriented follow-through, not only simpler implementation | slice 4 | observed: still 330 — ✓ No entry-required tests + ✓ Docs: does not require entry after Done. Gate removed. |
 | E3.1 | Close: narration and matching on-screen text ask whether lasting assertion protects current requirement or meaningful risk | slice 5 | observed: keep/retire close lines (design authority) spoken + on-screen — protect current behavior vs only remembers old rule |
 | E3.2 | Close: keep coherent current-capability check while retiring expired historical assertion | slice 5 | observed: CorrectiveClose keep Holding after refresh + strike expired docs; narration matches |
 | E3.3 | Close: without teaching that all negative checks are wrong | slice 5 | observed: keep/retire framing; no blanket condemnation of negatives |
-| E4 | Terry can accept or request changes before finalize; posting remains a later step | slice 6 | |
+| E4 | Terry can accept or request changes before finalize; posting remains a later step | slice 6 | observed: export ready-for-review; design posting out of scope |
 | B1 | Hook: Narrator — removing a rule is not requiring its opposite | slice 1 | observed: Sequence 0–2.5 s spoken line |
 | B2 | Old→intended: Developer — drop entry-started check; connected accounts refresh on a schedule | slice 1 | observed: Sequence 2.5–9.5 s developer lines |
 | B3 | Mistaken follow-through: Assistant — gate removed plus tests/docs entry must not be required | slice 1 | observed: Sequence 9.5–14.5 s visible assistant follow-through |

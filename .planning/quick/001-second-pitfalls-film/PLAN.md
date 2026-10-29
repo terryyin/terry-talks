@@ -148,7 +148,7 @@ records). Post: film plays with clear audible dialogue and matched captions.
 
 ### 6. Portrait export ready for Terry’s review
 Type: Behavior
-Status: planned
+Status: done
 Proof: `pnpm moves render` (or equivalent Remotion render) writes a 1080×1920
 ~30 s mp4 for `RuleNegationFilm`; Studio preview remains the editable review
 surface; design states posting is a later step. Developer-operated check that
@@ -204,3 +204,6 @@ before finalize.
 - Slice 5: `mix-v1.wav` (~30 s, −14.39 LUFS); ASR exact-token-match;
   opening retake @1.22 fits window; captions/SRT + Audio wired; closing
   narration equals on-screen close.
+- Slice 6: `terry-moves/out/rule-negation.mp4` (1080×1920@30, ~30 s h264)
+  recorded in `02-film-export.json` ready-for-review; Episode 1 intact;
+  Terry human accept/request-changes remains the finalize gate.
