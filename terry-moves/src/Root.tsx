@@ -37,11 +37,13 @@ import { SharedRhythmBaselineComposition, SharedRhythmExcerptComposition, Shared
 import { SeeDoFeedbackFilm } from './stories/SeeDoFeedbackFilm';
 import { ListenToCodeFilm } from './stories/ListenToCodeFilm';
 import { ScopeRestrictionFilm } from './stories/ScopeRestrictionFilm';
+import { RuleNegationFilm } from './stories/RuleNegationFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<ScopeRestrictionFilm />
+			<RuleNegationFilm />
 			<ListenToCodeFilm />
 			<SeeDoFeedbackFilm />
 			<StorySimpleExample />

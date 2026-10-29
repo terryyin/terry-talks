@@ -14,7 +14,7 @@
 | --- | --- | --- | --- |
 | 1 | Terry can share a short film that helps developers recognize how removing an obsolete rule can leave unnecessary tests and documentation behind when people or AI treat that removal as a lasting requirement about absence. | slice 6 | |
 | 2 | The film helps developers name the corrective action: describe and verify the current capability, retiring assertions and explanations whose purpose has expired. | slice 6 | |
-| 3 | Produce an editable film in Terry Moves. | slice 3 | |
+| 3 | Produce an editable film in Terry Moves. | slice 3 | observed: `pnpm -C terry-moves compositions` lists `RuleNegationFilm` 1080×1920×900@30; `terry-moves/src/stories/RuleNegationFilm.tsx` + `pitfallsNegation/` editable scene folder |
 | 4 | Produce a reviewable Studio preview. | slice 4 | |
 | 5.1 | Shareable portrait export: 9:16 | slice 6 | |
 | 5.2 | Shareable portrait export: 1080×1920 | slice 6 | |

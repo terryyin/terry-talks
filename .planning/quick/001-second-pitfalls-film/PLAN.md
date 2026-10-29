@@ -110,7 +110,7 @@ credentialed outcome.
 
 ### 3. Episode 2 film home registered beside Episode 1
 Type: Structure
-Status: planned
+Status: done
 Proof: New composition (working id `RuleNegationFilm`) appears under
 `pnpm moves` / Remotion compositions; Episode 1 `ScopeRestrictionFilm` still
 registered; focused typecheck or composition listing green; no edits to
@@ -195,3 +195,6 @@ before finalize.
   probe take `terry-moves/public/assets/pitfalls-negation/audio/opening.*`
   verifies. Hook raw duration ~3.10 s overruns design 0–2.5 s window — slice 5
   must settle speed/direction/placement before mix.
+- Slice 3: `RuleNegationFilm` registered parallel to Episode 1
+  (`pitfallsNegation/` + story module + Root); compositions list both films;
+  placeholder OpeningHook only until slice 4.
