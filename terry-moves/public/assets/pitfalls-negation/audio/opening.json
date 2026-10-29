@@ -1,0 +1,17 @@
+{
+  "id": "opening",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 0.02,
+  "end": 2.5,
+  "text": "Removing a rule is not requiring its opposite.",
+  "speed": 1.05,
+  "direction": "The same warm perceptive narrator as the pitfalls series. Brisk connected ordinary speech naming the confusion. Brief light emphasis on removing and opposite, with no elongated syllables or theatrical contrast. No announcer or dramatic warning voice.",
+  "instructions": "The same warm perceptive narrator as the pitfalls series. Brisk connected ordinary speech naming the confusion. Brief light emphasis on removing and opposite, with no elongated syllables or theatrical contrast. No announcer or dramatic warning voice. Finish the complete line naturally within about 2.48 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 1,
+  "requestSpeed": 1.05,
+  "file": "audio/opening.wav",
+  "sha256": "4e569f3cae8c746f776a05c8049b52d105db67bc440a9b567edf583f17d41233",
+  "rawDurationSeconds": 3.0973333333333333
+}

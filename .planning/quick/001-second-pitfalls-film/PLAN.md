@@ -73,7 +73,7 @@ a new abstraction layer.
 | --- | --- | --- | --- |
 | Episode 1 film home is registered and loadable as the reuse pattern | Slices 3–6 approach | `Root.tsx` imports `ScopeRestrictionFilm`; composition id `ScopeRestrictionFilm` 1080×1920×900@30; `public/assets/pitfalls-scope/` has plates + `mix-v4.wav`; `python3` imports `pitfalls_scope_content` with `DURATION=30` and Cedar/Coral/Ash cast | Settled true in this checkout |
 | Offline audio rebuild entry exists for a parallel film | Slice 5 approach | `scripts/pitfalls-scope-audio.py` rebuilds from content module; `--generate` is explicit paid OpenAI TTS | Settled true for pattern; paid generate left to probe |
-| OpenAI TTS can create at least one Episode 2 raw take in this environment | Slice 5 | Early probe slice 2 | Unsettled → bounded by slice 2 |
+| OpenAI TTS can create at least one Episode 2 raw take in this environment | Slice 5 | Early probe slice 2 | Settled true — `opening.wav` + sidecar under `pitfalls-negation/audio/` |
 
 Named checkout for observations: this preparation workspace
 `/Users/terryyin/git/terry-talks/.worktrees/generate-episode-2-removing-a-rule-is-not-adding`.
@@ -95,7 +95,7 @@ later scenes, speech, and captions; platform posting marked out of scope.
 
 ### 2. Probe paid speech generation for Episode 2
 Type: Behavior
-Status: planned
+Status: done
 Proof: One missing raw take for a draft Episode 2 cue is requested through the
 sibling audio entry (or the Episode 1 script temporarily pointed at a throwaway
 cue path that is reverted if used only for the probe); the take file and
@@ -190,3 +190,8 @@ before finalize.
   sequence alone recounts misunderstanding (removal→absence assertion),
   maintenance cost, and corrective action; posting out of scope; evaluation
   nuance preserved; Cedar/Ash cast; ~30 s beat timings.
+- Slice 2: paid OpenAI TTS confirmed via sibling
+  `scripts/pitfalls-negation-audio.py` + `pitfalls_negation_content.py`;
+  probe take `terry-moves/public/assets/pitfalls-negation/audio/opening.*`
+  verifies. Hook raw duration ~3.10 s overruns design 0–2.5 s window — slice 5
+  must settle speed/direction/placement before mix.
