@@ -1,0 +1,473 @@
+{
+  "film": "RuleNegationFilm",
+  "fps": 30,
+  "durationInFrames": 900,
+  "durationSeconds": 30,
+  "sampleRate": 48000,
+  "channels": 2,
+  "disclosure": "AI-generated synthetic voices: OpenAI Cedar and Ash. Fictional roles; not recordings or imitations of Terry or any real person.",
+  "apiGuide": "https://developers.openai.com/api/docs/guides/text-to-speech",
+  "model": "gpt-4o-mini-tts",
+  "timingPolicy": "Preserve complete phrases at natural prepared speed; boundary silence only; no time scaling, internal pause deletion or speech truncation.",
+  "score": {
+    "origin": "Original offline synthesis; no stock audio or legacy test tones.",
+    "seed": 20261030,
+    "bed": "Soft open-fifth midrange pad and filtered air; ducked 7.5 dB under speech; extends through 30 seconds with a 350 ms final fade.",
+    "bedRmsDbFSBeforeMaster": -40.48,
+    "bedUnduckedTargetRmsDbFSBeforeMaster": -37.39,
+    "typingSeconds": [
+      8.55,
+      8.68,
+      8.79,
+      8.91,
+      9.02,
+      9.11,
+      9.22,
+      9.31,
+      9.42
+    ],
+    "events": [
+      {
+        "event": "eligibility simplify click",
+        "startSeconds": 5.52,
+        "durationSeconds": 0.04
+      },
+      {
+        "event": "assistant completion",
+        "startSeconds": 9.8,
+        "durationSeconds": 0.26
+      },
+      {
+        "event": "retire dismiss click",
+        "startSeconds": 20.15,
+        "durationSeconds": 0.038
+      },
+      {
+        "event": "retire soft dismiss",
+        "startSeconds": 20.2,
+        "durationSeconds": 0.22
+      }
+    ]
+  },
+  "masteringTarget": {
+    "integratedLoudnessLUFS": -14,
+    "maximumTruePeakDbTP": -1.5,
+    "postMasterSafetyGainDb": -0.05,
+    "reason": "Requested creative target for this film; not a universal platform standard. A 0.05 dB final margin covers 16-bit quantization after the true-peak limiter."
+  },
+  "quietAnalysis": {
+    "method": "Stereo channel-mean power in nonoverlapping 20 ms blocks; moving mean of 25 block powers (500 ms), valid windows only; low means RMS <= -45 dBFS. Smoothed-run times identify starts of consecutive qualifying 500 ms windows.",
+    "thresholdDbFS": -45,
+    "blockMilliseconds": 20,
+    "smoothingMilliseconds": 500,
+    "windows": {
+      "0–30s": {
+        "longestSmoothedLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "longestRaw20msLowRun": {
+          "durationSeconds": 0.06,
+          "startSeconds": 29.94,
+          "endSeconds": 30.0
+        },
+        "minimumSmoothedRmsDbFS": -41.29,
+        "minimumRaw20msRmsDbFS": -60.44,
+        "rmsDbFS": -18.69
+      },
+      "8.5–10.5s": {
+        "longestSmoothedLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "longestRaw20msLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "minimumSmoothedRmsDbFS": -33.24,
+        "minimumRaw20msRmsDbFS": -37.1,
+        "rmsDbFS": -28.89
+      },
+      "10.5–14.5s": {
+        "longestSmoothedLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "longestRaw20msLowRun": {
+          "durationSeconds": 0.0,
+          "startSeconds": null,
+          "endSeconds": null
+        },
+        "minimumSmoothedRmsDbFS": -29.84,
+        "minimumRaw20msRmsDbFS": -32.21,
+        "rmsDbFS": -26.38
+      }
+    }
+  },
+  "clips": [
+    {
+      "id": "opening",
+      "role": "narrator",
+      "voice": "cedar",
+      "text": "Removing a rule is not requiring its opposite.",
+      "speed": 1.22,
+      "direction": "The same warm perceptive narrator as the pitfalls series. Brisk connected ordinary speech naming the confusion as one linked thought. Finish the complete eight-word line in about 2.3 seconds. Keep flowing; brief light emphasis on removing and opposite, with no elongated syllables or theatrical contrast. No announcer or dramatic warning voice.",
+      "instructions": "The same warm perceptive narrator as the pitfalls series. Brisk connected ordinary speech naming the confusion as one linked thought. Finish the complete eight-word line in about 2.3 seconds. Keep flowing; brief light emphasis on removing and opposite, with no elongated syllables or theatrical contrast. No announcer or dramatic warning voice. Finish the complete line naturally within about 2.48 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "model": "gpt-4o-mini-tts",
+      "takeNumber": 2,
+      "requestSpeed": 1.22,
+      "file": "audio/opening-take02.wav",
+      "sha256": "c02f8fa061635d0c5ea7b931bd3d5a7b56be33ea053db8188dc9c0a34389ff6a",
+      "rawDurationSeconds": 2.7097083333333334,
+      "speechStartSeconds": 0.02,
+      "speechEndSeconds": 2.408,
+      "trimmedLeadingSeconds": 0.0,
+      "trimmedTrailingSeconds": 0.3217083333333333,
+      "atempo": 1.0,
+      "preparedFile": "audio/opening-prepared-v1.wav",
+      "preparedSha256": "4a22f4fb32f4e2c9e95b997a9a7e724f5b1ddfb3a75c53ca5cc96800790caf65"
+    },
+    {
+      "id": "drop_entry",
+      "role": "developer",
+      "voice": "ash",
+      "text": "Drop the entry-started check.",
+      "speed": 1.08,
+      "direction": "The same sincere capable developer speaking while looking at a holdings eligibility card. Quietly confident, practical, connected and compact. Light stress on entry-started as the obsolete gate. No caricature or robot affect, no elongated syllables.",
+      "instructions": "The same sincere capable developer speaking while looking at a holdings eligibility card. Quietly confident, practical, connected and compact. Light stress on entry-started as the obsolete gate. No caricature or robot affect, no elongated syllables. Finish the complete line naturally within about 2.60 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "model": "gpt-4o-mini-tts",
+      "takeNumber": 1,
+      "requestSpeed": 1.08,
+      "file": "audio/drop_entry.wav",
+      "sha256": "e0d8043568872d4c486036bdd7c1c8270bc951ca29b488edba49cb1edd3cb7cd",
+      "rawDurationSeconds": 4.080125,
+      "speechStartSeconds": 2.6,
+      "speechEndSeconds": 4.9453125,
+      "trimmedLeadingSeconds": 0.0,
+      "trimmedTrailingSeconds": 1.7348125,
+      "atempo": 1.0,
+      "preparedFile": "audio/drop_entry-prepared-v1.wav",
+      "preparedSha256": "2404f3a1c6b9c99e7b58bfb04585b3e35ab91e49b1e6ba742a2e26e4bbbbd075"
+    },
+    {
+      "id": "refresh_schedule",
+      "role": "developer",
+      "voice": "ash",
+      "text": "Connected accounts should refresh on a schedule.",
+      "speed": 1.1,
+      "direction": "The same sincere capable developer stating the intended change before asking the assistant. Connected brisk natural conversation. Brief light emphasis on Connected and schedule. No caricature, no elongated syllables, no theatrical pause.",
+      "instructions": "The same sincere capable developer stating the intended change before asking the assistant. Connected brisk natural conversation. Brief light emphasis on Connected and schedule. No caricature, no elongated syllables, no theatrical pause. Finish the complete line naturally within about 3.20 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "model": "gpt-4o-mini-tts",
+      "takeNumber": 1,
+      "requestSpeed": 1.1,
+      "file": "audio/refresh_schedule.wav",
+      "sha256": "f3d6482c4213ad1203ca09abd50302cdac459ab22777c50ca6fc8af187bce63d",
+      "rawDurationSeconds": 3.642625,
+      "speechStartSeconds": 5.65,
+      "speechEndSeconds": 8.438208333333334,
+      "trimmedLeadingSeconds": 0.0280625,
+      "trimmedTrailingSeconds": 0.8263541666666666,
+      "atempo": 1.0,
+      "preparedFile": "audio/refresh_schedule-prepared-v1.wav",
+      "preparedSha256": "c30dcd80fb181f39e42a35386e7da115be7a9e1ededdbf6c2c9635f51d93cbfc"
+    },
+    {
+      "id": "cost",
+      "role": "narrator",
+      "voice": "cedar",
+      "text": "History still occupies the suite.",
+      "speed": 1.05,
+      "direction": "The same warm perceptive narrator. A lucid practical observation of the maintenance cost, conversational and decisive. Brief emphasis on History and occupies. Connected speech, no drawn-out dramatic delivery.",
+      "instructions": "The same warm perceptive narrator. A lucid practical observation of the maintenance cost, conversational and decisive. Brief emphasis on History and occupies. Connected speech, no drawn-out dramatic delivery. Finish the complete line naturally within about 4.10 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "model": "gpt-4o-mini-tts",
+      "takeNumber": 1,
+      "requestSpeed": 1.05,
+      "file": "audio/cost.wav",
+      "sha256": "b865a60645c7f2b02cbc7dc216278ceb0021fba8e1df7d00454cb6422a155320",
+      "rawDurationSeconds": 2.6199583333333334,
+      "speechStartSeconds": 14.6,
+      "speechEndSeconds": 16.4725625,
+      "trimmedLeadingSeconds": 0.350625,
+      "trimmedTrailingSeconds": 0.39677083333333335,
+      "atempo": 1.0,
+      "preparedFile": "audio/cost-prepared-v1.wav",
+      "preparedSha256": "48cf3cd18335d7b81d3ed5815f058bb90d5f0d7ba11e469be769f398cb7e75f7"
+    },
+    {
+      "id": "closing",
+      "role": "narrator",
+      "voice": "cedar",
+      "text": "Describe what is true now. Keep checks that protect current behavior. Retire what only remembers the old rule.",
+      "speed": 1.02,
+      "direction": "The same warm perceptive narrator. A lucid practical takeaway, conversational and decisive. Treat the three sentences as one continuous close. Short purposeful sentence-boundary pauses only; no elongated syllables. Brief audible stress on true now, Keep, and Retire. Calm clarity that protects current capability without teaching that every negative check is waste. Not a promotional sign-off.",
+      "instructions": "The same warm perceptive narrator. A lucid practical takeaway, conversational and decisive. Treat the three sentences as one continuous close. Short purposeful sentence-boundary pauses only; no elongated syllables. Brief audible stress on true now, Keep, and Retire. Calm clarity that protects current capability without teaching that every negative check is waste. Not a promotional sign-off. Finish the complete line naturally within about 10.30 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+      "model": "gpt-4o-mini-tts",
+      "takeNumber": 1,
+      "requestSpeed": 1.02,
+      "file": "audio/closing.wav",
+      "sha256": "234784ec431d54318902c45ad9e4e1bda975f8ba73c40b55ff1e1f7193a4cc8f",
+      "rawDurationSeconds": 7.009708333333333,
+      "speechStartSeconds": 19.2,
+      "speechEndSeconds": 26.088125,
+      "trimmedLeadingSeconds": 0.0,
+      "trimmedTrailingSeconds": 0.12158333333333333,
+      "atempo": 1.0,
+      "preparedFile": "audio/closing-prepared-v1.wav",
+      "preparedSha256": "7429e3e2f66dc5416d0930ed83faab1cd13cf2794a0e74b18be9b8f294a35771"
+    }
+  ],
+  "mastering": {
+    "input_i": "-17.02",
+    "input_tp": "-2.97",
+    "input_lra": "18.10",
+    "input_thresh": "-30.23",
+    "output_i": "-15.42",
+    "output_tp": "-1.50",
+    "output_lra": "10.20",
+    "output_thresh": "-27.13",
+    "normalization_type": "dynamic",
+    "target_offset": "1.42"
+  },
+  "mix": {
+    "file": "assets/pitfalls-negation/mix-v1.wav",
+    "sha256": "5ac1257f39a4b6b50032808d83a4fbd52e89e8ec595f8ecfb2ef57667a7e2aa2",
+    "integratedLoudnessLUFS": -14.39,
+    "truePeakDbTP": -1.55,
+    "loudnessRangeLU": 13.8
+  },
+  "captionTiming": "Actual-audio ASR word timestamps grouped at approved phrase and speaker boundaries; punctuation restored from the script.",
+  "knownAmbiguities": [
+    "Opening hook TTS historically overran the 0–2.5 s design window at speed 1.05 (~3.10 s raw); settled via higher-speed retained retake without digital speech stretching.",
+    "Assistant reply is visual-only; audible completion cue at ~9.8 s stands in for spoken assistant dialogue, matching Episode 1 practice."
+  ],
+  "speechAudit": {
+    "status": "exact-token-match",
+    "model": "whisper-1",
+    "method": "Independent ASR of mastered mix; no script prompt supplied; not human listening.",
+    "normalization": "Case, punctuation and apostrophes normalized.",
+    "text": "Removing a rule is not requiring its opposite. Drop the entry started check. Connected accounts should refresh on a schedule. History still occupies the suite. Describe what is true now. Keep checks that protect current behavior. Retire what only remembers the old rule.",
+    "expected": "Removing a rule is not requiring its opposite. Drop the entry-started check. Connected accounts should refresh on a schedule. History still occupies the suite. Describe what is true now. Keep checks that protect current behavior. Retire what only remembers the old rule.",
+    "words": [
+      {
+        "end": 0.4399999976158142,
+        "start": 0.0,
+        "word": "Removing"
+      },
+      {
+        "end": 0.9200000166893005,
+        "start": 0.4399999976158142,
+        "word": "a"
+      },
+      {
+        "end": 0.9200000166893005,
+        "start": 0.9200000166893005,
+        "word": "rule"
+      },
+      {
+        "end": 1.2400000095367432,
+        "start": 0.9200000166893005,
+        "word": "is"
+      },
+      {
+        "end": 1.4600000381469727,
+        "start": 1.2400000095367432,
+        "word": "not"
+      },
+      {
+        "end": 1.7999999523162842,
+        "start": 1.4600000381469727,
+        "word": "requiring"
+      },
+      {
+        "end": 2.0399999618530273,
+        "start": 1.7999999523162842,
+        "word": "its"
+      },
+      {
+        "end": 2.359999895095825,
+        "start": 2.0399999618530273,
+        "word": "opposite"
+      },
+      {
+        "end": 3.0799999237060547,
+        "start": 3.0399999618530273,
+        "word": "Drop"
+      },
+      {
+        "end": 3.5199999809265137,
+        "start": 3.0799999237060547,
+        "word": "the"
+      },
+      {
+        "end": 3.9600000381469727,
+        "start": 3.5199999809265137,
+        "word": "entry"
+      },
+      {
+        "end": 4.420000076293945,
+        "start": 3.9600000381469727,
+        "word": "started"
+      },
+      {
+        "end": 4.880000114440918,
+        "start": 4.420000076293945,
+        "word": "check"
+      },
+      {
+        "end": 6.340000152587891,
+        "start": 6.079999923706055,
+        "word": "Connected"
+      },
+      {
+        "end": 6.679999828338623,
+        "start": 6.340000152587891,
+        "word": "accounts"
+      },
+      {
+        "end": 7.059999942779541,
+        "start": 6.679999828338623,
+        "word": "should"
+      },
+      {
+        "end": 7.480000019073486,
+        "start": 7.059999942779541,
+        "word": "refresh"
+      },
+      {
+        "end": 7.800000190734863,
+        "start": 7.480000019073486,
+        "word": "on"
+      },
+      {
+        "end": 9.0600004196167,
+        "start": 7.800000190734863,
+        "word": "a"
+      },
+      {
+        "end": 9.0600004196167,
+        "start": 9.0600004196167,
+        "word": "schedule"
+      },
+      {
+        "end": 15.0,
+        "start": 15.0,
+        "word": "History"
+      },
+      {
+        "end": 15.4399995803833,
+        "start": 15.0,
+        "word": "still"
+      },
+      {
+        "end": 15.920000076293945,
+        "start": 15.4399995803833,
+        "word": "occupies"
+      },
+      {
+        "end": 16.860000610351562,
+        "start": 15.920000076293945,
+        "word": "the"
+      },
+      {
+        "end": 16.860000610351562,
+        "start": 16.860000610351562,
+        "word": "suite"
+      },
+      {
+        "end": 19.600000381469727,
+        "start": 19.600000381469727,
+        "word": "Describe"
+      },
+      {
+        "end": 20.020000457763672,
+        "start": 19.600000381469727,
+        "word": "what"
+      },
+      {
+        "end": 20.239999771118164,
+        "start": 20.020000457763672,
+        "word": "is"
+      },
+      {
+        "end": 20.420000076293945,
+        "start": 20.239999771118164,
+        "word": "true"
+      },
+      {
+        "end": 20.920000076293945,
+        "start": 20.420000076293945,
+        "word": "now"
+      },
+      {
+        "end": 21.6200008392334,
+        "start": 21.600000381469727,
+        "word": "Keep"
+      },
+      {
+        "end": 21.940000534057617,
+        "start": 21.6200008392334,
+        "word": "checks"
+      },
+      {
+        "end": 22.299999237060547,
+        "start": 21.940000534057617,
+        "word": "that"
+      },
+      {
+        "end": 22.559999465942383,
+        "start": 22.299999237060547,
+        "word": "protect"
+      },
+      {
+        "end": 22.940000534057617,
+        "start": 22.559999465942383,
+        "word": "current"
+      },
+      {
+        "end": 23.3799991607666,
+        "start": 22.940000534057617,
+        "word": "behavior"
+      },
+      {
+        "end": 24.399999618530273,
+        "start": 24.399999618530273,
+        "word": "Retire"
+      },
+      {
+        "end": 24.639999389648438,
+        "start": 24.399999618530273,
+        "word": "what"
+      },
+      {
+        "end": 24.940000534057617,
+        "start": 24.639999389648438,
+        "word": "only"
+      },
+      {
+        "end": 25.219999313354492,
+        "start": 24.940000534057617,
+        "word": "remembers"
+      },
+      {
+        "end": 25.5,
+        "start": 25.219999313354492,
+        "word": "the"
+      },
+      {
+        "end": 25.719999313354492,
+        "start": 25.5,
+        "word": "old"
+      },
+      {
+        "end": 25.959999084472656,
+        "start": 25.719999313354492,
+        "word": "rule"
+      }
+    ],
+    "mixSha256": "5ac1257f39a4b6b50032808d83a4fbd52e89e8ec595f8ecfb2ef57667a7e2aa2"
+  }
+}

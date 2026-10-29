@@ -1,0 +1,17 @@
+{
+  "id": "closing",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 19.2,
+  "end": 29.5,
+  "text": "Describe what is true now. Keep checks that protect current behavior. Retire what only remembers the old rule.",
+  "speed": 1.02,
+  "direction": "The same warm perceptive narrator. A lucid practical takeaway, conversational and decisive. Treat the three sentences as one continuous close. Short purposeful sentence-boundary pauses only; no elongated syllables. Brief audible stress on true now, Keep, and Retire. Calm clarity that protects current capability without teaching that every negative check is waste. Not a promotional sign-off.",
+  "instructions": "The same warm perceptive narrator. A lucid practical takeaway, conversational and decisive. Treat the three sentences as one continuous close. Short purposeful sentence-boundary pauses only; no elongated syllables. Brief audible stress on true now, Keep, and Retire. Calm clarity that protects current capability without teaching that every negative check is waste. Not a promotional sign-off. Finish the complete line naturally within about 10.30 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 1,
+  "requestSpeed": 1.02,
+  "file": "audio/closing.wav",
+  "sha256": "234784ec431d54318902c45ad9e4e1bda975f8ba73c40b55ff1e1f7193a4cc8f",
+  "rawDurationSeconds": 7.009708333333333
+}

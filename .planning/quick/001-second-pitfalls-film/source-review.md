@@ -32,10 +32,10 @@
 | 10.1 | Concrete opening hook | slice 1 | observed: Sequence 0–2.5 s hook line |
 | 10.2 | Visible cause and effect | slice 4 | observed: stills 0→330→480→720 — hook → gate+absence → suite clutter → keep/retire |
 | 10.3 | Mobile-safe overlays and captions | slice 4 | observed: Stage/Panel left 90 width 810; header top 140; close caption lower third in still 720 |
-| 10.4 | Readable phrase captions | slice 5 | |
-| 10.5 | Clear audible dialogue | slice 5 | |
+| 10.4 | Readable phrase captions | slice 5 | observed: `02-film-captions.json` + NegationCaptions; hook/close display suppressed |
+| 10.5 | Clear audible dialogue | slice 5 | observed: `mix-v1.wav` −14.39 LUFS / −1.55 dBTP; speechAudit exact-token-match |
 | 10.6 | AI-content disclosure with the series label | slice 4 | observed: all stills — AI AUGMENTED DEVELOPMENT PITFALLS / 02 + AI-generated scenes & voices |
-| 10.7 | Closing line whose narration and on-screen text match and hold through the final frame | slice 5 | |
+| 10.7 | Closing line whose narration and on-screen text match and hold through the final frame | slice 5 | observed: closing cue text equals closeHeadline+closeSupport words; CorrectiveClose holds through 30s |
 | 11 | Useful regression coverage and meaningful negative requirements remain valid | slice 1 | observed: Meaning to preserve / Evaluation nuance |
 | 12 | The film must not imply that every negative assertion is waste | slice 1 | observed: Meaning to preserve + Sequence close guidance |
 | 13 | Terry reviews the preview before the edition is treated as final | slice 6 | |
@@ -50,9 +50,9 @@
 | E1.2 | Standalone: explain maintenance cost after watching finished ~30 s film | slice 6 | |
 | E1.3 | Standalone: explain corrective action after watching finished ~30 s film | slice 6 | |
 | E2 | Visible mistaken preservation: assistant adds absence-oriented follow-through, not only simpler implementation | slice 4 | observed: still 330 — ✓ No entry-required tests + ✓ Docs: does not require entry after Done. Gate removed. |
-| E3.1 | Close: narration and matching on-screen text ask whether lasting assertion protects current requirement or meaningful risk | slice 5 | |
-| E3.2 | Close: keep coherent current-capability check while retiring expired historical assertion | slice 5 | |
-| E3.3 | Close: without teaching that all negative checks are wrong | slice 5 | |
+| E3.1 | Close: narration and matching on-screen text ask whether lasting assertion protects current requirement or meaningful risk | slice 5 | observed: keep/retire close lines (design authority) spoken + on-screen — protect current behavior vs only remembers old rule |
+| E3.2 | Close: keep coherent current-capability check while retiring expired historical assertion | slice 5 | observed: CorrectiveClose keep Holding after refresh + strike expired docs; narration matches |
+| E3.3 | Close: without teaching that all negative checks are wrong | slice 5 | observed: keep/retire framing; no blanket condemnation of negatives |
 | E4 | Terry can accept or request changes before finalize; posting remains a later step | slice 6 | |
 | B1 | Hook: Narrator — removing a rule is not requiring its opposite | slice 1 | observed: Sequence 0–2.5 s spoken line |
 | B2 | Old→intended: Developer — drop entry-started check; connected accounts refresh on a schedule | slice 1 | observed: Sequence 2.5–9.5 s developer lines |

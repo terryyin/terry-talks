@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:02,420
+Removing a rule is not requiring its opposite.
+
+2
+00:00:03,040 --> 00:00:04,940
+Drop the entry-started check.
+
+3
+00:00:06,080 --> 00:00:07,060
+Connected accounts should
+
+4
+00:00:07,060 --> 00:00:08,850
+refresh on a schedule.
+
+5
+00:00:15,000 --> 00:00:16,920
+History still occupies the suite.
+
+6
+00:00:19,600 --> 00:00:20,980
+Describe what is true now.
+
+7
+00:00:21,600 --> 00:00:23,440
+Keep checks that protect current behavior.
+
+8
+00:00:24,400 --> 00:00:26,020
+Retire what only remembers the old rule.

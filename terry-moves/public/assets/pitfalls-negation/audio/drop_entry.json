@@ -1,0 +1,17 @@
+{
+  "id": "drop_entry",
+  "role": "developer",
+  "voice": "ash",
+  "start": 2.6,
+  "end": 5.2,
+  "text": "Drop the entry-started check.",
+  "speed": 1.08,
+  "direction": "The same sincere capable developer speaking while looking at a holdings eligibility card. Quietly confident, practical, connected and compact. Light stress on entry-started as the obsolete gate. No caricature or robot affect, no elongated syllables.",
+  "instructions": "The same sincere capable developer speaking while looking at a holdings eligibility card. Quietly confident, practical, connected and compact. Light stress on entry-started as the obsolete gate. No caricature or robot affect, no elongated syllables. Finish the complete line naturally within about 2.60 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 1,
+  "requestSpeed": 1.08,
+  "file": "audio/drop_entry.wav",
+  "sha256": "e0d8043568872d4c486036bdd7c1c8270bc951ca29b488edba49cb1edd3cb7cd",
+  "rawDurationSeconds": 4.080125
+}

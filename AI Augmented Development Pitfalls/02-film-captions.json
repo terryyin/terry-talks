@@ -1,0 +1,58 @@
+[
+  {
+    "text": "Removing a rule is not requiring its opposite.",
+    "startMs": 0,
+    "endMs": 2420,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Drop the entry-started check.",
+    "startMs": 3040,
+    "endMs": 4940,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Connected accounts should",
+    "startMs": 6080,
+    "endMs": 7060,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "refresh on a schedule.",
+    "startMs": 7060,
+    "endMs": 8850,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "History still occupies the suite.",
+    "startMs": 15000,
+    "endMs": 16920,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Describe what is true now.",
+    "startMs": 19600,
+    "endMs": 20980,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Keep checks that protect current behavior.",
+    "startMs": 21600,
+    "endMs": 23440,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Retire what only remembers the old rule.",
+    "startMs": 24400,
+    "endMs": 26020,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

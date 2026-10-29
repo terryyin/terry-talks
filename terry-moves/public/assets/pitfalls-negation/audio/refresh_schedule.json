@@ -1,0 +1,17 @@
+{
+  "id": "refresh_schedule",
+  "role": "developer",
+  "voice": "ash",
+  "start": 5.65,
+  "end": 8.85,
+  "text": "Connected accounts should refresh on a schedule.",
+  "speed": 1.1,
+  "direction": "The same sincere capable developer stating the intended change before asking the assistant. Connected brisk natural conversation. Brief light emphasis on Connected and schedule. No caricature, no elongated syllables, no theatrical pause.",
+  "instructions": "The same sincere capable developer stating the intended change before asking the assistant. Connected brisk natural conversation. Brief light emphasis on Connected and schedule. No caricature, no elongated syllables, no theatrical pause. Finish the complete line naturally within about 3.20 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 1,
+  "requestSpeed": 1.1,
+  "file": "audio/refresh_schedule.wav",
+  "sha256": "f3d6482c4213ad1203ca09abd50302cdac459ab22777c50ca6fc8af187bce63d",
+  "rawDurationSeconds": 3.642625
+}

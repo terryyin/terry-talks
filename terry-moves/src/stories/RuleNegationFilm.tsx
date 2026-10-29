@@ -1,5 +1,6 @@
 import React from 'react';
-import {Composition, Folder, useVideoConfig} from 'remotion';
+import {Audio} from '@remotion/media';
+import {Composition, Folder, staticFile, useVideoConfig} from 'remotion';
 import {AssistantAbsence} from '../pitfallsNegation/AssistantAbsence';
 import {NegationCaptions} from '../pitfallsNegation/Captions';
 import {CorrectiveClose} from '../pitfallsNegation/CorrectiveClose';
@@ -21,6 +22,7 @@ const closeSupport = 'Keep checks that protect current behavior.\nRetire what on
 export const RuleNegation: React.FC = () => {
 	const {fps} = useVideoConfig();
 	return <>
+		<Audio name="Dialogue, room tone and software cues" src={staticFile('assets/pitfalls-negation/mix-v1.wav')} premountFor={fps}/>
 		<OpeningHook name="01 — Removing a rule is not requiring its opposite" from={0} durationInFrames={2.5 * fps} premountFor={fps} headline={openingHeadline}/>
 		<HoldingsBefore name="02 — Holdings refresh before" from={2.5 * fps} durationInFrames={3 * fps} premountFor={fps} headline={holdingsBeforeHeadline} support={holdingsBeforeSupport}/>
 		<IntendedChange name="03 — Connected accounts refresh on a schedule" from={5.5 * fps} durationInFrames={4 * fps} premountFor={fps} headline={intendedHeadline} support={intendedSupport}/>

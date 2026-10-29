@@ -1,0 +1,17 @@
+{
+  "id": "cost",
+  "role": "narrator",
+  "voice": "cedar",
+  "start": 14.6,
+  "end": 18.7,
+  "text": "History still occupies the suite.",
+  "speed": 1.05,
+  "direction": "The same warm perceptive narrator. A lucid practical observation of the maintenance cost, conversational and decisive. Brief emphasis on History and occupies. Connected speech, no drawn-out dramatic delivery.",
+  "instructions": "The same warm perceptive narrator. A lucid practical observation of the maintenance cost, conversational and decisive. Brief emphasis on History and occupies. Connected speech, no drawn-out dramatic delivery. Finish the complete line naturally within about 4.10 seconds. Speak only the supplied exact words, with no additions or omissions. Do not imitate any real person.",
+  "model": "gpt-4o-mini-tts",
+  "takeNumber": 1,
+  "requestSpeed": 1.05,
+  "file": "audio/cost.wav",
+  "sha256": "b865a60645c7f2b02cbc7dc216278ceb0021fba8e1df7d00454cb6422a155320",
+  "rawDurationSeconds": 2.6199583333333334
+}

@@ -136,7 +136,7 @@ preview alone communicates the three evaluation points even before final mix.
 
 ### 5. Measured soundtrack and captions complete the audible film
 Type: Behavior
-Status: planned
+Status: done
 Proof: Episode 2 audio/caption/SRT records and mix exist; mix ~30 s, loudness
 targets aligned with Episode 1 lessons; phrase captions suppress competing
 subs on hook/close; closing narration text equals on-screen close; speech audit
@@ -201,3 +201,6 @@ before finalize.
 - Slice 4: Visible beat sequence + plates (`workplace`, `holdings-work`) +
   `02-film-artwork.json`; stills prove E2 absence follow-through and close;
   silent until slice 5; focused `film.spec.tsx` green.
+- Slice 5: `mix-v1.wav` (~30 s, −14.39 LUFS); ASR exact-token-match;
+  opening retake @1.22 fits window; captions/SRT + Audio wired; closing
+  narration equals on-screen close.
