@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "SEED-001_second-pitfalls-film.json",
+      "identity": "SEED-001#second-pitfalls-film",
+      "completedAt": "2026-10-29T10:45:20.656Z",
+      "blob": "dd2fed0f7ec8599e4e2fe0c431a2fabc898cd3e9"
+    },
+    {
       "fileName": "terry-moves-filmmaking_music-and-sound-film.json",
       "identity": "terry-moves-filmmaking#music-and-sound-film",
       "completedAt": "2026-10-13T13:09:36.323Z",

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "identity": "SEED-001#second-pitfalls-film",
+  "title": "Generate Episode 2: Removing a Rule Is Not Adding Its Negation",
+  "completedAt": "2026-10-29T10:45:20.656Z",
+  "developer": "Terry Yin",
+  "agent": "Yui-chan",
+  "host": "cursor",
+  "model": "auto"
+}
