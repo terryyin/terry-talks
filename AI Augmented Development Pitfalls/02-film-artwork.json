@@ -1,0 +1,23 @@
+{
+  "generator": "Built-in ImageGen",
+  "purpose": "Photographic scene plates for the 30-second RuleNegationFilm preview",
+  "synthetic": true,
+  "notes": "Fictional developer and photographic stills. Native editable software overlays carry holdings and assistant UI—do not bake readable software text into plates. Role dialogue plays over hands and software cutaways. Series label uses / 02 with AI disclosure on Stage.",
+  "assets": [
+    {
+      "name": "workplace",
+      "path": "terry-moves/public/assets/pitfalls-negation/workplace.png",
+      "prompt": "Photorealistic natural portrait 9:16 cinematographic still for a software-team mini-drama. Single Asian male developer in his thirties, thin glasses, charcoal overshirt over a soft grey tee, short neat dark hair, sitting at an ordinary daylight office desk with a laptop. Eye-level candid camera, slate blue/grey palette, warm skin, believable hands, understated workplace mood—not glamorous stock photography. He looks thoughtfully at the screen, one hand near the trackpad, soft focus office background with no readable whiteboard text, no logos, no phone frame, no borders, no titles or captions. Laptop display is a softly defocused pale neutral software surface with no readable words. Leave clean uncluttered space above his head and below the laptop for later native caption overlays. Real photographic texture, naturalistic lighting."
+    },
+    {
+      "name": "holdings-work",
+      "path": "terry-moves/public/assets/pitfalls-negation/holdings-work.png",
+      "prompt": "Photorealistic natural portrait 9:16 cinematographic still for a software-team mini-drama cutaway. Over-the-shoulder view from behind an Asian male developer with thin glasses and charcoal overshirt, his hands on a laptop keyboard at an ordinary daylight office desk. The laptop dominates the lower-middle of the frame. Display shows a simple unbranded pale neutral software surface with no readable words, no logos, no UI labels—native overlays will be added later. Soft slate blue/grey office background, warm skin, believable hands, eye-level camera, naturalistic candid style, not glamorous stock. No borders, no phone frame, no titles or captions. Leave clean top and bottom space for caption overlays. Real photographic texture and depth of field."
+    }
+  ],
+  "activeScenePlates": [
+    "workplace",
+    "holdings-work"
+  ],
+  "revisions": []
+}

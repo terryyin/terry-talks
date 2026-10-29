@@ -122,7 +122,7 @@ for editable timelines. Enables slice 4’s visible story.
 
 ### 4. Studio preview shows removal, mistaken absence, and correction
 Type: Behavior
-Status: planned
+Status: done
 Proof: Developer-operated Studio observation of `RuleNegationFilm` (and scene
 compositions): hook, old rule → intended change, visible AI absence
 follow-through, corrective close with matching on-screen intention; AI
@@ -198,3 +198,6 @@ before finalize.
 - Slice 3: `RuleNegationFilm` registered parallel to Episode 1
   (`pitfallsNegation/` + story module + Root); compositions list both films;
   placeholder OpeningHook only until slice 4.
+- Slice 4: Visible beat sequence + plates (`workplace`, `holdings-work`) +
+  `02-film-artwork.json`; stills prove E2 absence follow-through and close;
+  silent until slice 5; focused `film.spec.tsx` green.

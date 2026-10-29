@@ -15,13 +15,13 @@
 | 1 | Terry can share a short film that helps developers recognize how removing an obsolete rule can leave unnecessary tests and documentation behind when people or AI treat that removal as a lasting requirement about absence. | slice 6 | |
 | 2 | The film helps developers name the corrective action: describe and verify the current capability, retiring assertions and explanations whose purpose has expired. | slice 6 | |
 | 3 | Produce an editable film in Terry Moves. | slice 3 | observed: `pnpm -C terry-moves compositions` lists `RuleNegationFilm` 1080×1920×900@30; `terry-moves/src/stories/RuleNegationFilm.tsx` + `pitfallsNegation/` editable scene folder |
-| 4 | Produce a reviewable Studio preview. | slice 4 | |
+| 4 | Produce a reviewable Studio preview. | slice 4 | observed: `RuleNegationFilm` timeline wired 0–30s; Remotion stills frames 0/330/480/720 show reviewable beats |
 | 5.1 | Shareable portrait export: 9:16 | slice 6 | |
 | 5.2 | Shareable portrait export: 1080×1920 | slice 6 | |
 | 5.3 | Shareable portrait export: ~30 s | slice 6 | |
 | 5.4 | Shareable portrait export: 30 fps | slice 6 | |
 | 6 | The export is suitable for LinkedIn, YouTube, TikTok and Facebook. | slice 6 | |
-| 7 | Tell a realistic development conversation with a visible AI assistant response. | slice 4 | |
+| 7 | Tell a realistic development conversation with a visible AI assistant response. | slice 4 | observed: still frame 330 `AssistantAbsence` — CODING ASSISTANT Done. Gate removed. + absence checks |
 | 8.1 | Cedar narrates | slice 1 | observed: `AI Augmented Development Pitfalls/02-rule-negation-film-design.md` Preview — “Cedar narrates” |
 | 8.2 | Ash as developer | slice 1 | observed: same Preview — “Ash performs the developer” |
 | 8.3 | Coral may appear only if the beat needs a second person | slice 1 | observed: same Preview — “Coral is unused unless a later production beat needs a second person” |
@@ -30,11 +30,11 @@
 | 9.3 | Mistaken response removes the gate, then adds lasting artifacts that assert entry is absent (e.g. source scan or “does not require entry” documentation) | slice 1 | observed: Story and example + Sequence 9.5–14.5 s absence follow-through |
 | 9.4 | Corrective beat shows current-capability description and behavioral check that a holding appears after scheduled refresh—without preserving the retired concept as a permanent negation | slice 1 | observed: Story and example + Sequence 19–30 s keep Holding after scheduled refresh; retire expired assertion |
 | 10.1 | Concrete opening hook | slice 1 | observed: Sequence 0–2.5 s hook line |
-| 10.2 | Visible cause and effect | slice 4 | |
-| 10.3 | Mobile-safe overlays and captions | slice 4 | |
+| 10.2 | Visible cause and effect | slice 4 | observed: stills 0→330→480→720 — hook → gate+absence → suite clutter → keep/retire |
+| 10.3 | Mobile-safe overlays and captions | slice 4 | observed: Stage/Panel left 90 width 810; header top 140; close caption lower third in still 720 |
 | 10.4 | Readable phrase captions | slice 5 | |
 | 10.5 | Clear audible dialogue | slice 5 | |
-| 10.6 | AI-content disclosure with the series label | slice 4 | |
+| 10.6 | AI-content disclosure with the series label | slice 4 | observed: all stills — AI AUGMENTED DEVELOPMENT PITFALLS / 02 + AI-generated scenes & voices |
 | 10.7 | Closing line whose narration and on-screen text match and hold through the final frame | slice 5 | |
 | 11 | Useful regression coverage and meaningful negative requirements remain valid | slice 1 | observed: Meaning to preserve / Evaluation nuance |
 | 12 | The film must not imply that every negative assertion is waste | slice 1 | observed: Meaning to preserve + Sequence close guidance |
@@ -49,7 +49,7 @@
 | E1.1 | Standalone: explain misunderstanding (removal → permanent absence claim) after watching finished ~30 s film | slice 6 | |
 | E1.2 | Standalone: explain maintenance cost after watching finished ~30 s film | slice 6 | |
 | E1.3 | Standalone: explain corrective action after watching finished ~30 s film | slice 6 | |
-| E2 | Visible mistaken preservation: assistant adds absence-oriented follow-through, not only simpler implementation | slice 4 | |
+| E2 | Visible mistaken preservation: assistant adds absence-oriented follow-through, not only simpler implementation | slice 4 | observed: still 330 — ✓ No entry-required tests + ✓ Docs: does not require entry after Done. Gate removed. |
 | E3.1 | Close: narration and matching on-screen text ask whether lasting assertion protects current requirement or meaningful risk | slice 5 | |
 | E3.2 | Close: keep coherent current-capability check while retiring expired historical assertion | slice 5 | |
 | E3.3 | Close: without teaching that all negative checks are wrong | slice 5 | |
