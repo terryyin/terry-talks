@@ -158,6 +158,13 @@ Behavior: Pre: visual film + final mix integrated. Trigger: render shareable
 export into the film’s out path. Post: Terry can accept or request changes
 before finalize.
 
+## Execution complete
+
+Product advice: Reasoned no-change for wrap-up: Episode 2 is delivered as a
+reviewable Studio + portrait export (`02-film-export.json` status
+`ready-for-review`); remaining finalize/posting is the story’s human gate and
+deferred scope, not a bounded product correction.
+
 ## Current decisions
 
 - Parallel Episode 2 home; do not subsume Episode 1 into a shared pitfalls-film
