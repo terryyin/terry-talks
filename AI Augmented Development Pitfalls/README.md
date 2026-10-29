@@ -25,6 +25,12 @@ Terry Moves. Watch Episode 1 on [TikTok](https://www.tiktok.com/@terryyin0/video
 [Facebook Reels](https://facebook.com/reel/1782542916196765), or
 [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7521501146583031808/).
 
+The second [film design](02-rule-negation-film-design.md) follows a holdings-
+refresh change that removes an entry dependency, then shows how an assistant
+can turn that removal into lasting absence assertions in tests and docs. Its
+30-second portrait preview is available as **RuleNegationFilm** in Terry Moves.
+Platform posting of Episode 2 remains a later step after Terry’s review.
+
 Each article stands on its own. Both examine how a small amount of useful
 product change can acquire a disproportionate amount of implementation,
 verification, and explanation. Their examples illustrate the mechanisms;

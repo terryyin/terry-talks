@@ -12,16 +12,16 @@ scope for this story.
 
 **Format:** 30 seconds, portrait 9:16, 1080 × 1920, 30 fps
 
-**Composition (working id):** `RuleNegationFilm` — registered in later slices;
-do not treat this design as claiming the composition already exists.
+**Composition:** `RuleNegationFilm` — registered under `pnpm moves` (1080×1920,
+900 frames @ 30 fps).
 
 ## Preview
 
-Later slices register **RuleNegationFilm** under `pnpm moves`, with editable
-scene timelines parallel to Episode 1’s scene folder pattern (intended home:
-`terry-moves` story module `pitfallsNegation/`, assets under
-`public/assets/pitfalls-negation/`). Artwork, audio, caption and SRT records
-beside this article will use the `02-film-*` naming parallel to Episode 1.
+**RuleNegationFilm** is available in Terry Moves with editable scene timelines
+parallel to Episode 1’s scene folder pattern (`terry-moves` story module
+`pitfallsNegation/`, assets under `public/assets/pitfalls-negation/`). Artwork,
+audio, caption and SRT records beside this article use the `02-film-*` naming
+parallel to Episode 1.
 
 The film combines generated photographs, restrained camera moves and animated
 software actions. The people are fictional; Cedar narrates and Ash performs
