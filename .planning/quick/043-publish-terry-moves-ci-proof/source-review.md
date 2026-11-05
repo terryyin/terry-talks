@@ -17,22 +17,22 @@ project files, change nothing, and return numbered commitments.
 | 3.3 | The Intent location covers its `*.spec.tsx` files. | slice 1 | observed: .planning/open-dough.json include "**/*.spec.tsx" |
 | 3.4 | The Intent location covers its `*.test.ts` files. | slice 1 | observed: .planning/open-dough.json include "**/*.test.ts" |
 | 4 | No retained proof is configured: neither `proof` nor `proofGeneration` is added. | slice 1 | observed: .planning/open-dough.json has no proof or proofGeneration key |
-| 5 | The work follows the GitHub Actions path (steps 1–6) of the installed CI proof summary recipe. | slice 1 |  |
+| 5 | The work follows the GitHub Actions path (steps 1–6) of the installed CI proof summary recipe. | slice 1 | observed: CI run 41992379034 at 4db999c: steps 1–6 applied; step-6 gh api listing names ci-proof-summary-attempt-1 and its zip holds only ci-proof-summary.json |
 | 5.1 | The judged workflow stays the default `ci.yml`. | slice 1 | observed: .planning/open-dough.json sets no ciWorkflow; steps added to .github/workflows/ci.yml |
 | 5.2 | The project sets no `ciAdapter`, so the recipe's new CI-adapter path (guidance 0.3.86) does not apply. | slice 1 | observed: .planning/open-dough.json has no ciAdapter key |
 | 6 | The existing Remotion tests step in the `node` job writes Jest's JSON report. | slice 1 | observed: .github/workflows/ci.yml step `remotion-tests` runs `test:unit --json --outputFile=${RUNNER_TEMP}/jest-report.json`; local replay wrote the report (1093 tests) |
 | 7 | Project-owned code converts the Jest JSON report into one outcome line per test. | slice 1 | observed: scripts/ci-proof/jest-outcomes.mjs; local replay 1093 lines for 1093 Jest tests |
 | 7.1 | Each outcome line is named by the test's repository-relative file. | slice 1 | observed: local scratch replay lines `terry-moves/tests/silentScene/joins.spec.ts` etc. |
-| 8 | The `node` job keeps one fragment for the run attempt. | slice 1 |  |
-| 9 | A collector job publishes the run's `ci-proof-summary-attempt-<n>` artifact. | slice 1 |  |
+| 8 | The `node` job keeps one fragment for the run attempt. | slice 1 | observed: CI run 41992379034 at 4db999c: node job artifact ci-proof-fragments-node-1-attempt-1 |
+| 9 | A collector job publishes the run's `ci-proof-summary-attempt-<n>` artifact. | slice 1 | observed: CI run 41992379034 at 4db999c: artifact ci-proof-summary-attempt-1 (id 13398119287), runId 41992379034, runAttempt 1, revision 4db999c |
 | 9.1 | The artifact is kept for 30 days. | slice 1 | observed: .github/workflows/ci.yml ci-proof job upload `retention-days: 30` |
 | 10 | Outcomes are still published when tests fail. | slice 1 | observed: local scratch failing replay printed `terry-moves/tests: 11 passed, 2 failed, 1 other checks`; ci.yml fragment and keep steps run under `!cancelled()`, collector `if: !cancelled()` |
 | 11 | When the tests never ran (for example, install failed), the run still publishes a summary that shows the part as missing. | slice 1 | observed: local summarize over empty fragments printed `part 1 of 1 missing`; ci.yml fragment step skipped by `steps.remotion-tests.outcome != 'skipped'`, collector runs under `!cancelled()` |
-| 12 | Required restriction: the proof steps never change the verdicts of the existing checks, so the tab's verdict stays the project's own CI result. | slice 1 |  |
-| 12.1 | The proof steps never change the Remotion tests verdict. | slice 1 |  |
-| 12.2 | The proof steps never change the lint and typecheck verdict. | slice 1 |  |
-| 12.3 | The proof steps never change the Slidev typecheck verdict. | slice 1 |  |
-| 12.4 | The proof steps never change the Python narration checks verdict. | slice 1 |  |
+| 12 | Required restriction: the proof steps never change the verdicts of the existing checks, so the tab's verdict stays the project's own CI result. | slice 1 | observed: CI run 41992379034 at 4db999c: node, python jobs succeed with their existing steps; proof is the separate ci-proof job; no existing step gained a condition |
+| 12.1 | The proof steps never change the Remotion tests verdict. | slice 1 | observed: CI run 41992379034 at 4db999c: Remotion tests step success, Jest 'Tests: 1093 passed, 1093 total'; step condition unchanged |
+| 12.2 | The proof steps never change the lint and typecheck verdict. | slice 1 | observed: CI run 41992379034 at 4db999c: Remotion lint and Remotion typecheck success; steps unchanged |
+| 12.3 | The proof steps never change the Slidev typecheck verdict. | slice 1 | observed: CI run 41992379034 at 4db999c: Slidev typecheck success; step unchanged |
+| 12.4 | The proof steps never change the Python narration checks verdict. | slice 1 | observed: CI run 41992379034 at 4db999c: Python narration tests job success; job unchanged |
 | 13 | Scope limit: the narration tests (`scripts/`) are not an Intent location here. | slice 1 | observed: .planning/open-dough.json lists only terry-moves/tests |
 | 14 | Scope limit: Slidev is not an Intent location here. | slice 1 | observed: .planning/open-dough.json lists only terry-moves/tests |
 | 15 | Scope limit: no retained Jest proof snapshot is added. | slice 1 | observed: diff adds no proof snapshot file |

@@ -88,9 +88,21 @@ Refactor: independent pass returned `## REFACTOR COMPLETE`, no edits. Consumer
 trace: `terry-moves/package.json` `test` (calls `test:unit` without flags) and
 READMEs/records excluded — the change only adds report flags in CI.
 
-Remaining for slice 1: the real CI run of the published revision (artifact via
-`gh api`, count match with the Remotion tests log, existing jobs' verdicts,
-Intent CI status tab).
+CI run 41992379034 (push, attempt 1) of 4db999c: success. Jobs `node`,
+`python` and `ci-proof` succeed; every existing step succeeds unchanged. Jest
+logged `Tests: 1093 passed, 1093 total`; the collector logged
+`terry-moves/tests: 1093 passed, 0 failed, 0 other checks`. Recipe step 6 as
+`terryyin` with `gh api`: the run lists `ci-proof-fragments-node-1-attempt-1`
+and `ci-proof-summary-attempt-1` (id 13398119287, not expired); its zip holds
+only `ci-proof-summary.json` with repository `terryyin/terry-talks`, runId
+41992379034, runAttempt 1, revision 4db999c, passed 1093, failed 0.
+
+Remaining for slice 1 (developer-operated): Intent → **CI status** for
+`claude/publish-terry-moves-ci-proof-for-intent` showing Proof
+`terry-moves/tests: 1093 passed, 0 failed` for run 41992379034. The Chrome
+extension was not connected and the dashboard's read endpoint accepts only
+same-origin browser requests, so the coordinator could not open the tab.
+Owes source-review commitments 1, 2 and 17.
 
 ## Learnings
 
