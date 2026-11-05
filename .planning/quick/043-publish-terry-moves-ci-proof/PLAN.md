@@ -40,7 +40,7 @@ the developer's signed-in `gh` (observed signed in as `terryyin`, 2026-11-05).
 
 ### 1. CI publishes the Terry Moves proof summary
 Type: Behavior
-Status: planned
+Status: done
 Proof: local replay of the workflow's fragment/summarize commands (pass, scratch failure, empty fragments), then the real CI run and dashboard observation above
 
 Behavior: a revision pushed to GitHub → the CI run's `node` job writes a
@@ -97,14 +97,20 @@ and `ci-proof-summary-attempt-1` (id 13398119287, not expired); its zip holds
 only `ci-proof-summary.json` with repository `terryyin/terry-talks`, runId
 41992379034, runAttempt 1, revision 4db999c, passed 1093, failed 0.
 
-Remaining for slice 1 (developer-operated): Intent → **CI status** for
-`claude/publish-terry-moves-ci-proof-for-intent` showing Proof
-`terry-moves/tests: 1093 passed, 0 failed` for run 41992379034. The Chrome
-extension was not connected and the dashboard's read endpoint accepts only
-same-origin browser requests, so the coordinator could not open the tab.
-Owes source-review commitments 1, 2 and 17.
+Intent → **CI status** (observed 2026-11-05 16:13 by driving the local
+dashboard at 127.0.0.1:4173 in headless Chrome over DevTools: project
+`terry-talks`, Select story, Intent perspective, CI status) for
+`claude/publish-terry-moves-ci-proof-for-intent`: "Passed at f712d65", Proof
+"Attempt 1 of run 41993294917 at f712d65. terry-moves/tests: 1093 passed
+checks; 1 of 1 part present." The tab omits zero counts, so failed = 0; that
+run's Jest log reads `Tests: 1093 passed, 1093 total`. The same tab on `master`
+(782b938, before this change) reads "This run published no CI proof summary."
 
 ## Learnings
+
+- When the Chrome extension is not connected, the dashboard tab can still be
+  observed by driving the system Chrome headless over DevTools against the
+  local dashboard; its read endpoint accepts only same-origin page requests.
 
 - `jest-outcomes.mjs` emits one `failed` line for a suite that failed before
   any test ran (e.g. a compile error), so such a failure is not invisible.
