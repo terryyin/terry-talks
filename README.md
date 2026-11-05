@@ -23,6 +23,18 @@ version pinned in `package.json`, and a frozen workspace lockfile. Each Node
 check runs even if another check fails, and Python tests run independently.
 The retired `legacy/` toolchain is outside the active test suites.
 
+Each CI run also publishes a CI proof summary for Open Dough's Intent
+**CI status** tab: passed, failed and other counts for `terry-moves/tests`,
+the one Intent location in `.planning/open-dough.json`. The Remotion tests
+step writes Jest's JSON report, `scripts/ci-proof/jest-outcomes.mjs` turns it
+into one outcome per test (a suite that fails before running any test counts
+as one failure), and the `ci-proof` job keeps `ci-proof-summary-attempt-<n>`
+for 30 days. Those steps run after test failures too and change no check's
+verdict; when the tests never ran, the summary shows the part as missing. The
+`scripts/ci-proof/ci-proof-*.mjs` modules are unmodified copies of Open
+Dough's `dough-test-optimization` collector; copy them again when an Open
+Dough update changes them.
+
 Remotion agent guidance is installed at
 [`remotion-best-practices`](.agents/skills/remotion-best-practices/SKILL.md),
 with Claude sharing it through `.claude/skills/remotion-best-practices`.
