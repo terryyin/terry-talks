@@ -117,6 +117,13 @@ run's Jest log reads `Tests: 1093 passed, 1093 total`. The same tab on `master`
 - Artifact actions pinned to the current majors, `upload-artifact@v7` and
   `download-artifact@v8`; both still zip by default.
 
+## Execution complete
+
+Product advice: no change. The delivered CI proof matches the story with no
+correction needed. It sits outside the near-future film direction but was
+Terry's explicit priority. When Open Dough guidance updates change the
+collector, recopy `scripts/ci-proof/ci-proof-*.mjs` as the recipe says.
+
 ## Current decisions
 
 - GitHub Actions path only; the 0.3.86 CI-adapter path is not used.
