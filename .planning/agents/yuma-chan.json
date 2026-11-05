@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "agent": "Yuma-chan",
+  "email": "yuma-chan@example.org",
+  "identity": "SEED-002#publish-terry-moves-ci-proof",
+  "mode": "story-branch",
+  "branch": "claude/publish-terry-moves-ci-proof-for-intent",
+  "host": "claude",
+  "model": "opus"
+}
