@@ -1,0 +1,11 @@
+{
+  "intent": {
+    "locations": [
+      {
+        "path": "terry-moves/tests",
+        "kind": "typescript",
+        "include": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.test.ts"]
+      }
+    ]
+  }
+}

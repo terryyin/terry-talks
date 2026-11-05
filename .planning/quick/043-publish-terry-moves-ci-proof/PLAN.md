@@ -4,6 +4,8 @@
 
 [Publish Terry Moves CI proof for Intent](../../seeds/SEED-002-publish-terry-moves-ci-proof.md#publish-terry-moves-ci-proof)
 
+**Source review:** [source-review.md](source-review.md)
+
 **Identity:** SEED-002#publish-terry-moves-ci-proof
 
 ## Goal and scope
@@ -68,6 +70,34 @@ Work:
   `actions/checkout@v7` / `actions/setup-node@v7` pins; for the artifact
   actions use the current major release (v4 or later, as pattern download
   requires).
+
+## Accepted proof (slice 1, local)
+
+Local replay 2026-11-05 at 782b938, Node 24.21, of the committed workflow
+commands with `RUNNER_TEMP` in a scratch dir:
+
+- Full `pnpm -C terry-moves test:unit --json --outputFile="${RUNNER_TEMP}/jest-report.json"`
+  → `jest-outcomes.mjs` → `fragment --part 1 --of 1` → `summarize --expect terry-moves/tests=1`:
+  Jest `Tests: 1093 passed`; collector `terry-moves/tests: 1093 passed, 0 failed, 0 other checks`.
+- Scratch failing spec (1 fail, 1 pass, 1 skipped) plus a scratch suite with a
+  compile error, with `tests/silentScene/joins.spec.ts` (scratch files deleted):
+  jest exit 1; `terry-moves/tests: 11 passed, 2 failed, 1 other checks`.
+- `summarize` over an empty fragments directory: `part 1 of 1 missing`, exit 0.
+
+Refactor: independent pass returned `## REFACTOR COMPLETE`, no edits. Consumer
+trace: `terry-moves/package.json` `test` (calls `test:unit` without flags) and
+READMEs/records excluded — the change only adds report flags in CI.
+
+Remaining for slice 1: the real CI run of the published revision (artifact via
+`gh api`, count match with the Remotion tests log, existing jobs' verdicts,
+Intent CI status tab).
+
+## Learnings
+
+- `jest-outcomes.mjs` emits one `failed` line for a suite that failed before
+  any test ran (e.g. a compile error), so such a failure is not invisible.
+- Artifact actions pinned to the current majors, `upload-artifact@v7` and
+  `download-artifact@v8`; both still zip by default.
 
 ## Current decisions
 

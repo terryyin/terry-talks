@@ -12,6 +12,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  CI_PROOF_REVISION: ${{ github.event.pull_request.head.sha || github.sha }}
+
 jobs:
   node:
     name: JavaScript and TypeScript checks
@@ -31,8 +34,26 @@ jobs:
         id: install
         run: pnpm install --frozen-lockfile
       - name: Remotion tests
+        id: remotion-tests
         if: ${{ !cancelled() && steps.install.outcome == 'success' }}
-        run: pnpm -C terry-moves test:unit
+        run: pnpm -C terry-moves test:unit --json --outputFile="${RUNNER_TEMP}/jest-report.json"
+      - name: Write the CI proof fragments
+        if: ${{ !cancelled() && steps.remotion-tests.outcome != 'skipped' }}
+        run: |
+          node scripts/ci-proof/jest-outcomes.mjs "${RUNNER_TEMP}/jest-report.json" \
+            > "${RUNNER_TEMP}/jest-outcomes.tsv"
+          node scripts/ci-proof/ci-proof-summary.mjs fragment \
+            --outcomes "${RUNNER_TEMP}/jest-outcomes.tsv" --entry terry-moves/tests \
+            --part 1 --of 1 --attempt "${GITHUB_RUN_ATTEMPT}" \
+            --revision "${CI_PROOF_REVISION}" --out "${RUNNER_TEMP}/ci-proof"
+      - name: Keep the CI proof fragments
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-proof-fragments-${{ github.job }}-1-attempt-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-proof/
+          if-no-files-found: ignore
+          retention-days: 1
       - name: Remotion lint
         if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: pnpm terry-moves:lint
@@ -54,3 +75,35 @@ jobs:
           python-version: "3.13"
       - name: Python tests
         run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
+
+  ci-proof:
+    name: CI proof summary
+    needs: [node]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: ci-proof-fragments-*-attempt-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-proof-fragments
+      - name: Summarize CI proof
+        # One part: the single `node` job runs every terry-moves/tests spec.
+        run: |
+          mkdir -p -- "${RUNNER_TEMP}/ci-proof-fragments"
+          node scripts/ci-proof/ci-proof-summary.mjs summarize \
+            --fragments "${RUNNER_TEMP}/ci-proof-fragments" \
+            --expect terry-moves/tests=1 \
+            --repository "${GITHUB_REPOSITORY}" --run-id "${GITHUB_RUN_ID}" \
+            --attempt "${GITHUB_RUN_ATTEMPT}" --revision "${CI_PROOF_REVISION}" \
+            --out "${RUNNER_TEMP}/ci-proof-summary.json"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: ci-proof-summary-attempt-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/ci-proof-summary.json
+          if-no-files-found: error
+          retention-days: 30
