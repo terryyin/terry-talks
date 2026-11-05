@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "identity": "SEED-002#publish-terry-moves-ci-proof",
+  "title": "Publish Terry Moves CI proof for Intent",
+  "completedAt": "2026-11-05T09:21:04.986Z",
+  "developer": "Terry Yin",
+  "agent": "Yuma-chan",
+  "host": "claude",
+  "model": "opus"
+}

@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "SEED-002_publish-terry-moves-ci-proof.json",
+      "identity": "SEED-002#publish-terry-moves-ci-proof",
+      "completedAt": "2026-11-05T09:21:04.986Z",
+      "blob": "be9ed01d2b12e4b8340cc4fc31ea5353b30abb91"
+    },
+    {
       "fileName": "SEED-001_second-pitfalls-film.json",
       "identity": "SEED-001#second-pitfalls-film",
       "completedAt": "2026-10-29T10:45:20.656Z",
