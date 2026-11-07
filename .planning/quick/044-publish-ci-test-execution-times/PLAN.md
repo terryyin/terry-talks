@@ -42,7 +42,7 @@ Use local replay for intentionally failing examples.
 ### 1. Intent shows the run's Jest execution times
 
 Type: Behavior
-Status: planned
+Status: done
 Proof: local workflow replay and focused regression, followed by the hosted
 artifact and Intent observation above.
 
@@ -80,15 +80,20 @@ Slice 1 local proof, at the uncommitted candidate on `daba4cf`, Node 24.21.0:
   file and entry. Scratch file removed.
 - Lint, both typechecks and Python tests pass. Refactor pass complete
   (`OPTIONS` constant and figure destructuring in `jest-fragment.mjs`).
-- Hosted  (run 42378333114, attempt 1, CI passed): artifact
-   holds only , 10,381
+- Hosted `f40d0f3` (run 42378333114, attempt 1, CI passed): artifact
+  `ci-proof-summary-attempt-1` holds only `ci-proof-summary.json`, 10,381
   bytes: 1,093 passed checks, 378,894 ms, no untimed, 88 files;
-   10 passed, 83 ms. Intent **CI status**
+  `tests/silentScene/joins.spec.ts` 10 passed, 83 ms. Intent **CI status**
   (local dashboard, Intent perspective) shows Attempt 1 of run 42378333114 at
-  : , , ; the
-  file's Summary shows 10 checks and .
-- A temporary workflow diagnostic step prints independent sums from the
-  hosted ; remove it before the done delivery.
+  `f40d0f3`: `1093 passed checks`, `6 min 19 s`, `1 of 1 part present`; the
+  file's Summary shows 10 checks and `83 ms`.
+- Hosted same-run comparison at `b929fc1` (run 42378880359, attempt 1, CI
+  passed): a temporary workflow step summed that job's `jest-report.json`
+  independently to 1,093 passed, 402,414 ms, 0 untimed, and
+  `tests/silentScene/joins.spec.ts` 10 cases, 89 ms. The same run's
+  `ci-proof-summary-attempt-1` (only `ci-proof-summary.json`, 10,382 bytes,
+  runId 42378880359, runAttempt 1, revision `b929fc1`) holds the same figures.
+  The temporary step was removed in the done delivery.
 
 ## Learnings
 
