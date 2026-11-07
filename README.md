@@ -24,16 +24,21 @@ check runs even if another check fails, and Python tests run independently.
 The retired `legacy/` toolchain is outside the active test suites.
 
 Each CI run also publishes a CI proof summary for Open Dough's Intent
-**CI status** tab: passed, failed and other counts for `terry-moves/tests`,
-the one Intent location in `.planning/open-dough.json`. The Remotion tests
-step writes Jest's JSON report, `scripts/ci-proof/jest-outcomes.mjs` turns it
-into one outcome per test (a suite that fails before running any test counts
-as one failure), and the `ci-proof` job keeps `ci-proof-summary-attempt-<n>`
-for 30 days. Those steps run after test failures too and change no check's
-verdict; when the tests never ran, the summary shows the part as missing. The
-`scripts/ci-proof/ci-proof-*.mjs` modules are unmodified copies of Open
-Dough's `dough-test-optimization` collector; copy them again when an Open
-Dough update changes them.
+**CI status** tab: passed, failed and other counts and summed Jest test
+execution time for `terry-moves/tests`, the one Intent location in
+`.planning/open-dough.json`, and for each of its test files. The Remotion
+tests step writes Jest's JSON report, and `scripts/ci-proof/jest-fragment.mjs`
+turns it into a fragment with one check per test, grouped by repository-relative
+file. Each check adds its Jest `duration` in milliseconds; a check without one
+is counted as untimed, so Intent explains partial timing, and a recorded `0`
+stays a measurement. A suite that fails before running any test counts as one
+untimed failure. The `ci-proof` job keeps `ci-proof-summary-attempt-<n>` for
+30 days. Those steps run after test failures too and change no check's
+verdict; when the tests never ran or wrote no usable report, the summary
+shows the part as missing. `pnpm test:ci-proof` checks the producer and
+collector together. The `scripts/ci-proof/ci-proof-*.mjs` modules are
+unmodified copies of Open Dough's `dough-test-optimization` collector; copy
+them again when an Open Dough update changes them.
 
 Remotion agent guidance is installed at
 [`remotion-best-practices`](.agents/skills/remotion-best-practices/SKILL.md),
