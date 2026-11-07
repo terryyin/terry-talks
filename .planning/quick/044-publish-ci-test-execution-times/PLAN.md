@@ -4,6 +4,8 @@
 
 [Publish Terry Moves test execution times in Intent](../../seeds/SEED-003-publish-ci-test-execution-times.md#publish-ci-test-execution-times)
 
+**Source review:** [source-review.md](source-review.md)
+
 **Identity:** SEED-003#publish-ci-test-execution-times
 
 ## Goal and scope
@@ -59,6 +61,31 @@ Intent reads the entry and file figures. Missing timing stays visible.
   revision, attempt, part, output directory and after-failure conditions.
   Keep the collector command and artifact contract. Update the CI proof
   paragraph in `README.md` to describe the published timing.
+
+## Accepted proof
+
+Slice 1 local proof, at the uncommitted candidate on `daba4cf`, Node 24.21.0:
+
+- `pnpm test:ci-proof` (`scripts/ci-proof/jest-fragment.test.mjs`, 3 pass)
+  drives `jest-fragment.mjs` and `ci-proof-summary.mjs summarize`: mixed
+  12/8/untimed file 1/1/1, 20 ms, 1 untimed at file and entry; measured zero
+  0 ms; untimed-only file with no duration; pre-case suite failure one
+  untimed failure; missing and unusable report leave part 1 missing.
+- Real Jest replay (`CI=true pnpm -C terry-moves test:unit --json`, 1,093
+  passed) through the producer and collector matched independent sums: entry
+  194,360 ms, `tests/silentScene/joins.spec.ts` 10 passed, 81 ms; summary
+  10,366 bytes. Deployed Intent wording: entry `3 min 14 s`, file `81 ms`.
+- Scratch failing Jest suite: Jest exited 1, the producer still wrote 1/1/1,
+  2 ms, 1 untimed; Intent wording `partial: 1 check without a duration` at
+  file and entry. Scratch file removed.
+- Lint, both typechecks and Python tests pass. Refactor pass complete
+  (`OPTIONS` constant and figure destructuring in `jest-fragment.mjs`).
+- Hosted artifact and Intent observation for the published candidate remain.
+
+## Learnings
+
+- Node 24 `node --test <directory>` treats the directory as one failing
+  test file; `test:ci-proof` names the test file.
 
 ## Current decisions
 

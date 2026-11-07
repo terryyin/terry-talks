@@ -40,10 +40,8 @@ jobs:
       - name: Write the CI proof fragments
         if: ${{ !cancelled() && steps.remotion-tests.outcome != 'skipped' }}
         run: |
-          node scripts/ci-proof/jest-outcomes.mjs "${RUNNER_TEMP}/jest-report.json" \
-            > "${RUNNER_TEMP}/jest-outcomes.tsv"
-          node scripts/ci-proof/ci-proof-summary.mjs fragment \
-            --outcomes "${RUNNER_TEMP}/jest-outcomes.tsv" --entry terry-moves/tests \
+          node scripts/ci-proof/jest-fragment.mjs \
+            --report "${RUNNER_TEMP}/jest-report.json" --entry terry-moves/tests \
             --part 1 --of 1 --attempt "${GITHUB_RUN_ATTEMPT}" \
             --revision "${CI_PROOF_REVISION}" --out "${RUNNER_TEMP}/ci-proof"
       - name: Keep the CI proof fragments
@@ -54,6 +52,9 @@ jobs:
           path: ${{ runner.temp }}/ci-proof/
           if-no-files-found: ignore
           retention-days: 1
+      - name: CI proof producer tests
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm test:ci-proof
       - name: Remotion lint
         if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: pnpm terry-moves:lint
