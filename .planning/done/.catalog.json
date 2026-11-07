@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "SEED-003_publish-ci-test-execution-times.json",
+      "identity": "SEED-003#publish-ci-test-execution-times",
+      "completedAt": "2026-11-07T14:08:08.245Z",
+      "blob": "b63c3528440ebe112ba12e292b145174fa3e5a22"
+    },
+    {
       "fileName": "SEED-002_publish-terry-moves-ci-proof.json",
       "identity": "SEED-002#publish-terry-moves-ci-proof",
       "completedAt": "2026-11-05T09:21:04.986Z",
@@ -138,30 +144,6 @@
       "identity": "tps-and-ai-film#english-square-film",
       "completedAt": "2026-10-08T22:54:44.389Z",
       "blob": "6bc07617ff79e78e9599d6ef0bbc8944b02d9269"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_choose-visual-treatment.json",
-      "identity": "terry-moves-filmmaking#choose-visual-treatment",
-      "completedAt": "2026-10-08T13:52:32.503Z",
-      "blob": "e617f1160f776f9786d1257ea437c8daafb3e7e2"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_restage-diagrams.json",
-      "identity": "terry-moves-filmmaking#restage-diagrams",
-      "completedAt": "2026-10-07T21:15:48.168Z",
-      "blob": "40cdf688ad24c1ca7d2979f0996f6b7d7ee93924"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_preserve-approved-film.json",
-      "identity": "terry-moves-filmmaking#preserve-approved-film",
-      "completedAt": "2026-10-07T11:47:54.296Z",
-      "blob": "5b8bb03ce5daabf1d354b53d260b8b065a6d5fcf"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_silent-move-joins.json",
-      "identity": "terry-moves-filmmaking#silent-move-joins",
-      "completedAt": "2026-10-07T06:47:58.195Z",
-      "blob": "72a7e92c2740285db2af32f2d73a5a7da87ef3e9"
     }
   ],
   "unreadable": []
