@@ -80,7 +80,15 @@ Slice 1 local proof, at the uncommitted candidate on `daba4cf`, Node 24.21.0:
   file and entry. Scratch file removed.
 - Lint, both typechecks and Python tests pass. Refactor pass complete
   (`OPTIONS` constant and figure destructuring in `jest-fragment.mjs`).
-- Hosted artifact and Intent observation for the published candidate remain.
+- Hosted  (run 42378333114, attempt 1, CI passed): artifact
+   holds only , 10,381
+  bytes: 1,093 passed checks, 378,894 ms, no untimed, 88 files;
+   10 passed, 83 ms. Intent **CI status**
+  (local dashboard, Intent perspective) shows Attempt 1 of run 42378333114 at
+  : , , ; the
+  file's Summary shows 10 checks and .
+- A temporary workflow diagnostic step prints independent sums from the
+  hosted ; remove it before the done delivery.
 
 ## Learnings
 
