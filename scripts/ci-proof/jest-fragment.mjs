@@ -5,7 +5,10 @@
 // assertion without one counts as untimed, so a partial sum stays visible.
 // A suite that failed before running any test (e.g. a compile error) counts
 // as one untimed failure. A missing or unusable report writes no fragment,
-// so the collector shows the part as missing.
+// so the collector shows the part as missing. Each check goes through the
+// collector's figure helpers rather than `fragment --outcomes --times`,
+// whose per-path times would clear the untimed count of a file that mixes
+// timed and untimed checks.
 import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
 import { join, relative, sep } from "node:path";
