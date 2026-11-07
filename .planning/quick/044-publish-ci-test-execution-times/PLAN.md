@@ -62,6 +62,14 @@ Intent reads the entry and file figures. Missing timing stays visible.
   Keep the collector command and artifact contract. Update the CI proof
   paragraph in `README.md` to describe the published timing.
 
+## Execution complete
+
+Product advice: no backlog change. Retrospective found no correction; process
+review skipped by project setting. The first timed hosted run shows
+`terry-moves/tests/atdd/` at about 2 min 52 s of 6 min 19 s cumulative Jest
+time, which is evidence for a later optional test-speed story (deferred by
+this story's scope); it does not change the filmmaking direction's priorities.
+
 ## Accepted proof
 
 Slice 1 local proof, at the uncommitted candidate on `daba4cf`, Node 24.21.0:
