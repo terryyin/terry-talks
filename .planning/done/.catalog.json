@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "SEED-004_publish-explicit-ci-test-counts.json",
+      "identity": "SEED-004#publish-explicit-ci-test-counts",
+      "completedAt": "2026-11-10T02:29:53.579Z",
+      "blob": "6f564495678fb4a3bac44f978c66b03e2002f55e"
+    },
+    {
       "fileName": "SEED-003_publish-ci-test-execution-times.json",
       "identity": "SEED-003#publish-ci-test-execution-times",
       "completedAt": "2026-11-07T14:08:08.245Z",
@@ -102,48 +108,6 @@
       "identity": "terry-moves-filmmaking#replace-narration-performance",
       "completedAt": "2026-10-11T06:12:10.922Z",
       "blob": "4ee889afac026c8b1372d93804f71ad3517e296c"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_character-prop-interaction.json",
-      "identity": "terry-moves-filmmaking#character-prop-interaction",
-      "completedAt": "2026-10-11T00:41:18.348Z",
-      "blob": "51f02c293dbb57b9db1127c4777fab6fea8c4ce3"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_subtitle-export-test-isolation.json",
-      "identity": "terry-moves-filmmaking#subtitle-export-test-isolation",
-      "completedAt": "2026-10-10T10:55:01.292Z",
-      "blob": "df510132a1206a956e789db5bd4e9e551bea6fd3"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_just-in-time-title-and-artwork.json",
-      "identity": "terry-moves-filmmaking#just-in-time-title-and-artwork",
-      "completedAt": "2026-10-09T03:26:57.997Z",
-      "blob": "7892901831dcb777ff41a2903c14a010865b55cc"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_jit-film.json",
-      "identity": "terry-moves-filmmaking#jit-film",
-      "completedAt": "2026-10-09T02:23:17.281Z",
-      "blob": "a37580a2f4f52e695ab1d3c39921349bec6314b7"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_traditional-chinese-jidoka-edition.json",
-      "identity": "terry-moves-filmmaking#traditional-chinese-jidoka-edition",
-      "completedAt": "2026-10-09T01:13:34.911Z",
-      "blob": "e7b902ae9875fd9c9ab45ba5de806fa664982472"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_translated-caption-edition.json",
-      "identity": "terry-moves-filmmaking#translated-caption-edition",
-      "completedAt": "2026-10-09T00:33:23.620Z",
-      "blob": "04f49e3032abb8210681a1024719d1bccde68002"
-    },
-    {
-      "fileName": "tps-and-ai-film_english-square-film.json",
-      "identity": "tps-and-ai-film#english-square-film",
-      "completedAt": "2026-10-08T22:54:44.389Z",
-      "blob": "6bc07617ff79e78e9599d6ef0bbc8944b02d9269"
     }
   ],
   "unreadable": []
