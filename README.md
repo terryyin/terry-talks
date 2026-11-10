@@ -26,19 +26,22 @@ The retired `legacy/` toolchain is outside the active test suites.
 Each CI run also publishes a CI proof summary for Open Dough's Intent
 **CI status** tab: passed, failed and other counts and summed Jest test
 execution time for `terry-moves/tests`, the one Intent location in
-`.planning/open-dough.json`, and for each of its test files. The Remotion
-tests step writes Jest's JSON report, and `scripts/ci-proof/jest-fragment.mjs`
-turns it into a fragment with one check per test, grouped by repository-relative
-file. Each check adds its Jest `duration` in milliseconds; a check without one
-is counted as untimed, so Intent explains partial timing, and a recorded `0`
-stays a measurement. A suite that fails before running any test counts as one
-untimed failure. The `ci-proof` job keeps `ci-proof-summary-attempt-<n>` for
-30 days. Those steps run after test failures too and change no check's
+`.planning/open-dough.json`, as separate test-case and test-file evidence
+with per-file breakdowns. The Remotion tests step writes Jest's JSON report,
+and `scripts/ci-proof/jest-fragment.mjs` turns it into one `case` fragment
+(each assertion) and one `file` fragment (suites that failed before any
+cases), both grouped by repository-relative path. Each case adds its Jest
+`duration` in milliseconds; a case without one is counted as untimed, so
+Intent explains partial timing, and a recorded `0` stays a measurement. A
+suite that fails before reporting cases is one untimed file failure, never
+an invented case. The collector declares both `--expect …=1:case` and
+`--expect …=1:file`. The `ci-proof` job keeps `ci-proof-summary-attempt-<n>`
+for 30 days. Those steps run after test failures too and change no check's
 verdict; when the tests never ran or wrote no usable report, the summary
-shows the part as missing. `pnpm test:ci-proof` checks the producer and
-collector together. The `scripts/ci-proof/ci-proof-*.mjs` modules are
-unmodified copies of Open Dough's `dough-test-optimization` collector; copy
-them again when an Open Dough update changes them.
+shows each declared unit as missing. `pnpm test:ci-proof` checks the
+producer and collector together. The `scripts/ci-proof/ci-proof-*.mjs`
+modules are unmodified copies of Open Dough's `dough-test-optimization`
+collector; copy them again when an Open Dough update changes them.
 
 Remotion agent guidance is installed at
 [`remotion-best-practices`](.agents/skills/remotion-best-practices/SKILL.md),

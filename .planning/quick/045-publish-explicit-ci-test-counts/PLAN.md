@@ -2,6 +2,7 @@
 
 **Identity:** SEED-004#publish-explicit-ci-test-counts
 **Source:** [See Terry Moves test case counts in Intent](../../seeds/SEED-004-publish-explicit-ci-test-counts.md#publish-explicit-ci-test-counts)
+**Source review:** [source-review.md](./source-review.md)
 
 ## Goal and scope
 
@@ -108,6 +109,17 @@ Status: planned
 Proof: `pnpm test:ci-proof`, workflow/README review, unmodified-copy comparison,
 then the execution workflow's hosted CI result and summary artifact inspection.
 
+Accepted local proof (coordinator): `pnpm test:ci-proof` 5/5 after producer/collector
+migration and post-change test-file cohesion refactor. Seven `scripts/ci-proof/ci-proof-*.mjs`
+modules byte-identical to `.claude/skills/dough-test-optimization/scripts/`. Workflow
+declares `--expect terry-moves/tests=1:case` and `…=1:file`. README documents both
+units. Hosted summary artifact inspection remains owed on the published revision
+(`progress: true` until that observation).
+
+Learnings: collector-only delivery breaks the Jest publisher (`unit is not case,
+file, legacy`); migrate producer and collector together. Unit-qualified fragment
+filenames are required for case+file coexistence on the same part.
+
 Behavior: given a usable Jest report for the selected attempt, publishing and
 collecting it produces explicit case counts with truthful per-file outcomes
 and timings, plus independent file evidence for failures before cases; given
@@ -156,3 +168,53 @@ Slice-plan refinement was not needed: one cohesive behavior keeps the format
 migration and every affected producer/collector consumer in one proof loop,
 uses the existing unit/figure model and has no independent second outcome.
 No remaining slice-specific concerns were identified in this review.
+
+## Story obligations
+
+### G-excl-19.1. No Intent UI implementation changes
+Reported: slice 1 — "Exclusion: Intent UI implementation changes"
+Story clause: "no Intent UI or comparison implementation changes"
+Disposition: excluded "no Intent UI or comparison implementation changes"
+Commitment: 19.1
+
+### G-excl-19.2. No Intent comparison implementation changes
+Reported: slice 1 — "Exclusion: Intent comparison implementation changes"
+Story clause: "no Intent UI or comparison implementation changes"
+Disposition: excluded "no Intent UI or comparison implementation changes"
+Commitment: 19.2
+
+### G-excl-19.3. No new proof locations
+Reported: slice 1 — "Exclusion: new proof locations"
+Story clause: "new proof locations"
+Disposition: excluded "new proof locations"
+Commitment: 19.3
+
+### G-excl-19.4. No additional test runners
+Reported: slice 1 — "Exclusion: additional test runners"
+Story clause: "additional test runners"
+Disposition: excluded "additional test runners"
+Commitment: 19.4
+
+### G-excl-19.5. No new timing measurement scheme
+Reported: slice 1 — "Exclusion: a new/changed timing measurement scheme"
+Story clause: "timing measurement scheme"
+Disposition: excluded "timing measurement scheme"
+Commitment: 19.5
+
+### G-excl-19.6. No test-suite optimization
+Reported: slice 1 — "Exclusion: test-suite optimization"
+Story clause: "test-suite optimization"
+Disposition: excluded "test-suite optimization"
+Commitment: 19.6
+
+### G-excl-19.7. No relabeling historical results
+Reported: slice 1 — "Exclusion: relabeling historical unit-less results"
+Story clause: "this story does not relabel historical results"
+Disposition: excluded "this story does not relabel historical results"
+Commitment: 19.7
+
+### G-excl-19.8. No promised legacy versus explicit-unit count/time differences
+Reported: slice 1 — "Exclusion: promising count or time differences between legacy and explicit-unit builds"
+Story clause: "or promise count/time differences between legacy and explicit-unit builds"
+Disposition: excluded "or promise count/time differences between legacy and explicit-unit builds"
+Commitment: 19.8

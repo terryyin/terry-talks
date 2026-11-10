@@ -1,7 +1,14 @@
 // A job's test report as CI proof fragments, one per proof entry it ran (an
-// entry is a configured Intent location path). Node built-ins only, like the
-// rest of the collector (ci-proof-summary.mjs).
-import { fragment, zeroCounts } from "./ci-proof-contract.mjs";
+// entry is a configured Intent location path), counted in the unit the
+// report establishes or its publisher declares (ci-proof-evidence.mjs,
+// "Units"). Node built-ins only, like the rest of the collector
+// (ci-proof-summary.mjs).
+import {
+  DECLARED_UNITS,
+  LEGACY_UNIT,
+  fragment,
+  zeroCounts,
+} from "./ci-proof-contract.mjs";
 import {
   breakdownExtras,
   emptyFigures,
@@ -59,7 +66,8 @@ function repositoryPathOf(record, test, entries) {
 }
 
 // A dashboard proof record (OPEN_DOUGH_DASHBOARD_PROOF_RECORD) as one fragment
-// per entry; counted unit: tests. Multiple entries partition tests by their
+// per entry; each test it lists is one test case outcome, so the unit is
+// `case`. Multiple entries partition tests by their
 // most specific owning repository path, like an outcomes report. A single
 // entry keeps whole-record totals, including results without usable paths.
 // A record that did not complete a run gives no fragment, so its part stays
@@ -110,7 +118,7 @@ export function fragmentFromPlaywrightRecord(
       }
     }
     const durationMs = playwrightDurationMs(tests);
-    return fragment(identity, entry, "tests", counts, {
+    return fragment(identity, entry, { unit: "case" }, counts, {
       ...(durationMs === undefined ? {} : { durationMs }),
       ...(byFile ? breakdownExtras(breakdown) : {}),
     });
@@ -137,9 +145,9 @@ function forEachTabLine(text, kind, left, visit) {
   }
 }
 
-// Per-check summed milliseconds from a times file, one
-// `<seconds><TAB><check path>` line per check, for checks in some entry; a
-// check in no entry contributes to none.
+// Sum milliseconds and count timings by check path, one
+// `<seconds><TAB><check path>` line per timed check. Paths in no entry
+// contribute to none.
 function checkTimes(text, entries) {
   const times = new Map();
   forEachTabLine(text, "times", "<seconds>", (secondsText, check, line) => {
@@ -150,7 +158,11 @@ function checkTimes(text, entries) {
       );
     }
     if (owningEntry(entries, check) === undefined) return;
-    times.set(check, (times.get(check) ?? 0) + seconds * 1000);
+    const time = times.get(check) ?? { durationMs: 0, timedChecks: 0 };
+    times.set(check, {
+      durationMs: time.durationMs + seconds * 1000,
+      timedChecks: time.timedChecks + 1,
+    });
   });
   return times;
 }
@@ -159,15 +171,19 @@ function checkTimes(text, entries) {
 // times line appear.
 function durationsOf(times, entries) {
   const durations = new Map();
-  for (const [check, ms] of times) {
+  for (const [check, { durationMs }] of times) {
     const entry = owningEntry(entries, check);
-    durations.set(entry, (durations.get(entry) ?? 0) + ms);
+    durations.set(entry, (durations.get(entry) ?? 0) + durationMs);
   }
   return durations;
 }
 
 // An outcomes file, one `<status><TAB><check path>` line per check, as one
-// fragment per entry; counted unit: checks. Each check counts toward the entry
+// fragment per entry. The format does not say what a line's outcome is, so
+// UNIT declares it: `case` when each line is one test case's outcome, `file`
+// when each is one file's aggregate outcome. Without UNIT the results are
+// legacy, labelled `checks` as before units were declared, and never read as
+// either. Each check counts toward the entry
 // whose path contains it: status `passed` and `failed` as such, any other as
 // other. A check in no entry proves no entry, so it counts toward none.
 // Optional TIMES text, same labels as outcomes, sets each matching entry's
@@ -180,8 +196,15 @@ export function fragmentsFromOutcomes(
   text,
   identity,
   timesText,
-  { byFile = false } = {},
+  { byFile = false, unit } = {},
 ) {
+  if (unit !== undefined && !DECLARED_UNITS.includes(unit)) {
+    throw new Error(
+      `the outcomes unit ${unit} is not ${DECLARED_UNITS.join(" or ")}`,
+    );
+  }
+  const counted =
+    unit === undefined ? { unit: LEGACY_UNIT, label: "checks" } : { unit };
   const counts = new Map(
     identity.entries.map((entry) => [entry, zeroCounts()]),
   );
@@ -200,13 +223,13 @@ export function fragmentsFromOutcomes(
     if (byFile) recordResult(breakdowns.get(entry), check, field, undefined);
   });
   if (byFile) {
-    for (const [check, ms] of times) {
+    for (const [check, { durationMs, timedChecks }] of times) {
       const breakdown = breakdowns.get(owningEntry(identity.entries, check));
-      // The check's time replaces the untimed mark its outcomes gave it.
+      const figures = breakdown.get(check) ?? emptyFigures();
       breakdown.set(check, {
-        ...(breakdown.get(check) ?? emptyFigures()),
-        untimed: 0,
-        durationMs: ms,
+        ...figures,
+        untimed: Math.max(0, figures.untimed - timedChecks),
+        durationMs,
       });
     }
     for (const [entry, breakdown] of breakdowns)
@@ -221,6 +244,6 @@ export function fragmentsFromOutcomes(
         : {}),
       ...(byFile ? breakdownExtras(breakdowns.get(entry)) : {}),
     };
-    return fragment(identity, entry, "checks", counts.get(entry), extras);
+    return fragment(identity, entry, counted, counts.get(entry), extras);
   });
 }
