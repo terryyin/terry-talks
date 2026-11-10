@@ -148,6 +148,15 @@ Safe stopping point: the complete producer/collector migration passes focused
 proof and preserves failing/missing outcomes before delivery. There is no
 interim behavior or subsequent feature needed to make this slice useful.
 
+## Execution complete
+
+Product advice: no change. Explicit case and file units now publish through the
+existing CI proof pipeline; Intent already reads schema-2 evidence. Scope
+exclusions (Intent UI/comparison, new locations/runners, historical relabeling)
+remain intact. No bounded product correction or backlog recommendation follows
+from this execution. Process retrospective skipped by project
+`skipProcessRetrospective` default.
+
 ## Verification and delivery
 
 Use the installed `dough-execute-plan` workflow when execution is authorized,
