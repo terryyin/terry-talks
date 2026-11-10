@@ -105,7 +105,7 @@ remaining decisive premise requires an early probe or a human decision.
 
 ### 1. Show individual cases while preserving pre-case failures
 Type: Behavior
-Status: planned
+Status: done
 Proof: `pnpm test:ci-proof`, workflow/README review, unmodified-copy comparison,
 then the execution workflow's hosted CI result and summary artifact inspection.
 
@@ -113,8 +113,14 @@ Accepted local proof (coordinator): `pnpm test:ci-proof` 5/5 after producer/coll
 migration and post-change test-file cohesion refactor. Seven `scripts/ci-proof/ci-proof-*.mjs`
 modules byte-identical to `.claude/skills/dough-test-optimization/scripts/`. Workflow
 declares `--expect terry-moves/tests=1:case` and `…=1:file`. README documents both
-units. Hosted summary artifact inspection remains owed on the published revision
-(`progress: true` until that observation).
+units.
+
+Hosted proof on published revision `b983f2caa26480d6cb4e0a5091b247fe430b9a71`:
+mailbox `await-revision` verdict success (run 42741795002 attempt 1). Downloaded
+`ci-proof-summary-attempt-1`: schemaVersion 2, repository `terryyin/terry-talks`,
+runId 42741795002, runAttempt 1, revision matches; `terry-moves/tests` evidence has
+`case` (1093 passed, 0 failed/other, durationMs 295990, 88 files, part present) and
+`file` (present zero counts, 0 files); `summaryProblems` empty; no legacy evidence.
 
 Learnings: collector-only delivery breaks the Jest publisher (`unit is not case,
 file, legacy`); migrate producer and collector together. Unit-qualified fragment
