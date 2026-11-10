@@ -38,11 +38,13 @@ import { SeeDoFeedbackFilm } from './stories/SeeDoFeedbackFilm';
 import { ListenToCodeFilm } from './stories/ListenToCodeFilm';
 import { ScopeRestrictionFilm } from './stories/ScopeRestrictionFilm';
 import { RuleNegationFilm } from './stories/RuleNegationFilm';
+import { TheEleventhRowFilm } from './stories/TheEleventhRowFilm';
 
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<ScopeRestrictionFilm />
+			<TheEleventhRowFilm />
 			<RuleNegationFilm />
 			<ListenToCodeFilm />
 			<SeeDoFeedbackFilm />

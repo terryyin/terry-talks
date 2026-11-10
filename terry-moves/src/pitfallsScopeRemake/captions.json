@@ -1,0 +1,79 @@
+[
+  {
+    "text": "Our CSV importer rejected a file",
+    "startMs": 0,
+    "endMs": 2400,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "with eleven valid rows.",
+    "startMs": 2400,
+    "endMs": 3770,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "I traced it back to one sentence.",
+    "startMs": 4400,
+    "endMs": 6530,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "The first user story said,",
+    "startMs": 7200,
+    "endMs": 8770,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "‘Demo it with ten rows.’",
+    "startMs": 9180,
+    "endMs": 10390,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Our prompt said,",
+    "startMs": 10900,
+    "endMs": 11910,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "‘Limit imports to ten.’",
+    "startMs": 12040,
+    "endMs": 13330,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "The agent wrote that limit into the code.",
+    "startMs": 14040,
+    "endMs": 16310,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "In stories and prompts,",
+    "startMs": 16740,
+    "endMs": 17950,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "label examples.",
+    "startMs": 18200,
+    "endMs": 19150,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Write any real limits separately.",
+    "startMs": 19840,
+    "endMs": 21450,
+    "timestampMs": null,
+    "confidence": null
+  }
+]
