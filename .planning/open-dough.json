@@ -1,4 +1,5 @@
 {
+  "skipProcessRetrospective": false,
   "intentCoverage": true,
   "intent": {
     "locations": [
