@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "agent": "Mana-chan",
+  "email": "mana-chan@example.org",
+  "identity": "SEED-005#ad-hoc-work",
+  "mode": "trunk",
+  "branch": "origin/master",
+  "host": "claude"
+}
