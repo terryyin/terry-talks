@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "sessionId": "3af417fe-be15-4827-8c1b-800781d0605d",
+  "workflow": "dough-execute-plan",
+  "closedAt": "2026-11-26T13:53:57.650Z",
+  "story": "SEED-005#ad-hoc-work",
+  "ranges": [
+    {
+      "base": "057ec45c5ec49c871309864a4e72c864946858aa",
+      "candidate": "707814264968ee030d93ca27b31762f9ca61adfc"
+    }
+  ]
+}
