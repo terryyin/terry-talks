@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "records": [
     {
+      "fileName": "SEED-005_ad-hoc-work.json",
+      "identity": "SEED-005#ad-hoc-work",
+      "completedAt": "2026-11-26T13:48:08.683Z",
+      "blob": "48969ec71e1914e7ace87a3370da09150a311a95"
+    },
+    {
       "fileName": "SEED-004_publish-explicit-ci-test-counts.json",
       "identity": "SEED-004#publish-explicit-ci-test-counts",
       "completedAt": "2026-11-10T02:29:53.579Z",
@@ -24,90 +30,6 @@
       "identity": "SEED-001#second-pitfalls-film",
       "completedAt": "2026-10-29T10:45:20.656Z",
       "blob": "dd2fed0f7ec8599e4e2fe0c431a2fabc898cd3e9"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_music-and-sound-film.json",
-      "identity": "terry-moves-filmmaking#music-and-sound-film",
-      "completedAt": "2026-10-13T13:09:36.323Z",
-      "blob": "c1e9f558dd240dbc70216ad9cdbcd8ff4fdd5f37"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_portrait-film-edition.json",
-      "identity": "terry-moves-filmmaking#portrait-film-edition",
-      "completedAt": "2026-10-13T04:53:57.275Z",
-      "blob": "79c910f1102c22b95a4baadd07eca5087a7641c5"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_geographical-map-story.json",
-      "identity": "terry-moves-filmmaking#geographical-map-story",
-      "completedAt": "2026-10-12T22:21:21.062Z",
-      "blob": "cdc0eb608d21ea3b09b1e26989b666a428bb2da3"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_typography-film.json",
-      "identity": "terry-moves-filmmaking#typography-film",
-      "completedAt": "2026-10-12T12:30:10.379Z",
-      "blob": "02562ded491ac645fca235fbbd214061b9cb6bb4"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_anime-character-scene.json",
-      "identity": "terry-moves-filmmaking#anime-character-scene",
-      "completedAt": "2026-10-12T07:02:58.885Z",
-      "blob": "cd3f9907579795ae4b8251ad3fda1ef5ab973c1e"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_3d-character-action.json",
-      "identity": "terry-moves-filmmaking#3d-character-action",
-      "completedAt": "2026-10-12T03:26:43.163Z",
-      "blob": "780a1d3f88961ee5a53c1eb871c8463d9a318494"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_cinematic-3d-shot.json",
-      "identity": "terry-moves-filmmaking#cinematic-3d-shot",
-      "completedAt": "2026-10-12T02:02:13.088Z",
-      "blob": "fa7a2e43cbb9dacb84ef113e6ea11cac39f2d59b"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_conversation-turn-name-timing.json",
-      "identity": "terry-moves-filmmaking#conversation-turn-name-timing",
-      "completedAt": "2026-10-12T00:57:34.021Z",
-      "blob": "220957d9c5691219b81cd6ceb05333944f089b46"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_illustrated-conversation.json",
-      "identity": "terry-moves-filmmaking#illustrated-conversation",
-      "completedAt": "2026-10-12T00:24:35.835Z",
-      "blob": "6797a22dba298af350f7959c05e104e2659f1899"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_narration-region-across-scenes.json",
-      "identity": "terry-moves-filmmaking#narration-region-across-scenes",
-      "completedAt": "2026-10-11T22:13:24.082Z",
-      "blob": "7422300f430cd5fa901ca19c5dd38cbe884c816d"
-    },
-    {
-      "fileName": "tps-and-ai-talk_conference-ready.json",
-      "identity": "tps-and-ai-talk#conference-ready",
-      "completedAt": "2026-10-11T21:41:31.851Z",
-      "blob": "53753932a96ddabacac769972344f14a91fd786e"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_shot-declaration-owns-measure-and-edit-clock.json",
-      "identity": "terry-moves-filmmaking#shot-declaration-owns-measure-and-edit-clock",
-      "completedAt": "2026-10-11T12:51:19.791Z",
-      "blob": "b1c7d8f10ddcbdf1908cc4b11d04cbd9c8659cd5"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_replace-filmed-shot.json",
-      "identity": "terry-moves-filmmaking#replace-filmed-shot",
-      "completedAt": "2026-10-11T09:26:02.717Z",
-      "blob": "f96bb2a359919fd4a535d896bc37591cc5e29911"
-    },
-    {
-      "fileName": "terry-moves-filmmaking_replace-narration-performance.json",
-      "identity": "terry-moves-filmmaking#replace-narration-performance",
-      "completedAt": "2026-10-11T06:12:10.922Z",
-      "blob": "4ee889afac026c8b1372d93804f71ad3517e296c"
     }
   ],
   "unreadable": []

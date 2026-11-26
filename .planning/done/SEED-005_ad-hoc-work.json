@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "identity": "SEED-005#ad-hoc-work",
+  "title": "Do the, uh, lizard process PR and proces…",
+  "completedAt": "2026-11-26T13:48:08.683Z",
+  "developer": "Terry Yin",
+  "agent": "Mana-chan",
+  "host": "claude",
+  "intentCoverage": {
+    "unavailable": "No terry-talks changes: the requested Lizard PR and issue batch was delivered in terryyin/lizard as SEED-077#process-prs-past-48h (master 3ffa3b38, closure 1c7eef7b)."
+  }
+}
